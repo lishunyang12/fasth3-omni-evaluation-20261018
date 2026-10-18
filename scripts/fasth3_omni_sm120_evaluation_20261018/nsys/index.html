@@ -1,0 +1,18 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>FastH3 Omni Nsight Systems profiles</title>
+<link rel="stylesheet" href="../style.css"></head><body><header><p class="eyebrow">NSIGHT SYSTEMS · FI / USP8</p>
+<h1>完整 ref2va 请求<br>HSDP2 / HSDP8 原始 profile</h1>
+<p class="lead">同一 124 帧请求，每份文件包含全部 8 张 GPU。预热完成后采集，覆盖文本编码、8 步 DiT、原生 VAE 解码和 MP4 返回。</p>
+<nav><a href="../index.html">评测报告</a><a href="https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/tag/nsys-ref2va-124-20261018">GitHub Release</a></nav></header><main>
+<section><h2>下载原始 trace</h2><div class="scroll"><table><thead><tr><th>配置</th><th>文件大小</th><th>下载</th><th>覆盖校验</th></tr></thead>
+<tbody><tr><td>HSDP2</td><td>95.9 MB</td><td><a href="https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/nsys-ref2va-124-20261018/fasth3-ref2va-fi-usp8-hsdp2-124.nsys-rep">下载 .nsys-rep</a></td><td>8 GPUs · 64 step ranges · 3,200 block ranges</td></tr><tr><td>HSDP8</td><td>95.4 MB</td><td><a href="https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/nsys-ref2va-124-20261018/fasth3-ref2va-fi-usp8-hsdp8-124.nsys-rep">下载 .nsys-rep</a></td><td>8 GPUs · 64 step ranges · 3,200 block ranges</td></tr></tbody></table></div>
+<p><a href="https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/nsys-ref2va-124-20261018/fasth3-ref2va-nsys-metadata.zip">配置、CSV 与完整校验结果 ZIP</a> · <a href="https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/nsys-ref2va-124-20261018/SHA256SUMS.txt">SHA256SUMS</a> · <a href="summary.json">汇总 JSON</a></p>
+<p>使用 Nsight Systems 2025.5.1 或兼容的新版本打开。两组生成 MP4 均与既有 FI/USP8 基准字节一致；生产 Python 源码未改。</p></section>
+<section><h2>在时间线上定位</h2><p><code>fasth3.client.engine_generate</code> 是客户端完整请求；8 个 worker 的 <code>fasth3.request</code> 对齐在同一个时间轴。</p>
+<p><code>fasth3.dit.step_01…08</code>、<code>fasth3.block.00…49</code> 标记步和层；<code>fasth3.hsdp.pre.*</code> / <code>post.*</code> 标记权重准备及释放；<code>fasth3.attention.vsa</code>、<code>fasth3.mlp</code>、<code>fasth3.linear.*</code> 标记 attention、MLP 和投影。VAE 与 MP4 导出也有独立标记。</p>
+<div class="note">NVTX 为 CPU 侧范围，应结合 CUDA API 关联与 GPU kernel 时间线分析。包含关系和异步重叠意味着这些时长不能直接相加，也不能把整个 HSDP hook 范围视为纯通信开销。</div></section>
+<section><h2>配置与解释边界</h2><p>1344 × 768，124 帧，24 fps，seed 43；TP1 / USP8 / TE-TP8；8 次 PDD forward；FI BF16 attention；原生 VAE 8 卡并行；无 CPU offload。只改变 HSDP shard / replicate mesh。</p>
+<p>采集 CUDA、NVTX 和 OS runtime；未采集 GPU 硬件计数器或 CPU sampling。trace 两端含少量等待和输出检查，应以请求标记定位。</p>
+<p>Nsight 提示可能未收齐所有底层事件，以及未采集线程调度信息。8 卡请求、step、block 和 HSDP hook 的指定覆盖检查通过；这不表示每一个底层事件都无遗漏。完整诊断保留在 JSON 中。</p>
+<p>本次 profiler 会增加开销，性能对比继续使用此前正常请求中位数：HSDP2 <strong>39.643 s</strong>，HSDP8 <strong>41.064 s</strong>。本次 MP4 哈希检查不代替此前的中间张量及完整 FP32 输出资格。</p></section>
+</main><footer>Nsight Systems NVIDIA Nsight Systems version 2025.5.1.121-255136380782v0 · 原始数据与诊断见 metadata ZIP。</footer></body></html>

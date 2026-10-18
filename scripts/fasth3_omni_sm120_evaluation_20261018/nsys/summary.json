@@ -1,0 +1,1568 @@
+{
+  "workload": "FastH3 Omni ref2va / FI BF16 / USP8 / TP1 / 8 PDD forwards / 1344x768 / 124 frames / seed43",
+  "nsys_version": "NVIDIA Nsight Systems version 2025.5.1.121-255136380782v0",
+  "release_url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/tag/nsys-ref2va-124-20261018",
+  "profiles": [
+    {
+      "arm": "hsdp2",
+      "checks": {
+        "sqlite_integrity": true,
+        "eight_worker_requests": true,
+        "single_client_request": true,
+        "eight_gpu_devices": true,
+        "all_worker_gpu_activity": true,
+        "complete_steps_blocks_fsdp": true,
+        "no_unclosed_custom_ranges": true,
+        "no_profiler_errors": true,
+        "all_recorded_kernels_have_runtime_api": true,
+        "output_matches_baseline": true
+      },
+      "passed": true,
+      "report_file": "fasth3-ref2va-fi-usp8-hsdp2-124.nsys-rep",
+      "report_bytes": 95913828,
+      "report_sha256": "721661e8db6c12c6aa653b25b6b26e12f20a2b81bf8ea69a0a2b2940cbb4ba2f",
+      "output_sha256": "648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d",
+      "profiled_seconds": 39.79308155272156,
+      "client_range_seconds": [
+        39.79295851
+      ],
+      "worker_request_seconds": {
+        "1150536": 39.769192351,
+        "1150545": 39.645299888,
+        "1150548": 39.645239919,
+        "1150546": 39.645265538,
+        "1150537": 39.645195669,
+        "1150544": 39.645269738,
+        "1150547": 39.645299107,
+        "1150549": 39.645083721
+      },
+      "rank_coverage": [
+        {
+          "pid": 1150536,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1150537,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1150544,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1150545,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1150546,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1150547,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1150548,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1150549,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        }
+      ],
+      "kernel_devices": [
+        {
+          "deviceId": 0,
+          "pid": 1150536,
+          "kernels": 105224,
+          "first_kernel_ns": 197858075,
+          "last_kernel_ns": 39763359270,
+          "summed_kernel_ms": 49080.482352
+        },
+        {
+          "deviceId": 1,
+          "pid": 1150537,
+          "kernels": 104805,
+          "first_kernel_ns": 118915527,
+          "last_kernel_ns": 39762944356,
+          "summed_kernel_ms": 49313.73045
+        },
+        {
+          "deviceId": 2,
+          "pid": 1150544,
+          "kernels": 104821,
+          "first_kernel_ns": 118915738,
+          "last_kernel_ns": 39762945505,
+          "summed_kernel_ms": 49393.796602
+        },
+        {
+          "deviceId": 3,
+          "pid": 1150545,
+          "kernels": 104781,
+          "first_kernel_ns": 118813492,
+          "last_kernel_ns": 39762946180,
+          "summed_kernel_ms": 49491.041583
+        },
+        {
+          "deviceId": 4,
+          "pid": 1150546,
+          "kernels": 93945,
+          "first_kernel_ns": 118840226,
+          "last_kernel_ns": 39762952491,
+          "summed_kernel_ms": 49836.069037
+        },
+        {
+          "deviceId": 5,
+          "pid": 1150547,
+          "kernels": 93945,
+          "first_kernel_ns": 118771704,
+          "last_kernel_ns": 39762953185,
+          "summed_kernel_ms": 49702.3478
+        },
+        {
+          "deviceId": 6,
+          "pid": 1150548,
+          "kernels": 93945,
+          "first_kernel_ns": 118705705,
+          "last_kernel_ns": 39762954682,
+          "summed_kernel_ms": 49898.907074
+        },
+        {
+          "deviceId": 7,
+          "pid": 1150549,
+          "kernels": 93945,
+          "first_kernel_ns": 118690421,
+          "last_kernel_ns": 39762955415,
+          "summed_kernel_ms": 49786.646124
+        }
+      ],
+      "custom_nvtx_ranges": 33025,
+      "unclosed_custom_ranges": [],
+      "diagnostics": [
+        {
+          "timestamp": 5582749202,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Scheduling information is absent. The thread activity is deduced based on OS runtime libraries traces. This is inaccurate and does not take into account asynchronous interrupts and exception faults.",
+          "globalPid": -144115188075855872
+        },
+        {
+          "timestamp": 5582887249,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 300777667035136
+        },
+        {
+          "timestamp": 5582894179,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 300777667035136
+        },
+        {
+          "timestamp": 5582894919,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 300777901916160
+        },
+        {
+          "timestamp": 5582895709,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 300777901916160
+        },
+        {
+          "timestamp": 5582896059,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 300777969025024
+        },
+        {
+          "timestamp": 5582896269,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 300777969025024
+        },
+        {
+          "timestamp": 5582896739,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 300777935470592
+        },
+        {
+          "timestamp": 5582896929,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 300777935470592
+        },
+        {
+          "timestamp": 5582897229,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 300777918693376
+        },
+        {
+          "timestamp": 5582897409,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 300777918693376
+        },
+        {
+          "timestamp": 5582897719,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 300777952247808
+        },
+        {
+          "timestamp": 5582897889,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 300777952247808
+        },
+        {
+          "timestamp": 5582898339,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 300695257350144
+        },
+        {
+          "timestamp": 5582898509,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 300695257350144
+        },
+        {
+          "timestamp": 5582898909,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 300777784475648
+        },
+        {
+          "timestamp": 5582899079,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 300777784475648
+        },
+        {
+          "timestamp": 5582899279,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 300777767698432
+        },
+        {
+          "timestamp": 5582899449,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 300777767698432
+        },
+        {
+          "timestamp": 5582899659,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 300777985802240
+        },
+        {
+          "timestamp": 5582899819,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 300777985802240
+        },
+        {
+          "timestamp": 5582900839,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "CUDA profiling might have not been started correctly.",
+          "globalPid": 300777667035136
+        },
+        {
+          "timestamp": 5582901269,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No CUDA events collected. Does the process use CUDA?",
+          "globalPid": 300777667035136
+        },
+        {
+          "timestamp": 5582901729,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 300777901916160
+        },
+        {
+          "timestamp": 5582905009,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 300777969025024
+        },
+        {
+          "timestamp": 5582905409,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 300777935470592
+        },
+        {
+          "timestamp": 5582905829,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 300777918693376
+        },
+        {
+          "timestamp": 5582906239,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 300777952247808
+        },
+        {
+          "timestamp": 5582906619,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 300695257350144
+        },
+        {
+          "timestamp": 5582906779,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No CUDA events collected. Does the process use CUDA?",
+          "globalPid": 300695257350144
+        },
+        {
+          "timestamp": 5582907129,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 300777784475648
+        },
+        {
+          "timestamp": 5582907509,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 300777767698432
+        },
+        {
+          "timestamp": 5582907919,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 300777985802240
+        },
+        {
+          "timestamp": 5582909239,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 300777667035136
+        },
+        {
+          "timestamp": 5582909929,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 300777901916160
+        },
+        {
+          "timestamp": 5582910659,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 300777969025024
+        },
+        {
+          "timestamp": 5582911439,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 300777935470592
+        },
+        {
+          "timestamp": 5582912049,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 300777918693376
+        },
+        {
+          "timestamp": 5582912799,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 300777952247808
+        },
+        {
+          "timestamp": 5582913449,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 300695257350144
+        },
+        {
+          "timestamp": 5582914129,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 300777784475648
+        },
+        {
+          "timestamp": 5582914739,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 300777767698432
+        },
+        {
+          "timestamp": 5582915329,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 300777985802240
+        }
+      ],
+      "cuda_api_correlation": {
+        "recorded_kernels": 795411,
+        "matched_runtime_api": 795411
+      },
+      "top_kernels": [
+        {
+          "kernel": "Kernel2",
+          "count": 59744,
+          "summed_gpu_ms": 99312.301858,
+          "mean_us": 1662.2975003012855
+        },
+        {
+          "kernel": "ncclDevKernel_AllGather_RING_LL",
+          "count": 3472,
+          "summed_gpu_ms": 86510.466685,
+          "mean_us": 24916.609068260368
+        },
+        {
+          "kernel": "kernel_cutlass_kernel_flashinfercute_dslsparsesm120_blk64flash_fwd_sm120BlockSparseAttnForwardSm120Blk64_object_at__tensor0000o12811101213_tensor0000o12811101213_tensor0000o12810111213_te_0",
+          "count": 3200,
+          "summed_gpu_ms": 85479.587147,
+          "mean_us": 26712.3709834375
+        },
+        {
+          "kernel": "ncclDevKernel_SendRecv",
+          "count": 16000,
+          "summed_gpu_ms": 62432.535374,
+          "mean_us": 3902.033460875
+        },
+        {
+          "kernel": "split_with_sizes_copy_out_contiguous_no_cast_kernel",
+          "count": 3264,
+          "summed_gpu_ms": 8356.063556,
+          "mean_us": 2560.0684914215685
+        },
+        {
+          "kernel": "ncclDevKernel_AllReduce_Sum_f32_RING_LL",
+          "count": 800,
+          "summed_gpu_ms": 7855.140943,
+          "mean_us": 9818.926178750002
+        },
+        {
+          "kernel": "elementwise_kernel",
+          "count": 211289,
+          "summed_gpu_ms": 7759.914493,
+          "mean_us": 36.72654275896994
+        },
+        {
+          "kernel": "flash_fwd_kernel",
+          "count": 7800,
+          "summed_gpu_ms": 7160.361854,
+          "mean_us": 917.9951094871794
+        },
+        {
+          "kernel": "vectorized_elementwise_kernel",
+          "count": 258128,
+          "summed_gpu_ms": 6012.356915,
+          "mean_us": 23.292153175943717
+        },
+        {
+          "kernel": "multi_tensor_apply_kernel",
+          "count": 9792,
+          "summed_gpu_ms": 4377.982035,
+          "mean_us": 447.0978385416667
+        },
+        {
+          "kernel": "index_elementwise_kernel",
+          "count": 13672,
+          "summed_gpu_ms": 3557.421013,
+          "mean_us": 260.1975580017554
+        },
+        {
+          "kernel": "ncclDevKernel_AllReduce_Sum_f32_TREE_LL",
+          "count": 64,
+          "summed_gpu_ms": 2866.207029,
+          "mean_us": 44784.484828125
+        },
+        {
+          "kernel": "vectorized_gather_kernel",
+          "count": 16624,
+          "summed_gpu_ms": 2585.835775,
+          "mean_us": 155.54835027670836
+        },
+        {
+          "kernel": "ncclDevKernel_Broadcast_RING_LL",
+          "count": 208,
+          "summed_gpu_ms": 1737.324448,
+          "mean_us": 8352.521384615386
+        },
+        {
+          "kernel": "act_and_mul_kernel",
+          "count": 3328,
+          "summed_gpu_ms": 1466.849176,
+          "mean_us": 440.75996875
+        },
+        {
+          "kernel": "_rms_norm_rope_kernel",
+          "count": 6400,
+          "summed_gpu_ms": 1109.197724,
+          "mean_us": 173.312144375
+        },
+        {
+          "kernel": "reduce_kernel",
+          "count": 14043,
+          "summed_gpu_ms": 1015.214942,
+          "mean_us": 72.2933092644022
+        },
+        {
+          "kernel": "sm80_xmma_fprop_implicit_gemm_tf32f32_tf32f32_f32_nhwckrsc_nchw_tilesize128x128x16_stage4_warpsize2x2x1_g1_tensor16x8x8_alignc4_execute_kernel__5x_cudnn",
+          "count": 2234,
+          "summed_gpu_ms": 919.176378,
+          "mean_us": 411.4486920322292
+        },
+        {
+          "kernel": "vectorized_layer_norm_kernel",
+          "count": 28884,
+          "summed_gpu_ms": 874.162931,
+          "mean_us": 30.264607775931314
+        },
+        {
+          "kernel": "CatArrayBatchedCopy",
+          "count": 29724,
+          "summed_gpu_ms": 725.916079,
+          "mean_us": 24.421883965818868
+        },
+        {
+          "kernel": "_indexed_gate_rms_norm_scale_shift_kernel",
+          "count": 3200,
+          "summed_gpu_ms": 627.283887,
+          "mean_us": 196.02621468750002
+        },
+        {
+          "kernel": "sm80_xmma_fprop_implicit_gemm_tf32f32_tf32f32_f32_nhwckrsc_nhwc_tilesize128x128x16_stage4_warpsize2x2x1_g1_tensor16x8x8_execute_kernel__5x_cudnn",
+          "count": 4027,
+          "summed_gpu_ms": 523.65178,
+          "mean_us": 130.0352073503849
+        },
+        {
+          "kernel": "radixSortKVInPlace",
+          "count": 3200,
+          "summed_gpu_ms": 481.74838,
+          "mean_us": 150.54636875
+        },
+        {
+          "kernel": "nchwToNhwcKernel",
+          "count": 13626,
+          "summed_gpu_ms": 468.663407,
+          "mean_us": 34.39478988698077
+        },
+        {
+          "kernel": "_indexed_gate_kernel",
+          "count": 3200,
+          "summed_gpu_ms": 440.042086,
+          "mean_us": 137.513151875
+        },
+        {
+          "kernel": "unrolled_elementwise_kernel",
+          "count": 9036,
+          "summed_gpu_ms": 322.305391,
+          "mean_us": 35.669033975210276
+        },
+        {
+          "kernel": "_rms_norm_indexed_scale_shift_kernel",
+          "count": 3200,
+          "summed_gpu_ms": 299.831394,
+          "mean_us": 93.697310625
+        },
+        {
+          "kernel": "gatherTopK",
+          "count": 3200,
+          "summed_gpu_ms": 227.188478,
+          "mean_us": 70.996399375
+        },
+        {
+          "kernel": "reflection_pad3d_out_kernel",
+          "count": 7733,
+          "summed_gpu_ms": 184.060673,
+          "mean_us": 23.80197504202767
+        },
+        {
+          "kernel": "rms_norm_kernel",
+          "count": 1840,
+          "summed_gpu_ms": 164.030579,
+          "mean_us": 89.14705380434783
+        }
+      ],
+      "interpretation": "NVTX times are unsynchronized host scopes. GPU kernel durations are summed across streams and ranks, not wall time. Profiled latency includes instrumentation overhead. Trace coverage and the MP4 hash do not re-qualify all intermediate tensors.",
+      "download_url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/nsys-ref2va-124-20261018/fasth3-ref2va-fi-usp8-hsdp2-124.nsys-rep"
+    },
+    {
+      "arm": "hsdp8",
+      "checks": {
+        "sqlite_integrity": true,
+        "eight_worker_requests": true,
+        "single_client_request": true,
+        "eight_gpu_devices": true,
+        "all_worker_gpu_activity": true,
+        "complete_steps_blocks_fsdp": true,
+        "no_unclosed_custom_ranges": true,
+        "no_profiler_errors": true,
+        "all_recorded_kernels_have_runtime_api": true,
+        "output_matches_baseline": true
+      },
+      "passed": true,
+      "report_file": "fasth3-ref2va-fi-usp8-hsdp8-124.nsys-rep",
+      "report_bytes": 95402626,
+      "report_sha256": "9d7a216dad672a8847c71d6027551984d20ee6d27f4210a03dad0a4b07eee7a3",
+      "output_sha256": "648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d",
+      "profiled_seconds": 41.15209252014756,
+      "client_range_seconds": [
+        41.152000666
+      ],
+      "worker_request_seconds": {
+        "1259476": 41.007531604,
+        "1259469": 41.007566053,
+        "1259478": 41.007466706,
+        "1259468": 41.128445681,
+        "1259477": 41.007518385,
+        "1259479": 41.007456515,
+        "1259481": 41.007494935,
+        "1259480": 41.007304768
+      },
+      "rank_coverage": [
+        {
+          "pid": 1259468,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1259469,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1259476,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1259477,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1259478,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1259479,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1259480,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        },
+        {
+          "pid": 1259481,
+          "steps": {
+            "fasth3.dit.step_01": 1,
+            "fasth3.dit.step_02": 1,
+            "fasth3.dit.step_03": 1,
+            "fasth3.dit.step_04": 1,
+            "fasth3.dit.step_05": 1,
+            "fasth3.dit.step_06": 1,
+            "fasth3.dit.step_07": 1,
+            "fasth3.dit.step_08": 1
+          },
+          "block_calls": 400,
+          "hsdp_pre_calls": 408,
+          "hsdp_post_calls": 408,
+          "complete": true
+        }
+      ],
+      "kernel_devices": [
+        {
+          "deviceId": 0,
+          "pid": 1259468,
+          "kernels": 104408,
+          "first_kernel_ns": 231608253,
+          "last_kernel_ns": 41180110196,
+          "summed_kernel_ms": 61905.217359
+        },
+        {
+          "deviceId": 1,
+          "pid": 1259469,
+          "kernels": 103989,
+          "first_kernel_ns": 173436343,
+          "last_kernel_ns": 41179662616,
+          "summed_kernel_ms": 62036.19085
+        },
+        {
+          "deviceId": 2,
+          "pid": 1259476,
+          "kernels": 104005,
+          "first_kernel_ns": 173347262,
+          "last_kernel_ns": 41179663696,
+          "summed_kernel_ms": 62042.257935
+        },
+        {
+          "deviceId": 3,
+          "pid": 1259477,
+          "kernels": 103965,
+          "first_kernel_ns": 173366893,
+          "last_kernel_ns": 41179664424,
+          "summed_kernel_ms": 62058.408357
+        },
+        {
+          "deviceId": 4,
+          "pid": 1259478,
+          "kernels": 93129,
+          "first_kernel_ns": 173336258,
+          "last_kernel_ns": 41179670397,
+          "summed_kernel_ms": 62132.303672
+        },
+        {
+          "deviceId": 5,
+          "pid": 1259479,
+          "kernels": 93129,
+          "first_kernel_ns": 173361906,
+          "last_kernel_ns": 41179671106,
+          "summed_kernel_ms": 61951.250436
+        },
+        {
+          "deviceId": 6,
+          "pid": 1259480,
+          "kernels": 93129,
+          "first_kernel_ns": 173306044,
+          "last_kernel_ns": 41179672761,
+          "summed_kernel_ms": 61967.336932
+        },
+        {
+          "deviceId": 7,
+          "pid": 1259481,
+          "kernels": 93129,
+          "first_kernel_ns": 173270340,
+          "last_kernel_ns": 41179673528,
+          "summed_kernel_ms": 62060.230831
+        }
+      ],
+      "custom_nvtx_ranges": 33025,
+      "unclosed_custom_ranges": [],
+      "diagnostics": [
+        {
+          "timestamp": 5424426149,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Scheduling information is absent. The thread activity is deduced based on OS runtime libraries traces. This is inaccurate and does not take into account asynchronous interrupts and exception faults.",
+          "globalPid": -144115188075855872
+        },
+        {
+          "timestamp": 5424566396,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 302605242728448
+        },
+        {
+          "timestamp": 5424572276,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 302605242728448
+        },
+        {
+          "timestamp": 5424573206,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 302605544718336
+        },
+        {
+          "timestamp": 5424573936,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 302605544718336
+        },
+        {
+          "timestamp": 5424574416,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 302605477609472
+        },
+        {
+          "timestamp": 5424574606,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 302605477609472
+        },
+        {
+          "timestamp": 5424574936,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 302605511163904
+        },
+        {
+          "timestamp": 5424575106,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 302605511163904
+        },
+        {
+          "timestamp": 5424575316,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 302605527941120
+        },
+        {
+          "timestamp": 5424575486,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 302605527941120
+        },
+        {
+          "timestamp": 5424576006,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 302605561495552
+        },
+        {
+          "timestamp": 5424576176,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 302605561495552
+        },
+        {
+          "timestamp": 5424576586,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 302605343391744
+        },
+        {
+          "timestamp": 5424576746,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 302605343391744
+        },
+        {
+          "timestamp": 5424577066,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 302569624698880
+        },
+        {
+          "timestamp": 5424577236,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 302569624698880
+        },
+        {
+          "timestamp": 5424577546,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 302605360168960
+        },
+        {
+          "timestamp": 5424577716,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 302605360168960
+        },
+        {
+          "timestamp": 5424578126,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all NVTX events might have been collected.",
+          "globalPid": 302605494386688
+        },
+        {
+          "timestamp": 5424578286,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No NVTX events collected. Does the process use NVTX?",
+          "globalPid": 302605494386688
+        },
+        {
+          "timestamp": 5424579656,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "CUDA profiling might have not been started correctly.",
+          "globalPid": 302605242728448
+        },
+        {
+          "timestamp": 5424580246,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No CUDA events collected. Does the process use CUDA?",
+          "globalPid": 302605242728448
+        },
+        {
+          "timestamp": 5424581096,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 302605544718336
+        },
+        {
+          "timestamp": 5424584446,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 302605477609472
+        },
+        {
+          "timestamp": 5424584866,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 302605511163904
+        },
+        {
+          "timestamp": 5424585246,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 302605527941120
+        },
+        {
+          "timestamp": 5424585676,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 302605561495552
+        },
+        {
+          "timestamp": 5424586046,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 302605343391744
+        },
+        {
+          "timestamp": 5424586416,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 302569624698880
+        },
+        {
+          "timestamp": 5424586586,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "No CUDA events collected. Does the process use CUDA?",
+          "globalPid": 302569624698880
+        },
+        {
+          "timestamp": 5424587136,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 302605360168960
+        },
+        {
+          "timestamp": 5424587556,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all CUDA events might have been collected.",
+          "globalPid": 302605494386688
+        },
+        {
+          "timestamp": 5424588666,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 302605242728448
+        },
+        {
+          "timestamp": 5424590056,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 302605544718336
+        },
+        {
+          "timestamp": 5424591076,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 302605477609472
+        },
+        {
+          "timestamp": 5424591886,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 302605511163904
+        },
+        {
+          "timestamp": 5424592486,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 302605527941120
+        },
+        {
+          "timestamp": 5424593156,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 302605561495552
+        },
+        {
+          "timestamp": 5424594196,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 302605343391744
+        },
+        {
+          "timestamp": 5424594756,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 302569624698880
+        },
+        {
+          "timestamp": 5424595486,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 302605360168960
+        },
+        {
+          "timestamp": 5424596276,
+          "timestampType": 2,
+          "source": 3,
+          "severity": 2,
+          "text": "Not all OS runtime libraries events might have been collected.",
+          "globalPid": 302605494386688
+        }
+      ],
+      "cuda_api_correlation": {
+        "recorded_kernels": 788883,
+        "matched_runtime_api": 788883
+      },
+      "top_kernels": [
+        {
+          "kernel": "ncclDevKernel_AllGather_RING_LL",
+          "count": 3472,
+          "summed_gpu_ms": 182269.516734,
+          "mean_us": 52496.98062615208
+        },
+        {
+          "kernel": "Kernel2",
+          "count": 59744,
+          "summed_gpu_ms": 95899.391681,
+          "mean_us": 1605.1719282438403
+        },
+        {
+          "kernel": "kernel_cutlass_kernel_flashinfercute_dslsparsesm120_blk64flash_fwd_sm120BlockSparseAttnForwardSm120Blk64_object_at__tensor0000o12811101213_tensor0000o12811101213_tensor0000o12810111213_te_0",
+          "count": 3200,
+          "summed_gpu_ms": 88139.535143,
+          "mean_us": 27543.604732187498
+        },
+        {
+          "kernel": "ncclDevKernel_SendRecv",
+          "count": 16000,
+          "summed_gpu_ms": 70181.372523,
+          "mean_us": 4386.3357826875
+        },
+        {
+          "kernel": "split_with_sizes_copy_out_contiguous_no_cast_kernel",
+          "count": 3264,
+          "summed_gpu_ms": 8627.153373,
+          "mean_us": 2643.1229696691175
+        },
+        {
+          "kernel": "ncclDevKernel_AllReduce_Sum_f32_RING_LL",
+          "count": 800,
+          "summed_gpu_ms": 7887.696839,
+          "mean_us": 9859.62104875
+        },
+        {
+          "kernel": "elementwise_kernel",
+          "count": 211289,
+          "summed_gpu_ms": 7770.353102,
+          "mean_us": 36.77594717188306
+        },
+        {
+          "kernel": "flash_fwd_kernel",
+          "count": 7800,
+          "summed_gpu_ms": 7157.258569,
+          "mean_us": 917.5972524358975
+        },
+        {
+          "kernel": "vectorized_elementwise_kernel",
+          "count": 258128,
+          "summed_gpu_ms": 6093.787176,
+          "mean_us": 23.60761783301308
+        },
+        {
+          "kernel": "index_elementwise_kernel",
+          "count": 13672,
+          "summed_gpu_ms": 3686.427833,
+          "mean_us": 269.6333991369222
+        },
+        {
+          "kernel": "ncclDevKernel_AllReduce_Sum_f32_TREE_LL",
+          "count": 64,
+          "summed_gpu_ms": 2841.351758,
+          "mean_us": 44396.12121875
+        },
+        {
+          "kernel": "vectorized_gather_kernel",
+          "count": 16624,
+          "summed_gpu_ms": 2666.484788,
+          "mean_us": 160.3997105389798
+        },
+        {
+          "kernel": "act_and_mul_kernel",
+          "count": 3328,
+          "summed_gpu_ms": 1473.963029,
+          "mean_us": 442.8975447716346
+        },
+        {
+          "kernel": "ncclDevKernel_Broadcast_RING_LL",
+          "count": 208,
+          "summed_gpu_ms": 1404.791189,
+          "mean_us": 6753.803793269231
+        },
+        {
+          "kernel": "multi_tensor_apply_kernel",
+          "count": 3264,
+          "summed_gpu_ms": 1062.147944,
+          "mean_us": 325.4129730392157
+        },
+        {
+          "kernel": "_rms_norm_rope_kernel",
+          "count": 6400,
+          "summed_gpu_ms": 1046.117477,
+          "mean_us": 163.45585578125
+        },
+        {
+          "kernel": "reduce_kernel",
+          "count": 14043,
+          "summed_gpu_ms": 1020.02732,
+          "mean_us": 72.63599800612405
+        },
+        {
+          "kernel": "sm80_xmma_fprop_implicit_gemm_tf32f32_tf32f32_f32_nhwckrsc_nchw_tilesize128x128x16_stage4_warpsize2x2x1_g1_tensor16x8x8_alignc4_execute_kernel__5x_cudnn",
+          "count": 2234,
+          "summed_gpu_ms": 919.106345,
+          "mean_us": 411.4173433303491
+        },
+        {
+          "kernel": "vectorized_layer_norm_kernel",
+          "count": 28884,
+          "summed_gpu_ms": 873.921685,
+          "mean_us": 30.256255539398975
+        },
+        {
+          "kernel": "CatArrayBatchedCopy",
+          "count": 29724,
+          "summed_gpu_ms": 722.630405,
+          "mean_us": 24.31134453640156
+        },
+        {
+          "kernel": "_indexed_gate_rms_norm_scale_shift_kernel",
+          "count": 3200,
+          "summed_gpu_ms": 630.961531,
+          "mean_us": 197.17547843749998
+        },
+        {
+          "kernel": "sm80_xmma_fprop_implicit_gemm_tf32f32_tf32f32_f32_nhwckrsc_nhwc_tilesize128x128x16_stage4_warpsize2x2x1_g1_tensor16x8x8_execute_kernel__5x_cudnn",
+          "count": 4027,
+          "summed_gpu_ms": 523.310286,
+          "mean_us": 129.9504062577601
+        },
+        {
+          "kernel": "radixSortKVInPlace",
+          "count": 3200,
+          "summed_gpu_ms": 499.813982,
+          "mean_us": 156.191869375
+        },
+        {
+          "kernel": "nchwToNhwcKernel",
+          "count": 13626,
+          "summed_gpu_ms": 468.887768,
+          "mean_us": 34.41125554087773
+        },
+        {
+          "kernel": "_indexed_gate_kernel",
+          "count": 3200,
+          "summed_gpu_ms": 441.361336,
+          "mean_us": 137.9254175
+        },
+        {
+          "kernel": "unrolled_elementwise_kernel",
+          "count": 9036,
+          "summed_gpu_ms": 330.16353,
+          "mean_us": 36.538681938911026
+        },
+        {
+          "kernel": "_rms_norm_indexed_scale_shift_kernel",
+          "count": 3200,
+          "summed_gpu_ms": 273.342231,
+          "mean_us": 85.4194471875
+        },
+        {
+          "kernel": "gatherTopK",
+          "count": 3200,
+          "summed_gpu_ms": 235.215923,
+          "mean_us": 73.5049759375
+        },
+        {
+          "kernel": "reflection_pad3d_out_kernel",
+          "count": 7733,
+          "summed_gpu_ms": 184.100549,
+          "mean_us": 23.807131643605327
+        },
+        {
+          "kernel": "rms_norm_kernel",
+          "count": 1840,
+          "summed_gpu_ms": 164.131615,
+          "mean_us": 89.20196467391304
+        }
+      ],
+      "interpretation": "NVTX times are unsynchronized host scopes. GPU kernel durations are summed across streams and ranks, not wall time. Profiled latency includes instrumentation overhead. Trace coverage and the MP4 hash do not re-qualify all intermediate tensors.",
+      "download_url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/nsys-ref2va-124-20261018/fasth3-ref2va-fi-usp8-hsdp8-124.nsys-rep"
+    }
+  ],
+  "normal_timing_reference_seconds": {
+    "hsdp2": 39.64283079,
+    "hsdp8": 41.063812475
+  },
+  "notes": [
+    "One warmed full request per profile; startup and warmup excluded.",
+    "Each report contains all eight GPU worker processes in a shared timeline.",
+    "CUDA, NVTX and OS runtime tracing enabled; CPU sampling and GPU hardware metrics not collected.",
+    "Profiled latency includes tracing overhead; use the prior uninstrumented medians for performance.",
+    "NVTX durations are host scopes; summed GPU kernel times are not wall time or causal HSDP overhead.",
+    "Nsight emits event-completeness and absent-scheduling warnings. Verified rank/step/block coverage is not a guarantee that every low-level event was collected; full diagnostics are retained.",
+    "Generated MP4 hashes match the established FI/USP8 baseline. Full intermediate qualification is from the prior matched experiment."
+  ]
+}
