@@ -1,0 +1,45 @@
+{
+  "arms": {
+    "off": {
+      "status": "completed",
+      "steady_seconds": [
+        43.44535241601989,
+        43.34524540184066,
+        43.38620960013941
+      ],
+      "median_seconds": 43.38620960013941,
+      "peak_reserved_mib": [
+        70138.0,
+        70116.0,
+        70080.0
+      ],
+      "output_sha256": {
+        "fi-124-repeat0": "648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d",
+        "fi-124-repeat1": "648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d",
+        "fi-124-repeat2": "648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d",
+        "fi-124-qualification": "648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d"
+      }
+    },
+    "on": {
+      "status": "failed",
+      "returncode": 1,
+      "last_runtime_error": "RuntimeError: Attempted to set the storage of a tensor on device \"cuda:4\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match.",
+      "timing_available": false
+    }
+  },
+  "resident_hsdp_median_seconds": 41.0576718589291,
+  "latent_comparison": {
+    "status": "not_compared",
+    "available_arms": [
+      "off"
+    ]
+  },
+  "comparison": {
+    "staged_on_minus_staged_off_seconds": null,
+    "staged_off_speedup_percent_vs_staged_on": null,
+    "staged_off_minus_resident_on_seconds": 2.3285377412103117,
+    "staged_off_slowdown_percent_vs_resident_on": 5.671382803221237,
+    "staged_on_minus_resident_on_seconds": null
+  },
+  "limitations": "Matched module-CPU-offload policy; switching HSDP also changes weight residency, transfer size, and DTensor behavior. This is not an all-resident causal HSDP latency. Only available qualification outputs can be compared: see latent_comparison. MP4 byte equality does not establish equality of all intermediate tensors, routing decisions, or complete pre-encode FP32 VAE output. Startup, warmup, and the save-latents qualification request are excluded from timing."
+}

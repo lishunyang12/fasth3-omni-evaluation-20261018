@@ -1,0 +1,35 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="FastH3 Omni SM120: FI/USP8 固定合同下的 HSDP 延迟、通信、显存、一致性与历史评测档案。"><title>C4: native128 grouped-schedule profile</title><link rel="stylesheet" href="../style.css"></head><body><header><a href="../index.html#archive">← 返回评测汇总</a><p class="eyebrow">历史阶段记录 / 适用范围见正文</p><h1 style="font-size:32px">C4: native128 grouped-schedule profile</h1><p><code>profile/native128-c4-promoted/REPORT.md</code></p><a class="button" href="../reports/profile/native128-c4-promoted/REPORT.md" download>下载报告原文</a></header><main><div class="note">该文件保留实验当时的结论。局部 kernel、旧 provider、旧并行度和历史精度合同不能直接计入当前 FI/USP8 的加速。HSDP2 已完成的新结果见汇总首页；原文中的“尚未实测”可能是当时状态。原文路径指本地实验目录，可在证据索引中查找已发布文件。</div><section><pre># C4: native128 grouped-schedule profile
+
+Same S=32768,H=14,B=1,D=128 BF16 synthetic VSA workload and original
+128-token selections as the C0/FI profile. KDA&#x27;s `ncu_report` analysis and
+raw metrics are in `analysis/`; `harness/` retains a source snapshot.
+
+| Metric | Initial Triton C0 | FI block64 | Native128 C4 |
+|---|---:|---:|---:|
+| Tensor active, elapsed cycles | 59.97% | 76.89% | 84.66% |
+| Registers per thread | 255 | 254 | 241 |
+| Achieved warp occupancy | 16.66% | 16.45% | 16.61% |
+| Shared memory per CTA, bytes | 99,348 | 50,304 | 99,456 |
+| NCU kernel time, ms | 7.621 | 5.950 | 5.403 |
+
+Occupancy did not increase. The improvement is better tensor instruction
+scheduling and a shorter scheduling tail, not higher occupancy. C4 uses
+TMA plus staggered shared-to-register MMA fragments, retained from the
+Apache-licensed FI source and adapted to full 128x128 blocks.
+
+The slowest SM&#x27;s active cycles are now only 1.22% above the mean, versus
+13.99% for C0. PM-sampling plots are retained. L2 hit rate is 88.74%, DRAM
+throughput 12.40%, and local-memory spill requests are zero. Thus the final
+schedule trades some cache hit rate for substantially more balanced work.
+The grid still provides 32.58 CTA waves per SM. Tensor activity at 84.66%
+leaves less room for another large gain without a different execution design.
+
+The first source collection lacked CuTe line metadata. It is retained as
+evidence of that limitation. A separate source run with `CUTE_DSL_LINEINFO=1`
+is in `../native128-c4-source-lines/`; it does not change production compile
+settings. Use that run for source-line attribution.
+
+NCU clocks and replay change absolute timing. Performance claims use the
+interleaved standalone benchmark, not this table&#x27;s profiler timings.
+See `../../native-sm120-report.md` for acceptance and limitations.
+</pre></section></main></body></html>

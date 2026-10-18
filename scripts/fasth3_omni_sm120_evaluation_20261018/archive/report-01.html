@@ -1,0 +1,69 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="FastH3 Omni SM120: FI/USP8 固定合同下的 HSDP 延迟、通信、显存、一致性与历史评测档案。"><title>FastH3 Omni / FI / USP8：HSDP2 与 HSDP8 完整请求评测</title><link rel="stylesheet" href="../style.css"></head><body><header><a href="../index.html#archive">← 返回评测汇总</a><p class="eyebrow">本次已完成结果</p><h1 style="font-size:32px">FastH3 Omni / FI / USP8：HSDP2 与 HSDP8 完整请求评测</h1><p><code>HSDP-SHARD2-REPORT.txt</code></p><a class="button" href="../reports/HSDP-SHARD2-REPORT.txt" download>下载报告原文</a></header><main><div class="note">本报告描述 2026-10-18 完成的 HSDP2/USP8 对照，仅覆盖固定 124 帧 seed43 请求。</div><section><pre>FastH3 Omni / FI / USP8：HSDP2 与 HSDP8 完整请求评测
+完成日期：2026-10-18；运行目录：checkpoint-runs/hsdp-shard2-vs8-r1
+
+结论
+同一 124 帧、seed 43 请求，常驻 HSDP2（shard=2, replicate=4）比常驻 HSDP8（shard=8, replicate=1）中位延迟低 1.420982 秒，即降低 3.4604%。代价是每卡峰值 reserved 从 35.150391 GiB 增至 59.642578 GiB，增加 24.492188 GiB。
+13,048 对张量记录的元数据及完整字节 SHA256 全部相同；最终视频/音频 latents 另外通过 torch.equal，max_abs=0；所有非预热 MP4 与当前 FI/USP8 基准一致。
+本结果仅覆盖该固定请求，不能推广为所有帧数、种子和负载的资格或延迟保证。未修改生产默认配置或生产 Python 源码。
+
+验收合同
+FastVideo/FastVideo-FastH3-Omni-8-Step-V1，revision 88d512c5e7cc38dda499fbb65688ce58611f9c80。
+ref2va；1344x768；124 帧；24 fps；seed 43；8 次 PDD forward；shift 12/3；guidance 1。
+TP1 / USP8 / ring1；文本编码器 TP8；原生 VAE8 tile 并行。
+DiT 与通信 BF16；VAE 保持 FP16 autocast / FP32 重建语义。
+FASTVIDEO_VSA 的实际 provider 为 FlashInfer BF16 SM120 block64；logical128；tile(4,4,8)；90% sparsity；p2_multi_region。
+FI revision f75bed5da7112103b75f82a4d4b5faf4be335154。
+8 张 SM120 GPU；PCIe，无 NVLink。相邻 (0,1)、(2,3)、(4,5)、(6,7) 为 PXB；HSDP8 跨 NUMA 域。拓扑不能证明 NCCL 的实际传输选择。
+两组仅 hsdp_shard_size / hsdp_replicate_size 改变，无 CPU offload，enforce_eager=True。
+
+完整请求计时（秒）
+HSDP2：39.693150635、39.642830790、39.610413863；中位数 39.642830790。
+HSDP8：40.957095844、41.065371063、41.063812475；中位数 41.063812475。
+执行顺序 HSDP2 → HSDP8；每组预热、资格请求、3 次正常计时、1 次独立 CUDA event 请求。
+中位数不包括模型启动、预热、资格检查及 profiler 请求。正常计时路径没有张量哈希、逐层复制或同步。
+每组只有 3 次重复，未进行随机交错或跨日复测。
+
+一致性覆盖
+8 ranks × 8 steps × 50 blocks 的全部 block 输入、输出、VSA route_mask、route_sizes。
+Q/K/V：steps 0、3、7 × layers 0、25、49，共每 rank 9 个位置。
+所有 rank 最终 FP32 视频 latent [1,24,37,48,84]、音频 latent [2,32,207]，以及 FP32 audio waveform。
+rank0 完整 FP32 解码视频：8 个 chunk，共 124 帧（7×17+5），每个 chunk [1,3,T,768,1344]，在量化前取字节哈希。
+共比较 13,048 对记录，零不一致。QKV 是选定位置覆盖，未声称每个内部算子输出都已比较。
+每组 qualification、repeat0/1/2、profile 五个 MP4 的 SHA256 均为：
+648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d
+
+通信与 MLP 切分
+HSDP 分片权重，USP 分片序列激活，可以同时使用。当前整块 FSDP 包装在 block 的 attention 前准备该块完整权重；预取可提前提交。随后 MLP 复用同一块已聚合权重，不在 MLP 前额外聚合一次整块权重。
+TP1 时 MLP 各 rank 处理其约 S/8 个 token、完整 hidden/FFN 维；这不是 MLP tensor parallel。USP attention 的激活通信在两组中保持不变。推理 reshard 释放完整权重，不产生训练梯度 ReduceScatter。
+BF16 分片权重 W=70,007,223,296 B=65.199307442 GiB。8 步、每步 root+50 blocks，共 408 组 pre/post-forward。
+每 rank 持久权重 W/n；8 步逻辑接收 payload 为 8×(n−1)/n×W，发送量近似相同。以下只计 RX，不含协议开销，不把 TX+RX 当作单向带宽负载。
+HSDP8：权重 8.149913430 GiB/rank；RX 456.395152092 GiB/rank/request。
+HSDP4：权重 16.299826860 GiB/rank；RX 391.195844650 GiB/rank/request；未实测该 USP8 候选。
+HSDP2：权重 32.599653721 GiB/rank；RX 260.797229767 GiB/rank/request。
+无 HSDP：权重 65.199307442 GiB/rank；HSDP RX 为 0，但当前全组件常驻加载 OOM。
+HSDP2 相对 HSDP8 减少 RX 195.597922325 GiB/rank/request，即 42.8571%。这不是端到端 latency 的同比降幅。
+
+独立 CUDA event 请求，rank0（秒）
+8 次整个 model call 合计：HSDP2 33.862028；HSDP8 35.282898；相差 1.420870。
+整个 diffuse 区间：HSDP2 34.000629；HSDP8 35.420668。
+FSDP pre-forward 暴露等待及 copy-out：HSDP2 1.392848；HSDP8 1.941137；减少 0.548289。
+其中 root pre-forward：HSDP2 0.203881；HSDP8 0.474777。
+剩余 model-call 差异约 0.872581 秒；尚无 kernel trace 能将其确定归因于 SM/HBM 竞争。pre-forward 是整个 model-call 区间的子集，不可相加；它也不是 HSDP 的全部因果开销。
+
+其他已完成实验及边界
+无 HSDP、全组件常驻：文本编码器构建期间 OOM，没有完整请求延迟。
+无 HSDP、整模块 CPU offload：三次正常请求中位数 43.386210 秒；比之前常驻 HSDP8 基准 41.057672 秒慢 5.6714%。只证明这个驻留策略更慢，不能作为纯 HSDP 开销。
+HSDP8、相同 CPU offload：首请求在 DiT CPU/CUDA storage 移动时失败；没有匹配 offload 的 HSDP on/off A/B。
+从四舍五入的进度日志外推无 HSDP 全常驻约 35.4 秒不是实测，不纳入已获得加速。
+HSDP4/USP8、root-only 权重常驻及其他帧数的 HSDP2 仍待验证。
+
+可追溯证据
+summary.json：所有正常计时、8 ranks CUDA 事件汇总、配置差异和资格结论。
+qualification-comparison.json、latent-comparison.json：逐 rank 覆盖及比较结果。
+hsdp{2,8}/fi-124-qualification/rank*-qualification.json：张量元数据及 SHA256。
+hsdp{2,8}/fi-124-profile/rank*-{hsdp,steps}.json：事件记录。
+hsdp{2,8}/settings.json、results.json；experiment.json；source-identity.json；status.json。
+生产 Python 源码 1623 文件 SHA256：860951246955c51bc92c0c0fda5c650953585a147a9911a013dc8d41f56cdc48；两组前后不变。
+生产 HEAD 6715c57b2dffbf4623c0acb7a72862ddb9e54cb7，另有原会话未提交集成改动；HEAD 不代表完整工作树身份。实验 harness 已在运行目录单独快照。
+两组 returncode=0，结束后 GPU 进程列表为空。此评测改变实验 mesh 配置，未改变生产默认配置。
+</pre></section></main></body></html>

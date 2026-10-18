@@ -1,0 +1,91 @@
+# C5: native128 scheduler and zero-size compaction
+
+Compared on GPU0 (SM120,110SMs), BF16 QKV/D128, FP32 accumulation, natural-log
+LSE. C4.1 is frozen in `outputs/c4_1_frozen`; C5 in `outputs/c5_frozen`.
+FI is pinned at f75bed5da7112103b75f82a4d4b5faf4be335154. Inputs are synthetic
+VSA-style cases; all providers passed independent FP32 validation before
+capture. Full+PM+tensor-roofline and source reports cover nine actions.
+
+## Result
+
+C5 starts four query tiles across heads, then schedules groups of128.
+Nq/H are compile constants already included in the wrapper's shape cache
+key. This replaces the old 16K threshold. The attention MMA and softmax
+pipeline are unchanged. Mask compaction additionally removes selected
+KV blocks with zero valid tokens; every nonempty tile remains128.
+
+| Shape | Provider | NCU ms | BF16 dense SoL | SM busy | HMMA GFLOP |
+|---|---|---:|---:|---:|---:|
+| 18432,H14 | C4.1 | 2.561 | 73.27% | 86.55% | 367.354 |
+| 18432,H14 | C5 | 2.244 | 83.76% | 98.75% | 367.354 |
+| 18432,H14 | FI64 | 2.570 | 73.11% | 87.83% | 367.354 |
+| 10240,H14,ragged | C4.1 | .867 | 75.89% | 95.41% | 128.715 |
+| 10240,H14,ragged | C5 | .723 | 75.39% | 94.77% | 106.560 |
+| 10240,H14,ragged | FI64 | .621 | 61.32% | 77.55% | 74.281 |
+| 32768,H56 | C4.1 | 21.372 | 85.54% | 99.53% | 3581.466 |
+| 32768,H56 | C5 | 21.364 | 85.59% | 99.50% | 3581.466 |
+| 32768,H56 | FI64 | 22.222 | 82.25% | 97.68% | 3581.466 |
+
+Profiler durations are diagnostic. Standalone interleaved performance and
+cache-flushed results, including regressions, are in `validation-v3/REPORT.txt`.
+The exact SoL metric is
+`sm__ops_path_tensor_op_hmma_src_bf16_dst_fp32_sparsity_off.avg.pct_of_peak_sustained_elapsed`.
+Logical block sparsity does not qualify for the 2:4 hardware sparse peak.
+
+## Six dimensions and attribution
+
+1. **Occupancy/resources.** Registers change from241 to239 per thread;
+   shared memory stays99456B and threads stay256. Native remains one CTA
+   per SM. Achieved occupancy at18K stays16.58%; no local-load/store spills
+   occur. Do not attribute the gain to increased occupancy.
+2. **Work balance.** At18K the maximum SM active cycles / mean falls from
+   1.154 to1.011, while average busy rises86.55% to98.75%. The number of
+   CTAs and matrix operations are identical. The small first group starts
+   long prefix rows across heads sooner, eliminating most dispatch tail.
+3. **Stalls/source.** Source counters still concentrate at QK MMA line739,
+   PV MMA line766 and ldmatrix line763. C5's full-profile math-pipe sample
+   share is44.66%, wait28.06%, long-scoreboard1.68% at18K. Sample shares
+   are not time percentages. No new memory-latency bottleneck is established.
+4. **Tensor pipeline.** Active-cycle TC utilization barely changes at18K:
+   84.66% to84.82%. Elapsed-cycle SoL increases because fewer SM cycles are
+   idle. At32K/H56, SoL remains85.59%; C5 does not make an already balanced
+   long workload substantially faster. Higher SoL alone is not the goal:
+   ragged C5 is faster than C4.1 with a slightly lower SoL because it performs
+   17.21% fewer matrix operations. FI still computes fewer padded tokens.
+5. **Timeline.** `analysis/timeline.txt` preserves PM time series for every
+   action, with source samples in `stalls_*.txt`. Read them together with
+   active-cycle imbalance and the small change in active TC utilization.
+   ASCII plots use normalized sample positions, not a shared time axis;
+   their widths must not be interpreted as equal kernel durations.
+6. **Memory.** At18K C4.1 and C5 each transfer exactly2,936,012,800 TMA bytes;
+   FI transfers5,805,965,312. The C4.1→C5 speedup therefore is not reduced
+   TMA movement. C5 DRAM throughput is16.94%, L2 throughput28.10%, which
+   does not support a DRAM bandwidth bottleneck. Ragged TMA bytes fall
+   1,042,284,544→869,203,968 after filtering size=0. At32K/H56 C5 TMA bytes
+   are28,449,964,032 versus FI56,430,166,016. These are global→shared TMA
+   transfers and must not be described as DRAM bytes or allocated capacity.
+
+## Remaining bound and limitations
+
+At32K/H56 the profiled sustained BF16 peak is195.87TFLOP/s and the same
+3.581TFLOP workload has a compute-only lower bound of18.285ms, versus
+C5's21.364ms. That leaves at most1.168x speedup (14.41% latency reduction)
+at the same clocks, work and precision; softmax and other instructions make
+this a theoretical bound, not a promised attainable speed.
+
+Single-head workloads still lack parallel work, and partly valid blocks
+still perform a full128 tile. Split-KV plus a stable partial-softmax merge
+would be a separate design for the first problem. Smaller physical tiles
+would change this task's native128 constraint for the second. Neither is
+claimed solved here. Full-model activation and video parity remain untested.
+
+## Reproduce and inspect
+
+The harness is `harness/profile_kernel.py`; source snapshots and hashes are
+next to it. Runtime environment is established by `validation-v2/run.py`.
+Collection uses `CUTE_DSL_LINEINFO=1`, an NVTX `profile/` filter and
+`regex:BlockSparseAttnForward`. Full collection adds `PmSampling`,
+`PmSampling_WarpStates`, and `SpeedOfLight_HierarchicalTensorRooflineChart`.
+The separate source collection uses `--set source --section SourceCounters`.
+`validation-v3/analyze_profiles.py` parses all actions with `ncu_report` and
+the pinned KDA helpers, retaining raw metrics, source hotspots and timelines.

@@ -1,0 +1,84 @@
+{
+  "reference": "fasth3-omni-integration-20261018/checkpoint-runs/tp2-sp2/fi-124-trajectory/activations",
+  "actual": "fasth3-omni-integration-20261018/checkpoint-runs/tp2-sp2/native-124-trajectory/activations",
+  "cases": [
+    {
+      "file": "rank0-step0-layer0.pt",
+      "qkv": {
+        "q": {
+          "bitwise": true,
+          "changed_fraction": 0.0,
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "k": {
+          "bitwise": true,
+          "changed_fraction": 0.0,
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "v": {
+          "bitwise": true,
+          "changed_fraction": 0.0,
+          "relative_l2": 0.0,
+          "max_abs": 0.0
+        }
+      },
+      "mask_bitwise": true,
+      "mask_changed": 0,
+      "mask_jaccard": 1.0
+    },
+    {
+      "file": "rank0-step3-layer0.pt",
+      "qkv": {
+        "q": {
+          "bitwise": false,
+          "changed_fraction": 0.3788078398931594,
+          "relative_l2": 0.005293935355259316,
+          "max_abs": 0.53125
+        },
+        "k": {
+          "bitwise": false,
+          "changed_fraction": 0.38782308669317334,
+          "relative_l2": 0.006331934662081824,
+          "max_abs": 1.068359375
+        },
+        "v": {
+          "bitwise": false,
+          "changed_fraction": 0.4431160881405785,
+          "relative_l2": 0.009236159054552957,
+          "max_abs": 1.9375
+        }
+      },
+      "mask_bitwise": false,
+      "mask_changed": 994,
+      "mask_jaccard": 0.9993707709827937
+    },
+    {
+      "file": "rank0-step7-layer0.pt",
+      "qkv": {
+        "q": {
+          "bitwise": false,
+          "changed_fraction": 0.5757746469406855,
+          "relative_l2": 0.05056741952395172,
+          "max_abs": 6.24609375
+        },
+        "k": {
+          "bitwise": false,
+          "changed_fraction": 0.5847943260556175,
+          "relative_l2": 0.08760847717207257,
+          "max_abs": 9.6875
+        },
+        "v": {
+          "bitwise": false,
+          "changed_fraction": 0.5975054695492699,
+          "relative_l2": 0.10670458050235769,
+          "max_abs": 9.78125
+        }
+      },
+      "mask_bitwise": false,
+      "mask_changed": 8300,
+      "mask_jaccard": 0.9947579962661776
+    }
+  ]
+}

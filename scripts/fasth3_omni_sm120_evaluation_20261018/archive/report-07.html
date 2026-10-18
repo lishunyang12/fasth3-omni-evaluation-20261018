@@ -1,0 +1,130 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="FastH3 Omni SM120: FI/USP8 固定合同下的 HSDP 延迟、通信、显存、一致性与历史评测档案。"><title>FastVideo SM120 native128: validated opt-in implementation</title><link rel="stylesheet" href="../style.css"></head><body><header><a href="../index.html#archive">← 返回评测汇总</a><p class="eyebrow">历史阶段记录 / 适用范围见正文</p><h1 style="font-size:32px">FastVideo SM120 native128: validated opt-in implementation</h1><p><code>native-sm120-report.md</code></p><a class="button" href="../reports/native-sm120-report.md" download>下载报告原文</a></header><main><div class="note">该文件保留实验当时的结论。局部 kernel、旧 provider、旧并行度和历史精度合同不能直接计入当前 FI/USP8 的加速。HSDP2 已完成的新结果见汇总首页；原文中的“尚未实测”可能是当时状态。原文路径指本地实验目录，可在证据索引中查找已发布文件。</div><section><pre># FastVideo SM120 native128: validated opt-in implementation
+
+Implementation: `../fastvideo-sm120-tile128`, branch `feat/sm120-tile128`,
+base `3196835913ce9e97b23888b32643a1207cc5ee70`. Changes are local and
+uncommitted. Original FastVideo checkout and installed packages are untouched.
+
+## KDA application and implementation
+
+Used NVlabs/kda `ef6ce617693ef0782b3ecb9f37e39bbf10226a90`, pinned
+KernelWiki `76d27b56f804e7e7295d4c570e1e5d7eef4b0a75`, and pinned
+ncu-report-skill `d1887948c7d53690cfe6605f59c1329b8a1c6bb5`.
+Task contract and executable plan: `docs/draft.md`, `docs/plan.md`.
+Candidate lineage, failures and decisions: `candidates.jsonl`.
+
+The accepted C4 implementation adapts FlashInfer&#x27;s Apache-licensed TMA and
+MMA-fragment code, with original copyright/provenance retained. Q and KV
+compute tiles are both 128 tokens, and a CTA uses 256 threads / eight M
+warps. It consumes the original 128-token selections directly. It does not
+expand them to block64, change top-k budgets, quantize operands, or skip
+small contributions. BF16 input/output, FP32 accumulators, exact selected
+softmax semantics subject to normal BF16 arithmetic rounding.
+
+A Triton prefix-scan kernel compacts the original bool mask directly into
+128-token indices. Grouped query/head scheduling uses group16 for Sq &lt;=
+16384 and group128 for longer queries. The native index API supports BSHD
+strides and optional preallocated buffers. The from-mask custom op supports
+CUDA graphs and fullgraph torch.compile. Standalone LSE uses natural log;
+the existing FastVideo 128 APIs retain their base-2 LSE convention.
+
+Enable through `FASTVIDEO_VSA_SM120=1` with the new source package on
+PYTHONPATH. It is explicitly forward-only and opt-in. The kernel module
+has no FlashInfer runtime dependency. The optional `sm120` extra declares
+CuTe DSL 4.6.2 and CUDA Python 13.3.1. No C++ rebuild is needed for this code.
+
+## Correctness and memory checks
+
+- Final GPU pytest: **20 passed**, including empty selections/sizes,
+  ragged sizes 0/1/17/63/64/65/127/128, poisoned padding/unused indices,
+  B=2, H=14/56, noncontiguous Q/K/V, odd block counts, unequal Q/KV
+  lengths, large logits, S up to 41472, graph replay with changed Q/mask/
+  sizes, fullgraph compile, and both FastVideo opt-in layouts.
+- FP32 PyTorch oracle with TF32 disabled. Output atol=rtol=.01;
+  natural-log LSE atol=.002, rtol=.0002. Short cases check every Q row;
+  larger cases sample Q rows including block boundaries. This is not
+  exhaustive proof across every possible input distribution.
+- Final compute-sanitizer memcheck: **16 tests passed, 0 memory errors**.
+  `--report-api-errors no` suppresses CuTe runtime cuGetProcAddress probes
+  that previously reproduced with an empty CuTe kernel. Memory-access
+  checks remained enabled, with nonzero exit on a memory error.
+- Pre-commit exited successfully. The repository deliberately excludes
+  fastvideo-kernel from its formatter/linter hooks, which reported no files
+  to check. Python AST, TOML parsing and `git diff --check` passed.
+
+Logs: `native-sm120-final-pytest.log`, `native-sm120-final-memcheck.log`,
+`native-sm120-final-memcheck-stdout.log`.
+
+## Same-input performance
+
+SM120 / 110 SMs, driver 580.95.05, PyTorch 2.13.0+cu130, Triton 3.7.1,
+CuTe DSL 4.6.2. FI source pinned to
+`f75bed5da7112103b75f82a4d4b5faf4be335154` (`bsa_attn_sm120_blk64_fwd`).
+The benchmark compares identical Q/K/V and masks. B=1, D=128, BF16,
+two dense prefix blocks, independently selected 10% budgets in two regions.
+CUDA graph timing: four launches/capture, ten replays/sample, seven samples
+in randomized interleaved provider order. JIT and warmup excluded. Raw
+samples, minima and maxima are retained; GPU clocks were not manually locked.
+
+Two independent seeds (42,2026), H=14:
+
+| Sequence | FI kernel ms | Native128 kernel ms | Kernel speedup | With metadata speedup |
+|---|---:|---:|---:|---:|
+| 1024 | .0351–.0354 | .0366 | .96x | 1.71x |
+| 8192 | .5341–.5368 | .4199–.4218 | 1.27x | 1.35x |
+| 32768 | 4.7307–4.7551 | 4.1751–4.1931 | 1.13x | 1.18x |
+| 41472 | 7.4695–7.5419 | 6.7669–6.8379 | 1.10x | 1.15x |
+
+Held-out checks:
+
+| Shape / selection | Seed | FI ms | Native ms | Kernel speedup |
+|---|---:|---:|---:|---:|
+| S=8192,H=56,10% | 2027 | 1.9731 | 1.8631 | 1.06x |
+| S=32768,H=56,10% | 2027 | 18.4954 | 16.8409 | 1.10x |
+| S=24576,H=14,30% | 9001 | 6.8382 | 6.2353 | 1.10x |
+
+The metadata-inclusive FI baseline is the existing PyTorch mask expansion
+and sorting adapter. It is not a claim that every possible FI metadata
+implementation is slower. The kernel-only comparison excludes metadata
+for both providers. Native128 is about 4% slower for the 1K kernel-only case;
+therefore it remains opt-in rather than replacing every SM120 attention call.
+
+Raw results: `native-sm120-final-benchmark.json`,
+`native-sm120-h56-benchmark.json`, `native-sm120-density-benchmark.json`.
+
+## Profiling evidence
+
+NCU reports, source-line stalls, PM timelines and raw metrics are under
+`profile/native128-c0-vs-fi`, `profile/native128-c4-promoted` and
+`profile/native128-c4-source-lines`. Tensor utilization rose from C0&#x27;s
+59.97% to C4&#x27;s **84.66%**, versus FI&#x27;s **76.89%**. Registers decreased
+255 to 241 per thread; occupancy remained near 16.6%. Maximum SM active
+cycles above mean fell from 13.99% to 1.22%, supporting the scheduling
+change. These profiles support the mechanism; standalone timings establish
+the reported speedups.
+
+## Reproduction and limits
+
+Use `../minimax-h3-native/.venv/bin/python` and set PYTHONPATH to
+`../fastvideo-sm120-tile128/fastvideo-kernel/python`. GPU devices are hidden
+inside the Codex sandbox here, so the recorded GPU runs used the authorized
+host execution environment. Commands from the new FastVideo repository:
+
+```bash
+python -m pytest fastvideo-kernel/tests/test_vsa_sm120_block128.py -q
+compute-sanitizer --tool memcheck --report-api-errors no --error-exitcode 86 \
+  python -m pytest fastvideo-kernel/tests/test_vsa_sm120_block128.py -q \
+  -k &#x27;poisoned or graph_replay or ragged or empty or strided or opt_in&#x27;
+python fastvideo-kernel/benchmarks/bench_sm120_block128.py --output /tmp/native128.json
+```
+
+For benchmark reproduction also add `../flashinfer-pr4859` to PYTHONPATH
+and use writable FlashInfer/Triton cache directories. The source package
+README documents API contracts and dependency requirements.
+
+These are synthetic VSA-style attention inputs. Full FastH3 model/video
+inference has not been executed by this kernel task; no full-model speedup
+or video-quality claim is made. SM121, training/backward, FP16/FP8 and other
+head dimensions are outside the validated contract. The earlier vLLM-Omni
+FI adapter remains unchanged; adopting this candidate there is separate
+from the kernel-level acceptance established here.
+</pre></section></main></body></html>

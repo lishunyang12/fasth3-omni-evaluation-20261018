@@ -1,0 +1,42 @@
+[
+  {
+    "path": "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/tp2-sp2/fi-124-warmup/output.mp4",
+    "samples": 165888,
+    "sha256": "331ca8956196af77ff143a539e9bbe250780ffd162712c6dd4c22527fc95bafe",
+    "max_abs": 0.10278688743710518,
+    "relative_l2": 0.03811140702791993,
+    "changed_fraction": 1.0
+  },
+  {
+    "path": "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/tp2-sp2/fi-124-repeat0/output.mp4",
+    "samples": 165888,
+    "sha256": "331ca8956196af77ff143a539e9bbe250780ffd162712c6dd4c22527fc95bafe",
+    "max_abs": 0.10278688743710518,
+    "relative_l2": 0.03811140702791993,
+    "changed_fraction": 1.0
+  },
+  {
+    "path": "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/tp2-sp2/fi-124-repeat1/output.mp4",
+    "samples": 165888,
+    "sha256": "331ca8956196af77ff143a539e9bbe250780ffd162712c6dd4c22527fc95bafe",
+    "max_abs": 0.10278688743710518,
+    "relative_l2": 0.03811140702791993,
+    "changed_fraction": 1.0
+  },
+  {
+    "path": "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/tp2-sp2/fi-124-repeat2/output.mp4",
+    "samples": 165888,
+    "sha256": "331ca8956196af77ff143a539e9bbe250780ffd162712c6dd4c22527fc95bafe",
+    "max_abs": 0.10278688743710518,
+    "relative_l2": 0.03811140702791993,
+    "changed_fraction": 1.0
+  },
+  {
+    "path": "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/flashinfer-sm120-final/fi-124-seed43/output.mp4",
+    "samples": 165888,
+    "sha256": "69a0e4168c21fd638cb9f77127c934d8146b364b74a689e32db24225ca15cd02",
+    "max_abs": 0.0,
+    "relative_l2": 0.0,
+    "changed_fraction": 0.0
+  }
+]

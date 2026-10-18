@@ -1,0 +1,69 @@
+{
+  "candidate": "outputs.checkpoint_ragged_pv.wrapper",
+  "cases": [
+    {
+      "file": "fasth3-omni-integration-20261018/checkpoint-runs/hsdp4-smoke/native-smoke-capture/activations/rank0-step0-layer25.pt",
+      "shape": [
+        1,
+        61312,
+        14,
+        128
+      ],
+      "check": {
+        "output_bitwise": true,
+        "lse_bitwise": true,
+        "max_abs": 0.0,
+        "changed_elements": 0
+      },
+      "median_ms": {
+        "baseline": 107.59168497721355,
+        "candidate": 107.61898803710938,
+        "fi64": 56.67771911621094
+      },
+      "samples_ms": {
+        "baseline": [
+          107.20972696940105,
+          107.34011840820312,
+          107.35786946614583,
+          107.50941975911458,
+          107.47032674153645,
+          107.59168497721355,
+          107.65517171223958,
+          107.69886271158855,
+          107.76781209309895,
+          107.8422139485677,
+          107.86952718098958
+        ],
+        "candidate": [
+          107.24522908528645,
+          107.32100423177083,
+          107.42613728841145,
+          107.43414306640625,
+          107.5039571126302,
+          107.61898803710938,
+          107.71847534179688,
+          107.74118041992188,
+          107.7669169108073,
+          107.82447306315105,
+          107.85382080078125
+        ],
+        "fi64": [
+          55.82643127441406,
+          56.48554484049479,
+          56.52445983886719,
+          56.64324442545573,
+          56.67771911621094,
+          56.677032470703125,
+          56.79070027669271,
+          56.83370463053385,
+          56.90538533528646,
+          56.95931498209635,
+          56.967508951822914
+        ]
+      },
+      "speedup": 0.9997462988605095,
+      "fi_over_candidate": 0.5266516638928739
+    }
+  ],
+  "invalid_reason": "INVALID: copied wrappers registered the same torch.library custom_op name as production, so the last imported implementation replaced both providers. Rerun with distinct operator namespaces."
+}

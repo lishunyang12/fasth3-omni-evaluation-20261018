@@ -1,0 +1,56 @@
+{
+  "resident_hsdp": [
+    {
+      "name": "fi-124-repeat0",
+      "e2e_seconds": 41.035422605928034,
+      "first_step_from_display_s": 4.39,
+      "whole_loop_from_display_s": 35.2,
+      "later_seven_step_mean_from_display_s": 4.401428571428572
+    },
+    {
+      "name": "fi-124-repeat1",
+      "e2e_seconds": 41.0576718589291,
+      "first_step_from_display_s": 4.42,
+      "whole_loop_from_display_s": 35.28,
+      "later_seven_step_mean_from_display_s": 4.408571428571428
+    },
+    {
+      "name": "fi-124-repeat2",
+      "e2e_seconds": 41.07543084817007,
+      "first_step_from_display_s": 4.42,
+      "whole_loop_from_display_s": 35.28,
+      "later_seven_step_mean_from_display_s": 4.408571428571428
+    }
+  ],
+  "staged_no_hsdp": [
+    {
+      "name": "fi-124-repeat0",
+      "e2e_seconds": 43.44535241601989,
+      "first_step_from_display_s": 6.6,
+      "whole_loop_from_display_s": 32.32,
+      "later_seven_step_mean_from_display_s": 3.674285714285714
+    },
+    {
+      "name": "fi-124-repeat1",
+      "e2e_seconds": 43.34524540184066,
+      "first_step_from_display_s": 6.58,
+      "whole_loop_from_display_s": 32.48,
+      "later_seven_step_mean_from_display_s": 3.6999999999999997
+    },
+    {
+      "name": "fi-124-repeat2",
+      "e2e_seconds": 43.38620960013941,
+      "first_step_from_display_s": 6.61,
+      "whole_loop_from_display_s": 32.56,
+      "later_seven_step_mean_from_display_s": 3.7071428571428577
+    }
+  ],
+  "derived": {
+    "measured_e2e_staged_off_minus_resident_on_seconds": 2.3285377412103117,
+    "measured_e2e_slowdown_percent": 5.671382803221237,
+    "approximate_eight_step_gap_seconds": 5.668571428571429,
+    "approximate_no_hsdp_resident_counterfactual_seconds": 35.38910043035767,
+    "approximate_staging_penalty_seconds": 7.997109169781737
+  },
+  "limitations": "Phase estimates are reconstructed from rounded tqdm wall-clock displays. They exclude the staged arm first-step load via later-seven-step means. They are not synchronized CUDA stage measurements or a measured all-resident no-HSDP request. Residency configurations differ, and residual slowdown has not been attributed to individual resources."
+}

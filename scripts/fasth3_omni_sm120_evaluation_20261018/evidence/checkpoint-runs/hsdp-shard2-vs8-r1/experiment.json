@@ -1,0 +1,15 @@
+{
+  "purpose": "Resident HSDP2 (replicate=4) versus HSDP8 (replicate=1), USP8 fixed",
+  "qualification": "All 400 DiT block input/output boundaries and VSA route masks on all 8 ranks; QKV at steps 0,3,7 / layers 0,25,49; final video/audio latents; full FP32 video chunks before quantization and FP32 audio waveform. SHA256 over original tensor bytes.",
+  "timing": "Three normal requests per arm; separate CUDA event request with all 408 FSDP groups and 8 entire model calls. Startup, warmup, qualification and profile requests excluded from timing medians.",
+  "source_changes": "No production Python edits; runtime wrappers live only in framework-validation.",
+  "harness_sha256": {
+    "run_checkpoint_hsdp_shards.py": "901dc5fe17bf32968899a947be02cba7cdf3150138613a13319dc351ecb3367d",
+    "hsdp_shard_hooks.py": "95b885985f0d330465f35a87220cacf763ae24eb9cac91a1f039038637bedf02",
+    "hsdp_shard_ab.py": "2ba365da821e43912728e189725825e3185bb2f05e6bbd80911cb096c9e8fb17",
+    "hsdp-shard-cases.json": "584add2544cade81440649413a41502fe92d58ad9b290fd034801f50ad52c1af",
+    "checkpoint_hooks.py": "85e2742a46e36239279af48811bce914ef1b0f454d642c3a2da5e78b7cfb9622",
+    "hsdp_probe_hooks.py": "8a671fa11e853ee1e41cfbcf9c6361d369359b2acd39551671fc136f7a31c4f9",
+    "run_flashinfer.py": "e35c698b1e80cc3e1008c439c7fa82af968ff3e9cf161c0ecd7ed48b4f79d6a4"
+  }
+}

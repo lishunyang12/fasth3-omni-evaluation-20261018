@@ -1,0 +1,60 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="FastH3 Omni SM120: FI/USP8 固定合同下的 HSDP 延迟、通信、显存、一致性与历史评测档案。"><title>Actual FastH3 Omni 124-frame attention: NCU diagnosis (2026-10-18)</title><link rel="stylesheet" href="../style.css"></head><body><header><a href="../index.html#archive">← 返回评测汇总</a><p class="eyebrow">历史阶段记录 / 适用范围见正文</p><h1 style="font-size:32px">Actual FastH3 Omni 124-frame attention: NCU diagnosis (2026-10-18)</h1><p><code>profile/checkpoint-124-native128/REPORT.txt</code></p><a class="button" href="../reports/profile/checkpoint-124-native128/REPORT.txt" download>下载报告原文</a></header><main><div class="note">该文件保留实验当时的结论。局部 kernel、旧 provider、旧并行度和历史精度合同不能直接计入当前 FI/USP8 的加速。HSDP2 已完成的新结果见汇总首页；原文中的“尚未实测”可能是当时状态。原文路径指本地实验目录，可在证据索引中查找已发布文件。</div><section><pre>Actual FastH3 Omni 124-frame attention: NCU diagnosis (2026-10-18)
+
+Captured input: hsdp4-smoke/native-smoke-capture/activations/rank0-step0-layer25.pt.
+The original hook counted two dense text-refiner calls: this is DiT block 23.
+BF16 Q/K/V and P, FP32 accumulation, head dim 128, 14 heads/rank.
+52158 real tokens; 14862 dense prefix tokens; 37296 target video tokens.
+479 logical128 blocks, 61312 physical token positions; 480 transport blocks.
+1579214 selected native edges; 5844264 nonempty physical64 edges for FI.
+No changes to the trained tile128 selection, video-region budget, or learned gate.
+
+Six analysis dimensions:
+1. Occupancy/resource use: native239 registers/thread, 99456 shared bytes,
+   256 threads/CTA; FI254 registers, 50304 shared bytes,128 threads/CTA.
+   Active-cycle occupancy16.66%/16.63%. Measured local load/store spills0/0.
+2. Balance: native6706 CTAs (60.96 waves), FI13412 CTAs (60.96 waves).
+   SM busy99.256%/99.692%; max-active/mean1.00876/1.00363. This is not the
+   earlier synthetic H1 case with96 CTAs and13.8% SM busy. Split2/4/8 loses
+   on all eight captured masks. An isolated eight-way scheduler sweep gives
+   at most about0.5% improvement on its tuning tensor; it is not promoted
+   without holdout evidence. Original invalid sweeps are explicitly marked.
+3. Source stalls: with CUTE_DSL_LINEINFO=1, source-lines.ncu-rep resolves106
+   native source locations. QK MMA line768:756879 math_pipe_throttle samples;
+   PV MMA line795:735577. These are sampled stalls, not wall-time fractions.
+4. Tensor work: native13.247407194112 TFLOP, FI12.256309936128 TFLOP.
+   Native executes1.08086x the work because it also computes padded portions
+   of partial128 KV blocks; FI skips empty64 halves. Native BF16 dense SoL
+   86.9298%, FI84.6297%. For unchanged executed work and clocks, 1/.869298
+   =1.150x is the compute-only speedup ceiling, not an achievable promise.
+5. Timeline: PM has sustained tensor/math activity with a short tail. The
+   high per-SM busy rate and low max/mean agree with the sampled timeline.
+6. Memory: native TMA reads103.715 GB versus FI191.725 GB. These are TMA
+   request bytes, NOT device-memory bytes. L2 hit97.740%/99.548%; L2 throughput
+   27.931%/54.381%; DRAM throughput2.521%/.969%. Actual DRAM reads are
+   native2.131 GB versus FI0.650 GB (dram__bytes_op_read.sum); writes are
+   .216/.205 GB. Native has LESS TMA traffic but MORE DRAM traffic in this
+   capture, because these counters measure different stages of the hierarchy.
+   Neither is the limiting resource here; tensor arithmetic dominates.
+
+Timing scope:
+NCU cold-replay kernel durations: native77.929ms, FI74.008ms, at about1.737GHz.
+These exclude metadata and layout adaptation; FI&#x27;s isolated kernel is faster.
+The hot, metadata-inclusive adapters on eight actual tensors show FI/native
+ratios1.0161–1.0269. Do not conflate these two scopes or use NCU timings as
+full-model latency. Full-request generation is measured separately.
+
+Correctness limits:
+FP32 oracle:1212 query rows per capture, all KV columns, TF32 disabled.
+Strict atol=.01/rtol=.01/relativeL2&lt;=.005 retained. Native1 passes2/8 captures,
+FI3/8; all relativeL2 values about.0014–.0017, with no nonfinite outputs.
+Most late-layer failures also occur in FI. FP64 worst-row checks confirm
+FP32 reference error is far smaller; positive/negative PV cancellation can
+amplify BF16 probability rounding. The cancellation scale is diagnostic, not
+an altered pass threshold. Full-model FI/native parity remains a separate gate.
+
+Artifacts:
+reports/full.ncu-rep: full + PM + hierarchical tensor roofline.
+reports/source-lines.ncu-rep: source counters with CuTe line info.
+analysis/metrics.json, raw_*.json, timeline.txt, source-lines-stalls-*.txt.
+framework-validation/actual-core-all-screen.json, actual-precision-diagnosis.json.
+</pre></section></main></body></html>

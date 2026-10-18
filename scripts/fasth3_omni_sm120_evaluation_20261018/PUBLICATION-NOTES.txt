@@ -1,0 +1,7 @@
+FastH3 Omni SM120 evaluation archive, 2026-10-18.
+Open index.html in a browser, or serve this directory with a static HTTP server.
+All evaluation report documents from this experiment directory are catalogued in report-catalog.json.
+The ZIP excludes assets/output.mp4; the matching video is available on the live site.
+Large profiler binaries, checkpoints, tensor dumps and private session transcripts are not included.
+Local absolute paths are replaced by placeholders; manifest.json maps original and published SHA256.
+The historical reports preserve stage-specific claims. The current HSDP2 conclusion is limited to FI/USP8, 124 frames, seed43.

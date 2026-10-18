@@ -1,0 +1,24 @@
+{
+  "video": {
+    "equal": true,
+    "shape": [
+      1,
+      24,
+      37,
+      48,
+      84
+    ],
+    "dtype": "torch.float32",
+    "max_abs": 0.0
+  },
+  "audio": {
+    "equal": true,
+    "shape": [
+      2,
+      32,
+      207
+    ],
+    "dtype": "torch.float32",
+    "max_abs": 0.0
+  }
+}

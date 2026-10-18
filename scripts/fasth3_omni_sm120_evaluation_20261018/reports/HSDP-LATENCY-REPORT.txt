@@ -1,0 +1,54 @@
+HSDP latency evaluation — current FI / TP1 / USP8
+
+Latest completed result (2026-10-18 17:08 Asia/Shanghai): resident HSDP2/USP8 versus HSDP8/USP8 passed the fixed-request qualification. Normal medians 39.642830790 s versus 41.063812475 s: 1.420981685 s lower latency (3.4604%). Peak reserved 59.642578125 GiB versus 35.150390625 GiB per rank. 13,048 tensor-record pairs (metadata and full-byte SHA256) match, final latents torch.equal, all non-warmup MP4 hashes match. Only mesh shard/replicate sizes differ. Production defaults unchanged. See HSDP-SHARD2-REPORT.txt and checkpoint-runs/hsdp-shard2-vs8-r1/summary.json. This supersedes the historical HSDP2-unmeasured statements below. HSDP4/USP8 and root retention remain unmeasured.
+
+The following records preserve the earlier experiment sequence and its limitations.
+
+Configuration: FastVideo-FastH3-Omni-8-Step-V1 revision 88d512c5e7cc38dda499fbb65688ce58611f9c80; ref2va; 1344x768; 124 frames; 24 fps; seed 43; 8 PDD forwards; BF16 DiT; native VAE; TP1 / USP8 / TE-TP8 / VAE8. No production source changes.
+
+Completed experiment 1: direct resident HSDP-off feasibility.
+Run: checkpoint-runs/hsdp-latency-ab-r1/off.log
+Outcome: OOM while constructing the text encoder, before model-ready or any request. Device 0 reported 71.12 GiB total, 12.50 MiB free, 71.10 GiB process usage. This run does not yield a no-HSDP latency.
+
+Completed experiment 2: resident HSDP8 baseline and compute-stream event timing.
+Run: checkpoint-runs/hsdp-latency-profile-r1
+Steady request seconds: [41.035422605928034, 41.0576718589291, 41.07543084817007]
+Steady median: 41.057671859 s.
+Two profiled requests: [41.06697275210172, 41.08896477892995] s.
+All 5 steady request MP4s are byte-identical, SHA256 648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d.
+Warmup (excluded): 50.108682925 s; startup (excluded): 1053.789 s, affected by slow checkpoint reads.
+Each rank/request has all 408 expected pre-forward groups and 408 post-forward groups: 8 root + 400 main block calls.
+Rank 0 mean compute-stream pre-forward interval: 1.953859538 s (4.7588% of median full request).
+  Root groups: 0.485572496 s.
+  Main block groups: 1.468287041 s.
+Across all ranks and both requests, summed pre-forward intervals range 1.943381543–1.956819806 s.
+Rank 0 post-forward GPU intervals total approximately 0.000315 s/request; CPU post-forward hook time approximately 0.0177 s/request. CPU/GPU totals overlap and must not be added.
+Peak rank 0 allocated ~31.7425 GiB, reserved 35.1504 GiB.
+
+Interpretation: event timing brackets FSDPParamGroup.pre_forward on the compute stream. It measures exposed weight-ready wait plus copy-out and related submission overhead; no per-layer or per-step synchronize was inserted. Events are read after denoising. This is NOT an end-to-end HSDP-off/on delta. Subtracting 1.953860 s from 41.057672 s yields 39.103812 s only as a counterfactual reference, assuming other compute, communication, and residency costs unchanged. Removing overlapping collectives could also change contention.
+
+Weight accounting from safetensors headers, BF16, 8 ranks:
+Sharded weights: 70007223296 B = 65.199307442 GiB.
+Main blocks: 63.712430000 GiB; root: 1.486877441 GiB.
+Weight storage saving versus replicated weights: 57.049394011 GiB/rank (not a measured peak-memory delta).
+Per 8-forward request, each rank receives 456.395152092 GiB; sends roughly the same. TX+RX is 912.790304184 GiB/rank. Delivered aggregate across ranks is 3.565587126 TiB, counted once per sender/receiver pair.
+These are payload counts, excluding protocol overhead. Do not convert these bytes to latency using an assumed bandwidth and call the result measured.
+
+Completed experiment 3: identical module CPU offload in HSDP-off and HSDP-on arms, same precision and workload. Off completed; on FAILED before the first request could finish. There is no matched-offload HSDP on/off latency delta. See checkpoint-runs/hsdp-latency-staged-r1/status.json and summary.json.
+
+Update: no-HSDP staged-residency arm completed 3 steady requests.
+Steady seconds: 43.445352416, 43.345245402, 43.386209600; median 43.386209600.
+Versus resident HSDP baseline: +2.328538 s (+5.6714%). The three steady MP4s and qualification MP4 match the resident baseline byte-for-byte. Qualification latent tensors were saved, but no same-config HSDP-on counterpart was produced, so latent equality was NOT checked. MP4 equality does not qualify all intermediate tensors, routing, or full FP32 VAE outputs.
+IMPORTANT: the 1.95 s pre-forward interval is not the total HSDP cost. Progress-log reconstruction gives approximately 4.409 s/step with resident HSDP versus 3.700 s/step for steps 2–8 without HSDP. An 8-step difference of roughly 5.67 s is only a phase estimate, not a full-request all-resident A/B. It suggests costs beyond exposed readiness waits, potentially including overlapping communication contention, and needs precise phase timing to establish causes.
+A simple extrapolation gives ~35.39 s for a hypothetical fully resident no-HSDP request; this was NOT measured and the current resident load OOMs. The earlier 39.10 s subtraction-only figure must not be treated as the expected no-HSDP result.
+Phase-estimate evidence: checkpoint-runs/hsdp-latency-staged-r1/phase-estimate-from-progress.json.
+
+Analysis: smaller shard groups are independent of USP8.
+For shard size n, BF16 weight storage is W/n per rank and per-request receive payload is 8*(n-1)/n*W. HSDP8: 8.149913 GiB weights and 456.395152 GiB RX; HSDP4 with replicate=2: 16.299827 GiB and 391.195845 GiB; HSDP2 with replicate=4: 32.599654 GiB and 260.797230 GiB; no sharding: 65.199307 GiB and zero HSDP RX. USP activation communication is unchanged.
+The HSDP2 mesh uses adjacent pairs (0,1), (2,3), (4,5), (6,7), all PXB according to nvidia-smi topo -m. HSDP4 groups remain inside a NUMA domain; HSDP8 spans NUMA domains. Physical topology does not prove which transport NCCL selects.
+Adding only the extra weight storage to the observed HSDP8 reserved peak gives approximately 59.60 GiB for HSDP2 and 43.30 GiB for HSDP4. These are rough capacity estimates, not measured peaks or guarantees. Startup and buffer lifetimes also matter. Neither alternative has been benchmarked. See checkpoint-runs/hsdp-latency-staged-r1/shard-size-tradeoff.json.
+Root-only retention is another unmeasured candidate: root weights are 1.486877 GiB (~2.28% of sharded weights), yet root pre-forward intervals total 0.485572 s (~24.85% of exposed waits). Retaining the unsharded root could avoid repeated root aggregation at additional memory cost; it does not imply a measured 0.49 s end-to-end gain. No production changes made.
+
+Final staged-on failure details (2026-10-18 16:44 Asia/Shanghai): model initialization completed in 593.842 s. The first warmup request failed while entering the text encoder; its sequential offload hook tried to move the HSDP DiT to CPU. sequential_backend.py:89 (_move_params, p.data access) raised: Attempted to set the storage of a tensor on device "cuda:4" to a storage on different device "cpu". This is no longer allowed; the devices must match. The same error appeared on other ranks. This is a runtime compatibility failure, not a latency result. No fix was applied to production code as part of this analysis.
+Both staged arms exited; GPU process lists drained to empty. The controller verified model Python source unchanged in both arms (1623 files, SHA256 860951246955c51bc92c0c0fda5c650953585a147a9911a013dc8d41f56cdc48).
+Decision supported by current evidence: retain the measured resident HSDP8 configuration over the measured no-HSDP whole-module CPU-offload configuration for this 124-frame request. For a configuration where all required components and activations really fit without additional transfers, the rounded denoising logs suggest a potentially meaningful 5–6 s reduction, but no all-resident no-HSDP full-request measurement exists. HSDP2/4 and root retention remain unmeasured candidates, not accepted speedups.

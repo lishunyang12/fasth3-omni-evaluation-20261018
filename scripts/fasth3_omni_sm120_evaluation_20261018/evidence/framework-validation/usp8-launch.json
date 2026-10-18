@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python3",
+    "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_flashinfer.py",
+    "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+    "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_checkpoint.py",
+    "--run-dir",
+    "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/flashinfer-usp8-baseline",
+    "--cases",
+    "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/cases-flashinfer-usp8.json",
+    "--num-gpus",
+    "8",
+    "--tp",
+    "1",
+    "--usp",
+    "8",
+    "--te-tp",
+    "8",
+    "--hsdp",
+    "--no-profile"
+  ],
+  "started": 1792306690.4108396,
+  "dependency": "Final4GPU validation completed; nvidia-smi compute processes empty"
+}

@@ -1,0 +1,720 @@
+{
+  "phase": "boundary",
+  "rounds": 21,
+  "order_seed": 91009,
+  "gpu": "_CudaDeviceProperties(name='NVIDIA Graphics Device', major=12, minor=0, total_memory=72830MB, multi_processor_count=110, uuid=c2ac6efb-f30a-c323-6d38-83908adfb14f, pci_bus_id=137, pci_device_id=0, pci_domain_id=0, L2_cache_size=96MB)",
+  "cases": [
+    {
+      "case_id": 0,
+      "case": {
+        "nq": 3,
+        "nk": 17,
+        "heads": 3,
+        "batch": 2,
+        "density": 0.1,
+        "pattern": "skew",
+        "data": "normal",
+        "ragged": true,
+        "seed": 67057
+      },
+      "validation": {
+        "query_rows_per_head": 384,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0006964504718780518,
+            "rmse": 6.952795956749469e-05,
+            "relative_l2": 0.0022288195087535796,
+            "cosine": 0.9999974370002747,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 1536
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0006964504718780518,
+            "rmse": 6.952795956749469e-05,
+            "relative_l2": 0.0022288195087535796,
+            "cosine": 0.9999974370002747,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 1536
+          },
+          "fi64_kernel": {
+            "max_abs": 0.0006964504718780518,
+            "rmse": 6.923988985363394e-05,
+            "relative_l2": 0.0022195849417263065,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 1536
+          },
+          "fi64_with_metadata": {
+            "max_abs": 0.0006964504718780518,
+            "rmse": 6.923988985363394e-05,
+            "relative_l2": 0.0022195849417263065,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 1536
+          },
+          "c4_kernel": {
+            "max_abs": 0.0006964504718780518,
+            "rmse": 6.952795956749469e-05,
+            "relative_l2": 0.0022288195087535796,
+            "cosine": 0.9999974370002747,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 1536
+          },
+          "c4_with_metadata": {
+            "max_abs": 0.0006964504718780518,
+            "rmse": 6.952795956749469e-05,
+            "relative_l2": 0.0022288195087535796,
+            "cosine": 0.9999974370002747,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 1536
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0007077455520629883,
+          "rmse": 6.943838525330648e-05,
+          "relative_l2": 0.0022259480276790897,
+          "cosine": 0.9999975562095642,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 1536
+        },
+        "fi_fused_adapter_exact": true
+      },
+      "all_output_vs_c4_max_abs": 0.0
+    },
+    {
+      "case_id": 1,
+      "case": {
+        "nq": 4,
+        "nk": 17,
+        "heads": 3,
+        "batch": 2,
+        "density": 0.1,
+        "pattern": "skew",
+        "data": "normal",
+        "ragged": true,
+        "seed": 67057
+      },
+      "validation": {
+        "query_rows_per_head": 512,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.000829845666885376,
+            "rmse": 5.994388266117312e-05,
+            "relative_l2": 0.0022199723662265237,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 2304
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.000829845666885376,
+            "rmse": 5.994388266117312e-05,
+            "relative_l2": 0.0022199723662265237,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 2304
+          },
+          "fi64_kernel": {
+            "max_abs": 0.000829845666885376,
+            "rmse": 5.978887202218175e-05,
+            "relative_l2": 0.002214231581671039,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 2304
+          },
+          "fi64_with_metadata": {
+            "max_abs": 0.000829845666885376,
+            "rmse": 5.978887202218175e-05,
+            "relative_l2": 0.002214231581671039,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 2304
+          },
+          "c4_kernel": {
+            "max_abs": 0.000829845666885376,
+            "rmse": 5.994388266117312e-05,
+            "relative_l2": 0.0022199723662265237,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 2304
+          },
+          "c4_with_metadata": {
+            "max_abs": 0.000829845666885376,
+            "rmse": 5.994388266117312e-05,
+            "relative_l2": 0.0022199723662265237,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 2304
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.000829845666885376,
+          "rmse": 5.992418300593272e-05,
+          "relative_l2": 0.0022192428049807493,
+          "cosine": 0.9999974966049194,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 2304
+        },
+        "fi_fused_adapter_exact": true
+      },
+      "all_output_vs_c4_max_abs": 0.0
+    },
+    {
+      "case_id": 2,
+      "case": {
+        "nq": 5,
+        "nk": 17,
+        "heads": 3,
+        "batch": 2,
+        "density": 0.1,
+        "pattern": "skew",
+        "data": "normal",
+        "ragged": true,
+        "seed": 67057
+      },
+      "validation": {
+        "query_rows_per_head": 640,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0009801089763641357,
+            "rmse": 5.3594252676703036e-05,
+            "relative_l2": 0.0022222538257267205,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3072
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0009801089763641357,
+            "rmse": 5.3594252676703036e-05,
+            "relative_l2": 0.0022222538257267205,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3072
+          },
+          "fi64_kernel": {
+            "max_abs": 0.0009801089763641357,
+            "rmse": 5.339365452528e-05,
+            "relative_l2": 0.0022139360935612075,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3072
+          },
+          "fi64_with_metadata": {
+            "max_abs": 0.0009801089763641357,
+            "rmse": 5.339365452528e-05,
+            "relative_l2": 0.0022139360935612075,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3072
+          },
+          "c4_kernel": {
+            "max_abs": 0.0009801089763641357,
+            "rmse": 5.3594252676703036e-05,
+            "relative_l2": 0.0022222538257267205,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3072
+          },
+          "c4_with_metadata": {
+            "max_abs": 0.0009801089763641357,
+            "rmse": 5.3594252676703036e-05,
+            "relative_l2": 0.0022222538257267205,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3072
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0009730160236358643,
+          "rmse": 5.34755781700369e-05,
+          "relative_l2": 0.002217333073708693,
+          "cosine": 0.9999974370002747,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 3072
+        },
+        "fi_fused_adapter_exact": true
+      },
+      "all_output_vs_c4_max_abs": 0.0
+    },
+    {
+      "case_id": 3,
+      "case": {
+        "nq": 131,
+        "nk": 17,
+        "heads": 3,
+        "batch": 2,
+        "density": 0.1,
+        "pattern": "skew",
+        "data": "normal",
+        "ragged": true,
+        "seed": 67057
+      },
+      "validation": {
+        "query_rows_per_head": 1031,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0008479058742523193,
+            "rmse": 4.5768854761263356e-05,
+            "relative_l2": 0.0022346188572481985,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5286
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0008479058742523193,
+            "rmse": 4.5768854761263356e-05,
+            "relative_l2": 0.0022346188572481985,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5286
+          },
+          "fi64_kernel": {
+            "max_abs": 0.0008479058742523193,
+            "rmse": 4.56261113868095e-05,
+            "relative_l2": 0.0022276493873665706,
+            "cosine": 0.9999974370002747,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5286
+          },
+          "fi64_with_metadata": {
+            "max_abs": 0.0008479058742523193,
+            "rmse": 4.56261113868095e-05,
+            "relative_l2": 0.0022276493873665706,
+            "cosine": 0.9999974370002747,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5286
+          },
+          "c4_kernel": {
+            "max_abs": 0.0008479058742523193,
+            "rmse": 4.5768854761263356e-05,
+            "relative_l2": 0.0022346188572481985,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5286
+          },
+          "c4_with_metadata": {
+            "max_abs": 0.0008479058742523193,
+            "rmse": 4.5768854761263356e-05,
+            "relative_l2": 0.0022346188572481985,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5286
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0008479058742523193,
+          "rmse": 4.546299169305712e-05,
+          "relative_l2": 0.002219685505338006,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 5286
+        },
+        "fi_fused_adapter_exact": true
+      },
+      "all_output_vs_c4_max_abs": 0.0
+    },
+    {
+      "case_id": 4,
+      "case": {
+        "nq": 132,
+        "nk": 17,
+        "heads": 3,
+        "batch": 2,
+        "density": 0.1,
+        "pattern": "skew",
+        "data": "normal",
+        "ragged": true,
+        "seed": 67057
+      },
+      "validation": {
+        "query_rows_per_head": 1036,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0009473562240600586,
+            "rmse": 4.556906424113549e-05,
+            "relative_l2": 0.0022376040340624285,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5304
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0009473562240600586,
+            "rmse": 4.556906424113549e-05,
+            "relative_l2": 0.0022376040340624285,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5304
+          },
+          "fi64_kernel": {
+            "max_abs": 0.0009473562240600586,
+            "rmse": 4.551310485112481e-05,
+            "relative_l2": 0.002234856233949681,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5304
+          },
+          "fi64_with_metadata": {
+            "max_abs": 0.0009473562240600586,
+            "rmse": 4.551310485112481e-05,
+            "relative_l2": 0.002234856233949681,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5304
+          },
+          "c4_kernel": {
+            "max_abs": 0.0009473562240600586,
+            "rmse": 4.556906424113549e-05,
+            "relative_l2": 0.0022376040340624285,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5304
+          },
+          "c4_with_metadata": {
+            "max_abs": 0.0009473562240600586,
+            "rmse": 4.556906424113549e-05,
+            "relative_l2": 0.0022376040340624285,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 5304
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0010057687759399414,
+          "rmse": 4.544296461972408e-05,
+          "relative_l2": 0.002231411999089349,
+          "cosine": 0.9999974966049194,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 5304
+        },
+        "fi_fused_adapter_exact": true
+      },
+      "all_output_vs_c4_max_abs": 0.0
+    },
+    {
+      "case_id": 5,
+      "case": {
+        "nq": 133,
+        "nk": 17,
+        "heads": 3,
+        "batch": 2,
+        "density": 0.1,
+        "pattern": "skew",
+        "data": "normal",
+        "ragged": true,
+        "seed": 67057
+      },
+      "validation": {
+        "query_rows_per_head": 1041,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0007006973028182983,
+            "rmse": 4.623081622412428e-05,
+            "relative_l2": 0.0022374287615496806,
+            "cosine": 0.999997615814209,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 5304
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0007006973028182983,
+            "rmse": 4.623081622412428e-05,
+            "relative_l2": 0.0022374287615496806,
+            "cosine": 0.999997615814209,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 5304
+          },
+          "fi64_kernel": {
+            "max_abs": 0.0007573962211608887,
+            "rmse": 4.616194564732723e-05,
+            "relative_l2": 0.002234095689796947,
+            "cosine": 0.9999974370002747,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 5304
+          },
+          "fi64_with_metadata": {
+            "max_abs": 0.0007573962211608887,
+            "rmse": 4.616194564732723e-05,
+            "relative_l2": 0.002234095689796947,
+            "cosine": 0.9999974370002747,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 5304
+          },
+          "c4_kernel": {
+            "max_abs": 0.0007006973028182983,
+            "rmse": 4.623081622412428e-05,
+            "relative_l2": 0.0022374287615496806,
+            "cosine": 0.999997615814209,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 5304
+          },
+          "c4_with_metadata": {
+            "max_abs": 0.0007006973028182983,
+            "rmse": 4.623081622412428e-05,
+            "relative_l2": 0.0022374287615496806,
+            "cosine": 0.999997615814209,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 5304
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0007373690605163574,
+          "rmse": 4.610322503140196e-05,
+          "relative_l2": 0.0022312536059279353,
+          "cosine": 0.9999976754188538,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 5304
+        },
+        "fi_fused_adapter_exact": true
+      },
+      "all_output_vs_c4_max_abs": 0.0
+    },
+    {
+      "case_id": 6,
+      "case": {
+        "nq": 259,
+        "nk": 17,
+        "heads": 3,
+        "batch": 2,
+        "density": 0.1,
+        "pattern": "skew",
+        "data": "normal",
+        "ragged": true,
+        "seed": 67057
+      },
+      "validation": {
+        "query_rows_per_head": 1800,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.00102996826171875,
+            "rmse": 4.5924305595690385e-05,
+            "relative_l2": 0.002235080078059155,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9210
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.00102996826171875,
+            "rmse": 4.5924305595690385e-05,
+            "relative_l2": 0.002235080078059155,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9210
+          },
+          "fi64_kernel": {
+            "max_abs": 0.00102996826171875,
+            "rmse": 4.5822507672710344e-05,
+            "relative_l2": 0.0022301256793631125,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9210
+          },
+          "fi64_with_metadata": {
+            "max_abs": 0.00102996826171875,
+            "rmse": 4.5822507672710344e-05,
+            "relative_l2": 0.0022301256793631125,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9210
+          },
+          "c4_kernel": {
+            "max_abs": 0.00102996826171875,
+            "rmse": 4.5924305595690385e-05,
+            "relative_l2": 0.002235080078059155,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9210
+          },
+          "c4_with_metadata": {
+            "max_abs": 0.00102996826171875,
+            "rmse": 4.5924305595690385e-05,
+            "relative_l2": 0.002235080078059155,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9210
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.00102996826171875,
+          "rmse": 4.5864235289627686e-05,
+          "relative_l2": 0.0022321565371808748,
+          "cosine": 0.9999975562095642,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 9210
+        },
+        "fi_fused_adapter_exact": true
+      },
+      "all_output_vs_c4_max_abs": 0.0
+    },
+    {
+      "case_id": 7,
+      "case": {
+        "nq": 260,
+        "nk": 17,
+        "heads": 3,
+        "batch": 2,
+        "density": 0.1,
+        "pattern": "skew",
+        "data": "normal",
+        "ragged": true,
+        "seed": 67057
+      },
+      "validation": {
+        "query_rows_per_head": 1805,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.5533473894465715e-05,
+            "relative_l2": 0.002236569338153405,
+            "cosine": 0.9999973773956299,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9270
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.5533473894465715e-05,
+            "relative_l2": 0.002236569338153405,
+            "cosine": 0.9999973773956299,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9270
+          },
+          "fi64_kernel": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.540875306702219e-05,
+            "relative_l2": 0.0022304430406558454,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9270
+          },
+          "fi64_with_metadata": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.540875306702219e-05,
+            "relative_l2": 0.0022304430406558454,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9270
+          },
+          "c4_kernel": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.5533473894465715e-05,
+            "relative_l2": 0.002236569338153405,
+            "cosine": 0.9999973773956299,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9270
+          },
+          "c4_with_metadata": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.5533473894465715e-05,
+            "relative_l2": 0.002236569338153405,
+            "cosine": 0.9999973773956299,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9270
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.000910341739654541,
+          "rmse": 4.543572504189797e-05,
+          "relative_l2": 0.0022317679521494573,
+          "cosine": 0.9999974370002747,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 9270
+        },
+        "fi_fused_adapter_exact": true
+      },
+      "all_output_vs_c4_max_abs": 0.0
+    },
+    {
+      "case_id": 8,
+      "case": {
+        "nq": 261,
+        "nk": 17,
+        "heads": 3,
+        "batch": 2,
+        "density": 0.1,
+        "pattern": "skew",
+        "data": "normal",
+        "ragged": true,
+        "seed": 67057
+      },
+      "validation": {
+        "query_rows_per_head": 1812,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.566444840747863e-05,
+            "relative_l2": 0.0022295323878938475,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 9294
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.566444840747863e-05,
+            "relative_l2": 0.0022295323878938475,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 9294
+          },
+          "fi64_kernel": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.550921221380122e-05,
+            "relative_l2": 0.0022219530690501398,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9294
+          },
+          "fi64_with_metadata": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.550921221380122e-05,
+            "relative_l2": 0.0022219530690501398,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 9294
+          },
+          "c4_kernel": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.566444840747863e-05,
+            "relative_l2": 0.0022295323878938475,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 9294
+          },
+          "c4_with_metadata": {
+            "max_abs": 0.000910341739654541,
+            "rmse": 4.566444840747863e-05,
+            "relative_l2": 0.0022295323878938475,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 9294
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.000910341739654541,
+          "rmse": 4.556227577268146e-05,
+          "relative_l2": 0.0022245438028987673,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 9294
+        },
+        "fi_fused_adapter_exact": true
+      },
+      "all_output_vs_c4_max_abs": 0.0
+    }
+  ],
+  "failures": [],
+  "c5_source_manifest": {
+    "fastvideo-sm120-tile128/fastvideo-kernel/python/fastvideo_kernel/block_sparse_attn_sm120.py": "7f8efa73855d8b929f7cd6933ef8d0d14d0b62fdd45a2d260f756a9a99271276",
+    "fastvideo-sm120-tile128/fastvideo-kernel/python/fastvideo_kernel/sm120_block128/__init__.py": "6c6ec57de9f82ef42d82760f144a4571cb16b3cd6de33aaa7aa9fd65e8ab1fa1",
+    "fastvideo-sm120-tile128/fastvideo-kernel/python/fastvideo_kernel/sm120_block128/batched_static_scheduler.py": "fd75adb36d62a6361daf0e9e024810c2004b6ff8645a810a2eb23a3cbb14a0b5",
+    "fastvideo-sm120-tile128/fastvideo-kernel/python/fastvideo_kernel/sm120_block128/flash_fwd_sm120.py": "d13ac60c0716af5ee39f97cf0633fce39e52a350437271ffe0860ec99dcc1cd4",
+    "fastvideo-sm120-tile128/fastvideo-kernel/python/fastvideo_kernel/sm120_block128/kernel_utils.py": "c17d0a8665cf764b771084c61ed98ea46396fe50c79645bf51fa4695a5823e65",
+    "fastvideo-sm120-tile128/fastvideo-kernel/python/fastvideo_kernel/sm120_block128/layout_utils.py": "a8581fbb2258595f0248232e5d115d988e0668df30c994106dde51e7df265dc5",
+    "fastvideo-sm120-tile128/fastvideo-kernel/python/fastvideo_kernel/sm120_block128/nvvm_compat.py": "b24af6f59e7cb00b01cadbe56263a655797e27dc2cd15c9b5b0161da756be1aa"
+  }
+}

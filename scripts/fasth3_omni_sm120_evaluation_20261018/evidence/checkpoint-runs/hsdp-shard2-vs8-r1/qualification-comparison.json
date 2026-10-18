@@ -1,0 +1,139 @@
+{
+  "ranks": [
+    {
+      "rank": 0,
+      "tensors_compared": 1638,
+      "counts": {
+        "block_input": 400,
+        "route_mask": 400,
+        "route_sizes": 400,
+        "q": 9,
+        "k": 9,
+        "v": 9,
+        "block_output": 400,
+        "video_latent": 1,
+        "audio_latent": 1,
+        "audio_fp32": 1,
+        "video_fp32_chunk": 8
+      }
+    },
+    {
+      "rank": 1,
+      "tensors_compared": 1630,
+      "counts": {
+        "block_input": 400,
+        "route_mask": 400,
+        "route_sizes": 400,
+        "q": 9,
+        "k": 9,
+        "v": 9,
+        "block_output": 400,
+        "video_latent": 1,
+        "audio_latent": 1,
+        "audio_fp32": 1
+      }
+    },
+    {
+      "rank": 2,
+      "tensors_compared": 1630,
+      "counts": {
+        "block_input": 400,
+        "route_mask": 400,
+        "route_sizes": 400,
+        "q": 9,
+        "k": 9,
+        "v": 9,
+        "block_output": 400,
+        "video_latent": 1,
+        "audio_latent": 1,
+        "audio_fp32": 1
+      }
+    },
+    {
+      "rank": 3,
+      "tensors_compared": 1630,
+      "counts": {
+        "block_input": 400,
+        "route_mask": 400,
+        "route_sizes": 400,
+        "q": 9,
+        "k": 9,
+        "v": 9,
+        "block_output": 400,
+        "video_latent": 1,
+        "audio_latent": 1,
+        "audio_fp32": 1
+      }
+    },
+    {
+      "rank": 4,
+      "tensors_compared": 1630,
+      "counts": {
+        "block_input": 400,
+        "route_mask": 400,
+        "route_sizes": 400,
+        "q": 9,
+        "k": 9,
+        "v": 9,
+        "block_output": 400,
+        "video_latent": 1,
+        "audio_latent": 1,
+        "audio_fp32": 1
+      }
+    },
+    {
+      "rank": 5,
+      "tensors_compared": 1630,
+      "counts": {
+        "block_input": 400,
+        "route_mask": 400,
+        "route_sizes": 400,
+        "q": 9,
+        "k": 9,
+        "v": 9,
+        "block_output": 400,
+        "video_latent": 1,
+        "audio_latent": 1,
+        "audio_fp32": 1
+      }
+    },
+    {
+      "rank": 6,
+      "tensors_compared": 1630,
+      "counts": {
+        "block_input": 400,
+        "route_mask": 400,
+        "route_sizes": 400,
+        "q": 9,
+        "k": 9,
+        "v": 9,
+        "block_output": 400,
+        "video_latent": 1,
+        "audio_latent": 1,
+        "audio_fp32": 1
+      }
+    },
+    {
+      "rank": 7,
+      "tensors_compared": 1630,
+      "counts": {
+        "block_input": 400,
+        "route_mask": 400,
+        "route_sizes": 400,
+        "q": 9,
+        "k": 9,
+        "v": 9,
+        "block_output": 400,
+        "video_latent": 1,
+        "audio_latent": 1,
+        "audio_fp32": 1
+      }
+    }
+  ],
+  "mismatches": [],
+  "mp4_hashes": {
+    "hsdp2": "648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d",
+    "hsdp8": "648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d"
+  },
+  "passed": true
+}

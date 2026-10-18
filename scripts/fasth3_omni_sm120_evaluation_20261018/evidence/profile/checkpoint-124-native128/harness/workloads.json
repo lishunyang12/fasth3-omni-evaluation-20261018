@@ -1,0 +1,78 @@
+[
+  {
+    "provider": "native128",
+    "capture": "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp4-smoke/native-smoke-capture/activations/rank0-step0-layer25.pt",
+    "shape": [
+      1,
+      61312,
+      14,
+      128
+    ],
+    "selected_edges": 1579214,
+    "selected_edges64": 5844264,
+    "correctness": {
+      "max_abs": 0.27359771728515625,
+      "violations": 1,
+      "elements": 2171904,
+      "nonfinite": 0,
+      "max_bf16p_abs": 0.31275177001953125,
+      "worst": {
+        "batch": 0,
+        "row": 54143,
+        "head": 10,
+        "dim": 65,
+        "actual": -64.5,
+        "fp32": -64.77359771728516,
+        "bf16p": -64.7675552368164
+      },
+      "relative_l2": 0.0016817621880508007,
+      "bf16p_relative_l2": 0.0017714154601084445,
+      "query_rows_checked": 1212,
+      "thresholds": {
+        "atol": 0.01,
+        "rtol": 0.01,
+        "relative_l2": 0.005
+      },
+      "passed": false
+    },
+    "note": "Performance diagnosis only; strict correctness status retained from actual-tensor FP32 screening."
+  },
+  {
+    "provider": "fi64",
+    "capture": "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp4-smoke/native-smoke-capture/activations/rank0-step0-layer25.pt",
+    "shape": [
+      1,
+      61312,
+      14,
+      128
+    ],
+    "selected_edges": 1579214,
+    "selected_edges64": 5844264,
+    "correctness": {
+      "max_abs": 0.27359771728515625,
+      "violations": 0,
+      "elements": 2171904,
+      "nonfinite": 0,
+      "max_bf16p_abs": 0.31275177001953125,
+      "worst": {
+        "batch": 0,
+        "row": 54143,
+        "head": 10,
+        "dim": 65,
+        "actual": -64.5,
+        "fp32": -64.77359771728516,
+        "bf16p": -64.7675552368164
+      },
+      "relative_l2": 0.0016805569396939263,
+      "bf16p_relative_l2": 0.0017700799468457872,
+      "query_rows_checked": 1212,
+      "thresholds": {
+        "atol": 0.01,
+        "rtol": 0.01,
+        "relative_l2": 0.005
+      },
+      "passed": true
+    },
+    "note": "Performance diagnosis only; strict correctness status retained from actual-tensor FP32 screening."
+  }
+]

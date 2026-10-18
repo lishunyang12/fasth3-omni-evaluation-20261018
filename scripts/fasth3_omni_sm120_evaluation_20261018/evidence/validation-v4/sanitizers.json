@@ -1,0 +1,86 @@
+[
+  {
+    "tool": "memcheck",
+    "returncode": 0,
+    "command": [
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "memcheck",
+      "--report-api-errors",
+      "no",
+      "--error-exitcode",
+      "86",
+      "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+      "-m",
+      "pytest",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_split_kv_uneven_and_empty_partitions",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_graph_updates_all_inputs_and_metadata[8]",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_concurrent_graphs_keep_distinct_tensor_bindings[8]",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_preallocated_output_overwrites_nan_poison[8]",
+      "-q"
+    ]
+  },
+  {
+    "tool": "racecheck",
+    "returncode": 0,
+    "command": [
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "racecheck",
+      "--report-api-errors",
+      "no",
+      "--error-exitcode",
+      "86",
+      "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+      "-m",
+      "pytest",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_split_kv_uneven_and_empty_partitions",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_graph_updates_all_inputs_and_metadata[8]",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_concurrent_graphs_keep_distinct_tensor_bindings[8]",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_preallocated_output_overwrites_nan_poison[8]",
+      "-q"
+    ]
+  },
+  {
+    "tool": "synccheck",
+    "returncode": 0,
+    "command": [
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "synccheck",
+      "--report-api-errors",
+      "no",
+      "--error-exitcode",
+      "86",
+      "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+      "-m",
+      "pytest",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_split_kv_uneven_and_empty_partitions",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_graph_updates_all_inputs_and_metadata[8]",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_concurrent_graphs_keep_distinct_tensor_bindings[8]",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_preallocated_output_overwrites_nan_poison[8]",
+      "-q"
+    ]
+  },
+  {
+    "tool": "initcheck",
+    "returncode": 0,
+    "command": [
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "initcheck",
+      "--report-api-errors",
+      "no",
+      "--error-exitcode",
+      "86",
+      "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+      "-m",
+      "pytest",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_split_kv_uneven_and_empty_partitions",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_graph_updates_all_inputs_and_metadata[8]",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_concurrent_graphs_keep_distinct_tensor_bindings[8]",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py::test_preallocated_output_overwrites_nan_poison[8]",
+      "-q"
+    ]
+  }
+]

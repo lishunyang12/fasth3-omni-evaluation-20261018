@@ -1,0 +1,19 @@
+{
+  "purpose": "Measure compute-stream FSDP weight-ready waits in the existing resident FI/USP8 baseline.",
+  "baseline_cases": [
+    "fi-124-repeat0",
+    "fi-124-repeat1",
+    "fi-124-repeat2"
+  ],
+  "profile_cases": [
+    "fi-124-profile0",
+    "fi-124-profile1"
+  ],
+  "excluded": [
+    "model loading",
+    "fi-124-warmup"
+  ],
+  "profile_measurement": "pre_forward CUDA events include exposed all-gather waits, weight copy-out and related host submission delay; no per-layer or per-step synchronization. Not a complete no-HSDP counterfactual.",
+  "source_changes": "None in vllm_omni; opt-in hooks live in framework-validation.",
+  "hardware_topology": "8 GPUs, 71.7 GiB reported by nvidia-smi each; PCIe paths within NUMA, SYS across two NUMA nodes, no NVLink shown."
+}

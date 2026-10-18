@@ -1,0 +1,59 @@
+{
+  "configuration": {
+    "num_gpus": 8,
+    "tp": 1,
+    "usp": 8,
+    "text_encoder_tp": 8,
+    "vae": 8,
+    "hsdp": 8
+  },
+  "provider": "FlashInfer BF16 block64 compute; logical128 routing",
+  "model_contract": "Pinned Omni8step checkpoint; BF16 DiT; full native VAE; one reference image; seed43",
+  "warm124_seconds": [
+    41.03987583471462,
+    41.05614105705172,
+    41.02795175369829
+  ],
+  "warm124_median_seconds": 41.03987583471462,
+  "warm124_reported_peak_memory_mib": 35994.0,
+  "frames345_seconds": 95.92781874537468,
+  "frames345_reported_peak_memory_mib": 39872.0,
+  "historical_four_gpu_tp2_usp2_warm124_seconds": 70.19586990913376,
+  "warm124_latency_reduction_percent": 41.53519874055356,
+  "warm124_speedup": 1.7104308549042149,
+  "comparison_scope": "Different GPU counts, separately measured cohorts; 345 is one long-shape request",
+  "full_media_decode": "All five passed FFmpeg decode and exact frame/dimension/audio metadata assertions",
+  "repeat_hashes": [
+    {
+      "case": "fi-124-warmup",
+      "mp4_sha256": "42c65d6bb6cc67f7f7b8186b0a5d5677dd044ebd335dc2112a037fdb5907a164",
+      "decoded_rgb24_sha256": "41c3078ba576c8073f04348759efb090b21068255eec131c92797e5c2e093cde",
+      "decoded_pcm_f32le_sha256": "1ab2c05cb6dfa852295ecdfa8e7a623f4b675b75ce566c283a9eeac8511ca91e"
+    },
+    {
+      "case": "fi-124-repeat0",
+      "mp4_sha256": "648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d",
+      "decoded_rgb24_sha256": "41c3078ba576c8073f04348759efb090b21068255eec131c92797e5c2e093cde",
+      "decoded_pcm_f32le_sha256": "a52828eb90632658d9c0c534b7b822bae9942aff4b5b13d371ad7ecf1b9ee933"
+    },
+    {
+      "case": "fi-124-repeat1",
+      "mp4_sha256": "648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d",
+      "decoded_rgb24_sha256": "41c3078ba576c8073f04348759efb090b21068255eec131c92797e5c2e093cde",
+      "decoded_pcm_f32le_sha256": "a52828eb90632658d9c0c534b7b822bae9942aff4b5b13d371ad7ecf1b9ee933"
+    },
+    {
+      "case": "fi-124-repeat2",
+      "mp4_sha256": "648ab86a9cface68d7402a6dbd5386a52e2071c293add2a9560dc9ef2b1aa79d",
+      "decoded_rgb24_sha256": "41c3078ba576c8073f04348759efb090b21068255eec131c92797e5c2e093cde",
+      "decoded_pcm_f32le_sha256": "a52828eb90632658d9c0c534b7b822bae9942aff4b5b13d371ad7ecf1b9ee933"
+    }
+  ],
+  "qualification_limit": "No claim of bitwise parity across parallel degrees or with SM100/SM103 upstream",
+  "including_warmup124_video_equal": true,
+  "steady124_video_equal": true,
+  "including_warmup124_audio_equal": false,
+  "steady124_audio_equal": true,
+  "steady124_mp4_equal": true,
+  "repeatability_limit": "All three steady-state MP4s are bitwise identical; warmup audio differs, cause not established"
+}

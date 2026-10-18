@@ -1,0 +1,9 @@
+{
+  "comparison": "USP8 warmup vs repeat0 decoded stereo PCM",
+  "samples_per_channel": 165888,
+  "relative_l2": 0.02362176029766466,
+  "max_abs": 0.024940237402915955,
+  "changed_fraction": 1.0,
+  "cause": "not established",
+  "all_three_steady_mp4_equal": true
+}

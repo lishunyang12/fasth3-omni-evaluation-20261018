@@ -1,0 +1,228 @@
+[
+  {
+    "source": "checkpoint-runs/hsdp-latency-ab-r1/off.log",
+    "source_sha256": "2f0f72054ff90626bcb1cda294b526a77420c34b01edb0fa0a781c6f85ecca18",
+    "excerpts": [
+      {
+        "line": 260,
+        "text": "(DiffusionWorker_SP0 pid=3062470) torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 12.50 MiB is free. Including non-PyTorch memory, this process has 71.10 GiB memory in use. Of the allocated memory 70.43 GiB is allocated by PyTorch, and 295.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+      },
+      {
+        "line": 316,
+        "text": "(DiffusionWorker_SP1 pid=3062471) torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 1 has a total capacity of 71.12 GiB of which 12.50 MiB is free. Including non-PyTorch memory, this process has 71.10 GiB memory in use. Of the allocated memory 70.43 GiB is allocated by PyTorch, and 295.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+      },
+      {
+        "line": 373,
+        "text": "(DiffusionWorker_SP3 pid=3062473) torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 3 has a total capacity of 71.12 GiB of which 12.50 MiB is free. Including non-PyTorch memory, this process has 71.10 GiB memory in use. Of the allocated memory 70.43 GiB is allocated by PyTorch, and 295.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+      },
+      {
+        "line": 430,
+        "text": "(DiffusionWorker_SP6 pid=3062476) torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 6 has a total capacity of 71.12 GiB of which 12.50 MiB is free. Including non-PyTorch memory, this process has 71.10 GiB memory in use. Of the allocated memory 70.43 GiB is allocated by PyTorch, and 295.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+      },
+      {
+        "line": 487,
+        "text": "(DiffusionWorker_SP7 pid=3062477) torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 7 has a total capacity of 71.12 GiB of which 12.50 MiB is free. Including non-PyTorch memory, this process has 71.10 GiB memory in use. Of the allocated memory 70.43 GiB is allocated by PyTorch, and 295.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+      },
+      {
+        "line": 545,
+        "text": "(DiffusionWorker_SP2 pid=3062472) torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 2 has a total capacity of 71.12 GiB of which 12.50 MiB is free. Including non-PyTorch memory, this process has 71.10 GiB memory in use. Of the allocated memory 70.43 GiB is allocated by PyTorch, and 295.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+      },
+      {
+        "line": 601,
+        "text": "(DiffusionWorker_SP4 pid=3062474) torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 4 has a total capacity of 71.12 GiB of which 12.50 MiB is free. Including non-PyTorch memory, this process has 71.10 GiB memory in use. Of the allocated memory 70.43 GiB is allocated by PyTorch, and 295.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+      },
+      {
+        "line": 658,
+        "text": "(DiffusionWorker_SP5 pid=3062475) torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 5 has a total capacity of 71.12 GiB of which 12.50 MiB is free. Including non-PyTorch memory, this process has 71.10 GiB memory in use. Of the allocated memory 70.43 GiB is allocated by PyTorch, and 295.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+      }
+    ],
+    "note": "Selected exact error lines; full startup log retained locally."
+  },
+  {
+    "source": "checkpoint-runs/hsdp-latency-staged-r1/on.log",
+    "source_sha256": "fb6cc3662ce2ddb857a3921bf5b62738af3f09423baa5adcdd0112f2c8d38596",
+    "excerpts": [
+      {
+        "line": 465,
+        "text": "(DiffusionWorker_SP5_FS5 pid=3449583) ERROR 10-18 16:44:43 [diffusion_worker.py:1870] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:5\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 518,
+        "text": "(DiffusionWorker_SP4_FS4 pid=3449582) ERROR 10-18 16:44:43 [diffusion_worker.py:1870] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:4\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 571,
+        "text": "(DiffusionWorker_SP6_FS6 pid=3449584) ERROR 10-18 16:44:43 [diffusion_worker.py:1870] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:6\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 624,
+        "text": "(DiffusionWorker_SP0_FS0 pid=3449578) ERROR 10-18 16:44:43 [diffusion_worker.py:1870] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:0\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 677,
+        "text": "(DiffusionWorker_SP3_FS3 pid=3449581) ERROR 10-18 16:44:43 [diffusion_worker.py:1870] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:3\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 730,
+        "text": "(DiffusionWorker_SP1_FS1 pid=3449579) ERROR 10-18 16:44:43 [diffusion_worker.py:1870] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:1\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 731,
+        "text": "(DiffusionWorker_SP5_FS5 pid=3449583) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] Error executing RPC: Attempted to set the storage of a tensor on device \"cuda:5\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 788,
+        "text": "(DiffusionWorker_SP5_FS5 pid=3449583) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:5\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 789,
+        "text": "(DiffusionWorker_SP4_FS4 pid=3449582) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] Error executing RPC: Attempted to set the storage of a tensor on device \"cuda:4\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 846,
+        "text": "(DiffusionWorker_SP4_FS4 pid=3449582) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:4\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 899,
+        "text": "(DiffusionWorker_SP2_FS2 pid=3449580) ERROR 10-18 16:44:43 [diffusion_worker.py:1870] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:2\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 952,
+        "text": "(DiffusionWorker_SP7_FS7 pid=3449585) ERROR 10-18 16:44:43 [diffusion_worker.py:1870] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:7\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 953,
+        "text": "(DiffusionWorker_SP6_FS6 pid=3449584) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] Error executing RPC: Attempted to set the storage of a tensor on device \"cuda:6\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1010,
+        "text": "(DiffusionWorker_SP6_FS6 pid=3449584) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:6\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1011,
+        "text": "(DiffusionWorker_SP0_FS0 pid=3449578) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] Error executing RPC: Attempted to set the storage of a tensor on device \"cuda:0\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1068,
+        "text": "(DiffusionWorker_SP0_FS0 pid=3449578) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:0\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1069,
+        "text": "(DiffusionWorker_SP3_FS3 pid=3449581) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] Error executing RPC: Attempted to set the storage of a tensor on device \"cuda:3\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1126,
+        "text": "(DiffusionWorker_SP3_FS3 pid=3449581) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:3\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1127,
+        "text": "(DiffusionWorker_SP1_FS1 pid=3449579) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] Error executing RPC: Attempted to set the storage of a tensor on device \"cuda:1\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1184,
+        "text": "(DiffusionWorker_SP1_FS1 pid=3449579) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:1\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1185,
+        "text": "(DiffusionWorker_SP2_FS2 pid=3449580) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] Error executing RPC: Attempted to set the storage of a tensor on device \"cuda:2\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1242,
+        "text": "(DiffusionWorker_SP2_FS2 pid=3449580) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:2\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1243,
+        "text": "(DiffusionWorker_SP7_FS7 pid=3449585) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] Error executing RPC: Attempted to set the storage of a tensor on device \"cuda:7\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1300,
+        "text": "(DiffusionWorker_SP7_FS7 pid=3449585) ERROR 10-18 16:44:43 [diffusion_worker.py:1437] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:7\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1301,
+        "text": "(DiffusionWorker_SP5_FS5 pid=3449583) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] Error processing RPC: Attempted to set the storage of a tensor on device \"cuda:5\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1361,
+        "text": "(DiffusionWorker_SP5_FS5 pid=3449583) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:5\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1362,
+        "text": "(DiffusionWorker_SP4_FS4 pid=3449582) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] Error processing RPC: Attempted to set the storage of a tensor on device \"cuda:4\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1422,
+        "text": "(DiffusionWorker_SP4_FS4 pid=3449582) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:4\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1423,
+        "text": "(DiffusionWorker_SP6_FS6 pid=3449584) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] Error processing RPC: Attempted to set the storage of a tensor on device \"cuda:6\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1483,
+        "text": "(DiffusionWorker_SP6_FS6 pid=3449584) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:6\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1484,
+        "text": "(DiffusionWorker_SP0_FS0 pid=3449578) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] Error processing RPC: Attempted to set the storage of a tensor on device \"cuda:0\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1544,
+        "text": "(DiffusionWorker_SP0_FS0 pid=3449578) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:0\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1545,
+        "text": "(DiffusionWorker_SP3_FS3 pid=3449581) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] Error processing RPC: Attempted to set the storage of a tensor on device \"cuda:3\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1605,
+        "text": "(DiffusionWorker_SP3_FS3 pid=3449581) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:3\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1606,
+        "text": "(DiffusionWorker_SP1_FS1 pid=3449579) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] Error processing RPC: Attempted to set the storage of a tensor on device \"cuda:1\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1666,
+        "text": "(DiffusionWorker_SP1_FS1 pid=3449579) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:1\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1667,
+        "text": "(DiffusionWorker_SP2_FS2 pid=3449580) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] Error processing RPC: Attempted to set the storage of a tensor on device \"cuda:2\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1727,
+        "text": "(DiffusionWorker_SP2_FS2 pid=3449580) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:2\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1728,
+        "text": "(DiffusionWorker_SP7_FS7 pid=3449585) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] Error processing RPC: Attempted to set the storage of a tensor on device \"cuda:7\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1788,
+        "text": "(DiffusionWorker_SP7_FS7 pid=3449585) ERROR 10-18 16:44:43 [diffusion_worker.py:1523] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:7\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1789,
+        "text": "ERROR 10-18 16:44:43 [inline_stage_diffusion_client.py:192] Diffusion request 0_f40fab64-a469-463e-b19c-ff81f34e22b9 failed: Attempted to set the storage of a tensor on device \"cuda:4\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1798,
+        "text": "ERROR 10-18 16:44:43 [inline_stage_diffusion_client.py:192] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:4\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1799,
+        "text": "ERROR 10-18 16:44:43 [omni.py:99] [Omni] Failed to run generation: Attempted to set the storage of a tensor on device \"cuda:4\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1813,
+        "text": "ERROR 10-18 16:44:43 [omni.py:99] RuntimeError: Attempted to set the storage of a tensor on device \"cuda:4\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      },
+      {
+        "line": 1871,
+        "text": "RuntimeError: Attempted to set the storage of a tensor on device \"cuda:4\" to a storage on different device \"cpu\".  This is no longer allowed; the devices must match."
+      }
+    ],
+    "note": "Selected exact error lines; full startup log retained locally."
+  }
+]

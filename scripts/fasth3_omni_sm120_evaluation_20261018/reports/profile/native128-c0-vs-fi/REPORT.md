@@ -1,0 +1,42 @@
+# Native128 C0 versus FlashInfer: SM120 profile
+
+Workload: B=1, S=32768, H=14, D=128, BF16, two dense prefix
+query/KV tiles, independently selected 10% reference/target region budgets.
+The inputs and original block128 mask are identical. This is a synthetic
+VSA-style kernel workload, not measured model activations.
+
+Collected on SM120 (110 SMs), Nsight Compute 2025.3.1, CUDA 13.0.
+Full profiles include PM sampling; the native source profile maps stalls
+to Python/Triton source. Parsed with the pinned KDA ncu-report-skill helpers
+and `ncu_report`, with both raw metric archives retained. Native code is
+frozen in `harness/candidate.py`; the harness imports the shared generator.
+
+## Six dimensions
+
+| Dimension | Native C0 | FlashInfer blk64 | Interpretation |
+|---|---:|---:|---|
+| Grid/occupancy | 3584 CTAs, 16.66% | 7168 CTAs, 16.45% | Both have sufficient grid; C0 uses one 256-thread CTA/SM, FI two 128-thread CTAs. |
+| Registers / shared | 255/thread, 99,348 bytes/CTA | 254/thread, 50,304 bytes/CTA | Both constrained by registers and shared memory; no C0 local spill traffic. |
+| Work balance | max SM active cycles 13.99% above mean | Comparable multiwave workload | Native PM timeline has a modest final tail; not the dominant cost. |
+| Stalls | wait 30.60%, math-pipe throttle 28.49%, long scoreboard 15.44% | See raw FI metrics | C0's two MMA lines account for 187,136 sampled events in the source run. |
+| Tensor utilization | 59.97% elapsed | 76.89% elapsed | A major gap remains in MMA scheduling. |
+| Memory | DRAM 5.23%, L2 hit 93.16%, 31.8/32 bytes useful per global sector | See raw FI metrics | Neither DRAM saturation nor badly coalesced loads explains the gap. |
+
+NCU timings (7.62 versus 5.95 ms) are profiling measurements with replay
+and profiler clock policy; use standalone CUDA graph benchmarks for speed
+claims (C0 about 5.19 versus FI 4.56 ms in the initial sweep).
+
+## Evidence-ranked action
+
+1. Evaluate explicit warp layouts and operand lifetimes to address MMA
+   dependencies while retaining the 128x128 tile. C1's register-only Gluon
+   variants were slower in measured tests and are rejected.
+2. Adapt FI's TMA and staged register-fragment MMA to native128, retaining
+   attribution and copying only the needed helpers. This is candidate C2.
+   It will use 8 M warps and 128-token Q/KV tiles, not a block64 adapter.
+3. Revisit scheduling of dense prefix query rows only if the remaining
+   profile shows a material tail. Do not optimize away selected attention.
+
+KernelWiki was consulted for register-pressure and tail-effect patterns.
+Its TMEM suggestions explicitly exclude SM120; no SM100-only instruction
+is used. KDA's profile/diagnose/plan order governs subsequent candidates.

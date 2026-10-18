@@ -1,0 +1,75 @@
+{
+  "started": 1792313507.5269706,
+  "order": [
+    "hsdp2",
+    "hsdp8"
+  ],
+  "arms": {
+    "hsdp2": {
+      "command": [
+        "/usr/bin/python3",
+        "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_flashinfer.py",
+        "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+        "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_checkpoint_hsdp_shards.py",
+        "--run-dir",
+        "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp-shard2-vs8-r1/hsdp2",
+        "--cases",
+        "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp-shard2-vs8-r1/cases.json",
+        "--num-gpus",
+        "8",
+        "--tp",
+        "1",
+        "--usp",
+        "8",
+        "--te-tp",
+        "8",
+        "--no-profile",
+        "--hsdp",
+        "--hsdp-shard-size",
+        "2"
+      ],
+      "started": 1792313508.0965946,
+      "pid": 3593052,
+      "returncode": 0,
+      "finished": 1792314005.4366653,
+      "source_unchanged": true,
+      "gpu_apps_after": []
+    },
+    "hsdp8": {
+      "command": [
+        "/usr/bin/python3",
+        "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_flashinfer.py",
+        "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+        "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_checkpoint_hsdp_shards.py",
+        "--run-dir",
+        "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp-shard2-vs8-r1/hsdp8",
+        "--cases",
+        "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp-shard2-vs8-r1/cases.json",
+        "--num-gpus",
+        "8",
+        "--tp",
+        "1",
+        "--usp",
+        "8",
+        "--te-tp",
+        "8",
+        "--no-profile",
+        "--hsdp",
+        "--hsdp-shard-size",
+        "8"
+      ],
+      "started": 1792314006.5963612,
+      "pid": 3665856,
+      "returncode": 0,
+      "finished": 1792314493.0384119,
+      "source_unchanged": true,
+      "gpu_apps_after": []
+    }
+  },
+  "source_identity": {
+    "python_files": 1623,
+    "sha256": "860951246955c51bc92c0c0fda5c650953585a147a9911a013dc8d41f56cdc48"
+  },
+  "scope": "TP1 USP8; resident HSDP; only shard/replicate mesh sizes change",
+  "finished": 1792314493.7190905
+}

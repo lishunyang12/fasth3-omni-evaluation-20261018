@@ -1,0 +1,113 @@
+[
+  {
+    "name": "native-124-warmup",
+    "provider": "native",
+    "mode": "benchmark",
+    "frames": 124,
+    "save_latents": true
+  },
+  {
+    "name": "fi-124-warmup",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124,
+    "save_latents": true
+  },
+  {
+    "name": "native-124-repeat0",
+    "provider": "native",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-124-repeat0",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-124-repeat1",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "native-124-repeat1",
+    "provider": "native",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "native-124-repeat2",
+    "provider": "native",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-124-repeat2",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "native-124-trajectory",
+    "provider": "native",
+    "mode": "capture",
+    "frames": 124,
+    "save_latents": true,
+    "capture_steps": [
+      0,
+      3,
+      7
+    ],
+    "capture_layers": [
+      0
+    ],
+    "capture_ranks": [
+      0
+    ]
+  },
+  {
+    "name": "fi-124-trajectory",
+    "provider": "fi",
+    "mode": "capture",
+    "frames": 124,
+    "save_latents": true,
+    "capture_steps": [
+      0,
+      3,
+      7
+    ],
+    "capture_layers": [
+      0
+    ],
+    "capture_ranks": [
+      0
+    ]
+  },
+  {
+    "name": "native-345-capture",
+    "provider": "native",
+    "mode": "capture",
+    "frames": 345,
+    "save_latents": true,
+    "capture_steps": [
+      0
+    ],
+    "capture_layers": [
+      0,
+      25,
+      49
+    ],
+    "capture_ranks": [
+      0
+    ]
+  },
+  {
+    "name": "fi-345-quality",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 345,
+    "save_latents": true
+  }
+]

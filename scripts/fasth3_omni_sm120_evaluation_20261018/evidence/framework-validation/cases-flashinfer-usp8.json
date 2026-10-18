@@ -1,0 +1,32 @@
+[
+  {
+    "name": "fi-124-warmup",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-124-repeat0",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-124-repeat1",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-124-repeat2",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-345-quality",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 345
+  }
+]

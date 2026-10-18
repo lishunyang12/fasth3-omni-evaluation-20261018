@@ -1,0 +1,42 @@
+{
+  "started": 1792310060.9374564,
+  "order": [
+    "on"
+  ],
+  "arms": {
+    "on": {
+      "command": [
+        "/usr/bin/python3",
+        "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_flashinfer.py",
+        "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+        "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_hsdp_profile.py",
+        "--run-dir",
+        "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp-latency-profile-r1/on",
+        "--cases",
+        "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp-latency-profile-r1/cases.json",
+        "--num-gpus",
+        "8",
+        "--tp",
+        "1",
+        "--usp",
+        "8",
+        "--te-tp",
+        "8",
+        "--no-profile",
+        "--hsdp"
+      ],
+      "started": 1792310061.5104716,
+      "pid": 3106498,
+      "returncode": 0,
+      "finished": 1792311396.7360237,
+      "source_unchanged": true,
+      "gpu_apps_after": []
+    }
+  },
+  "source_identity": {
+    "python_files": 1623,
+    "sha256": "860951246955c51bc92c0c0fda5c650953585a147a9911a013dc8d41f56cdc48"
+  },
+  "scope": "TP1 USP8; only use_hsdp changes",
+  "finished": 1792311398.0821433
+}

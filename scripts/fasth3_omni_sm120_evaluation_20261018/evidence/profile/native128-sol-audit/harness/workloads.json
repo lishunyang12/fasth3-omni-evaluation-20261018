@@ -1,0 +1,44 @@
+[
+  {
+    "sequence": 1024,
+    "heads": 14,
+    "provider": "native_kernel",
+    "block128_edges": 560,
+    "expected_tensor_ops": 4697620480
+  },
+  {
+    "sequence": 1024,
+    "heads": 14,
+    "provider": "fi_kernel",
+    "block128_edges": 560,
+    "expected_tensor_ops": 4697620480
+  },
+  {
+    "sequence": 8192,
+    "heads": 14,
+    "provider": "native_kernel",
+    "block128_edges": 10472,
+    "expected_tensor_ops": 87845502976
+  },
+  {
+    "sequence": 8192,
+    "heads": 14,
+    "provider": "fi_kernel",
+    "block128_edges": 10472,
+    "expected_tensor_ops": 87845502976
+  },
+  {
+    "sequence": 32768,
+    "heads": 56,
+    "provider": "native_kernel",
+    "block128_edges": 426944,
+    "expected_tensor_ops": 3581465853952
+  },
+  {
+    "sequence": 32768,
+    "heads": 56,
+    "provider": "fi_kernel",
+    "block128_edges": 426944,
+    "expected_tensor_ops": 3581465853952
+  }
+]

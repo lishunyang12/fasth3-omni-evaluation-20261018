@@ -1,0 +1,14 @@
+[
+  {
+    "provider": "torch",
+    "exit_code": 0
+  },
+  {
+    "provider": "native",
+    "exit_code": 86
+  },
+  {
+    "provider": "fi",
+    "exit_code": 86
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "native-smoke-capture",
+    "provider": "native",
+    "splits": 1,
+    "mode": "capture",
+    "frames": 124,
+    "save_latents": true,
+    "capture_steps": [
+      0,
+      3,
+      7
+    ],
+    "capture_layers": [
+      0,
+      25,
+      49
+    ],
+    "capture_ranks": [
+      0
+    ]
+  },
+  {
+    "name": "fi-smoke-quality",
+    "provider": "fi",
+    "splits": 1,
+    "mode": "benchmark",
+    "frames": 124,
+    "save_latents": true
+  },
+  {
+    "name": "native-smoke-warm",
+    "provider": "native",
+    "splits": 1,
+    "mode": "benchmark",
+    "frames": 124,
+    "save_latents": false
+  },
+  {
+    "name": "fi-smoke-warm",
+    "provider": "fi",
+    "splits": 1,
+    "mode": "benchmark",
+    "frames": 124,
+    "save_latents": false
+  }
+]

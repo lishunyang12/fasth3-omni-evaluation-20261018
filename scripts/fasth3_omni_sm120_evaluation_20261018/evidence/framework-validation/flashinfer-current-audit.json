@@ -1,0 +1,50 @@
+{
+  "main_commit": "ccce2135a71dee8d50cb37cb5bacb5656879985e",
+  "compared_commit": "f75bed5da7112103b75f82a4d4b5faf4be335154",
+  "files": {
+    "sm120_blk64/__init__.py": {
+      "same": true,
+      "sha256": "aa4224ad0cb78c9580561d6d50d615a29e7aef8976de96506fc096a573520063"
+    },
+    "sm120_blk64/batched_static_scheduler.py": {
+      "same": true,
+      "sha256": "507a97c0eb8640f8107e59e95eacaf209fc9ca6bc90c11d9c0a231910622b658"
+    },
+    "sm120_blk64/flash_fwd_sm120.py": {
+      "same": true,
+      "sha256": "0ebb538477f8f4e7e0ce3e3d5e94583d3e8c68c7eb381c5d8d0955994b16ee8f"
+    },
+    "sm120_blk64/kernel_utils.py": {
+      "same": true,
+      "sha256": "c9186ab14213c0631b6953b3d85421b236340e065f5850ce2def45277ea7327d"
+    },
+    "sm120_blk64/layout_utils.py": {
+      "same": true,
+      "sha256": "a8581fbb2258595f0248232e5d115d988e0668df30c994106dde51e7df265dc5"
+    },
+    "entrypoints": {
+      "_ceil_div": true,
+      "_prepare_sm120_sparse_metadata": false,
+      "bsa_attn_sm120_blk64_fwd": true
+    },
+    "bsa_utils/__init__.py": {
+      "same": true
+    },
+    "bsa_utils/cache_utils.py": {
+      "same": true
+    },
+    "bsa_utils/cute_tensor_utils.py": {
+      "same": true
+    },
+    "bsa_utils/fa_logging.py": {
+      "same": true
+    },
+    "bsa_utils/nvvm_compat.py": {
+      "same": true
+    },
+    "bsa_utils/testing.py": {
+      "same": true
+    }
+  },
+  "metadata_helper_change": "Current main replaces assert with typed exceptions and accepts zero capacity without counts. For the valid nonempty int32 indices/counts/sizes supplied by this adapter, tensor preparation is unchanged."
+}

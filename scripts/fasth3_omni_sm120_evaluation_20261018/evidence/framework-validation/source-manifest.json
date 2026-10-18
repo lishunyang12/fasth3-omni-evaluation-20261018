@@ -1,0 +1,9 @@
+{
+  "vllm-omni-fasth3-omni/vllm_omni/diffusion/attention/ops/block_sparse.py": "430304ffbd44bc43ca29b066871b809d51861e180b3937ff385baa1b6e49d572",
+  "vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/attention/fastvideo_h3.py": "678ef96d1dce9407fd3c7a858d55f9d9ed1a955799336222b628cb788d7964bf",
+  "vllm-omni-fasth3-omni/tests/diffusion/models/minimax_h3/test_vsa_layout.py": "0757488d757a4aae79f88957b216adfea7fc39ab7e40d3b2453f225fa6c9519e",
+  "vllm-omni-fasth3-omni/recipes/MiniMaxAI/MiniMax-H3.md": "b9ab25ab8563f696daa3c2243f67b8fae97836cdf66ff33d439d0ff06ebc9f63",
+  "fasth3-omni-integration-20261018/framework-validation/probe_native_vsa.py": "efd27565333b44fe7cc9c6afd25cf320763642d221b15aa98b6545f974806301",
+  "fasth3-omni-integration-20261018/framework-validation/run.py": "d2c24f0e468a7b4b5b69a9944c1a9a15dfad910f2aba2b469835bf6f67c8001b",
+  "fasth3-omni-integration-20261018/model-metadata/transformer_ref/config.json": "658c1f6278262db3072d9a6f4832c7c49280f91c94a8455414525cd6648de677"
+}

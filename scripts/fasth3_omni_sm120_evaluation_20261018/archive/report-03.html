@@ -1,0 +1,163 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="FastH3 Omni SM120: FI/USP8 固定合同下的 HSDP 延迟、通信、显存、一致性与历史评测档案。"><title>Pinned checkpoint end-to-end validation (2026-10-18)</title><link rel="stylesheet" href="../style.css"></head><body><header><a href="../index.html#archive">← 返回评测汇总</a><p class="eyebrow">历史阶段记录 / 适用范围见正文</p><h1 style="font-size:32px">Pinned checkpoint end-to-end validation (2026-10-18)</h1><p><code>framework-validation/CHECKPOINT-REPORT.txt</code></p><a class="button" href="../reports/framework-validation/CHECKPOINT-REPORT.txt" download>下载报告原文</a></header><main><div class="note">该文件保留实验当时的结论。局部 kernel、旧 provider、旧并行度和历史精度合同不能直接计入当前 FI/USP8 的加速。HSDP2 已完成的新结果见汇总首页；原文中的“尚未实测”可能是当时状态。原文路径指本地实验目录，可在证据索引中查找已发布文件。</div><section><pre>Pinned checkpoint end-to-end validation (2026-10-18)
+
+Checkpoint: FastVideo/FastVideo-FastH3-Omni-8-Step-V1
+Revision: 88d512c5e7cc38dda499fbb65688ce58611f9c80.
+Base: MiniMaxAI/MiniMax-H3 at9bfb6693f2cf6de171db46d1aa586f67d773a1da.
+All14 student shards and66 reused base files verified against pinned hashes.
+Receipts: student-files-verified.json and base-files-verified.json.
+No credential is stored in source, logs, these reports, or benchmark commands.
+
+Completed:
+- Full8-step native128 generation and encoded MP4 from this checkpoint.
+  checkpoint-runs/hsdp4-smoke-fixed/native-smoke-capture/output.mp4
+  FFprobe:1344x768,124frames,24fps;32000Hz2-channel audio. Full FFmpeg decode passes.
+- Fixed a reusable pinned output buffer allocated under torch.inference_mode:
+  final VAE flush outside that context previously raised RuntimeError.
+  Allocation now explicitly disables inference mode; pixel math is unchanged.
+  Regression reproduced before the fix;34 CPU checks +2 GPU parameter cases pass.
+- Eight actual QKV/mask captures screened against independent FP32 attention,
+  all KV positions and1212 selected query rows per capture. Original strict
+  atol=.01/rtol=.01/relativeL2&lt;=.005 gates remain visible. Native1 passes2/8,
+  FI3/8. No nonfinite results. Relative L2 is roughly.0014–.0017 for both.
+- Worst-row FP64 spot checks and a cancellation-scale diagnostic support
+  BF16 probability/output rounding amplified by cancellation. This explanation
+  does not turn the failed original absolute-error gates into passes.
+- Actual NCU full+PM+source-line analysis: profile/checkpoint-124-native128/REPORT.txt.
+  Native dense BF16 SoL86.93%, SM busy99.26%, measured spills0. Raw FI kernel
+  executes fewer padded operations and is faster in NCU; native adapter is
+  faster in hot metadata-inclusive graph measurements (different timing scope).
+
+Output comparisons so far:
+- TP2/SP2 native versus FI: matched seed43, identical prompt/image and model contract.
+  Video latent relativeL2 .338038; audio latent relativeL2 .235249;
+  decoded video SSIM .740465 and PSNR20.691dB. These are NOT a lossless-parity pass.
+- Native repeat0 versus native warmup: decoded video SSIM1.0, identical pixels;
+  MP4 container hashes differ. Hence cross-provider differences cannot simply
+  be attributed to changing the input seed or container bytes.
+- Five sampled frames from each clip show the same subject and wooded scene,
+  with movement/detail differences. This is not broad perceptual certification.
+- Trajectories now complete: initial step0/layer0 Q/K/V and masks are bitwise
+  identical. At step3, Q/K/V relativeL2 is .00529/.00633/.00924 and994 mask
+  edges differ; at step7 it is .05057/.08761/.10670 with8300 changed edges
+  (mask Jaccard .994758). Differences develop during iterative inference.
+  This is evidence of accumulation; it does not certify upstream equivalence.
+- Both HSDP4/Ulysses4 and TP2/Ulysses2 completed345-frame native and FI MP4s,
+  with full FFmpeg decode, exact1344x768 frame counts and32000Hz stereo audio.
+  TP2/SP2 had allocator retries near memory capacity, but recovered and finished.
+
+Experimental candidates:
+- Copied wrappers originally reused one torch.library operator name. Those
+  scheduler-training.json and ragged-pv-screen.json results are INVALID and
+  explicitly marked; independent namespaces are now used.
+- The first corrected retest overlapped the TP2/SP2 warmup. Those timing files
+  are marked invalid; output-equality checks remain valid. No affected warmup
+  is included in performance summaries.
+- Final isolated8-way scheduler sweep: all variants output/LSE bitwise identical;
+  group512/front4 improves paired median by.483% on the tuning tensor. Not promoted
+  without held-out evidence and a meaningful full-request improvement.
+- Per-K-group conditional PV skipping: output/LSE bitwise identical, but255
+  registers and about1.94B local-load/1.00B local-store instructions.109.568ms
+  versus56.742ms baseline; rejected.
+- Three compile-time PV paths (32/64/128): output/LSE bitwise identical,
+  58.020ms versus57.269ms baseline; rejected. Production kernel is unchanged.
+
+Framework details:
+- The old routing message printed the legacy topk=64 even with explicit
+  checkpoint sparsity. Actual masks use36 of360 target-video blocks, plus119
+  dense prefix blocks. The logger now reports per-region budgets. Routing math
+  itself was already correct; this only fixes misleading observability.
+- First successful model process stopped AFTER writing its MP4 because the
+  validation script could not find ffprobe. Real ffprobe was installed locally,
+  the existing MP4 was validated, and a prerequisite check was added before
+  future expensive model loads. This was not a model-generation failure.
+- Local media tools are exposed in $USER_HOME/.local/bin; ffmpeg comes from
+  imageio-ffmpeg7.0.2, ffprobe from the static release recorded in media-tools/receipt.json.
+- Installed Omni metadata still says0.28.0 while the checked-out source/runtime
+  expect vllm0.30.0. Successful generations validate these paths, not all serving APIs.
+
+Timing cases, settings and outputs are saved per deployment in checkpoint-runs/.
+Capture/JIT warmups are excluded. No SOTA claim is made.
+
+Final deployment decision (user-directed): existing FlashInfer on SM120.
+The production block_sparse.py no longer dispatches to the experimental native
+SM120 port; FASTVIDEO_VSA_SM120 and FASTVIDEO_VSA_SM120_SPLITS do not affect it.
+Logical128 pooling/topk/reference budgets/compression are unchanged. The
+adapter expands selected128 tiles to64-token compute tiles with one shared
+softmax reduction. Valid partial blocks and transport padding are retained.
+Native kernel experiments remain in fastvideo-sm120-tile128; the prior framework
+adapter is archived as native128-framework-snapshot.py (SHA256
+430304ffbd44bc43ca29b066871b809d51861e180b3937ff385baa1b6e49d572).
+Old native-vs-FI benchmark files describe that earlier source snapshot.
+checkpoint_hooks.py rejects native cases on the new FI-only framework to avoid
+silently labeling FlashInfer timings as native. USP8/HSDP8 baseline completed
+successfully per the user&#x27;s subsequent request; results are recorded below.
+
+Warm124-frame request medians (3 repeats each, seed43):
+  TP2/Ulysses2: FI70.195870s, native69.978155s (.31015% latency reduction).
+  HSDP4/Ulysses4: FI76.561709s, native76.306344s (.33355% latency reduction).
+FI TP2/Ulysses2 reduces latency by8.31465% versus FI HSDP4/Ulysses4 in this case.
+345-frame FI completed in176.410522s (TP2/SP2),177.157556s (HSDP4/SP4).
+345 timings are individual long-shape runs, not a repeated paired benchmark.
+Peak reported memory: TP2/SP2 FI34570248MiB; HSDP4/SP4 FI34561406MiB.
+These request peaks are from output.peak_memory_mb, not allocator-only usage.
+
+Final adaptation tests:
+  CPU:93 passed (PDD,checkpoint configuration,layout/routing,shared operators).
+  GPU:8 passed on CC12.0; all-FI token reference cases with poisoned invalid KV,
+  batch2,heads1/7/14/56,empty keys/rows,large logits,transport padding; CUDA Graph
+  replay changes Q/K/V,masks and partial sizes. Experimental native import is
+  blocked in every GPU case even with the former opt-in variable set.
+  Strict synthetic atol=.01/rtol=.01/relativeL2&lt;.005 retained. These passes do
+  not override the failed actual-activation per-element gates described above.
+  GPU tests are tests/diffusion/attention/test_block_sparse_sm120.py.
+  Logs:pytest-fi-adaptation-cpu.log,pytest-fi-adaptation-gpu.log.
+
+Fresh4GPU deployment verification completed with run_flashinfer.py, which uses
+upstream FastVideo helpers from minimax-h3-native/FastVideo/fastvideo-kernel/python
+and omits the experimental SM120 kernel directory entirely. Completed124frames
+seeds43/79 and345frames seed43. All three full audio/video decode checks pass.
+Timings:73.8021s (first request),70.3271s (seed79),176.6796s (345frames).
+Final outputs:checkpoint-runs/flashinfer-sm120-final.
+Both124/345 decoded RGB video hashes equal the earlier FI baseline.345 decoded
+PCM also matches.124 audio differs (relativeL2=.03811,maxAbs=.10279), despite
+identical sample counts; all four older FI124 repeats match each other. Cause
+not established. Do not claim full audiovisual bitwise equivalence across these
+fresh processes. See fi-final-vs-original-output-hashes.json and
+fi-124-audio-repeatability.json. This is a validation limit, not a passed gate.
+The repeated CPU suite also passes93 tests with upstream FastVideo helpers.
+Prior optimization sessions retrieved:FASTH3-PRIOR-SESSIONS.txt and
+prior-fasth3-session-excerpts.json. Legacy lossless steps require qualification
+on the new128 routing,8step PDD schedule and reference-conditioned shapes.
+Commands and prerequisites:SM120-FLASHINFER-RUN.txt.
+
+Eight-GPU validation completed (TP1/USP8,HSDP8,text encoder TP8,VAE8):
+  Results:checkpoint-runs/flashinfer-usp8-baseline/results.json.
+  First124-frame request47.908262s;excluded from steady-state timing.
+  Three124-frame repeats41.039876,41.056141,41.027952s;median41.039876s.
+  Reported124-frame peak35994MiB (35.15GiB).
+  One345-frame request95.927819s;reported peak39872MiB (38.94GiB).
+  All five1344x768 outputs passed exact frame-count,32000Hz stereo metadata,
+  and complete FFmpeg audio/video decoding checks. Controller exited0;all eight
+  workers closed and nvidia-smi confirmed no remaining GPU compute processes.
+  Same input/model/seed as the earlier FI cohorts;124 latency falls41.54% and
+  345 latency falls45.62% versus four-GPU TP2/Ulysses2. Hardware count doubles;
+  these are separately measured deployments,not a paired same-GPU kernel test.
+  USP8 does not establish bitwise equivalence across parallel degrees.
+  Decoded repeated124-frame hashes:usp8-baseline-summary.json. All three warm
+  measured MP4s are byte-identical (both video and audio). First warmup RGB is
+  also identical,but its decoded PCM differs from the measured repeats:
+  relativeL2=.02362,maxAbs=.02494. Cause not established. Thus cold/warm audio
+  equivalence is not certified;see usp8-warmup-audio-difference.json.
+  The full native VAE,BF16 DiT,eight forwards and logical128 routing are retained.
+  The recipe now shows the validated eight-GPU settings,with four-GPU fallback.
+  Offline generation was tested;the HTTP endpoint was not exercised.
+
+Session retrieval is complete:43 original final-message excerpts recovered,
+including main sessions01a090c6-d117-7723-867d-5f26963573e4 and
+01a09d3e-686c-7cd0-be88-32a0a92a784a,plus the Sep10 overlap session.
+Existing exact AdaLN cache,QK Norm/RoPE fusion,and chunked output path are active.
+Legacy RDMA overlap,VSA fused layout,and paired/mixedB2 VAE remain unmigrated;
+their old exact-output receipts do not qualify this new shape/checkpoint.
+The retrieved source files,evidence and required migration gates are indexed
+in FASTH3-PRIOR-SESSIONS.txt. The15-second historic headline used quantization.
+</pre></section></main></body></html>

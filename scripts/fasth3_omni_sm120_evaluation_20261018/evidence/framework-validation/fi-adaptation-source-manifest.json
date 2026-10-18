@@ -1,0 +1,23 @@
+{
+  "base_commit": "6715c57b2dffbf4623c0acb7a72862ddb9e54cb7",
+  "files": {
+    "vllm_omni/diffusion/attention/ops/block_sparse.py": "995d52254fa40e7981130b7345cfab6d39d41034bb4fc878fc013985a837112e",
+    "tests/diffusion/attention/test_block_sparse_sm120.py": "de2e9db6f35487a1898f61b931e504940c42e9311c4e46b390f6f36ff1411b80",
+    "tests/diffusion/models/minimax_h3/test_vsa_layout.py": "768bad4f3c61bbd7bd30cc61b19551b591dd2b08de36f4c4f51c69534eff91fe",
+    "recipes/MiniMaxAI/MiniMax-H3.md": "c42f5027b611370af80404467dfcb1ecf0de4beaedd305334ffce1592e19cb9a",
+    "vllm_omni/diffusion/models/minimax_h3/attention/fastvideo_h3.py": "4a46b7c10e55ad0985a45b3cab25a4038010928319f05aaaee6c9dc9f37b06b7"
+  },
+  "provider": "FlashInfer BF16 block64; logical block128 routing",
+  "experimental_native_sm120_in_deployment": false,
+  "tests": {
+    "cpu": 93,
+    "real_sm120_gpu": 8,
+    "precommit": "passed"
+  },
+  "deployment_validation": {
+    "four_gpu_complete": true,
+    "eight_gpu_complete": true,
+    "usp8_summary": "usp8-baseline-summary.json",
+    "recipe_precommit": "passed"
+  }
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "tool": "memcheck",
+    "exit_code": 0,
+    "command": [
+      "python3",
+      "$WORKSPACE/fasth3-omni-integration-20261018/validation-v2/run.py",
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "memcheck",
+      "--report-api-errors",
+      "no",
+      "--error-exitcode",
+      "86",
+      "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+      "-m",
+      "pytest",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py",
+      "-q",
+      "-k",
+      "updates_all or concurrent or poisoned or graph_replay"
+    ]
+  },
+  {
+    "tool": "racecheck",
+    "exit_code": 0,
+    "command": [
+      "python3",
+      "$WORKSPACE/fasth3-omni-integration-20261018/validation-v2/run.py",
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "racecheck",
+      "--report-api-errors",
+      "no",
+      "--error-exitcode",
+      "86",
+      "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+      "-m",
+      "pytest",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py",
+      "-q",
+      "-k",
+      "updates_all or concurrent or poisoned or graph_replay"
+    ]
+  },
+  {
+    "tool": "synccheck",
+    "exit_code": 0,
+    "command": [
+      "python3",
+      "$WORKSPACE/fasth3-omni-integration-20261018/validation-v2/run.py",
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "synccheck",
+      "--report-api-errors",
+      "no",
+      "--error-exitcode",
+      "86",
+      "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+      "-m",
+      "pytest",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py",
+      "-q",
+      "-k",
+      "updates_all or concurrent or poisoned or graph_replay"
+    ]
+  },
+  {
+    "tool": "initcheck",
+    "exit_code": 241,
+    "command": [
+      "python3",
+      "$WORKSPACE/fasth3-omni-integration-20261018/validation-v2/run.py",
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "initcheck",
+      "--report-api-errors",
+      "no",
+      "--error-exitcode",
+      "86",
+      "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+      "-m",
+      "pytest",
+      "$WORKSPACE/fastvideo-sm120-tile128/fastvideo-kernel/tests/test_vsa_sm120_block128.py",
+      "-q",
+      "-k",
+      "updates_all or concurrent or poisoned or graph_replay"
+    ]
+  }
+]

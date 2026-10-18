@@ -1,0 +1,50 @@
+[
+  {
+    "phase": "holdout",
+    "command": [
+      "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+      "$WORKSPACE/fasth3-omni-integration-20261018/validation-v3/evaluate.py",
+      "--phase",
+      "holdout",
+      "--output",
+      "$WORKSPACE/fasth3-omni-integration-20261018/validation-v3/holdout-repeat.json",
+      "--order-seed",
+      "137913",
+      "--case-ids",
+      "0",
+      "3",
+      "6",
+      "9",
+      "15",
+      "22",
+      "24"
+    ],
+    "returncode": 0
+  },
+  {
+    "phase": "regression",
+    "command": [
+      "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+      "$WORKSPACE/fasth3-omni-integration-20261018/validation-v3/evaluate.py",
+      "--phase",
+      "regression",
+      "--output",
+      "$WORKSPACE/fasth3-omni-integration-20261018/validation-v3/regression-repeat.json",
+      "--order-seed",
+      "159667",
+      "--case-ids",
+      "0",
+      "3",
+      "5",
+      "6",
+      "8",
+      "11",
+      "13",
+      "17",
+      "20",
+      "21",
+      "22"
+    ],
+    "returncode": 0
+  }
+]

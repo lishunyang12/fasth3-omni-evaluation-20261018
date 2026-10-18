@@ -1,0 +1,21 @@
+[
+  {
+    "name": "fi-124-seed43",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-124-seed79",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124,
+    "seed": 79
+  },
+  {
+    "name": "fi-345-seed43",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 345
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "settings": {
+    "model": "$WORKSPACE/fasth3-omni-integration-20261018/hf-hub/models--FastVideo--FastVideo-FastH3-Omni-8-Step-V1/snapshots/88d512c5e7cc38dda499fbb65688ce58611f9c80",
+    "model_class_name": "MiniMaxH3Pipeline",
+    "trust_remote_code": true,
+    "task_type": "ref2va",
+    "num_gpus": 8,
+    "tensor_parallel_size": 1,
+    "ulysses_degree": 8,
+    "ring_degree": 1,
+    "text_encoder_tp_size": 8,
+    "vae_patch_parallel_size": 8,
+    "vae_parallel_mode": "tile",
+    "vae_use_tiling": true,
+    "use_hsdp": true,
+    "hsdp_shard_size": 8,
+    "hsdp_replicate_size": 1,
+    "enforce_eager": true,
+    "diffusion_attention_backend": "FASTVIDEO_VSA",
+    "enable_diffusion_pipeline_profiler": false,
+    "max_num_seqs": 1,
+    "stage_init_timeout": 1800,
+    "init_timeout": 1800
+  },
+  "image": "$WORKSPACE/minimax-h3-native/FastVideo/assets/images/saxophonist.jpg",
+  "image_sha256": "d785e7a252a8d60ee45b74db83ab6c1fd1294a64c0a5dc50ef05afb2d263b928",
+  "prompt": "subject_definitions:\n  musician: The adult saxophonist in reference image 1, wearing glasses, a dark blazer, a blue shirt and blue trousers, holding a brass saxophone among leafy trees.\nsummary: [ref2va] The referenced musician plays a flowing saxophone melody in a sunlit grove.\nretention_analysis: Preserve the musician's appearance, clothing, saxophone and wooded setting from reference image 1. Allow natural musical gestures and gentle camera movement.\ndetailed_description: Begin with a medium shot of the musician already playing. His fingers move over the keys as he sways gently with the melody. Sunlight filters through the leaves behind him. The camera slowly moves to the side while keeping the musician and the bell of the saxophone in view. He continues a smooth musical phrase and finishes with a relaxed held note. Keep the scene continuous throughout the clip.\noverall_soundscape: A clear solo saxophone melody synchronized with the musician's playing. Soft leaves rustling and distant birds remain quietly in the background. No spoken dialogue.\nnon_diegetic_music: None; the saxophone performance is the music within the scene.\n",
+  "cases": [
+    {
+      "name": "fi-124-warmup",
+      "provider": "fi",
+      "mode": "benchmark",
+      "frames": 124
+    },
+    {
+      "name": "fi-124-repeat0",
+      "provider": "fi",
+      "mode": "benchmark",
+      "frames": 124
+    },
+    {
+      "name": "fi-124-repeat1",
+      "provider": "fi",
+      "mode": "benchmark",
+      "frames": 124
+    },
+    {
+      "name": "fi-124-repeat2",
+      "provider": "fi",
+      "mode": "benchmark",
+      "frames": 124
+    },
+    {
+      "name": "fi-345-quality",
+      "provider": "fi",
+      "mode": "benchmark",
+      "frames": 345
+    }
+  ]
+}

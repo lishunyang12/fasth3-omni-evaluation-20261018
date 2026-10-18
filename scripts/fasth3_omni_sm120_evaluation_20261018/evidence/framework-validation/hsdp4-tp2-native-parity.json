@@ -1,0 +1,61 @@
+{
+  "scope": "Matched seed, full checkpoint output. Descriptive metrics; not a perceptual quality certification.",
+  "reference": "fasth3-omni-integration-20261018/checkpoint-runs/hsdp4-clean/native-124-warmup",
+  "actual": "fasth3-omni-integration-20261018/checkpoint-runs/tp2-sp2/native-124-warmup",
+  "latents": {
+    "video": {
+      "shape": [
+        1,
+        24,
+        37,
+        48,
+        84
+      ],
+      "max_abs": 4.587698936462402,
+      "mae": 0.24003101885318756,
+      "rmse": 0.36667168140411377,
+      "relative_l2": 0.3759998679161072,
+      "reference_rms": 0.9751454591751099,
+      "actual_rms": 0.9787507057189941,
+      "exact_fraction": 0.0
+    },
+    "audio": {
+      "shape": [
+        2,
+        32,
+        207
+      ],
+      "max_abs": 1.3806500434875488,
+      "mae": 0.04146132618188858,
+      "rmse": 0.10379111766815186,
+      "relative_l2": 0.20851704478263855,
+      "reference_rms": 0.4977583587169647,
+      "actual_rms": 0.5029811859130859,
+      "exact_fraction": 0.0
+    }
+  },
+  "decoded_audio": {
+    "shape": [
+      331776
+    ],
+    "max_abs": 0.40127769112586975,
+    "mae": 0.012500803917646408,
+    "rmse": 0.032340895384550095,
+    "relative_l2": 0.2753433287143707,
+    "reference_rms": 0.11745674163103104,
+    "actual_rms": 0.11568652838468552,
+    "exact_fraction": 0.0
+  },
+  "mp4_sha256": {
+    "reference": "c3a461a3cf6d73dbb2e8bea0afda908a5a013431023fa5b87a1e2b16c64ea267",
+    "actual": "2c7c42c3b8af9e1da386656bceead94ff22ca902654f0eed7ee142147e530608"
+  },
+  "decoded_video": {
+    "ssim": [
+      "[Parsed_ssim_0 @ 0x155544004440] SSIM Y:0.595014 (3.925598) U:0.880342 (9.220586) V:0.956864 (13.651562) All:0.702877 (5.270635)"
+    ],
+    "psnr": [
+      "[Parsed_psnr_0 @ 0x155544004440] PSNR y:18.215261 u:33.327963 v:40.199575 average:19.936030 min:16.687144 max:22.066400"
+    ]
+  }
+}

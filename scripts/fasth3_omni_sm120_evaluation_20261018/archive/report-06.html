@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="FastH3 Omni SM120: FI/USP8 固定合同下的 HSDP 延迟、通信、显存、一致性与历史评测档案。"><title>SM120 FlashInfer deployment and regression commands (2026-10-18)</title><link rel="stylesheet" href="../style.css"></head><body><header><a href="../index.html#archive">← 返回评测汇总</a><p class="eyebrow">历史阶段记录 / 适用范围见正文</p><h1 style="font-size:32px">SM120 FlashInfer deployment and regression commands (2026-10-18)</h1><p><code>framework-validation/SM120-FLASHINFER-RUN.txt</code></p><a class="button" href="../reports/framework-validation/SM120-FLASHINFER-RUN.txt" download>下载报告原文</a></header><main><div class="note">该文件保留实验当时的结论。局部 kernel、旧 provider、旧并行度和历史精度合同不能直接计入当前 FI/USP8 的加速。HSDP2 已完成的新结果见汇总首页；原文中的“尚未实测”可能是当时状态。原文路径指本地实验目录，可在证据索引中查找已发布文件。</div><section><pre>SM120 FlashInfer deployment and regression commands (2026-10-18)
+
+Selected provider: unmodified upstream FlashInfer BF16 SM120 block64 kernel.
+Model routing: logical128, (4,4,8) video tiles, 90% sparsity, independent
+reference-region budgets, PDD8 forwards, shifts12/3, guidance1.
+No FASTVIDEO_VSA_SM120 or FASTVIDEO_VSA_SM120_SPLITS setting is required.
+The serving/offline backend name remains FASTVIDEO_VSA, not FLASHINFER_ATTN;
+the latter selects a different attention implementation and is not this VSA adapter.
+
+This machine&#x27;s runtime:
+  Python3.12.13, torch2.13.0+cu130, vllm0.30.0 overlay, Triton3.7.1,
+  CUTLASS DSL4.6.2, CUDA Python13.3.1, driver580.95.05.
+  FlashInfer revision f75bed5da7112103b75f82a4d4b5faf4be335154.
+  run_flashinfer.py uses upstream FastVideo helpers and excludes the custom
+  fastvideo-sm120-tile128 directory from PYTHONPATH.
+  Installed Omni distribution metadata says0.28.0; checked-out code expects
+  vllm0.30.0. Tested offline generation works; other serving APIs are not
+  certified by these tests.
+  FFmpeg/FFprobe must be on PATH. Full model weights are already hash-verified
+  and cached locally; the commands below use offline Hugging Face access.
+
+Shell setup (copy and paste):
+  cd $WORKSPACE/vllm-omni-fasth3-omni
+  ART=$WORKSPACE/fasth3-omni-integration-20261018
+  PY=$WORKSPACE/minimax-h3-native/.venv/bin/python
+
+Quick local CPU regression, whole file (requires the runtime overlay):
+  python3 &quot;$ART/framework-validation/run_flashinfer.py&quot; &quot;$PY&quot; -m pytest -q tests/diffusion/models/minimax_h3/test_vsa_layout.py
+
+Full changed integration CPU suite, CI-like selection:
+  python3 &quot;$ART/framework-validation/run_flashinfer.py&quot; &quot;$PY&quot; -m pytest -q tests/diffusion/models/minimax_h3/test_vsa_layout.py tests/diffusion/models/minimax_h3/test_fasth3_omni.py tests/diffusion/models/minimax_h3/test_fasth3_pdd.py tests/diffusion/attention/test_block_sparse_ops.py -m &#x27;core_model and cpu&#x27; --run-level core_model
+
+Real GPU regression, whole file (requires1 SM120/SM121 GPU and FlashInfer API):
+  CUDA_VISIBLE_DEVICES=0 python3 &quot;$ART/framework-validation/run_flashinfer.py&quot; &quot;$PY&quot; -m pytest -q tests/diffusion/attention/test_block_sparse_sm120.py
+
+CI-like GPU selection, same file:
+  CUDA_VISIBLE_DEVICES=0 python3 &quot;$ART/framework-validation/run_flashinfer.py&quot; &quot;$PY&quot; -m pytest -q tests/diffusion/attention/test_block_sparse_sm120.py -m &#x27;core_model and cuda&#x27; --run-level core_model
+
+GPU tests skip on other architectures; this is not an SM100/SM103 parity test.
+No Buildkite topology change was made: existing CI hardware inventory does not
+identify an SM120 worker, so the real-GPU results reported here are local.
+
+Previous video-export buffer fix, whole file and CI-like CPU selection:
+  python3 &quot;$ART/framework-validation/run_flashinfer.py&quot; &quot;$PY&quot; -m pytest -q tests/diffusion/utils/test_chunked_transfer.py
+  python3 &quot;$ART/framework-validation/run_flashinfer.py&quot; &quot;$PY&quot; -m pytest -q tests/diffusion/utils/test_chunked_transfer.py -m &#x27;core_model and cpu&#x27; --run-level core_model
+
+Reproduce final full-checkpoint validation (requires4 SM120 GPUs with about72GiB
+per GPU and cached weights; three requests, includes initial load/JIT):
+  CUDA_VISIBLE_DEVICES=0,1,2,3 python3 &quot;$ART/framework-validation/run_flashinfer.py&quot; &quot;$PY&quot; &quot;$ART/framework-validation/run_checkpoint.py&quot; --run-dir &quot;$ART/checkpoint-runs/flashinfer-sm120-reproduction&quot; --cases &quot;$ART/framework-validation/cases-flashinfer-sm120.json&quot; --num-gpus 4 --tp 2 --usp 2 --te-tp 4 --no-profile
+
+Outputs: per-case output.mp4 plus results.json containing timings, peak memory,
+exact FFprobe frame counts and audio metadata. Every output is fully decoded
+with FFmpeg. Test cases:124frames seed43,124frames seed79,345frames seed43;
+all1344x768,24fps,8steps. The first request includes any JIT/cache warmup.
+
+For lower memory use: change --tp 2 --usp 2 to --tp 1 --usp 4 --hsdp.
+Measured warm124-frame FI medians:TP2/SP2=70.20s;HSDP4/SP4=76.56s.
+TP2/SP2 is close to the memory limit at345frames. HSDP4/SP4 also completed345.
+
+Eight-GPU USP8 baseline (full BF16 DiT;8 SM120 GPUs;HSDP8 weight sharding):
+  CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python3 &quot;$ART/framework-validation/run_flashinfer.py&quot; &quot;$PY&quot; &quot;$ART/framework-validation/run_checkpoint.py&quot; --run-dir &quot;$ART/checkpoint-runs/flashinfer-usp8-reproduction&quot; --cases &quot;$ART/framework-validation/cases-flashinfer-usp8.json&quot; --num-gpus 8 --tp 1 --usp 8 --te-tp 8 --hsdp --no-profile
+  Includes124-frame warmup,three124-frame measured repeats,and345-frame check.
+  Validated settings and results:checkpoint-runs/flashinfer-usp8-baseline.
+  Summary and decoded repeat hashes:framework-validation/usp8-baseline-summary.json.
+  Warm124-frame median41.04s versus70.20s on4GPU TP2/SP2;GPU count doubles.
+  Existing exact AdaLN cache,QK Norm/RoPE fusion,and chunked video export remain
+  enabled. Legacy RDMA/gate/O overlap,VSA fused layout,and paired/mixedB2 VAE
+  are not silently activated by old environment variables in this checkout.
+  Retrieved original sessions and migration gates:FASTH3-PRIOR-SESSIONS.txt.
+
+Serving CLI and multipart request example are in
+recipes/MiniMaxAI/MiniMax-H3.md, FastH3 Omni8-Step V1 section. This turn validated
+the offline generation path, not the HTTP server endpoint.
+
+Quality limits:
+  Real checkpoint BF16 attention exceeds the original strict per-element FP32
+  gate on some layers; do not equate synthetic tests with lossless equivalence.
+  Native128 vs FlashInfer same-seed output SSIM is0.740 in the TP2/SP2 case.
+  Upstream SM100/SM103 full-video equivalence has not been established.
+  See CHECKPOINT-REPORT.txt and tp2-sp2-attention-trajectories.json.
+</pre></section></main></body></html>

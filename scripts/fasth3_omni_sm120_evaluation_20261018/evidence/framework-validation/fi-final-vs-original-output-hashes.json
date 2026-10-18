@@ -1,0 +1,34 @@
+[
+  {
+    "reference": "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/tp2-sp2/fi-124-warmup/output.mp4",
+    "actual": "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/flashinfer-sm120-final/fi-124-seed43/output.mp4",
+    "streams": {
+      "v:0": {
+        "reference_hash": "SHA256=39c6845855dc8913f5e25cd111cb0fe6969fe95693b11ea4a4b78c45359609b6",
+        "actual_hash": "SHA256=39c6845855dc8913f5e25cd111cb0fe6969fe95693b11ea4a4b78c45359609b6",
+        "identical": true
+      },
+      "a:0": {
+        "reference_hash": "SHA256=331ca8956196af77ff143a539e9bbe250780ffd162712c6dd4c22527fc95bafe",
+        "actual_hash": "SHA256=69a0e4168c21fd638cb9f77127c934d8146b364b74a689e32db24225ca15cd02",
+        "identical": false
+      }
+    }
+  },
+  {
+    "reference": "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/tp2-sp2/fi-345-quality/output.mp4",
+    "actual": "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/flashinfer-sm120-final/fi-345-seed43/output.mp4",
+    "streams": {
+      "v:0": {
+        "reference_hash": "SHA256=59d25e2eafd8627c341f4c3da92426e4873445ff2bb47591fb7c9f4ac43180e2",
+        "actual_hash": "SHA256=59d25e2eafd8627c341f4c3da92426e4873445ff2bb47591fb7c9f4ac43180e2",
+        "identical": true
+      },
+      "a:0": {
+        "reference_hash": "SHA256=0f3f703a0a5a011206d00e50291c7b0abc2c602c80bc7d4a8744262f530047f7",
+        "actual_hash": "SHA256=0f3f703a0a5a011206d00e50291c7b0abc2c602c80bc7d4a8744262f530047f7",
+        "identical": true
+      }
+    }
+  }
+]

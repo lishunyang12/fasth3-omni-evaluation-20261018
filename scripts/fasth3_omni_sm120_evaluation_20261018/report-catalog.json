@@ -1,0 +1,142 @@
+[
+  {
+    "title": "FastH3 Omni / FI / USP8：HSDP2 与 HSDP8 完整请求评测",
+    "source": "HSDP-SHARD2-REPORT.txt",
+    "page": "archive/report-01.html",
+    "raw": "reports/HSDP-SHARD2-REPORT.txt",
+    "status": "本次已完成结果"
+  },
+  {
+    "title": "HSDP latency evaluation — current FI / TP1 / USP8",
+    "source": "HSDP-LATENCY-REPORT.txt",
+    "page": "archive/report-02.html",
+    "raw": "reports/HSDP-LATENCY-REPORT.txt",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "Pinned checkpoint end-to-end validation (2026-10-18)",
+    "source": "framework-validation/CHECKPOINT-REPORT.txt",
+    "page": "archive/report-03.html",
+    "raw": "reports/framework-validation/CHECKPOINT-REPORT.txt",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "FastH3 Omni / SM120 优化技术清单 — 2026-10-18",
+    "source": "framework-validation/OPTIMIZATION-INVENTORY.txt",
+    "page": "archive/report-04.html",
+    "raw": "reports/framework-validation/OPTIMIZATION-INVENTORY.txt",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "Update: actual checkpoint generation now succeeds (see CHECKPOINT-REPORT.txt).",
+    "source": "framework-validation/REPORT.txt",
+    "page": "archive/report-05.html",
+    "raw": "reports/framework-validation/REPORT.txt",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "SM120 FlashInfer deployment and regression commands (2026-10-18)",
+    "source": "framework-validation/SM120-FLASHINFER-RUN.txt",
+    "page": "archive/report-06.html",
+    "raw": "reports/framework-validation/SM120-FLASHINFER-RUN.txt",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "FastVideo SM120 native128: validated opt-in implementation",
+    "source": "native-sm120-report.md",
+    "page": "archive/report-07.html",
+    "raw": "reports/native-sm120-report.md",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "Actual FastH3 Omni 124-frame attention: NCU diagnosis (2026-10-18)",
+    "source": "profile/checkpoint-124-native128/REPORT.txt",
+    "page": "archive/report-08.html",
+    "raw": "reports/profile/checkpoint-124-native128/REPORT.txt",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "Native128 C0 versus FlashInfer: SM120 profile",
+    "source": "profile/native128-c0-vs-fi/REPORT.md",
+    "page": "archive/report-09.html",
+    "raw": "reports/profile/native128-c0-vs-fi/REPORT.md",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "C4: native128 grouped-schedule profile",
+    "source": "profile/native128-c4-promoted/REPORT.md",
+    "page": "archive/report-10.html",
+    "raw": "reports/profile/native128-c4-promoted/REPORT.md",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "C4 source attribution",
+    "source": "profile/native128-c4-source-lines/REPORT.md",
+    "page": "archive/report-11.html",
+    "raw": "reports/profile/native128-c4-source-lines/REPORT.md",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "C4.1 regression diagnosis before C5",
+    "source": "profile/native128-c5-baseline/REPORT.md",
+    "page": "archive/report-12.html",
+    "raw": "reports/profile/native128-c5-baseline/REPORT.md",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "C5: native128 scheduler and zero-size compaction",
+    "source": "profile/native128-c5-candidate/REPORT.md",
+    "page": "archive/report-13.html",
+    "raw": "reports/profile/native128-c5-candidate/REPORT.md",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "C6 baseline: low-head-count parallelism",
+    "source": "profile/native128-c6-baseline/REPORT.md",
+    "page": "archive/report-14.html",
+    "raw": "reports/profile/native128-c6-baseline/REPORT.md",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "First C6 prototype: split-KV with direct FP32 stores",
+    "source": "profile/native128-c6-candidate/REPORT.md",
+    "page": "archive/report-15.html",
+    "raw": "reports/profile/native128-c6-candidate/REPORT.md",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "C6b: native128 split-KV with FP32 shared-memory output staging",
+    "source": "profile/native128-c6b-candidate/REPORT.md",
+    "page": "archive/report-16.html",
+    "raw": "reports/profile/native128-c6b-candidate/REPORT.md",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "Native128 versus FI64: why it wins and distance to SoL",
+    "source": "profile/native128-sol-audit/REPORT.md",
+    "page": "archive/report-17.html",
+    "raw": "reports/profile/native128-sol-audit/REPORT.md",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "SM120 native128 vs pinned FlashInfer64: comprehensive validation v2",
+    "source": "validation-v2/REPORT.txt",
+    "page": "archive/report-18.html",
+    "raw": "reports/validation-v2/REPORT.txt",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "C5 native SM120 block128: frozen evaluation",
+    "source": "validation-v3/REPORT.txt",
+    "page": "archive/report-19.html",
+    "raw": "reports/validation-v3/REPORT.txt",
+    "status": "历史阶段记录 / 适用范围见正文"
+  },
+  {
+    "title": "C6b native128 split-KV validation",
+    "source": "validation-v4/REPORT.txt",
+    "page": "archive/report-20.html",
+    "raw": "reports/validation-v4/REPORT.txt",
+    "status": "历史阶段记录 / 适用范围见正文"
+  }
+]

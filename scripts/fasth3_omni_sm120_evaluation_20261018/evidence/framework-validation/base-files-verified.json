@@ -1,0 +1,403 @@
+{
+  "repo": "MiniMaxAI/MiniMax-H3",
+  "revision": "9bfb6693f2cf6de171db46d1aa586f67d773a1da",
+  "path": "$WORKSPACE/fasth3-omni-integration-20261018/hf-hub/models--MiniMaxAI--MiniMax-H3/snapshots/9bfb6693f2cf6de171db46d1aa586f67d773a1da",
+  "files": [
+    {
+      "name": "Ref2VA/audio_vae/config.json",
+      "size": 1973,
+      "hash": "bc2a8dc3bfe9037e1f0e82e97f309019b6a398e6",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/config.yaml",
+      "size": 91,
+      "hash": "4ad8704ca5bf410fb2f471978fe9537c98ca4aa0",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/dac_activations.py",
+      "size": 2189,
+      "hash": "234a4223d1fc7340f0dc450b7c7e286555c5065d",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/dac_alias_free_act.py",
+      "size": 835,
+      "hash": "d39ca2802eec1bd98e31cb2065c088ac6b57c2b0",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/dac_alias_free_filter.py",
+      "size": 3300,
+      "hash": "ad025952f5ada1c57be051f8e6dc999267b58d36",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/dac_alias_free_resample.py",
+      "size": 1740,
+      "hash": "af4b2b44891ac10d5f4a544a73a0d1a5d3342637",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/dac_attn_proj.py",
+      "size": 3317,
+      "hash": "d3b9b1fcba4e8e2ab4ce323577a1f7321a9f7ab1",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/dac_audio_vae.py",
+      "size": 7266,
+      "hash": "b8b8c8b3ce0f2144b46663ea560bd1904b654925",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/dac_bigvgan.py",
+      "size": 7102,
+      "hash": "00d639800dbe91e91f1cef39f2642848622e47ff",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/dac_utils.py",
+      "size": 362,
+      "hash": "b1d30c34fa506c62c338a9bb7e10816e3bbc32cb",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/metadata.json",
+      "size": 440,
+      "hash": "db6aa0b9d2022da4b04f1f80fa2a5260231c5c83",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/minimax_h3_audio_vae.py",
+      "size": 3532,
+      "hash": "b03f1e5027888da226701e20c097053068e3e310",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/audio_vae/model.safetensors",
+      "size": 605429308,
+      "hash": "37dddc2f3e6d5d5139d823d5ea283bbf304dadcb885b1ccda818aa13dade5ea2",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/model_index.json",
+      "size": 707,
+      "hash": "b6dd080b974d63e301a049cd09ffe45cbec5b58e",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/processor/chat_template.json",
+      "size": 5499,
+      "hash": "1081bacf1af7c7c6de4a585ce02cd0fd34e382da",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/processor/merges.txt",
+      "size": 1671839,
+      "hash": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/processor/preprocessor_config.json",
+      "size": 390,
+      "hash": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/processor/tokenizer.json",
+      "size": 7032403,
+      "hash": "c6cc1014128b19d1fc46b1d30a23e3b1d35db421",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/processor/tokenizer_config.json",
+      "size": 11003,
+      "hash": "204d76f78dac6dedc820418c30bf01145de78a21",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/processor/video_preprocessor_config.json",
+      "size": 385,
+      "hash": "3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/processor/vocab.json",
+      "size": 2776833,
+      "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/chat_template.json",
+      "size": 5499,
+      "hash": "1081bacf1af7c7c6de4a585ce02cd0fd34e382da",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/config.json",
+      "size": 1474,
+      "hash": "29e925092dee9f14278c53e7e7d876cea8a997bc",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/merges.txt",
+      "size": 1671839,
+      "hash": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00001-of-00014.safetensors",
+      "size": 4932328944,
+      "hash": "6b9dfbc930e505402ae9d7e5091a9d7d656cda5f34614f01cfe70bfb0cca27cb",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00002-of-00014.safetensors",
+      "size": 4875990528,
+      "hash": "d8bb44b4ff303fe76fe9e894022fb3dc71b15a2e716592790fe0e3c3e60478fa",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00003-of-00014.safetensors",
+      "size": 4875990552,
+      "hash": "54f22e8b3168f8dc962fac0d313607ebf52a12b433d4cf3098a0d82d9f042940",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00004-of-00014.safetensors",
+      "size": 4875990584,
+      "hash": "ad09c74d3c13ee29b5d0d84548fd8a3424a651564eaccd519946c296e59c557f",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00005-of-00014.safetensors",
+      "size": 4875990584,
+      "hash": "fc993c8a0e2a5b0570f383e1a95dc3a1281d1b224b6f3ee908f4827941e1dfc2",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00006-of-00014.safetensors",
+      "size": 4875990584,
+      "hash": "82f05620d1f718a90c362b221d6a184ff1a0f53301d706882d3df49695fa1974",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00007-of-00014.safetensors",
+      "size": 4875990584,
+      "hash": "fb91da8cb01ff4de3eef0eab1c3e769a734b3a1aafc61734068638a0d6c86934",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00008-of-00014.safetensors",
+      "size": 4875990584,
+      "hash": "431ca56535c8781944ce3801f5eb61c45531e853ecc5846d936ebaf4761b764f",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00009-of-00014.safetensors",
+      "size": 4875990584,
+      "hash": "3825e3f4302f4d2f7d76aa7430d2ce0864fde6b9e540a5806bf0d8e38e4d9f47",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00010-of-00014.safetensors",
+      "size": 4875990584,
+      "hash": "aded5a4d1d5e22dbd8b6f79266b6eb88c840411b09527c53917a1419ace22e2f",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00011-of-00014.safetensors",
+      "size": 4875990584,
+      "hash": "3820ffe8d8d6477f6fe8d614ef3c87abb264ee39accebf43a1507b970d80946f",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00012-of-00014.safetensors",
+      "size": 4875990584,
+      "hash": "05ad2d08ce71963121c9b03f1d9ec5d7641052f4b23c6c12b80d71065eb8e98e",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00013-of-00014.safetensors",
+      "size": 4875990584,
+      "hash": "b64f2289871261fdd1abbd3b78bcd66011b341de3dc8eeb2ed1a473ee7c8d95c",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model-00014-of-00014.safetensors",
+      "size": 3270697008,
+      "hash": "e45b6c9998c77ee5a6577f9f47bc76416c1d4d387169e50c4c9d3134ea51b13b",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/model.safetensors.index.json",
+      "size": 97831,
+      "hash": "b7f68f12031a25c81d72d46a284fe9e1daa448b8",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/preprocessor_config.json",
+      "size": 390,
+      "hash": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/tokenizer.json",
+      "size": 7032403,
+      "hash": "c6cc1014128b19d1fc46b1d30a23e3b1d35db421",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/tokenizer_config.json",
+      "size": 11003,
+      "hash": "204d76f78dac6dedc820418c30bf01145de78a21",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/video_preprocessor_config.json",
+      "size": 385,
+      "hash": "3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/text_encoder/vocab.json",
+      "size": 2776833,
+      "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/tokenizer/merges.txt",
+      "size": 1671839,
+      "hash": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/tokenizer/tokenizer.json",
+      "size": 7032403,
+      "hash": "c6cc1014128b19d1fc46b1d30a23e3b1d35db421",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/tokenizer/tokenizer_config.json",
+      "size": 11003,
+      "hash": "204d76f78dac6dedc820418c30bf01145de78a21",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/tokenizer/vocab.json",
+      "size": 2776833,
+      "hash": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/attention.py",
+      "size": 5785,
+      "hash": "0443bd31cefe7bd5022aa7f36fbc6aced9fdd84f",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/base_module.py",
+      "size": 9520,
+      "hash": "b13137b8d163afea25c235beef1476039d7f6c0e",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/config.json",
+      "size": 1807,
+      "hash": "20f91e40ea9bc24c21a0e757715f93acf49eb841",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/conv.py",
+      "size": 4487,
+      "hash": "f10f5002b13bfa46c8eb9a9b4ba8d88bc891a517",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/flash.py",
+      "size": 5763,
+      "hash": "40b7cac47cabc3755c8c06dc620c689418cb769d",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/func.py",
+      "size": 5840,
+      "hash": "f142c48a932430b67d77164a6bfba3f61102ac3d",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/klvae.py",
+      "size": 48594,
+      "hash": "3e66f174c2c82600b6bc924ede9fb3fb068d1f3e",
+      "action": "download_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/minimax_h3_video_vae.py",
+      "size": 5123,
+      "hash": "231d9c77a7a3dc74de007c29332cfe92e3782f7d",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/norm.py",
+      "size": 10686,
+      "hash": "00a96b83c6ee3f78cf75873e46d96be5d50879a6",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/normalize.py",
+      "size": 1200,
+      "hash": "fd4038037c22d9c7b2e375e455e975ef4c56db7b",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/parallel.py",
+      "size": 12997,
+      "hash": "e63b13c9b20738d4a2835e8fde4504a8145e121f",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/source/config.json",
+      "size": 1164,
+      "hash": "fb5105116e094aface836f5182b126bb4fbdc699",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/source/model.safetensors",
+      "size": 10415548320,
+      "hash": "5f0c2e161d895a9fee7645ca32d4a7e3a22b90cacfcbeba62ec999cdbbefe0d3",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/utils.py",
+      "size": 764,
+      "hash": "89c13d28758834b1fa8a1cd69018ec00807402f6",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/vae_cnn.py",
+      "size": 8836,
+      "hash": "40a7917a1144162372f53328753f00e2f4c40a20",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/vae_module.py",
+      "size": 1884,
+      "hash": "6f2bf8d091c35eba2c4b6e92ee0038c0bfc9f137",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/vae_processor.py",
+      "size": 8369,
+      "hash": "0f2611987b6b0a0bfde2a3192121eede32dc9d8d",
+      "action": "reuse_verified"
+    },
+    {
+      "name": "Ref2VA/video_vae/vae_vit.py",
+      "size": 13490,
+      "hash": "9021bcdd1dd2120ef5d0f7e0d0521199dbc1d3f9",
+      "action": "reuse_verified"
+    }
+  ]
+}

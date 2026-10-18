@@ -1,0 +1,59 @@
+C6b native128 split-KV validation
+
+Accepted explicit num_splits=2/4/8/16 on direct and mask APIs. Default1 and existing FastVideo environment route remain unsplit.
+BF16 Q/K/V and P; FP32 accumulation, partial output and lnLSE; stable weighted merge; one final BF16 rounding. Physical128 tiles and logical selections preserved.
+No lower precision, FI runtime dependency, or shape-only automatic dispatch was added.
+
+Validation:
+- 180 configurations =45 adversarial cases x splits2/4/8/16; zero failures. FP64 references for first26 cases, FP32 for larger cases.
+- Reversed valid indices / poisoned unused capacity / deterministic repeats on26 cases x4 splits. FP32 scratch initialized to NaN and checked fully overwritten on all180 configurations.
+- Oracle covers all rows for Sq<=2048; for larger inputs it samples boundary rows of every128 block plus256 random rows. Scratch initialization and default-vs-C5 equality checks cover full tensors.
+- Large logits, cancellation, constant V, outliers, zero Q, all-zero sizes, empty rows and empty splits, ragged sizes0/1/17/63/64/65/127/128, odd counts, asymmetric lengths, B2, H1..56, aligned offsets and strides.
+- 31 unseen held-out input cases, seed99017, splits2 and8, both prepared and metadata-inclusive calls. All independent FP32 gates pass.
+- 11 representative held-out cases repeated in a fresh process and randomized order; no code changes after holdout began.
+-45 pytest tests pass, including fullgraph compile, changing all graph inputs/metadata, concurrent graphs, alternate current device, invalid options and preallocated outputs.
+-memcheck/racecheck/synccheck/initcheck:15 tests each, exit0 and no reported errors. Initcheck covers empty-allocated FP32 scratch and final outputs on the split path; the older unsplit BF16 TMA-store tracking limitation is not reclassified.
+-23 prior default-path performance cases: output and LSE bitwise equal to frozen C5.
+-pre-commit passed; kernel paths are deliberately excluded by repository configuration. git diff --check passed.
+
+Maximum max_abs across adversarial split configurations: 0.01410150528
+Maximum relative_l2 across adversarial split configurations: 0.002216225813
+Maximum lse_max_abs across adversarial split configurations: 6.908106431e-05
+Output gates unchanged: atol=.01,rtol=.01 and relativeL2<=.005; LSE atol=.002,rtol=.0002; exact empty0/-inf. A max absolute error above.01 can pass the relative tolerance; no thresholds were loosened.
+
+Timing: GPU2, CUDA graph paired randomized21 rounds, hot and256MiB cache-flushed; separate synchronized eager host-inclusive measurements. Ratios>1 mean split is faster. CIs are within-process paired bootstrap, not cross-machine confidence.
+Fresh-process repeat, B1/H1 prefix, split8 (complete producer+merge):
+Sq tokens | C5 us | FI us | split8 us | C5/split8 | FI/split8 [95% CI] | FI/split8 cold | metadata FI/split8
+2560 | 77.41 | 49.15 | 33.59 | 2.305 | 1.463 [1.455,1.472] | 1.529 | 1.471
+5120 | 149.50 | 96.26 | 59.39 | 2.517 | 1.621 [1.621,1.621] | 1.658 | 1.629
+11264 | 325.43 | 226.41 | 145.00 | 2.246 | 1.562 [1.559,1.564] | 1.567 | 1.563
+19456 | 560.23 | 387.89 | 271.26 | 2.065 | 1.429 [1.428,1.431] | 1.434 | 1.421
+33792 | 971.06 | 711.17 | 579.28 | 1.676 | 1.227 [1.226,1.229] | 1.254 | 1.222
+
+Counterexamples from the SAME held-out suite (no automatic rule):
+case5 {'nq': 88, 'nk': 88, 'heads': 3, 'batch': 1, 'density': 0.1, 'pattern': 'prefix', 'data': 'normal', 'ragged': False, 'seed': 99017}: C5=329.93us FI=298.91us split2=260.30us split8=373.96us.
+case13 {'nq': 88, 'nk': 88, 'heads': 1, 'batch': 1, 'density': 0.01, 'pattern': 'random', 'data': 'normal', 'ragged': False, 'seed': 99017}: C5=16.38us FI=14.34us split2=30.72us split8=81.72us.
+case14 {'nq': 88, 'nk': 88, 'heads': 1, 'batch': 1, 'density': 0.1, 'pattern': 'random', 'data': 'normal', 'ragged': False, 'seed': 99017}: C5=65.54us FI=58.37us split2=69.84us split8=106.50us.
+case17 {'nq': 88, 'nk': 88, 'heads': 1, 'batch': 1, 'density': 0.1, 'pattern': 'single', 'data': 'normal', 'ragged': False, 'seed': 99017}: C5=9.76us FI=8.40us split2=28.88us split8=82.12us.
+case19 {'nq': 88, 'nk': 88, 'heads': 1, 'batch': 1, 'density': 0.1, 'pattern': 'empty', 'data': 'normal', 'ragged': False, 'seed': 99017}: C5=4.10us FI=4.10us split2=24.78us split8=77.82us.
+case30 {'nq': 88, 'nk': 88, 'heads': 1, 'batch': 1, 'density': 0.1, 'pattern': 'prefix', 'data': 'normal', 'ragged': True, 'seed': 99017}: C5=292.97us FI=143.36us split2=163.94us split8=136.81us.
+
+Default-path regression timings measured paired onGPU5:
+hot_graph: min/max C5/default ratio 0.998552..1.002431.
+cache_flushed_graph: min/max C5/default ratio 0.999017..1.002182.
+
+NCU / KDA evidence:
+-profile/native128-c6-baseline explains original utilization denominators and the96-CTA, two-long-row tail. H1 prefix SM busy13.793%, BF16 dense SoL10.854%; actual DRAM-byte utilization1.420%, distinct from aggregate DRAM throughput1.527%.
+-profile/native128-c6-candidate archives the initial direct-global-store prototype and its255-register spilling bottleneck.
+-profile/native128-c6b-candidate contains final full+PM+source captures and six-dimension analysis. Shared output staging reduces registers to236 and eliminates all measured local load/store spill instructions. H1 prefix producer busy72.77%, dense SoL31.39%, same11.073GFLOP.
+-Producer-only SoL does not include merge; this is not a claim of near-peak overall performance. NCU separately cold-replays merge, so do not add those durations and call it hot application latency.
+-Split8 TMA bytes grow89.65MB->111.67MB because Q is loaded for every split; K/V traffic is unchanged. Scratch50.72MB in this input. No DRAM/TMA equivalence is assumed.
+
+Artifact integrity / limitations:
+-Frozen final source outputs/c6_frozen; final-source-manifest.json covers production code, tests and docs. The holdout was not used to retune the implementation.
+-tuning-epilogue.json has old-provider rebinding after the first case; exclude its old/new comparisons. tuning-epilogue-corrected.json is the valid paired comparison.
+-The tests use synthetic selections/values. No full FastH3 checkpoint activations, end-to-end video quality, or vLLM-Omni inference parity claim is made.
+-No commit, push or deployment was performed.
+
+Usage: block_sparse_attn_sm120_from_mask(q,k,v,mask_128,sizes_128,num_splits=8)
+Use only after benchmarking your workload. Temporary bytes=B*num_splits*Sq*H*129*4; default1 has no split scratch or merge.

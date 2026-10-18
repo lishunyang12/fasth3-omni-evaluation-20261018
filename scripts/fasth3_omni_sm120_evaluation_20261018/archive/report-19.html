@@ -1,0 +1,175 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="FastH3 Omni SM120: FI/USP8 固定合同下的 HSDP 延迟、通信、显存、一致性与历史评测档案。"><title>C5 native SM120 block128: frozen evaluation</title><link rel="stylesheet" href="../style.css"></head><body><header><a href="../index.html#archive">← 返回评测汇总</a><p class="eyebrow">历史阶段记录 / 适用范围见正文</p><h1 style="font-size:32px">C5 native SM120 block128: frozen evaluation</h1><p><code>validation-v3/REPORT.txt</code></p><a class="button" href="../reports/validation-v3/REPORT.txt" download>下载报告原文</a></header><main><div class="note">该文件保留实验当时的结论。局部 kernel、旧 provider、旧并行度和历史精度合同不能直接计入当前 FI/USP8 的加速。HSDP2 已完成的新结果见汇总首页；原文中的“尚未实测”可能是当时状态。原文路径指本地实验目录，可在证据索引中查找已发布文件。</div><section><pre>C5 native SM120 block128: frozen evaluation
+
+Decision: retain the native128 opt-in with C5. The 16K scheduling cliff is
+fixed on the measured prefix workloads, while long-sequence performance is
+preserved within small measured tradeoffs. This is not a universal FI win.
+
+Implementation
+  - Four initial query tiles across heads, then groups of128 at every length.
+  - Nq/H compile constants, already covered by the device/shape/stride cache key.
+  - Compaction optionally removes size=0 KV blocks; from-mask API enables it.
+  - Nonempty tiles remain128x128; BF16 inputs/P and FP32 accumulation unchanged.
+  - compact_mask_sm120(mask) and direct compact-index callers remain compatible.
+  - No CPU metadata reads, data-dependent dispatch, quantization or new model weights.
+
+Independent validation
+  correctness: 45 passed, 0 failures.
+  boundary: 9 passed, 0 failures.
+  holdout: 25 passed, 0 failures.
+  regression: 23 passed, 0 failures.
+  27 GPU pytest cases passed, including graph mutation, concurrent graphs,
+  cross-device DLPack binding, fullgraph compile, poisoned padding and outputs.
+  Output gates: atol=.01, rtol=.01, relative-L2&lt;=.005; lnLSE .002/.0002.
+  TF32 disabled. Small references use FP64; long cases cover boundary rows
+  in EVERY Q block plus seeded random rows. Empty rows exactly zero/-inf.
+  FI is excluded only for the 16-byte-offset input: its pinned wrapper assumes128-byte alignment.
+  Fresh performance and boundary cases additionally compare EVERY output
+  against frozen C4.1; reference checks remain independent of both kernels.
+  Maximum max_abs across the 45-case suite: 0.0141015053
+  Maximum rmse across the 45-case suite: 0.000795068394
+  Maximum relative_l2 across the 45-case suite: 0.00225098198
+  Maximum lse_max_abs across the 45-case suite: 6.90810643e-05
+  The largest absolute error occurs with amplified logits; the combined
+  absolute/relative gate and relative-L2 gate both pass without tolerance changes.
+  Maximum full-output BF16 difference versus C4.1: 0
+
+Performance protocol
+  GPU2 for all final timing/repeats; 21 randomized paired rounds per case.
+  Hot: 3 warm replays then10 timed replays. Cold:256MiB cache flush before
+  each timed replay (flush excluded); GPU L2=96MiB. Eager host-inclusive
+  samples and before/after GPU telemetry are retained in each JSON.
+  Kernel uses precomputed metadata/preallocated output; full includes
+  allocation and fused mask compaction. FI gets a fused128-to64 adapter.
+  Raw samples and paired bootstrap95% intervals (2000 resamples) are stored;
+  these intervals describe within-process variability, not cross-machine confidence.
+  C4.1 frozen before tuning. C5 frozen before fresh holdout. No holdout retuning.
+  Holdout seed67057; original regression seed41113. Tuning seed58013.
+  FI commit f75bed5da7112103b75f82a4d4b5faf4be335154.
+  Speed ratios &gt;1 mean C5 is faster. Do not infer model latency from these kernels.
+
+holdout
+ id    Sq    Sk  H B pattern rho ragged  C5-hot-ms  C4/C5-hot cold  FI/C5-hot cold  FI/C5-full-hot cold
+  0  5120  5120 14 1 prefix  0.10 False   0.1802   1.1568   1.1290   1.4542   1.4516   1.4569   1.4362
+  1  9216  9216 14 1 prefix  0.10 False   0.4739   0.9953   1.0088   1.2988   1.2696   1.2987   1.2682
+  2 15360 15360 14 1 prefix  0.10 False   1.0710   1.0280   1.0265   1.2142   1.2010   1.2131   1.1976
+  3 17408 17408 14 1 prefix  0.10 False   1.3260   1.1954   1.1993   1.1909   1.1707   1.1895   1.1720
+  4 20480 20480 14 1 prefix  0.10 False   1.7514   1.0622   1.0625   1.2070   1.2536   1.2074   1.2539
+  5 26624 26624 14 1 prefix  0.10 False   2.9540   0.9996   0.9982   1.1650   1.1412   1.1712   1.1418
+  6 34816 34816 14 1 prefix  0.10 False   4.7949   0.9955   0.9996   1.1325   1.1332   1.1331   1.1341
+  7 43008 43008 14 1 prefix  0.10 False   7.0575   0.9968   0.9967   1.1104   1.1223   1.1099   1.1230
+  8 17408 17408  3 1 prefix  0.10 False   0.5096   1.2447   1.2426   0.9946   1.0077   0.9944   0.9960
+  9 17408 17408  7 1 prefix  0.10 False   0.6433   1.4956   1.4760   1.3582   1.3205   1.3641   1.3201
+ 10 17408 17408 28 1 prefix  0.10 False   2.7450   1.0634   1.0691   1.1543   1.1340   1.1564   1.1346
+ 11 17408 17408 56 1 prefix  0.10 False   5.5999   0.9982   1.0047   1.1022   1.1193   1.1053   1.1189
+ 12  9216  9216 14 2 prefix  0.10 False   0.9899   0.9946   1.0001   1.1894   1.1718   1.1913   1.1625
+ 13 15360 34816 14 1 prefix  0.10 False   2.2836   1.1007   1.0725   1.2660   1.2525   1.2696   1.2507
+ 14 34816 15360 14 1 prefix  0.10 False   2.3180   1.0003   1.0006   1.1318   1.1183   1.1352   1.1180
+ 15 26624 26624 14 1 random  0.01 False   0.3953   1.0005   0.9997   0.9079   0.8669   0.9105   0.8699
+ 16 26624 26624 14 1 random  0.30 False   7.0581   0.9971   0.9987   1.0967   1.0875   1.0968   1.0858
+ 17 26624 26624 14 1 random  1.00 False  22.8904   0.9966   0.9969   1.0999   1.0953   1.0997   1.0944
+ 18 26624 26624 14 1 single  0.10 False   0.3063   1.0007   1.0004   0.9202   0.9359   0.9279   0.9441
+ 19 26624 26624 14 1 skew    0.10 False   3.6177   0.9931   0.9945   1.0934   1.0843   1.0918   1.0841
+ 20 26624 26624 14 1 local   0.10 False   2.4145   1.0023   1.0044   1.1010   1.0899   1.1017   1.0924
+ 21  9216  9216 14 1 prefix  0.10 True    0.3926   1.1940   1.2029   0.9502   0.9129   0.9583   0.9331
+ 22 17408 17408 14 1 prefix  0.10 True    1.0948   1.4342   1.4483   0.8690   0.8562   0.8690   0.8576
+ 23 34816 34816 14 1 prefix  0.10 True    3.9902   1.1538   1.1535   0.8240   0.8128   0.8242   0.8129
+ 24  9216  9216  1 1 prefix  0.10 False   0.2669   0.9988   0.9961   0.6984   0.7125   0.7002   0.7008
+  Worst measured C4/C5 (hot_graph): case19, 0.99306, paired95% [0.9903588567823166, 0.9943945050942075].
+  Worst measured C4/C5 (cache_flushed_graph): case19, 0.99450, paired95% [0.9941062833898261, 0.9953383628820331].
+
+regression
+ id    Sq    Sk  H B pattern rho ragged  C5-hot-ms  C4/C5-hot cold  FI/C5-hot cold  FI/C5-full-hot cold
+  0   512   512 14 1 prefix  0.10 False   0.0205   1.0000   1.0568   1.0000   1.0000   1.0100   1.0000
+  1  1024  1024 14 1 prefix  0.10 False   0.0369   1.0167   1.0143   1.0000   0.9660   0.9474   0.9545
+  2  4096  4096 14 1 prefix  0.10 False   0.1516   1.1764   1.1667   1.3770   1.2949   1.3527   1.3590
+  3  8192  8192 14 1 prefix  0.10 False   0.4276   0.9983   1.0049   1.2665   1.2347   1.2775   1.2277
+  4 16384 16384 14 1 prefix  0.10 False   1.2745   1.0558   1.0336   1.2177   1.1964   1.2187   1.1973
+  5 16512 16512 14 1 prefix  0.10 False   1.2474   1.2468   1.2521   1.1987   1.1919   1.2020   1.1949
+  6 32768 32768 14 1 prefix  0.10 False   4.1978   0.9939   0.9987   1.1526   1.1442   1.1566   1.1428
+  7 41472 41472 14 1 prefix  0.10 False   6.8277   0.9958   0.9974   1.1113   1.1235   1.1121   1.1253
+  8  8192  8192  1 1 prefix  0.10 False   0.2378   0.9991   1.0025   0.7041   0.7179   0.7052   0.7111
+  9  8192  8192  7 1 prefix  0.10 False   0.2468   1.0029   1.0030   1.3097   1.2742   1.3079   1.2637
+ 10  8192  8192 56 1 prefix  0.10 False   1.8001   1.0562   1.0399   1.1029   1.1192   1.1026   1.1198
+ 11 32768 32768 56 1 prefix  0.10 False  17.2067   0.9941   0.9947   1.0913   1.1014   1.0920   1.1026
+ 12  8192  8192 14 2 prefix  0.10 False   0.8776   0.9923   1.0036   1.1819   1.1784   1.1850   1.1818
+ 13 24576 24576 14 1 random  0.01 False   0.3541   0.9986   1.0000   0.8629   0.8758   0.8705   0.8755
+ 14 24576 24576 14 1 random  0.10 False   2.1729   0.9992   0.9980   1.0692   1.0626   1.0687   1.0636
+ 15 24576 24576 14 1 random  0.30 False   6.0327   0.9958   0.9966   1.0998   1.0893   1.1007   1.0891
+ 16 24576 24576 14 1 random  1.00 False  19.5672   0.9966   0.9974   1.0983   1.0648   1.0979   1.0644
+ 17 16384 32768 14 1 random  0.10 False   1.9150   1.1092   1.1078   1.0913   1.0876   1.0903   1.0876
+ 18 32768 16384 14 1 random  0.10 False   1.9608   1.0013   1.0012   1.0682   1.0593   1.0692   1.0592
+ 19 32768 32768 14 1 local   0.10 False   3.4983   0.9993   1.0006   1.1021   1.0934   1.1027   1.0959
+ 20 32768 32768 14 1 skew    0.10 False   5.4448   0.9919   0.9942   1.0936   1.0934   1.0966   1.0933
+ 21 32768 32768 14 1 single  0.10 False   0.3807   0.9941   0.9915   0.9118   0.9341   0.9235   0.9330
+ 22  8192  8192 14 1 prefix  0.10 True    0.3512   1.2044   1.2052   0.9151   0.8906   0.9080   0.8905
+  Worst measured C4/C5 (hot_graph): case20, 0.99185, paired95% [0.9866551508769179, 0.9937123291643412].
+  Worst measured C4/C5 (cache_flushed_graph): case21, 0.99148, paired95% [0.9896213376700912, 0.9963512816125224].
+
+holdout-repeat
+ id    Sq    Sk  H B pattern rho ragged  C5-hot-ms  C4/C5-hot cold  FI/C5-hot cold  FI/C5-full-hot cold
+  0  5120  5120 14 1 prefix  0.10 False   0.1803   1.1567   1.1290   1.4540   1.4516   1.4486   1.3087
+  3 17408 17408 14 1 prefix  0.10 False   1.3231   1.1961   1.1983   1.1870   1.1693   1.1914   1.1691
+  6 34816 34816 14 1 prefix  0.10 False   4.7453   0.9972   1.0002   1.1298   1.1291   1.1290   1.1297
+  9 17408 17408  7 1 prefix  0.10 False   0.6411   1.4969   1.4803   1.3543   1.3239   1.3555   1.3197
+ 15 26624 26624 14 1 random  0.01 False   0.3918   1.0021   0.9951   0.8976   0.8657   0.9017   0.8621
+ 22 17408 17408 14 1 prefix  0.10 True    1.0757   1.4443   1.4516   0.8687   0.8569   0.8685   0.8549
+ 24  9216  9216  1 1 prefix  0.10 False   0.2668   0.9977   1.0000   0.6967   0.7121   0.6997   0.7045
+  Worst measured C4/C5 (hot_graph): case6, 0.99724, paired95% [0.9948500779143044, 1.0].
+  Worst measured C4/C5 (cache_flushed_graph): case15, 0.99507, paired95% [0.9901477800731094, 1.0012453394909258].
+
+regression-repeat
+ id    Sq    Sk  H B pattern rho ragged  C5-hot-ms  C4/C5-hot cold  FI/C5-hot cold  FI/C5-full-hot cold
+  0   512   512 14 1 prefix  0.10 False   0.0205   1.0000   1.0170   1.0000   1.0000   1.0000   0.9960
+  3  8192  8192 14 1 prefix  0.10 False   0.4266   0.9993   1.0054   1.2785   1.2310   1.2705   1.2264
+  5 16512 16512 14 1 prefix  0.10 False   1.2438   1.2473   1.2514   1.2004   1.1926   1.2033   1.1934
+  6 32768 32768 14 1 prefix  0.10 False   4.1644   0.9960   0.9978   1.1499   1.1403   1.1483   1.1416
+  8  8192  8192  1 1 prefix  0.10 False   0.2370   0.9996   1.0036   0.7049   0.7207   0.7048   0.7101
+ 11 32768 32768 56 1 prefix  0.10 False  17.1485   0.9949   0.9948   1.0917   1.1025   1.0918   1.1050
+ 13 24576 24576 14 1 random  0.01 False   0.3553   1.0000   0.9945   0.8575   0.8743   0.8700   0.8747
+ 17 16384 32768 14 1 random  0.10 False   1.9004   1.1126   1.1096   1.0944   1.0867   1.0936   1.0826
+ 20 32768 32768 14 1 skew    0.10 False   5.4120   0.9937   0.9947   1.0966   1.0933   1.0973   1.0919
+ 21 32768 32768 14 1 single  0.10 False   0.3796   0.9989   0.9948   0.9100   0.9231   0.9198   0.9278
+ 22  8192  8192 14 1 prefix  0.10 True    0.3507   1.2063   1.2044   0.9150   0.9236   0.9098   0.8897
+  Worst measured C4/C5 (hot_graph): case20, 0.99373, paired95% [0.992559830739737, 0.9945493359827795].
+  Worst measured C4/C5 (cache_flushed_graph): case13, 0.99454, paired95% [0.9890710343406122, 1.0].
+
+NCU attribution (separate GPU0 profiling, not standalone timing)
+  18432/H14: C4.1-&gt;C5 SM busy86.55%-&gt;98.75%, BF16 SoL73.27%-&gt;83.76%.
+  Both execute367.354GFLOP and transfer2,936,012,800 TMA bytes. The gain
+  is work balance: max-SM-active/mean1.154-&gt;1.011. Active-cycle tensor
+  utilization stays84.66%-&gt;84.82%; achieved occupancy stays16.58%.
+  Registers241-&gt;239, shared99456B unchanged, no local spills.
+  10240/H14 ragged:128.715-&gt;106.560GFLOP after dropping zero-size selections.
+  FI executes74.281GFLOP, so C5 still loses this case despite higher SoL.
+  32768/H56: C5 BF16 SoL85.59%, SM busy99.50%; compute-only bound18.285ms
+  versus profiler21.364ms (at most1.168x further speedup at identical work/clocks).
+  This is dense BF16 peak, not2:4 sparse peak. TMA bytes are not DRAM bytes.
+  Full+PM+source: ../profile/native128-c5-candidate/REPORT.md and reports/.
+
+Sanitizers and checks
+  memcheck/racecheck/synccheck:6 targeted tests each, zero errors/hazards.
+  initcheck: only the preinitialized-NaN-output test,1 pass, zero errors.
+  Empty-allocation initcheck is NOT claimed clean:2025.3.1 does not fully
+  track TMA stores; prior native/FI/PyTorch controls are in validation-v2.
+  API-probe error reporting is disabled as in the prior validated control;
+  memory/race/sync checks and nonzero error exit remain enabled.
+  pre-commit passes with kernel paths intentionally excluded by repo config.
+  Initial default-cache invocation failed on read-only ~/.cache; rerun used
+  the existing writable precommit-cache. git diff --check passes.
+
+Remaining limits
+  H1 and very sparse/single-block rows still favor FI; partially valid128
+  blocks still do more padded computation than FI64. Full-model activations
+  and generated video parity have not been tested. Keep FASTVIDEO_VSA_SM120=1
+  opt-in; no universal auto-dispatch or model-wide speedup claim.
+
+Reproduction
+  Environment: ../validation-v2/run.py, minimax-h3-native/.venv/bin/python.
+  evaluate.py --phase holdout --output result.json --rounds 21
+  evaluate.py --phase regression --output result.json --rounds 21
+  evaluate.py --phase boundary --correctness-only --output boundary.json
+  repeat_evaluations.py contains repeat case IDs and ordering seeds.
+  run_sanitizers.py contains exact sanitizer commands and selections.
+  Production code and frozen manifests: ../outputs/c5_frozen/.
+  Rejected dynamic-front variants and compile failures remain in tuning*.log.
+</pre></section></main></body></html>

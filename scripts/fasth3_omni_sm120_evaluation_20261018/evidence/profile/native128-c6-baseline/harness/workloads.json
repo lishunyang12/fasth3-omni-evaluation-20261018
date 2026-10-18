@@ -1,0 +1,158 @@
+[
+  {
+    "case": {
+      "nq": 96,
+      "nk": 96,
+      "heads": 1,
+      "batch": 1,
+      "density": 0.1,
+      "pattern": "prefix",
+      "data": "normal",
+      "ragged": false,
+      "seed": 80513
+    },
+    "provider": "c5_kernel",
+    "errors": {
+      "max_abs": 0.0006222128868103027,
+      "rmse": 9.321239485871047e-05,
+      "relative_l2": 0.0022479136903492685,
+      "cosine": 0.9999974966049194,
+      "lse_max_abs": 1.9073486328125e-06,
+      "empty_rows_checked": 0
+    },
+    "selected_edges": 1320,
+    "min_count": 12,
+    "max_count": 96,
+    "mean_count": 13.75
+  },
+  {
+    "case": {
+      "nq": 96,
+      "nk": 96,
+      "heads": 1,
+      "batch": 1,
+      "density": 0.1,
+      "pattern": "prefix",
+      "data": "normal",
+      "ragged": false,
+      "seed": 80513
+    },
+    "provider": "fi64_kernel",
+    "errors": {
+      "max_abs": 0.0005955249071121216,
+      "rmse": 9.294810297433287e-05,
+      "relative_l2": 0.002241540012145152,
+      "cosine": 0.9999976754188538,
+      "lse_max_abs": 1.9073486328125e-06,
+      "empty_rows_checked": 0
+    },
+    "selected_edges": 1320,
+    "min_count": 12,
+    "max_count": 96,
+    "mean_count": 13.75
+  },
+  {
+    "case": {
+      "nq": 96,
+      "nk": 96,
+      "heads": 1,
+      "batch": 1,
+      "density": 0.1,
+      "pattern": "random",
+      "data": "normal",
+      "ragged": false,
+      "seed": 80513
+    },
+    "provider": "c5_kernel",
+    "errors": {
+      "max_abs": 0.001039743423461914,
+      "rmse": 0.00011388572602299973,
+      "relative_l2": 0.002237167877708717,
+      "cosine": 0.9999975562095642,
+      "lse_max_abs": 9.5367431640625e-07,
+      "empty_rows_checked": 0
+    },
+    "selected_edges": 905,
+    "min_count": 2,
+    "max_count": 16,
+    "mean_count": 9.427083969116211
+  },
+  {
+    "case": {
+      "nq": 96,
+      "nk": 96,
+      "heads": 1,
+      "batch": 1,
+      "density": 0.1,
+      "pattern": "random",
+      "data": "normal",
+      "ragged": false,
+      "seed": 80513
+    },
+    "provider": "fi64_kernel",
+    "errors": {
+      "max_abs": 0.0011043548583984375,
+      "rmse": 0.00011376960173947737,
+      "relative_l2": 0.0022348866440498314,
+      "cosine": 0.9999976754188538,
+      "lse_max_abs": 1.430511474609375e-06,
+      "empty_rows_checked": 0
+    },
+    "selected_edges": 905,
+    "min_count": 2,
+    "max_count": 16,
+    "mean_count": 9.427083969116211
+  },
+  {
+    "case": {
+      "nq": 96,
+      "nk": 96,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.1,
+      "pattern": "prefix",
+      "data": "normal",
+      "ragged": false,
+      "seed": 80513
+    },
+    "provider": "c5_kernel",
+    "errors": {
+      "max_abs": 0.0009102523326873779,
+      "rmse": 9.35338030103594e-05,
+      "relative_l2": 0.0022312544810812974,
+      "cosine": 0.9999974966049194,
+      "lse_max_abs": 1.9073486328125e-06,
+      "empty_rows_checked": 0
+    },
+    "selected_edges": 3960,
+    "min_count": 12,
+    "max_count": 96,
+    "mean_count": 13.75
+  },
+  {
+    "case": {
+      "nq": 96,
+      "nk": 96,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.1,
+      "pattern": "prefix",
+      "data": "normal",
+      "ragged": false,
+      "seed": 80513
+    },
+    "provider": "fi64_kernel",
+    "errors": {
+      "max_abs": 0.001042872667312622,
+      "rmse": 9.337552182842046e-05,
+      "relative_l2": 0.0022274786506399948,
+      "cosine": 0.9999974966049194,
+      "lse_max_abs": 1.9073486328125e-06,
+      "empty_rows_checked": 0
+    },
+    "selected_edges": 3960,
+    "min_count": 12,
+    "max_count": 96,
+    "mean_count": 13.75
+  }
+]

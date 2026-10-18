@@ -1,0 +1,344 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="FastH3 Omni SM120: FI/USP8 固定合同下的 HSDP 延迟、通信、显存、一致性与历史评测档案。"><title>FastH3 Omni / SM120 优化技术清单 — 2026-10-18</title><link rel="stylesheet" href="../style.css"></head><body><header><a href="../index.html#archive">← 返回评测汇总</a><p class="eyebrow">历史阶段记录 / 适用范围见正文</p><h1 style="font-size:32px">FastH3 Omni / SM120 优化技术清单 — 2026-10-18</h1><p><code>framework-validation/OPTIMIZATION-INVENTORY.txt</code></p><a class="button" href="../reports/framework-validation/OPTIMIZATION-INVENTORY.txt" download>下载报告原文</a></header><main><div class="note">该文件保留实验当时的结论。局部 kernel、旧 provider、旧并行度和历史精度合同不能直接计入当前 FI/USP8 的加速。HSDP2 已完成的新结果见汇总首页；原文中的“尚未实测”可能是当时状态。原文路径指本地实验目录，可在证据索引中查找已发布文件。</div><section><pre>FastH3 Omni / SM120 优化技术清单 — 2026-10-18
+当前固定checkpoint FastVideo/FastVideo-FastH3-Omni-8-Step-V1 / SM120 / TP1 USP8 HSDP8 / revision88d512c5e7cc38dda499fbb65688ce58611f9c80
+
+已配置或已接入由配置/源码及完整请求证据支持；不表示每项都有独立profile、命中计数或增量消融。旧证据仅适用于其原有工作负载和精度基线。
+
+本轮只梳理状态，没有改动模型源码或启动GPU作业。
+当前基线：124帧41.04s（3次稳态中位数）；345帧95.93s（1次）；全部音视频完整解码通过。
+3次稳态124帧MP4字节一致；warmup音频不同，原因未知。严格无损应固定provider、并行度、精度、预热状态，比较中间张量/路由、最终latents、FP32解码帧/PCM及导出输出。
+
+已配置或已接入当前路径
+===========
+01. [并行] DiT TP1 / USP8
+   当前：8卡，56个头分成每卡7头；ring=1
+   证据/限制：124帧3次稳态中位数41.039876s；345帧单次95.927819s。对照4卡TP2/USP2是70.195870/176.410522s，GPU数不同。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/flashinfer-usp8-baseline/settings.json
+
+02. [显存] HSDP8 BF16权重分片
+   当前：分片在GPU；无CPU/layerwise offload配置
+   证据/限制：124/345帧报告峰值35994/39872MiB；不是独立HSDP消融收益。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/flashinfer-usp8-baseline/settings.json
+
+03. [Encoder] 文本编码器TP8
+   当前：8卡分片文本编码器
+   证据/限制：已参与完整生成，未单独测本checkpoint增量。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/flashinfer-usp8-baseline/settings.json
+
+04. [DiT] 精确AdaLN运行时缓存
+   当前：默认启用，仅相同输入与未变权重复用；不是跨步近似缓存
+   证据/限制：已确认启用逻辑；没有本次逐层命中率/独立消融。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/adaln_cache.py
+
+05. [DiT] RoPE表按请求预计算复用
+   当前：每个denoise分支一次，8步复用；随请求释放
+   证据/限制：源码确认，未单独消融。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/denoise_loop.py
+
+06. [Attention] 合并QKV GEMM
+   当前：当前仍是一整个qkv_proj；不等于旧QK+V流水
+   证据/限制：源码确认。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/minimax_h3_transformer.py
+
+07. [Attention] DiT QK Norm/RoPE融合入口
+   当前：当前forward调用fused_qk_norm_rope
+   证据/限制：确认模型调用路径；此清单不额外声称所有子形状已独立profile或对上游逐位一致。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/minimax_h3_transformer.py
+
+08. [Attention] FlashInfer BF16 SM120 block64内核
+   当前：逻辑128选块精确展开为64计算块；所有选中key共享softmax
+   证据/限制：93项CPU+8项真实SM120测试通过；真实激活严格逐元素FP32门槛仍有失败；不是上游完整输出等价证明。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/attention/ops/block_sparse.py
+
+09. [Attention] VSA几何元数据缓存
+   当前：partition/sizes/non_pad/untile按形状缓存；每层路由仍按真实Q/K计算
+   证据/限制：不复用近似attention结果；尚未融合实际pack/untile。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/attention/fastvideo_h3.py
+
+10. [MLP] 合并gate/up投影 + SiluAndMul
+   当前：MergedColumnParallelLinear和融合SiLU乘法已存在
+   证据/限制：不是VSA gate projection异步隐藏，也不是MXFP8 FC2输入量化融合。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/minimax_h3_transformer.py
+
+11. [VAE] 完整原生VAE、8卡tile并行
+   当前：使用原生FP16 decode autocast，FP32编码/重建语义；没有替换TAEH3
+   证据/限制：BF16指DiT精度，不能把整条VAE称为全BF16。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/flashinfer-usp8-baseline/settings.json
+
+12. [VAE] 原生时间分块/流式解码补丁
+   当前：仅提交已完成帧块，减少整段视频驻留
+   证据/限制：不等于旧双窗口配对或混合B2。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/vae.py
+
+13. [输出] GPU uint8像素打包
+   当前：先按输出规范裁剪/量化/排布，再传最终像素字节
+   证据/限制：针对显示/MP4边界；不是模型FP8量化。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/utils/chunked_video.py
+
+14. [输出] pinned D2H、有限双槽、事件交接
+   当前：预编码路径max_pending默认2；copy stream按进程/设备复用
+   证据/限制：槽在CPU消费者读完后归还；之前inference-mode缓冲问题已修复。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/utils/chunked_video.py
+
+15. [输出] 后台编码/mux与分块生产流水
+   当前：请求使用preencode_mp4=True
+   证据/限制：输出完整解码通过；不代表音频VAE与视频VAE并发。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/pipeline_minimax_h3.py
+
+16. [运行时] 持久JIT缓存及CPU线程限制
+   当前：Triton/CUTLASS缓存目录固定；OMP_NUM_THREADS=2
+   证据/限制：仅当前配置；旧OMP=28收益未在本checkpoint复验。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_flashinfer.py
+
+17. [加载] 直接加载transformer_ref并复用基础组件
+   当前：固定student与base revision；不加载不需要的基础DiT
+   证据/限制：启动/存储优化；不是单次去噪加速。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/fasth3_checkpoint.py
+
+当前仓库已有但本配置未启用
+=============
+18. [VAE] VAE精确算子包（SM120尚未适配）
+   当前：当前allowlist只有SM90/100/103，SM120 installer直接返回
+   证据/限制：因此四部分均未生效：decoder-block Linear FP16预转换、融合SiluAndMul、QK Norm/RoPE、scaled residual；需逐算子及完整FP32帧验收。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/ops/vae/dispatch.py
+
+19. [通信] NCCL symmetric-memory a2a_permute
+   当前：ulysses_a2a_permute默认False，USP8未设置
+   证据/限制：这是新分支现有候选，不是旧FlashInfer PCIe/RDMA；SM120拓扑/完整输出/性能未测。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/distributed/a2a_permute.py
+
+20. [编译] 区域torch.compile / CUDA Graph
+   当前：当前enforce_eager=True；无完整模型graph启用
+   证据/限制：内核自身JIT和微基准graph不算模型已开graph；旧准备graph没有稳定E2E收益。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/flashinfer-usp8-baseline/settings.json
+
+21. [DiT] AdaLN启动sidecar预计算
+   当前：支持机制存在；本次没有载入
+   证据/限制：旧4步权重/调度缓存不能复用到PDD8；需要新权重与embedding合同。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/adaln_cache.py
+
+22. [显存] DLO组件缓存保留/分层卸载
+   当前：本配置未启用DLO或CPU offload
+   证据/限制：框架有机制，不能计为当前已获收益；当前HSDP8有足够显存余量。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/pipeline_minimax_h3.py
+
+23. [VAE] 持久tile-gather工作区
+   当前：实现存在但选择器仅XPU开启
+   证据/限制：这是XCCL地址注册问题的处理；没有CUDA收益证明，不应直接照搬开关。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/vae.py
+
+旧实现存在但尚未迁入或复验
+=============
+24. [Attention布局] VSA fused tile pack
+   当前：当前zeros + gather + indexed assignment
+   证据/限制：旧P4a匹配实验约省0.49s；本次尚未实现，需适配logical128/p2_multi_region及padding。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/FASTH3-PRIOR-SESSIONS.txt
+
+25. [Attention布局] compact untile、gate+untile融合
+   当前：当前先展开gate/相乘相加，再gather输出
+   证据/限制：旧compact untile约省0.133s；gate融合必须保留BF16乘法与加法各自舍入，不能用FMA改变结果。
+   来源：$WORKSPACE/minimax-h3-native/vllm-omni-h3-dlo-latest/vllm-omni/vllm_omni/diffusion/attention/ops/minimax_h3_vsa_layout.py
+
+26. [Attention布局] 直接Q/K/O producer、strided view、删除重复copy
+   当前：旧完整producer链未迁入；当前局部QKV split view不等于完成该优化
+   证据/限制：旧早期direct Q/K省1.517s在49步模型上，不能折算到本8步。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+27. [通信] 专用BF16 PCIe/RDMA Ulysses
+   当前：当前走PyTorch/NCCL标准all-to-all；旧环境变量不被消费
+   证据/限制：8个NDR网口可见不等于GPUDirect路径已验证。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/FASTH3-PRIOR-SESSIONS.txt
+
+28. [通信] RDMA缓冲/注册/communicator跨层与跨请求复用
+   当前：依赖旧专用transport；与当前NCCL组复用及D2H stream复用不同
+   证据/限制：旧17.9214-&gt;17.5780s在MXFP8基线上；资源生命周期和事件顺序需移植。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+29. [Attention流水] Q/K准备覆盖V传输
+   当前：当前没有旧QK/V side-stream流水
+   证据/限制：与四块O流水组合旧25.7613-&gt;25.1353s；不能拆分归因。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+30. [Attention流水] VSA gate GEMM隐藏在Q/K通信中
+   当前：当前gate projection在模型常规串行调用路径
+   证据/限制：旧25.1177-&gt;24.3403s；移同一BF16 GEMM不代表任意分流都有效。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+31. [Attention流水] Q提前准备、coarse/fine重叠
+   当前：旧专用执行DAG未迁入
+   证据/限制：与删除布局copy组合旧24.3647-&gt;24.0117s。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+32. [Attention流水] QKV GEMM拆成QK + V
+   当前：当前仍合并QKV；拆分可让V GEMM覆盖QK通信
+   证据/限制：旧24.0268-&gt;23.6654s；改变GEMM形状后必须重新验证逐位。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+33. [Attention流水] O四块回传/投影流水及提前打包
+   当前：当前整块O逆all-to-all后投影
+   证据/限制：旧提前提交增量15.1336-&gt;14.9692s在MXFP8基线上；四块不能任意改八块。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+34. [VAE] 双时间窗口配对 + 8卡任务均衡
+   当前：旧代码写死1280x704/362帧/21窗口/28tile
+   证据/限制：旧23.6536-&gt;22.6670s；本次1344x768、124/345帧需泛化。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v17-vae-pairs/RESULTS.md
+
+35. [VAE] 混合B2批处理，敏感to_out保留B1
+   当前：当前没有该精确合批实现
+   证据/限制：旧22.6670-&gt;22.3662s；与配对合计同轮5.44%，24个MP4逐位一致。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v26-postrun-audit/SELECTED_RESULTS.md
+
+36. [VAE] decode与gather/组装重叠、通信stream复用
+   当前：旧paired/gather-overlap方案未迁入
+   证据/限制：当前输出D2H overlap不代表VAE gather overlap已开；旧收益在组合中。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+37. [VAE] 音频与视频解码并发
+   当前：当前预编码先解音频，再解视频
+   证据/限制：旧跨rank版本曾结合TAEH3；完整VAE版本后期与MXFP8/B4组合验收，均需重新适配。
+   来源：$WORKSPACE/vllm-omni-fasth3-omni/vllm_omni/diffusion/models/minimax_h3/pipeline_minimax_h3.py
+
+38. [运行时] allocator固定segments及减少释放/重新注册
+   当前：当前launcher未显式设置allocator策略；旧调参未复验
+   证据/限制：旧True22.5924s/False21.7712s是顺序cohort，省0.8212s；未保存当前worker allocator值，不能断言已开或未开False。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v55-allocator/reports/RESULT_r2.md
+
+39. [运行时] CPU/NUMA/线程数调优
+   当前：当前明确OMP=2；未重测旧OMP=28/亲和配置
+   证据/限制：旧OMP28在TAEH3量化链14.561s之前有收益，不可直接套用。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+局部候选或尚未实现的探索
+=============
+40. [MLP] MLP行分块接下一层QKV/RDMA
+   当前：没有完整本checkpoint请求资格
+   证据/限制：旧真实权重+合成activation的受限prefix加速，不包含后续gate/attention/O；v57扩展后未获收益。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v30-mlp-qkv-rdma/RESULTS.md
+
+41. [Attention] fine prefix-first/Q-hoist/unroll调度
+   当前：仅旧fine微基准有优势，未推广
+   证据/限制：约1.7%-2.7%局部改善；不是当前BF16 FI blk64 E2E收益。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v21-fine-q-hoist/RESULTS.md
+
+42. [MLP] FC2 NN布局、VAE B1/B2部分w1 GEMM配置
+   当前：局部小收益；本模型未接入
+   证据/限制：FC2 NN局部0.8014%；VAE B1/B2结论不同，不能全层无条件替换。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v48-native-gemm-layout/RESULTS.md
+
+43. [调度] PDL、forward V分块消费
+   当前：旧记录明确未实现
+   证据/限制：没有已完成实现或性能资格，不应列为继承成果。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v14-prep-graph/RESULTS.md
+
+试过但未采用或已回退
+==========
+44. [Attention] 自研SM120 native128替换FI
+   当前：按用户决定从生产dispatch移除，实验保留
+   证据/限制：4卡TP2/SP2只快0.31%；两provider输出不逐位等价；native BF16 NCU SoL86.93%不等于全链SOTA。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/CHECKPOINT-REPORT.txt
+
+45. [Attention] native128 split2/4/8、CTA顺序、ragged PV跳算
+   当前：真实mask上split1最好；CTA微增益未独立兑现；PV方案回退
+   证据/限制：CTA最佳0.483%仅tuning样本；条件PV引入spill，109.568ms对56.742ms；三路径58.020ms对57.269ms。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/CHECKPOINT-REPORT.txt
+
+46. [调度] 准备CUDA Graph、early-softmax、early V landing
+   当前：旧无损输出可过，但无稳定E2E收益，关闭
+   证据/限制：Graph23.6740对eager23.6668s；early-copy约0.467%顺序cohort未建立可重复收益。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v14-prep-graph/RESULTS.md
+
+47. [Attention] fine到O行分块流水
+   当前：旧初轮有小收益，随后从默认路径关闭
+   证据/限制：不能将最初1.07%单轮结果当最终采用状态。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v18-tile-rows/RESULTS.md
+
+48. [Attention] V double buffer
+   当前：旧逐位通过但fine时延全面回退
+   证据/限制：不接入。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v42-fine-v-doublebuffer/RESULTS.md
+
+49. [通信] 12次交换打包成4次
+   当前：旧逐位通过但受限prefix慢1.25%
+   证据/限制：减少collective数不保证端到端快。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v36-packed-qkv-transport/RESULTS.md
+
+50. [调度] transport优先级-1提高到-5、额外gate独立流
+   当前：旧生产-1已拿到主要收益；更高优先级/分流不稳定或回退
+   证据/限制：v35/v57结论；不把对priority0的收益算到production。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v57-separate-gate/reports/RESULTS.md
+
+51. [MLP] CuTe FC1、compile-stable FC1、NN权重/输入布局
+   当前：局部加速未兑现完整请求收益；当前保留原MLP
+   证据/限制：v38慢0.4018s；v49 NN权重慢0.0424s；输入column-major尾链慢3.74-3.78ms。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v49-cumulative/v49-r1-RESULTS.md
+
+52. [GEMM] 未过字节门槛的新FC1 tiles、部分VAE w2 kernel
+   当前：数值资格失败
+   证据/限制：更快也不纳入无损路径。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v31-fc1-tiles/RESULTS.md
+
+53. [VAE] 直接B2/B4/B7、B4/B3扩大batch
+   当前：原生精度基线有完整FP32输出差异
+   证据/限制：精确mixed B2是特定例外；不能把普通B2都称无损。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v40-vae-b4/RESULTS.md
+
+54. [VAE] B3 w2拆成2+1的B4/B3修复
+   当前：字节资格修复，但完整VAE慢0.656%
+   证据/限制：保留原mixed B2。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v46-vae-b3-w2-split/RESULTS.md
+
+55. [VAE] 全局B8/B16、全部w1改NN
+   当前：已测子集或decoder慢，未接入
+   证据/限制：B8/B16各12/12变慢；NN在B1略快、B2慢。
+   来源：$WORKSPACE/minimax-h3-native/experiments/h3-ulysses-overlap-20260910/lossless-v52-vae-global-batch/reports/gpu-r1/RESULTS.md
+
+56. [Attention] O八块分片
+   当前：旧输出一致性失败
+   证据/限制：保留已资格的四块调度作为迁移候选。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/FASTH3-PRIOR-SESSIONS.txt
+
+近似方案或不适用于当前无损目标
+===============
+57. [模型合同] 旧FastH3四步、旧64token固定topk
+   当前：当前固定Omni PDD8与128token/90%稀疏/多region预算
+   证据/限制：当前稀疏与8步是给定checkpoint合同；不能为加速改回旧学生模型。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/flashinfer-usp8-baseline/settings.json
+
+58. [Attention] Sage/CAKE INT8 QK + FP8 PV
+   当前：未用，当前FI BF16
+   证据/限制：旧调度增益常以此为基线；不能宣称相对当前BF16无损。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+59. [DiT/VAE] FP8/MXFP8计算量化
+   当前：未用额外DiT/VAE量化
+   证据/限制：完整VAE的14.9692s结果含DiT+VAE MXFP8；VAE native FP16 autocast不等于额外MXFP8。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+60. [通信] E4M3 QKV wire
+   当前：未用，保持BF16通信
+   证据/限制：旧后续人工完整视频检查失败并回退。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+61. [VAE] TAEH3轻量解码器
+   当前：未用，保持完整H3 VAE
+   证据/限制：旧14.561s版本用了TAEH3；不把它和后来的完整VAE14.9692s混为一谈。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+62. [量化专用融合] SwiGLU+FC2量化producer、CAKE TMA描述符、MXFP8专用QK/V与B4
+   当前：依赖未采用的量化后端，不直接移植到FI BF16
+   证据/限制：对应旧增量0.1302/0.1952s，以及含B4/并发的0.5034s组合；量化基线上逐位不等于BF16逐位。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/prior-fasth3-session-excerpts.json
+
+63. [缓存] Cache-DiT等近似跨步复用
+   当前：当前没有启用
+   证据/限制：与精确AdaLN输入相同才缓存不同。
+   来源：$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/flashinfer-usp8-baseline/settings.json
+
+后续迁移顺序
+1. VSA pack/untile纯布局融合
+2. SM120精确VAE算子逐项资格与完整帧验证
+3. VAE窗口配对/任务均衡/混合B2泛化
+4. BF16 RDMA或现有a2a_permute的通信路径资格
+5. QK/V、gate、O流水；每项独立AB及组合复验
+6. allocator/CPU线程及编译候选按真实profile选择
+</pre></section></main></body></html>

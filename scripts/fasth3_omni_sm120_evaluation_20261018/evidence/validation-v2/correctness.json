@@ -1,0 +1,1883 @@
+{
+  "gpu": "_CudaDeviceProperties(name='NVIDIA Graphics Device', major=12, minor=0, total_memory=72830MB, multi_processor_count=110, uuid=9db4ee11-aeaf-55c1-c752-966a0a70b707, pci_bus_id=9, pci_device_id=0, pci_domain_id=0, L2_cache_size=96MB)",
+  "torch": "2.13.0+cu130",
+  "mode": "correctness",
+  "rounds": 21,
+  "order_seed": 18013,
+  "harness_sha256": "68eda5eca05f4eea5c16f007d4a0bcbb8787d9697cdfc2c3636bd58f5197d65d",
+  "baseline": "None",
+  "cases": [
+    {
+      "case_id": 0,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "dense",
+      "data": "normal",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0012388229370117188,
+            "rmse": 0.00016521784709766507,
+            "relative_l2": 0.0022160917786866385,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0012388229370117188,
+            "rmse": 0.00016521784709766507,
+            "relative_l2": 0.0022160917786866385,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0013166964054107666,
+          "rmse": 0.00016441212210338563,
+          "relative_l2": 0.002205284495334184,
+          "cosine": 0.9999975562095642,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 1,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "random",
+      "data": "normal",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.004788517951965332,
+            "rmse": 0.0003507654182612896,
+            "relative_l2": 0.0012979367469549718,
+            "cosine": 0.9999991655349731,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.004788517951965332,
+            "rmse": 0.0003507654182612896,
+            "relative_l2": 0.0012979367469549718,
+            "cosine": 0.9999991655349731,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 0
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.004788517951965332,
+          "rmse": 0.0003502992622088641,
+          "relative_l2": 0.0012962118096358287,
+          "cosine": 0.9999991655349731,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 2,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "single",
+      "data": "normal",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.005421996116638184,
+            "rmse": 0.00030281514045782387,
+            "relative_l2": 0.0007775938936447994,
+            "cosine": 0.9999997615814209,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 1024
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.005421996116638184,
+            "rmse": 0.00030281514045782387,
+            "relative_l2": 0.0007775938936447994,
+            "cosine": 0.9999997615814209,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 1024
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.005421996116638184,
+          "rmse": 0.00030281514045782387,
+          "relative_l2": 0.0007775938936447994,
+          "cosine": 0.9999997615814209,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 1024
+        }
+      }
+    },
+    {
+      "case_id": 3,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "local",
+      "data": "normal",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.004950284957885742,
+            "rmse": 0.0003440646396484226,
+            "relative_l2": 0.0008644882749370344,
+            "cosine": 0.9999996423721313,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.004950284957885742,
+            "rmse": 0.0003440646396484226,
+            "relative_l2": 0.0008644882749370344,
+            "cosine": 0.9999996423721313,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 0
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.004606366157531738,
+          "rmse": 0.00034221739042550325,
+          "relative_l2": 0.0008598469328621625,
+          "cosine": 0.9999997019767761,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 4,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0012388229370117188,
+            "rmse": 6.192168802954257e-05,
+            "relative_l2": 0.002219372083069405,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2304
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0012388229370117188,
+            "rmse": 6.192168802954257e-05,
+            "relative_l2": 0.002219372083069405,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2304
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0010876655578613281,
+          "rmse": 6.144701910670847e-05,
+          "relative_l2": 0.0022023588550131434,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 2304
+        }
+      }
+    },
+    {
+      "case_id": 5,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "empty",
+      "data": "normal",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 2688
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 2688
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0,
+          "rmse": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0,
+          "lse_max_abs": 0.0,
+          "empty_rows_checked": 2688
+        }
+      }
+    },
+    {
+      "case_id": 6,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "dense",
+      "data": "normal",
+      "ragged": true,
+      "seed": 7193,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0020412802696228027,
+            "rmse": 0.00016573088942095637,
+            "relative_l2": 0.0022150776262146485,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0020412802696228027,
+            "rmse": 0.00016573088942095637,
+            "relative_l2": 0.0022150776262146485,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0018649697303771973,
+          "rmse": 0.00016487158427480608,
+          "relative_l2": 0.002203592477405039,
+          "cosine": 0.9999974966049194,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 7,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "random",
+      "data": "normal",
+      "ragged": true,
+      "seed": 7193,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.004144430160522461,
+            "rmse": 0.00031609321013092995,
+            "relative_l2": 0.0011606718917413896,
+            "cosine": 0.9999993443489075,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 384
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.004144430160522461,
+            "rmse": 0.00031609321013092995,
+            "relative_l2": 0.0011606718917413896,
+            "cosine": 0.9999993443489075,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 384
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.004144430160522461,
+          "rmse": 0.0003151912533212453,
+          "relative_l2": 0.0011573600308484545,
+          "cosine": 0.9999994039535522,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 384
+        }
+      }
+    },
+    {
+      "case_id": 8,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "single",
+      "data": "normal",
+      "ragged": true,
+      "seed": 7193,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.004971981048583984,
+            "rmse": 0.000359085708623752,
+            "relative_l2": 0.0007127654148012888,
+            "cosine": 0.9999997615814209,
+            "lse_max_abs": 1.1920928955078125e-06,
+            "empty_rows_checked": 384
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.004971981048583984,
+            "rmse": 0.000359085708623752,
+            "relative_l2": 0.0007127654148012888,
+            "cosine": 0.9999997615814209,
+            "lse_max_abs": 1.1920928955078125e-06,
+            "empty_rows_checked": 384
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.004971981048583984,
+          "rmse": 0.000359085708623752,
+          "relative_l2": 0.0007127654148012888,
+          "cosine": 0.9999997615814209,
+          "lse_max_abs": 1.1920928955078125e-06,
+          "empty_rows_checked": 384
+        }
+      }
+    },
+    {
+      "case_id": 9,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "local",
+      "data": "normal",
+      "ragged": true,
+      "seed": 7193,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.004749655723571777,
+            "rmse": 0.00034952411078847945,
+            "relative_l2": 0.0008293500350875829,
+            "cosine": 0.9999997019767761,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.004749655723571777,
+            "rmse": 0.00034952411078847945,
+            "relative_l2": 0.0008293500350875829,
+            "cosine": 0.9999997019767761,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 0
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.004656791687011719,
+          "rmse": 0.00034688174491748214,
+          "relative_l2": 0.0008230802446986239,
+          "cosine": 0.9999995827674866,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 10,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 7193,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0010818541049957275,
+            "rmse": 6.294404010986909e-05,
+            "relative_l2": 0.0022277766037273328,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2304
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0010818541049957275,
+            "rmse": 6.294404010986909e-05,
+            "relative_l2": 0.0022277766037273328,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2304
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0010818541049957275,
+          "rmse": 6.223311356734484e-05,
+          "relative_l2": 0.002202614515833425,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 2304
+        }
+      }
+    },
+    {
+      "case_id": 11,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "empty",
+      "data": "normal",
+      "ragged": true,
+      "seed": 7193,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 2688
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 2688
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0,
+          "rmse": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0,
+          "lse_max_abs": 0.0,
+          "empty_rows_checked": 2688
+        }
+      }
+    },
+    {
+      "case_id": 12,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "dense",
+      "data": "normal",
+      "ragged": true,
+      "seed": 22079,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0012318193912506104,
+            "rmse": 0.00016525542014278471,
+            "relative_l2": 0.002209692263771956,
+            "cosine": 0.999997615814209,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0012318193912506104,
+            "rmse": 0.00016525542014278471,
+            "relative_l2": 0.002209692263771956,
+            "cosine": 0.999997615814209,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.001213163137435913,
+          "rmse": 0.0001644373987801373,
+          "relative_l2": 0.0021987542315532365,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 13,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "random",
+      "data": "normal",
+      "ragged": true,
+      "seed": 22079,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.00411224365234375,
+            "rmse": 0.0003069572558160871,
+            "relative_l2": 0.0011550748107786637,
+            "cosine": 0.9999993443489075,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 256
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.00411224365234375,
+            "rmse": 0.0003069572558160871,
+            "relative_l2": 0.0011550748107786637,
+            "cosine": 0.9999993443489075,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 256
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.00411224365234375,
+          "rmse": 0.00030684066587127745,
+          "relative_l2": 0.0011546360322541363,
+          "cosine": 0.9999992847442627,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 256
+        }
+      }
+    },
+    {
+      "case_id": 14,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "single",
+      "data": "normal",
+      "ragged": true,
+      "seed": 22079,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0052329301834106445,
+            "rmse": 0.00034531528945080936,
+            "relative_l2": 0.0013172327209394472,
+            "cosine": 0.9999990463256836,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 768
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0052329301834106445,
+            "rmse": 0.00034531528945080936,
+            "relative_l2": 0.0013172327209394472,
+            "cosine": 0.9999990463256836,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 768
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0052329301834106445,
+          "rmse": 0.00034531528945080936,
+          "relative_l2": 0.0013172327209394472,
+          "cosine": 0.9999990463256836,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 768
+        }
+      }
+    },
+    {
+      "case_id": 15,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "local",
+      "data": "normal",
+      "ragged": true,
+      "seed": 22079,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.00449681282043457,
+            "rmse": 0.00034287542803213,
+            "relative_l2": 0.0008484751034400373,
+            "cosine": 0.9999996423721313,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.00449681282043457,
+            "rmse": 0.00034287542803213,
+            "relative_l2": 0.0008484751034400373,
+            "cosine": 0.9999996423721313,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 0
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.004385471343994141,
+          "rmse": 0.00034097942989319563,
+          "relative_l2": 0.0008437832984005648,
+          "cosine": 0.9999996423721313,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 16,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 22079,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0010770559310913086,
+            "rmse": 6.201675569172949e-05,
+            "relative_l2": 0.002205431976222813,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2304
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0010770559310913086,
+            "rmse": 6.201675569172949e-05,
+            "relative_l2": 0.002205431976222813,
+            "cosine": 0.9999975562095642,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2304
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0011715590953826904,
+          "rmse": 6.161012424854562e-05,
+          "relative_l2": 0.002190971535630222,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 2304
+        }
+      }
+    },
+    {
+      "case_id": 17,
+      "nq": 7,
+      "nk": 9,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "empty",
+      "data": "normal",
+      "ragged": true,
+      "seed": 22079,
+      "validation": {
+        "query_rows_per_head": 896,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 2688
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 2688
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0,
+          "rmse": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0,
+          "lse_max_abs": 0.0,
+          "empty_rows_checked": 2688
+        }
+      }
+    },
+    {
+      "case_id": 18,
+      "nq": 3,
+      "nk": 7,
+      "heads": 2,
+      "batch": 2,
+      "density": 0.5,
+      "pattern": "dense",
+      "data": "zero_sizes",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 384,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 1536
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 1536
+          }
+        },
+        "fp32_vs_fp64_max_abs": 0.0,
+        "reverse_indices": {
+          "max_abs": 0.0,
+          "rmse": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0,
+          "lse_max_abs": 0.0,
+          "empty_rows_checked": 1536
+        }
+      }
+    },
+    {
+      "case_id": 19,
+      "nq": 3,
+      "nk": 7,
+      "heads": 2,
+      "batch": 2,
+      "density": 0.5,
+      "pattern": "dense",
+      "data": "zero_q",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 384,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.00040505826473236084,
+            "rmse": 8.485720172757283e-05,
+            "relative_l2": 0.0015739219494810153,
+            "cosine": 0.9999986886978149,
+            "lse_max_abs": 4.76837158203125e-07,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.00040505826473236084,
+            "rmse": 8.485720172757283e-05,
+            "relative_l2": 0.0015739219494810153,
+            "cosine": 0.9999986886978149,
+            "lse_max_abs": 4.76837158203125e-07,
+            "empty_rows_checked": 0
+          }
+        },
+        "fp32_vs_fp64_max_abs": 9.471301873342775e-08,
+        "reverse_indices": {
+          "max_abs": 0.00040505826473236084,
+          "rmse": 8.485720172757283e-05,
+          "relative_l2": 0.0015739219494810153,
+          "cosine": 0.9999986886978149,
+          "lse_max_abs": 4.76837158203125e-07,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 21,
+      "nq": 3,
+      "nk": 7,
+      "heads": 2,
+      "batch": 2,
+      "density": 0.5,
+      "pattern": "dense",
+      "data": "constant_v",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 384,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 7.748603820800781e-07,
+            "rmse": 2.5143179982478614e-07,
+            "relative_l2": 2.514317960076355e-07,
+            "cosine": 1.0,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 7.748603820800781e-07,
+            "rmse": 2.5143179982478614e-07,
+            "relative_l2": 2.514317960076355e-07,
+            "cosine": 1.0,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          }
+        },
+        "fp32_vs_fp64_max_abs": 7.748603829682565e-07,
+        "reverse_indices": {
+          "max_abs": 7.748603820800781e-07,
+          "rmse": 2.5143179982478614e-07,
+          "relative_l2": 2.514317960076355e-07,
+          "cosine": 1.0,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 22,
+      "nq": 3,
+      "nk": 7,
+      "heads": 2,
+      "batch": 2,
+      "density": 0.5,
+      "pattern": "dense",
+      "data": "cancellation",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 384,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 5.252659320831299e-06,
+            "rmse": 5.252659320831299e-06,
+            "relative_l2": 0.00035402922358592225,
+            "cosine": 0.9999999403953552,
+            "lse_max_abs": 4.76837158203125e-07,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 5.252659320831299e-06,
+            "rmse": 5.252659320831299e-06,
+            "relative_l2": 0.00035402922358592225,
+            "cosine": 0.9999999403953552,
+            "lse_max_abs": 4.76837158203125e-07,
+            "empty_rows_checked": 0
+          }
+        },
+        "fp32_vs_fp64_max_abs": 3.758453114705018e-10,
+        "reverse_indices": {
+          "max_abs": 5.252659320831299e-06,
+          "rmse": 5.252659320831299e-06,
+          "relative_l2": 0.00035402922358592225,
+          "cosine": 0.9999999403953552,
+          "lse_max_abs": 4.76837158203125e-07,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 23,
+      "nq": 3,
+      "nk": 7,
+      "heads": 2,
+      "batch": 2,
+      "density": 0.5,
+      "pattern": "dense",
+      "data": "outliers",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 384,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.007586002349853516,
+            "rmse": 0.000262887857388705,
+            "relative_l2": 0.0018641687391119128,
+            "cosine": 0.9999983310699463,
+            "lse_max_abs": 9.5367431640625e-06,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.007586002349853516,
+            "rmse": 0.000262887857388705,
+            "relative_l2": 0.0018641687391119128,
+            "cosine": 0.9999983310699463,
+            "lse_max_abs": 9.5367431640625e-06,
+            "empty_rows_checked": 0
+          }
+        },
+        "fp32_vs_fp64_max_abs": 2.2139250006603106e-06,
+        "reverse_indices": {
+          "max_abs": 0.007586002349853516,
+          "rmse": 0.000262209156062454,
+          "relative_l2": 0.001859356038500545,
+          "cosine": 0.9999983310699463,
+          "lse_max_abs": 9.5367431640625e-06,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 24,
+      "nq": 3,
+      "nk": 7,
+      "heads": 2,
+      "batch": 2,
+      "density": 0.5,
+      "pattern": "dense",
+      "data": "strided",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 384,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.001541435718536377,
+            "rmse": 0.0001934365282068029,
+            "relative_l2": 0.0021771221495103764,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.001541435718536377,
+            "rmse": 0.0001934365282068029,
+            "relative_l2": 0.0021771221495103764,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          }
+        },
+        "fp32_vs_fp64_max_abs": 4.879915512234767e-07,
+        "reverse_indices": {
+          "max_abs": 0.001541435718536377,
+          "rmse": 0.00019229642930440605,
+          "relative_l2": 0.0021642904648539185,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 25,
+      "nq": 3,
+      "nk": 7,
+      "heads": 2,
+      "batch": 2,
+      "density": 0.5,
+      "pattern": "dense",
+      "data": "offset",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 384,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.001541435718536377,
+            "rmse": 0.0001934365282068029,
+            "relative_l2": 0.0021771221495103764,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.001541435718536377,
+            "rmse": 0.0001934365282068029,
+            "relative_l2": 0.0021771221495103764,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          }
+        },
+        "fp32_vs_fp64_max_abs": 4.879915512234767e-07,
+        "reverse_indices": {
+          "max_abs": 0.001541435718536377,
+          "rmse": 0.00019229642930440605,
+          "relative_l2": 0.0021642904648539185,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 26,
+      "nq": 1,
+      "nk": 1,
+      "heads": 1,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 128,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 128
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 128
+          }
+        },
+        "fp32_vs_fp64_max_abs": 0.0,
+        "reverse_indices": {
+          "max_abs": 0.0,
+          "rmse": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0,
+          "lse_max_abs": 0.0,
+          "empty_rows_checked": 128
+        }
+      }
+    },
+    {
+      "case_id": 27,
+      "nq": 2,
+      "nk": 1,
+      "heads": 3,
+      "batch": 2,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 256,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 1536
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_l2": 0.0,
+            "cosine": 1.0,
+            "lse_max_abs": 0.0,
+            "empty_rows_checked": 1536
+          }
+        },
+        "fp32_vs_fp64_max_abs": 0.0,
+        "reverse_indices": {
+          "max_abs": 0.0,
+          "rmse": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0,
+          "lse_max_abs": 0.0,
+          "empty_rows_checked": 1536
+        }
+      }
+    },
+    {
+      "case_id": 28,
+      "nq": 1,
+      "nk": 17,
+      "heads": 7,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 128,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0007447600364685059,
+            "rmse": 0.00011872937466250733,
+            "relative_l2": 0.0022256653152263827,
+            "cosine": 0.9999976754188538,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0007447600364685059,
+            "rmse": 0.00011872937466250733,
+            "relative_l2": 0.0022256653152263827,
+            "cosine": 0.9999976754188538,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 0
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.000661119818687439,
+          "rmse": 0.00011837993224617094,
+          "relative_l2": 0.002219114540469832,
+          "cosine": 0.9999976754188538,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 0
+        }
+      }
+    },
+    {
+      "case_id": 29,
+      "nq": 17,
+      "nk": 3,
+      "heads": 3,
+      "batch": 2,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 330,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.006949663162231445,
+            "rmse": 0.000434845220297575,
+            "relative_l2": 0.001985248095670176,
+            "cosine": 0.9999980330467224,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 1212
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.006949663162231445,
+            "rmse": 0.000434845220297575,
+            "relative_l2": 0.001985248095670176,
+            "cosine": 0.9999980330467224,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 1212
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.006949663162231445,
+          "rmse": 0.00043341482523828745,
+          "relative_l2": 0.0019787177752083555,
+          "cosine": 0.9999980926513672,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 1212
+        }
+      }
+    },
+    {
+      "case_id": 30,
+      "nq": 15,
+      "nk": 19,
+      "heads": 14,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 1920,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.007235527038574219,
+            "rmse": 0.0002660814789123833,
+            "relative_l2": 0.0020013515409924524,
+            "cosine": 0.9999979734420776,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 17920
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.007235527038574219,
+            "rmse": 0.0002660814789123833,
+            "relative_l2": 0.0020013515409924524,
+            "cosine": 0.9999979734420776,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 17920
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.007235527038574219,
+          "rmse": 0.0002660756290424615,
+          "relative_l2": 0.002001307310650748,
+          "cosine": 0.9999980926513672,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 17920
+        }
+      }
+    },
+    {
+      "case_id": 31,
+      "nq": 16,
+      "nk": 17,
+      "heads": 14,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 2048,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0010485947132110596,
+            "rmse": 5.1734863518504426e-05,
+            "relative_l2": 0.002232012243609541,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 23296
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0010485947132110596,
+            "rmse": 5.1734863518504426e-05,
+            "relative_l2": 0.002232012243609541,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 23296
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0010572969913482666,
+          "rmse": 5.163132300367579e-05,
+          "relative_l2": 0.0022275451361251798,
+          "cosine": 0.9999974966049194,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 23296
+        }
+      }
+    },
+    {
+      "case_id": 32,
+      "nq": 17,
+      "nk": 16,
+      "heads": 14,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 330,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0021585822105407715,
+            "rmse": 0.00014577443653251976,
+            "relative_l2": 0.0021725978636998274,
+            "cosine": 0.999997615814209,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 2828
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0021585822105407715,
+            "rmse": 0.00014577443653251976,
+            "relative_l2": 0.0021725978636998274,
+            "cosine": 0.999997615814209,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 2828
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0021585822105407715,
+          "rmse": 0.00014566532627213746,
+          "relative_l2": 0.0021709717943668304,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 2828
+        }
+      }
+    },
+    {
+      "case_id": 33,
+      "nq": 31,
+      "nk": 33,
+      "heads": 7,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 423,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0006038695573806763,
+            "rmse": 3.507139626890421e-05,
+            "relative_l2": 0.0022509819755216075,
+            "cosine": 0.9999973773956299,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2471
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0006038695573806763,
+            "rmse": 3.507139626890421e-05,
+            "relative_l2": 0.0022509819755216075,
+            "cosine": 0.9999973773956299,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2471
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0006359070539474487,
+          "rmse": 3.498357909847982e-05,
+          "relative_l2": 0.0022453454422416324,
+          "cosine": 0.9999974966049194,
+          "lse_max_abs": 1.9073486328125e-06,
+          "empty_rows_checked": 2471
+        }
+      }
+    },
+    {
+      "case_id": 34,
+      "nq": 32,
+      "nk": 31,
+      "heads": 7,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 429,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0020328164100646973,
+            "rmse": 0.00013242389832157642,
+            "relative_l2": 0.0021685508749217236,
+            "cosine": 0.9999977350234985,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2002
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0020328164100646973,
+            "rmse": 0.00013242389832157642,
+            "relative_l2": 0.0021685508749217236,
+            "cosine": 0.9999977350234985,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2002
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0020328164100646973,
+          "rmse": 0.0001324041950283572,
+          "relative_l2": 0.0021682279368386796,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 2002
+        }
+      }
+    },
+    {
+      "case_id": 35,
+      "nq": 33,
+      "nk": 32,
+      "heads": 7,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 437,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.003924369812011719,
+            "rmse": 0.00012783528654836118,
+            "relative_l2": 0.0021448417202279474,
+            "cosine": 0.9999976754188538,
+            "lse_max_abs": 1.9073486328125e-06,
+            "empty_rows_checked": 2093
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.003924369812011719,
+            "rmse": 0.00012783528654836118,
+            "relative_l2": 0.0021448417202279474,
+            "cosine": 0.9999976754188538,
+            "lse_max_abs": 1.9073486328125e-06,
+            "empty_rows_checked": 2093
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.003924369812011719,
+          "rmse": 0.00012782105477526784,
+          "relative_l2": 0.0021446027900195283,
+          "cosine": 0.9999977350234985,
+          "lse_max_abs": 1.9073486328125e-06,
+          "empty_rows_checked": 2093
+        }
+      }
+    },
+    {
+      "case_id": 36,
+      "nq": 127,
+      "nk": 17,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 1007,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0006806701421737671,
+            "rmse": 4.681412610807456e-05,
+            "relative_l2": 0.0022162901057273822,
+            "cosine": 0.999997615814209,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2565
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0006806701421737671,
+            "rmse": 4.681412610807456e-05,
+            "relative_l2": 0.0022162901057273822,
+            "cosine": 0.999997615814209,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2565
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0006562918424606323,
+          "rmse": 4.662655555875972e-05,
+          "relative_l2": 0.002207410114499577,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 2565
+        }
+      }
+    },
+    {
+      "case_id": 37,
+      "nq": 128,
+      "nk": 17,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 1014,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0006806701421737671,
+            "rmse": 4.7068479034351185e-05,
+            "relative_l2": 0.0022185171241429725,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 2574
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0006806701421737671,
+            "rmse": 4.7068479034351185e-05,
+            "relative_l2": 0.0022185171241429725,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 2574
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0006562918424606323,
+          "rmse": 4.696716496255249e-05,
+          "relative_l2": 0.0022137418003944534,
+          "cosine": 0.9999974966049194,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 2574
+        }
+      }
+    },
+    {
+      "case_id": 38,
+      "nq": 129,
+      "nk": 17,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 1018,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0006806701421737671,
+            "rmse": 4.638540849555284e-05,
+            "relative_l2": 0.0022182249138887407,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2598
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0006806701421737671,
+            "rmse": 4.638540849555284e-05,
+            "relative_l2": 0.0022182249138887407,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 9.5367431640625e-07,
+            "empty_rows_checked": 2598
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0006562918424606323,
+          "rmse": 4.6223532990552485e-05,
+          "relative_l2": 0.0022104836753961674,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 9.5367431640625e-07,
+          "empty_rows_checked": 2598
+        }
+      }
+    },
+    {
+      "case_id": 39,
+      "nq": 255,
+      "nk": 31,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 1776,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0024261474609375,
+            "rmse": 0.0001244464365299791,
+            "relative_l2": 0.0021514331417799614,
+            "cosine": 0.9999976754188538,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3765
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0024261474609375,
+            "rmse": 0.0001244464365299791,
+            "relative_l2": 0.0021514331417799614,
+            "cosine": 0.9999976754188538,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3765
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0024261474609375,
+          "rmse": 0.0001244238665094599,
+          "relative_l2": 0.0021510428982266573,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 3765
+        }
+      }
+    },
+    {
+      "case_id": 40,
+      "nq": 256,
+      "nk": 31,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 1782,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0024628639221191406,
+            "rmse": 0.00012493784015532583,
+            "relative_l2": 0.00214758136239813,
+            "cosine": 0.9999977350234985,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3795
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0024628639221191406,
+            "rmse": 0.00012493784015532583,
+            "relative_l2": 0.00214758136239813,
+            "cosine": 0.9999977350234985,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3795
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0024628639221191406,
+          "rmse": 0.00012492178939282894,
+          "relative_l2": 0.002147305628466426,
+          "cosine": 0.9999977946281433,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 3795
+        }
+      }
+    },
+    {
+      "case_id": 41,
+      "nq": 257,
+      "nk": 31,
+      "heads": 3,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 1788,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0024261474609375,
+            "rmse": 0.0001242032740265131,
+            "relative_l2": 0.0021506055529517637,
+            "cosine": 0.9999977946281433,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3828
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0024261474609375,
+            "rmse": 0.0001242032740265131,
+            "relative_l2": 0.0021506055529517637,
+            "cosine": 0.9999977946281433,
+            "lse_max_abs": 1.430511474609375e-06,
+            "empty_rows_checked": 3828
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0024261474609375,
+          "rmse": 0.00012418290134519339,
+          "relative_l2": 0.0021502525974436454,
+          "cosine": 0.9999977350234985,
+          "lse_max_abs": 1.430511474609375e-06,
+          "empty_rows_checked": 3828
+        }
+      }
+    },
+    {
+      "case_id": 42,
+      "nq": 64,
+      "nk": 64,
+      "heads": 56,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 628,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0029926300048828125,
+            "rmse": 0.0001162335101980716,
+            "relative_l2": 0.0021659246450764784,
+            "cosine": 0.9999977350234985,
+            "lse_max_abs": 1.9073486328125e-06,
+            "empty_rows_checked": 24584
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0029926300048828125,
+            "rmse": 0.0001162335101980716,
+            "relative_l2": 0.0021659246450764784,
+            "cosine": 0.9999977350234985,
+            "lse_max_abs": 1.9073486328125e-06,
+            "empty_rows_checked": 24584
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0029926300048828125,
+          "rmse": 0.00011624413309618831,
+          "relative_l2": 0.0021661226574019,
+          "cosine": 0.999997615814209,
+          "lse_max_abs": 1.9073486328125e-06,
+          "empty_rows_checked": 24584
+        }
+      }
+    },
+    {
+      "case_id": 43,
+      "nq": 256,
+      "nk": 256,
+      "heads": 14,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 1782,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.003316521644592285,
+            "rmse": 0.00011893048940692097,
+            "relative_l2": 0.0021698163642636836,
+            "cosine": 0.9999977350234985,
+            "lse_max_abs": 2.86102294921875e-06,
+            "empty_rows_checked": 17710
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.003316521644592285,
+            "rmse": 0.00011893048940692097,
+            "relative_l2": 0.0021698163642636836,
+            "cosine": 0.9999977350234985,
+            "lse_max_abs": 2.86102294921875e-06,
+            "empty_rows_checked": 17710
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.003316521644592285,
+          "rmse": 0.00011892608745256439,
+          "relative_l2": 0.0021697358852416394,
+          "cosine": 0.9999976754188538,
+          "lse_max_abs": 2.86102294921875e-06,
+          "empty_rows_checked": 17710
+        }
+      }
+    },
+    {
+      "case_id": 44,
+      "nq": 324,
+      "nk": 324,
+      "heads": 14,
+      "batch": 1,
+      "density": 0.3,
+      "pattern": "skew",
+      "data": "normal",
+      "ragged": true,
+      "seed": 9007,
+      "validation": {
+        "query_rows_per_head": 2190,
+        "all_rows": false,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0037059783935546875,
+            "rmse": 0.00015978244482539594,
+            "relative_l2": 0.0021097319642348453,
+            "cosine": 0.9999977946281433,
+            "lse_max_abs": 2.86102294921875e-06,
+            "empty_rows_checked": 21588
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0037059783935546875,
+            "rmse": 0.00015978244482539594,
+            "relative_l2": 0.0021097319642348453,
+            "cosine": 0.9999977946281433,
+            "lse_max_abs": 2.86102294921875e-06,
+            "empty_rows_checked": 21588
+          }
+        },
+        "reverse_indices": {
+          "max_abs": 0.0037059783935546875,
+          "rmse": 0.00015978280862327665,
+          "relative_l2": 0.0021097369301272214,
+          "cosine": 0.9999977946281433,
+          "lse_max_abs": 2.86102294921875e-06,
+          "empty_rows_checked": 21588
+        }
+      }
+    }
+  ],
+  "failures": [
+    {
+      "case_id": 20,
+      "nq": 3,
+      "nk": 7,
+      "heads": 2,
+      "batch": 2,
+      "density": 0.5,
+      "pattern": "dense",
+      "data": "large_logits",
+      "ragged": true,
+      "seed": 3107,
+      "error": "Tensor-likes are not close!\n\nMismatched elements: 65 / 196608 (0.0%)\nGreatest absolute difference: 8.401491484988366e-05 at index (1, 92, 1, 2) (up to 2e-05 allowed)\nGreatest relative difference: 0.01672740791434391 at index (1, 92, 1, 47) (up to 2e-05 allowed)"
+    }
+  ]
+}

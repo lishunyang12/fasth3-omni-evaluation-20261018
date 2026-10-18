@@ -1,0 +1,22 @@
+{
+  "name": "native-smoke-capture",
+  "provider": "native",
+  "splits": 1,
+  "mode": "capture",
+  "frames": 124,
+  "save_latents": true,
+  "capture_steps": [
+    0,
+    3,
+    7
+  ],
+  "capture_layers": [
+    2,
+    27,
+    51
+  ],
+  "capture_ranks": [
+    0
+  ],
+  "capture_index_note": "This first process loaded the earlier hook: call indices include two dense text-refiner calls. Sparse DiT block index = call index - 2. Subsequent launches use the corrected sparse-only counter."
+}

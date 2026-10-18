@@ -1,0 +1,127 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="FastH3 Omni SM120: FI/USP8 固定合同下的 HSDP 延迟、通信、显存、一致性与历史评测档案。"><title>Native128 versus FI64: why it wins and distance to SoL</title><link rel="stylesheet" href="../style.css"></head><body><header><a href="../index.html#archive">← 返回评测汇总</a><p class="eyebrow">历史阶段记录 / 适用范围见正文</p><h1 style="font-size:32px">Native128 versus FI64: why it wins and distance to SoL</h1><p><code>profile/native128-sol-audit/REPORT.md</code></p><a class="button" href="../reports/profile/native128-sol-audit/REPORT.md" download>下载报告原文</a></header><main><div class="note">该文件保留实验当时的结论。局部 kernel、旧 provider、旧并行度和历史精度合同不能直接计入当前 FI/USP8 的加速。HSDP2 已完成的新结果见汇总首页；原文中的“尚未实测”可能是当时状态。原文路径指本地实验目录，可在证据索引中查找已发布文件。</div><section><pre># Native128 versus FI64: why it wins and distance to SoL
+
+The long-sequence native128 kernel reaches about 85% of NCU&#x27;s sustained
+**dense BF16 tensor-operation peak at the profiling clock**. This is not a
+claim of 100% attention SoL, nor a claim covering all shapes. Short sequences
+are substantially farther from the compute roof and can lose to FI64.
+
+This audit profiles the unchanged C4 GPU kernel and FI commit
+`f75bed5da7112103b75f82a4d4b5faf4be335154` on SM120, 110 SMs, Nsight Compute
+2025.3.1. Inputs: B=1, D=128, BF16, logical128 blocks, two dense prefix blocks
+and independent 10% selections from the two remaining regions, seed42.
+`harness/profile_kernel.py` profiles both providers on identical tensors.
+`reports/full.ncu-rep` contains full, PM-sampling and hierarchical tensor
+roofline sections; `reports/source.ncu-rep` has CuTe line information.
+`analysis/sol.json`, `derived_sol.json`, `raw_*.json`, `stall_*.txt` and
+`pm_timeline_plots.txt` were extracted with the `ncu_report` API and pinned
+KDA helpers. The 32K/H14 row is reused from the retained C4/FI full reports.
+
+## Direct SoL evidence
+
+The metric is
+`sm__ops_path_tensor_op_hmma_src_bf16_dst_fp32_sparsity_off.avg.pct_of_peak_sustained_elapsed`,
+not merely an activity proxy. Its values happen to equal tensor-pipe elapsed
+activity for these kernels. The `sparsity_off` peak is correct: block-sparse
+attention does not use the hardware&#x27;s 2:4 structured-sparsity doubling.
+
+| S / heads | FI BF16 compute SoL | Native128 BF16 compute SoL | FI SM busy | Native SM busy |
+|---|---:|---:|---:|---:|
+| 1024 / 14 | 44.20% | 41.41% | 66.47% | 63.43% |
+| 8192 / 14 | 63.02% | 75.67% | 78.04% | 93.86% |
+| 32768 / 14 | 76.89% | 84.66% | 91.65% | 98.67% |
+| 32768 / 56 | 82.25% | 85.54% | 97.69% | 99.53% |
+
+SM busy is `sm__cycles_active.avg / sm__cycles_elapsed.avg`; it is distinct
+from warp occupancy. For 8K, tensor activity during active SM cycles is
+80.74% FI versus 80.62% native. Most of the whole-kernel difference is
+therefore explained by the improved active-SM fraction, rather than faster
+MMA execution within already-active cycles. For 32K/H14, the corresponding
+active tensor rates are 83.90% versus 85.81%, with a further improvement in
+the active-SM fraction. This refines the earlier broad scheduling diagnosis.
+
+## Why native128 is faster on these long inputs
+
+Both kernels execute exactly the same tensor work. For 32K/H14,
+106,736 selected logical edges × 128 × 128 × (4 × 128) =
+**895,366,463,488 operations**. NCU&#x27;s executed BF16 operation counter equals
+that number for both providers. The other three shapes also match their
+independently computed operation counts exactly. No precision reduction,
+token dropping, or structured-sparsity instruction changes are involved.
+
+FI handles each logical128 edge through four physical64 tiles. Native128
+uses a physical128 tile, so K/V loaded for one 128-row Q tile can serve all
+those queries. The code still uses SM120 `mma.sync` and the FI-derived TMA
+and staged register-fragment machinery; 128 is the software tile size,
+not a new hardware MMA instruction.
+
+For 32K/H14, NCU shows:
+
+| Counter | FI64 | Native128 |
+|---|---:|---:|
+| Global-to-shared TMA bytes | 14,107,541,504 | 7,112,491,008 |
+| TMA load instructions | 1,722,112 | 434,112 |
+| Ordinary global-load instructions | 3,871,168 | 1,843,184 |
+| L2 throughput / sustained peak | 50.19% | 28.01% |
+| DRAM throughput / sustained peak | 6.56% | 12.40% |
+| L2 hit rate | 96.61% | 88.74% |
+| Registers / thread | 254 | 241 |
+| Achieved warp occupancy | 16.45% | 16.61% |
+
+The TMA byte reduction is real, but it is **not** a halving of DRAM traffic.
+Native&#x27;s cache hit rate is lower and its DRAM throughput is higher; DRAM is
+still far from saturated. Grouped query/head scheduling starts heavy dense
+prefix rows earlier and reduces the final idle portion. Fewer transfers and
+metadata/loop operations help keep the tensor work supplied. These are
+combined-design comparisons, not a new isolated ablation of each change.
+
+## How much room remains
+
+At the recorded ~1.738 GHz profiling clock, NCU reports a BF16 tensor peak
+of 195.74 TFLOP/s for this device. Native32K/H14 achieves 165.72 TFLOP/s;
+FI achieves 150.49 TFLOP/s. A compute-only lower bound is therefore:
+
+`895.366 GFLOP / 195.742 TFLOP/s = 4.574 ms`.
+
+Native&#x27;s profiled duration is 5.403 ms. Reaching that idealized lower bound
+would mean at most **1.181× additional speedup**, or **15.34% lower time**,
+at the same clock, operation count and arithmetic path. Softmax, reductions,
+data movement and dependencies still cost time, so this is not a promise
+that the remaining gap is attainable. It also does not bound designs that
+change precision or required work. NCU timings use replay/cache and clock
+policies; standalone paired timings establish application-facing speedups.
+
+## Six-dimension diagnosis and next priorities
+
+1. **Grid/occupancy:** 32K/H14 has 32.58 CTA waves/SM in both designs. Native
+   uses one 256-thread CTA/SM; FI uses two 128-thread CTAs. Both expose about
+   eight active warps/SM. Increasing occupancy alone is not the explanation
+   for the win. 1K lacks enough sustained work and loses to FI.
+2. **Balance:** the active-SM fractions above expose the largest 8K gain.
+   At 32K/H14 native&#x27;s max active cycles exceed its SM mean by only 1.22%.
+   Retained PM samples support examining the tail, with missing PM metrics
+   explicitly marked rather than substituted.
+3. **Stalls:** source attribution places the largest native hotspots at
+   QK MMA line739 and PV MMA line766, followed by operand loads line763.
+   For 32K/H14, math-pipe throttle is 46.30%, wait 27.59%, and long-scoreboard
+   1.35% of PC samples. These are sampled warp stall proportions, not additive
+   fractions of wall time and not direct recoverable speedups.
+4. **Tensor throughput:** long-sequence 84.66–85.54% is close to the tensor
+   roof, but 8K 75.67% and 1K 41.41% clearly are not universal saturation.
+5. **Memory:** DRAM saturation does not explain the long-shape limit.
+   Zero local-memory spill instructions were measured. Preserve the reduced
+   TMA traffic while examining instruction/dependency overlap.
+6. **Generalization:** the expanded standalone matrix finds regressions for
+   H=1, 1% random density, single-selected-block and ragged blocks, and near
+   the 16K scheduler threshold. Keep opt-in; do not globally dispatch this
+   kernel on the basis of the favorable 32K SoL measurement.
+
+The highest-value next optimization is shape/density-aware scheduling and
+small-workload handling, using new tuning cases and separate holdouts.
+For the already-compute-efficient long dense-enough cases, investigate MMA /
+softmax overlap only after an isolated profiler-backed experiment. Full H3
+activation/video quality and end-to-end inference remain unverified.
+
+Metric interpretation follows NVIDIA&#x27;s
+[Profiling Guide](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html)
+and [peak-metric clarification](https://forums.developer.nvidia.com/t/how-are-pct-of-peak-metrics-calculated/330187).
+</pre></section></main></body></html>

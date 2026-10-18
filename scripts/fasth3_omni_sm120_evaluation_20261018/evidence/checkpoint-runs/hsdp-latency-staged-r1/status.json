@@ -1,0 +1,69 @@
+{
+  "started": 1792311411.290951,
+  "order": [
+    "off",
+    "on"
+  ],
+  "arms": {
+    "off": {
+      "command": [
+        "/usr/bin/python3",
+        "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_flashinfer.py",
+        "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+        "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_checkpoint_cpu_offload.py",
+        "--run-dir",
+        "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp-latency-staged-r1/off",
+        "--cases",
+        "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp-latency-staged-r1/cases.json",
+        "--num-gpus",
+        "8",
+        "--tp",
+        "1",
+        "--usp",
+        "8",
+        "--te-tp",
+        "8",
+        "--no-profile"
+      ],
+      "started": 1792311411.8493466,
+      "pid": 3296524,
+      "returncode": 0,
+      "finished": 1792312453.2522683,
+      "source_unchanged": true,
+      "gpu_apps_after": []
+    },
+    "on": {
+      "command": [
+        "/usr/bin/python3",
+        "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_flashinfer.py",
+        "$WORKSPACE/minimax-h3-native/.venv/bin/python",
+        "$WORKSPACE/fasth3-omni-integration-20261018/framework-validation/run_checkpoint_cpu_offload.py",
+        "--run-dir",
+        "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp-latency-staged-r1/on",
+        "--cases",
+        "$WORKSPACE/fasth3-omni-integration-20261018/checkpoint-runs/hsdp-latency-staged-r1/cases.json",
+        "--num-gpus",
+        "8",
+        "--tp",
+        "1",
+        "--usp",
+        "8",
+        "--te-tp",
+        "8",
+        "--no-profile",
+        "--hsdp"
+      ],
+      "started": 1792312455.5729876,
+      "pid": 3444745,
+      "returncode": 1,
+      "finished": 1792313092.4934714,
+      "source_unchanged": true,
+      "gpu_apps_after": []
+    }
+  },
+  "source_identity": {
+    "python_files": 1623,
+    "sha256": "860951246955c51bc92c0c0fda5c650953585a147a9911a013dc8d41f56cdc48"
+  },
+  "scope": "TP1 USP8; only use_hsdp changes"
+}

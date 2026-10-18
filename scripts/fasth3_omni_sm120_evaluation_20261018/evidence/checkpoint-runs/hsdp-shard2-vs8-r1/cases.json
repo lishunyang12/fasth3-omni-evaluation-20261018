@@ -1,0 +1,41 @@
+[
+  {
+    "name": "fi-124-warmup",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-124-qualification",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124,
+    "save_latents": true,
+    "qualify_hsdp": true
+  },
+  {
+    "name": "fi-124-repeat0",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-124-repeat1",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-124-repeat2",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124
+  },
+  {
+    "name": "fi-124-profile",
+    "provider": "fi",
+    "mode": "benchmark",
+    "frames": 124,
+    "profile_hsdp": true
+  }
+]

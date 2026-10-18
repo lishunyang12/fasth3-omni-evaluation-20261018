@@ -1,0 +1,3 @@
+{
+  "native-124-warmup": "Warmup and overlapped candidate probes on GPUs5/6 during first four denoise steps; excluded from all performance summaries. Output remains valid for comparison."
+}

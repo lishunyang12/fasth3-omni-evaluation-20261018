@@ -1,0 +1,12 @@
+{
+  "checkpoint_sharded_weight_bytes": 70007223296,
+  "block_weight_bytes": 68410700800,
+  "root_weight_bytes": 1596522496,
+  "ranks": 8,
+  "forwards_per_request": 8,
+  "resident_savings_per_rank_bytes": 61256320384,
+  "receive_per_rank_per_request_bytes": 490050563072,
+  "send_plus_receive_per_rank_per_request_bytes": 980101126144,
+  "delivered_cluster_total_bytes": 3920404504576,
+  "assumptions": "BF16 stored weights; 50 block groups plus root; one all-gather/group/forward; no padding or protocol overhead; RX and TX+RX reported separately"
+}

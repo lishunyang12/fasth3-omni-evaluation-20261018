@@ -1,0 +1,439 @@
+{
+  "scope": "Full production module imports and actual GPU operators, synthetic inputs; no checkpoint inference",
+  "device": "NVIDIA Graphics Device",
+  "capability": [
+    12,
+    0
+  ],
+  "cases": [
+    {
+      "case": "full_h14",
+      "provider": "native128_default",
+      "shape": [
+        1,
+        1024,
+        14,
+        128
+      ],
+      "max_abs": 0.001958489418029785,
+      "relative_l2": 0.0021990002132952213,
+      "passed": true
+    },
+    {
+      "case": "full_h14",
+      "provider": "native128_split8",
+      "shape": [
+        1,
+        1024,
+        14,
+        128
+      ],
+      "max_abs": 0.001958489418029785,
+      "relative_l2": 0.0021572732366621494,
+      "passed": true
+    },
+    {
+      "case": "full_h14",
+      "provider": "fi64",
+      "shape": [
+        1,
+        1024,
+        14,
+        128
+      ],
+      "max_abs": 0.002282559871673584,
+      "relative_l2": 0.002184520708397031,
+      "passed": true
+    },
+    {
+      "case": "ragged_empty_kv",
+      "provider": "native128_default",
+      "shape": [
+        1,
+        1024,
+        14,
+        128
+      ],
+      "max_abs": 0.003458738327026367,
+      "relative_l2": 0.002178085269406438,
+      "passed": true
+    },
+    {
+      "case": "ragged_empty_kv",
+      "provider": "native128_split8",
+      "shape": [
+        1,
+        1024,
+        14,
+        128
+      ],
+      "max_abs": 0.003458738327026367,
+      "relative_l2": 0.002139810472726822,
+      "passed": true
+    },
+    {
+      "case": "ragged_empty_kv",
+      "provider": "fi64",
+      "shape": [
+        1,
+        1024,
+        14,
+        128
+      ],
+      "max_abs": 0.003458738327026367,
+      "relative_l2": 0.0021634132135659456,
+      "passed": true
+    },
+    {
+      "case": "empty_rows",
+      "provider": "native128_default",
+      "shape": [
+        1,
+        1024,
+        14,
+        128
+      ],
+      "max_abs": 0.003458738327026367,
+      "relative_l2": 0.0021792054176330566,
+      "passed": true
+    },
+    {
+      "case": "empty_rows",
+      "provider": "native128_split8",
+      "shape": [
+        1,
+        1024,
+        14,
+        128
+      ],
+      "max_abs": 0.003458738327026367,
+      "relative_l2": 0.0021409112960100174,
+      "passed": true
+    },
+    {
+      "case": "empty_rows",
+      "provider": "fi64",
+      "shape": [
+        1,
+        1024,
+        14,
+        128
+      ],
+      "max_abs": 0.003458738327026367,
+      "relative_l2": 0.0021641605999320745,
+      "passed": true
+    },
+    {
+      "case": "batched_odd_transport",
+      "provider": "native128_default",
+      "shape": [
+        2,
+        768,
+        7,
+        128
+      ],
+      "max_abs": 0.0024307966232299805,
+      "relative_l2": 0.0021532292012125254,
+      "passed": true
+    },
+    {
+      "case": "batched_odd_transport",
+      "provider": "native128_split8",
+      "shape": [
+        2,
+        768,
+        7,
+        128
+      ],
+      "max_abs": 0.0024307966232299805,
+      "relative_l2": 0.0021363627165555954,
+      "passed": true
+    },
+    {
+      "case": "batched_odd_transport",
+      "provider": "fi64",
+      "shape": [
+        2,
+        768,
+        7,
+        128
+      ],
+      "max_abs": 0.0024307966232299805,
+      "relative_l2": 0.0021351708564907312,
+      "passed": true
+    },
+    {
+      "case": "full_h56",
+      "provider": "native128_default",
+      "shape": [
+        1,
+        512,
+        56,
+        128
+      ],
+      "max_abs": 0.0023786425590515137,
+      "relative_l2": 0.002170607214793563,
+      "passed": true
+    },
+    {
+      "case": "full_h56",
+      "provider": "native128_split8",
+      "shape": [
+        1,
+        512,
+        56,
+        128
+      ],
+      "max_abs": 0.0023786425590515137,
+      "relative_l2": 0.0021550904493778944,
+      "passed": true
+    },
+    {
+      "case": "full_h56",
+      "provider": "fi64",
+      "shape": [
+        1,
+        512,
+        56,
+        128
+      ],
+      "max_abs": 0.002383887767791748,
+      "relative_l2": 0.002147454535588622,
+      "passed": true
+    },
+    {
+      "case": "large_logits",
+      "provider": "native128_default",
+      "shape": [
+        1,
+        768,
+        14,
+        128
+      ],
+      "max_abs": 0.014356613159179688,
+      "relative_l2": 0.0014137113466858864,
+      "passed": true
+    },
+    {
+      "case": "large_logits",
+      "provider": "native128_split8",
+      "shape": [
+        1,
+        768,
+        14,
+        128
+      ],
+      "max_abs": 0.014356613159179688,
+      "relative_l2": 0.0014068587915971875,
+      "passed": true
+    },
+    {
+      "case": "large_logits",
+      "provider": "fi64",
+      "shape": [
+        1,
+        768,
+        14,
+        128
+      ],
+      "max_abs": 0.014356613159179688,
+      "relative_l2": 0.0014106271555647254,
+      "passed": true
+    },
+    {
+      "case": "all_empty",
+      "provider": "native128_default",
+      "shape": [
+        1,
+        512,
+        1,
+        128
+      ],
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "passed": true
+    },
+    {
+      "case": "all_empty",
+      "provider": "native128_split8",
+      "shape": [
+        1,
+        512,
+        1,
+        128
+      ],
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "passed": true
+    },
+    {
+      "case": "all_empty",
+      "provider": "fi64",
+      "shape": [
+        1,
+        512,
+        1,
+        128
+      ],
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "passed": true
+    },
+    {
+      "case": "h3_odd_pair",
+      "provider": "native128_default",
+      "shape": [
+        1,
+        904,
+        14,
+        128
+      ],
+      "max_abs": 0.0019530653953552246,
+      "relative_l2": 0.0021772091276943684,
+      "passed": true
+    },
+    {
+      "case": "h3_odd_pair",
+      "provider": "native128_split8",
+      "shape": [
+        1,
+        904,
+        14,
+        128
+      ],
+      "max_abs": 0.0019530653953552246,
+      "relative_l2": 0.0021426223684102297,
+      "passed": true
+    },
+    {
+      "case": "h3_odd_pair",
+      "provider": "fi64",
+      "shape": [
+        1,
+        904,
+        14,
+        128
+      ],
+      "max_abs": 0.0019785165786743164,
+      "relative_l2": 0.002159738913178444,
+      "passed": true
+    },
+    {
+      "case": "h3_odd_gate_packed",
+      "provider": "native128_default",
+      "shape": [
+        1,
+        928,
+        14,
+        128
+      ],
+      "max_abs": 0.00390625,
+      "relative_l2": 0.0024281402584165335,
+      "passed": true
+    },
+    {
+      "case": "h3_odd_gate_packed",
+      "provider": "native128_split8",
+      "shape": [
+        1,
+        928,
+        14,
+        128
+      ],
+      "max_abs": 0.00390625,
+      "relative_l2": 0.0023751454427838326,
+      "passed": true
+    },
+    {
+      "case": "h3_odd_gate_packed",
+      "provider": "fi64",
+      "shape": [
+        1,
+        928,
+        14,
+        128
+      ],
+      "max_abs": 0.00390625,
+      "relative_l2": 0.002400819445028901,
+      "passed": true
+    },
+    {
+      "case": "h3_interleaved_refs",
+      "provider": "native128_default",
+      "shape": [
+        2,
+        1064,
+        7,
+        128
+      ],
+      "max_abs": 0.00390625,
+      "relative_l2": 0.0024550030939280987,
+      "passed": true
+    },
+    {
+      "case": "h3_interleaved_refs",
+      "provider": "native128_split8",
+      "shape": [
+        2,
+        1064,
+        7,
+        128
+      ],
+      "max_abs": 0.00390625,
+      "relative_l2": 0.0023681989405304193,
+      "passed": true
+    },
+    {
+      "case": "h3_interleaved_refs",
+      "provider": "fi64",
+      "shape": [
+        2,
+        1064,
+        7,
+        128
+      ],
+      "max_abs": 0.00390625,
+      "relative_l2": 0.002436001319438219,
+      "passed": true
+    },
+    {
+      "case": "h3_ragged_video",
+      "provider": "native128_default",
+      "shape": [
+        1,
+        384,
+        14,
+        128
+      ],
+      "max_abs": 0.00390625,
+      "relative_l2": 0.002336039673537016,
+      "passed": true
+    },
+    {
+      "case": "h3_ragged_video",
+      "provider": "native128_split8",
+      "shape": [
+        1,
+        384,
+        14,
+        128
+      ],
+      "max_abs": 0.00390625,
+      "relative_l2": 0.0022899205796420574,
+      "passed": true
+    },
+    {
+      "case": "h3_ragged_video",
+      "provider": "fi64",
+      "shape": [
+        1,
+        384,
+        14,
+        128
+      ],
+      "max_abs": 0.0078125,
+      "relative_l2": 0.0022881266195327044,
+      "passed": true
+    }
+  ]
+}

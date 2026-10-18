@@ -1,0 +1,64 @@
+{
+  "gpu": "_CudaDeviceProperties(name='NVIDIA Graphics Device', major=12, minor=0, total_memory=72830MB, multi_processor_count=110, uuid=9db4ee11-aeaf-55c1-c752-966a0a70b707, pci_bus_id=9, pci_device_id=0, pci_domain_id=0, L2_cache_size=96MB)",
+  "torch": "2.13.0+cu130",
+  "mode": "correctness",
+  "rounds": 21,
+  "order_seed": 18013,
+  "harness_sha256": "70b4e36221235ac1373e8b0033b207e9d2e50554051f3dc3bd2f4bb0b1cda2b9",
+  "native_only": false,
+  "cases": [
+    {
+      "case_id": 25,
+      "nq": 3,
+      "nk": 7,
+      "heads": 2,
+      "batch": 2,
+      "density": 0.5,
+      "pattern": "dense",
+      "data": "offset",
+      "ragged": true,
+      "seed": 3107,
+      "validation": {
+        "query_rows_per_head": 384,
+        "all_rows": true,
+        "providers": {
+          "cute128_kernel": {
+            "max_abs": 0.0015412569046020508,
+            "rmse": 0.00019343639723956585,
+            "relative_l2": 0.002177120825681451,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.0258146776465082e-06,
+            "empty_rows_checked": 0
+          },
+          "cute128_with_metadata": {
+            "max_abs": 0.0015412569046020508,
+            "rmse": 0.00019343639723956585,
+            "relative_l2": 0.002177120825681451,
+            "cosine": 0.9999974966049194,
+            "lse_max_abs": 1.0258146776465082e-06,
+            "empty_rows_checked": 0
+          },
+          "fi64_kernel": {
+            "unsupported": "Pinned FI requires 128-byte-aligned Q/K/V"
+          },
+          "fi64_with_metadata": {
+            "unsupported": "Pinned FI requires 128-byte-aligned Q/K/V"
+          }
+        },
+        "fp32_vs_fp64_max_abs": 4.879915512234767e-07,
+        "oracle": "fp64",
+        "reverse_indices": {
+          "max_abs": 0.0015412569046020508,
+          "rmse": 0.0001922964584082365,
+          "relative_l2": 0.0021642906539723365,
+          "cosine": 0.9999977350234985,
+          "lse_max_abs": 9.743601330214346e-07,
+          "empty_rows_checked": 0
+        },
+        "fi_fused_adapter_exact": true
+      }
+    }
+  ],
+  "failures": [],
+  "flashinfer_module": "$WORKSPACE/flashinfer-pr4859/flashinfer/__init__.py"
+}

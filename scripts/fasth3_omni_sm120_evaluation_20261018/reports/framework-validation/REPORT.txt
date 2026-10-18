@@ -1,0 +1,98 @@
+Update: actual checkpoint generation now succeeds (see CHECKPOINT-REPORT.txt).
+This file preserves the earlier framework/synthetic validation scope below.
+Its original "Limits / next gate" section describes that earlier stage.
+
+Native128 VSA integration into vLLM-Omni — 2026-10-18
+
+Recommended local configuration for this SM120 FastH3 checkpoint:
+  FASTVIDEO_VSA_SM120=1
+  FASTVIDEO_VSA_SM120_SPLITS=1
+  --diffusion-attention-backend FASTVIDEO_VSA
+
+Use the final local C6b source in fastvideo-sm120-tile128. Its default
+num_splits=1 retains the frozen C5 unsplit schedule and arithmetic; C6b adds
+explicit split-KV options, not a universally faster replacement path.
+The checkpoint explicitly declares num_attention_heads=56 and D=128.
+Pure Ulysses4 therefore leaves14 heads per rank (without additional TP).
+hidden_size=5376 must not be divided by D to infer the attention head count:
+the attention projection inner dimension is independently56*128.
+
+Selection evidence:
+- validation-v3/REPORT.txt: synthetic H14 prefix cases at8192/16384/32768
+  tokens have FI/C5 kernel speed ratios1.2665/1.2177/1.1526.
+- profile/native128-c5-candidate/REPORT.md: at32768/H56, elapsed-cycle
+  BF16 dense SoL85.59%, SM busy99.50%, no measured register spills.
+- validation-v4/REPORT.txt: C6b default output/LSE bitwise equals frozenC5
+  on23 regression cases. Split8 wins selected H1 prefix holdouts, but loses
+  badly on ultra-sparse/single/empty patterns. Do not enable it by head count
+  alone. FI can still win partly valid128-block and ultra-sparse cases.
+- These are kernel measurements on synthetic inputs, not model latency or
+  output-quality measurements. No claim of a universally best VSA is made.
+
+Integration changes:
+- Production vllm_omni::fastvideo_block_sparse_attn_bshd dispatches the native
+  provider for tile128 on SM120 when explicitly enabled. Device capability
+  uses current_omni_platform. A native failure is propagated.
+- Preserve the logical128 mask, valid sizes, independent video-region
+  budgets, and compression gate. Remove transport-only tiles before launch
+  and restore their outputs as exact zero rows.
+- FASTVIDEO_VSA_SM120_SPLITS is read at invocation; configure it before
+  warming/capturing CUDA graphs. The kernel validates1/2/4/8/16.
+- CPU tests cover unchanged logical masks, stripping poisoned transport
+  blocks, splits1/8 forwarding, and propagated errors. Existing test stubs
+  now use setattr for dynamically attached module attributes, satisfying
+  the repository's mypy checks without suppressions.
+
+Validation:
+- Real MiniMaxH3Pipeline imports succeed through the runtime overlay with
+  normal vLLM-Omni package initialization. The earlier explicit import of
+  vllm._C was an invalid probe for this build, which uses a stable-libtorch
+  extension; it is not evidence that a required binary was missing.
+-93 tests pass through normal pytest startup and conftest, without package
+  initialization bypass. See pytest-full-import-final.log.
+-33 actual GPU checks pass:11 inputs x native128_default/native128_split8/FI.
+  See gpu-vsa-results.json and gpu-vsa.log. Seven cases exercise the public
+  Omni custom op; four exercise complete MiniMaxH3VSAImpl.forward_cuda.
+- GPU cases cover H1/7/14/56, B1/2, ragged and zero-sized KV tiles, empty
+  query selections, large logits, poisoned invalid KV/transport rows,
+  odd tile counts, multiple interleaved references, partial3-D video tiles,
+  learned compression gates, and packed padding restored to exact zeros.
+- Independent FP32 attention reference starts from the original128 mask.
+  Full H3 reference enumerates original token coordinates independently of
+  production tile helpers, pools/selects by region, and computes attention
+  in original row order. BF16 gate/add boundaries match the model.
+- TF32 disabled. All rows checked. Output gates atol=.01,rtol=.01 and
+  relativeL2<.005; maximum relativeL2=.002455004. Amplified logits have
+  maximum absolute error .014356614 and pass the unchanged combined gate.
+- Repository pre-commit passes on block_sparse.py, test_vsa_layout.py and
+  MiniMax-H3.md, including mypy, formatting, marks, forbidden imports and
+  CUDA abstraction checks. See pre-commit-rerun.log. git diff --check passes.
+
+Limits / next gate:
+- No actual checkpoint forward or end-to-end video/audio synthesis was run
+  in this validation. Real activations, quality parity and full-request
+  performance remain to be measured.
+- Runtime: torch2.13.0+cu130, isolated vllm0.30.0, local Omni checkout
+  based on6715c57b. Installed Omni metadata reports0.28.0, producing a
+  version-mismatch warning. Successful imports/tests do not prove all
+  runtime or serving paths compatible.
+- The native kernel is the local development version, not a claim that an
+  arbitrary published fastvideo-kernel package exposes this implementation.
+- No commit, push or deployment was performed.
+
+Reproduce (existing local environment; no HF weights/token needed):
+  cd $WORKSPACE/vllm-omni-fasth3-omni
+  ART=$WORKSPACE/fasth3-omni-integration-20261018
+  PY=$WORKSPACE/minimax-h3-native/.venv/bin/python
+
+Local whole-file CPU tests, using normal initialization:
+  python3 "$ART/framework-validation/run.py" "$PY" -m pytest -q tests/diffusion/models/minimax_h3/test_vsa_layout.py
+
+CI-like CPU regression suite (same marker/run-level expression):
+  python3 "$ART/framework-validation/run.py" "$PY" -m pytest -q tests/diffusion/models/minimax_h3/test_fasth3_pdd.py tests/diffusion/models/minimax_h3/test_fasth3_omni.py tests/diffusion/models/minimax_h3/test_vsa_layout.py tests/diffusion/sched/test_dmd2_sigma_schedule.py -m 'core_model and cpu' --run-level core_model
+
+GPU framework probe (one CC12.0 GPU and kernel/FI/CuTe dependencies required):
+  CUDA_VISIBLE_DEVICES=0 python3 "$ART/framework-validation/run.py" "$PY" "$ART/framework-validation/probe_native_vsa.py"
+
+The launcher fixes source paths/cache directories for this workspace. The GPU
+probe is a standalone validation artifact, not a model e2e test added to CI.
