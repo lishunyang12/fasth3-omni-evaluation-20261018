@@ -1,0 +1,1777 @@
+{
+  "variants": [
+    {
+      "id": "fastvideo",
+      "label": "FastVideo Triton",
+      "decoder": "BF16"
+    },
+    {
+      "id": "cudnn",
+      "label": "NVIDIA cuDNN",
+      "decoder": "BF16"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "family",
+      "title": "Dinner conversation",
+      "en": "Dinner conversation",
+      "focus": "Multi-subject interaction, facial detail, and object consistency",
+      "prompt": "A family enjoys dinner together around a wooden table. Steam rises from the ramen bowls. They smile and talk naturally. The camera slowly pushes toward the table. Warm indoor lighting, quiet conversation, soft clinking of dishes.",
+      "source": "FastVideo Ref2VA example",
+      "conditions": {
+        "single-image": {
+          "prompt": "A family enjoys dinner together around a wooden table. Steam rises from the ramen bowls. They smile and talk naturally. The camera slowly pushes toward the table. Warm indoor lighting, quiet conversation, soft clinking of dishes.",
+          "references": [
+            {
+              "url": "assets/single-image-family-ref-0.png",
+              "type": "image",
+              "width": 1920,
+              "height": 1080
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/single-image-family-fastvideo.mp4",
+              "poster": "assets/single-image-family-fastvideo.jpg",
+              "observed_e2e_ms": 60643.493,
+              "observed_dit_ms": 54922.89303522557,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/single-image-family-cudnn.mp4",
+              "poster": "assets/single-image-family-cudnn.jpg",
+              "observed_e2e_ms": 52600.952,
+              "observed_dit_ms": 46902.955629862845,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "FastVideo Ref2VA example"
+        },
+        "multi-image": {
+          "prompt": "Use <Picture 1> and <Picture 2> as two views of the same subjects and setting. Preserve their shared appearance and spatial relationships; do not duplicate subjects.\n\nA family enjoys dinner together around a wooden table. Steam rises from the ramen bowls. They smile and talk naturally. The camera slowly pushes toward the table. Warm indoor lighting, quiet conversation, soft clinking of dishes.",
+          "references": [
+            {
+              "url": "assets/multi-image-family-ref-0.png",
+              "type": "image",
+              "width": 896,
+              "height": 512
+            },
+            {
+              "url": "assets/multi-image-family-ref-1.png",
+              "type": "image",
+              "width": 896,
+              "height": 512
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/multi-image-family-fastvideo.mp4",
+              "poster": "assets/multi-image-family-fastvideo.jpg",
+              "observed_e2e_ms": 54170.693999999996,
+              "observed_dit_ms": 49012.97116000205,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/multi-image-family-cudnn.mp4",
+              "poster": "assets/multi-image-family-cudnn.jpg",
+              "observed_e2e_ms": 48120.028,
+              "observed_dit_ms": 43000.45549077913,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "Generated BF16 single-image output; shared as conditioning input for all configurations, not ground truth."
+        },
+        "video": {
+          "prompt": "Use <Video 1> as the reference for subject appearance, setting, motion and sound. Generate a new five-second shot following the description below.\n\nA family enjoys dinner together around a wooden table. Steam rises from the ramen bowls. They smile and talk naturally. The camera slowly pushes toward the table. Warm indoor lighting, quiet conversation, soft clinking of dishes.",
+          "references": [
+            {
+              "url": "assets/video-family-ref-0.mp4",
+              "type": "video",
+              "width": 896,
+              "height": 512,
+              "duration_s": 2.5
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/video-family-fastvideo.mp4",
+              "poster": "assets/video-family-fastvideo.jpg",
+              "observed_e2e_ms": 67656.513,
+              "observed_dit_ms": 57453.296264167875,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/video-family-cudnn.mp4",
+              "poster": "assets/video-family-cudnn.jpg",
+              "observed_e2e_ms": 60678.318,
+              "observed_dit_ms": 49968.51938124746,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "Generated BF16 single-image output; shared as conditioning input for all configurations, not ground truth."
+        }
+      }
+    },
+    {
+      "id": "motion",
+      "title": "Karate in the spotlight",
+      "en": "Karate in the spotlight",
+      "focus": "Human motion, limb coherence, and clothing dynamics",
+      "source": "FastVideo assets / Mixkit 49635",
+      "prompt": "A five-second live-action shot of the martial artist in the reference image, wearing the same white karate uniform and black belt against a dark background. One person, full body visible, realistic cloth and anatomy.\n0–1 s: He settles into a balanced stance, hands raised; a soft breath is audible.\n1–3 s: He takes one step forward and performs two controlled straight punches, one after the other. The sleeves snap with each punch.\n3–5 s: He draws his hands back into guard and holds a stable stance. The fabric settles and he exhales.\nCamera: one uninterrupted eye-level full-body shot with a slow lateral move. Sound: breathing, bare footsteps and cloth movement, no speech or music. Preserve the same person, belt and dark setting throughout; keep hands and feet within the frame.",
+      "conditions": {
+        "single-image": {
+          "prompt": "A five-second live-action shot of the martial artist in the reference image, wearing the same white karate uniform and black belt against a dark background. One person, full body visible, realistic cloth and anatomy.\n0–1 s: He settles into a balanced stance, hands raised; a soft breath is audible.\n1–3 s: He takes one step forward and performs two controlled straight punches, one after the other. The sleeves snap with each punch.\n3–5 s: He draws his hands back into guard and holds a stable stance. The fabric settles and he exhales.\nCamera: one uninterrupted eye-level full-body shot with a slow lateral move. Sound: breathing, bare footsteps and cloth movement, no speech or music. Preserve the same person, belt and dark setting throughout; keep hands and feet within the frame.",
+          "references": [
+            {
+              "url": "assets/single-image-motion-ref-0.png",
+              "type": "image",
+              "width": 832,
+              "height": 480
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/single-image-motion-fastvideo.mp4",
+              "poster": "assets/single-image-motion-fastvideo.jpg",
+              "observed_e2e_ms": 50828.788,
+              "observed_dit_ms": 45917.833738960326,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/single-image-motion-cudnn.mp4",
+              "poster": "assets/single-image-motion-cudnn.jpg",
+              "observed_e2e_ms": 46016.66,
+              "observed_dit_ms": 41110.982772894204,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "FastVideo assets / Mixkit 49635"
+        },
+        "multi-image": {
+          "prompt": "Use <Picture 1> and <Picture 2> as two views of the same subjects and setting. Preserve their shared appearance and spatial relationships; do not duplicate subjects.\n\nA five-second live-action shot of the martial artist in the reference image, wearing the same white karate uniform and black belt against a dark background. One person, full body visible, realistic cloth and anatomy.\n0–1 s: He settles into a balanced stance, hands raised; a soft breath is audible.\n1–3 s: He takes one step forward and performs two controlled straight punches, one after the other. The sleeves snap with each punch.\n3–5 s: He draws his hands back into guard and holds a stable stance. The fabric settles and he exhales.\nCamera: one uninterrupted eye-level full-body shot with a slow lateral move. Sound: breathing, bare footsteps and cloth movement, no speech or music. Preserve the same person, belt and dark setting throughout; keep hands and feet within the frame.",
+          "references": [
+            {
+              "url": "assets/multi-image-motion-ref-0.png",
+              "type": "image",
+              "width": 896,
+              "height": 512
+            },
+            {
+              "url": "assets/multi-image-motion-ref-1.png",
+              "type": "image",
+              "width": 896,
+              "height": 512
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/multi-image-motion-fastvideo.mp4",
+              "poster": "assets/multi-image-motion-fastvideo.jpg",
+              "observed_e2e_ms": 53173.986,
+              "observed_dit_ms": 48066.18014816195,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/multi-image-motion-cudnn.mp4",
+              "poster": "assets/multi-image-motion-cudnn.jpg",
+              "observed_e2e_ms": 47694.222,
+              "observed_dit_ms": 42614.489015657455,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "Generated BF16 single-image output; shared as conditioning input for all configurations, not ground truth."
+        },
+        "video": {
+          "prompt": "Use <Video 1> as the reference for subject appearance, setting, motion and sound. Generate a new five-second shot following the description below.\n\nA five-second live-action shot of the martial artist in the reference image, wearing the same white karate uniform and black belt against a dark background. One person, full body visible, realistic cloth and anatomy.\n0–1 s: He settles into a balanced stance, hands raised; a soft breath is audible.\n1–3 s: He takes one step forward and performs two controlled straight punches, one after the other. The sleeves snap with each punch.\n3–5 s: He draws his hands back into guard and holds a stable stance. The fabric settles and he exhales.\nCamera: one uninterrupted eye-level full-body shot with a slow lateral move. Sound: breathing, bare footsteps and cloth movement, no speech or music. Preserve the same person, belt and dark setting throughout; keep hands and feet within the frame.",
+          "references": [
+            {
+              "url": "assets/video-motion-ref-0.mp4",
+              "type": "video",
+              "width": 896,
+              "height": 512,
+              "duration_s": 2.5
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/video-motion-fastvideo.mp4",
+              "poster": "assets/video-motion-fastvideo.jpg",
+              "observed_e2e_ms": 64146.34599999999,
+              "observed_dit_ms": 56343.22670008987,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/video-motion-cudnn.mp4",
+              "poster": "assets/video-motion-cudnn.jpg",
+              "observed_e2e_ms": 57413.007999999994,
+              "observed_dit_ms": 49640.46959206462,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "Generated BF16 single-image output; shared as conditioning input for all configurations, not ground truth."
+        }
+      }
+    },
+    {
+      "id": "animals",
+      "title": "Dolphins underwater",
+      "en": "Dolphins underwater",
+      "focus": "Animal motion, occlusion, and underwater illumination",
+      "source": "FastVideo assets / Mixkit 4133",
+      "prompt": "A five-second natural-history underwater shot continuing the blue-water dolphin scene in the reference. Realistic dolphins, blue water and soft sunlight from the surface.\n0–1 s: The nearest dolphin glides across the foreground while the others remain farther away.\n1–3 s: The nearest dolphin gently rolls and moves forward, its tail moving rhythmically; drifting light patterns pass over its skin.\n3–5 s: The camera follows alongside as the dolphin swims away to the right, leaving the more distant dolphins visible.\nCamera: one smooth underwater tracking shot, no cuts. Sound: muted underwater movement, a few soft dolphin clicks, no narration or music. Keep the dolphin bodies and fins coherent; preserve the blue-water setting and natural swimming speed.",
+      "conditions": {
+        "single-image": {
+          "prompt": "A five-second natural-history underwater shot continuing the blue-water dolphin scene in the reference. Realistic dolphins, blue water and soft sunlight from the surface.\n0–1 s: The nearest dolphin glides across the foreground while the others remain farther away.\n1–3 s: The nearest dolphin gently rolls and moves forward, its tail moving rhythmically; drifting light patterns pass over its skin.\n3–5 s: The camera follows alongside as the dolphin swims away to the right, leaving the more distant dolphins visible.\nCamera: one smooth underwater tracking shot, no cuts. Sound: muted underwater movement, a few soft dolphin clicks, no narration or music. Keep the dolphin bodies and fins coherent; preserve the blue-water setting and natural swimming speed.",
+          "references": [
+            {
+              "url": "assets/single-image-animals-ref-0.png",
+              "type": "image",
+              "width": 832,
+              "height": 480
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/single-image-animals-fastvideo.mp4",
+              "poster": "assets/single-image-animals-fastvideo.jpg",
+              "observed_e2e_ms": 49854.36,
+              "observed_dit_ms": 44920.18870310858,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/single-image-animals-cudnn.mp4",
+              "poster": "assets/single-image-animals-cudnn.jpg",
+              "observed_e2e_ms": 45654.632999999994,
+              "observed_dit_ms": 40705.59537690133,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "FastVideo assets / Mixkit 4133"
+        },
+        "multi-image": {
+          "prompt": "Use <Picture 1> and <Picture 2> as two views of the same subjects and setting. Preserve their shared appearance and spatial relationships; do not duplicate subjects.\n\nA five-second natural-history underwater shot continuing the blue-water dolphin scene in the reference. Realistic dolphins, blue water and soft sunlight from the surface.\n0–1 s: The nearest dolphin glides across the foreground while the others remain farther away.\n1–3 s: The nearest dolphin gently rolls and moves forward, its tail moving rhythmically; drifting light patterns pass over its skin.\n3–5 s: The camera follows alongside as the dolphin swims away to the right, leaving the more distant dolphins visible.\nCamera: one smooth underwater tracking shot, no cuts. Sound: muted underwater movement, a few soft dolphin clicks, no narration or music. Keep the dolphin bodies and fins coherent; preserve the blue-water setting and natural swimming speed.",
+          "references": [
+            {
+              "url": "assets/multi-image-animals-ref-0.png",
+              "type": "image",
+              "width": 896,
+              "height": 512
+            },
+            {
+              "url": "assets/multi-image-animals-ref-1.png",
+              "type": "image",
+              "width": 896,
+              "height": 512
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/multi-image-animals-fastvideo.mp4",
+              "poster": "assets/multi-image-animals-fastvideo.jpg",
+              "observed_e2e_ms": 53064.512,
+              "observed_dit_ms": 47942.75659415871,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/multi-image-animals-cudnn.mp4",
+              "poster": "assets/multi-image-animals-cudnn.jpg",
+              "observed_e2e_ms": 47784.565,
+              "observed_dit_ms": 42639.03836905956,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "Generated BF16 single-image output; shared as conditioning input for all configurations, not ground truth."
+        },
+        "video": {
+          "prompt": "Use <Video 1> as the reference for subject appearance, setting, motion and sound. Generate a new five-second shot following the description below.\n\nA five-second natural-history underwater shot continuing the blue-water dolphin scene in the reference. Realistic dolphins, blue water and soft sunlight from the surface.\n0–1 s: The nearest dolphin glides across the foreground while the others remain farther away.\n1–3 s: The nearest dolphin gently rolls and moves forward, its tail moving rhythmically; drifting light patterns pass over its skin.\n3–5 s: The camera follows alongside as the dolphin swims away to the right, leaving the more distant dolphins visible.\nCamera: one smooth underwater tracking shot, no cuts. Sound: muted underwater movement, a few soft dolphin clicks, no narration or music. Keep the dolphin bodies and fins coherent; preserve the blue-water setting and natural swimming speed.",
+          "references": [
+            {
+              "url": "assets/video-animals-ref-0.mp4",
+              "type": "video",
+              "width": 896,
+              "height": 512,
+              "duration_s": 2.5
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/video-animals-fastvideo.mp4",
+              "poster": "assets/video-animals-fastvideo.jpg",
+              "observed_e2e_ms": 64529.56399999999,
+              "observed_dit_ms": 56309.60662290454,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/video-animals-cudnn.mp4",
+              "poster": "assets/video-animals-cudnn.jpg",
+              "observed_e2e_ms": 57769.90700000001,
+              "observed_dit_ms": 49630.84006169811,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "Generated BF16 single-image output; shared as conditioning input for all configurations, not ground truth."
+        }
+      }
+    },
+    {
+      "id": "camera",
+      "title": "Orbit around the cliff",
+      "en": "Orbit around the cliff",
+      "focus": "Camera motion, spatial consistency, and parallax",
+      "source": "FastVideo assets / Mixkit 50589",
+      "prompt": "A five-second aerial landscape shot of the rocky forested cliff shown in the reference, in natural daylight. Preserve the pale vertical rock face and the scattered autumn trees.\n0–1 s: The camera approaches the cliff obliquely, with the nearest trees crossing the lower foreground.\n1–3 s: The drone follows a smooth rightward arc around the rock face while gradually rising. Near trees move faster across the frame than the distant slope.\n3–5 s: The camera crests slightly above the near ridge, revealing more of the forest beyond, and eases its motion.\nCamera: one continuous drone move with forward, lateral and upward motion; a steady horizon. Sound: light wind and distant birds, no narration or music. Preserve connected rock geometry and coherent tree positions throughout.",
+      "conditions": {
+        "single-image": {
+          "prompt": "A five-second aerial landscape shot of the rocky forested cliff shown in the reference, in natural daylight. Preserve the pale vertical rock face and the scattered autumn trees.\n0–1 s: The camera approaches the cliff obliquely, with the nearest trees crossing the lower foreground.\n1–3 s: The drone follows a smooth rightward arc around the rock face while gradually rising. Near trees move faster across the frame than the distant slope.\n3–5 s: The camera crests slightly above the near ridge, revealing more of the forest beyond, and eases its motion.\nCamera: one continuous drone move with forward, lateral and upward motion; a steady horizon. Sound: light wind and distant birds, no narration or music. Preserve connected rock geometry and coherent tree positions throughout.",
+          "references": [
+            {
+              "url": "assets/single-image-camera-ref-0.png",
+              "type": "image",
+              "width": 832,
+              "height": 480
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/single-image-camera-fastvideo.mp4",
+              "poster": "assets/single-image-camera-fastvideo.jpg",
+              "observed_e2e_ms": 51171.69899999999,
+              "observed_dit_ms": 46120.57446781546,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/single-image-camera-cudnn.mp4",
+              "poster": "assets/single-image-camera-cudnn.jpg",
+              "observed_e2e_ms": 46260.452,
+              "observed_dit_ms": 41260.79954998568,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "FastVideo assets / Mixkit 50589"
+        },
+        "multi-image": {
+          "prompt": "Use <Picture 1> and <Picture 2> as two views of the same subjects and setting. Preserve their shared appearance and spatial relationships; do not duplicate subjects.\n\nA five-second aerial landscape shot of the rocky forested cliff shown in the reference, in natural daylight. Preserve the pale vertical rock face and the scattered autumn trees.\n0–1 s: The camera approaches the cliff obliquely, with the nearest trees crossing the lower foreground.\n1–3 s: The drone follows a smooth rightward arc around the rock face while gradually rising. Near trees move faster across the frame than the distant slope.\n3–5 s: The camera crests slightly above the near ridge, revealing more of the forest beyond, and eases its motion.\nCamera: one continuous drone move with forward, lateral and upward motion; a steady horizon. Sound: light wind and distant birds, no narration or music. Preserve connected rock geometry and coherent tree positions throughout.",
+          "references": [
+            {
+              "url": "assets/multi-image-camera-ref-0.png",
+              "type": "image",
+              "width": 896,
+              "height": 512
+            },
+            {
+              "url": "assets/multi-image-camera-ref-1.png",
+              "type": "image",
+              "width": 896,
+              "height": 512
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/multi-image-camera-fastvideo.mp4",
+              "poster": "assets/multi-image-camera-fastvideo.jpg",
+              "observed_e2e_ms": 53192.504,
+              "observed_dit_ms": 47930.77751016244,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/multi-image-camera-cudnn.mp4",
+              "poster": "assets/multi-image-camera-cudnn.jpg",
+              "observed_e2e_ms": 47900.926,
+              "observed_dit_ms": 42633.94338591024,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "Generated BF16 single-image output; shared as conditioning input for all configurations, not ground truth."
+        },
+        "video": {
+          "prompt": "Use <Video 1> as the reference for subject appearance, setting, motion and sound. Generate a new five-second shot following the description below.\n\nA five-second aerial landscape shot of the rocky forested cliff shown in the reference, in natural daylight. Preserve the pale vertical rock face and the scattered autumn trees.\n0–1 s: The camera approaches the cliff obliquely, with the nearest trees crossing the lower foreground.\n1–3 s: The drone follows a smooth rightward arc around the rock face while gradually rising. Near trees move faster across the frame than the distant slope.\n3–5 s: The camera crests slightly above the near ridge, revealing more of the forest beyond, and eases its motion.\nCamera: one continuous drone move with forward, lateral and upward motion; a steady horizon. Sound: light wind and distant birds, no narration or music. Preserve connected rock geometry and coherent tree positions throughout.",
+          "references": [
+            {
+              "url": "assets/video-camera-ref-0.mp4",
+              "type": "video",
+              "width": 896,
+              "height": 512,
+              "duration_s": 2.5
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/video-camera-fastvideo.mp4",
+              "poster": "assets/video-camera-fastvideo.jpg",
+              "observed_e2e_ms": 66360.43100000001,
+              "observed_dit_ms": 57830.05473809317,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/video-camera-cudnn.mp4",
+              "poster": "assets/video-camera-cudnn.jpg",
+              "observed_e2e_ms": 58695.333,
+              "observed_dit_ms": 50203.58998095617,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "Generated BF16 single-image output; shared as conditioning input for all configurations, not ground truth."
+        }
+      }
+    },
+    {
+      "id": "details",
+      "title": "Night at the bus terminal",
+      "en": "Night at the bus terminal",
+      "focus": "Low-light detail, reflections, and text preservation",
+      "source": "FastVideo assets / bus_terminal.jpg",
+      "prompt": "A five-second realistic night shot at the bus terminal in the reference image. Keep the buses, illuminated route signs, yellow handrails and reflective windows in the same setting.\n0–1 s: The camera starts beside the bus on the left, holding the yellow rail and window reflections in the foreground.\n1–3 s: It slowly moves forward along the platform toward the front-facing bus, bringing its illuminated route display closer. Reflections slide consistently over the side windows.\n3–5 s: The camera settles on the front-facing bus and its route display; the other buses remain in the background.\nCamera: one steady walking-speed tracking shot, no cuts. Sound: idling engines, distant air brakes and faint terminal ambience; no music or narration. Preserve the visible route lettering and digits from the reference, bus shapes and fixed handrails; avoid adding large captions or logos.",
+      "conditions": {
+        "single-image": {
+          "prompt": "A five-second realistic night shot at the bus terminal in the reference image. Keep the buses, illuminated route signs, yellow handrails and reflective windows in the same setting.\n0–1 s: The camera starts beside the bus on the left, holding the yellow rail and window reflections in the foreground.\n1–3 s: It slowly moves forward along the platform toward the front-facing bus, bringing its illuminated route display closer. Reflections slide consistently over the side windows.\n3–5 s: The camera settles on the front-facing bus and its route display; the other buses remain in the background.\nCamera: one steady walking-speed tracking shot, no cuts. Sound: idling engines, distant air brakes and faint terminal ambience; no music or narration. Preserve the visible route lettering and digits from the reference, bus shapes and fixed handrails; avoid adding large captions or logos.",
+          "references": [
+            {
+              "url": "assets/single-image-details-ref-0.jpg",
+              "type": "image",
+              "width": 5472,
+              "height": 3648
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/single-image-details-fastvideo.mp4",
+              "poster": "assets/single-image-details-fastvideo.jpg",
+              "observed_e2e_ms": 200486.752,
+              "observed_dit_ms": 185410.60979524627,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/single-image-details-cudnn.mp4",
+              "poster": "assets/single-image-details-cudnn.jpg",
+              "observed_e2e_ms": 136689.541,
+              "observed_dit_ms": 121501.16688478738,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "FastVideo assets / bus_terminal.jpg"
+        },
+        "multi-image": {
+          "prompt": "Use <Picture 1> and <Picture 2> as two views of the same subjects and setting. Preserve their shared appearance and spatial relationships; do not duplicate subjects.\n\nA five-second realistic night shot at the bus terminal in the reference image. Keep the buses, illuminated route signs, yellow handrails and reflective windows in the same setting.\n0–1 s: The camera starts beside the bus on the left, holding the yellow rail and window reflections in the foreground.\n1–3 s: It slowly moves forward along the platform toward the front-facing bus, bringing its illuminated route display closer. Reflections slide consistently over the side windows.\n3–5 s: The camera settles on the front-facing bus and its route display; the other buses remain in the background.\nCamera: one steady walking-speed tracking shot, no cuts. Sound: idling engines, distant air brakes and faint terminal ambience; no music or narration. Preserve the visible route lettering and digits from the reference, bus shapes and fixed handrails; avoid adding large captions or logos.",
+          "references": [
+            {
+              "url": "assets/multi-image-details-ref-0.png",
+              "type": "image",
+              "width": 896,
+              "height": 512
+            },
+            {
+              "url": "assets/multi-image-details-ref-1.png",
+              "type": "image",
+              "width": 896,
+              "height": 512
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/multi-image-details-fastvideo.mp4",
+              "poster": "assets/multi-image-details-fastvideo.jpg",
+              "observed_e2e_ms": 53110.74,
+              "observed_dit_ms": 47960.75013605878,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/multi-image-details-cudnn.mp4",
+              "poster": "assets/multi-image-details-cudnn.jpg",
+              "observed_e2e_ms": 47753.636,
+              "observed_dit_ms": 42628.55418631807,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "Generated BF16 single-image output; shared as conditioning input for all configurations, not ground truth."
+        },
+        "video": {
+          "prompt": "Use <Video 1> as the reference for subject appearance, setting, motion and sound. Generate a new five-second shot following the description below.\n\nA five-second realistic night shot at the bus terminal in the reference image. Keep the buses, illuminated route signs, yellow handrails and reflective windows in the same setting.\n0–1 s: The camera starts beside the bus on the left, holding the yellow rail and window reflections in the foreground.\n1–3 s: It slowly moves forward along the platform toward the front-facing bus, bringing its illuminated route display closer. Reflections slide consistently over the side windows.\n3–5 s: The camera settles on the front-facing bus and its route display; the other buses remain in the background.\nCamera: one steady walking-speed tracking shot, no cuts. Sound: idling engines, distant air brakes and faint terminal ambience; no music or narration. Preserve the visible route lettering and digits from the reference, bus shapes and fixed handrails; avoid adding large captions or logos.",
+          "references": [
+            {
+              "url": "assets/video-details-ref-0.mp4",
+              "type": "video",
+              "width": 896,
+              "height": 512,
+              "duration_s": 2.5
+            }
+          ],
+          "samples": {
+            "fastvideo": {
+              "video": "assets/video-details-fastvideo.mp4",
+              "poster": "assets/video-details-fastvideo.jpg",
+              "observed_e2e_ms": 64673.013999999996,
+              "observed_dit_ms": 56440.879731904715,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            },
+            "cudnn": {
+              "video": "assets/video-details-cudnn.mp4",
+              "poster": "assets/video-details-cudnn.jpg",
+              "observed_e2e_ms": 57867.912,
+              "observed_dit_ms": 49671.827795915306,
+              "timing_note": "Latency of this individual output; additional scenes are not repeated benchmarks and may include shape-specific compilation."
+            }
+          },
+          "source": "Generated BF16 single-image output; shared as conditioning input for all configurations, not ground truth."
+        }
+      }
+    }
+  ],
+  "performance": [
+    {
+      "id": "fastvideo",
+      "label": "FastVideo Triton",
+      "e2e_ms": 60635.797,
+      "dit_ms": 54996.16072513163,
+      "vae_ms": 4213.374361861497,
+      "min_ms": 60577.396,
+      "max_ms": 60643.493,
+      "peak_gib": 50.6162109375,
+      "speedup_vs_fastvideo": 1.0
+    },
+    {
+      "id": "cudnn",
+      "label": "NVIDIA cuDNN",
+      "e2e_ms": 52573.709,
+      "dit_ms": 46963.59926182777,
+      "vae_ms": 4210.760368965566,
+      "min_ms": 52555.554000000004,
+      "max_ms": 52600.952,
+      "peak_gib": 50.6162109375,
+      "speedup_vs_fastvideo": 1.1533482828841313
+    }
+  ],
+  "kernels": {
+    "scope": "BF16 kernel comparison on three captured attention inputs from the original BF16 checkpoint. One Ulysses rank on one RTX PRO 5000. End-to-end video measurements are separate.",
+    "warmups": 5,
+    "repeats": 30,
+    "timing": "Round-robin providers; CUDA events and synchronized host wall time. Full VSA includes routing, layouts, learned compression and sparse attention. Kernel API timing uses precomputed sparse metadata and preconverted layouts; full VSA includes the complete provider adapter.",
+    "providers": {
+      "cudnn": "NVIDIA official cuDNN BF16 BSA, native tile128",
+      "triton": "FastVideo portable BF16 Triton BSA, tile128 routing lowered to tile64 compute"
+    },
+    "fi_cake_bf16": {
+      "state": "pending_source",
+      "reason": "Checked CAKE BF16 VSA export supports SM100/SM103; the SM120 BF16 entry in these checkouts uses CuTe DSL. No CuTe result is substituted for CAKE."
+    },
+    "versions": {
+      "torch": "2.13.0",
+      "triton": "3.7.1",
+      "nvidia-cudnn-frontend": "1.31.0",
+      "flashinfer-python": "0.7.0.post1",
+      "fastvideo-kernel": "0.3.4"
+    },
+    "samples": [
+      {
+        "step": 0,
+        "layer": 0,
+        "shape": [
+          1,
+          41843,
+          14,
+          128
+        ],
+        "captured_provider": "triton",
+        "replay_vs_captured": {
+          "finite": true,
+          "relative_l2": 0.0,
+          "cosine": 1.0,
+          "mean_abs": 0.0,
+          "max_abs": 0.0
+        },
+        "methods": {
+          "full_vsa": {
+            "cudnn": {
+              "median_wall_ms": 24.38745368272066,
+              "median_cuda_ms": 24.374576568603516,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.0014351090649142861,
+                "cosine": 0.9999990463256836,
+                "mean_abs": 0.00024779289378784597,
+                "max_abs": 0.125
+              },
+              "wall_ms": [
+                24.372193962335587,
+                24.37138371169567,
+                24.384703021496534,
+                24.374043103307486,
+                24.38677428290248,
+                24.374984204769135,
+                24.396784137934446,
+                24.39542394131422,
+                24.38235329464078,
+                24.368153885006905,
+                24.397052824497223,
+                24.384824093431234,
+                24.3912641890347,
+                24.366953875869513,
+                24.388133082538843,
+                24.38185317441821,
+                24.40611319616437,
+                24.38814379274845,
+                24.413122795522213,
+                24.396623950451612,
+                24.414182640612125,
+                24.379072710871696,
+                24.417953100055456,
+                24.382493924349546,
+                24.396562948822975,
+                24.38349323347211,
+                24.408583994954824,
+                24.38455307856202,
+                24.405633099377155,
+                24.390743114054203
+              ],
+              "cuda_ms": [
+                24.32806396484375,
+                24.35887908935547,
+                24.372127532958984,
+                24.361183166503906,
+                24.373920440673828,
+                24.36128044128418,
+                24.38435173034668,
+                24.379199981689453,
+                24.371423721313477,
+                24.35558319091797,
+                24.383583068847656,
+                24.371328353881836,
+                24.3786563873291,
+                24.354175567626953,
+                24.375423431396484,
+                24.368864059448242,
+                24.393760681152344,
+                24.375232696533203,
+                24.400543212890625,
+                24.384191513061523,
+                24.401344299316406,
+                24.365568161010742,
+                24.40572738647461,
+                24.37001609802246,
+                24.38425636291504,
+                24.37116813659668,
+                24.394975662231445,
+                24.37126350402832,
+                24.39299201965332,
+                24.37824058532715
+              ]
+            },
+            "triton": {
+              "median_wall_ms": 44.85313268378377,
+              "median_cuda_ms": 44.83769607543945,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.0,
+                "cosine": 1.0,
+                "mean_abs": 0.0,
+                "max_abs": 0.0
+              },
+              "wall_ms": [
+                44.83847226947546,
+                44.8361118324101,
+                44.87888189032674,
+                44.827803038060665,
+                44.88704167306423,
+                44.834642205387354,
+                44.889822136610746,
+                44.85222324728966,
+                44.87982206046581,
+                44.8470120318234,
+                44.88073103129864,
+                44.84878201037645,
+                44.88150076940656,
+                44.84463203698397,
+                44.87799108028412,
+                44.82797300443053,
+                44.88081205636263,
+                44.83084287494421,
+                44.87772099673748,
+                44.85404212027788,
+                44.871272053569555,
+                44.834953267127275,
+                44.88730104640126,
+                44.84957177191973,
+                44.87820202484727,
+                44.83342217281461,
+                44.87707186490297,
+                44.828942976891994,
+                44.87060243263841,
+                44.83810206875205
+              ],
+              "cuda_ms": [
+                44.82511901855469,
+                44.82371139526367,
+                44.86604690551758,
+                44.813472747802734,
+                44.873600006103516,
+                44.82195281982422,
+                44.87776184082031,
+                44.83603286743164,
+                44.86764907836914,
+                44.83273696899414,
+                44.8682861328125,
+                44.836158752441406,
+                44.86886215209961,
+                44.830623626708984,
+                44.86479949951172,
+                44.815711975097656,
+                44.86860656738281,
+                44.81865692138672,
+                44.8639030456543,
+                44.8392333984375,
+                44.86067199707031,
+                44.82352066040039,
+                44.8746223449707,
+                44.83552169799805,
+                44.865150451660156,
+                44.82108688354492,
+                44.864288330078125,
+                44.81635284423828,
+                44.85798263549805,
+                44.82489776611328
+              ]
+            }
+          },
+          "fine_attention": {
+            "cudnn": {
+              "median_wall_ms": 19.11402982659638,
+              "median_cuda_ms": 19.103184700012207,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.001278483890928328,
+                "cosine": 0.9999992847442627,
+                "mean_abs": 0.00020423495152499527,
+                "max_abs": 0.125
+              },
+              "wall_ms": [
+                19.158003851771355,
+                19.107424188405275,
+                19.124964252114296,
+                19.107334781438112,
+                19.10592522472143,
+                19.102283753454685,
+                19.10063484683633,
+                19.116184674203396,
+                19.096423871815205,
+                19.11165425553918,
+                19.117785152047873,
+                19.110145047307014,
+                19.120284356176853,
+                19.10106372088194,
+                19.10706516355276,
+                19.106443971395493,
+                19.103724043816328,
+                19.14114272221923,
+                19.124543759971857,
+                19.113474991172552,
+                19.119274336844683,
+                19.115563947707415,
+                19.11804499104619,
+                19.107543863356113,
+                19.107825122773647,
+                19.116525072604418,
+                19.114584662020206,
+                19.168613012880087,
+                19.13712313398719,
+                19.124493934214115
+              ],
+              "cuda_ms": [
+                19.139999389648438,
+                19.09561538696289,
+                19.11248016357422,
+                19.09552001953125,
+                19.094879150390625,
+                19.090879440307617,
+                19.0897274017334,
+                19.104127883911133,
+                19.08563232421875,
+                19.099584579467773,
+                19.106943130493164,
+                19.09939193725586,
+                19.108736038208008,
+                19.090431213378906,
+                19.096223831176758,
+                19.09574317932129,
+                19.091936111450195,
+                19.129600524902344,
+                19.112960815429688,
+                19.102304458618164,
+                19.10755157470703,
+                19.104223251342773,
+                19.107328414916992,
+                19.09654426574707,
+                19.09654426574707,
+                19.10518455505371,
+                19.10406494140625,
+                19.15603256225586,
+                19.12495994567871,
+                19.114688873291016
+              ]
+            },
+            "triton": {
+              "median_wall_ms": 36.82405618019402,
+              "median_cuda_ms": 36.81184005737305,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.0,
+                "cosine": 1.0,
+                "mean_abs": 0.0,
+                "max_abs": 0.0
+              },
+              "wall_ms": [
+                36.839865148067474,
+                36.79609578102827,
+                36.86940483748913,
+                36.78588569164276,
+                36.865864880383015,
+                36.785905715078115,
+                36.851484794169664,
+                36.789205856621265,
+                36.872324999421835,
+                36.784636322408915,
+                36.87836369499564,
+                36.79408598691225,
+                36.861564964056015,
+                36.808247212320566,
+                36.84947593137622,
+                36.79561708122492,
+                36.88123496249318,
+                36.79853631183505,
+                36.88873490318656,
+                36.78227635100484,
+                36.854695063084364,
+                36.790126003324986,
+                36.887804977595806,
+                36.794116254895926,
+                36.84822469949722,
+                36.78315598517656,
+                36.89671400934458,
+                36.802665796130896,
+                36.889355164021254,
+                36.80496569722891
+              ],
+              "cuda_ms": [
+                36.82700729370117,
+                36.78508758544922,
+                36.858558654785156,
+                36.77510452270508,
+                36.855072021484375,
+                36.7749137878418,
+                36.84080123901367,
+                36.77804946899414,
+                36.86163330078125,
+                36.773536682128906,
+                36.8671989440918,
+                36.78268814086914,
+                36.8504638671875,
+                36.79667282104492,
+                36.83824157714844,
+                36.78371047973633,
+                36.86703872680664,
+                36.78633499145508,
+                36.87753677368164,
+                36.77177429199219,
+                36.84502410888672,
+                36.7790412902832,
+                36.87692642211914,
+                36.78316879272461,
+                36.838401794433594,
+                36.77312088012695,
+                36.885440826416016,
+                36.788448333740234,
+                36.878047943115234,
+                36.79340744018555
+              ]
+            }
+          }
+        }
+      },
+      {
+        "step": 3,
+        "layer": 49,
+        "shape": [
+          1,
+          41843,
+          14,
+          128
+        ],
+        "captured_provider": "triton",
+        "replay_vs_captured": {
+          "finite": true,
+          "relative_l2": 0.0,
+          "cosine": 1.0000001192092896,
+          "mean_abs": 0.0,
+          "max_abs": 0.0
+        },
+        "methods": {
+          "full_vsa": {
+            "cudnn": {
+              "median_wall_ms": 24.38486902974546,
+              "median_cuda_ms": 24.37163257598877,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.0007231904892250896,
+                "cosine": 0.9999997615814209,
+                "mean_abs": 0.004181672818958759,
+                "max_abs": 3.0
+              },
+              "wall_ms": [
+                24.364702869206667,
+                24.371443782001734,
+                24.405892938375473,
+                24.3682237342,
+                24.388753809034824,
+                24.386202916502953,
+                24.36979440972209,
+                24.360644165426493,
+                24.38617404550314,
+                24.375513195991516,
+                24.38356401398778,
+                24.36553407460451,
+                24.404663126915693,
+                24.373263120651245,
+                24.410112760961056,
+                24.37514392659068,
+                24.391612969338894,
+                24.389194324612617,
+                24.402433075010777,
+                24.368533864617348,
+                24.399833288043737,
+                24.366513825953007,
+                24.41715309396386,
+                24.379063863307238,
+                24.406823329627514,
+                24.375664070248604,
+                24.40925221890211,
+                24.39044415950775,
+                24.39233288168907,
+                24.37477372586727
+              ],
+              "cuda_ms": [
+                24.340896606445312,
+                24.35759925842285,
+                24.39472007751465,
+                24.355167388916016,
+                24.375551223754883,
+                24.372800827026367,
+                24.357568740844727,
+                24.347904205322266,
+                24.373695373535156,
+                24.361343383789062,
+                24.370464324951172,
+                24.352031707763672,
+                24.392576217651367,
+                24.36079978942871,
+                24.397375106811523,
+                24.361663818359375,
+                24.37926483154297,
+                24.376863479614258,
+                24.389087677001953,
+                24.357280731201172,
+                24.387008666992188,
+                24.353504180908203,
+                24.40505599975586,
+                24.367807388305664,
+                24.39507293701172,
+                24.362367630004883,
+                24.396127700805664,
+                24.377504348754883,
+                24.379968643188477,
+                24.36275291442871
+              ]
+            },
+            "triton": {
+              "median_wall_ms": 44.66677596792579,
+              "median_cuda_ms": 44.65313529968262,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.0,
+                "cosine": 1.0000001192092896,
+                "mean_abs": 0.0,
+                "max_abs": 0.0
+              },
+              "wall_ms": [
+                44.66622602194548,
+                44.64540723711252,
+                44.699565041810274,
+                44.66547630727291,
+                44.69992499798536,
+                44.65760616585612,
+                44.69833476468921,
+                44.653416611254215,
+                44.70438463613391,
+                44.66188605874777,
+                44.701704289764166,
+                44.65319635346532,
+                44.70787476748228,
+                44.6673259139061,
+                44.723435305058956,
+                44.65225478634238,
+                44.70439534634352,
+                44.66233495622873,
+                44.720114674419165,
+                44.65671582147479,
+                44.70526613295078,
+                44.65753631666303,
+                44.726995285600424,
+                44.63736619800329,
+                44.70783472061157,
+                44.641125947237015,
+                44.69825513660908,
+                44.63835619390011,
+                44.71259517595172,
+                44.650305993855
+              ],
+              "cuda_ms": [
+                44.65327835083008,
+                44.63264083862305,
+                44.68812942504883,
+                44.65212631225586,
+                44.687713623046875,
+                44.64566421508789,
+                44.68524932861328,
+                44.640159606933594,
+                44.69033432006836,
+                44.6478385925293,
+                44.68921661376953,
+                44.63993453979492,
+                44.6923828125,
+                44.652992248535156,
+                44.71052932739258,
+                44.639041900634766,
+                44.69180679321289,
+                44.64905548095703,
+                44.70800018310547,
+                44.64460754394531,
+                44.69270324707031,
+                44.644737243652344,
+                44.714111328125,
+                44.624351501464844,
+                44.69472122192383,
+                44.62883377075195,
+                44.68537521362305,
+                44.626529693603516,
+                44.69990539550781,
+                44.637088775634766
+              ]
+            }
+          },
+          "fine_attention": {
+            "cudnn": {
+              "median_wall_ms": 19.09601013176143,
+              "median_cuda_ms": 19.084991455078125,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.0006872464437037706,
+                "cosine": 0.9999997019767761,
+                "mean_abs": 0.003445916110649705,
+                "max_abs": 2.0
+              },
+              "wall_ms": [
+                19.1461737267673,
+                19.095894880592823,
+                19.1010651178658,
+                19.094344694167376,
+                19.112414214760065,
+                19.11851391196251,
+                19.10478388890624,
+                19.097155425697565,
+                19.07327538356185,
+                19.077824894338846,
+                19.08663474023342,
+                19.06933495774865,
+                19.086414948105812,
+                19.096235278993845,
+                19.106904976069927,
+                19.088844768702984,
+                19.078655168414116,
+                19.092904403805733,
+                19.110854249447584,
+                19.091645255684853,
+                19.12236399948597,
+                19.0984052605927,
+                19.103965256363153,
+                19.09612538293004,
+                19.090034067630768,
+                19.09588510170579,
+                19.095045048743486,
+                19.091956317424774,
+                19.1077240742743,
+                19.11243423819542
+              ],
+              "cuda_ms": [
+                19.12825584411621,
+                19.083999633789062,
+                19.088895797729492,
+                19.07926368713379,
+                19.099872589111328,
+                19.10527992248535,
+                19.09334373474121,
+                19.085439682006836,
+                19.062271118164062,
+                19.066560745239258,
+                19.075679779052734,
+                19.0578556060791,
+                19.075359344482422,
+                19.085695266723633,
+                19.096128463745117,
+                19.077951431274414,
+                19.067392349243164,
+                19.081439971923828,
+                19.100543975830078,
+                19.08064079284668,
+                19.11039924621582,
+                19.086944580078125,
+                19.093088150024414,
+                19.086591720581055,
+                19.08153533935547,
+                19.08412742614746,
+                19.084543228149414,
+                19.081087112426758,
+                19.096511840820312,
+                19.101696014404297
+              ]
+            },
+            "triton": {
+              "median_wall_ms": 36.67220380157232,
+              "median_cuda_ms": 36.65964889526367,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.0,
+                "cosine": 1.0,
+                "mean_abs": 0.0,
+                "max_abs": 0.0
+              },
+              "wall_ms": [
+                36.6863589733839,
+                36.61300893872976,
+                36.72688780352473,
+                36.624849773943424,
+                36.74375684931874,
+                36.65804862976074,
+                36.73674771562219,
+                36.64630791172385,
+                36.73458704724908,
+                36.63916001096368,
+                36.72000812366605,
+                36.64124896749854,
+                36.725187208503485,
+                36.6472490131855,
+                36.730457097291946,
+                36.63406893610954,
+                36.73259727656841,
+                36.6318398155272,
+                36.74717806279659,
+                36.64985904470086,
+                36.72782797366381,
+                36.65108885616064,
+                36.73994680866599,
+                36.642408929765224,
+                36.714018788188696,
+                36.6349290125072,
+                36.73993702977896,
+                36.65626794099808,
+                36.73843713477254,
+                36.65341902524233
+              ],
+              "cuda_ms": [
+                36.67446517944336,
+                36.60192108154297,
+                36.71635055541992,
+                36.61296081542969,
+                36.73177719116211,
+                36.644832611083984,
+                36.72604751586914,
+                36.6346549987793,
+                36.723297119140625,
+                36.62758255004883,
+                36.70876693725586,
+                36.62998580932617,
+                36.714561462402344,
+                36.63536071777344,
+                36.719425201416016,
+                36.62255859375,
+                36.722049713134766,
+                36.62214279174805,
+                36.73686218261719,
+                36.63942337036133,
+                36.71683120727539,
+                36.64022445678711,
+                36.73017501831055,
+                36.63199996948242,
+                36.70336151123047,
+                36.62351989746094,
+                36.728702545166016,
+                36.64476776123047,
+                36.72748947143555,
+                36.642303466796875
+              ]
+            }
+          }
+        }
+      },
+      {
+        "step": 7,
+        "layer": 49,
+        "shape": [
+          1,
+          41843,
+          14,
+          128
+        ],
+        "captured_provider": "triton",
+        "replay_vs_captured": {
+          "finite": true,
+          "relative_l2": 0.0,
+          "cosine": 1.0,
+          "mean_abs": 0.0,
+          "max_abs": 0.0
+        },
+        "methods": {
+          "full_vsa": {
+            "cudnn": {
+              "median_wall_ms": 24.403043556958437,
+              "median_cuda_ms": 24.38926410675049,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.0006723464466631413,
+                "cosine": 0.9999998211860657,
+                "mean_abs": 0.003975625149905682,
+                "max_abs": 4.0
+              },
+              "wall_ms": [
+                24.38402408733964,
+                24.365914054214954,
+                24.395073298364878,
+                24.403453804552555,
+                24.393003899604082,
+                24.39352311193943,
+                24.406474083662033,
+                24.389394093304873,
+                24.418003857135773,
+                24.378223810344934,
+                24.423222988843918,
+                24.378623347729445,
+                24.406344164162874,
+                24.391203187406063,
+                24.40022397786379,
+                24.40108312293887,
+                24.40263330936432,
+                27.290378231555223,
+                24.423672817647457,
+                24.39906308427453,
+                24.40363308414817,
+                24.37334368005395,
+                24.4215433485806,
+                24.411053862422705,
+                24.42400297150016,
+                24.412003811448812,
+                24.41998291760683,
+                24.398252833634615,
+                24.420352652668953,
+                24.430012796074152
+              ],
+              "cuda_ms": [
+                24.360544204711914,
+                24.35366439819336,
+                24.382240295410156,
+                24.39049530029297,
+                24.38057518005371,
+                24.380895614624023,
+                24.394176483154297,
+                24.37615966796875,
+                24.404895782470703,
+                24.36479949951172,
+                24.411808013916016,
+                24.365951538085938,
+                24.393728256225586,
+                24.378368377685547,
+                24.388032913208008,
+                24.387615203857422,
+                24.391136169433594,
+                24.371231079101562,
+                24.409727096557617,
+                24.38604736328125,
+                24.390975952148438,
+                24.361120223999023,
+                24.407840728759766,
+                24.39836883544922,
+                24.41084861755371,
+                24.398880004882812,
+                24.40787124633789,
+                24.385887145996094,
+                24.408000946044922,
+                24.415359497070312
+              ]
+            },
+            "triton": {
+              "median_wall_ms": 44.633941259235144,
+              "median_cuda_ms": 44.620351791381836,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.0,
+                "cosine": 1.0,
+                "mean_abs": 0.0,
+                "max_abs": 0.0
+              },
+              "wall_ms": [
+                44.63143600150943,
+                44.618836138397455,
+                44.663886073976755,
+                44.60580786690116,
+                44.66909496113658,
+                44.62717706337571,
+                44.673855882138014,
+                44.61576696485281,
+                44.68113603070378,
+                44.623355846852064,
+                44.67200627550483,
+                44.63268583640456,
+                44.683245010674,
+                44.61934696882963,
+                44.685374945402145,
+                44.619946740567684,
+                44.69606466591358,
+                44.625645969063044,
+                44.68908626586199,
+                44.63207582011819,
+                44.68219494447112,
+                44.62745599448681,
+                44.66891614720225,
+                44.62609579786658,
+                44.675255194306374,
+                44.63101690635085,
+                44.67339487746358,
+                44.62887719273567,
+                44.68009574338794,
+                44.635196682065725
+              ],
+              "cuda_ms": [
+                44.61763381958008,
+                44.60515213012695,
+                44.650657653808594,
+                44.59222412109375,
+                44.65625762939453,
+                44.61372756958008,
+                44.66124725341797,
+                44.6025276184082,
+                44.668479919433594,
+                44.61033630371094,
+                44.658878326416016,
+                44.62006378173828,
+                44.66972732543945,
+                44.60649490356445,
+                44.67308807373047,
+                44.606815338134766,
+                44.68320083618164,
+                44.61228942871094,
+                44.67657470703125,
+                44.619232177734375,
+                44.66921615600586,
+                44.614078521728516,
+                44.65532684326172,
+                44.61372756958008,
+                44.66310501098633,
+                44.61833572387695,
+                44.661376953125,
+                44.615806579589844,
+                44.666175842285156,
+                44.62063980102539
+              ]
+            }
+          },
+          "fine_attention": {
+            "cudnn": {
+              "median_wall_ms": 19.111649598926306,
+              "median_cuda_ms": 19.100175857543945,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.0006374152144417167,
+                "cosine": 0.9999998807907104,
+                "mean_abs": 0.0032737329602241516,
+                "max_abs": 4.0
+              },
+              "wall_ms": [
+                19.14264401420951,
+                19.12270439788699,
+                19.097245298326015,
+                19.10832431167364,
+                19.103185273706913,
+                19.107805099338293,
+                19.109325017780066,
+                19.10571428015828,
+                19.122783560305834,
+                19.098573829978704,
+                19.116865005344152,
+                19.20786313712597,
+                19.124784972518682,
+                19.101185258477926,
+                19.139283802360296,
+                19.11837374791503,
+                19.12769442424178,
+                19.1141739487648,
+                19.111924804747105,
+                19.111374393105507,
+                19.105675164610147,
+                19.13770381361246,
+                19.10531520843506,
+                19.101984333246946,
+                19.10357503220439,
+                19.10628378391266,
+                19.113424699753523,
+                19.099074881523848,
+                19.118393771350384,
+                19.165373872965574
+              ],
+              "cuda_ms": [
+                19.125375747680664,
+                19.11087989807129,
+                19.08585548400879,
+                19.097280502319336,
+                19.092639923095703,
+                19.096832275390625,
+                19.0982723236084,
+                19.094751358032227,
+                19.112224578857422,
+                19.08812713623047,
+                19.104511260986328,
+                19.19651222229004,
+                19.11404800415039,
+                19.089759826660156,
+                19.127391815185547,
+                19.107072830200195,
+                19.11676788330078,
+                19.102624893188477,
+                19.10051155090332,
+                19.09984016418457,
+                19.09503936767578,
+                19.127840042114258,
+                19.09459114074707,
+                19.091136932373047,
+                19.092832565307617,
+                19.095584869384766,
+                19.102304458618164,
+                19.08835220336914,
+                19.106143951416016,
+                19.151647567749023
+              ]
+            },
+            "triton": {
+              "median_wall_ms": 36.62741952575743,
+              "median_cuda_ms": 36.6157283782959,
+              "vs_fastvideo": {
+                "finite": true,
+                "relative_l2": 0.0,
+                "cosine": 1.0,
+                "mean_abs": 0.0,
+                "max_abs": 0.0
+              },
+              "wall_ms": [
+                36.64330905303359,
+                36.58845042809844,
+                36.66974836960435,
+                36.61113977432251,
+                36.67982900515199,
+                36.593909841030836,
+                36.667549051344395,
+                36.59720020368695,
+                36.676038056612015,
+                36.59785119816661,
+                36.709918174892664,
+                36.59425023943186,
+                36.67911794036627,
+                36.591480020433664,
+                36.69836884364486,
+                36.59284021705389,
+                36.69891785830259,
+                36.602879874408245,
+                36.68792871758342,
+                36.59755038097501,
+                36.69237811118364,
+                36.611529998481274,
+                36.668048705905676,
+                36.607549991458654,
+                36.66190896183252,
+                36.60750016570091,
+                36.69192781671882,
+                36.60455998033285,
+                36.67405899614096,
+                36.606058944016695
+              ],
+              "cuda_ms": [
+                36.631553649902344,
+                36.57670211791992,
+                36.6583366394043,
+                36.59980773925781,
+                36.66854476928711,
+                36.58256149291992,
+                36.65599822998047,
+                36.58563232421875,
+                36.66521453857422,
+                36.58662414550781,
+                36.69744110107422,
+                36.58335876464844,
+                36.66828918457031,
+                36.5807991027832,
+                36.6868782043457,
+                36.58147048950195,
+                36.68918228149414,
+                36.59174346923828,
+                36.677024841308594,
+                36.585758209228516,
+                36.680416107177734,
+                36.59990310668945,
+                36.656768798828125,
+                36.59600067138672,
+                36.650718688964844,
+                36.59622573852539,
+                36.68044662475586,
+                36.5937614440918,
+                36.66236877441406,
+                36.594688415527344
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  "comparisons": [
+    {
+      "mode": "single-image",
+      "scene": "family",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.820279,
+      "psnr": 22.551665
+    },
+    {
+      "mode": "single-image",
+      "scene": "motion",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.972011,
+      "psnr": 31.231999
+    },
+    {
+      "mode": "single-image",
+      "scene": "animals",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.928898,
+      "psnr": 29.813682
+    },
+    {
+      "mode": "single-image",
+      "scene": "camera",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.690003,
+      "psnr": 22.849751
+    },
+    {
+      "mode": "single-image",
+      "scene": "details",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.895969,
+      "psnr": 26.218597
+    },
+    {
+      "mode": "multi-image",
+      "scene": "family",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.970047,
+      "psnr": 35.736764
+    },
+    {
+      "mode": "multi-image",
+      "scene": "motion",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.991258,
+      "psnr": 36.049881
+    },
+    {
+      "mode": "multi-image",
+      "scene": "animals",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.970842,
+      "psnr": 36.87666
+    },
+    {
+      "mode": "multi-image",
+      "scene": "camera",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.802664,
+      "psnr": 28.58081
+    },
+    {
+      "mode": "multi-image",
+      "scene": "details",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.93882,
+      "psnr": 30.499886
+    },
+    {
+      "mode": "video",
+      "scene": "family",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.898551,
+      "psnr": 26.988645
+    },
+    {
+      "mode": "video",
+      "scene": "motion",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.996803,
+      "psnr": 44.097921
+    },
+    {
+      "mode": "video",
+      "scene": "animals",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.966206,
+      "psnr": 34.567008
+    },
+    {
+      "mode": "video",
+      "scene": "camera",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.834959,
+      "psnr": 28.569644
+    },
+    {
+      "mode": "video",
+      "scene": "details",
+      "reference": "fastvideo_triton",
+      "candidate": "cudnn",
+      "ssim": 0.926408,
+      "psnr": 29.464983
+    }
+  ],
+  "repeatability": [
+    {
+      "provider": "cudnn",
+      "requests": 3,
+      "identical_video_pixels": true,
+      "identical_decoded_audio": true,
+      "decoded_sha256": [
+        {
+          "v:0": "c67e9740794fc4bb39a387aade897f99a69300f4f7dad18c00624195bc422999",
+          "a:0": "6065a9f34954adf4b617da1f9b582683225c653e619217b2f649290c38d97aa7"
+        },
+        {
+          "v:0": "c67e9740794fc4bb39a387aade897f99a69300f4f7dad18c00624195bc422999",
+          "a:0": "6065a9f34954adf4b617da1f9b582683225c653e619217b2f649290c38d97aa7"
+        },
+        {
+          "v:0": "c67e9740794fc4bb39a387aade897f99a69300f4f7dad18c00624195bc422999",
+          "a:0": "6065a9f34954adf4b617da1f9b582683225c653e619217b2f649290c38d97aa7"
+        }
+      ]
+    },
+    {
+      "provider": "fastvideo_triton",
+      "requests": 3,
+      "identical_video_pixels": true,
+      "identical_decoded_audio": true,
+      "decoded_sha256": [
+        {
+          "v:0": "8c30500a383fa8d588c4372d154f641e1aac2423be4d2fe6b32668bd6576d8fa",
+          "a:0": "718bdeb7a97671c76095a3232668789bd269be4c1e159e7ae7aa0c99b6634d20"
+        },
+        {
+          "v:0": "8c30500a383fa8d588c4372d154f641e1aac2423be4d2fe6b32668bd6576d8fa",
+          "a:0": "718bdeb7a97671c76095a3232668789bd269be4c1e159e7ae7aa0c99b6634d20"
+        },
+        {
+          "v:0": "8c30500a383fa8d588c4372d154f641e1aac2423be4d2fe6b32668bd6576d8fa",
+          "a:0": "718bdeb7a97671c76095a3232668789bd269be4c1e159e7ae7aa0c99b6634d20"
+        }
+      ]
+    }
+  ],
+  "package_integrity": [
+    {
+      "package": "nvidia-cudnn-frontend",
+      "version": "1.31.0",
+      "file": "cudnn/block_sparse_attention/api.py",
+      "sha256": "f482f0a47f7882f64dd60e13f6bc056fdf55a21cc0a43f914b867da45b66010c",
+      "matches_distribution_record": true
+    },
+    {
+      "package": "nvidia-cudnn-frontend",
+      "version": "1.31.0",
+      "file": "cudnn/block_sparse_attention/_interface.py",
+      "sha256": "a669b4a11dc7072cced10ce4fba6ff81ce04be4b8a6956446578475e6edc523b",
+      "matches_distribution_record": true
+    },
+    {
+      "package": "flashinfer-python",
+      "version": "0.7.0.post1",
+      "file": "flashinfer/cute_dsl/sparse/bsa_attn_sm120.py",
+      "sha256": "e529269e28b05aeaa5e3ce309dda4ec36aaa08232e5f6b5556c34aa8f467a2c3",
+      "matches_distribution_record": true
+    },
+    {
+      "package": "fastvideo-kernel",
+      "version": "0.3.4",
+      "file": "fastvideo_kernel/block_sparse_attn.py",
+      "sha256": "ebdf9106b6a3fd429fbfcd5a0f739b506918d8ebf8ad5a2f5310948073758f93",
+      "matches_distribution_record": true
+    },
+    {
+      "package": "fastvideo-kernel",
+      "version": "0.3.4",
+      "file": "fastvideo_kernel/triton_kernels/block_sparse_attn_triton.py",
+      "sha256": "7745127b12343a13066f85c5dc741a478c1c63c2152efbb869ada23034417b3d",
+      "matches_distribution_record": true
+    }
+  ],
+  "modes": [
+    {
+      "id": "single-image",
+      "label": "Single image"
+    },
+    {
+      "id": "multi-image",
+      "label": "Multiple images"
+    },
+    {
+      "id": "video",
+      "label": "Video reference"
+    }
+  ],
+  "provenance": {
+    "model": "FastVideo/FastVideo-FastH3-Omni-8-Step-V1",
+    "checkpoint_revision": "88d512c5e7cc38dda499fbb65688ce58611f9c80",
+    "vllm_omni_revision": "c67204da85acd701a4b85c105843e287205800ec",
+    "parallelism": {
+      "usp": 4,
+      "text_encoder_tp": 4,
+      "vae_patch_parallel": 4,
+      "hsdp": true
+    },
+    "execution": "eager",
+    "offload": "none",
+    "hardware": "4 x NVIDIA RTX PRO 5000 Blackwell 72 GB; PCIe; 350 W power limit",
+    "reference_fixture_note": "Multi-image and video fixtures derive from earlier generated BF16 outputs; source hashes are retained for reproducibility.",
+    "fixture_source_sha256": {
+      "family": "dddaf52f998f18b505ed1f47f12dae05afeeed1cbfb4fbca8d5ce9e647f3f7d0",
+      "motion": "ee96bdb593f60f684a6c348fae414fb2b4b7ca01eca5696aa6da9322a2085eaa",
+      "animals": "912c3dde5844457f24c6978ed04589e0b745d9ee47d132702078e553e308e4fc",
+      "camera": "cd83e0216414c08ac98be3f9873370f36fbf033a7c0e521f4f95626165c155c5",
+      "details": "49f3599e08a7b002cbca4a02c25d17ea6b5285812aa3ed84cacd7c61a5931ddf"
+    }
+  }
+}
