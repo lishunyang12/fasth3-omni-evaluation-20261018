@@ -1,0 +1,19 @@
+{
+  "reason": "Official SM120 fix for unsupported FP32 redux instruction; blk64 BSA kernel is byte-identical to v1.31.0.",
+  "files": [
+    {
+      "path": "_fp8_quant.py",
+      "upstream_commit": "351f7302a528641e741e3d9c77801194abdb5ccc",
+      "sha256": "4467a9b40ef09d90a41dddc1103ab9db2a9a80eb926ed5072fb47c6770860e47",
+      "identical_to_installed_v1_31_0": false,
+      "url": "https://raw.githubusercontent.com/NVIDIA/cudnn-frontend/351f7302a528641e741e3d9c77801194abdb5ccc/python/cudnn/block_sparse_attention/_fp8_quant.py"
+    },
+    {
+      "path": "csrc/fwd/sm120_blk64/bsa_fwd_sm120_fp8.py",
+      "upstream_commit": "351f7302a528641e741e3d9c77801194abdb5ccc",
+      "sha256": "d1940b22d26bcb2f55a839643805b311cbaa79d8e3f441b3345d69ee0f28e765",
+      "identical_to_installed_v1_31_0": true,
+      "url": "https://raw.githubusercontent.com/NVIDIA/cudnn-frontend/351f7302a528641e741e3d9c77801194abdb5ccc/python/cudnn/block_sparse_attention/csrc/fwd/sm120_blk64/bsa_fwd_sm120_fp8.py"
+    }
+  ]
+}

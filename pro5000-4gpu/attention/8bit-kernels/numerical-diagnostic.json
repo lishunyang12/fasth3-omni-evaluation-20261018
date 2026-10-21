@@ -1,0 +1,207 @@
+{
+  "purpose": "Numerical diagnostic only; no timings.",
+  "reference": "Explicit FP32 attention over the exact selected valid keys, TF32 disabled.",
+  "sample_policy": "32 evenly spaced query rows per head, all 14 heads, each of the three captured inputs.",
+  "samples": [
+    {
+      "step": 0,
+      "layer": 0,
+      "query_rows": [
+        0,
+        1639,
+        3278,
+        4918,
+        6557,
+        8196,
+        9835,
+        11474,
+        13114,
+        14753,
+        16392,
+        18031,
+        19670,
+        21310,
+        22949,
+        24588,
+        26227,
+        27866,
+        29505,
+        31145,
+        32784,
+        34423,
+        36062,
+        37701,
+        39341,
+        40980,
+        42619,
+        44258,
+        45897,
+        47537,
+        49176,
+        50815
+      ],
+      "bf16_kernel_vs_fp32": {
+        "finite": true,
+        "relative_l2": 0.0017548788650217462,
+        "cosine": 0.9999984605111092,
+        "mean_abs": 0.0008839897068208456,
+        "max_abs": 0.03368091583251953
+      },
+      "quantized_operands_vs_fp32": {
+        "finite": true,
+        "relative_l2": 0.034374899530309484,
+        "cosine": 0.9994090217614253,
+        "mean_abs": 0.01195890739674407,
+        "max_abs": 0.47894492745399475
+      },
+      "fp8_kernel_vs_quantized_fp32": {
+        "finite": true,
+        "relative_l2": 0.00821653346031228,
+        "cosine": 0.9999664919450852,
+        "mean_abs": 0.002924190669958193,
+        "max_abs": 0.11608850955963135
+      },
+      "fp8_kernel_vs_original_fp32": {
+        "finite": true,
+        "relative_l2": 0.0352283297526075,
+        "cosine": 0.9993794346674294,
+        "mean_abs": 0.012400544567254559,
+        "max_abs": 0.49274852871894836
+      }
+    },
+    {
+      "step": 3,
+      "layer": 49,
+      "query_rows": [
+        0,
+        1639,
+        3278,
+        4918,
+        6557,
+        8196,
+        9835,
+        11474,
+        13114,
+        14753,
+        16392,
+        18031,
+        19670,
+        21310,
+        22949,
+        24588,
+        26227,
+        27866,
+        29505,
+        31145,
+        32784,
+        34423,
+        36062,
+        37701,
+        39341,
+        40980,
+        42619,
+        44258,
+        45897,
+        47537,
+        49176,
+        50815
+      ],
+      "bf16_kernel_vs_fp32": {
+        "finite": true,
+        "relative_l2": 0.0013476047123842576,
+        "cosine": 0.9999990922330328,
+        "mean_abs": 0.02237162986875672,
+        "max_abs": 1.068389892578125
+      },
+      "quantized_operands_vs_fp32": {
+        "finite": true,
+        "relative_l2": 0.4801534603936016,
+        "cosine": 0.8828547807405068,
+        "mean_abs": 4.290732364966216,
+        "max_abs": 266.7847900390625
+      },
+      "fp8_kernel_vs_quantized_fp32": {
+        "finite": true,
+        "relative_l2": 0.004268900608130535,
+        "cosine": 0.9999911253026242,
+        "mean_abs": 0.06833290682479694,
+        "max_abs": 4.099334716796875
+      },
+      "fp8_kernel_vs_original_fp32": {
+        "finite": true,
+        "relative_l2": 0.4802391584585978,
+        "cosine": 0.8828809763887373,
+        "mean_abs": 4.293139920091237,
+        "max_abs": 266.75
+      }
+    },
+    {
+      "step": 7,
+      "layer": 49,
+      "query_rows": [
+        0,
+        1639,
+        3278,
+        4918,
+        6557,
+        8196,
+        9835,
+        11474,
+        13114,
+        14753,
+        16392,
+        18031,
+        19670,
+        21310,
+        22949,
+        24588,
+        26227,
+        27866,
+        29505,
+        31145,
+        32784,
+        34423,
+        36062,
+        37701,
+        39341,
+        40980,
+        42619,
+        44258,
+        45897,
+        47537,
+        49176,
+        50815
+      ],
+      "bf16_kernel_vs_fp32": {
+        "finite": true,
+        "relative_l2": 0.0013475452920858433,
+        "cosine": 0.9999990920386072,
+        "mean_abs": 0.023753134074801046,
+        "max_abs": 1.075775146484375
+      },
+      "quantized_operands_vs_fp32": {
+        "finite": true,
+        "relative_l2": 0.5288833251537661,
+        "cosine": 0.8583677150405151,
+        "mean_abs": 5.210842569937678,
+        "max_abs": 376.8570556640625
+      },
+      "fp8_kernel_vs_quantized_fp32": {
+        "finite": true,
+        "relative_l2": 0.0033609639907384537,
+        "cosine": 0.9999944048979615,
+        "mean_abs": 0.06389586524096558,
+        "max_abs": 2.1732521057128906
+      },
+      "fp8_kernel_vs_original_fp32": {
+        "finite": true,
+        "relative_l2": 0.5288633347650802,
+        "cosine": 0.8584197302154942,
+        "mean_abs": 5.217521197149836,
+        "max_abs": 377.0
+      }
+    }
+  ],
+  "state": "complete",
+  "peak_allocated_gib": 1.844435691833496
+}
