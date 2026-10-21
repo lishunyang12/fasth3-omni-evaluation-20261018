@@ -1,4 +1,4 @@
-# FastH3 · Precision in Motion
+# FastH3: Precision and Decoder Ablations
 
 A static comparison page for five scenes and three configurations: BF16, NVFP4 QAD, and NVFP4 QAD with the fast-8L video decoder. All clips retain the original generated video and stereo audio.
 
@@ -12,4 +12,4 @@ Open `http://localhost:8000`. For GitHub Pages, put these files at the repositor
 
 The main performance table uses one excluded warmup and three measured requests of the family scene on four RTX PRO 5000 72GB GPUs. The additional scenes are qualitative samples, one per configuration. Attention replay measurements are reported separately from end-to-end video latency. Full inputs, checkpoint provenance, and numeric data are included under `data/`.
 
-Reference images come from the FastVideo example assets; each scene identifies its source. Noto Sans CJK is distributed under the SIL Open Font License in `assets/FONT-LICENSE.txt`.
+Reference images come from the FastVideo example assets; each scene identifies its source.

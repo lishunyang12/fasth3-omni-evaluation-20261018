@@ -2,12 +2,12 @@
   "variants": [
     {
       "id": "BF16",
-      "label": "BF16",
+      "label": "Original BF16",
       "decoder": "Original VAE"
     },
     {
       "id": "B",
-      "label": "NVFP4",
+      "label": "NVFP4 QAD",
       "decoder": "Original VAE"
     },
     {
@@ -19,9 +19,9 @@
   "scenes": [
     {
       "id": "family",
-      "title": "家庭对话",
+      "title": "Dinner conversation",
       "en": "Dinner conversation",
-      "focus": "多人互动 · 面部 · 蒸汽与碗筷",
+      "focus": "Multi-subject interaction, facial detail, and object consistency",
       "reference": "assets/ref-family.png",
       "prompt": "A family enjoys dinner together around a wooden table. Steam rises from the ramen bowls. They smile and talk naturally. The camera slowly pushes toward the table. Warm indoor lighting, quiet conversation, soft clinking of dishes.",
       "source": "FastVideo Ref2VA example",
@@ -45,9 +45,9 @@
     },
     {
       "id": "motion",
-      "title": "人物动作",
+      "title": "Karate in the spotlight",
       "en": "Karate in the spotlight",
-      "focus": "手脚连续性 · 快速运动 · 衣物细节",
+      "focus": "Human motion, limb coherence, and clothing dynamics",
       "reference": "assets/ref-motion.png",
       "source": "FastVideo assets / Mixkit 49635",
       "prompt": "A five-second live-action shot of the martial artist in the reference image, wearing the same white karate uniform and black belt against a dark background. One person, full body visible, realistic cloth and anatomy.\n0–1 s: He settles into a balanced stance, hands raised; a soft breath is audible.\n1–3 s: He takes one step forward and performs two controlled straight punches, one after the other. The sleeves snap with each punch.\n3–5 s: He draws his hands back into guard and holds a stable stance. The fabric settles and he exhales.\nCamera: one uninterrupted eye-level full-body shot with a slow lateral move. Sound: breathing, bare footsteps and cloth movement, no speech or music. Preserve the same person, belt and dark setting throughout; keep hands and feet within the frame.",
@@ -71,9 +71,9 @@
     },
     {
       "id": "animals",
-      "title": "动物与水下",
+      "title": "Dolphins underwater",
       "en": "Dolphins underwater",
-      "focus": "身体轮廓 · 水面光斑 · 遮挡与运动",
+      "focus": "Animal motion, occlusion, and underwater illumination",
       "reference": "assets/ref-animals.png",
       "source": "FastVideo assets / Mixkit 4133",
       "prompt": "A five-second natural-history underwater shot continuing the blue-water dolphin scene in the reference. Realistic dolphins, blue water and soft sunlight from the surface.\n0–1 s: The nearest dolphin glides across the foreground while the others remain farther away.\n1–3 s: The nearest dolphin gently rolls and moves forward, its tail moving rhythmically; drifting light patterns pass over its skin.\n3–5 s: The camera follows alongside as the dolphin swims away to the right, leaving the more distant dolphins visible.\nCamera: one smooth underwater tracking shot, no cuts. Sound: muted underwater movement, a few soft dolphin clicks, no narration or music. Keep the dolphin bodies and fins coherent; preserve the blue-water setting and natural swimming speed.",
@@ -97,9 +97,9 @@
     },
     {
       "id": "camera",
-      "title": "复杂运镜",
+      "title": "Orbit around the cliff",
       "en": "Orbit around the cliff",
-      "focus": "空间连续性 · 岩石纹理 · 远近景视差",
+      "focus": "Camera motion, spatial consistency, and parallax",
       "reference": "assets/ref-camera.png",
       "source": "FastVideo assets / Mixkit 50589",
       "prompt": "A five-second aerial landscape shot of the rocky forested cliff shown in the reference, in natural daylight. Preserve the pale vertical rock face and the scattered autumn trees.\n0–1 s: The camera approaches the cliff obliquely, with the nearest trees crossing the lower foreground.\n1–3 s: The drone follows a smooth rightward arc around the rock face while gradually rising. Near trees move faster across the frame than the distant slope.\n3–5 s: The camera crests slightly above the near ridge, revealing more of the forest beyond, and eases its motion.\nCamera: one continuous drone move with forward, lateral and upward motion; a steady horizon. Sound: light wind and distant birds, no narration or music. Preserve connected rock geometry and coherent tree positions throughout.",
@@ -123,9 +123,9 @@
     },
     {
       "id": "details",
-      "title": "夜景与文字细节",
+      "title": "Night at the bus terminal",
       "en": "Night at the bus terminal",
-      "focus": "路线牌文字 · 玻璃反光 · 细线与低照度",
+      "focus": "Low-light detail, reflections, and text preservation",
       "reference": "assets/ref-details.jpg",
       "source": "FastVideo assets / bus_terminal.jpg",
       "prompt": "A five-second realistic night shot at the bus terminal in the reference image. Keep the buses, illuminated route signs, yellow handrails and reflective windows in the same setting.\n0–1 s: The camera starts beside the bus on the left, holding the yellow rail and window reflections in the foreground.\n1–3 s: It slowly moves forward along the platform toward the front-facing bus, bringing its illuminated route display closer. Reflections slide consistently over the side windows.\n3–5 s: The camera settles on the front-facing bus and its route display; the other buses remain in the background.\nCamera: one steady walking-speed tracking shot, no cuts. Sound: idling engines, distant air brakes and faint terminal ambience; no music or narration. Preserve the visible route lettering and digits from the reference, bus shapes and fixed handrails; avoid adding large captions or logos.",
