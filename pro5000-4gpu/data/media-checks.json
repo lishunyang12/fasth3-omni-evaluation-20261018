@@ -1,0 +1,407 @@
+{
+  "note": "SSIM/PSNR are frame-aligned differences between generated samples, not perceptual quality scores. Each new scene has one sample per configuration.",
+  "clips": [
+    {
+      "scene": "family",
+      "variant": "BF16",
+      "sha256": "dddaf52f998f18b505ed1f47f12dae05afeeed1cbfb4fbca8d5ce9e647f3f7d0",
+      "decoded_audio_hash": "SHA256=00e8793ad8b2abe1169161bc5e04c8835f92242cc8b84918f5b2ba5f6c6ce8d5",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "family",
+      "variant": "B",
+      "sha256": "db26a5c2e4dffd95552e1170fa09d78ac36d575082a85598cfebbf9862e9c772",
+      "decoded_audio_hash": "SHA256=d573f1aa38cfde143947140213fc106b91a5ae12ffaf357eb1625e479a8c916d",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "family",
+      "variant": "C",
+      "sha256": "d033ce39b0ce2ba53acb7b57d195ea7275ef80a712954db538223967dac7abd4",
+      "decoded_audio_hash": "SHA256=d573f1aa38cfde143947140213fc106b91a5ae12ffaf357eb1625e479a8c916d",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "motion",
+      "variant": "BF16",
+      "sha256": "ee96bdb593f60f684a6c348fae414fb2b4b7ca01eca5696aa6da9322a2085eaa",
+      "decoded_audio_hash": "SHA256=1629e17c22081bbcb6b2825d8a517546524b46462218a35e9808c33531be8052",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "motion",
+      "variant": "B",
+      "sha256": "87dc9d1d0357ce543f264e030f9b1de9f1c1ad75d8774712905c472c03034c6b",
+      "decoded_audio_hash": "SHA256=b37671327c7392120c3d82334f6a71bd3a7228c3bd3280ecc8ba23bca992ca87",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "motion",
+      "variant": "C",
+      "sha256": "2480d36f4a2ab735603b0852b5e832ad2f5f325e4cc8eebee0c10a08a264ae33",
+      "decoded_audio_hash": "SHA256=b37671327c7392120c3d82334f6a71bd3a7228c3bd3280ecc8ba23bca992ca87",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "animals",
+      "variant": "BF16",
+      "sha256": "912c3dde5844457f24c6978ed04589e0b745d9ee47d132702078e553e308e4fc",
+      "decoded_audio_hash": "SHA256=4cadb32effc392d40330a0c9a661201e6ee30c521225f3ab0b75de6e6faa48cd",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "animals",
+      "variant": "B",
+      "sha256": "9a3300daa26aa4a81176c6fd832d6f08181b0e81d49fa711087578d28eb3965b",
+      "decoded_audio_hash": "SHA256=36a466d7982391b416e3e2268e799a066899f469b23e7e1d7be2c631409a7ad4",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "animals",
+      "variant": "C",
+      "sha256": "eb59f337077246d5952c359f1704ea79c0dc5eb12324ec89465d144c84c839cb",
+      "decoded_audio_hash": "SHA256=36a466d7982391b416e3e2268e799a066899f469b23e7e1d7be2c631409a7ad4",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "camera",
+      "variant": "BF16",
+      "sha256": "cd83e0216414c08ac98be3f9873370f36fbf033a7c0e521f4f95626165c155c5",
+      "decoded_audio_hash": "SHA256=11363741ccd218f5bf09272d6d723248197f2959ca4d33d9b2bc9264f8190476",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "camera",
+      "variant": "B",
+      "sha256": "ef36af8553115db668f22166489f57652c31171c60bed6a92016ac5b1e76d525",
+      "decoded_audio_hash": "SHA256=e337709559d5c22a3deb918d16fd29f2f0271519874000a0df77fde6191ece49",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "camera",
+      "variant": "C",
+      "sha256": "4aafc9100f5ff5b4b0881f059df0a447a79faa8b7286821340fa2ee65ba13a11",
+      "decoded_audio_hash": "SHA256=e337709559d5c22a3deb918d16fd29f2f0271519874000a0df77fde6191ece49",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "details",
+      "variant": "BF16",
+      "sha256": "49f3599e08a7b002cbca4a02c25d17ea6b5285812aa3ed84cacd7c61a5931ddf",
+      "decoded_audio_hash": "SHA256=e5e2ed82ca5d1fe52ae4739e7014106ec0e54fd02e19e29e24064d292a05adcc",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "details",
+      "variant": "B",
+      "sha256": "dab55dae62dda16de84d198a1ff2ae0ff466a06a66876ed32c5bdefbfb13be4c",
+      "decoded_audio_hash": "SHA256=aa4d07d5d970c5eb9e8827b4ec7690ceba598433d755d72907179ac02030f12f",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "scene": "details",
+      "variant": "C",
+      "sha256": "01913e19f708857c9a6c19f309dbd217a789c3368516ae75f241a26489a2bf50",
+      "decoded_audio_hash": "SHA256=aa4d07d5d970c5eb9e8827b4ec7690ceba598433d755d72907179ac02030f12f",
+      "media": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "scene": "family",
+      "reference": "BF16",
+      "candidate": "B",
+      "ssim": 0.615443,
+      "psnr": 14.172317
+    },
+    {
+      "scene": "family",
+      "reference": "B",
+      "candidate": "C",
+      "ssim": 0.967924,
+      "psnr": 38.194267
+    },
+    {
+      "scene": "motion",
+      "reference": "BF16",
+      "candidate": "B",
+      "ssim": 0.948838,
+      "psnr": 24.665262
+    },
+    {
+      "scene": "motion",
+      "reference": "B",
+      "candidate": "C",
+      "ssim": 0.993288,
+      "psnr": 42.884331
+    },
+    {
+      "scene": "animals",
+      "reference": "BF16",
+      "candidate": "B",
+      "ssim": 0.822349,
+      "psnr": 19.550056
+    },
+    {
+      "scene": "animals",
+      "reference": "B",
+      "candidate": "C",
+      "ssim": 0.95889,
+      "psnr": 37.72578
+    },
+    {
+      "scene": "camera",
+      "reference": "BF16",
+      "candidate": "B",
+      "ssim": 0.582507,
+      "psnr": 18.989026
+    },
+    {
+      "scene": "camera",
+      "reference": "B",
+      "candidate": "C",
+      "ssim": 0.829699,
+      "psnr": 32.60933
+    },
+    {
+      "scene": "details",
+      "reference": "BF16",
+      "candidate": "B",
+      "ssim": 0.787006,
+      "psnr": 22.338719
+    },
+    {
+      "scene": "details",
+      "reference": "B",
+      "candidate": "C",
+      "ssim": 0.952525,
+      "psnr": 34.351586
+    }
+  ]
+}

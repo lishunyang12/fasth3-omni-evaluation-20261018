@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="FastH3 on vLLM-Omni: five scenes, three checkpoint and decoder configurations, measured on four RTX PRO 5000 GPUs.">
+<title>FastH3 · Precision in Motion</title>
+<link rel="stylesheet" href="style.css"><script defer src="data.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<header class="masthead"><a class="brand" href="#">FastH3 <span>/ vLLM-Omni</span></a><nav aria-label="页面导航"><a href="#scenes">视频对比</a><a href="#performance">性能</a><a href="#attention">VSA / Sage</a></nav><span class="edition">PRO 5000 · 4 GPUs</span></header>
+<main>
+<section class="hero"><p class="eyebrow">A STUDY IN SPEED & VISUAL DETAIL · 21 OCT 2026</p><h1>Precision in <em>Motion.</em></h1><p class="intro">更低的精度，带来多少加速？<br>在五种场景中，同步比较 FastH3 的画面、运动与声音。</p><div class="hero-meta"><span>1344 × 768</span><span>124 frames · 24 fps</span><span>8 steps · seed 1234</span><span>BF16 / NVFP4 / NVFP4 + 8L</span></div></section>
+<section id="scenes" class="section"><div class="section-heading"><div><p class="eyebrow">01 / WATCH & COMPARE</p><h2>同一个场景，三种配置。</h2></div><p>切换场景，同步播放。<br>声音只从选中的一路输出。</p></div>
+<div id="scene-tabs" class="tabs" role="tablist" aria-label="对比场景"></div>
+<div class="scene-heading"><div><h3 id="scene-title"></h3><p id="scene-focus"></p></div><span id="scene-count" class="mono"></span></div>
+<div id="video-grid" class="video-grid"></div>
+<div class="transport"><button id="play" class="primary" type="button">▶ 同步播放</button><button id="reset" type="button" aria-label="回到第一帧">↺ 重置</button><label class="scrub"><span class="sr-only">视频帧</span><input id="timeline" type="range" min="0" max="123" step="1" value="0"><output id="time">0.00 / 5.17 s</output></label><label class="audio-label">声音 <select id="audio"><option value="mute">静音</option><option value="BF16">BF16</option><option value="B">NVFP4</option><option value="C">NVFP4 + 8L</option></select></label></div>
+<p id="play-status" role="status" class="subtle">可拖动进度条逐帧查看；双图对比支持放大检查细节。</p>
+<div class="scene-tools"><button id="compare" type="button">打开双图对比 ↗</button><details class="prompt"><summary>查看输入与完整提示词</summary><div class="prompt-content"><figure><img id="reference" alt="本场景使用的参考图"><figcaption id="reference-source"></figcaption></figure><pre id="prompt"></pre></div></details></div>
+<p class="note">每种配置展示同一输入与 seed 的一条完整输出。新场景各生成一次；家庭场景取正式性能测试的第一条输出。相同 seed 不保证不同 checkpoint 的运动轨迹相同。</p>
+</section>
+<section id="performance" class="section"><div class="section-heading"><div><p class="eyebrow">02 / END-TO-END PERFORMANCE</p><h2>从请求到视频。</h2></div><a class="text-link" href="data/performance.csv" download>下载 CSV ↓</a></div>
+<div class="stat-row"><div><strong id="e2e-speedup">—</strong><span>NVFP4 + 8L 相对 BF16<br>端到端加速</span></div><div><strong id="vae-speedup">—</strong><span>8L 相对原 VAE<br>解码阶段加速</span></div><div><strong>4 × 72 GB</strong><span>RTX PRO 5000 Blackwell<br>PCIe · 350 W power limit</span></div></div>
+<div class="table-wrap"><table><caption>家庭对话场景 · 1 次预热 + 3 次正式请求 · 中位数，单位 ms</caption><thead><tr><th>配置</th><th>端到端 ↓</th><th>DiT ↓</th><th>视频 VAE ↓</th><th>单卡显存峰值¹</th><th>相对 BF16</th></tr></thead><tbody id="perf-rows"></tbody></table></div>
+<p class="note">BF16 使用 HSDP，NVFP4 使用未分片的量化权重；表中加速比比较完整部署配置。NVFP4 与 NVFP4 + 8L 之间只更换视频解码器。所有视频均使用 BF16 VSA attention。¹ 四张卡中最高的采样显存占用，采样间隔 500 ms。</p>
+<details class="method"><summary>测试条件与结果边界</summary><dl><dt>生成配置</dt><dd>1344 × 768，124 帧，24 fps，8 次前向；单请求串行；原生生成音频。</dd><dt>执行方式</dt><dd>Eager；无 CPU offload；USP 4、文本编码器 TP 4、VAE patch parallel 4；启用阶段计时。</dd><dt>计时范围</dt><dd>客户端请求至完整 MP4 返回，不含模型加载和预热。端到端与阶段耗时分别取三次请求的中位数。</dd><dt>一致性检查</dt><dd>正式测试每组的三次输出经完整解码验证，视频像素和音频分别一致。跨配置的画面相似度不作为主观质量评分。</dd><dt>覆盖范围</dt><dd>本页为 BF16 与 NVFP4 实测；未将 FP8、单卡消费级 GPU 或 Sage 整段视频性能列为已验证结果。</dd></dl></details>
+</section>
+<section id="attention" class="section"><div class="section-heading"><div><p class="eyebrow">03 / ATTENTION REPLAY</p><h2>VSA 与 Sage，单独看。</h2></div><span class="tag">真实输入 · 单卡算子回放</span></div>
+<p class="body-copy">从四卡 NVFP4 推理中捕获三个 step / layer 的真实输入，在一张 PRO 5000 上回放其中一个 Ulysses rank。VSA 保留布局转换、池化、路由与输出处理；Sage 的 Q/K INT8、V FP8 量化也计入耗时。</p>
+<div class="table-wrap"><table><caption>5 次预热 + 30 次计时 · 同步 wall time 中位数，ms</caption><thead><tr><th>Step / layer</th><th>Dense Flash</th><th>VSA BF16</th><th>VSA + Sage</th><th>VSA 相对 Dense</th><th>Sage 相对 VSA</th><th>Sage 相对 L2</th></tr></thead><tbody id="attention-rows"></tbody></table></div>
+<p class="note">这是算子级结果，不能直接换算为整段视频加速。Dense attention 与 VSA 的计算语义不同；Sage 保留 VSA 路由，但改变精度。Sage 使用带 SM120 所需 specialization 的独立 FlashInfer 源码版本；尚未进行 Sage 整段视频质量验证。</p>
+</section>
+<section class="section sources"><p class="eyebrow">04 / CHECKPOINTS & DATA</p><div class="source-grid"><div><h3>模型</h3><a href="https://huggingface.co/FastVideo/FastVideo-FastH3-Omni-8-Step-V1">FastH3 8-Step · BF16 ↗</a><a href="https://huggingface.co/FastVideo/FastH3-Omni-NVFP4-QAD">FastH3 Omni · NVFP4 QAD ↗</a><a href="https://huggingface.co/FastVideo/FastH3-NVFP4-VAE-Decoder">NVFP4 VAE Decoder · fast-8L ↗</a></div><div><h3>数据与方法</h3><a href="data/results.json" download>完整页面数据 · JSON ↓</a><a href="data/attention.csv" download>Attention 回放 · CSV ↓</a><a href="data/provenance.json" download>环境与版本信息 · JSON ↓</a><a href="data/media-checks.json" download>视频校验与帧差指标 · JSON ↓</a></div><div><h3>相关工作</h3><a href="https://github.com/vllm-project/vllm-omni/pull/9167">vLLM-Omni integration ↗</a><a href="https://lishunyang12.github.io/fasth3-lossy-ablation/">参考页面 · FastH3 Lossy Ablation ↗</a><p>借鉴其并排对比方式。本页使用独立的硬件、输入和测量结果。</p></div></div></section>
+</main><footer><span>FastH3 × vLLM-Omni</span><span>Measured outputs. Original audio. No interpolated frames.</span></footer>
+<dialog id="comparison"><div class="dialog-top"><h2>逐帧双图对比</h2><button id="close-compare" aria-label="关闭对比">关闭 ×</button></div><div class="pair-select"><label>左侧 <select id="left-variant"></select></label><label>右侧 <select id="right-variant"></select></label><span id="pair-frame" class="mono"></span></div><div class="wipe"><canvas id="left-canvas"></canvas><div class="right-overlay"><canvas id="right-canvas"></canvas></div><div class="wipe-line"></div></div><label class="wipe-control">拖动分界 <input id="wipe-range" type="range" min="0" max="100" value="50"></label><p class="note">两侧使用同一帧编号；不同 checkpoint 的构图或运动可能不同。关闭后可用主进度条选择另一帧。</p></dialog>
+</body></html>

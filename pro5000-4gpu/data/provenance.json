@@ -1,0 +1,79 @@
+{
+  "workload": "1344x768, 124 frames, 24 fps, 8 steps, seed 1234, concurrency 1",
+  "timing": "One full warmup excluded; three measured requests; all durations in milliseconds. Eager execution; stage timing enabled; no torch profiler.",
+  "memory": "Maximum sampled device memory across the four GPUs during measured requests; 500 ms sampling. Raw rank-0 framework peak and all per-request timings retained in manifests.",
+  "comparison": "BF16 uses HSDP, quantized cases do not; speedup compares these deployments, not quantization alone. B versus C changes the video decoder only.",
+  "hardware": "RTX PRO 5000 72GB Blackwell, PCI 10DE:2BB3 / 10DE:227A, driver 580.95.05, configured power limit 350 W, PCIe topology.",
+  "code": "https://github.com/vllm-project/vllm-omni/pull/9167",
+  "models": [
+    {
+      "case": "BF16",
+      "model": "FastVideo-FastH3-Omni-8-Step-V1",
+      "decoder": "original",
+      "revision": "c67204da85acd701a4b85c105843e287205800ec",
+      "checkpoint_revision": "88d512c5e7cc38dda499fbb65688ce58611f9c80",
+      "parallelism": {
+        "usp": 4,
+        "text_encoder_tp": 4,
+        "vae_patch_parallel": 4,
+        "hsdp": true
+      },
+      "offload": "none",
+      "execution": "eager"
+    },
+    {
+      "case": "B",
+      "model": "FastH3-Omni-NVFP4-QAD",
+      "decoder": "original",
+      "revision": "c67204da85acd701a4b85c105843e287205800ec",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "parallelism": {
+        "usp": 4,
+        "text_encoder_tp": 4,
+        "vae_patch_parallel": 4,
+        "hsdp": false
+      },
+      "offload": "none",
+      "execution": "eager"
+    },
+    {
+      "case": "C",
+      "model": "FastH3-Omni-NVFP4-QAD",
+      "decoder": "nvfp4-fast-8L",
+      "revision": "c67204da85acd701a4b85c105843e287205800ec",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "parallelism": {
+        "usp": 4,
+        "text_encoder_tp": 4,
+        "vae_patch_parallel": 4,
+        "hsdp": false
+      },
+      "offload": "none",
+      "execution": "eager"
+    }
+  ],
+  "attention": {
+    "scope": "Single-GPU replay of one Ulysses rank from a four-GPU NVFP4 request. Not video generation speedup.",
+    "semantics": "Dense Flash SDPA has no VSA sparsity or learned compression. VSA+Sage retains VSA routing and learned compression but changes fine-attention precision.",
+    "precision": "Sage quantizes Q/K to INT8 and V to FP8 inside every timed call; weights/checkpoint unchanged.",
+    "warmups": 5,
+    "repeats": 30,
+    "timing": "Round-robin methods, CUDA events plus synchronized host wall time; no torch profiler.",
+    "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6"
+  },
+  "software": {
+    "python": "3.12.13 (main, Jul 23 2026, 14:43:28) [Clang 22.1.3 ]",
+    "packages": {
+      "vllm": "0.32.0",
+      "torch": "2.13.0",
+      "flashinfer-python": "0.7.0.post1",
+      "triton": "3.7.1",
+      "diffusers": "0.40.0",
+      "transformers": "5.19.0",
+      "safetensors": "0.8.0",
+      "nvidia-cudnn-cu13": "9.20.0.48",
+      "fastvideo-kernel": "0.3.4 (explicit PYTHONPATH override)"
+    }
+  },
+  "references": "Existing FastVideo repository example assets; source credit is included for each scene."
+}
