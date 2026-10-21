@@ -4,7 +4,7 @@
 
 The checkpoint comparison covers original BF16, FP8, NVFP4 QAD, and NVFP4 QAD with the fast 8L video decoder. Each configuration includes five scenes with single-image, multiple-image, and video conditioning. All clips retain the generated colors and stereo audio.
 
-The [attention comparison](attention/) evaluates NVIDIA cuDNN BF16, FastVideo Triton BF16, and experimental FlashInfer CAKE Sage with the original BF16 weights and decoder. CAKE Sage uses INT8 Q/K and FP8 V. The [BF16 comparison](bf16/) isolates the two BF16 attention providers.
+The [BF16 provider comparison](bf16/) holds attention precision, model weights, and the decoder fixed while comparing NVIDIA cuDNN with FastVideo Triton. [CAKE Sage experimental results](attention/) report standalone videos and absolute timings for INT8 Q/K and FP8 V with BF16 model weights. A matched-precision Sage baseline and a CAKE BF16 VSA video result on SM120 are still missing; no cross-precision kernel speedup is reported.
 
 Performance tables report the median of three single-image dinner requests after one excluded warmup: 1344 × 768, 124 frames, eight denoising steps, and seed 1234. Other scene and input combinations are qualitative samples. Checkpoint deployment speedups include the change from sharded BF16 to unsharded quantized DiT weights. Attention replay timings are separate from end-to-end latency. Frame-aligned SSIM and PSNR measure output differences; they are not perceptual quality ratings.
 

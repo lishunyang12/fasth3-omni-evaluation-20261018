@@ -814,35 +814,26 @@
     {
       "step": 0,
       "layer": 0,
-      "dense_flash_ms": 54.87298918887973,
-      "fastvideo_bf16_ms": 44.810979859903455,
-      "cudnn_bf16_ms": 24.738935055211186,
-      "fi_cake_sage_ms": 17.561293439939618,
-      "cudnn_speedup_vs_dense": 2.2180821068658285,
-      "cake_speedup_vs_cudnn": 1.4087194169278825,
-      "cake_relative_l2_vs_cudnn": 0.01699337735772133
+      "fastvideo_bf16_ms": 44.85313268378377,
+      "cudnn_bf16_ms": 24.38745368272066,
+      "cudnn_speedup_vs_fastvideo": 1.83918884141495,
+      "cudnn_relative_l2_vs_fastvideo": 0.0014351090649142861
     },
     {
       "step": 3,
       "layer": 49,
-      "dense_flash_ms": 54.963632952421904,
-      "fastvideo_bf16_ms": 44.63951848447323,
-      "cudnn_bf16_ms": 24.655357468873262,
-      "fi_cake_sage_ms": 17.37738773226738,
-      "cudnn_speedup_vs_dense": 2.229277471308702,
-      "cake_speedup_vs_cudnn": 1.4188184005983655,
-      "cake_relative_l2_vs_cudnn": 0.12817224860191345
+      "fastvideo_bf16_ms": 44.66677596792579,
+      "cudnn_bf16_ms": 24.38486902974546,
+      "cudnn_speedup_vs_fastvideo": 1.8317414751516523,
+      "cudnn_relative_l2_vs_fastvideo": 0.0007231904892250896
     },
     {
       "step": 7,
       "layer": 49,
-      "dense_flash_ms": 54.96618244796991,
-      "fastvideo_bf16_ms": 44.601654866710305,
-      "cudnn_bf16_ms": 24.820353602990508,
-      "fi_cake_sage_ms": 17.407402163371444,
-      "cudnn_speedup_vs_dense": 2.2145608127576093,
-      "cake_speedup_vs_cudnn": 1.4258505301392619,
-      "cake_relative_l2_vs_cudnn": 0.13479562103748322
+      "fastvideo_bf16_ms": 44.633941259235144,
+      "cudnn_bf16_ms": 24.403043556958437,
+      "cudnn_speedup_vs_fastvideo": 1.8290317416783015,
+      "cudnn_relative_l2_vs_fastvideo": 0.0006723464466631413
     }
   ],
   "bf16_providers": [
@@ -1234,7 +1225,7 @@
       "max_ms": 60643.493,
       "peak_gib": 50.6162109375,
       "speedup_vs_fastvideo": 1.0,
-      "precision": "BF16"
+      "precision": "BF16 Q/K/V"
     },
     {
       "id": "cudnn",
@@ -1246,19 +1237,8 @@
       "max_ms": 52600.952,
       "peak_gib": 50.6162109375,
       "speedup_vs_fastvideo": 1.1533482828841313,
-      "precision": "BF16"
-    },
-    {
-      "id": "cake",
-      "label": "FI CAKE Sage",
-      "precision": "INT8 Q/K; FP8 V",
-      "e2e_ms": 49741.328,
-      "dit_ms": 44090.741944964975,
-      "vae_ms": 4213.252093177289,
-      "min_ms": 49708.855,
-      "max_ms": 49744.652,
-      "peak_gib": 50.7939453125,
-      "speedup_vs_fastvideo": 1.2190224796571574
+      "precision": "BF16 Q/K/V"
     }
-  ]
+  ],
+  "attention_comparison_scope": "BF16 Q/K/V, matched inputs and sparse selection. CAKE Sage is reported separately without a cross-precision speedup."
 }
