@@ -1,4 +1,5 @@
-case,checkpoint,decoder,gpus,attention,hsdp,status,measured_requests,e2e_median_ms,server_inference_median_ms,e2e_min_ms,e2e_max_ms,dit_median_ms,video_vae_median_ms,sampled_peak_per_gpu_gib,per_gpu_peak_mib,deployment_speedup_vs_bf16
-BF16,FastVideo-FastH3-Omni-8-Step-V1,original,"4,5,6,7",VSA / FlashInfer BF16,True,complete,3,52545.642,52505.0,52459.026,52645.485,46951.64818782359,4218.974943738431,50.616,"{""4"": 51693, ""5"": 51831, ""6"": 51703, ""7"": 51831}",1.0
-B,FastH3-Omni-NVFP4-QAD,original,"4,5,6,7",VSA / FlashInfer BF16,False,complete,3,31820.587,31778.0,31787.811,32022.046000000002,26303.42222796753,4223.155701998621,57.854,"{""4"": 59005, ""5"": 59243, ""6"": 59147, ""7"": 59243}",1.6513096380025925
-C,FastH3-Omni-NVFP4-QAD,nvfp4-fast-8L,"4,5,6,7",VSA / FlashInfer BF16,False,complete,3,28175.902000000002,28135.0,28155.216,28331.614999999998,26293.452040292323,612.485399004072,49.177,"{""4"": 50241, ""5"": 50357, ""6"": 50261, ""7"": 50357}",1.8649142802952678
+case,configuration,decoder,attention_provider,hsdp,e2e_median_ms,e2e_min_ms,e2e_max_ms,dit_median_ms,video_vae_median_ms,sampled_peak_per_gpu_gib,deployment_speedup_vs_bf16
+BF16,Original BF16,Original VAE,cuDNN BF16,True,52573.709,52555.554000000004,52600.952,46963.59926182777,4210.760368965566,50.6162109375,1.0
+A,FP8,Original VAE,cuDNN BF16,False,35717.774,35631.733,35742.313,30260.527125094086,4213.086886331439,67.9482421875,1.4719200866212996
+B,NVFP4 QAD,Original VAE,cuDNN BF16,False,31803.127,31762.435,31822.275999999998,26362.869733944535,4198.568219318986,57.8544921875,1.6530987345992738
+C,NVFP4 + 8L,Fast 8L VAE,cuDNN BF16,False,28287.497,28200.518,28358.301,26384.088310878724,618.3490483090281,49.1767578125,1.8585493442562275
