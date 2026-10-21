@@ -75,5 +75,79 @@
       "fastvideo-kernel": "0.3.4 (explicit PYTHONPATH override)"
     }
   },
-  "references": "Existing FastVideo repository example assets; source credit is included for each scene."
+  "references": "Existing FastVideo repository example assets; source credit is included for each scene.",
+  "bf16_provider_comparison": {
+    "packages": [
+      {
+        "package": "nvidia-cudnn-frontend",
+        "version": "1.31.0",
+        "file": "cudnn/block_sparse_attention/api.py",
+        "sha256": "f482f0a47f7882f64dd60e13f6bc056fdf55a21cc0a43f914b867da45b66010c",
+        "matches_distribution_record": true
+      },
+      {
+        "package": "nvidia-cudnn-frontend",
+        "version": "1.31.0",
+        "file": "cudnn/block_sparse_attention/_interface.py",
+        "sha256": "a669b4a11dc7072cced10ce4fba6ff81ce04be4b8a6956446578475e6edc523b",
+        "matches_distribution_record": true
+      },
+      {
+        "package": "fastvideo-kernel",
+        "version": "0.3.4",
+        "file": "fastvideo_kernel/block_sparse_attn.py",
+        "sha256": "ebdf9106b6a3fd429fbfcd5a0f739b506918d8ebf8ad5a2f5310948073758f93",
+        "matches_distribution_record": true
+      },
+      {
+        "package": "fastvideo-kernel",
+        "version": "0.3.4",
+        "file": "fastvideo_kernel/triton_kernels/block_sparse_attn_triton.py",
+        "sha256": "7745127b12343a13066f85c5dc741a478c1c63c2152efbb869ada23034417b3d",
+        "matches_distribution_record": true
+      }
+    ],
+    "requests": {
+      "fastvideo_triton": [
+        {
+          "e2e_ms": 60643.493,
+          "dit_ms": 54922.89303522557,
+          "video_vae_ms": 4205.95054095611,
+          "server_inference_ms": 60604.0
+        },
+        {
+          "e2e_ms": 60577.396,
+          "dit_ms": 54996.16072513163,
+          "video_vae_ms": 4221.611250657588,
+          "server_inference_ms": 60536.0
+        },
+        {
+          "e2e_ms": 60635.797,
+          "dit_ms": 55063.672796823084,
+          "video_vae_ms": 4213.374361861497,
+          "server_inference_ms": 60594.0
+        }
+      ],
+      "cudnn": [
+        {
+          "e2e_ms": 52600.952,
+          "dit_ms": 46902.955629862845,
+          "video_vae_ms": 4202.1668599918485,
+          "server_inference_ms": 52560.0
+        },
+        {
+          "e2e_ms": 52573.709,
+          "dit_ms": 46980.9968653135,
+          "video_vae_ms": 4210.760368965566,
+          "server_inference_ms": 52532.0
+        },
+        {
+          "e2e_ms": 52555.554000000004,
+          "dit_ms": 46963.59926182777,
+          "video_vae_ms": 4228.453625924885,
+          "server_inference_ms": 52514.0
+        }
+      ]
+    }
+  }
 }

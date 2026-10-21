@@ -241,5 +241,23 @@
       "sage_relative_l2": 0.10805991291999817,
       "sage_cosine": 0.9941548109054565
     }
+  ],
+  "bf16_providers": [
+    {
+      "provider": "FastVideo Triton",
+      "e2e_ms": 60635.797,
+      "dit_ms": 54996.16072513163,
+      "video_vae_ms": 4213.374361861497,
+      "server_inference_ms": 60594.0,
+      "speedup_vs_fastvideo": 1.0
+    },
+    {
+      "provider": "NVIDIA cuDNN",
+      "e2e_ms": 52573.709,
+      "dit_ms": 46963.59926182777,
+      "video_vae_ms": 4210.760368965566,
+      "server_inference_ms": 52532.0,
+      "speedup_vs_fastvideo": 1.1533482828841313
+    }
   ]
 }

@@ -1,0 +1,3 @@
+provider,e2e_ms,dit_ms,video_vae_ms,server_inference_ms,speedup_vs_fastvideo
+FastVideo Triton,60635.797,54996.16072513163,4213.374361861497,60594.0,1.0
+NVIDIA cuDNN,52573.709,46963.59926182777,4210.760368965566,52532.0,1.1533482828841313
