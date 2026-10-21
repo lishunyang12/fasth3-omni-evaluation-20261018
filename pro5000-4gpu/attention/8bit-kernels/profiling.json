@@ -1,0 +1,360 @@
+{
+  "state": "complete",
+  "device": "NVIDIA RTX PRO 5000 Blackwell",
+  "profiler": {
+    "name": "NVIDIA Nsight Compute",
+    "version": "2025.3.1.0",
+    "replay_passes_per_kernel": 19,
+    "replay_mode": "kernel",
+    "cache_control": "none",
+    "clock_control": "none",
+    "pipeline_boost_state": "dynamic",
+    "warmup_calls_per_provider": 5,
+    "sections": [
+      "SpeedOfLight",
+      "LaunchStats",
+      "Occupancy",
+      "ComputeWorkloadAnalysis",
+      "MemoryWorkloadAnalysis",
+      "SchedulerStats",
+      "WarpStateStats",
+      "InstructionStats"
+    ]
+  },
+  "scope": "One native prequantized BSA call per provider and capture; quantization, allocation, routing and warmup are outside the profiler range.",
+  "definitions": {
+    "kb": "Decimal kilobytes (1000 bytes), following the Nsight Compute export.",
+    "tensor_active_pct_elapsed": "Percent of elapsed cycles with the Tensor pipeline active; not percent of peak FLOP/s.",
+    "executed_warp_instructions": "smsp__inst_executed.sum; keep separate from FP32 rule instruction counts.",
+    "fp32_instruction_counts": "Values reported by the Nsight Compute FP32 fused/non-fused instruction rule.",
+    "metric_keys_and_units": {
+      "profiled_duration_ms": {
+        "metric": "gpu__time_duration.sum",
+        "export_unit": "ms"
+      },
+      "registers_per_thread": {
+        "metric": "launch__registers_per_thread",
+        "export_unit": "register/thread"
+      },
+      "dynamic_shared_memory_kb_per_block": {
+        "metric": "launch__shared_mem_per_block_dynamic",
+        "export_unit": "Kbyte/block"
+      },
+      "allocated_shared_memory_kb_per_block": {
+        "metric": "launch__shared_mem_per_block_allocated",
+        "export_unit": "Kbyte/block"
+      },
+      "register_limited_blocks_per_sm": {
+        "metric": "launch__occupancy_limit_registers",
+        "export_unit": "block"
+      },
+      "shared_memory_limited_blocks_per_sm": {
+        "metric": "launch__occupancy_limit_shared_mem",
+        "export_unit": "block"
+      },
+      "achieved_occupancy_pct": {
+        "metric": "sm__warps_active.avg.pct_of_peak_sustained_active",
+        "export_unit": "%"
+      },
+      "tensor_active_pct_elapsed": {
+        "metric": "sm__pipe_tensor_cycles_active.avg.pct_of_peak_sustained_elapsed",
+        "export_unit": "%"
+      },
+      "tensor_hmma_active_pct_elapsed": {
+        "metric": "sm__pipe_tensor_subpipe_hmma_cycles_active.avg.pct_of_peak_sustained_elapsed",
+        "export_unit": "%"
+      },
+      "tensor_imma_active_pct_elapsed": {
+        "metric": "sm__pipe_tensor_subpipe_imma_cycles_active.avg.pct_of_peak_sustained_elapsed",
+        "export_unit": "%"
+      },
+      "executed_warp_instructions": {
+        "metric": "smsp__inst_executed.sum",
+        "export_unit": "inst"
+      },
+      "dram_bandwidth_gb_per_s": {
+        "metric": "dram__bytes.sum.per_second",
+        "export_unit": "Gbyte/s"
+      },
+      "dram_active_pct_peak": {
+        "metric": "dram__cycles_active.avg.pct_of_peak_sustained_elapsed",
+        "export_unit": "%"
+      },
+      "l2_hit_rate_pct": {
+        "metric": "lts__t_sector_hit_rate.pct",
+        "export_unit": "%"
+      },
+      "average_sm_clock_ghz": {
+        "metric": "gpc__cycles_elapsed.avg.per_second",
+        "export_unit": "Ghz"
+      },
+      "local_spilling_requests": {
+        "metric": "derived__local_spilling_requests",
+        "export_unit": ""
+      }
+    }
+  },
+  "source_observations": {
+    "cudnn": {
+      "url": "https://github.com/NVIDIA/cudnn-frontend/blob/351f7302a528641e741e3d9c77801194abdb5ccc/python/cudnn/block_sparse_attention/csrc/fwd/sm120_blk64/bsa_fwd_sm120_fp8.py",
+      "observation": "SharedStorage declares separate Q, K, V and O buffers. Q scales are per row; K scales cover 16 keys."
+    },
+    "cake": {
+      "url": "https://github.com/lishunyang12/flashinfer/blob/e91eefc725d6fb7080bc9a713bfd7efb868efcc6/csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+      "observation": "O starts at shared-memory offset 1024, reusing Q/K staging storage after the attention loop. Q scales cover 32 rows; K scales cover 64 keys. Kernel launch bounds specify 128 threads and 3 blocks."
+    }
+  },
+  "interpretation": "Lower register and shared-memory requirements allow CAKE to sustain higher occupancy. Fewer executed instructions and higher Tensor pipeline activity are consistent with its shorter kernel latency. Source structure suggests buffer reuse and coarser scale handling as contributors; no ablation apportions their effects.",
+  "limitations": [
+    "The GPU was shared with a resident service and was not exclusively reserved. Utilization was 0% before each run; overlap during profiling cannot be excluded.",
+    "Clocks were not locked and caches were not flushed. Counter collection used multiple replay passes.",
+    "Profiled native-call durations are separate observations and do not replace the 30-sample CUDA Graph benchmark medians.",
+    "Q/K formats differ: cuDNN uses FP8 E4M3; CAKE uses INT8. Both use FP8 V and BF16 output.",
+    "No source-PC stall attribution or performance ablation was performed. Aggregate counters do not assign a causal share to each source difference."
+  ],
+  "samples": [
+    {
+      "step": 0,
+      "layer": 0,
+      "query_shape_bhsd": [
+        1,
+        14,
+        50816,
+        128
+      ],
+      "key_shape_bhsd": [
+        1,
+        14,
+        50816,
+        128
+      ],
+      "source_replay_parity": {
+        "finite": true,
+        "relative_l2": 0.0,
+        "cosine": 1.0,
+        "mean_abs": 0.0,
+        "max_abs": 0.0
+      },
+      "observations": {
+        "cudnn_fp8": {
+          "finite": true,
+          "output_dtype": "torch.bfloat16"
+        },
+        "cake_sage": {
+          "finite": true,
+          "output_dtype": "torch.bfloat16"
+        }
+      },
+      "providers": {
+        "cudnn_fp8": {
+          "profiled_duration_ms": 11.47792,
+          "registers_per_thread": 244.0,
+          "dynamic_shared_memory_kb_per_block": 41.088,
+          "allocated_shared_memory_kb_per_block": 42.112,
+          "register_limited_blocks_per_sm": 2.0,
+          "shared_memory_limited_blocks_per_sm": 2.0,
+          "achieved_occupancy_pct": 16.590543,
+          "tensor_active_pct_elapsed": 68.109826,
+          "tensor_hmma_active_pct_elapsed": 68.109826,
+          "tensor_imma_active_pct_elapsed": 0.0,
+          "executed_warp_instructions": 4562835239.0,
+          "dram_bandwidth_gb_per_s": 39.0601,
+          "dram_active_pct_peak": 3.047175,
+          "l2_hit_rate_pct": 98.691332,
+          "average_sm_clock_ghz": 2.472001,
+          "local_spilling_requests": 0.0,
+          "threads_per_block": 128,
+          "grid_blocks": 11116,
+          "fp32_fused_instructions_ncu_rule": 299021120,
+          "fp32_nonfused_instructions_ncu_rule": 952754640
+        },
+        "cake_sage": {
+          "profiled_duration_ms": 10.116864,
+          "registers_per_thread": 162.0,
+          "dynamic_shared_memory_kb_per_block": 25.6,
+          "allocated_shared_memory_kb_per_block": 26.624,
+          "register_limited_blocks_per_sm": 3.0,
+          "shared_memory_limited_blocks_per_sm": 3.0,
+          "achieved_occupancy_pct": 24.755035,
+          "tensor_active_pct_elapsed": 78.96136,
+          "tensor_hmma_active_pct_elapsed": 39.48068,
+          "tensor_imma_active_pct_elapsed": 39.48068,
+          "executed_warp_instructions": 3641499226.0,
+          "dram_bandwidth_gb_per_s": 43.719654,
+          "dram_active_pct_peak": 3.410679,
+          "l2_hit_rate_pct": 98.70168,
+          "average_sm_clock_ghz": 2.419125,
+          "local_spilling_requests": 0.0,
+          "threads_per_block": 128,
+          "grid_blocks": 11116,
+          "fp32_fused_instructions_ncu_rule": 282324848,
+          "fp32_nonfused_instructions_ncu_rule": 404448840
+        }
+      },
+      "raw_report_sha256": "8520b23a54f1b21b4f2635a317a940edc2c6e0d7c17595a41fe432c8146dcf23",
+      "cake_instruction_reduction_pct": 20.19218237654187
+    },
+    {
+      "step": 3,
+      "layer": 49,
+      "query_shape_bhsd": [
+        1,
+        14,
+        50816,
+        128
+      ],
+      "key_shape_bhsd": [
+        1,
+        14,
+        50816,
+        128
+      ],
+      "source_replay_parity": {
+        "finite": true,
+        "relative_l2": 0.0,
+        "cosine": 1.0,
+        "mean_abs": 0.0,
+        "max_abs": 0.0
+      },
+      "observations": {
+        "cudnn_fp8": {
+          "finite": true,
+          "output_dtype": "torch.bfloat16"
+        },
+        "cake_sage": {
+          "finite": true,
+          "output_dtype": "torch.bfloat16"
+        }
+      },
+      "providers": {
+        "cudnn_fp8": {
+          "profiled_duration_ms": 11.365408,
+          "registers_per_thread": 244.0,
+          "dynamic_shared_memory_kb_per_block": 41.088,
+          "allocated_shared_memory_kb_per_block": 42.112,
+          "register_limited_blocks_per_sm": 2.0,
+          "shared_memory_limited_blocks_per_sm": 2.0,
+          "achieved_occupancy_pct": 16.592536,
+          "tensor_active_pct_elapsed": 68.047794,
+          "tensor_hmma_active_pct_elapsed": 68.047794,
+          "tensor_imma_active_pct_elapsed": 0.0,
+          "executed_warp_instructions": 4552490251.0,
+          "dram_bandwidth_gb_per_s": 39.535477,
+          "dram_active_pct_peak": 3.084261,
+          "l2_hit_rate_pct": 98.686031,
+          "average_sm_clock_ghz": 2.492414,
+          "local_spilling_requests": 0.0,
+          "threads_per_block": 128,
+          "grid_blocks": 11116,
+          "fp32_fused_instructions_ncu_rule": 298264256,
+          "fp32_nonfused_instructions_ncu_rule": 950357904
+        },
+        "cake_sage": {
+          "profiled_duration_ms": 9.943616,
+          "registers_per_thread": 162.0,
+          "dynamic_shared_memory_kb_per_block": 25.6,
+          "allocated_shared_memory_kb_per_block": 26.624,
+          "register_limited_blocks_per_sm": 3.0,
+          "shared_memory_limited_blocks_per_sm": 3.0,
+          "achieved_occupancy_pct": 24.765857,
+          "tensor_active_pct_elapsed": 78.787169,
+          "tensor_hmma_active_pct_elapsed": 39.393585,
+          "tensor_imma_active_pct_elapsed": 39.393585,
+          "executed_warp_instructions": 3637273606.0,
+          "dram_bandwidth_gb_per_s": 44.55746,
+          "dram_active_pct_peak": 3.476022,
+          "l2_hit_rate_pct": 98.701907,
+          "average_sm_clock_ghz": 2.46047,
+          "local_spilling_requests": 0.0,
+          "threads_per_block": 128,
+          "grid_blocks": 11116,
+          "fp32_fused_instructions_ncu_rule": 281610032,
+          "fp32_nonfused_instructions_ncu_rule": 407020136
+        }
+      },
+      "raw_report_sha256": "932e1909efe2fdda6e078dc5a42367bf3671aa172a9233060bb47794522286bb",
+      "cake_instruction_reduction_pct": 20.10364865249219
+    },
+    {
+      "step": 7,
+      "layer": 49,
+      "query_shape_bhsd": [
+        1,
+        14,
+        50816,
+        128
+      ],
+      "key_shape_bhsd": [
+        1,
+        14,
+        50816,
+        128
+      ],
+      "source_replay_parity": {
+        "finite": true,
+        "relative_l2": 0.0,
+        "cosine": 1.0,
+        "mean_abs": 0.0,
+        "max_abs": 0.0
+      },
+      "observations": {
+        "cudnn_fp8": {
+          "finite": true,
+          "output_dtype": "torch.bfloat16"
+        },
+        "cake_sage": {
+          "finite": true,
+          "output_dtype": "torch.bfloat16"
+        }
+      },
+      "providers": {
+        "cudnn_fp8": {
+          "profiled_duration_ms": 11.353984,
+          "registers_per_thread": 244.0,
+          "dynamic_shared_memory_kb_per_block": 41.088,
+          "allocated_shared_memory_kb_per_block": 42.112,
+          "register_limited_blocks_per_sm": 2.0,
+          "shared_memory_limited_blocks_per_sm": 2.0,
+          "achieved_occupancy_pct": 16.593636,
+          "tensor_active_pct_elapsed": 68.066556,
+          "tensor_hmma_active_pct_elapsed": 68.066556,
+          "tensor_imma_active_pct_elapsed": 0.0,
+          "executed_warp_instructions": 4548472908.0,
+          "dram_bandwidth_gb_per_s": 39.596609,
+          "dram_active_pct_peak": 3.089019,
+          "l2_hit_rate_pct": 98.689653,
+          "average_sm_clock_ghz": 2.491771,
+          "local_spilling_requests": 0.0,
+          "threads_per_block": 128,
+          "grid_blocks": 11116,
+          "fp32_fused_instructions_ncu_rule": 297970208,
+          "fp32_nonfused_instructions_ncu_rule": 949426752
+        },
+        "cake_sage": {
+          "profiled_duration_ms": 9.916544,
+          "registers_per_thread": 162.0,
+          "dynamic_shared_memory_kb_per_block": 25.6,
+          "allocated_shared_memory_kb_per_block": 26.624,
+          "register_limited_blocks_per_sm": 3.0,
+          "shared_memory_limited_blocks_per_sm": 3.0,
+          "achieved_occupancy_pct": 24.772638,
+          "tensor_active_pct_elapsed": 78.962923,
+          "tensor_hmma_active_pct_elapsed": 39.481462,
+          "tensor_imma_active_pct_elapsed": 39.481462,
+          "executed_warp_instructions": 3633770466.0,
+          "dram_bandwidth_gb_per_s": 44.518787,
+          "dram_active_pct_peak": 3.473009,
+          "l2_hit_rate_pct": 98.696847,
+          "average_sm_clock_ghz": 2.459276,
+          "local_spilling_requests": 0.0,
+          "threads_per_block": 128,
+          "grid_blocks": 11116,
+          "fp32_fused_instructions_ncu_rule": 281332320,
+          "fp32_nonfused_instructions_ncu_rule": 406176112
+        }
+      },
+      "raw_report_sha256": "a813f60011daef98f468ba28bf94a13f352a1a91cc3eb9615960b3c839210710",
+      "cake_instruction_reduction_pct": 20.11009981814318
+    }
+  ]
+}
