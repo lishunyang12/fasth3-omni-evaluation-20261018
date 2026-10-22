@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792657462.219255,
+  "updated_at": 1792657945.9181516,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -2426,7 +2426,7 @@
       "attention": "CAKE Sage: INT8 Q/K, FP8 V",
       "reference_canvas": "2048 short edge, nearest multiple of 32, Lanczos",
       "offload": false,
-      "started_at": 1792657306.0767214,
+      "started_at": 1792657765.5932314,
       "summaries": [
         {
           "key": "image|480p",
@@ -2715,6 +2715,78 @@
               12836.594632826746
             ]
           }
+        },
+        {
+          "key": "image|768p",
+          "workload": "image",
+          "resolution": "768p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 103047.94833333333,
+            "median": 103043.378,
+            "min": 103024.023,
+            "max": 103076.44399999999,
+            "values": [
+              103076.44399999999,
+              103043.378,
+              103024.023
+            ]
+          },
+          "dit_ms": {
+            "mean": 95596.74118924886,
+            "median": 95616.30354681984,
+            "min": 95554.37364475802,
+            "max": 95619.54637616873,
+            "values": [
+              95619.54637616873,
+              95616.30354681984,
+              95554.37364475802
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 1987.5505021773279,
+            "median": 1987.6552666537464,
+            "min": 1986.5627279505134,
+            "max": 1988.4335119277239,
+            "values": [
+              1986.5627279505134,
+              1987.6552666537464,
+              1988.4335119277239
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 102986.33333333333,
+            "median": 102981.0,
+            "min": 102962.0,
+            "max": 103016.0,
+            "values": [
+              103016.0,
+              102981.0,
+              102962.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2162.1457755876086,
+            "median": 2162.1763850562274,
+            "min": 2155.916995834559,
+            "max": 2168.3439458720386,
+            "values": [
+              2155.916995834559,
+              2162.1763850562274,
+              2168.3439458720386
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 2759.3724050869546,
+            "median": 2756.9307517260313,
+            "min": 2755.1437309011817,
+            "max": 2766.0427326336503,
+            "values": [
+              2755.1437309011817,
+              2756.9307517260313,
+              2766.0427326336503
+            ]
+          }
         }
       ],
       "failures": [
@@ -2734,13 +2806,14 @@
       "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
       "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
       "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
-      "ready_at": 1792657350.0973508,
-      "current": "image|768p",
+      "ready_at": 1792657811.613534,
+      "current": "image-voice|768p",
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-480p.mp4",
         "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-voice-480p.mp4",
         "images3|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-images3-480p.mp4",
-        "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-clip-480p.mp4"
+        "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-clip-480p.mp4",
+        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-768p.mp4"
       },
       "config_url": "configs/pro5000-1gpu-8l.yaml",
       "memory": {
@@ -2754,7 +2827,7 @@
           "rank": 0,
           "shape": [
             1,
-            61440,
+            62080,
             56,
             128
           ],
@@ -5281,7 +5354,7 @@
   ],
   "attention_completed_configurations": 8,
   "fastvideo_completed_configurations": 2,
-  "completed_configurations": 29,
+  "completed_configurations": 30,
   "failed_configurations": [
     {
       "run": "pro5000-1gpu-36l",
@@ -5333,7 +5406,7 @@
     }
   ],
   "oom_configurations": 5,
-  "attempted_configurations": 35,
+  "attempted_configurations": 36,
   "published_media": [
     {
       "file": "baseline-B-animals.mp4",
@@ -5646,6 +5719,12 @@
       "bytes": 3609176,
       "sha256": "72b55ce2ff799372e1397ac683ce8cf4242d26eaaba9d254b9f673642bb173f4",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-480p.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-8l-image-768p.mp4",
+      "bytes": 7434523,
+      "sha256": "9360a67c5bd8a2d0186ae68a8b897e1bdcc97751bd6c5588dfbad563acc9b211",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-768p.mp4"
     },
     {
       "file": "pro5000-1gpu-8l-image-voice-480p.mp4",
