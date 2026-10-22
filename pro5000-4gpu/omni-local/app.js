@@ -41,7 +41,7 @@ function renderGallery(){
 }
 function renderChart(){
  const key=`${state.workload}|${state.resolution}|${state.decoder}`,original=R.official.latency[key]||{};
- const rows=[4,1].map(g=>({label:`${g}× RTX PRO 5000`,note:`vLLM-Omni · CAKE · ${g===1?'CPU offload':'GPU resident'}`,value:result(g,state.decoder)?.e2e_ms.mean/1000,kind:'pro',missing:pending(g,state.decoder)})).concat(R.official.devices.map(d=>({label:d.label,note:d.note,value:original[d.key],kind:d.key.startsWith('spark')?'spark':'other',missing:'Not reported'})));
+ const rows=[4,1].map(g=>({label:`${g}× RTX PRO 5000`,note:`vLLM-Omni · CAKE · ${run(g,state.decoder)?.offload?'CPU offload':'GPU resident'}`,value:result(g,state.decoder)?.e2e_ms.mean/1000,kind:'pro',missing:pending(g,state.decoder)})).concat(R.official.devices.map(d=>({label:d.label,note:d.note,value:original[d.key],kind:d.key.startsWith('spark')?'spark':'other',missing:'Not reported'})));
  const max=Math.max(...rows.filter(x=>Number.isFinite(x.value)).map(x=>x.value),1);
  $('chart-title').textContent=`${names[state.workload]} · ${state.resolution} · ${state.decoder==='36l'?'36':'8'}-layer decoder`;
  $('latency-chart').innerHTML=rows.map(r=>`<div class="bar-row ${r.kind}"><div class="bar-label">${esc(r.label)}<small>${esc(r.note)}</small></div><div class="bar-area">${Number.isFinite(r.value)?`<div class="bar ${r.kind}" style="width:${r.value/max*100}%" title="${r.value.toFixed(3)} seconds"><span class="bar-value">${shortTime(r.value)}</span></div>`:`<span class="bar-missing">${r.missing}</span>`}</div></div>`).join('');renderStages();renderMatrix();
