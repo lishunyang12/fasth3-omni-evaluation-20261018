@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792656000.984738,
+  "updated_at": 1792656487.9503052,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -1950,7 +1950,7 @@
     },
     {
       "id": "pro5000-1gpu-36l",
-      "state": "starting",
+      "state": "measuring",
       "gpus": [
         0
       ],
@@ -2282,11 +2282,14 @@
       "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
       "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
       "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
+      "ready_at": 1792656034.0563023,
+      "current": "image-voice|768p",
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-480p.mp4",
         "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-480p.mp4",
         "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-clip-480p.mp4",
-        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-768p.mp4"
+        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-768p.mp4",
+        "image-voice|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-768p.mp4"
       },
       "config_url": "configs/pro5000-1gpu-36l.yaml",
       "memory": {
@@ -2300,7 +2303,7 @@
           "rank": 0,
           "shape": [
             1,
-            61440,
+            62080,
             56,
             128
           ],
@@ -5411,6 +5414,12 @@
       "bytes": 2858746,
       "sha256": "ebb18ccf20820315c015c70c027a7fbf07c280d1b53dd791f63fc5275460c784",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-480p.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-36l-image-voice-768p.mp4",
+      "bytes": 6176598,
+      "sha256": "a4d07e24bd7b566cc556937edad3f593a6681710abeb222aad6045c3e3095691",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-768p.mp4"
     },
     {
       "file": "pro5000-1gpu-8l-clip-480p.mp4",
