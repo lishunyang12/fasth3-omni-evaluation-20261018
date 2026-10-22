@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792666704.7305658,
+  "updated_at": 1792667192.4548135,
   "records": [
     {
       "configuration": "pro5000-1gpu-36l-module-offload",
@@ -875,9 +875,9 @@
       "decoder": "8l",
       "strategy": "layerwise",
       "before": "oom",
-      "after": "measuring",
-      "recovered": false,
-      "transition": "OOM → measuring",
+      "after": "success",
+      "recovered": true,
+      "transition": "OOM → Success",
       "resident_failures": [
         {
           "key": "video|480p",
@@ -917,35 +917,103 @@
         "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
       },
       "memory": {
-        "max_per_gpu_gib": 23.8701171875,
+        "max_per_gpu_gib": 23.8720703125,
         "per_gpu_mib": {
-          "0": 24443
+          "0": 24445
         },
-        "peak_total_gib": 23.8701171875,
-        "samples": 187,
-        "sampling_interval_s": 0.6957378387451172,
-        "max_sampling_gap_s": 0.785752534866333,
-        "started_at": 1792666361.6442842,
-        "ended_at": 1792666492.8237357,
-        "bounds_source": "request_timestamps",
-        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+        "peak_total_gib": 23.8720703125,
+        "requests_with_samples": 3,
+        "requests_expected": 3
       },
-      "memory_scope": "partial_measured_requests",
+      "memory_scope": "measured_requests",
       "measured_seeds": [
         0,
-        1
+        1,
+        2
       ],
-      "active_request": {
-        "phase": "measured",
-        "seed": 2,
+      "active_request": null,
+      "summary": {
+        "key": "video|480p",
         "workload": "video",
         "resolution": "480p",
-        "started_at": 1792666623.6761212,
-        "output": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/offload-runs/pro5000-1gpu-8l-layerwise-offload/480p/video/measured-seed2.mp4",
-        "state": "running"
+        "samples": 3,
+        "e2e_ms": {
+          "mean": 130926.211,
+          "median": 130918.732,
+          "min": 130688.37099999998,
+          "max": 131171.53,
+          "values": [
+            131171.53,
+            130688.37099999998,
+            130918.732
+          ]
+        },
+        "dit_ms": {
+          "mean": 91889.10650617133,
+          "median": 91880.54071972147,
+          "min": 91848.31864014268,
+          "max": 91938.46015864983,
+          "values": [
+            91880.54071972147,
+            91848.31864014268,
+            91938.46015864983
+          ]
+        },
+        "video_vae_ms": {
+          "mean": 1145.6125487263005,
+          "median": 1257.482724264264,
+          "min": 848.5381780192256,
+          "max": 1330.8167438954115,
+          "values": [
+            1330.8167438954115,
+            848.5381780192256,
+            1257.482724264264
+          ]
+        },
+        "server_inference_ms": {
+          "mean": 130907.0,
+          "median": 130904.0,
+          "min": 130668.0,
+          "max": 131149.0,
+          "values": [
+            131149.0,
+            130668.0,
+            130904.0
+          ]
+        },
+        "encode_prompt_ms": {
+          "mean": 1535.4496433089178,
+          "median": 1533.4936128929257,
+          "min": 1452.5524261407554,
+          "max": 1620.302890893072,
+          "values": [
+            1533.4936128929257,
+            1620.302890893072,
+            1452.5524261407554
+          ]
+        },
+        "reference_encode_ms": {
+          "mean": 34438.92060033977,
+          "median": 34451.44088100642,
+          "min": 34380.11547224596,
+          "max": 34485.20544776693,
+          "values": [
+            34380.11547224596,
+            34485.20544776693,
+            34451.44088100642
+          ]
+        },
+        "memory": {
+          "max_per_gpu_gib": 23.8720703125,
+          "per_gpu_mib": {
+            "0": 24445
+          },
+          "peak_total_gib": 23.8720703125,
+          "requests_with_samples": 3,
+          "requests_expected": 3
+        }
       },
-      "summary": null,
-      "completed_at": null,
+      "completed_at": 1792666754.602574,
       "config_url": "configs/pro5000-1gpu-8l-layerwise-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
       "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
@@ -965,6 +1033,12 @@
           "seed": 1,
           "module_sha256": "ca902bd92a4e9c2d1e8b93accab852ff0b60ee6162d2b5060efb6055ebcc79d9",
           "layerwise_sha256": "ca902bd92a4e9c2d1e8b93accab852ff0b60ee6162d2b5060efb6055ebcc79d9",
+          "mp4_bytes_identical": true
+        },
+        {
+          "seed": 2,
+          "module_sha256": "62c4562e20fdd327724c6c67130c34b26185a8c626764f273abfc849704ec70f",
+          "layerwise_sha256": "62c4562e20fdd327724c6c67130c34b26185a8c626764f273abfc849704ec70f",
           "mp4_bytes_identical": true
         }
       ]
