@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792654584.9882674,
+  "updated_at": 1792655072.1086042,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -248,7 +248,7 @@
     "execution_order": "All configurations run sequentially. Both one-GPU and four-GPU deployments keep model components GPU resident; CPU offload is disabled."
   },
   "status": {
-    "state": "running_1gpu",
+    "state": "needs_attention",
     "completed": [
       "pro5000-4gpu-36l",
       "pro5000-4gpu-8l"
@@ -257,6 +257,10 @@
       {
         "id": "pro5000-1gpu-36l",
         "error": "Command '['/tmp/fasth3-upstream-runtime032/bin/python', '-u', '/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py', '--gpus', '0', '--decoder', '36l', '--port', '19453', '--offload']' returned non-zero exit status 1."
+      },
+      {
+        "id": "pro5000-1gpu-8l",
+        "error": "Command '['/tmp/fasth3-upstream-runtime032/bin/python', '-u', '/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py', '--gpus', '0', '--decoder', '8l', '--port', '19453', '--offload']' returned non-zero exit status 1."
       }
     ],
     "planned": [
@@ -266,7 +270,8 @@
       "pro5000-1gpu-8l"
     ],
     "started_at": 1792646887.5404582,
-    "updated_at": 1792651863.7984467
+    "updated_at": 1792654627.8153894,
+    "ended_at": 1792654627.815389
   },
   "runs": [
     {
@@ -1945,7 +1950,7 @@
     },
     {
       "id": "pro5000-1gpu-36l",
-      "state": "failed",
+      "state": "starting",
       "gpus": [
         0
       ],
@@ -1955,7 +1960,7 @@
       "attention": "CAKE Sage: INT8 Q/K, FP8 V",
       "reference_canvas": "2048 short edge, nearest multiple of 32, Lanczos",
       "offload": false,
-      "started_at": 1792651314.7950604,
+      "started_at": 1792655041.125799,
       "summaries": [
         {
           "key": "image|480p",
@@ -2102,6 +2107,22 @@
           }
         }
       ],
+      "failures": [
+        {
+          "key": "images3|480p",
+          "phase": "warmup",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM during three-image 480p warmup: 896 MiB allocation requested, 590.62 MiB free; process memory 70.54 GiB. CPU offload disabled.",
+          "time": 1792651862.5702224
+        },
+        {
+          "key": "images3|480p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 896.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 632.62 MiB is free. Including non-PyTorch memory, this process has 70.50 GiB memory in use. Of the allocated memory 66.46 GiB is allocated by PyTorch, and 3.64 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792655036.3723192
+        }
+      ],
       "seeds": [
         0,
         1,
@@ -2110,20 +2131,6 @@
       "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
       "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
       "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
-      "ready_at": 1792651358.8177474,
-      "current": "images3|480p",
-      "error": "Command '['curl', '--fail-with-body', '-sS', '--max-time', '2400', 'http://127.0.0.1:19453/v1/videos/sync', '--form-string', \"prompt=subject_definitions:\\n<Subject 1> is the young man with dark curly hair wearing a white T-shirt in <Picture 1>.\\n<Subject 2> is the pair of silver wraparound sunglasses shown from three angles in <Picture 2>.\\n<Subject 3> is the environment in <Picture 3>: a warmly lit traditional Japanese dining room with a family gathered around a low table.\\n\\nsummary:\\n[reference generation] <Subject 1>, wearing <Subject 2>, joins the family dinner in <Subject 3> and shares the meal.\\n\\nretention_analysis:\\n<Subject 1> (appears in [Shot 1]): fully_preserved - the young man's face, dark curly hair and white T-shirt are retained.\\n<Subject 2> (appears in [Shot 1]): fully_preserved - the silver wraparound frame and dark lenses of the sunglasses are retained.\\n<Subject 3> (appears in [Shot 1]): fully_preserved - the paper doors, low wooden table, warm lantern light and the family are retained.\\n\\ndetailed_description:\\nThe target video is in a realistic live-action style with warm lantern light.\\n[Shot 1] A medium wide shot with a gentle handheld drift. <Subject 1> (S1) slides open the paper door of <Subject 3>, with <Subject 2> pushed up on his forehead. He smiles, lowers the sunglasses, bows slightly and says, <d>[English] Sorry I'm late, the train was packed.</d> The family laughs and makes room for him at the low table while steam rises from the bowls of ramen.\\n\\noverall_soundscape:\\nSoft family chatter, clinking ceramic bowls, the slide of a paper door and the hiss of a simmering pot.\\n\\nnon_diegetic_music:\\nN/A\", '--form-string', 'size=832x480', '--form-string', 'seconds=5', '--form-string', 'seed=12345', '-F', 'input_references=@/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/inputs/hf_character_action_reference.png', '-F', 'input_references=@/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/inputs/hf_fashion_glasses_reference_3.png', '-F', 'input_references=@/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/inputs/official_fl2va_0_image.png', '-D', '/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/runs/pro5000-1gpu-36l/480p/images3/warmup-seed12345.headers', '-o', '/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/runs/pro5000-1gpu-36l/480p/images3/warmup-seed12345.mp4', '-w', '%{http_code}\\n%{time_total}\\n%{size_download}\\n']' returned non-zero exit status 22.",
-      "ended_at": 1792651862.5702224,
-      "failures": [
-        {
-          "key": "images3|480p",
-          "phase": "warmup",
-          "kind": "cuda_oom",
-          "reason": "CUDA OOM during three-image 480p warmup: 896 MiB allocation requested, 590.62 MiB free; process memory 70.54 GiB. CPU offload disabled.",
-          "time": 1792651862.5702224
-        }
-      ],
-      "error_summary": "CUDA OOM during three-image 480p warmup: 896 MiB allocation requested, 590.62 MiB free; process memory 70.54 GiB. CPU offload disabled.",
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-480p.mp4",
         "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-480p.mp4"
@@ -2156,7 +2163,7 @@
     },
     {
       "id": "pro5000-1gpu-8l",
-      "state": "measuring",
+      "state": "partial",
       "gpus": [
         0
       ],
@@ -2394,7 +2401,9 @@
       "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
       "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
       "ready_at": 1792653110.2183106,
-      "current": "clip|480p",
+      "ended_at": 1792654627.035598,
+      "failures": [],
+      "queue_note": "Paused after a completed configuration for Sage2 quality samples; remaining keys scheduled in resident recovery.",
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-480p.mp4",
         "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-voice-480p.mp4",
@@ -3357,7 +3366,7 @@
     ]
   },
   "fastvideo_status": {
-    "state": "waiting_for_vllm_matrix",
+    "state": "running",
     "planned": [
       "fastvideo-pro5000-1gpu-36l",
       "fastvideo-pro5000-1gpu-8l",
@@ -3367,7 +3376,8 @@
     "completed": [],
     "failed": [],
     "started_at": 1792649177.2306592,
-    "updated_at": 1792649177.2306612
+    "updated_at": 1792654637.686378,
+    "current": "fastvideo-pro5000-1gpu-8l"
   },
   "fastvideo_runs": [
     {
@@ -4433,14 +4443,472 @@
     },
     {
       "id": "fastvideo-pro5000-4gpu-8l-vsa-sage2",
-      "state": "pending",
-      "summaries": [],
-      "media": {},
-      "memory": null,
-      "evidence": []
+      "framework": "FastVideo",
+      "state": "complete",
+      "gpus": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "decoder": "8l",
+      "offload": false,
+      "model": "FastH3-Omni-NVFP4-QAD",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "attention_mode": "vsa-sage2",
+      "attention": "FastVideo VSA + SpargeAttn SageAttention2 INT8 Q/K, FP8 V; FP32 instruction buffer; H3 valid-token adapter",
+      "runtime_revision": "089a5a55a000db41b53fb64bd5f65206de727aba",
+      "reference_canvas": "Native FastVideo 2048 short edge, nearest multiple of 32, Lanczos",
+      "reference_transport": "Typed local references, pre-staged on server; vLLM article runs upload identical bytes.",
+      "parallelism": {
+        "sp_size": 4,
+        "text_encoder_tp": 1,
+        "use_fsdp_inference": false
+      },
+      "execution_env": {
+        "FASTVIDEO_ATTENTION_BACKEND": "VIDEO_SPARSE_ATTN_H3",
+        "FASTVIDEO_H3_VSA_FP4": "0",
+        "FASTVIDEO_VSA_TRITON": "1",
+        "FASTVIDEO_VSA_PTX_BLACKWELL": "0",
+        "FASTVIDEO_FA4": "0",
+        "FASTVIDEO_MINIMAX_H3_FUSIONS": "all",
+        "FASTVIDEO_H3_GATE_CHUNK_ROWS": "8192",
+        "FASTVIDEO_H3_VAE_TILE_BATCH": "8",
+        "FASTVIDEO_H3_ADALN_CACHE": "0",
+        "FASTVIDEO_H3_ENCODER_LAYERWISE": "0",
+        "FASTVIDEO_H3_VAE_INT8_OVERLAY": "0",
+        "FASTVIDEO_H3_REF2VA_MEMO_ENTRIES": "0",
+        "FASTVIDEO_STAGE_LOGGING": "1",
+        "FASTVIDEO_H3_VAE_NVFP4_DECODER": "/tmp/fasth3-official-hf/hub/models--FastVideo--FastH3-NVFP4-VAE-Decoder/snapshots/ddd17469cab7e490b1a04baaf26b247f0f0dcf0e/fast-8L/decoder-nvfp4.safetensors",
+        "FASTH3_ATTENTION_MODE": "vsa-sage2",
+        "FASTH3_ATTENTION_EVIDENCE": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/attention-runs/fastvideo-pro5000-4gpu-8l-vsa-sage2/kernel-evidence"
+      },
+      "started_at": 1792654638.4221375,
+      "summaries": [
+        {
+          "key": "image|480p",
+          "workload": "image",
+          "resolution": "480p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 25687.771,
+            "median": 25683.273,
+            "min": 25683.066,
+            "max": 25696.974000000002,
+            "values": [
+              25683.273,
+              25683.066,
+              25696.974000000002
+            ]
+          },
+          "dit_ms": {
+            "mean": 20193.558180394273,
+            "median": 20195.33813931048,
+            "min": 20183.972674887627,
+            "max": 20201.36372698471,
+            "values": [
+              20183.972674887627,
+              20195.33813931048,
+              20201.36372698471
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 174.48129613573352,
+            "median": 170.42770376428962,
+            "min": 169.94709195569158,
+            "max": 183.06909268721938,
+            "values": [
+              183.06909268721938,
+              169.94709195569158,
+              170.42770376428962
+            ]
+          },
+          "decode_stage_ms": {
+            "mean": 223.62514771521091,
+            "median": 219.58290552720428,
+            "min": 218.99585472419858,
+            "max": 232.2966828942299,
+            "values": [
+              232.2966828942299,
+              218.99585472419858,
+              219.58290552720428
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 25635.333333333332,
+            "median": 25631.0,
+            "min": 25630.0,
+            "max": 25645.0,
+            "values": [
+              25631.0,
+              25630.0,
+              25645.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2157.671986768643,
+            "median": 2155.771379824728,
+            "min": 2153.7493523210287,
+            "max": 2163.4952281601727,
+            "values": [
+              2153.7493523210287,
+              2155.771379824728,
+              2163.4952281601727
+            ]
+          }
+        },
+        {
+          "key": "image|768p",
+          "workload": "image",
+          "resolution": "768p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 43279.486000000004,
+            "median": 43280.656,
+            "min": 43263.874,
+            "max": 43293.928,
+            "values": [
+              43263.874,
+              43293.928,
+              43280.656
+            ]
+          },
+          "dit_ms": {
+            "mean": 37316.38421692575,
+            "median": 37313.83621878922,
+            "min": 37312.874868977815,
+            "max": 37322.441563010216,
+            "values": [
+              37322.441563010216,
+              37312.874868977815,
+              37313.83621878922
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 415.38086626678705,
+            "median": 416.17220593616366,
+            "min": 413.5110010392964,
+            "max": 416.4593918249011,
+            "values": [
+              413.5110010392964,
+              416.17220593616366,
+              416.4593918249011
+            ]
+          },
+          "decode_stage_ms": {
+            "mean": 465.4433092412849,
+            "median": 466.2133138626814,
+            "min": 463.0049169063568,
+            "max": 467.1116969548166,
+            "values": [
+              463.0049169063568,
+              467.1116969548166,
+              466.2133138626814
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 43223.333333333336,
+            "median": 43221.0,
+            "min": 43209.0,
+            "max": 43240.0,
+            "values": [
+              43209.0,
+              43240.0,
+              43221.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2168.757164850831,
+            "median": 2169.5824079215527,
+            "min": 2166.7351108044386,
+            "max": 2169.953975826502,
+            "values": [
+              2166.7351108044386,
+              2169.5824079215527,
+              2169.953975826502
+            ]
+          }
+        }
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "timing": "Native /v1/videos/sync request to full MP4; one excluded warmup, seeds 0/1/2. Model loading excluded. Reference memo disabled.",
+      "ready_at": 1792654684.438572,
+      "ended_at": 1792654965.2384903,
+      "media": {
+        "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-480p.mp4",
+        "image|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-480p-seed1.mp4",
+        "image|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-480p-seed2.mp4",
+        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-768p.mp4",
+        "image|768p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-768p-seed1.mp4",
+        "image|768p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-768p-seed2.mp4"
+      },
+      "config_url": "configs/fastvideo-pro5000-4gpu-8l-vsa-sage2.yaml",
+      "memory": {
+        "max_per_gpu_gib": 71.0576171875,
+        "per_gpu_mib": {
+          "0": 72763,
+          "1": 68287,
+          "2": 68127,
+          "3": 67549
+        }
+      },
+      "evidence": [
+        {
+          "rank": 0,
+          "backend": "vsa-sage2",
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "finite_first_warmup_output": true,
+          "framework": "FastVideo native HTTP server",
+          "entry_point": "sage2_h3_cuda.forward",
+          "logical_tile": 128,
+          "compute_q_tile": 128,
+          "compute_k_tile": 64,
+          "precision": "INT8 Q/K; FP8 E4M3 V; FP32 accumulation with instruction buffer",
+          "q_quantization_block": 128,
+          "k_quantization_block": 64,
+          "v_quantization": "per-channel, scale_max=2.25 (pinned SpargeAttn recipe)",
+          "pv_threshold_pruning": false,
+          "smooth_k": true,
+          "valid_token_mask": true,
+          "partial_logical_tiles": 81,
+          "valid_tokens": 29678,
+          "source_revision": "ae5b629ebb41e41f86b3ea2ab5a3283f13ac151a",
+          "build": {
+            "state": "complete",
+            "torch": "2.13.0+cu130",
+            "cuda": "13.0",
+            "arch": "sm_120a",
+            "source_revision": "ae5b629ebb41e41f86b3ea2ab5a3283f13ac151a",
+            "patch_sha256": "9735b4cf5d93286bcf34287b8b4ab75115b5e92a0cb2353f7ba58d04d85e66ee",
+            "flags": [
+              "-O3",
+              "-std=c++17",
+              "-U__CUDA_NO_HALF_OPERATORS__",
+              "-U__CUDA_NO_HALF_CONVERSIONS__",
+              "-U__CUDA_NO_BFLOAT16_OPERATORS__",
+              "-U__CUDA_NO_BFLOAT16_CONVERSIONS__",
+              "--use_fast_math",
+              "--expt-relaxed-constexpr",
+              "-include",
+              "cassert",
+              "-gencode=arch=compute_120a,code=sm_120a"
+            ],
+            "extensions": [
+              {
+                "name": "sage2_h3_cuda",
+                "sha256": "9194ad79066320e05b7de33c2fd297ae29f087d4a9c20fb2e0a5ff387feeab36"
+              },
+              {
+                "name": "sage2_fused_cuda",
+                "sha256": "836f0075be858c288d0a9d5abcfa7e1ba9fc3d736ec43cbece8a92da0f0082ed"
+              }
+            ],
+            "accumulation": "FP32 instruction buffer (SageAttention2, not Sage2++)",
+            "selection": "FastVideo VSA mask; no Sparge selection, no PV threshold pruning",
+            "adaptation": "Internal padded KV rows masked before every online softmax update; current CUDA stream"
+          },
+          "adapter_sha256": "91a7b8c63f789a67dc8350a8bc5131548960468a6817a259b0f442dc42c230cc"
+        },
+        {
+          "rank": 1,
+          "backend": "vsa-sage2",
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "finite_first_warmup_output": true,
+          "framework": "FastVideo native HTTP server",
+          "entry_point": "sage2_h3_cuda.forward",
+          "logical_tile": 128,
+          "compute_q_tile": 128,
+          "compute_k_tile": 64,
+          "precision": "INT8 Q/K; FP8 E4M3 V; FP32 accumulation with instruction buffer",
+          "q_quantization_block": 128,
+          "k_quantization_block": 64,
+          "v_quantization": "per-channel, scale_max=2.25 (pinned SpargeAttn recipe)",
+          "pv_threshold_pruning": false,
+          "smooth_k": true,
+          "valid_token_mask": true,
+          "partial_logical_tiles": 81,
+          "valid_tokens": 29678,
+          "source_revision": "ae5b629ebb41e41f86b3ea2ab5a3283f13ac151a",
+          "build": {
+            "state": "complete",
+            "torch": "2.13.0+cu130",
+            "cuda": "13.0",
+            "arch": "sm_120a",
+            "source_revision": "ae5b629ebb41e41f86b3ea2ab5a3283f13ac151a",
+            "patch_sha256": "9735b4cf5d93286bcf34287b8b4ab75115b5e92a0cb2353f7ba58d04d85e66ee",
+            "flags": [
+              "-O3",
+              "-std=c++17",
+              "-U__CUDA_NO_HALF_OPERATORS__",
+              "-U__CUDA_NO_HALF_CONVERSIONS__",
+              "-U__CUDA_NO_BFLOAT16_OPERATORS__",
+              "-U__CUDA_NO_BFLOAT16_CONVERSIONS__",
+              "--use_fast_math",
+              "--expt-relaxed-constexpr",
+              "-include",
+              "cassert",
+              "-gencode=arch=compute_120a,code=sm_120a"
+            ],
+            "extensions": [
+              {
+                "name": "sage2_h3_cuda",
+                "sha256": "9194ad79066320e05b7de33c2fd297ae29f087d4a9c20fb2e0a5ff387feeab36"
+              },
+              {
+                "name": "sage2_fused_cuda",
+                "sha256": "836f0075be858c288d0a9d5abcfa7e1ba9fc3d736ec43cbece8a92da0f0082ed"
+              }
+            ],
+            "accumulation": "FP32 instruction buffer (SageAttention2, not Sage2++)",
+            "selection": "FastVideo VSA mask; no Sparge selection, no PV threshold pruning",
+            "adaptation": "Internal padded KV rows masked before every online softmax update; current CUDA stream"
+          },
+          "adapter_sha256": "91a7b8c63f789a67dc8350a8bc5131548960468a6817a259b0f442dc42c230cc"
+        },
+        {
+          "rank": 2,
+          "backend": "vsa-sage2",
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "finite_first_warmup_output": true,
+          "framework": "FastVideo native HTTP server",
+          "entry_point": "sage2_h3_cuda.forward",
+          "logical_tile": 128,
+          "compute_q_tile": 128,
+          "compute_k_tile": 64,
+          "precision": "INT8 Q/K; FP8 E4M3 V; FP32 accumulation with instruction buffer",
+          "q_quantization_block": 128,
+          "k_quantization_block": 64,
+          "v_quantization": "per-channel, scale_max=2.25 (pinned SpargeAttn recipe)",
+          "pv_threshold_pruning": false,
+          "smooth_k": true,
+          "valid_token_mask": true,
+          "partial_logical_tiles": 81,
+          "valid_tokens": 29678,
+          "source_revision": "ae5b629ebb41e41f86b3ea2ab5a3283f13ac151a",
+          "build": {
+            "state": "complete",
+            "torch": "2.13.0+cu130",
+            "cuda": "13.0",
+            "arch": "sm_120a",
+            "source_revision": "ae5b629ebb41e41f86b3ea2ab5a3283f13ac151a",
+            "patch_sha256": "9735b4cf5d93286bcf34287b8b4ab75115b5e92a0cb2353f7ba58d04d85e66ee",
+            "flags": [
+              "-O3",
+              "-std=c++17",
+              "-U__CUDA_NO_HALF_OPERATORS__",
+              "-U__CUDA_NO_HALF_CONVERSIONS__",
+              "-U__CUDA_NO_BFLOAT16_OPERATORS__",
+              "-U__CUDA_NO_BFLOAT16_CONVERSIONS__",
+              "--use_fast_math",
+              "--expt-relaxed-constexpr",
+              "-include",
+              "cassert",
+              "-gencode=arch=compute_120a,code=sm_120a"
+            ],
+            "extensions": [
+              {
+                "name": "sage2_h3_cuda",
+                "sha256": "9194ad79066320e05b7de33c2fd297ae29f087d4a9c20fb2e0a5ff387feeab36"
+              },
+              {
+                "name": "sage2_fused_cuda",
+                "sha256": "836f0075be858c288d0a9d5abcfa7e1ba9fc3d736ec43cbece8a92da0f0082ed"
+              }
+            ],
+            "accumulation": "FP32 instruction buffer (SageAttention2, not Sage2++)",
+            "selection": "FastVideo VSA mask; no Sparge selection, no PV threshold pruning",
+            "adaptation": "Internal padded KV rows masked before every online softmax update; current CUDA stream"
+          },
+          "adapter_sha256": "91a7b8c63f789a67dc8350a8bc5131548960468a6817a259b0f442dc42c230cc"
+        },
+        {
+          "rank": 3,
+          "backend": "vsa-sage2",
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "finite_first_warmup_output": true,
+          "framework": "FastVideo native HTTP server",
+          "entry_point": "sage2_h3_cuda.forward",
+          "logical_tile": 128,
+          "compute_q_tile": 128,
+          "compute_k_tile": 64,
+          "precision": "INT8 Q/K; FP8 E4M3 V; FP32 accumulation with instruction buffer",
+          "q_quantization_block": 128,
+          "k_quantization_block": 64,
+          "v_quantization": "per-channel, scale_max=2.25 (pinned SpargeAttn recipe)",
+          "pv_threshold_pruning": false,
+          "smooth_k": true,
+          "valid_token_mask": true,
+          "partial_logical_tiles": 81,
+          "valid_tokens": 29678,
+          "source_revision": "ae5b629ebb41e41f86b3ea2ab5a3283f13ac151a",
+          "build": {
+            "state": "complete",
+            "torch": "2.13.0+cu130",
+            "cuda": "13.0",
+            "arch": "sm_120a",
+            "source_revision": "ae5b629ebb41e41f86b3ea2ab5a3283f13ac151a",
+            "patch_sha256": "9735b4cf5d93286bcf34287b8b4ab75115b5e92a0cb2353f7ba58d04d85e66ee",
+            "flags": [
+              "-O3",
+              "-std=c++17",
+              "-U__CUDA_NO_HALF_OPERATORS__",
+              "-U__CUDA_NO_HALF_CONVERSIONS__",
+              "-U__CUDA_NO_BFLOAT16_OPERATORS__",
+              "-U__CUDA_NO_BFLOAT16_CONVERSIONS__",
+              "--use_fast_math",
+              "--expt-relaxed-constexpr",
+              "-include",
+              "cassert",
+              "-gencode=arch=compute_120a,code=sm_120a"
+            ],
+            "extensions": [
+              {
+                "name": "sage2_h3_cuda",
+                "sha256": "9194ad79066320e05b7de33c2fd297ae29f087d4a9c20fb2e0a5ff387feeab36"
+              },
+              {
+                "name": "sage2_fused_cuda",
+                "sha256": "836f0075be858c288d0a9d5abcfa7e1ba9fc3d736ec43cbece8a92da0f0082ed"
+              }
+            ],
+            "accumulation": "FP32 instruction buffer (SageAttention2, not Sage2++)",
+            "selection": "FastVideo VSA mask; no Sparge selection, no PV threshold pruning",
+            "adaptation": "Internal padded KV rows masked before every online softmax update; current CUDA stream"
+          },
+          "adapter_sha256": "91a7b8c63f789a67dc8350a8bc5131548960468a6817a259b0f442dc42c230cc"
+        }
+      ]
     }
   ],
-  "priority_sage2_status": {},
+  "priority_sage2_status": {
+    "state": "complete",
+    "started_at": 1792654637.976504,
+    "ended_at": 1792654968.8694594
+  },
   "priority_attention_status": {
     "state": "complete",
     "started_at": 1792651864.0895436,
@@ -4479,17 +4947,17 @@
       "focus": "路线牌文字 · 玻璃反光 · 细线与低照度"
     }
   ],
-  "attention_completed_configurations": 6,
+  "attention_completed_configurations": 8,
   "fastvideo_completed_configurations": 2,
   "completed_configurations": 25,
   "failed_configurations": [
     {
       "run": "pro5000-1gpu-36l",
       "key": "images3|480p",
-      "phase": "warmup",
       "kind": "cuda_oom",
-      "reason": "CUDA OOM during three-image 480p warmup: 896 MiB allocation requested, 590.62 MiB free; process memory 70.54 GiB. CPU offload disabled.",
-      "time": 1792651862.5702224
+      "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+      "detail": "Video generation failed: CUDA out of memory. Tried to allocate 896.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 632.62 MiB is free. Including non-PyTorch memory, this process has 70.50 GiB memory in use. Of the allocated memory 66.46 GiB is allocated by PyTorch, and 3.64 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+      "time": 1792655036.3723192
     }
   ],
   "oom_configurations": 1,
@@ -4686,6 +5154,42 @@
       "bytes": 3695820,
       "sha256": "8858207cd751c0fa4a683362e576438a6b5ffe1e879d03391419e104db89426e",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage2-image-480p-seed1.mp4",
+      "bytes": 1927088,
+      "sha256": "fb98e69dc606c7aa139627c92433ee292528383ea53201d59ab9ba867f3a006f",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-480p-seed1.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage2-image-480p-seed2.mp4",
+      "bytes": 1881226,
+      "sha256": "e803aace198509c6fdbfa07678df47306c00bdaae31b91327e9ddba56d5c3c7a",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-480p-seed2.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage2-image-480p.mp4",
+      "bytes": 1879217,
+      "sha256": "de669138764288fe0d293768976275f06cd01fe629c730ab9c7ac73a14c42250",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-480p.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage2-image-768p-seed1.mp4",
+      "bytes": 4051960,
+      "sha256": "c2459df30d057c273d7596aa9587eb8b2bc19ca63f68e317f9685b4baf810e36",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-768p-seed1.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage2-image-768p-seed2.mp4",
+      "bytes": 3883309,
+      "sha256": "65e7bb067be7342b516d7f64b8d41231302e1e34ed17bf862eecbd28be8ddc35",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-768p-seed2.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage2-image-768p.mp4",
+      "bytes": 3665765,
+      "sha256": "a9edb5557d56ee91b6cb1d21d8633196f8c71828dbbf5cd5f842c8c954e2ed1d",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage2-image-768p.mp4"
     },
     {
       "file": "fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p-seed1.mp4",
