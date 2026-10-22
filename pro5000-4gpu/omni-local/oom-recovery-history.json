@@ -1,0 +1,1164 @@
+{
+  "updated_at": 1792665134.7183113,
+  "records": [
+    {
+      "configuration": "pro5000-1gpu-36l-module-offload",
+      "resident_configuration": "pro5000-1gpu-36l",
+      "key": "images3|480p",
+      "decoder": "36l",
+      "strategy": "module",
+      "before": "oom",
+      "after": "success",
+      "recovered": true,
+      "transition": "OOM → Success",
+      "resident_failures": [
+        {
+          "key": "images3|480p",
+          "phase": "warmup",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM during three-image 480p warmup: 896 MiB allocation requested, 590.62 MiB free; process memory 70.54 GiB. CPU offload disabled.",
+          "time": 1792651862.5702224,
+          "memory": {
+            "max_per_gpu_gib": 70.6083984375,
+            "per_gpu_mib": {
+              "0": 72303
+            },
+            "peak_total_gib": 70.6083984375,
+            "samples": 27,
+            "sampling_interval_s": 0.6903915405273438,
+            "max_sampling_gap_s": 0.6985259056091309,
+            "started_at": 1792651844.0,
+            "ended_at": 1792651862.5702224,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        },
+        {
+          "key": "images3|480p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 896.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 632.62 MiB is free. Including non-PyTorch memory, this process has 70.50 GiB memory in use. Of the allocated memory 66.46 GiB is allocated by PyTorch, and 3.64 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792655036.3723192,
+          "memory": {
+            "max_per_gpu_gib": 70.5068359375,
+            "per_gpu_mib": {
+              "0": 72199
+            },
+            "peak_total_gib": 70.5068359375,
+            "samples": 28,
+            "sampling_interval_s": 0.6903915405273438,
+            "max_sampling_gap_s": 0.7848227024078369,
+            "started_at": 1792655018.0,
+            "ended_at": 1792655036.3723192,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 70.5068359375,
+        "per_gpu_mib": {
+          "0": 72199
+        },
+        "peak_total_gib": 70.5068359375,
+        "samples": 28,
+        "sampling_interval_s": 0.6903915405273438,
+        "max_sampling_gap_s": 0.7848227024078369,
+        "started_at": 1792655018.0,
+        "ended_at": 1792655036.3723192,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": {
+        "max_per_gpu_gib": 58.2607421875,
+        "per_gpu_mib": {
+          "0": 59659
+        },
+        "peak_total_gib": 58.2607421875,
+        "requests_with_samples": 3,
+        "requests_expected": 3
+      },
+      "memory_scope": "measured_requests",
+      "measured_seeds": [
+        0,
+        1,
+        2
+      ],
+      "active_request": null,
+      "summary": {
+        "key": "images3|480p",
+        "workload": "images3",
+        "resolution": "480p",
+        "samples": 3,
+        "e2e_ms": {
+          "mean": 184864.20033333334,
+          "median": 184928.529,
+          "min": 184731.146,
+          "max": 184932.926,
+          "values": [
+            184928.529,
+            184932.926,
+            184731.146
+          ]
+        },
+        "dit_ms": {
+          "mean": 162805.8188192857,
+          "median": 162819.14292182773,
+          "min": 162710.43626312166,
+          "max": 162887.87727290764,
+          "values": [
+            162819.14292182773,
+            162887.87727290764,
+            162710.43626312166
+          ]
+        },
+        "video_vae_ms": {
+          "mean": 3685.7377492512264,
+          "median": 3686.1877269111574,
+          "min": 3683.3842149935663,
+          "max": 3687.641305848956,
+          "values": [
+            3683.3842149935663,
+            3687.641305848956,
+            3686.1877269111574
+          ]
+        },
+        "server_inference_ms": {
+          "mean": 184754.0,
+          "median": 184817.0,
+          "min": 184622.0,
+          "max": 184823.0,
+          "values": [
+            184817.0,
+            184823.0,
+            184622.0
+          ]
+        },
+        "encode_prompt_ms": {
+          "mean": 8307.685992370049,
+          "median": 8307.073731906712,
+          "min": 8288.233594037592,
+          "max": 8327.750651165843,
+          "values": [
+            8288.233594037592,
+            8307.073731906712,
+            8327.750651165843
+          ]
+        },
+        "reference_encode_ms": {
+          "mean": 8428.019019464651,
+          "median": 8430.278369225562,
+          "min": 8414.827914908528,
+          "max": 8438.950774259865,
+          "values": [
+            8430.278369225562,
+            8438.950774259865,
+            8414.827914908528
+          ]
+        },
+        "memory": {
+          "max_per_gpu_gib": 58.2607421875,
+          "per_gpu_mib": {
+            "0": 59659
+          },
+          "peak_total_gib": 58.2607421875,
+          "requests_with_samples": 3,
+          "requests_expected": 3
+        }
+      },
+      "completed_at": 1792663510.887378,
+      "config_url": "configs/pro5000-1gpu-36l-module-offload.yaml",
+      "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+    },
+    {
+      "configuration": "pro5000-1gpu-36l-layerwise-offload",
+      "resident_configuration": "pro5000-1gpu-36l",
+      "key": "images3|480p",
+      "decoder": "36l",
+      "strategy": "layerwise",
+      "before": "oom",
+      "after": "measuring",
+      "recovered": false,
+      "transition": "OOM → measuring",
+      "resident_failures": [
+        {
+          "key": "images3|480p",
+          "phase": "warmup",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM during three-image 480p warmup: 896 MiB allocation requested, 590.62 MiB free; process memory 70.54 GiB. CPU offload disabled.",
+          "time": 1792651862.5702224,
+          "memory": {
+            "max_per_gpu_gib": 70.6083984375,
+            "per_gpu_mib": {
+              "0": 72303
+            },
+            "peak_total_gib": 70.6083984375,
+            "samples": 27,
+            "sampling_interval_s": 0.6903915405273438,
+            "max_sampling_gap_s": 0.6985259056091309,
+            "started_at": 1792651844.0,
+            "ended_at": 1792651862.5702224,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        },
+        {
+          "key": "images3|480p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 896.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 632.62 MiB is free. Including non-PyTorch memory, this process has 70.50 GiB memory in use. Of the allocated memory 66.46 GiB is allocated by PyTorch, and 3.64 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792655036.3723192,
+          "memory": {
+            "max_per_gpu_gib": 70.5068359375,
+            "per_gpu_mib": {
+              "0": 72199
+            },
+            "peak_total_gib": 70.5068359375,
+            "samples": 28,
+            "sampling_interval_s": 0.6903915405273438,
+            "max_sampling_gap_s": 0.7848227024078369,
+            "started_at": 1792655018.0,
+            "ended_at": 1792655036.3723192,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 70.5068359375,
+        "per_gpu_mib": {
+          "0": 72199
+        },
+        "peak_total_gib": 70.5068359375,
+        "samples": 28,
+        "sampling_interval_s": 0.6903915405273438,
+        "max_sampling_gap_s": 0.7848227024078369,
+        "started_at": 1792655018.0,
+        "ended_at": 1792655036.3723192,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": {
+        "max_per_gpu_gib": 23.9033203125,
+        "per_gpu_mib": {
+          "0": 24477
+        },
+        "peak_total_gib": 23.9033203125,
+        "samples": 263,
+        "sampling_interval_s": 0.7007982730865479,
+        "max_sampling_gap_s": 0.8267128467559814,
+        "started_at": 1792664826.8688245,
+        "ended_at": 1792665010.8389118,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_scope": "warmup",
+      "measured_seeds": [],
+      "active_request": {
+        "phase": "measured",
+        "seed": 0,
+        "workload": "images3",
+        "resolution": "480p",
+        "started_at": 1792665010.9314115,
+        "output": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/offload-runs/pro5000-1gpu-36l-layerwise-offload/480p/images3/measured-seed0.mp4",
+        "state": "running"
+      },
+      "summary": null,
+      "completed_at": null,
+      "config_url": "configs/pro5000-1gpu-36l-layerwise-offload.yaml",
+      "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+    },
+    {
+      "configuration": "pro5000-1gpu-36l-module-offload",
+      "resident_configuration": "pro5000-1gpu-36l",
+      "key": "video|480p",
+      "decoder": "36l",
+      "strategy": "module",
+      "before": "oom",
+      "after": "success",
+      "recovered": true,
+      "transition": "OOM → Success",
+      "resident_failures": [
+        {
+          "key": "video|480p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1014.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 208.62 MiB is free. Including non-PyTorch memory, this process has 70.91 GiB memory in use. Of the allocated memory 67.82 GiB is allocated by PyTorch, and 2.69 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792655396.8972323,
+          "memory": {
+            "max_per_gpu_gib": 70.3310546875,
+            "per_gpu_mib": {
+              "0": 72019
+            },
+            "peak_total_gib": 70.3310546875,
+            "samples": 56,
+            "sampling_interval_s": 0.6903915405273438,
+            "max_sampling_gap_s": 0.815047025680542,
+            "started_at": 1792655357.0,
+            "ended_at": 1792655396.8972323,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 70.3310546875,
+        "per_gpu_mib": {
+          "0": 72019
+        },
+        "peak_total_gib": 70.3310546875,
+        "samples": 56,
+        "sampling_interval_s": 0.6903915405273438,
+        "max_sampling_gap_s": 0.815047025680542,
+        "started_at": 1792655357.0,
+        "ended_at": 1792655396.8972323,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": {
+        "max_per_gpu_gib": 58.2314453125,
+        "per_gpu_mib": {
+          "0": 59629
+        },
+        "peak_total_gib": 58.2314453125,
+        "requests_with_samples": 3,
+        "requests_expected": 3
+      },
+      "memory_scope": "measured_requests",
+      "measured_seeds": [
+        0,
+        1,
+        2
+      ],
+      "active_request": null,
+      "summary": {
+        "key": "video|480p",
+        "workload": "video",
+        "resolution": "480p",
+        "samples": 3,
+        "e2e_ms": {
+          "mean": 138704.87266666666,
+          "median": 138586.206,
+          "min": 138565.518,
+          "max": 138962.894,
+          "values": [
+            138586.206,
+            138962.894,
+            138565.518
+          ]
+        },
+        "dit_ms": {
+          "mean": 93454.60629214843,
+          "median": 93485.01946311444,
+          "min": 93326.10247237608,
+          "max": 93552.69694095477,
+          "values": [
+            93485.01946311444,
+            93552.69694095477,
+            93326.10247237608
+          ]
+        },
+        "video_vae_ms": {
+          "mean": 5710.58312881117,
+          "median": 5695.958562195301,
+          "min": 5647.680288180709,
+          "max": 5788.110536057502,
+          "values": [
+            5788.110536057502,
+            5695.958562195301,
+            5647.680288180709
+          ]
+        },
+        "server_inference_ms": {
+          "mean": 138683.0,
+          "median": 138564.0,
+          "min": 138544.0,
+          "max": 138941.0,
+          "values": [
+            138564.0,
+            138941.0,
+            138544.0
+          ]
+        },
+        "encode_prompt_ms": {
+          "mean": 1900.0119268894196,
+          "median": 1926.6066658310592,
+          "min": 1843.8989957794547,
+          "max": 1929.5301190577447,
+          "values": [
+            1843.8989957794547,
+            1929.5301190577447,
+            1926.6066658310592
+          ]
+        },
+        "reference_encode_ms": {
+          "mean": 34560.7902056848,
+          "median": 34580.97725082189,
+          "min": 34443.61274316907,
+          "max": 34657.780623063445,
+          "values": [
+            34443.61274316907,
+            34657.780623063445,
+            34580.97725082189
+          ]
+        },
+        "memory": {
+          "max_per_gpu_gib": 58.2314453125,
+          "per_gpu_mib": {
+            "0": 59629
+          },
+          "peak_total_gib": 58.2314453125,
+          "requests_with_samples": 3,
+          "requests_expected": 3
+        }
+      },
+      "completed_at": 1792664154.2283714,
+      "config_url": "configs/pro5000-1gpu-36l-module-offload.yaml",
+      "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+    },
+    {
+      "configuration": "pro5000-1gpu-36l-layerwise-offload",
+      "resident_configuration": "pro5000-1gpu-36l",
+      "key": "video|480p",
+      "decoder": "36l",
+      "strategy": "layerwise",
+      "before": "oom",
+      "after": "queued",
+      "recovered": false,
+      "transition": "OOM → queued",
+      "resident_failures": [
+        {
+          "key": "video|480p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1014.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 208.62 MiB is free. Including non-PyTorch memory, this process has 70.91 GiB memory in use. Of the allocated memory 67.82 GiB is allocated by PyTorch, and 2.69 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792655396.8972323,
+          "memory": {
+            "max_per_gpu_gib": 70.3310546875,
+            "per_gpu_mib": {
+              "0": 72019
+            },
+            "peak_total_gib": 70.3310546875,
+            "samples": 56,
+            "sampling_interval_s": 0.6903915405273438,
+            "max_sampling_gap_s": 0.815047025680542,
+            "started_at": 1792655357.0,
+            "ended_at": 1792655396.8972323,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 70.3310546875,
+        "per_gpu_mib": {
+          "0": 72019
+        },
+        "peak_total_gib": 70.3310546875,
+        "samples": 56,
+        "sampling_interval_s": 0.6903915405273438,
+        "max_sampling_gap_s": 0.815047025680542,
+        "started_at": 1792655357.0,
+        "ended_at": 1792655396.8972323,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": null,
+      "memory_scope": null,
+      "measured_seeds": [],
+      "active_request": null,
+      "summary": null,
+      "completed_at": null,
+      "config_url": "configs/pro5000-1gpu-36l-layerwise-offload.yaml",
+      "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+    },
+    {
+      "configuration": "pro5000-1gpu-8l-module-offload",
+      "resident_configuration": "pro5000-1gpu-8l",
+      "key": "video|480p",
+      "decoder": "8l",
+      "strategy": "module",
+      "before": "oom",
+      "after": "success",
+      "recovered": true,
+      "transition": "OOM → Success",
+      "resident_failures": [
+        {
+          "key": "video|480p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1014.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 876.62 MiB is free. Including non-PyTorch memory, this process has 70.26 GiB memory in use. Of the allocated memory 66.82 GiB is allocated by PyTorch, and 3.03 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792657304.721407,
+          "memory": {
+            "max_per_gpu_gib": 71.1220703125,
+            "per_gpu_mib": {
+              "0": 72829
+            },
+            "peak_total_gib": 71.1220703125,
+            "samples": 121,
+            "sampling_interval_s": 0.6674224138259888,
+            "max_sampling_gap_s": 0.7536334991455078,
+            "started_at": 1792657223.0,
+            "ended_at": 1792657304.721407,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 71.1220703125,
+        "per_gpu_mib": {
+          "0": 72829
+        },
+        "peak_total_gib": 71.1220703125,
+        "samples": 121,
+        "sampling_interval_s": 0.6674224138259888,
+        "max_sampling_gap_s": 0.7536334991455078,
+        "started_at": 1792657223.0,
+        "ended_at": 1792657304.721407,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": {
+        "max_per_gpu_gib": 58.2451171875,
+        "per_gpu_mib": {
+          "0": 59643
+        },
+        "peak_total_gib": 58.2451171875,
+        "requests_with_samples": 3,
+        "requests_expected": 3
+      },
+      "memory_scope": "measured_requests",
+      "measured_seeds": [
+        0,
+        1,
+        2
+      ],
+      "active_request": null,
+      "summary": {
+        "key": "video|480p",
+        "workload": "video",
+        "resolution": "480p",
+        "samples": 3,
+        "e2e_ms": {
+          "mean": 132738.67033333334,
+          "median": 132738.097,
+          "min": 132631.63499999998,
+          "max": 132846.279,
+          "values": [
+            132631.63499999998,
+            132846.279,
+            132738.097
+          ]
+        },
+        "dit_ms": {
+          "mean": 93064.74105486025,
+          "median": 93053.7848090753,
+          "min": 93046.8947053887,
+          "max": 93093.54365011677,
+          "values": [
+            93093.54365011677,
+            93053.7848090753,
+            93046.8947053887
+          ]
+        },
+        "video_vae_ms": {
+          "mean": 851.438942210128,
+          "median": 848.6167867667973,
+          "min": 848.169606178999,
+          "max": 857.5304336845875,
+          "values": [
+            857.5304336845875,
+            848.169606178999,
+            848.6167867667973
+          ]
+        },
+        "server_inference_ms": {
+          "mean": 132725.0,
+          "median": 132725.0,
+          "min": 132618.0,
+          "max": 132832.0,
+          "values": [
+            132618.0,
+            132832.0,
+            132725.0
+          ]
+        },
+        "encode_prompt_ms": {
+          "mean": 1797.920214633147,
+          "median": 1805.470170918852,
+          "min": 1718.9426659606397,
+          "max": 1869.347807019949,
+          "values": [
+            1718.9426659606397,
+            1869.347807019949,
+            1805.470170918852
+          ]
+        },
+        "reference_encode_ms": {
+          "mean": 34460.17497514064,
+          "median": 34475.179869215935,
+          "min": 34369.974481873214,
+          "max": 34535.370574332774,
+          "values": [
+            34369.974481873214,
+            34475.179869215935,
+            34535.370574332774
+          ]
+        },
+        "memory": {
+          "max_per_gpu_gib": 58.2451171875,
+          "per_gpu_mib": {
+            "0": 59643
+          },
+          "peak_total_gib": 58.2451171875,
+          "requests_with_samples": 3,
+          "requests_expected": 3
+        }
+      },
+      "completed_at": 1792664757.438151,
+      "config_url": "configs/pro5000-1gpu-8l-module-offload.yaml",
+      "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+    },
+    {
+      "configuration": "pro5000-1gpu-8l-layerwise-offload",
+      "resident_configuration": "pro5000-1gpu-8l",
+      "key": "video|480p",
+      "decoder": "8l",
+      "strategy": "layerwise",
+      "before": "oom",
+      "after": "queued",
+      "recovered": false,
+      "transition": "OOM → queued",
+      "resident_failures": [
+        {
+          "key": "video|480p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1014.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 876.62 MiB is free. Including non-PyTorch memory, this process has 70.26 GiB memory in use. Of the allocated memory 66.82 GiB is allocated by PyTorch, and 3.03 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792657304.721407,
+          "memory": {
+            "max_per_gpu_gib": 71.1220703125,
+            "per_gpu_mib": {
+              "0": 72829
+            },
+            "peak_total_gib": 71.1220703125,
+            "samples": 121,
+            "sampling_interval_s": 0.6674224138259888,
+            "max_sampling_gap_s": 0.7536334991455078,
+            "started_at": 1792657223.0,
+            "ended_at": 1792657304.721407,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 71.1220703125,
+        "per_gpu_mib": {
+          "0": 72829
+        },
+        "peak_total_gib": 71.1220703125,
+        "samples": 121,
+        "sampling_interval_s": 0.6674224138259888,
+        "max_sampling_gap_s": 0.7536334991455078,
+        "started_at": 1792657223.0,
+        "ended_at": 1792657304.721407,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": null,
+      "memory_scope": null,
+      "measured_seeds": [],
+      "active_request": null,
+      "summary": null,
+      "completed_at": null,
+      "config_url": null,
+      "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
+      "checkpoint_revision": null
+    },
+    {
+      "configuration": "pro5000-1gpu-36l-module-offload",
+      "resident_configuration": "pro5000-1gpu-36l",
+      "key": "images3|768p",
+      "decoder": "36l",
+      "strategy": "module",
+      "before": "oom",
+      "after": "queued",
+      "recovered": false,
+      "transition": "OOM → queued",
+      "resident_failures": [
+        {
+          "key": "images3|768p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1.10 GiB. GPU 0 has a total capacity of 71.12 GiB of which 4.62 MiB is free. Including non-PyTorch memory, this process has 71.11 GiB memory in use. Of the allocated memory 67.26 GiB is allocated by PyTorch, and 3.45 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792656573.6605508,
+          "memory": {
+            "max_per_gpu_gib": 68.1845703125,
+            "per_gpu_mib": {
+              "0": 69821
+            },
+            "peak_total_gib": 68.1845703125,
+            "samples": 26,
+            "sampling_interval_s": 0.6903915405273438,
+            "max_sampling_gap_s": 0.7187235355377197,
+            "started_at": 1792656556.0,
+            "ended_at": 1792656573.6605508,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 68.1845703125,
+        "per_gpu_mib": {
+          "0": 69821
+        },
+        "peak_total_gib": 68.1845703125,
+        "samples": 26,
+        "sampling_interval_s": 0.6903915405273438,
+        "max_sampling_gap_s": 0.7187235355377197,
+        "started_at": 1792656556.0,
+        "ended_at": 1792656573.6605508,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": null,
+      "memory_scope": null,
+      "measured_seeds": [],
+      "active_request": null,
+      "summary": null,
+      "completed_at": null,
+      "config_url": "configs/pro5000-1gpu-36l-module-offload.yaml",
+      "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+    },
+    {
+      "configuration": "pro5000-1gpu-36l-layerwise-offload",
+      "resident_configuration": "pro5000-1gpu-36l",
+      "key": "images3|768p",
+      "decoder": "36l",
+      "strategy": "layerwise",
+      "before": "oom",
+      "after": "queued",
+      "recovered": false,
+      "transition": "OOM → queued",
+      "resident_failures": [
+        {
+          "key": "images3|768p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1.10 GiB. GPU 0 has a total capacity of 71.12 GiB of which 4.62 MiB is free. Including non-PyTorch memory, this process has 71.11 GiB memory in use. Of the allocated memory 67.26 GiB is allocated by PyTorch, and 3.45 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792656573.6605508,
+          "memory": {
+            "max_per_gpu_gib": 68.1845703125,
+            "per_gpu_mib": {
+              "0": 69821
+            },
+            "peak_total_gib": 68.1845703125,
+            "samples": 26,
+            "sampling_interval_s": 0.6903915405273438,
+            "max_sampling_gap_s": 0.7187235355377197,
+            "started_at": 1792656556.0,
+            "ended_at": 1792656573.6605508,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 68.1845703125,
+        "per_gpu_mib": {
+          "0": 69821
+        },
+        "peak_total_gib": 68.1845703125,
+        "samples": 26,
+        "sampling_interval_s": 0.6903915405273438,
+        "max_sampling_gap_s": 0.7187235355377197,
+        "started_at": 1792656556.0,
+        "ended_at": 1792656573.6605508,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": null,
+      "memory_scope": null,
+      "measured_seeds": [],
+      "active_request": null,
+      "summary": null,
+      "completed_at": null,
+      "config_url": "configs/pro5000-1gpu-36l-layerwise-offload.yaml",
+      "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+    },
+    {
+      "configuration": "pro5000-1gpu-8l-module-offload",
+      "resident_configuration": "pro5000-1gpu-8l",
+      "key": "images3|768p",
+      "decoder": "8l",
+      "strategy": "module",
+      "before": "oom",
+      "after": "queued",
+      "recovered": false,
+      "transition": "OOM → queued",
+      "resident_failures": [
+        {
+          "key": "images3|768p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1.10 GiB. GPU 0 has a total capacity of 71.12 GiB of which 1016.62 MiB is free. Including non-PyTorch memory, this process has 70.12 GiB memory in use. Of the allocated memory 66.27 GiB is allocated by PyTorch, and 3.45 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792658402.0575817,
+          "memory": {
+            "max_per_gpu_gib": 67.1962890625,
+            "per_gpu_mib": {
+              "0": 68809
+            },
+            "peak_total_gib": 67.1962890625,
+            "samples": 28,
+            "sampling_interval_s": 0.6674224138259888,
+            "max_sampling_gap_s": 0.6878526210784912,
+            "started_at": 1792658384.0,
+            "ended_at": 1792658402.0575817,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 67.1962890625,
+        "per_gpu_mib": {
+          "0": 68809
+        },
+        "peak_total_gib": 67.1962890625,
+        "samples": 28,
+        "sampling_interval_s": 0.6674224138259888,
+        "max_sampling_gap_s": 0.6878526210784912,
+        "started_at": 1792658384.0,
+        "ended_at": 1792658402.0575817,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": null,
+      "memory_scope": null,
+      "measured_seeds": [],
+      "active_request": null,
+      "summary": null,
+      "completed_at": null,
+      "config_url": "configs/pro5000-1gpu-8l-module-offload.yaml",
+      "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+    },
+    {
+      "configuration": "pro5000-1gpu-8l-layerwise-offload",
+      "resident_configuration": "pro5000-1gpu-8l",
+      "key": "images3|768p",
+      "decoder": "8l",
+      "strategy": "layerwise",
+      "before": "oom",
+      "after": "queued",
+      "recovered": false,
+      "transition": "OOM → queued",
+      "resident_failures": [
+        {
+          "key": "images3|768p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1.10 GiB. GPU 0 has a total capacity of 71.12 GiB of which 1016.62 MiB is free. Including non-PyTorch memory, this process has 70.12 GiB memory in use. Of the allocated memory 66.27 GiB is allocated by PyTorch, and 3.45 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792658402.0575817,
+          "memory": {
+            "max_per_gpu_gib": 67.1962890625,
+            "per_gpu_mib": {
+              "0": 68809
+            },
+            "peak_total_gib": 67.1962890625,
+            "samples": 28,
+            "sampling_interval_s": 0.6674224138259888,
+            "max_sampling_gap_s": 0.6878526210784912,
+            "started_at": 1792658384.0,
+            "ended_at": 1792658402.0575817,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 67.1962890625,
+        "per_gpu_mib": {
+          "0": 68809
+        },
+        "peak_total_gib": 67.1962890625,
+        "samples": 28,
+        "sampling_interval_s": 0.6674224138259888,
+        "max_sampling_gap_s": 0.6878526210784912,
+        "started_at": 1792658384.0,
+        "ended_at": 1792658402.0575817,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": null,
+      "memory_scope": null,
+      "measured_seeds": [],
+      "active_request": null,
+      "summary": null,
+      "completed_at": null,
+      "config_url": null,
+      "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
+      "checkpoint_revision": null
+    },
+    {
+      "configuration": "pro5000-1gpu-36l-module-offload",
+      "resident_configuration": "pro5000-1gpu-36l",
+      "key": "video|768p",
+      "decoder": "36l",
+      "strategy": "module",
+      "before": "oom",
+      "after": "queued",
+      "recovered": false,
+      "transition": "OOM → queued",
+      "resident_failures": [
+        {
+          "key": "video|768p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1.09 GiB. GPU 0 has a total capacity of 71.12 GiB of which 740.62 MiB is free. Including non-PyTorch memory, this process has 70.39 GiB memory in use. Of the allocated memory 67.47 GiB is allocated by PyTorch, and 2.52 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792657017.1604667,
+          "memory": {
+            "max_per_gpu_gib": 70.4013671875,
+            "per_gpu_mib": {
+              "0": 72091
+            },
+            "peak_total_gib": 70.4013671875,
+            "samples": 57,
+            "sampling_interval_s": 0.6903915405273438,
+            "max_sampling_gap_s": 0.7955026626586914,
+            "started_at": 1792656979.0,
+            "ended_at": 1792657017.1604667,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 70.4013671875,
+        "per_gpu_mib": {
+          "0": 72091
+        },
+        "peak_total_gib": 70.4013671875,
+        "samples": 57,
+        "sampling_interval_s": 0.6903915405273438,
+        "max_sampling_gap_s": 0.7955026626586914,
+        "started_at": 1792656979.0,
+        "ended_at": 1792657017.1604667,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": null,
+      "memory_scope": null,
+      "measured_seeds": [],
+      "active_request": null,
+      "summary": null,
+      "completed_at": null,
+      "config_url": "configs/pro5000-1gpu-36l-module-offload.yaml",
+      "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+    },
+    {
+      "configuration": "pro5000-1gpu-36l-layerwise-offload",
+      "resident_configuration": "pro5000-1gpu-36l",
+      "key": "video|768p",
+      "decoder": "36l",
+      "strategy": "layerwise",
+      "before": "oom",
+      "after": "queued",
+      "recovered": false,
+      "transition": "OOM → queued",
+      "resident_failures": [
+        {
+          "key": "video|768p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1.09 GiB. GPU 0 has a total capacity of 71.12 GiB of which 740.62 MiB is free. Including non-PyTorch memory, this process has 70.39 GiB memory in use. Of the allocated memory 67.47 GiB is allocated by PyTorch, and 2.52 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792657017.1604667,
+          "memory": {
+            "max_per_gpu_gib": 70.4013671875,
+            "per_gpu_mib": {
+              "0": 72091
+            },
+            "peak_total_gib": 70.4013671875,
+            "samples": 57,
+            "sampling_interval_s": 0.6903915405273438,
+            "max_sampling_gap_s": 0.7955026626586914,
+            "started_at": 1792656979.0,
+            "ended_at": 1792657017.1604667,
+            "bounds_source": "server_log_start_second_resolution",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 70.4013671875,
+        "per_gpu_mib": {
+          "0": 72091
+        },
+        "peak_total_gib": 70.4013671875,
+        "samples": 57,
+        "sampling_interval_s": 0.6903915405273438,
+        "max_sampling_gap_s": 0.7955026626586914,
+        "started_at": 1792656979.0,
+        "ended_at": 1792657017.1604667,
+        "bounds_source": "server_log_start_second_resolution",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": null,
+      "memory_scope": null,
+      "measured_seeds": [],
+      "active_request": null,
+      "summary": null,
+      "completed_at": null,
+      "config_url": "configs/pro5000-1gpu-36l-layerwise-offload.yaml",
+      "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+    },
+    {
+      "configuration": "pro5000-1gpu-8l-module-offload",
+      "resident_configuration": "pro5000-1gpu-8l",
+      "key": "video|768p",
+      "decoder": "8l",
+      "strategy": "module",
+      "before": "oom",
+      "after": "queued",
+      "recovered": false,
+      "transition": "OOM → queued",
+      "resident_failures": [
+        {
+          "key": "video|768p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1.01 GiB. GPU 0 has a total capacity of 71.12 GiB of which 698.62 MiB is free. Including non-PyTorch memory, this process has 70.43 GiB memory in use. Of the allocated memory 67.82 GiB is allocated by PyTorch, and 2.21 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792662706.1744902,
+          "started_at": 1792662668.2741017,
+          "ended_at": 1792662706.171642,
+          "phase": "warmup",
+          "seed": 12345,
+          "memory": {
+            "max_per_gpu_gib": 64.8662109375,
+            "per_gpu_mib": {
+              "0": 66423
+            },
+            "peak_total_gib": 64.8662109375,
+            "samples": 56,
+            "sampling_interval_s": 0.6674224138259888,
+            "max_sampling_gap_s": 0.7272751331329346,
+            "started_at": 1792662668.2741017,
+            "ended_at": 1792662706.171642,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 64.8662109375,
+        "per_gpu_mib": {
+          "0": 66423
+        },
+        "peak_total_gib": 64.8662109375,
+        "samples": 56,
+        "sampling_interval_s": 0.6674224138259888,
+        "max_sampling_gap_s": 0.7272751331329346,
+        "started_at": 1792662668.2741017,
+        "ended_at": 1792662706.171642,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": null,
+      "memory_scope": null,
+      "measured_seeds": [],
+      "active_request": null,
+      "summary": null,
+      "completed_at": null,
+      "config_url": "configs/pro5000-1gpu-8l-module-offload.yaml",
+      "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+    },
+    {
+      "configuration": "pro5000-1gpu-8l-layerwise-offload",
+      "resident_configuration": "pro5000-1gpu-8l",
+      "key": "video|768p",
+      "decoder": "8l",
+      "strategy": "layerwise",
+      "before": "oom",
+      "after": "queued",
+      "recovered": false,
+      "transition": "OOM → queued",
+      "resident_failures": [
+        {
+          "key": "video|768p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1.01 GiB. GPU 0 has a total capacity of 71.12 GiB of which 698.62 MiB is free. Including non-PyTorch memory, this process has 70.43 GiB memory in use. Of the allocated memory 67.82 GiB is allocated by PyTorch, and 2.21 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792662706.1744902,
+          "started_at": 1792662668.2741017,
+          "ended_at": 1792662706.171642,
+          "phase": "warmup",
+          "seed": 12345,
+          "memory": {
+            "max_per_gpu_gib": 64.8662109375,
+            "per_gpu_mib": {
+              "0": 66423
+            },
+            "peak_total_gib": 64.8662109375,
+            "samples": 56,
+            "sampling_interval_s": 0.6674224138259888,
+            "max_sampling_gap_s": 0.7272751331329346,
+            "started_at": 1792662668.2741017,
+            "ended_at": 1792662706.171642,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          }
+        }
+      ],
+      "offload_failures": [],
+      "resident_memory": {
+        "max_per_gpu_gib": 64.8662109375,
+        "per_gpu_mib": {
+          "0": 66423
+        },
+        "peak_total_gib": 64.8662109375,
+        "samples": 56,
+        "sampling_interval_s": 0.6674224138259888,
+        "max_sampling_gap_s": 0.7272751331329346,
+        "started_at": 1792662668.2741017,
+        "ended_at": 1792662706.171642,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory": null,
+      "memory_scope": null,
+      "measured_seeds": [],
+      "active_request": null,
+      "summary": null,
+      "completed_at": null,
+      "config_url": null,
+      "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
+      "checkpoint_revision": null
+    }
+  ]
+}

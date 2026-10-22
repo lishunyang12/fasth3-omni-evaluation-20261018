@@ -10,14 +10,18 @@ const query=new URLSearchParams(location.search);
 for(const [key,allowed] of Object.entries({workload:Object.keys(names),resolution:['480p','768p'],decoder:['36l','8l']}))if(allowed.includes(query.get(key)))state[key]=query.get(key);
 const run=(g,d)=>R.runs.find(x=>x.id===`pro5000-${g}gpu-${d}`);
 const result=(g,d,w=state.workload,res=state.resolution)=>run(g,d)?.summaries?.find(x=>x.key===`${w}|${res}`);
-const offloadRun=d=>R.offload_runs?.find(x=>x.id===`pro5000-1gpu-${d}-module-offload`);
-const offloadResult=(d,w=state.workload,res=state.resolution)=>offloadRun(d)?.summaries?.find(x=>x.key===`${w}|${res}`);
-function offloadState(d,w=state.workload,res=state.resolution){
- const r=offloadRun(d),key=`${w}|${res}`,failure=r?.failures?.find(x=>x.key===key);
- if(!R.offload_plan?.cases.some(c=>c.decoder===d&&c.key===key))return 'Not tested';
- if(failure)return failure.kind==='cuda_oom'?'OOM with offload':'Failed with offload';
- const done=(r?.request_memory||[]).filter(x=>x.workload===w&&x.resolution===res&&x.phase==='measured'&&x.status==='complete').length;
- return r?.current===key?`Measuring · ${done}/3 seeds`:'Queued';
+const offloadRun=(d,strategy='module')=>R.offload_runs?.find(x=>x.id===`pro5000-1gpu-${d}-${strategy}-offload`);
+const offloadResult=(d,w=state.workload,res=state.resolution,strategy='module')=>offloadRun(d,strategy)?.summaries?.find(x=>x.key===`${w}|${res}`);
+const offloadRecord=(d,w=state.workload,res=state.resolution,strategy='module')=>R.offload_records?.find(x=>x.decoder===d&&x.key===`${w}|${res}`&&x.strategy===strategy);
+function offloadState(d,w=state.workload,res=state.resolution,strategy='module'){
+ const r=offloadRecord(d,w,res,strategy);
+ if(!r)return 'Not tested';
+ return ({success:'Success · 3/3 seeds',oom:'Still OOM',failed:'Failed',loading:'Loading model',warmup:'Warmup in progress',measuring:`Measuring · ${r.measured_seeds.length}/3 seeds complete`,queued:'Queued · not started'})[r.after]||r.after;
+}
+function offloadPeak(r){
+ if(!r?.memory)return r?.after==='queued'?'Peak not measured yet':'Peak available after request completes';
+ const prefix={measured_requests:'Sampled peak',partial_measured_requests:'Partial measured peak',warmup:'Warmup peak',failed_request:'Failed-request peak'}[r.memory_scope]||'Sampled peak';
+ return `${prefix} ${gib(r.memory)} GiB`;
 }
 function articleStatus(device,w,res,d){
  // The source gives a profile-level capacity statement, not a full OOM matrix.
@@ -41,8 +45,9 @@ function checkpointCard(c,seed=0){
  const r=(R.matched_checkpoint_runs||[]).find(x=>x.case===c),key=state.gallery+'|480p',mediaKey=key+(seed?'|seed'+seed:'');
  const sample=r?.quality_samples?.find(x=>x.workload===state.gallery&&x.seed===seed),m=r?.speed_summaries?.find(x=>x.key===key);
  const timing=m?s(m.e2e_ms.mean)+' s · three-seed mean':sample?s(sample.e2e_ms)+' s · single sample; timing study pending':r?.current===key?'Generating':r?.state==='failed'?'Generation failed':'Queued';
- const title='4× PRO 5000 · '+(c==='bf16'?'Original BF16':'QAD NVFP4');
- const card=videoCard({title,meta:`Original BF16 decoder · vLLM-Omni + CAKE · seed ${seed} · ${timing} · peak ${gib(sample?.memory)} GiB/GPU`,url:r?.media?.[mediaKey],pro:true,key:'matched-'+c});
+ const title='4× PRO 5000 · '+(c==='bf16'?'Original BF16 weights':'QAD NVFP4');
+ const weights=c==='bf16'?'BF16 DiT + text-encoder weights':'NVFP4 QAD DiT + text-encoder linear weights';
+ const card=videoCard({title,meta:`${weights} · Original BF16 decoder · CAKE fine attention: INT8 Q/K + FP8 V · vLLM-Omni · seed ${seed} · ${timing} · peak ${gib(sample?.memory)} GiB/GPU`,url:r?.media?.[mediaKey],pro:true,key:'matched-'+c});
  const model=c==='bf16'?'FastVideo-FastH3-Omni-8-Step-V1':'FastH3-Omni-NVFP4-QAD';
  const checkpoint=`<a class="download" href="https://huggingface.co/FastVideo/${model}">${esc(model)} ↗</a>`;
  const revision=r?.checkpoint_revision?`<span class="download">Revision <code>${esc(r.checkpoint_revision.slice(0,12))}</code></span>`:'';
@@ -119,7 +124,7 @@ function renderGallery(){
  const originals=[{title:'DGX Spark · 36L decoder',prefix:'spark1x-36l',device:'spark1',decoder:'36l'},{title:'DGX Spark · 8L decoder',prefix:'spark1x-8l',device:'spark1',decoder:'8l'},{title:'Apple M5 Max · 36L decoder',prefix:'m5max-36l',device:'m5max',decoder:'36l'}];
  $('source-videos').innerHTML=originals.map(x=>videoCard({title:x.title,meta:shortTime(R.official.latency[`${key}|${x.decoder}`]?.[x.device])+` end to end · ${x.device==='m5max'?'single run':'three-seed mean'} · article`,url:`${source}media/outputs/${x.prefix}-${state.gallery}-480p.mp4`,poster:`${source}media/posters/${x.prefix}-${state.gallery}-480p.jpg`,key:x.prefix})).join('');
  $('pro-videos').innerHTML=['36l','8l'].map(d=>{const m=result(state.galleryGpu,d,state.gallery,'480p');return videoCard({title:`${state.galleryGpu}× PRO 5000 · ${d==='36l'?'36L':'8L'} decoder`,meta:`${m?s(m.e2e_ms.mean)+' s · three-seed mean':pending(state.galleryGpu,d,state.gallery,'480p')} · NVFP4 QAD · vLLM-Omni + CAKE`,url:run(state.galleryGpu,d)?.media?.[key],pro:true,key:'pro-'+d})}).join('');
- $('pro-videos').insertAdjacentHTML('beforeend',checkpointCard('bf16',0));
+ $('pro-videos').insertAdjacentHTML('afterbegin',checkpointCard('bf16',0));
  }
  $('gallery-title').textContent=names[state.gallery]+' · 5 s request';$('gallery-status').textContent=names[state.gallery]+(checkpointView&&!document.querySelector('#matched-checkpoint-videos video,#matched-decoder-videos video')?'. Waiting for the matched BF16/QAD outputs.':'. Ready to compare available outputs.');
  $('prompt-source').href=w.source_url;$('prompt-hash').textContent=w.prompt_sha256;
@@ -131,19 +136,22 @@ function renderChart(){
  const key=`${state.workload}|${state.resolution}|${state.decoder}`,original=R.official.latency[key]||{};
  const workloadKey=`${state.workload}|${state.resolution}`,offload=offloadRun(state.decoder),recovered=offloadResult(state.decoder),planned=R.offload_plan?.cases.some(c=>c.decoder===state.decoder&&c.key===workloadKey);
  const rows=[4,1].map(g=>({label:`${g}× RTX PRO 5000`,note:`vLLM-Omni · NVFP4 QAD · CAKE · GPU resident · sampled peak ${gib(memoryFor(run(g,state.decoder),workloadKey))} GiB/GPU`,value:result(g,state.decoder)?.e2e_ms.mean/1000,kind:'pro',missing:pending(g,state.decoder)}));
- if(planned)rows.push({label:'1× RTX PRO 5000 · offload',note:`Same request · module CPU offload · sampled peak ${gib(memoryFor(offload,workloadKey))} GiB`,value:recovered?.e2e_ms.mean/1000,kind:'pro offload',missing:offloadState(state.decoder)});
+ for(const strategy of ['module','layerwise']){
+  const record=offloadRecord(state.decoder,state.workload,state.resolution,strategy);
+  if(record)rows.push({label:`1× RTX PRO 5000 · ${strategy} offload`,note:`${record.recovered?'Previously OOM → now successful':'Previously OOM · recovery test'} · ${offloadPeak(record)}`,value:record.summary?.e2e_ms.mean/1000,kind:`pro offload ${strategy}`,missing:offloadState(state.decoder,state.workload,state.resolution,strategy)});
+ }
  rows.push(...R.official.devices.map(d=>({label:d.label,note:d.note,value:original[d.key],kind:d.key.startsWith('spark')?'spark':'other',missing:articleStatus(d.key,state.workload,state.resolution,state.decoder)})));
  const max=Math.max(...rows.filter(x=>Number.isFinite(x.value)).map(x=>x.value),1);
  $('chart-title').textContent=`${names[state.workload]} · ${state.resolution} · ${state.decoder==='36l'?'36':'8'}-layer decoder`;
  $('latency-chart').innerHTML=rows.map(r=>`<div class="bar-row ${r.kind}"><div class="bar-label">${esc(r.label)}<small>${esc(r.note)}</small></div><div class="bar-area">${Number.isFinite(r.value)?`<div class="bar ${r.kind}" style="width:${r.value/max*100}%" title="${r.value.toFixed(3)} seconds"><span class="bar-value">${shortTime(r.value)}</span></div>`:`<span class="bar-missing">${esc(r.missing)}</span>`}</div></div>`).join('');
  const resident=result(1,state.decoder),residentStatus=pending(1,state.decoder);
- $('capacity-summary').innerHTML=planned?`<strong>${recovered?'Single-GPU OOM recovered with module offload.':'Single-GPU memory recovery test.'}</strong> GPU resident: ${esc(residentStatus)}. ${recovered?`The same input completes in ${s(recovered.e2e_ms.mean)} s (three-seed mean), with a sampled peak of ${gib(recovered.memory)} GiB. Component transfers are included.`:`Module offload: ${esc(offloadState(state.decoder))}. A successful warmup or partial seed set is not a completed benchmark.`} <a href="#module-offload">Request results and outputs →</a>`:resident?`<strong>Single-GPU resident execution.</strong> ${s(resident.e2e_ms.mean)} s, sampled peak ${gib(resident.memory)} GiB. CPU offload is disabled. Memory capacity is assessed through completed request sizes and offload requirements.`:'Single-GPU capacity will be assessed after the request completes.';
+ $('capacity-summary').innerHTML=planned?`<strong>Original resident result: ${esc(residentStatus)}.</strong> ${['module','layerwise'].map(strategy=>{const r=offloadRecord(state.decoder,state.workload,state.resolution,strategy);return !r?'':r.recovered?`${strategy==='module'?'Module':'Layerwise'} CPU offload: <strong>OOM → Success (3/3 seeds)</strong>, ${s(r.summary.e2e_ms.mean)} s, ${offloadPeak(r)}.`:`${strategy==='module'?'Module':'Layerwise'} CPU offload: ${esc(offloadState(state.decoder,state.workload,state.resolution,strategy))}.`;}).join(' ')} Transfers are included. <a href="#module-offload">Full history and outputs →</a>`:resident?`<strong>Single-GPU resident execution.</strong> ${s(resident.e2e_ms.mean)} s, sampled peak ${gib(resident.memory)} GiB. CPU offload is disabled. Memory capacity is assessed through completed request sizes and offload requirements.`:'Single-GPU capacity will be assessed after the request completes.';
  renderStages();renderMatrix();
 }
 function renderStages(){
  $('stage-policy').disabled=state.stageGpu!==1;
- const useOffload=state.stageGpu===1&&$('stage-policy').value==='offload',r=useOffload?offloadRun(state.decoder):run(state.stageGpu,state.decoder),m=useOffload?offloadResult(state.decoder):result(state.stageGpu,state.decoder);
- if(!m){$('stages').innerHTML=`<p class="small">${useOffload?offloadState(state.decoder):pending(state.stageGpu,state.decoder)} — stage timings will appear when all three measurements complete.</p>`;return}
+ const useOffload=state.stageGpu===1&&$('stage-policy').value!=='resident',strategy=$('stage-policy').value==='layerwise'?'layerwise':'module',r=useOffload?offloadRun(state.decoder,strategy):run(state.stageGpu,state.decoder),m=useOffload?offloadResult(state.decoder,state.workload,state.resolution,strategy):result(state.stageGpu,state.decoder);
+ if(!m){$('stages').innerHTML=`<p class="small">${useOffload?offloadState(state.decoder,state.workload,state.resolution,strategy):pending(state.stageGpu,state.decoder)} — stage timings will appear when all three measurements complete.</p>`;return}
  const total=m.e2e_ms.mean,parts=[{name:'DiT',value:m.dit_ms?.mean||0,color:'#147851'},{name:'Prompt encoding',value:m.encode_prompt_ms?.mean||0,color:'#4989c4'},{name:'Reference encoding',value:m.reference_encode_ms?.mean||0,color:'#8bb6d3'},{name:'Video decoding',value:m.video_vae_ms?.mean||0,color:'#c79751'}];
  const used=parts.reduce((n,p)=>n+p.value,0);parts.push({name:'Audio, MP4 & other',value:Math.max(0,total-used),color:'#b8bdb7'});
  $('stages').innerHTML=`<div class="stage-total"><strong>${s(total)} s mean</strong> · range ${s(m.e2e_ms.min)}–${s(m.e2e_ms.max)} s · ${r.offload?'CPU offload':'GPU resident'}</div><div class="stage-stack">${parts.map(p=>`<span style="width:${p.value/Math.max(total,used)*100}%;background:${p.color}"></span>`).join('')}</div><div class="stage-values">${parts.map(p=>`<div><i class="key" style="background:${p.color}"></i>${p.name}<b>${s(p.value)} s</b></div>`).join('')}</div><p class="small">${m.memory?`Peak during this configuration’s measured requests: ${gib(m.memory)} GiB/GPU. ${memTitle(m.memory)}.`:''} Stage means are recorded by the server; the remainder includes audio decoding, encoding the MP4 and transport.</p>`;
@@ -222,10 +230,11 @@ function renderMemory(){
  $('memory-table').tBodies[0].innerHTML=rows.map(r=>{const m=r.memory;return `<tr><th>${esc(r.configuration)}</th><td>${esc(names[r.workload]||r.workload)}</td><td>${esc(r.resolution)}</td><td>${r.seed??'Unknown'} / ${esc(r.phase)}</td><td>${esc(r.status)}${r.oom_reported_process_gib?`<small class="memory-note">OOM process report: ${r.oom_reported_process_gib.toFixed(2)} GiB</small>`:''}</td><td>${s(r.e2e_ms)}</td><td>${gib(m)}</td><td>${Number.isFinite(m?.peak_total_gib)?m.peak_total_gib.toFixed(2):'—'}</td><td>${m?Object.entries(m.per_gpu_mib).map(([g,v])=>`GPU ${g}: ${(v/1024).toFixed(2)}`).join('<br>'):'—'}</td><td>${m?`${m.samples} samples · ${m.sampling_interval_s?.toFixed(2)??'—'} s cadence${m.bounds_source==='server_log_start_second_resolution'?'<small class="memory-note">Start recovered from server log</small>':''}`:esc(r.memory_status)}</td></tr>`}).join('');
 }
 function renderOffload(){
- const cases=R.offload_plan?.cases||[];let complete=0;
- $('offload-table').tBodies[0].innerHTML=cases.map(c=>{const r=R.offload_runs?.find(x=>x.id===c.id),m=r?.summaries?.find(x=>x.key===c.key),[w,res]=c.key.split('|'),resident=run(1,c.decoder),url=r?.media?.[c.key];if(m)complete++;
- return `<tr><th>${esc(names[w])}</th><td>${res}</td><td>${c.decoder.toUpperCase()}</td><td>${pending(1,c.decoder,w,res)}</td><td>${gib(memoryFor(resident,c.key))}</td><td>${m?s(m.e2e_ms.mean):esc(offloadState(c.decoder,w,res))}</td><td>${gib(memoryFor(r,c.key))}</td><td>${url?`<a href="${esc(url)}">Original MP4 ↗</a>`:'—'}${r?.config_url?`<br><a href="${esc(r.config_url)}" download>Config YAML ↓</a>`:''}</td></tr>`;}).join('');
- $('offload-status').textContent=`${complete} / ${cases.length} module-offload configurations completed. Three seeds per configuration after an excluded warmup.`;
+ const records=R.offload_records||[],done=records.filter(r=>r.recovered),recovered=new Set(done.map(r=>r.decoder+'|'+r.key)),keys=[...new Set(records.map(r=>r.decoder+'|'+r.key))];
+ $('offload-table').tBodies[0].innerHTML=records.map(c=>{const r=offloadRun(c.decoder,c.strategy),m=c.summary,[w,res]=c.key.split('|'),url=r?.media?.[c.key];
+ return `<tr data-configuration="${esc(c.configuration)}" data-key="${esc(c.key)}"><th>${esc(names[w])}</th><td>${res}</td><td>${c.decoder.toUpperCase()}</td><td>${c.strategy==='module'?'Module':'Layerwise'}</td><td class="${c.recovered?'recovered-result':''}">OOM → ${c.recovered?'Success (3/3 seeds)':esc(offloadState(c.decoder,w,res,c.strategy))}</td><td>${gib(c.resident_memory)}</td><td>${m?s(m.e2e_ms.mean):'Not available'}</td><td>${esc(offloadPeak(c))}</td><td>${url?`<a href="${esc(url)}">Seed 0 MP4 ↗</a>`:'No output yet'}${r?.config_url?`<br><a href="${esc(r.config_url)}" download>Offload config ↓</a>`:''}${c.resident_config_url?`<br><a href="${esc(c.resident_config_url)}" download>Original OOM config ↓</a>`:''}</td></tr>`;}).join('');
+ $('offload-status').textContent=`${done.length} / ${records.length} offload configurations successful; ${recovered.size} / ${keys.length} original OOM configurations recovered with at least one strategy. Every success requires three measured seeds after an excluded warmup.`;
+ $('offload-strategy-table').tBodies[0].innerHTML=keys.map(k=>{const [d,w,res]=k.split('|'),a=offloadRecord(d,w,res,'module'),b=offloadRecord(d,w,res,'layerwise'),both=a?.recovered&&b?.recovered;return `<tr><th>${names[w]}</th><td>${res} · ${d.toUpperCase()}</td><td>${a?.summary?s(a.summary.e2e_ms.mean):esc(offloadState(d,w,res,'module'))}</td><td>${b?.summary?s(b.summary.e2e_ms.mean):esc(offloadState(d,w,res,'layerwise'))}</td><td>${both?(b.summary.e2e_ms.mean/a.summary.e2e_ms.mean).toFixed(2)+'×':'Awaiting both'}</td><td>${both?(a.memory.max_per_gpu_gib-b.memory.max_per_gpu_gib).toFixed(2)+' GiB':'Awaiting both'}</td></tr>`}).join('');
 }
 $('memory-configuration').innerHTML+=[...new Set((R.request_memory||[]).map(x=>x.configuration))].sort().map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');
 for(const id of ['memory-configuration','memory-phase'])$(id).addEventListener('change',renderMemory);
