@@ -4,7 +4,7 @@
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const labels={native:'Native reference size',match:'ComfyUI match',upscaled:'Historical forced upscale'};
  if(!q?.summary){$('rq-decision').textContent='The paired quality analysis is still being prepared.';return;}
- $('rq-decision').textContent='Adoption gate: not passed. Match is faster, but “no quality impact” has not been established by this one-prompt, three-seed pilot.';
+ $('rq-decision').textContent='Adoption gate: awaiting sufficient evidence. Match is faster, but “no quality impact” has not been established by this one-prompt, three-seed pilot.';
  $('rq-metrics').tBodies[0].innerHTML=Object.entries(q.metrics).map(([key,label])=>{
   const delta=q.paired_deltas.match[key];return `<tr data-metric="${key}"><th>${esc(label)}</th>${['native','match','upscaled'].map(p=>`<td>${q.summary[p].metrics[key].mean.toFixed(4)}</td>`).join('')}<td>${delta.mean_difference>=0?'+':''}${delta.mean_difference.toFixed(4)}</td><td>[${delta.ci95.map(v=>v.toFixed(4)).join(', ')}]</td></tr>`;
  }).join('');

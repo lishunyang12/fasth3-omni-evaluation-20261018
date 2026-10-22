@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792694650.8648524,
+  "updated_at": 1792694727.1784084,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -14013,7 +14013,9 @@
     "time": 1792667512.3402112,
     "scope": "All new vLLM-Omni image and video tests",
     "historical_queues": "superseded",
-    "controller_pid": 2127523
+    "controller_pid": 2165873,
+    "quality_equivalence": "not_established",
+    "quality_evidence": "reference-quality/results.json"
   },
   "comfy_plan": {
     "policy": "comfy",
@@ -15643,7 +15645,7 @@
       "matched-pro5000-4gpu-bf16-original-comfy-refs",
       "matched-pro5000-4gpu-qad-original-comfy-refs"
     ],
-    "updated_at": 1792693653.1309502
+    "updated_at": 1792694721.591597
   },
   "comfy_audit": {
     "policy": "comfy",
