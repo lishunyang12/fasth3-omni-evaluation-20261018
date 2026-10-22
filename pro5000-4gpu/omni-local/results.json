@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792646573.0191114,
+  "updated_at": 1792646778.440335,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -315,11 +315,11 @@
         }
       },
       "media": {
-        "family": "media/baseline-BF16-family.mp4",
-        "motion": "media/baseline-BF16-motion.mp4",
-        "animals": "media/baseline-BF16-animals.mp4",
-        "camera": "media/baseline-BF16-camera.mp4",
-        "details": "media/baseline-BF16-details.mp4"
+        "family": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-BF16-family.mp4",
+        "motion": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-BF16-motion.mp4",
+        "animals": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-BF16-animals.mp4",
+        "camera": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-BF16-camera.mp4",
+        "details": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-BF16-details.mp4"
       },
       "trials": [
         {
@@ -412,19 +412,28 @@
       "id": "B",
       "label": "NVFP4 QAD",
       "decoder": "原版解码器",
-      "state": "benchmarking",
-      "median": null,
+      "state": "complete",
+      "median": {
+        "e2e_ms": 28992.401,
+        "dit_ms": 23459.07594077289,
+        "video_vae_ms": 4196.206073276699,
+        "server_inference_ms": 28951.0
+      },
       "memory": {
         "max_per_gpu_gib": 57.9404296875,
         "per_gpu_mib": {
-          "0": 59181,
+          "0": 59245,
           "1": 59331,
           "2": 59235,
           "3": 59331
         }
       },
       "media": {
-        "family": "media/baseline-B-family.mp4"
+        "family": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-B-family.mp4",
+        "motion": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-B-motion.mp4",
+        "animals": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-B-animals.mp4",
+        "camera": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-B-camera.mp4",
+        "details": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-B-details.mp4"
       },
       "trials": [
         {
@@ -436,6 +445,11 @@
           "e2e_ms": 28992.401,
           "dit_ms": 23459.07594077289,
           "video_vae_ms": 4196.206073276699
+        },
+        {
+          "e2e_ms": 29000.862999999998,
+          "dit_ms": 23472.901581786573,
+          "video_vae_ms": 4200.270327739418
         }
       ],
       "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
@@ -512,12 +526,20 @@
       "id": "C",
       "label": "NVFP4 QAD＋8L",
       "decoder": "NVFP4 8L 解码器",
-      "state": "pending",
+      "state": "starting",
       "median": null,
-      "memory": null,
+      "memory": {
+        "max_per_gpu_gib": 0.0,
+        "per_gpu_mib": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0
+        }
+      },
       "media": {},
       "trials": [],
-      "checkpoint_revision": null,
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
       "hsdp": false,
       "evidence": [],
       "timing": "One excluded warmup, then three repeated requests with seed 1234; median. CPU offload disabled. Reference dimensions preserved, rounded to 32."
@@ -616,5 +638,68 @@
       "focus": "路线牌文字 · 玻璃反光 · 细线与低照度"
     }
   ],
-  "completed_configurations": 0
+  "completed_configurations": 0,
+  "published_media": [
+    {
+      "file": "baseline-B-animals.mp4",
+      "bytes": 6853067,
+      "sha256": "f458ab4ece1a79f8ce25fbaeff72edff6b4a06bcd4e59bc58270b8b4019c125e",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-B-animals.mp4"
+    },
+    {
+      "file": "baseline-B-camera.mp4",
+      "bytes": 18589817,
+      "sha256": "ecb96ceaaaa00b76bd0d7ce66ec6c0c3d615c27522bece81a1806d190f3d6295",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-B-camera.mp4"
+    },
+    {
+      "file": "baseline-B-details.mp4",
+      "bytes": 9399330,
+      "sha256": "e040001967bb2095d9cbe09e1ee2479849dd7f75a7c1afe020428bdca1b222ea",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-B-details.mp4"
+    },
+    {
+      "file": "baseline-B-family.mp4",
+      "bytes": 6968054,
+      "sha256": "cd8023e3d7873701b6a4333606f2928f3d5a7e7b24dd73a76f40ef0898068944",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-B-family.mp4"
+    },
+    {
+      "file": "baseline-B-motion.mp4",
+      "bytes": 2842601,
+      "sha256": "402f93589c26a4ae9c1df7b7bd8bce7b2806fcb387ce024b991ddbff5f1de448",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-B-motion.mp4"
+    },
+    {
+      "file": "baseline-BF16-animals.mp4",
+      "bytes": 5823133,
+      "sha256": "e10f7c63138bf9e0985586447881511979046f07f7ca59ac3ad5bef2905a7c94",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-BF16-animals.mp4"
+    },
+    {
+      "file": "baseline-BF16-camera.mp4",
+      "bytes": 19514877,
+      "sha256": "6513c7942f36acb508dc4d4ba65d36978e8a3ddcea85ea6e2a1c6ab03c0a8d27",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-BF16-camera.mp4"
+    },
+    {
+      "file": "baseline-BF16-details.mp4",
+      "bytes": 9715513,
+      "sha256": "10f2ff66778489fc728d3017465ccd24f5694f1523d630217ccd665653c88a63",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-BF16-details.mp4"
+    },
+    {
+      "file": "baseline-BF16-family.mp4",
+      "bytes": 6628017,
+      "sha256": "e9565d08fa2d86878f435abad1dbf6c7b6296d33b41de8df4cf7ef9b02f982e9",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-BF16-family.mp4"
+    },
+    {
+      "file": "baseline-BF16-motion.mp4",
+      "bytes": 2389724,
+      "sha256": "99ca7e299907c7910bb8a50edbef94c6c636daf96f227ccbdc1336982a87cacb",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-BF16-motion.mp4"
+    }
+  ],
+  "media_policy": "Original generated MP4 bytes, hosted as release assets in the same public repository. No recompression."
 }
