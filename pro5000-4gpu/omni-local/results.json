@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792655514.336769,
+  "updated_at": 1792656000.984738,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -1960,7 +1960,7 @@
       "attention": "CAKE Sage: INT8 Q/K, FP8 V",
       "reference_canvas": "2048 short edge, nearest multiple of 32, Lanczos",
       "offload": false,
-      "started_at": 1792655399.3300755,
+      "started_at": 1792655972.0337017,
       "summaries": [
         {
           "key": "image|480p",
@@ -2177,6 +2177,78 @@
               12884.880524128675
             ]
           }
+        },
+        {
+          "key": "image|768p",
+          "workload": "image",
+          "resolution": "768p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 109721.56300000001,
+            "median": 109727.97300000001,
+            "min": 109692.672,
+            "max": 109744.04400000001,
+            "values": [
+              109727.97300000001,
+              109744.04400000001,
+              109692.672
+            ]
+          },
+          "dit_ms": {
+            "mean": 95657.80017230038,
+            "median": 95643.98436294869,
+            "min": 95623.40066302568,
+            "max": 95706.0154909268,
+            "values": [
+              95623.40066302568,
+              95706.0154909268,
+              95643.98436294869
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 8609.920947036395,
+            "median": 8610.023890156299,
+            "min": 8609.634366817772,
+            "max": 8610.104584135115,
+            "values": [
+              8610.023890156299,
+              8610.104584135115,
+              8609.634366817772
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 109660.33333333333,
+            "median": 109666.0,
+            "min": 109633.0,
+            "max": 109682.0,
+            "values": [
+              109666.0,
+              109682.0,
+              109633.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2184.2219924243786,
+            "median": 2171.5084272436798,
+            "min": 2170.5436860211194,
+            "max": 2210.6138640083373,
+            "values": [
+              2210.6138640083373,
+              2171.5084272436798,
+              2170.5436860211194
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 2750.114708362768,
+            "median": 2750.386565923691,
+            "min": 2748.1259740889072,
+            "max": 2751.8315850757062,
+            "values": [
+              2750.386565923691,
+              2751.8315850757062,
+              2748.1259740889072
+            ]
+          }
         }
       ],
       "failures": [
@@ -2213,13 +2285,14 @@
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-480p.mp4",
         "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-480p.mp4",
-        "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-clip-480p.mp4"
+        "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-clip-480p.mp4",
+        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-768p.mp4"
       },
       "config_url": "configs/pro5000-1gpu-36l.yaml",
       "memory": {
-        "max_per_gpu_gib": 68.0732421875,
+        "max_per_gpu_gib": 71.0869140625,
         "per_gpu_mib": {
-          "0": 69707
+          "0": 72793
         }
       },
       "evidence": [
@@ -2227,7 +2300,7 @@
           "rank": 0,
           "shape": [
             1,
-            74112,
+            61440,
             56,
             128
           ],
@@ -5029,7 +5102,7 @@
   ],
   "attention_completed_configurations": 8,
   "fastvideo_completed_configurations": 2,
-  "completed_configurations": 26,
+  "completed_configurations": 27,
   "failed_configurations": [
     {
       "run": "pro5000-1gpu-36l",
@@ -5049,7 +5122,7 @@
     }
   ],
   "oom_configurations": 2,
-  "attempted_configurations": 28,
+  "attempted_configurations": 29,
   "published_media": [
     {
       "file": "baseline-B-animals.mp4",
@@ -5326,6 +5399,12 @@
       "bytes": 3479427,
       "sha256": "2c003c270d127e2ba4330018eea3a56dbfc50cc5b4dd27724ebda6c2b111a7d8",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-480p.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-36l-image-768p.mp4",
+      "bytes": 7218189,
+      "sha256": "9e797a394b1e3a8cfd27e137c9d9f7e12b0267ee474e0c7e985a3828cd9c950f",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-768p.mp4"
     },
     {
       "file": "pro5000-1gpu-36l-image-voice-480p.mp4",
