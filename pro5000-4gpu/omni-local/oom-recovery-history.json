@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792665632.1016018,
+  "updated_at": 1792666126.4871504,
   "records": [
     {
       "configuration": "pro5000-1gpu-36l-module-offload",
@@ -542,9 +542,9 @@
       "decoder": "36l",
       "strategy": "layerwise",
       "before": "oom",
-      "after": "warmup",
+      "after": "measuring",
       "recovered": false,
-      "transition": "OOM → warmup",
+      "transition": "OOM → measuring",
       "resident_failures": [
         {
           "key": "video|480p",
@@ -583,16 +583,32 @@
         "bounds_source": "server_log_start_second_resolution",
         "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
       },
-      "memory": null,
-      "memory_scope": null,
-      "measured_seeds": [],
+      "memory": {
+        "max_per_gpu_gib": 23.8720703125,
+        "per_gpu_mib": {
+          "0": 24445
+        },
+        "peak_total_gib": 23.8720703125,
+        "samples": 192,
+        "sampling_interval_s": 0.6942033767700195,
+        "max_sampling_gap_s": 0.8075542449951172,
+        "started_at": 1792665757.3338459,
+        "ended_at": 1792665890.612836,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_scope": "partial_measured_requests",
+      "measured_seeds": [
+        0,
+        1
+      ],
       "active_request": {
-        "phase": "warmup",
-        "seed": 12345,
+        "phase": "measured",
+        "seed": 2,
         "workload": "video",
         "resolution": "480p",
-        "started_at": 1792665622.832169,
-        "output": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/offload-runs/pro5000-1gpu-36l-layerwise-offload/480p/video/warmup-seed12345.mp4",
+        "started_at": 1792666023.9083393,
+        "output": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/offload-runs/pro5000-1gpu-36l-layerwise-offload/480p/video/measured-seed2.mp4",
         "state": "running"
       },
       "summary": null,
@@ -608,7 +624,20 @@
         "(DiffusionWorker pid=252717) INFO 10-22 18:40:14 [layerwise_backend.py:363] Enabled rank-local layerwise offload for encoder text_encoder (77 blocks across 2 stacks)",
         "(DiffusionWorker pid=252717) INFO 10-22 18:40:21 [layerwise_backend.py:479] Layer-wise offloading enabled on 50 layers (blocks)"
       ],
-      "output_matches": []
+      "output_matches": [
+        {
+          "seed": 0,
+          "module_sha256": "b858e86b0c153ba5bafebe72402e279952d49e0662c5c1670c2858b6383d5513",
+          "layerwise_sha256": "b858e86b0c153ba5bafebe72402e279952d49e0662c5c1670c2858b6383d5513",
+          "mp4_bytes_identical": true
+        },
+        {
+          "seed": 1,
+          "module_sha256": "d225fe0058899bfb2273bdba05e33d3c4c37bdee3796717a9fb9f311f2baba29",
+          "layerwise_sha256": "d225fe0058899bfb2273bdba05e33d3c4c37bdee3796717a9fb9f311f2baba29",
+          "mp4_bytes_identical": true
+        }
+      ]
     },
     {
       "configuration": "pro5000-1gpu-8l-module-offload",
