@@ -8,3 +8,5 @@
 
 [hidden]{display:none!important}
 #matched-checkpoint-videos .download + .download{margin-left:12px}
+
+.gallery-viewport{aspect-ratio:832/480;overflow:hidden;border-radius:6px;background:#111}.gallery-viewport video{height:100%;object-fit:contain}.gallery-zoom .gallery-viewport video{transform:scale(2);transform-origin:center}

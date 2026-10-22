@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792659445.9620988,
+  "updated_at": 1792659933.0729034,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -1023,10 +1023,20 @@
       "ended_at": 1792649042.7310576,
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-480p.mp4",
+        "image|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-480p-seed1.mp4",
+        "image|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-480p-seed2.mp4",
         "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-voice-480p.mp4",
+        "image-voice|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-voice-480p-seed1.mp4",
+        "image-voice|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-voice-480p-seed2.mp4",
         "images3|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-images3-480p.mp4",
+        "images3|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-images3-480p-seed1.mp4",
+        "images3|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-images3-480p-seed2.mp4",
         "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-clip-480p.mp4",
+        "clip|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-clip-480p-seed1.mp4",
+        "clip|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-clip-480p-seed2.mp4",
         "video|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-video-480p.mp4",
+        "video|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-video-480p-seed1.mp4",
+        "video|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-video-480p-seed2.mp4",
         "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-768p.mp4",
         "image-voice|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-voice-768p.mp4",
         "images3|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-images3-768p.mp4",
@@ -1860,10 +1870,20 @@
       "ended_at": 1792650973.7645233,
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-480p.mp4",
+        "image|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-480p-seed1.mp4",
+        "image|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-480p-seed2.mp4",
         "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-voice-480p.mp4",
+        "image-voice|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-voice-480p-seed1.mp4",
+        "image-voice|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-voice-480p-seed2.mp4",
         "images3|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-images3-480p.mp4",
+        "images3|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-images3-480p-seed1.mp4",
+        "images3|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-images3-480p-seed2.mp4",
         "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-clip-480p.mp4",
+        "clip|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-clip-480p-seed1.mp4",
+        "clip|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-clip-480p-seed2.mp4",
         "video|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-video-480p.mp4",
+        "video|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-video-480p-seed1.mp4",
+        "video|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-video-480p-seed2.mp4",
         "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-768p.mp4",
         "image-voice|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-voice-768p.mp4",
         "images3|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-images3-768p.mp4",
@@ -5872,7 +5892,7 @@
   ],
   "matched_checkpoint_outputs": 0,
   "continuation_status": {
-    "state": "running",
+    "state": "draining_existing_request",
     "started_at": 1792658626.7571661,
     "attempted": [
       {
@@ -5886,23 +5906,10 @@
         "ended_at": 1792659290.5245008
       }
     ],
-    "updated_at": 1792659293.7198656,
-    "current": "matched-pro5000-4gpu-bf16-original",
-    "remaining": [
-      "matched-pro5000-4gpu-bf16-original",
-      "matched-pro5000-4gpu-qad-original",
-      "pro5000-1gpu-8l:video|768p",
-      "fastvideo-pro5000-1gpu-8l",
-      "fastvideo-pro5000-1gpu-36l",
-      "fastvideo-pro5000-1gpu-8l-vsa-bf16",
-      "fastvideo-pro5000-1gpu-8l-vsa-sage3",
-      "fastvideo-pro5000-1gpu-36l-vsa-bf16",
-      "fastvideo-pro5000-1gpu-36l-vsa-sage3",
-      "fastvideo-pro5000-4gpu-36l",
-      "fastvideo-pro5000-4gpu-36l-vsa-bf16",
-      "fastvideo-pro5000-4gpu-36l-vsa-sage3"
-    ],
-    "busy_gpus": {}
+    "updated_at": 1792659932.9341302,
+    "existing_runner_pids": [
+      1376165
+    ]
   },
   "baseline_scenes": [
     {
@@ -6330,6 +6337,18 @@
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-images3-480p.mp4"
     },
     {
+      "file": "pro5000-4gpu-36l-clip-480p-seed1.mp4",
+      "bytes": 3134017,
+      "sha256": "7bc7a9b563079c651cf4bd78cebd36da78022932050ca4ca82ea6ed0331f91e8",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-clip-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-36l-clip-480p-seed2.mp4",
+      "bytes": 3128596,
+      "sha256": "d28fb7edfff125ebf67cee5e17adacb34af76bac832685742db24f419b1857c6",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-clip-480p-seed2.mp4"
+    },
+    {
       "file": "pro5000-4gpu-36l-clip-480p.mp4",
       "bytes": 3210610,
       "sha256": "1e21edbdca2c6432336000f3a2c0d0917e3741870fc64807a9d7327d9bec2548",
@@ -6340,6 +6359,18 @@
       "bytes": 6241280,
       "sha256": "e79d1baa403b62fefb1108ae81ccbf8c4f8561572ae3e35dc38bc0582788d55c",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-clip-768p.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-36l-image-480p-seed1.mp4",
+      "bytes": 3436511,
+      "sha256": "510bf614d5334fb8c83f9e1bd6f97ad0cf0b6e02ac6ce9b4b70d3b9e35024636",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-36l-image-480p-seed2.mp4",
+      "bytes": 3332023,
+      "sha256": "3ca206f29ae176cfc1ede23061c6cf74107476892dc6ed90f711bf2f645e2821",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-480p-seed2.mp4"
     },
     {
       "file": "pro5000-4gpu-36l-image-480p.mp4",
@@ -6354,6 +6385,18 @@
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-768p.mp4"
     },
     {
+      "file": "pro5000-4gpu-36l-image-voice-480p-seed1.mp4",
+      "bytes": 3086161,
+      "sha256": "1562962b08d58391a6d4722aa46d0b5687f971d7b91cff26e5ffbfe7e1572445",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-voice-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-36l-image-voice-480p-seed2.mp4",
+      "bytes": 2746884,
+      "sha256": "597cf1d61d40a8c1f0093c0edb50fcf4a5f711050f18b19ac7faed89bc49e7a7",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-voice-480p-seed2.mp4"
+    },
+    {
       "file": "pro5000-4gpu-36l-image-voice-480p.mp4",
       "bytes": 2845663,
       "sha256": "96d819f1f256702918f9ed9016f8e5983337ac7958873f83267529458a06df7f",
@@ -6364,6 +6407,18 @@
       "bytes": 6257113,
       "sha256": "6c7677216f1cedd20bef4491a0ee04f859b817fb237be19fe462e333546a0aeb",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-voice-768p.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-36l-images3-480p-seed1.mp4",
+      "bytes": 3495164,
+      "sha256": "62a1436bb117abd996478f6da838ab75bf0c86ffb9433f4bea38530cdcd33020",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-images3-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-36l-images3-480p-seed2.mp4",
+      "bytes": 3391686,
+      "sha256": "671f9fddaec567707f2314eab3af14c58498d8024aa45a4fb061cf429afed12e",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-images3-480p-seed2.mp4"
     },
     {
       "file": "pro5000-4gpu-36l-images3-480p.mp4",
@@ -6378,6 +6433,18 @@
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-images3-768p.mp4"
     },
     {
+      "file": "pro5000-4gpu-36l-video-480p-seed1.mp4",
+      "bytes": 2852706,
+      "sha256": "e117d46a161cb7d19d1978b8a30fe2902234fc2d80c586108d68c78fe310cb64",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-video-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-36l-video-480p-seed2.mp4",
+      "bytes": 2789634,
+      "sha256": "82dc386dfe69551d85da759b3a1528215640bd6ca8c4c5b3e811dedb1e712a9c",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-video-480p-seed2.mp4"
+    },
+    {
       "file": "pro5000-4gpu-36l-video-480p.mp4",
       "bytes": 2808183,
       "sha256": "c69bac6e216193b64056aed5ea872df6f34f2b3e1a6d1104c28782f3792d98f1",
@@ -6388,6 +6455,18 @@
       "bytes": 6259947,
       "sha256": "7cb04b84d92887d86b434ab553c5dc6b62a2b601cbc8fac982d8c7791fa468c9",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-video-768p.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-8l-clip-480p-seed1.mp4",
+      "bytes": 3082941,
+      "sha256": "01c91cb244a9a62c9744395c90d96752267636487d0e61c61ed07461c1350254",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-clip-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-8l-clip-480p-seed2.mp4",
+      "bytes": 3080156,
+      "sha256": "dbbfe7221cb27493d8a3ca6786d7391ecfa6e7068d7ed789c08dd29bebe66c57",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-clip-480p-seed2.mp4"
     },
     {
       "file": "pro5000-4gpu-8l-clip-480p.mp4",
@@ -6402,6 +6481,18 @@
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-clip-768p.mp4"
     },
     {
+      "file": "pro5000-4gpu-8l-image-480p-seed1.mp4",
+      "bytes": 3546655,
+      "sha256": "455a63daafda0a9b085fe680d091a2a5527d6b9cc75f2258de14b20fec714557",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-8l-image-480p-seed2.mp4",
+      "bytes": 3446571,
+      "sha256": "51b864395b07fc078064ebfadc50476e2fdb8f71187b637c6d73ba6530dcd704",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-480p-seed2.mp4"
+    },
+    {
       "file": "pro5000-4gpu-8l-image-480p.mp4",
       "bytes": 3642315,
       "sha256": "f4bf699df1f75c2cc07f24c16694cdd8c4cef65f8f12de99cddc5e2d85fdb0a1",
@@ -6412,6 +6503,18 @@
       "bytes": 7533782,
       "sha256": "a6dc4bf325cbdc60fe2c13c4b40235b98da82716ef46f12f4bd11b89cf7c5d3d",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-768p.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-8l-image-voice-480p-seed1.mp4",
+      "bytes": 3207097,
+      "sha256": "07a44b714aafda6959fcd132f454a808d973a36f6b96da5249105809b28cf063",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-voice-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-8l-image-voice-480p-seed2.mp4",
+      "bytes": 2837338,
+      "sha256": "a8af29de8620d8910f711b403d7ade70ed07eb89b572a9837a65ee29398f8151",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-voice-480p-seed2.mp4"
     },
     {
       "file": "pro5000-4gpu-8l-image-voice-480p.mp4",
@@ -6426,6 +6529,18 @@
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-image-voice-768p.mp4"
     },
     {
+      "file": "pro5000-4gpu-8l-images3-480p-seed1.mp4",
+      "bytes": 3574181,
+      "sha256": "a4442a9353a41ff563539775697ed632c636325dad9d503c4f5e72b4b8810bb4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-images3-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-8l-images3-480p-seed2.mp4",
+      "bytes": 3482435,
+      "sha256": "f144da2f4db4ca404cb54fead93695f0e752aed9910b38976930acd57748fd0a",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-images3-480p-seed2.mp4"
+    },
+    {
       "file": "pro5000-4gpu-8l-images3-480p.mp4",
       "bytes": 3661419,
       "sha256": "c65472bd231d37bc14acf1e54967c9c4d91a0a64d180f687dc6c9f930cdc0a37",
@@ -6436,6 +6551,18 @@
       "bytes": 7480867,
       "sha256": "eb06be9b23543cd76ce8acbcfcc00dc0c3566a14b52a80c651662b9aea4ba84d",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-images3-768p.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-8l-video-480p-seed1.mp4",
+      "bytes": 2862602,
+      "sha256": "bdfff311a4bdfca86730b5014db7e32e15f373fc1dd97b1a0910bbc0ce5bcea7",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-video-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-8l-video-480p-seed2.mp4",
+      "bytes": 2765204,
+      "sha256": "1dc967868bc48bebb07eac99c5294191c7e830a9b4ca1e09fa7ff7d86a6b3ecd",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-8l-video-480p-seed2.mp4"
     },
     {
       "file": "pro5000-4gpu-8l-video-480p.mp4",
