@@ -11,6 +11,15 @@ const result=(g,d,w=state.workload,res=state.resolution)=>run(g,d)?.summaries?.f
 const statusName=x=>({complete:'Complete',failed:'Incomplete',needs_attention:'Some runs need attention',starting:'Loading model',measuring:'Measuring',pending:'Pending',benchmarking:'Measuring',generating:'Generating comparison videos',waiting_for_resources:'Waiting for available GPUs',running:'Measurements in progress',waiting_for_checkpoint_study:'BF16 / QAD study in progress',running_4gpu:'4-GPU matrix in progress',running_1gpu:'1-GPU matrix in progress'}[x]||'In progress');
 const pending=(g,d,w=state.workload,res=state.resolution)=>{const r=run(g,d),key=`${w}|${res}`,failure=r?.failures?.find(x=>x.key===key);return failure?.kind==='cuda_oom'?'OOM':failure?'Failed':r?.state==='failed'?'Not yet tested':r?.current===key?'Measuring':'Pending'};
 const trialTitle=x=>x?`Three runs: ${x.e2e_ms.values.map(v=>s(v)+' s').join(' / ')}. Mean ${s(x.e2e_ms.mean)} s; range ${s(x.e2e_ms.min)}–${s(x.e2e_ms.max)} s.`:'';
+const gib=m=>Number.isFinite(m?.max_per_gpu_gib)?m.max_per_gpu_gib.toFixed(2):'—';
+const memTitle=m=>m?Object.entries(m.per_gpu_mib||{}).map(([g,v])=>`GPU ${g}: ${(v/1024).toFixed(2)} GiB`).join('; ')+(m.peak_total_gib!==undefined?`; peak simultaneous total: ${m.peak_total_gib.toFixed(2)} GiB`:''):'No request-bounded samples';
+function memoryFor(r,key){
+ const summary=[...(r?.summaries||[]),...(r?.speed_summaries||[])].find(x=>x.key===key);
+ if(summary?.memory)return summary.memory;
+ const rows=(r?.request_memory||[]).filter(x=>x.workload+'|'+x.resolution===key&&x.memory);
+ const measured=rows.filter(x=>x.status==='complete'&&['measured','qualitative'].includes(x.phase));
+ return measured.length?measured.reduce((a,b)=>a.memory.max_per_gpu_gib>b.memory.max_per_gpu_gib?a:b).memory:rows.filter(x=>x.status!=='complete').at(-1)?.memory;
+}
 let player=null;
 function videoCard({title,meta,url,poster,pro=false,key}){return `<div class="video-card ${pro?'pro-card':''}" data-key="${esc(key||title)}"><h4>${esc(title)}</h4><p class="video-meta">${esc(meta)}</p>${url?`<div class="gallery-viewport"><video controls muted playsinline preload="${pro?'metadata':'none'}" ${poster?`poster="${esc(poster)}"`:''} src="${esc(url)}" aria-label="${esc(title)}"></video></div><a class="download" href="${esc(url)}" download>Download original MP4</a>`:'<div class="empty-video"><strong>Awaiting measured output</strong><span>Published after this request completes.</span></div><span class="download">Not available yet</span>'}</div>`;}
 function checkpointCard(c,seed=0){
@@ -18,7 +27,7 @@ function checkpointCard(c,seed=0){
  const sample=r?.quality_samples?.find(x=>x.workload===state.gallery&&x.seed===seed),m=r?.speed_summaries?.find(x=>x.key===key);
  const timing=m?s(m.e2e_ms.mean)+' s · three-seed mean':sample?s(sample.e2e_ms)+' s · single sample; timing study pending':r?.current===key?'Generating':r?.state==='failed'?'Generation failed':'Queued';
  const title='4× PRO 5000 · '+(c==='bf16'?'Original BF16':'QAD NVFP4');
- const card=videoCard({title,meta:`Original BF16 decoder · vLLM-Omni + CAKE · seed ${seed} · ${timing}`,url:r?.media?.[mediaKey],pro:true,key:'matched-'+c});
+ const card=videoCard({title,meta:`Original BF16 decoder · vLLM-Omni + CAKE · seed ${seed} · ${timing} · peak ${gib(sample?.memory)} GiB/GPU`,url:r?.media?.[mediaKey],pro:true,key:'matched-'+c});
  const model=c==='bf16'?'FastVideo-FastH3-Omni-8-Step-V1':'FastH3-Omni-NVFP4-QAD';
  const checkpoint=`<a class="download" href="https://huggingface.co/FastVideo/${model}">${esc(model)} ↗</a>`;
  const revision=r?.checkpoint_revision?`<span class="download">Revision <code>${esc(r.checkpoint_revision.slice(0,12))}</code></span>`:'';
@@ -81,6 +90,7 @@ function renderGallery(){
   $('matched-checkpoint-status').textContent=`${ready} / 2 outputs ready for ${names[state.gallery]}, seed ${state.gallerySeed}. ${R.matched_checkpoint_outputs||0} / 30 checkpoint outputs across five reference mixes and three seeds. ${R.matched_checkpoint_status?.state==='waiting_for_resources'?'Waiting for four available GPUs.':''}`;
   const stages=[['e2e_ms','End to end'],['encode_prompt_ms','Prompt encoding'],['reference_encode_ms','Reference encoding'],['dit_ms','DiT denoising'],['video_vae_ms','Video decoding']];
   $('matched-speed-table').tBodies[0].innerHTML=stages.map(([field,label])=>`<tr><th>${label}</th>${['bf16','qad'].map(c=>`<td>${summary(c)?s(summary(c)[field]?.mean):'Awaiting 3 samples'}</td>`).join('')}</tr>`).join('');
+  $('matched-speed-table').tBodies[0].insertAdjacentHTML('beforeend','<tr><th>Peak / GPU · GiB</th>'+['bf16','qad'].map(c=>{const m=memoryFor(rows.find(x=>x.case===c),key);return `<td title="${esc(memTitle(m))}">${gib(m)}</td>`}).join('')+'</tr>');
   const original=summary('bf16'),qad=summary('qad');
   $('matched-speed-summary').textContent=original&&qad?`NVFP4 QAD: ${(original.e2e_ms.mean/qad.e2e_ms.mean).toFixed(2)}× end-to-end speedup; ${(original.dit_ms.mean/qad.dit_ms.mean).toFixed(2)}× DiT speedup. Request ranges: BF16 ${s(original.e2e_ms.min)}–${s(original.e2e_ms.max)} s; QAD ${s(qad.e2e_ms.min)}–${s(qad.e2e_ms.max)} s.`:'The speed comparison appears after all three seeds complete for both checkpoints.';
   const showDecoders=$('matched-show-decoders').checked;
@@ -104,7 +114,7 @@ function renderGallery(){
 }
 function renderChart(){
  const key=`${state.workload}|${state.resolution}|${state.decoder}`,original=R.official.latency[key]||{};
- const rows=[4,1].map(g=>({label:`${g}× RTX PRO 5000`,note:`vLLM-Omni · NVFP4 QAD · CAKE · ${run(g,state.decoder)?.offload?'CPU offload':'GPU resident'}`,value:result(g,state.decoder)?.e2e_ms.mean/1000,kind:'pro',missing:pending(g,state.decoder)})).concat(R.official.devices.map(d=>({label:d.label,note:d.note,value:original[d.key],kind:d.key.startsWith('spark')?'spark':'other',missing:'Not reported'})));
+ const rows=[4,1].map(g=>({label:`${g}× RTX PRO 5000`,note:`vLLM-Omni · NVFP4 QAD · CAKE · ${run(g,state.decoder)?.offload?'CPU offload':'GPU resident'} · peak ${gib(memoryFor(run(g,state.decoder),state.workload+'|'+state.resolution))} GiB/GPU`,value:result(g,state.decoder)?.e2e_ms.mean/1000,kind:'pro',missing:pending(g,state.decoder)})).concat(R.official.devices.map(d=>({label:d.label,note:d.note,value:original[d.key],kind:d.key.startsWith('spark')?'spark':'other',missing:'Not reported'})));
  const max=Math.max(...rows.filter(x=>Number.isFinite(x.value)).map(x=>x.value),1);
  $('chart-title').textContent=`${names[state.workload]} · ${state.resolution} · ${state.decoder==='36l'?'36':'8'}-layer decoder`;
  $('latency-chart').innerHTML=rows.map(r=>`<div class="bar-row ${r.kind}"><div class="bar-label">${esc(r.label)}<small>${esc(r.note)}</small></div><div class="bar-area">${Number.isFinite(r.value)?`<div class="bar ${r.kind}" style="width:${r.value/max*100}%" title="${r.value.toFixed(3)} seconds"><span class="bar-value">${shortTime(r.value)}</span></div>`:`<span class="bar-missing">${r.missing}</span>`}</div></div>`).join('');renderStages();renderMatrix();
@@ -114,7 +124,7 @@ function renderStages(){
  if(!m){$('stages').innerHTML=`<p class="small">${pending(state.stageGpu,state.decoder)} — stage timings will appear when all three measurements complete.</p>`;return}
  const total=m.e2e_ms.mean,parts=[{name:'DiT',value:m.dit_ms?.mean||0,color:'#147851'},{name:'Prompt encoding',value:m.encode_prompt_ms?.mean||0,color:'#4989c4'},{name:'Reference encoding',value:m.reference_encode_ms?.mean||0,color:'#8bb6d3'},{name:'Video decoding',value:m.video_vae_ms?.mean||0,color:'#c79751'}];
  const used=parts.reduce((n,p)=>n+p.value,0);parts.push({name:'Audio, MP4 & other',value:Math.max(0,total-used),color:'#b8bdb7'});
- $('stages').innerHTML=`<div class="stage-total"><strong>${s(total)} s mean</strong> · range ${s(m.e2e_ms.min)}–${s(m.e2e_ms.max)} s · ${r.offload?'CPU offload':'GPU resident'}</div><div class="stage-stack">${parts.map(p=>`<span style="width:${p.value/Math.max(total,used)*100}%;background:${p.color}"></span>`).join('')}</div><div class="stage-values">${parts.map(p=>`<div><i class="key" style="background:${p.color}"></i>${p.name}<b>${s(p.value)} s</b></div>`).join('')}</div><p class="small">${r.memory?.max_per_gpu_gib?`Maximum sampled per-GPU memory across this run: ${r.memory.max_per_gpu_gib.toFixed(1)} GiB.`:''} Stage means are recorded by the server; the remainder includes audio decoding, encoding the MP4 and transport.</p>`;
+ $('stages').innerHTML=`<div class="stage-total"><strong>${s(total)} s mean</strong> · range ${s(m.e2e_ms.min)}–${s(m.e2e_ms.max)} s · ${r.offload?'CPU offload':'GPU resident'}</div><div class="stage-stack">${parts.map(p=>`<span style="width:${p.value/Math.max(total,used)*100}%;background:${p.color}"></span>`).join('')}</div><div class="stage-values">${parts.map(p=>`<div><i class="key" style="background:${p.color}"></i>${p.name}<b>${s(p.value)} s</b></div>`).join('')}</div><p class="small">${m.memory?`Peak during this configuration’s measured requests: ${gib(m.memory)} GiB/GPU. ${memTitle(m.memory)}.`:''} Stage means are recorded by the server; the remainder includes audio decoding, encoding the MP4 and transport.</p>`;
 }
 function proCell(g,d,w,res){const m=result(g,d,w,res);return m?`<td class="pro-col number" tabindex="0" title="${esc(trialTitle(m))}">${s(m.e2e_ms.mean)}</td>`:`<td class="pro-col pending">${pending(g,d,w,res)}</td>`;}
 function renderTables(){
@@ -127,7 +137,7 @@ function renderMatrix(){
  for(const w of R.workloads)for(const res of ['480p','768p'])for(const d of ['36l','8l']){
  const a=result(1,d,w.id,res),b=result(4,d,w.id,res),active=state.workload===w.id&&state.resolution===res&&state.decoder===d;
  const media=[1,4].some(g=>run(g,d)?.media?.[`${w.id}|${res}`]);
- rows.push(`<tr data-workload="${w.id}" data-res="${res}" data-decoder="${d}" class="${active?'active':''}" tabindex="0" aria-label="${names[w.id]}, ${res}, ${d}"><th scope="row">${names[w.id]}</th><td>${res}</td><td>${d==='36l'?'36L':'8L'}</td>${proCell(1,d,w.id,res)}${proCell(4,d,w.id,res)}<td>${a&&b?(a.e2e_ms.mean/b.e2e_ms.mean).toFixed(2)+'×':'—'}</td><td>${media?'<a href="#output-dialog" class="view-output">View ↗</a>':'—'}</td></tr>`);
+ rows.push(`<tr data-workload="${w.id}" data-res="${res}" data-decoder="${d}" class="${active?'active':''}" tabindex="0" aria-label="${names[w.id]}, ${res}, ${d}"><th scope="row">${names[w.id]}</th><td>${res}</td><td>${d==='36l'?'36L':'8L'}</td>${proCell(1,d,w.id,res)}${proCell(4,d,w.id,res)}${[1,4].map(g=>{const m=memoryFor(run(g,d),w.id+'|'+res);return `<td title="${esc(memTitle(m))}">${gib(m)}</td>`}).join('')}<td>${a&&b?(a.e2e_ms.mean/b.e2e_ms.mean).toFixed(2)+'×':'—'}</td><td>${media?'<a href="#output-dialog" class="view-output">View ↗</a>':'—'}</td></tr>`);
  }
  $('matrix').tBodies[0].innerHTML=rows.join('');
  const choose=row=>{state.workload=row.dataset.workload;state.resolution=row.dataset.res;state.decoder=row.dataset.decoder;for(const n of ['workload','resolution','decoder'])$('latency-'+n).value=state[n];renderChart()};
@@ -182,6 +192,21 @@ function renderFrameworks(){
  }));
 }
 for(const id of ['gallery-workload','latency-workload'])$(id).innerHTML=R.workloads.map(w=>`<option value="${w.id}">${names[w.id]}</option>`).join('');
+function renderMemory(){
+ const config=$('memory-configuration').value,phase=$('memory-phase').value;
+ const rows=(R.request_memory||[]).filter(r=>(config==='all'||r.configuration===config)&&(phase==='all'||phase==='failed'&&r.status!=='complete'||phase==='warmup'&&r.phase==='warmup'&&r.status==='complete'||phase==='measured'&&['measured','qualitative'].includes(r.phase)&&r.status==='complete'));
+ $('memory-status').textContent=`${rows.length} requests; ${rows.filter(r=>r.memory).length} with request-bounded samples. Units: GiB (1024 MiB).`;
+ $('memory-table').tBodies[0].innerHTML=rows.map(r=>{const m=r.memory;return `<tr><th>${esc(r.configuration)}</th><td>${esc(names[r.workload]||r.workload)}</td><td>${esc(r.resolution)}</td><td>${r.seed??'Unknown'} / ${esc(r.phase)}</td><td>${esc(r.status)}${r.oom_reported_process_gib?`<small class="memory-note">OOM process report: ${r.oom_reported_process_gib.toFixed(2)} GiB</small>`:''}</td><td>${s(r.e2e_ms)}</td><td>${gib(m)}</td><td>${Number.isFinite(m?.peak_total_gib)?m.peak_total_gib.toFixed(2):'—'}</td><td>${m?Object.entries(m.per_gpu_mib).map(([g,v])=>`GPU ${g}: ${(v/1024).toFixed(2)}`).join('<br>'):'—'}</td><td>${m?`${m.samples} samples · ${m.sampling_interval_s?.toFixed(2)??'—'} s cadence${m.bounds_source==='server_log_start_second_resolution'?'<small class="memory-note">Start recovered from server log</small>':''}`:esc(r.memory_status)}</td></tr>`}).join('');
+}
+function renderOffload(){
+ const cases=R.offload_plan?.cases||[];let complete=0;
+ $('offload-table').tBodies[0].innerHTML=cases.map(c=>{const r=R.offload_runs?.find(x=>x.id===c.id),m=r?.summaries?.find(x=>x.key===c.key),[w,res]=c.key.split('|'),resident=run(1,c.decoder),url=r?.media?.[c.key];if(m)complete++;
+ return `<tr><th>${esc(names[w])}</th><td>${res}</td><td>${c.decoder.toUpperCase()}</td><td>${pending(1,c.decoder,w,res)}</td><td>${gib(memoryFor(resident,c.key))}</td><td>${m?s(m.e2e_ms.mean):r?.current===c.key?'Measuring':r?.failures?.some(x=>x.key===c.key)?'Failed':'Pending'}</td><td>${gib(memoryFor(r,c.key))}</td><td>${url?`<a href="${esc(url)}">Original MP4 ↗</a>`:'—'}</td></tr>`;}).join('');
+ $('offload-status').textContent=`${complete} / ${cases.length} module-offload configurations completed. Three seeds per configuration after an excluded warmup.`;
+}
+$('memory-configuration').innerHTML+=[...new Set((R.request_memory||[]).map(x=>x.configuration))].sort().map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');
+for(const id of ['memory-configuration','memory-phase'])$(id).addEventListener('change',renderMemory);
+renderMemory();renderOffload();
 $('gallery-comparison').addEventListener('change',e=>{state.galleryComparison=e.target.value;renderGallery()});
 $('gallery-seed').addEventListener('change',e=>{state.gallerySeed=Number(e.target.value);renderGallery()});
 $('matched-show-decoders').addEventListener('change',renderGallery);
