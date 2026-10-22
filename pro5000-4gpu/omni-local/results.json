@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792653553.8661995,
+  "updated_at": 1792654043.297898,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -2239,6 +2239,78 @@
               2771.4412310160697
             ]
           }
+        },
+        {
+          "key": "image-voice|480p",
+          "workload": "image-voice",
+          "resolution": "480p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 58434.252,
+            "median": 58428.456,
+            "min": 58427.136,
+            "max": 58447.164000000004,
+            "values": [
+              58447.164000000004,
+              58428.456,
+              58427.136
+            ]
+          },
+          "dit_ms": {
+            "mean": 52129.48454140375,
+            "median": 52128.436625003815,
+            "min": 52124.9293088913,
+            "max": 52135.08769031614,
+            "values": [
+              52124.9293088913,
+              52135.08769031614,
+              52128.436625003815
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 847.4012329243124,
+            "median": 847.2216762602329,
+            "min": 846.8089597299695,
+            "max": 848.1730627827346,
+            "values": [
+              848.1730627827346,
+              846.8089597299695,
+              847.2216762602329
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 58373.0,
+            "median": 58367.0,
+            "min": 58366.0,
+            "max": 58386.0,
+            "values": [
+              58386.0,
+              58367.0,
+              58366.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2194.5464682454863,
+            "median": 2193.2150279171765,
+            "min": 2191.8842210434377,
+            "max": 2198.540155775845,
+            "values": [
+              2198.540155775845,
+              2193.2150279171765,
+              2191.8842210434377
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 2819.2696302818754,
+            "median": 2821.541322860867,
+            "min": 2814.526073168963,
+            "max": 2821.7414948157966,
+            "values": [
+              2821.7414948157966,
+              2814.526073168963,
+              2821.541322860867
+            ]
+          }
         }
       ],
       "seeds": [
@@ -2250,16 +2322,17 @@
       "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
       "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
       "ready_at": 1792653110.2183106,
-      "current": "image-voice|480p",
+      "current": "images3|480p",
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-480p.mp4",
-        "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-voice-480p.mp4"
+        "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-voice-480p.mp4",
+        "images3|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-images3-480p.mp4"
       },
       "config_url": "configs/pro5000-1gpu-8l.yaml",
       "memory": {
-        "max_per_gpu_gib": 67.0771484375,
+        "max_per_gpu_gib": 71.0888671875,
         "per_gpu_mib": {
-          "0": 68687
+          "0": 72795
         }
       },
       "evidence": [
@@ -3450,7 +3523,11 @@
       "ended_at": 1792652257.7128537,
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-480p.mp4",
-        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-768p.mp4"
+        "image|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-480p-seed1.mp4",
+        "image|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-480p-seed2.mp4",
+        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-768p.mp4",
+        "image|768p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-768p-seed1.mp4",
+        "image|768p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-768p-seed2.mp4"
       },
       "config_url": "configs/fastvideo-pro5000-4gpu-8l.yaml",
       "memory": {
@@ -3567,8 +3644,8 @@
     "logical_vsa_tile": 128,
     "sparsity": 0.9,
     "reference_keep_rate": 0.1,
-    "configurations": 24,
-    "new_configurations": 16,
+    "configurations": 26,
+    "new_configurations": 18,
     "cake_reuse": "Same native FastVideo CAKE runs in the framework comparison",
     "scope": "Full native attention-path comparison; official FP4 path also changes QKV projection/layout and protects prefix rows. Not an isolated fine-kernel benchmark.",
     "source": "https://github.com/hao-ai-lab/FastVideo/blob/089a5a55a000db41b53fb64bd5f65206de727aba/docs/inference/fasth3_omniref.md",
@@ -3580,9 +3657,11 @@
       "fastvideo-pro5000-4gpu-36l-vsa-bf16",
       "fastvideo-pro5000-4gpu-36l-vsa-sage3",
       "fastvideo-pro5000-4gpu-8l-vsa-bf16",
-      "fastvideo-pro5000-4gpu-8l-vsa-sage3"
+      "fastvideo-pro5000-4gpu-8l-vsa-sage3",
+      "fastvideo-pro5000-4gpu-8l-vsa-sage2"
     ],
-    "bf16_path": "Native SM120 fallback: block_sparse_attn_64_bhsd, logical128 split64; no fine-attention override"
+    "bf16_path": "Native SM120 fallback: block_sparse_attn_64_bhsd, logical128 split64; no fine-attention override",
+    "sage2_scope": "Additional matched quality comparison: 4 GPU, Fast 8L, image, 480p/768p, seeds 0/1/2; custom H3 valid-token adapter to pinned SpargeAttn Sage2."
   },
   "attention_status": {
     "state": "waiting_for_fastvideo",
@@ -3855,7 +3934,11 @@
       "ended_at": 1792652754.304494,
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p.mp4",
-        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p.mp4"
+        "image|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p-seed1.mp4",
+        "image|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p-seed2.mp4",
+        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p.mp4",
+        "image|768p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p-seed1.mp4",
+        "image|768p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p-seed2.mp4"
       },
       "config_url": "configs/fastvideo-pro5000-4gpu-8l-vsa-bf16.yaml",
       "memory": {
@@ -4160,7 +4243,11 @@
       "ended_at": 1792653061.824853,
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p.mp4",
-        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p.mp4"
+        "image|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p-seed1.mp4",
+        "image|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p-seed2.mp4",
+        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p.mp4",
+        "image|768p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p-seed1.mp4",
+        "image|768p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p-seed2.mp4"
       },
       "config_url": "configs/fastvideo-pro5000-4gpu-8l-vsa-sage3.yaml",
       "memory": {
@@ -4270,8 +4357,17 @@
           }
         }
       ]
+    },
+    {
+      "id": "fastvideo-pro5000-4gpu-8l-vsa-sage2",
+      "state": "pending",
+      "summaries": [],
+      "media": {},
+      "memory": null,
+      "evidence": []
     }
   ],
+  "priority_sage2_status": {},
   "priority_attention_status": {
     "state": "complete",
     "started_at": 1792651864.0895436,
@@ -4312,7 +4408,7 @@
   ],
   "attention_completed_configurations": 6,
   "fastvideo_completed_configurations": 2,
-  "completed_configurations": 23,
+  "completed_configurations": 24,
   "failed_configurations": [
     {
       "run": "pro5000-1gpu-36l",
@@ -4324,7 +4420,7 @@
     }
   ],
   "oom_configurations": 1,
-  "attempted_configurations": 24,
+  "attempted_configurations": 25,
   "published_media": [
     {
       "file": "baseline-B-animals.mp4",
@@ -4447,10 +4543,34 @@
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-D-motion.mp4"
     },
     {
+      "file": "fastvideo-pro5000-4gpu-8l-image-480p-seed1.mp4",
+      "bytes": 2040717,
+      "sha256": "6a0cf9a297b1b594b36e21b71271702224350a1359c55a6ac57c8657736cd296",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-480p-seed1.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-image-480p-seed2.mp4",
+      "bytes": 1771162,
+      "sha256": "0ab3f2273a179e11491ba975b1475e2bd67cac49a0142decaa3312535de56930",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-480p-seed2.mp4"
+    },
+    {
       "file": "fastvideo-pro5000-4gpu-8l-image-480p.mp4",
       "bytes": 1884380,
       "sha256": "b9ee1f6fb8edefbe1022c075d4e411a56741415b935b28f4326668362b2676ee",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-480p.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-image-768p-seed1.mp4",
+      "bytes": 3993239,
+      "sha256": "cc9a623954baa192d30cb61c514bf96c1f0dc19a7091cd10a144b0c7dc7eb69e",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-768p-seed1.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-image-768p-seed2.mp4",
+      "bytes": 3835733,
+      "sha256": "f460ff54afba542f5931d2194f551676917c1c93c8402530459f8fe41983d339",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-768p-seed2.mp4"
     },
     {
       "file": "fastvideo-pro5000-4gpu-8l-image-768p.mp4",
@@ -4459,10 +4579,34 @@
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-image-768p.mp4"
     },
     {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p-seed1.mp4",
+      "bytes": 1953992,
+      "sha256": "79b8f00032c12b3070db5aef69325ce195bf8f8849dbd3b8b7c90ff381322c2f",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p-seed1.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p-seed2.mp4",
+      "bytes": 1796796,
+      "sha256": "fe3a82a92a603b4f7be743501e570377029d90f011f747a7f0d2c60d462e7939",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p-seed2.mp4"
+    },
+    {
       "file": "fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p.mp4",
       "bytes": 1860771,
       "sha256": "b1d32a63cccaf7284001f7f80485d7b1274375af3f1887e7b22f4590e55ceb52",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p-seed1.mp4",
+      "bytes": 3779033,
+      "sha256": "a155ab6a4da4557f6047d50f77e8159b6cdae11b7b976c584dee8daf26cbc733",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p-seed1.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p-seed2.mp4",
+      "bytes": 4028808,
+      "sha256": "8a9915b4673123be68fcc5b9edf21ae047320934cc10e61d8ac40f548841fbf4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p-seed2.mp4"
     },
     {
       "file": "fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p.mp4",
@@ -4471,10 +4615,34 @@
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p.mp4"
     },
     {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p-seed1.mp4",
+      "bytes": 1877441,
+      "sha256": "5097d50ce345cdfd362e9df10ace3c5ccf64e2e2e56af379c4915680d2cb4922",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p-seed1.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p-seed2.mp4",
+      "bytes": 1887598,
+      "sha256": "8f36b6c8bb595835746250cb7bb448bf5fb6b1d64aa0087042fdc345f0bf743d",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p-seed2.mp4"
+    },
+    {
       "file": "fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p.mp4",
       "bytes": 1931826,
       "sha256": "b38730d90e585ce57abc1c38a740bfa7a521a3a141a149448959512f4fea87f6",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p-seed1.mp4",
+      "bytes": 4063530,
+      "sha256": "afbc14e1b1583c2774561755786bc1a35421a4abaa3812fe55f75c064b1eac65",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p-seed1.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p-seed2.mp4",
+      "bytes": 3939983,
+      "sha256": "debf5c668f1436587407bcdcc535054c264e8ce1031a5e749125722c66b2d630",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p-seed2.mp4"
     },
     {
       "file": "fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p.mp4",
@@ -4505,6 +4673,12 @@
       "bytes": 2995167,
       "sha256": "9fea03c1b81267fb789c057588ead0017de3b1da7a96639c6411a372b7a50600",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-voice-480p.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-8l-images3-480p.mp4",
+      "bytes": 3737260,
+      "sha256": "dbebf51b8bc48b055bb920222d405513e8b625c644ca58d1ab95715d4c3034aa",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-images3-480p.mp4"
     },
     {
       "file": "pro5000-4gpu-36l-clip-480p.mp4",
