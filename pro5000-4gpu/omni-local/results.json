@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792660675.6531427,
+  "updated_at": 1792661162.8381839,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -5614,10 +5614,10 @@
         "completed_timing_groups": 0
       },
       "qad": {
-        "state": "starting",
-        "verified_outputs": 0,
-        "seed0_outputs": 0,
-        "completed_timing_groups": 0
+        "state": "generating",
+        "verified_outputs": 7,
+        "seed0_outputs": 3,
+        "completed_timing_groups": 2
       }
     },
     "input_provenance_verified": true,
@@ -6052,7 +6052,7 @@
     {
       "id": "matched-pro5000-4gpu-qad-original",
       "case": "qad",
-      "state": "starting",
+      "state": "generating",
       "model": "FastH3-Omni-NVFP4-QAD",
       "model_path": "/dev/shm/fasth3-perf-4gpu-20261021-sylarl/models/FastH3-Omni-NVFP4-QAD",
       "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
@@ -6186,24 +6186,542 @@
       "timing": "One excluded warmup per reference mix, then seeds 0/1/2. Report three-seed means and ranges; retain original MP4 files for every seed. Verified prior seed-0 samples are reused when resuming after a server reload.",
       "comparison_note": "Both checkpoints use CAKE and the original BF16 video decoder. BF16 uses HSDP; QAD uses resident replicas. Checkpoint changes include the transformer and text encoder.",
       "failures": [],
-      "speed_summaries": [],
+      "speed_summaries": [
+        {
+          "key": "image|480p",
+          "workload": "image",
+          "resolution": "480p",
+          "samples": 3,
+          "seeds": [
+            0,
+            1,
+            2
+          ],
+          "e2e_ms": {
+            "mean": 25116.035333333333,
+            "median": 25114.159,
+            "min": 25109.919,
+            "max": 25124.028,
+            "values": [
+              25114.159,
+              25109.919,
+              25124.028
+            ]
+          },
+          "dit_ms": {
+            "mean": 19742.434251432616,
+            "median": 19747.962278779596,
+            "min": 19716.416478622705,
+            "max": 19762.92399689555,
+            "values": [
+              19716.416478622705,
+              19747.962278779596,
+              19762.92399689555
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 1796.2742803307872,
+            "median": 1798.399202991277,
+            "min": 1789.8501632735133,
+            "max": 1800.573474727571,
+            "values": [
+              1789.8501632735133,
+              1800.573474727571,
+              1798.399202991277
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 25054.333333333332,
+            "median": 25050.0,
+            "min": 25049.0,
+            "max": 25064.0,
+            "values": [
+              25049.0,
+              25050.0,
+              25064.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2348.4859449478486,
+            "median": 2349.2048289626837,
+            "min": 2345.792029052973,
+            "max": 2350.4609768278897,
+            "values": [
+              2350.4609768278897,
+              2345.792029052973,
+              2349.2048289626837
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 755.5684282754859,
+            "median": 755.3055831231177,
+            "min": 755.0057377666235,
+            "max": 756.3939639367163,
+            "values": [
+              756.3939639367163,
+              755.3055831231177,
+              755.0057377666235
+            ]
+          }
+        },
+        {
+          "key": "image-voice|480p",
+          "workload": "image-voice",
+          "resolution": "480p",
+          "samples": 3,
+          "seeds": [
+            0,
+            1,
+            2
+          ],
+          "e2e_ms": {
+            "mean": 25907.301333333333,
+            "median": 25912.267,
+            "min": 25891.835,
+            "max": 25917.802,
+            "values": [
+              25891.835,
+              25917.802,
+              25912.267
+            ]
+          },
+          "dit_ms": {
+            "mean": 20437.386066342395,
+            "median": 20438.34190070629,
+            "min": 20435.414870269597,
+            "max": 20438.401428051293,
+            "values": [
+              20438.34190070629,
+              20438.401428051293,
+              20435.414870269597
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 1801.2477400091786,
+            "median": 1801.3406810350716,
+            "min": 1800.907509867102,
+            "max": 1801.4950291253626,
+            "values": [
+              1800.907509867102,
+              1801.4950291253626,
+              1801.3406810350716
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 25848.333333333332,
+            "median": 25852.0,
+            "min": 25835.0,
+            "max": 25858.0,
+            "values": [
+              25835.0,
+              25858.0,
+              25852.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2373.394490685314,
+            "median": 2374.3439209647477,
+            "min": 2369.7969699278474,
+            "max": 2376.0425811633468,
+            "values": [
+              2374.3439209647477,
+              2369.7969699278474,
+              2376.0425811633468
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 800.52695190534,
+            "median": 800.5461446009576,
+            "min": 800.2655301243067,
+            "max": 800.7691809907556,
+            "values": [
+              800.5461446009576,
+              800.2655301243067,
+              800.7691809907556
+            ]
+          }
+        }
+      ],
       "started_at": 1792660641.2890432,
-      "media": {},
-      "quality_samples": [],
+      "ready_at": 1792660767.327885,
+      "current": "images3|480p",
+      "media": {
+        "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-480p.mp4",
+        "image|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-480p-seed1.mp4",
+        "image|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-480p-seed2.mp4",
+        "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-voice-480p.mp4",
+        "image-voice|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-voice-480p-seed1.mp4",
+        "image-voice|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-voice-480p-seed2.mp4",
+        "images3|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-images3-480p.mp4"
+      },
+      "quality_samples": [
+        {
+          "phase": "qualitative",
+          "seed": 0,
+          "workload": "image",
+          "resolution": "480p",
+          "e2e_ms": 25114.159,
+          "server_inference_ms": 25049.0,
+          "stages": {
+            "MiniMaxH3Pipeline.encode_prompt": 2.3504609768278897,
+            "MiniMaxH3Pipeline._encode_local_media": 0.7563939639367163,
+            "MiniMaxH3Pipeline.diffuse": 19.716416478622705,
+            "MiniMaxH3Pipeline.video_vae.decode_latent": 1.7898501632735133,
+            "MiniMaxH3Pipeline.audio_vae.decode_latent": 0.041646565310657024,
+            "MiniMaxH3Pipeline.decode": 1.8563632350414991,
+            "queue_wait_ms": 0.20990706980228424,
+            "stage_0_gen_ms": 24888.909339904785
+          },
+          "started_at": 1792660794.8516414,
+          "ended_at": 1792660820.0618126,
+          "media": [
+            {
+              "codec_type": "video",
+              "width": 832,
+              "height": 480,
+              "r_frame_rate": "24/1",
+              "nb_read_frames": "124"
+            },
+            {
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2,
+              "r_frame_rate": "0/0",
+              "nb_read_frames": "162"
+            }
+          ],
+          "output_sha256": "01f9243edd2754734431cefafad113f0fa8755970df46cb6dbe9c431b8e6acd6",
+          "dit_ms": 19716.416478622705,
+          "video_vae_ms": 1789.8501632735133,
+          "encode_prompt_ms": 2350.4609768278897,
+          "reference_encode_ms": 756.3939639367163
+        },
+        {
+          "phase": "measured",
+          "seed": 1,
+          "workload": "image",
+          "resolution": "480p",
+          "e2e_ms": 25109.919,
+          "server_inference_ms": 25050.0,
+          "stages": {
+            "MiniMaxH3Pipeline.encode_prompt": 2.345792029052973,
+            "MiniMaxH3Pipeline._encode_local_media": 0.7553055831231177,
+            "MiniMaxH3Pipeline.diffuse": 19.747962278779596,
+            "MiniMaxH3Pipeline.video_vae.decode_latent": 1.800573474727571,
+            "MiniMaxH3Pipeline.audio_vae.decode_latent": 0.04162926506251097,
+            "MiniMaxH3Pipeline.decode": 1.8514316701330245,
+            "queue_wait_ms": 0.1548868604004383,
+            "stage_0_gen_ms": 24895.3275680542
+          },
+          "started_at": 1792660820.0694842,
+          "ended_at": 1792660845.27398,
+          "media": [
+            {
+              "codec_type": "video",
+              "width": 832,
+              "height": 480,
+              "r_frame_rate": "24/1",
+              "nb_read_frames": "124"
+            },
+            {
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2,
+              "r_frame_rate": "0/0",
+              "nb_read_frames": "162"
+            }
+          ],
+          "output_sha256": "e327f2f4a2c2eedad5bc97b83614441ab6852546e33d2682966c382cc9be8889",
+          "dit_ms": 19747.962278779596,
+          "video_vae_ms": 1800.573474727571,
+          "encode_prompt_ms": 2345.792029052973,
+          "reference_encode_ms": 755.3055831231177
+        },
+        {
+          "phase": "measured",
+          "seed": 2,
+          "workload": "image",
+          "resolution": "480p",
+          "e2e_ms": 25124.028,
+          "server_inference_ms": 25064.0,
+          "stages": {
+            "MiniMaxH3Pipeline.encode_prompt": 2.3492048289626837,
+            "MiniMaxH3Pipeline._encode_local_media": 0.7550057377666235,
+            "MiniMaxH3Pipeline.diffuse": 19.76292399689555,
+            "MiniMaxH3Pipeline.video_vae.decode_latent": 1.798399202991277,
+            "MiniMaxH3Pipeline.audio_vae.decode_latent": 0.04161847522482276,
+            "MiniMaxH3Pipeline.decode": 1.849189369007945,
+            "queue_wait_ms": 0.1745070330798626,
+            "stage_0_gen_ms": 24918.689489364624
+          },
+          "started_at": 1792660845.281254,
+          "ended_at": 1792660870.4967496,
+          "media": [
+            {
+              "codec_type": "video",
+              "width": 832,
+              "height": 480,
+              "r_frame_rate": "24/1",
+              "nb_read_frames": "124"
+            },
+            {
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2,
+              "r_frame_rate": "0/0",
+              "nb_read_frames": "162"
+            }
+          ],
+          "output_sha256": "d5f64a1b554c7678695dc0f14650c4c2ea625bca445d25c13e53aaba04ec9a1a",
+          "dit_ms": 19762.92399689555,
+          "video_vae_ms": 1798.399202991277,
+          "encode_prompt_ms": 2349.2048289626837,
+          "reference_encode_ms": 755.0057377666235
+        },
+        {
+          "phase": "qualitative",
+          "seed": 0,
+          "workload": "image-voice",
+          "resolution": "480p",
+          "e2e_ms": 25891.835,
+          "server_inference_ms": 25835.0,
+          "stages": {
+            "MiniMaxH3Pipeline.encode_prompt": 2.3743439209647477,
+            "MiniMaxH3Pipeline._encode_local_media": 0.8005461446009576,
+            "MiniMaxH3Pipeline.diffuse": 20.43834190070629,
+            "MiniMaxH3Pipeline.video_vae.decode_latent": 1.800907509867102,
+            "MiniMaxH3Pipeline.audio_vae.decode_latent": 0.04153612582013011,
+            "MiniMaxH3Pipeline.decode": 1.851335521787405,
+            "queue_wait_ms": 0.19592605531215668,
+            "stage_0_gen_ms": 25665.82465171814
+          },
+          "started_at": 1792660896.5532513,
+          "ended_at": 1792660922.5654972,
+          "media": [
+            {
+              "codec_type": "video",
+              "width": 832,
+              "height": 480,
+              "r_frame_rate": "24/1",
+              "nb_read_frames": "124"
+            },
+            {
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2,
+              "r_frame_rate": "0/0",
+              "nb_read_frames": "162"
+            }
+          ],
+          "output_sha256": "d146054b5080a59b601158e8e2b6ed04cf444210c755d15099b18399798c85f2",
+          "dit_ms": 20438.34190070629,
+          "video_vae_ms": 1800.907509867102,
+          "encode_prompt_ms": 2374.3439209647477,
+          "reference_encode_ms": 800.5461446009576
+        },
+        {
+          "phase": "measured",
+          "seed": 1,
+          "workload": "image-voice",
+          "resolution": "480p",
+          "e2e_ms": 25917.802,
+          "server_inference_ms": 25858.0,
+          "stages": {
+            "MiniMaxH3Pipeline.encode_prompt": 2.3697969699278474,
+            "MiniMaxH3Pipeline._encode_local_media": 0.8002655301243067,
+            "MiniMaxH3Pipeline.diffuse": 20.438401428051293,
+            "MiniMaxH3Pipeline.video_vae.decode_latent": 1.8014950291253626,
+            "MiniMaxH3Pipeline.audio_vae.decode_latent": 0.04159403592348099,
+            "MiniMaxH3Pipeline.decode": 1.8542763199657202,
+            "queue_wait_ms": 0.1804768107831478,
+            "stage_0_gen_ms": 25689.727544784546
+          },
+          "started_at": 1792660922.5724196,
+          "ended_at": 1792660948.5782826,
+          "media": [
+            {
+              "codec_type": "video",
+              "width": 832,
+              "height": 480,
+              "r_frame_rate": "24/1",
+              "nb_read_frames": "124"
+            },
+            {
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2,
+              "r_frame_rate": "0/0",
+              "nb_read_frames": "162"
+            }
+          ],
+          "output_sha256": "8d5696814987de54de92684e72be2b284c175677dcf69628e96910d1bb6a5116",
+          "dit_ms": 20438.401428051293,
+          "video_vae_ms": 1801.4950291253626,
+          "encode_prompt_ms": 2369.7969699278474,
+          "reference_encode_ms": 800.2655301243067
+        },
+        {
+          "phase": "measured",
+          "seed": 2,
+          "workload": "image-voice",
+          "resolution": "480p",
+          "e2e_ms": 25912.267,
+          "server_inference_ms": 25852.0,
+          "stages": {
+            "MiniMaxH3Pipeline.encode_prompt": 2.3760425811633468,
+            "MiniMaxH3Pipeline._encode_local_media": 0.8007691809907556,
+            "MiniMaxH3Pipeline.diffuse": 20.435414870269597,
+            "MiniMaxH3Pipeline.video_vae.decode_latent": 1.8013406810350716,
+            "MiniMaxH3Pipeline.audio_vae.decode_latent": 0.04155261581763625,
+            "MiniMaxH3Pipeline.decode": 1.8515676269307733,
+            "queue_wait_ms": 0.22299634292721748,
+            "stage_0_gen_ms": 25684.321403503418
+          },
+          "started_at": 1792660948.5856118,
+          "ended_at": 1792660974.579391,
+          "media": [
+            {
+              "codec_type": "video",
+              "width": 832,
+              "height": 480,
+              "r_frame_rate": "24/1",
+              "nb_read_frames": "124"
+            },
+            {
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2,
+              "r_frame_rate": "0/0",
+              "nb_read_frames": "162"
+            }
+          ],
+          "output_sha256": "c9e7751328cd845c932c16bcda8a353e0897ae7c8c7768ce90cb31f957a7e093",
+          "dit_ms": 20435.414870269597,
+          "video_vae_ms": 1801.3406810350716,
+          "encode_prompt_ms": 2376.0425811633468,
+          "reference_encode_ms": 800.7691809907556
+        },
+        {
+          "phase": "qualitative",
+          "seed": 0,
+          "workload": "images3",
+          "resolution": "480p",
+          "e2e_ms": 66936.284,
+          "server_inference_ms": 66823.0,
+          "stages": {
+            "MiniMaxH3Pipeline.encode_prompt": 7.613303550053388,
+            "MiniMaxH3Pipeline._encode_local_media": 2.246461949311197,
+            "MiniMaxH3Pipeline.diffuse": 54.54880354134366,
+            "MiniMaxH3Pipeline.video_vae.decode_latent": 1.8085844446904957,
+            "MiniMaxH3Pipeline.audio_vae.decode_latent": 0.041797371581196785,
+            "MiniMaxH3Pipeline.decode": 1.8707849220372736,
+            "queue_wait_ms": 0.3568730317056179,
+            "stage_0_gen_ms": 66655.67564964294
+          },
+          "started_at": 1792661041.6392312,
+          "ended_at": 1792661108.6695087,
+          "media": [
+            {
+              "codec_type": "video",
+              "width": 832,
+              "height": 480,
+              "r_frame_rate": "24/1",
+              "nb_read_frames": "124"
+            },
+            {
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2,
+              "r_frame_rate": "0/0",
+              "nb_read_frames": "162"
+            }
+          ],
+          "output_sha256": "19cf9a8010654a6479c104bdb1d4a839357cc26bacf8aa394c66f412e1e5a10c",
+          "dit_ms": 54548.80354134366,
+          "video_vae_ms": 1808.5844446904957,
+          "encode_prompt_ms": 7613.303550053388,
+          "reference_encode_ms": 2246.461949311197
+        }
+      ],
       "config_url": "configs/matched-pro5000-4gpu-qad-original.yaml",
-      "evidence": [],
+      "evidence": [
+        {
+          "rank": 0,
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 1,
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 2,
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 3,
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        }
+      ],
       "memory": {
-        "max_per_gpu_gib": 0.0,
+        "max_per_gpu_gib": 62.8388671875,
         "per_gpu_mib": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0
+          "0": 64251,
+          "1": 64347,
+          "2": 64251,
+          "3": 64347
         }
       }
     }
   ],
-  "matched_checkpoint_outputs": 5,
+  "matched_checkpoint_outputs": 12,
   "continuation_status": {
     "state": "running",
     "started_at": 1792658626.7571661,
@@ -6613,6 +7131,48 @@
       "bytes": 2765287,
       "sha256": "5a67f96bf36e0ad34b7b295e536177f5c6d2e6246450cb64f55ceae448b7e8d3",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-bf16-original-video-480p.mp4"
+    },
+    {
+      "file": "matched-pro5000-4gpu-qad-original-image-480p-seed1.mp4",
+      "bytes": 3472803,
+      "sha256": "e327f2f4a2c2eedad5bc97b83614441ab6852546e33d2682966c382cc9be8889",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-480p-seed1.mp4"
+    },
+    {
+      "file": "matched-pro5000-4gpu-qad-original-image-480p-seed2.mp4",
+      "bytes": 3377445,
+      "sha256": "d5f64a1b554c7678695dc0f14650c4c2ea625bca445d25c13e53aaba04ec9a1a",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-480p-seed2.mp4"
+    },
+    {
+      "file": "matched-pro5000-4gpu-qad-original-image-480p.mp4",
+      "bytes": 3553268,
+      "sha256": "01f9243edd2754734431cefafad113f0fa8755970df46cb6dbe9c431b8e6acd6",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-480p.mp4"
+    },
+    {
+      "file": "matched-pro5000-4gpu-qad-original-image-voice-480p-seed1.mp4",
+      "bytes": 3121229,
+      "sha256": "8d5696814987de54de92684e72be2b284c175677dcf69628e96910d1bb6a5116",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-voice-480p-seed1.mp4"
+    },
+    {
+      "file": "matched-pro5000-4gpu-qad-original-image-voice-480p-seed2.mp4",
+      "bytes": 2780734,
+      "sha256": "c9e7751328cd845c932c16bcda8a353e0897ae7c8c7768ce90cb31f957a7e093",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-voice-480p-seed2.mp4"
+    },
+    {
+      "file": "matched-pro5000-4gpu-qad-original-image-voice-480p.mp4",
+      "bytes": 2872607,
+      "sha256": "d146054b5080a59b601158e8e2b6ed04cf444210c755d15099b18399798c85f2",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-image-voice-480p.mp4"
+    },
+    {
+      "file": "matched-pro5000-4gpu-qad-original-images3-480p.mp4",
+      "bytes": 3587180,
+      "sha256": "19cf9a8010654a6479c104bdb1d4a839357cc26bacf8aa394c66f412e1e5a10c",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-qad-original-images3-480p.mp4"
     },
     {
       "file": "pro5000-1gpu-36l-clip-480p.mp4",
