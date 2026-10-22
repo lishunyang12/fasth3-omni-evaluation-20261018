@@ -12,15 +12,21 @@ window.renderAttentionQuality=(rows,g,d,res)=>{
  const slider=byId('quality-timeline'),display=byId('quality-frame');let frame=0,playing=false,dead=false,raf=null,operation=0;
  const update=f=>{frame=Math.max(0,Math.min(123,f));slider.value=frame;display.textContent=`Frame ${frame} / 123 · ${(frame/24).toFixed(2)} s`;};
  const pause=()=>{operation++;playing=false;videos.forEach(v=>v.pause());cancelAnimationFrame(raf);};
- const ready=v=>v.readyState>=2?Promise.resolve():new Promise((resolve,reject)=>{
-  const clean=()=>{clearTimeout(timeout);v.removeEventListener('loadeddata',done);v.removeEventListener('error',fail)};
-  const done=()=>{clean();resolve()},fail=()=>{clean();reject(Error('A video could not load. Retry or open its original MP4.'))};
-  const timeout=setTimeout(()=>{clean();reject(Error('Video loading timed out. Retry or open its original MP4.'))},45000);
-  v.addEventListener('loadeddata',done,{once:true});v.addEventListener('error',fail,{once:true});v.preload='auto';
- });
- const seek=async f=>{pause();update(f);const token=operation;try{await Promise.all(videos.map(ready));if(dead||token!==operation)return;videos.forEach(v=>v.currentTime=(frame+.05)/24);status.textContent=`Paused at frame ${frame}; compare face, hands, edges and motion continuity.`}catch(e){if(!dead)status.textContent=e.message}};
+ const waits=new Set();
+ const ready=(v,need=2,at=null)=>{
+  const isReady=()=>v.readyState>=need&&(at===null||(!v.seeking&&Math.abs(v.currentTime-at)<.02));
+  if(isReady())return Promise.resolve();
+  return new Promise((resolve,reject)=>{
+   const events=['loadedmetadata','loadeddata','canplay','seeked','progress'];
+   const clean=()=>{clearTimeout(timeout);clearInterval(poll);events.forEach(e=>v.removeEventListener(e,check));v.removeEventListener('error',fail);waits.delete(cancel)};
+   const check=()=>{if(isReady()){clean();resolve()}},fail=()=>{clean();reject(Error('A video could not load. Retry or open its original MP4.'))},cancel=()=>{clean();reject(Error('Selection changed'))};
+   const timeout=setTimeout(()=>{clean();reject(Error('Video loading timed out. Retry or open its original MP4.'))},40000),poll=setInterval(check,100);
+   events.forEach(e=>v.addEventListener(e,check));v.addEventListener('error',fail,{once:true});waits.add(cancel);v.preload='auto';check();
+  });
+ };
+ const seek=async f=>{pause();update(f);const token=operation,target=(frame+.05)/24;status.textContent=`Loading frame ${frame}…`;try{await Promise.all(videos.map(v=>ready(v,1)));if(dead||token!==operation)return;videos.forEach(v=>v.currentTime=target);await Promise.all(videos.map(v=>ready(v,2,target)));if(dead||token!==operation)return;status.textContent=`Paused at frame ${frame}; compare face, hands, edges and motion continuity.`}catch(e){if(!dead&&token===operation)status.textContent=e.message}};
  const tick=()=>{if(dead||!playing)return;const t=videos[0].currentTime;update(Math.floor(t*24));for(const v of videos.slice(1))if(Math.abs(v.currentTime-t)>.08)v.currentTime=t;raf=requestAnimationFrame(tick)};
- const play=async()=>{pause();const token=operation;byId('quality-play').disabled=true;status.textContent='Loading matched videos…';try{await Promise.all(videos.map(ready));if(dead||token!==operation)return;if(frame>=123)update(0);videos.forEach(v=>v.currentTime=(frame+.05)/24);await Promise.all(videos.map(v=>v.play()));if(dead||token!==operation){videos.forEach(v=>v.pause());return}playing=true;status.textContent=`Playing ${videos.length} matched outputs · seed ${seed}. Pause and step through frames to inspect detail.`;tick()}catch(e){pause();if(!dead)status.textContent=e.message}finally{if(!dead)byId('quality-play').disabled=false}};
+ const play=async()=>{pause();const token=operation;byId('quality-play').disabled=true;status.textContent='Loading matched videos…';try{await Promise.all(videos.map(v=>ready(v)));if(dead||token!==operation)return;if(frame>=123)update(0);videos.forEach(v=>v.currentTime=(frame+.05)/24);await Promise.all(videos.map(v=>v.play()));if(dead||token!==operation){videos.forEach(v=>v.pause());return}playing=true;status.textContent=`Playing ${videos.length} matched outputs · seed ${seed}. Pause and step through frames to inspect detail.`;tick()}catch(e){pause();if(!dead)status.textContent=e.message}finally{if(!dead)byId('quality-play').disabled=false}};
  byId('quality-play').onclick=play;byId('quality-pause').onclick=()=>{pause();status.textContent='Paused. Use frame controls to compare the same moment.'};
  byId('quality-prev').onclick=()=>seek(frame-1);byId('quality-next').onclick=()=>seek(frame+1);slider.oninput=()=>seek(Number(slider.value));
  byId('quality-audio').onchange=e=>videos.forEach((v,i)=>v.muted=i!==Number(e.target.value));
@@ -29,5 +35,5 @@ window.renderAttentionQuality=(rows,g,d,res)=>{
  host.querySelectorAll('.quality-expand').forEach(button=>button.onclick=async()=>{pause();const card=button.closest('.video-card');if(card.requestFullscreen)try{await card.requestFullscreen()}catch(e){status.textContent='Full screen unavailable; use the original MP4 link.'}});
  byId('quality-play').disabled=videos.length===0;byId('quality-prev').disabled=videos.length===0;byId('quality-next').disabled=videos.length===0;slider.disabled=videos.length===0;
  status.textContent=`${videos.length} / ${rows.length} outputs available · seed ${seed}. Same request and decoder; inspect individual samples without inferring an overall quality ranking.`;
- window.qualityPlayer={videos,play,pause,seek,dispose(){dead=true;pause();videos.forEach(v=>{v.removeAttribute('src');v.load()})}};
+ window.qualityPlayer={videos,play,pause,seek,dispose(){dead=true;pause();[...waits].forEach(cancel=>cancel());videos.forEach(v=>{v.removeAttribute('src');v.load()})}};
 };

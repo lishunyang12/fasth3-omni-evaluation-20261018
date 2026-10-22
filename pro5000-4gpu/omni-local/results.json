@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792655072.1086042,
+  "updated_at": 1792655514.336769,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -1960,7 +1960,7 @@
       "attention": "CAKE Sage: INT8 Q/K, FP8 V",
       "reference_canvas": "2048 short edge, nearest multiple of 32, Lanczos",
       "offload": false,
-      "started_at": 1792655041.125799,
+      "started_at": 1792655399.3300755,
       "summaries": [
         {
           "key": "image|480p",
@@ -2105,6 +2105,78 @@
               2823.8246217370033
             ]
           }
+        },
+        {
+          "key": "clip|480p",
+          "workload": "clip",
+          "resolution": "480p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 56017.151333333335,
+            "median": 55997.793000000005,
+            "min": 55985.907,
+            "max": 56067.754,
+            "values": [
+              56067.754,
+              55997.793000000005,
+              55985.907
+            ]
+          },
+          "dit_ms": {
+            "mean": 37840.00357597446,
+            "median": 37806.75521818921,
+            "min": 37790.11973971501,
+            "max": 37923.135770019144,
+            "values": [
+              37923.135770019144,
+              37790.11973971501,
+              37806.75521818921
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 3691.1060901669166,
+            "median": 3692.3671970143914,
+            "min": 3685.048342682421,
+            "max": 3695.9027308039367,
+            "values": [
+              3695.9027308039367,
+              3685.048342682421,
+              3692.3671970143914
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 56006.333333333336,
+            "median": 55987.0,
+            "min": 55976.0,
+            "max": 56056.0,
+            "values": [
+              56056.0,
+              55987.0,
+              55976.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 629.2102684577306,
+            "median": 629.535733256489,
+            "min": 627.9234988614917,
+            "max": 630.1715732552111,
+            "values": [
+              627.9234988614917,
+              629.535733256489,
+              630.1715732552111
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 12869.680079165846,
+            "median": 12884.880524128675,
+            "min": 12838.173338212073,
+            "max": 12885.98637515679,
+            "values": [
+              12838.173338212073,
+              12885.98637515679,
+              12884.880524128675
+            ]
+          }
         }
       ],
       "failures": [
@@ -2121,6 +2193,13 @@
           "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
           "detail": "Video generation failed: CUDA out of memory. Tried to allocate 896.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 632.62 MiB is free. Including non-PyTorch memory, this process has 70.50 GiB memory in use. Of the allocated memory 66.46 GiB is allocated by PyTorch, and 3.64 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
           "time": 1792655036.3723192
+        },
+        {
+          "key": "video|480p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1014.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 208.62 MiB is free. Including non-PyTorch memory, this process has 70.91 GiB memory in use. Of the allocated memory 67.82 GiB is allocated by PyTorch, and 2.69 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792655396.8972323
         }
       ],
       "seeds": [
@@ -2133,7 +2212,8 @@
       "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-480p.mp4",
-        "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-480p.mp4"
+        "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-480p.mp4",
+        "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-clip-480p.mp4"
       },
       "config_url": "configs/pro5000-1gpu-36l.yaml",
       "memory": {
@@ -2147,7 +2227,7 @@
           "rank": 0,
           "shape": [
             1,
-            35840,
+            74112,
             56,
             128
           ],
@@ -4949,7 +5029,7 @@
   ],
   "attention_completed_configurations": 8,
   "fastvideo_completed_configurations": 2,
-  "completed_configurations": 25,
+  "completed_configurations": 26,
   "failed_configurations": [
     {
       "run": "pro5000-1gpu-36l",
@@ -4958,10 +5038,18 @@
       "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
       "detail": "Video generation failed: CUDA out of memory. Tried to allocate 896.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 632.62 MiB is free. Including non-PyTorch memory, this process has 70.50 GiB memory in use. Of the allocated memory 66.46 GiB is allocated by PyTorch, and 3.64 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
       "time": 1792655036.3723192
+    },
+    {
+      "run": "pro5000-1gpu-36l",
+      "key": "video|480p",
+      "kind": "cuda_oom",
+      "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+      "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1014.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 208.62 MiB is free. Including non-PyTorch memory, this process has 70.91 GiB memory in use. Of the allocated memory 67.82 GiB is allocated by PyTorch, and 2.69 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+      "time": 1792655396.8972323
     }
   ],
-  "oom_configurations": 1,
-  "attempted_configurations": 26,
+  "oom_configurations": 2,
+  "attempted_configurations": 28,
   "published_media": [
     {
       "file": "baseline-B-animals.mp4",
@@ -5226,6 +5314,12 @@
       "bytes": 3758603,
       "sha256": "c0514cd05f505d8f4486968c31ee9b8c931cbc9936b9ae83569ef978c101b441",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-36l-clip-480p.mp4",
+      "bytes": 3199740,
+      "sha256": "5b4f237d59ce0e55dbe84e22e9488741a68df713d646f214fe945db7ea5384d2",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-clip-480p.mp4"
     },
     {
       "file": "pro5000-1gpu-36l-image-480p.mp4",
