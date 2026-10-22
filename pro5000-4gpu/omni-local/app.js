@@ -16,10 +16,10 @@ const offloadRecord=(d,w=state.workload,res=state.resolution,strategy='module')=
 function offloadState(d,w=state.workload,res=state.resolution,strategy='module'){
  const r=offloadRecord(d,w,res,strategy);
  if(!r)return 'Not tested';
- return ({success:'Success · 3/3 seeds',oom:'Still OOM',failed:'Failed',loading:'Loading model',warmup:'Warmup in progress',measuring:`Measuring · ${r.measured_seeds.length}/3 seeds complete`,queued:'Queued · not started'})[r.after]||r.after;
+ return ({success:'Success · 3/3 seeds',oom:'Still OOM',failed:'Failed',loading:'Loading model',warmup:'Warmup in progress',measuring:`Measuring · ${r.measured_seeds.length}/3 seeds complete`,queued:'Queued · not started',superseded:'Superseded · ComfyUI study'})[r.after]||r.after;
 }
 function offloadPeak(r){
- if(!r?.memory)return r?.after==='queued'?'Peak not measured yet':'Peak available after request completes';
+ if(!r?.memory)return ['queued','superseded'].includes(r?.after)?'Peak not measured':'Peak available after request completes';
  const prefix={measured_requests:'Sampled peak',partial_measured_requests:'Partial measured peak',warmup:'Warmup peak',failed_request:'Failed-request peak'}[r.memory_scope]||'Sampled peak';
  return `${prefix} ${gib(r.memory)} GiB`;
 }
@@ -248,13 +248,13 @@ function renderReferenceCanvas(){
  const rows=R.native_reference_runs||[],ref=rows.find(r=>r.mode==='resident');
  $('native-reference-table').tBodies[0].innerHTML=rows.map(r=>{
   const m=r.summaries?.find(x=>x.key==='images3|480p'),f=r.failures?.find(x=>x.key==='images3|480p'),n=Object.keys(r.output_hashes||{}).length;
-  const status=m?'Complete · 3/3 seeds':f?.kind==='cuda_oom'?'OOM':f?'Failed':r.active_request?.phase==='warmup'?'Warmup in progress':r.state==='starting'?'Loading model':r.state==='measuring'?`Measuring · ${n}/3 seeds`:'Queued';
+  const status=m?'Complete · 3/3 seeds':f?.kind==='cuda_oom'?'OOM':f?'Failed':r.active_request?.phase==='warmup'?'Warmup in progress':r.state==='starting'?'Loading model':r.state==='measuring'?`Measuring · ${n}/3 seeds`:'Superseded · ComfyUI match';
   const pairs=[0,1,2].filter(seed=>r.output_hashes?.[seed]&&ref?.output_hashes?.[seed]);
   const eq=r.mode==='resident'?'Reference':pairs.length===3?`${pairs.filter(seed=>r.output_hashes[seed]===ref.output_hashes[seed]).length}/3 byte-identical`:'Awaiting paired outputs';
   return `<tr data-mode="${esc(r.mode)}"><th>${esc({resident:'GPU resident',module:'Module CPU offload',layerwise:'Layerwise CPU offload'}[r.mode])}</th><td>${status}</td><td>${m?s(m.e2e_ms.mean):'—'}</td><td>${m?s(m.dit_ms.mean):'—'}</td><td>${m?gib(m.memory):'Not yet measured'}</td><td>${eq}</td><td>${r.media?.['images3|480p']?`<a href="${esc(r.media['images3|480p'])}">Seed 0 MP4 ↗</a>`:''}${r.config_url?` <a href="${esc(r.config_url)}" download>Config ↓</a>`:''}</td></tr>`;
  }).join('');
  const base=ref?.summaries?.[0],layer=rows.find(r=>r.mode==='layerwise')?.summaries?.[0];
- $('native-reference-summary').textContent=base&&layer?`Layerwise / resident: ${(layer.e2e_ms.mean/base.e2e_ms.mean).toFixed(3)}× end-to-end, ${(layer.dit_ms.mean/base.dit_ms.mean).toFixed(3)}× DiT. These are observed timing ratios; a transfer timeline is required to quantify hidden copy time. MP4 byte equality does not compare quality against the different historical reference canvas.`:'Waiting for matched native-size measurements. Near-zero offload overhead has not yet been established for this corrected workload.';
+ $('native-reference-summary').textContent=base&&layer?`Layerwise / resident: ${(layer.e2e_ms.mean/base.e2e_ms.mean).toFixed(3)}× end-to-end, ${(layer.dit_ms.mean/base.dit_ms.mean).toFixed(3)}× DiT. These are observed timing ratios; a transfer timeline is required to quantify hidden copy time. MP4 byte equality does not compare quality against the different historical reference canvas.`:'This native-size diagnostic is retained as historical evidence. All further offload measurements use the ComfyUI match policy shown above.';
 }
 renderMemory();renderOffload();renderReferenceCanvas();
 $('gallery-comparison').addEventListener('change',e=>{state.galleryComparison=e.target.value;renderGallery()});
@@ -270,3 +270,4 @@ $('coverage').textContent=`${R.completed_configurations} / 40 configurations mea
 for(const id of ['attention-gpu','attention-resolution','attention-decoder','quality-seed'])$(id).addEventListener('change',renderAttention);
 renderGallery();renderChart();renderTables();renderCheckpoints();renderFrameworks();renderAttention();
 window.reportUI={state,renderGallery,renderChart,openOutputs,get player(){return player}};
+if(R.active_preprocessing_policy?.policy==='comfy')$('run-status').textContent='Archived article-canvas results · current ComfyUI study above';
