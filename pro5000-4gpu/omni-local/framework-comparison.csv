@@ -4,3 +4,5 @@ vLLM-Omni,pro5000-4gpu-36l,image,768p,36l,3,42.22483833333333,36.12217675444359,
 vLLM-Omni,pro5000-4gpu-8l,image,480p,8l,3,23.658229666666667,19.752656219216686,0.26401432572553557,False,Multipart uploads of original reference bytes
 vLLM-Omni,pro5000-4gpu-8l,image,768p,8l,3,40.576099,36.12073371636992,0.6102611292153597,False,Multipart uploads of original reference bytes
 vLLM-Omni,pro5000-1gpu-36l,image,480p,36l,3,59.609097999999996,50.49851310967157,3.679717045122137,False,Multipart uploads of original reference bytes
+FastVideo,fastvideo-pro5000-4gpu-8l,image,480p,8l,3,25.122294,19.63860552199185,0.17774648498743773,False,"Typed local references, pre-staged on server; vLLM article runs upload identical bytes."
+FastVideo,fastvideo-pro5000-4gpu-8l,image,768p,8l,3,42.631840333333336,36.67734612322723,0.42492507662003237,False,"Typed local references, pre-staged on server; vLLM article runs upload identical bytes."

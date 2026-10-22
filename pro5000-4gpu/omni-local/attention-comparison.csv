@@ -1,1 +1,4 @@
 configuration,attention,decoder,resolution,e2e_mean_s,dit_mean_s,video_decode_mean_s,samples
+fastvideo-pro5000-4gpu-8l,cake,8l,480p,25.122294,19.63860552199185,0.17774648498743773,3
+fastvideo-pro5000-4gpu-8l,cake,8l,768p,42.631840333333336,36.67734612322723,0.42492507662003237,3
+fastvideo-pro5000-4gpu-8l-vsa-bf16,vsa-bf16,8l,480p,37.486759,31.965551314409822,0.17615002564465007,3
