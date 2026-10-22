@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792658961.8838563,
+  "updated_at": 1792659445.9620988,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -248,7 +248,7 @@
     "execution_order": "All configurations run sequentially. Both one-GPU and four-GPU deployments keep model components GPU resident; CPU offload is disabled."
   },
   "status": {
-    "state": "running",
+    "state": "waiting_for_resources",
     "planned": [
       "pro5000-4gpu-36l",
       "pro5000-4gpu-8l",
@@ -266,12 +266,10 @@
       }
     ],
     "pending": [
-      "pro5000-1gpu-8l:clip|768p",
       "pro5000-1gpu-8l:video|768p"
     ],
-    "updated_at": 1792658892.5178277,
+    "updated_at": 1792659293.7089682,
     "scheduler": "continuation-status.json",
-    "current": "pro5000-1gpu-8l",
     "resource_note": "Jobs wait only for their selected GPUs. No unrelated GPU process is stopped."
   },
   "runs": [
@@ -2487,7 +2485,7 @@
     },
     {
       "id": "pro5000-1gpu-8l",
-      "state": "measuring",
+      "state": "partial",
       "gpus": [
         0
       ],
@@ -2930,6 +2928,78 @@
               2804.3654430657625
             ]
           }
+        },
+        {
+          "key": "clip|768p",
+          "workload": "clip",
+          "resolution": "768p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 86269.226,
+            "median": 86282.069,
+            "min": 86197.632,
+            "max": 86327.977,
+            "values": [
+              86197.632,
+              86282.069,
+              86327.977
+            ]
+          },
+          "dit_ms": {
+            "mean": 69663.95876184106,
+            "median": 69662.29617223144,
+            "min": 69614.16064528748,
+            "max": 69715.41946800426,
+            "values": [
+              69614.16064528748,
+              69662.29617223144,
+              69715.41946800426
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 1991.4671516356368,
+            "median": 1990.8988950774074,
+            "min": 1990.363017655909,
+            "max": 1993.1395421735942,
+            "values": [
+              1990.8988950774074,
+              1993.1395421735942,
+              1990.363017655909
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 86256.0,
+            "median": 86269.0,
+            "min": 86185.0,
+            "max": 86314.0,
+            "values": [
+              86185.0,
+              86269.0,
+              86314.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 637.091278253744,
+            "median": 636.9412988424301,
+            "min": 632.5763999484479,
+            "max": 641.7561359703541,
+            "values": [
+              636.9412988424301,
+              641.7561359703541,
+              632.5763999484479
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 12878.890668507665,
+            "median": 12886.280269362032,
+            "min": 12861.513930372894,
+            "max": 12888.87780578807,
+            "values": [
+              12861.513930372894,
+              12886.280269362032,
+              12888.87780578807
+            ]
+          }
         }
       ],
       "failures": [
@@ -2957,14 +3027,15 @@
       "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
       "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
       "ready_at": 1792658942.7795062,
-      "current": "clip|768p",
+      "ended_at": 1792659289.648443,
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-480p.mp4",
         "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-voice-480p.mp4",
         "images3|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-images3-480p.mp4",
         "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-clip-480p.mp4",
         "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-768p.mp4",
-        "image-voice|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-voice-768p.mp4"
+        "image-voice|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-image-voice-768p.mp4",
+        "clip|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-clip-768p.mp4"
       },
       "config_url": "configs/pro5000-1gpu-8l.yaml",
       "memory": {
@@ -3938,7 +4009,7 @@
       "fastvideo-pro5000-1gpu-36l",
       "fastvideo-pro5000-4gpu-36l"
     ],
-    "updated_at": 1792658892.5211663,
+    "updated_at": 1792659293.7120254,
     "scheduler": "continuation-status.json",
     "resource_note": "Jobs wait only for their selected GPUs. No unrelated GPU process is stopped."
   },
@@ -4336,7 +4407,7 @@
       "fastvideo-pro5000-4gpu-36l-vsa-bf16",
       "fastvideo-pro5000-4gpu-36l-vsa-sage3"
     ],
-    "updated_at": 1792658892.5254629,
+    "updated_at": 1792659293.716346,
     "scheduler": "continuation-status.json",
     "resource_note": "Jobs wait only for their selected GPUs. No unrelated GPU process is stopped."
   },
@@ -5498,7 +5569,7 @@
     "ended_at": 1792653066.0556624
   },
   "matched_checkpoint_status": {
-    "state": "waiting_for_resources",
+    "state": "running",
     "planned": [
       "matched-pro5000-4gpu-bf16-original",
       "matched-pro5000-4gpu-qad-original"
@@ -5509,15 +5580,16 @@
       "matched-pro5000-4gpu-bf16-original",
       "matched-pro5000-4gpu-qad-original"
     ],
-    "updated_at": 1792658892.5275826,
+    "updated_at": 1792659293.7185555,
     "scheduler": "continuation-status.json",
+    "current": "matched-pro5000-4gpu-bf16-original",
     "resource_note": "Jobs wait only for their selected GPUs. No unrelated GPU process is stopped."
   },
   "matched_checkpoint_runs": [
     {
       "id": "matched-pro5000-4gpu-bf16-original",
       "case": "bf16",
-      "state": "prepared",
+      "state": "starting",
       "model": "FastVideo-FastH3-Omni-8-Step-V1",
       "model_path": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/hf-hub/models--FastVideo--FastVideo-FastH3-Omni-8-Step-V1/snapshots/88d512c5e7cc38dda499fbb65688ce58611f9c80",
       "checkpoint_revision": "88d512c5e7cc38dda499fbb65688ce58611f9c80",
@@ -5645,11 +5717,20 @@
       "timing": "Qualitative comparison: one excluded warmup per reference mix, then one seed-0 sample. Single-request timings are not three-run means.",
       "comparison_note": "Both checkpoints use CAKE and the original BF16 video decoder. BF16 uses HSDP; QAD uses resident replicas. Checkpoint changes include the transformer and text encoder.",
       "failures": [],
+      "started_at": 1792659293.9501488,
       "media": {},
       "quality_samples": [],
       "config_url": "configs/matched-pro5000-4gpu-bf16-original.yaml",
       "evidence": [],
-      "memory": null
+      "memory": {
+        "max_per_gpu_gib": 0.0,
+        "per_gpu_mib": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0
+        }
+      }
     },
     {
       "id": "matched-pro5000-4gpu-qad-original",
@@ -5798,14 +5879,18 @@
         "job": "pro5000-1gpu-36l:clip|768p",
         "exit_code": 0,
         "ended_at": 1792658889.3381145
+      },
+      {
+        "job": "pro5000-1gpu-8l:clip|768p",
+        "exit_code": 0,
+        "ended_at": 1792659290.5245008
       }
     ],
-    "updated_at": 1792658892.528764,
-    "current": "pro5000-1gpu-8l:clip|768p",
+    "updated_at": 1792659293.7198656,
+    "current": "matched-pro5000-4gpu-bf16-original",
     "remaining": [
       "matched-pro5000-4gpu-bf16-original",
       "matched-pro5000-4gpu-qad-original",
-      "pro5000-1gpu-8l:clip|768p",
       "pro5000-1gpu-8l:video|768p",
       "fastvideo-pro5000-1gpu-8l",
       "fastvideo-pro5000-1gpu-36l",
@@ -5817,18 +5902,7 @@
       "fastvideo-pro5000-4gpu-36l-vsa-bf16",
       "fastvideo-pro5000-4gpu-36l-vsa-sage3"
     ],
-    "busy_gpus": {
-      "2": {
-        "uuid": "GPU-ab3d387a-b17d-bd26-a5cf-7968a2129522",
-        "memory_mib": 3799,
-        "utilization": 100
-      },
-      "3": {
-        "uuid": "GPU-2fdb0b79-0ba7-f356-b714-6c461b71ce12",
-        "memory_mib": 3781,
-        "utilization": 100
-      }
-    }
+    "busy_gpus": {}
   },
   "baseline_scenes": [
     {
@@ -5859,7 +5933,7 @@
   ],
   "attention_completed_configurations": 8,
   "fastvideo_completed_configurations": 2,
-  "completed_configurations": 32,
+  "completed_configurations": 33,
   "failed_configurations": [
     {
       "run": "pro5000-1gpu-36l",
@@ -5911,7 +5985,7 @@
     }
   ],
   "oom_configurations": 6,
-  "attempted_configurations": 38,
+  "attempted_configurations": 39,
   "published_media": [
     {
       "file": "baseline-B-animals.mp4",
@@ -6218,6 +6292,12 @@
       "bytes": 3033062,
       "sha256": "33e7c433fab502b8467c38d6a44c0d8b331725f4c992c729b508b4af5dd2fa7f",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-clip-480p.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-8l-clip-768p.mp4",
+      "bytes": 6441255,
+      "sha256": "47982b6c2ec69cf87531e6947807aca30b7b71d3fafab6214abbc72c2bee93b6",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-8l-clip-768p.mp4"
     },
     {
       "file": "pro5000-1gpu-8l-image-480p.mp4",
