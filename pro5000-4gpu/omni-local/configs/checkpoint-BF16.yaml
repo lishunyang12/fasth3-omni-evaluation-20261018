@@ -1,0 +1,23 @@
+trust-remote-code: true
+enforce-eager: true
+num-gpus: 4
+task-type: ref2va
+usp: 4
+use-hsdp: true
+text-encoder-tp-size: 4
+vae-patch-parallel-size: 4
+vae-parallel-mode: tile
+vae-use-tiling: true
+diffusion-attention-config:
+  default:
+    backend: FASTVIDEO_VSA
+    fastvideo_vsa_provider: flashinfer
+enable-diffusion-pipeline-profiler: true
+default-sampling-params:
+  '0':
+    num_inference_steps: 8
+    guidance_scale: 1
+init-timeout: 3600
+stage-init-timeout: 3600
+additional-config:
+  video_vae_decoder: null

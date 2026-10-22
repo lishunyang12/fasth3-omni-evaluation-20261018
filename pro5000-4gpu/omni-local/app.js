@@ -74,7 +74,32 @@ function openOutputs(w,res,d){
  $('output-title').textContent=`${names[w]} · ${res} · ${d==='36l'?'36L':'8L'} · seed 0`;
  $('output-videos').innerHTML=[1,4].map(g=>videoCard({title:`${g}× PRO 5000 · vLLM-Omni`,meta:'CAKE attention · original generated video',url:run(g,d)?.media?.[`${w}|${res}`],pro:true})).join('');$('output-dialog').showModal();
 }
-function renderCheckpoints(){const base=R.baseline.find(x=>x.id==='BF16')?.median?.e2e_ms;const labels={BF16:'Original BF16',B:'NVFP4 QAD',C:'NVFP4 QAD + 8L'};$('checkpoint-summary').innerHTML=R.baseline.map(x=>`<div><b>${labels[x.id]}</b><strong>${x.median?s(x.median.e2e_ms)+' s':'—'}</strong><span>${x.median?'Median of three requests':statusName(x.state)}</span><em>${x.median&&base?(x.id==='BF16'?'Reference deployment':(base/x.median.e2e_ms).toFixed(2)+'× vs BF16 deployment'):''}</em></div>`).join('')}
+const checkpointLabels={BF16:'Original BF16',B:'QAD + original decoder',D:'QAD + NVFP4 36L',C:'QAD + NVFP4 8L'};
+const checkpointParts=[['prompt_ms','Prompt','#4989c4'],['reference_ms','Reference','#8bb6d3'],['dit_ms','DiT','#147851'],['video_vae_ms','Video decode','#c79751'],['audio_ms','Audio decode','#9674ad'],['other_ms','Other','#b8bdb7']];
+function renderCheckpointStack(){
+ const x=R.baseline.find(x=>x.id===$('checkpoint-select').value),t=x?.median_request;
+ if(!t){$('checkpoint-stack').innerHTML='<p class="small">Pending measurement.</p>';return}
+ $('checkpoint-stack').innerHTML=`<div class="stage-total"><strong>${s(t.e2e_ms)} s</strong> · ${esc(checkpointLabels[x.id])} · ${esc(t.key)}</div><div class="stage-stack">${checkpointParts.map(([k,n,c])=>`<span title="${n}: ${s(t[k])} s" style="width:${t[k]/t.e2e_ms*100}%;background:${c}"></span>`).join('')}</div><div class="stage-values">${checkpointParts.map(([k,n,c])=>`<div><i class="key" style="background:${c}"></i>${n}<b>${s(t[k])} s</b></div>`).join('')}</div>`;
+}
+function renderCheckpoints(){
+ const base=R.baseline.find(x=>x.id==='BF16')?.median?.e2e_ms;
+ $('checkpoint-summary').innerHTML=R.baseline.map(x=>`<div><b>${checkpointLabels[x.id]}</b><strong>${x.median?s(x.median.e2e_ms)+' s':'—'}</strong><span>${x.median?'Median of three requests':statusName(x.state)}</span><em>${x.median&&base?(x.id==='BF16'?'Reference deployment':(base/x.median.e2e_ms).toFixed(2)+'× vs BF16 deployment'):''}</em></div>`).join('');
+ $('checkpoint-breakdown').tBodies[0].innerHTML=R.baseline.map(x=>`<tr><th>${checkpointLabels[x.id]}</th>${[...checkpointParts.map(p=>p[0]),'e2e_ms'].map(k=>`<td>${s(x.stage_medians?.[k])}</td>`).join('')}</tr>`).join('');
+ $('checkpoint-select').innerHTML=R.baseline.map(x=>`<option value="${x.id}">${checkpointLabels[x.id]}</option>`).join('');
+ $('checkpoint-select').addEventListener('change',renderCheckpointStack);renderCheckpointStack();
+ $('checkpoint-config').tHead.innerHTML='<tr><th>Setting</th>'+R.baseline.map(x=>`<th>${checkpointLabels[x.id]}</th>`).join('')+'</tr>';
+ const configRows=[['Checkpoint',x=>`<a href="https://huggingface.co/FastVideo/${x.id==='BF16'?'FastVideo-FastH3-Omni-8-Step-V1':'FastH3-Omni-NVFP4-QAD'}">${x.id==='BF16'?'Original BF16':'NVFP4 QAD'} ↗</a><br><code>${esc(x.checkpoint_revision?.slice(0,12)||'Pending')}</code>`],['Video decoder',x=>({BF16:'Original BF16',B:'Original BF16',D:'NVFP4 Quality 36L',C:'NVFP4 Fast 8L'}[x.id])],['Decoder export revision',x=>x.configuration?.decoder_revision?`<code>${x.configuration.decoder_revision.slice(0,12)}</code>`:'Bundled original'],['DiT distribution',x=>x.hsdp?'HSDP sharded':'Resident replicas'],['Peak sampled memory / GPU',x=>x.memory?.max_per_gpu_gib?x.memory.max_per_gpu_gib.toFixed(1)+' GiB':'Pending'],['Exact server config',x=>x.config_url?`<a href="${esc(x.config_url)}" download>Download YAML ↓</a>`:'Pending']];
+ $('checkpoint-config').tBodies[0].innerHTML=configRows.map(([label,fn])=>`<tr><th>${label}</th>${R.baseline.map(x=>`<td>${fn(x)}</td>`).join('')}</tr>`).join('');
+}
+function renderAttention(){
+ const g=Number($('attention-gpu').value),d=$('attention-decoder').value,res=$('attention-resolution').value,key='image|'+res;
+ const rows=[{label:'CAKE · INT8 QK / FP8 V',r:fvRun(g,d)},{label:'Hao AI Lab VSA · BF16',r:R.attention_runs?.find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}-vsa-bf16`)},{label:'Hao AI Lab VSA + Sage3 · FP4',r:R.attention_runs?.find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}-vsa-sage3`)}];
+ rows.forEach(x=>x.m=x.r?.summaries?.find(m=>m.key===key));const cake=rows[0].m?.e2e_ms.mean;
+ $('attention-status').textContent=`${R.attention_completed_configurations||0} / 24 native attention configurations measured. ${R.attention_status?.state==='waiting_for_fastvideo'?'Queued after the serving-framework runs.':'Measurements run sequentially on allocated GPUs.'}`;
+ $('attention-table').tBodies[0].innerHTML=rows.map(x=>`<tr><th>${x.label}</th>${['e2e_ms','dit_ms','video_vae_ms'].map(k=>`<td>${x.m?s(x.m[k]?.mean):x.r?.state==='failed'?'Incomplete':x.r?.current===key?'Measuring':'Pending'}</td>`).join('')}<td>${cake&&x.m?(x.m.e2e_ms.mean/cake).toFixed(2)+'×':'—'}</td></tr>`).join('');
+ $('attention-videos').querySelectorAll('video').forEach(v=>{v.pause();v.removeAttribute('src');v.load()});
+ $('attention-videos').innerHTML=rows.map(x=>videoCard({title:x.label,meta:`${g} GPU · ${res} · ${d.toUpperCase()} · seed 0`,url:x.r?.media?.[key],pro:true})).join('');
+}
 const fvRun=(g,d)=>(R.fastvideo_runs||[]).find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}`);
 function renderFrameworks(){
  const rows=[];
@@ -101,5 +126,6 @@ $('close-dialog').addEventListener('click',()=>$('output-dialog').close());$('ou
 try{if(localStorage.getItem('omni-theme')==='dark')document.documentElement.dataset.theme='dark'}catch{}
 $('theme').addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('omni-theme',theme)}catch{}});
 $('coverage').textContent=`${R.completed_configurations} / 40 configurations complete`;$('run-status').textContent=statusName(R.status.state);$('updated').textContent='Updated '+new Date(R.updated_at*1000).toLocaleString('en-GB',{timeZone:'Asia/Shanghai',hour12:false})+' UTC+8';
-renderGallery();renderChart();renderTables();renderCheckpoints();renderFrameworks();
+for(const id of ['attention-gpu','attention-resolution','attention-decoder'])$(id).addEventListener('change',renderAttention);
+renderGallery();renderChart();renderTables();renderCheckpoints();renderFrameworks();renderAttention();
 window.reportUI={state,renderGallery,renderChart,openOutputs,get player(){return player}};

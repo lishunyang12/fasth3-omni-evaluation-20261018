@@ -35,10 +35,9 @@
 <div class="section-top"><div><div class="eyebrow">03 / CHECKPOINTS</div><h2>QAD 与原版，差别在哪。</h2></div><span class="unit">4 卡 PRO 5000 · attention 固定为 CAKE</span></div>
 <p class="section-intro">独立对照使用家庭场景单图、1344 × 768、seed 1234。先预热一次，再重复三次，报告中位数；这组输入和参考图尺寸策略与上面的原文复测不同。</p>
 <div id="baseline-cards" class="baseline-grid"></div>
-<div class="table-scroll" tabindex="0" aria-label="模型与解码器差异"><table class="definition-table"><thead><tr><th>改变什么</th><th>原版 BF16</th><th>NVFP4 QAD</th><th>NVFP4 QAD + 8L</th></tr></thead><tbody><tr><th>DiT / 文本编码器</th><td>原版 BF16 权重</td><td>NVFP4 QAD 权重</td><td>NVFP4 QAD 权重</td></tr><tr><th>视频解码器</th><td>原版</td><td>原版</td><td>量化 8 层 Fast</td></tr><tr><th>CAKE attention</th><td colspan="3">全部使用 INT8 Q/K、FP8 V；NVFP4 是模型权重与对应矩阵计算的配置，不等于 FP4 attention。</td></tr><tr><th>4 卡权重部署</th><td>HSDP 分片</td><td>每卡常驻副本</td><td>每卡常驻副本</td></tr></tbody></table></div>
-<p class="caption">这比较的是两种可运行部署，包含分片通信差异；不能全部归因为量化内核。QAD 是量化感知蒸馏，改变训练后的权重；8L 又额外改变了解码器，质量需要分别评估。</p>
+<p class="caption"><a href="index.html#qad">查看四组完整配置、逐阶段耗时与可下载 YAML →</a></p><div class="table-scroll"><table class="definition-table"><thead><tr><th>改变什么</th><th>原版 BF16</th><th>QAD + 原版解码器</th><th>QAD + 36L</th><th>QAD + 8L</th></tr></thead><tbody><tr><th>视频解码器</th><td>原版 BF16</td><td>原版 BF16</td><td>NVFP4 Quality 36L</td><td>NVFP4 Fast 8L</td></tr><tr><th>权重部署</th><td>HSDP 分片</td><td colspan="3">NVFP4 QAD，每卡常驻副本</td></tr><tr><th>共同配置</th><td colspan="4">4 GPU；USP 4 / 文本 TP 4 / VAE patch parallel 4；无 CPU offload；CAKE INT8 QK / FP8 V。</td></tr></tbody></table></div><p class="caption">这比较的是两种可运行部署，包含分片通信差异；不能全部归因为量化内核。QAD 是量化感知蒸馏，改变训练后的权重；8L 又额外改变了解码器，质量需要分别评估。</p>
 <div class="viewer-toolbar"><label class="inline-label">画面对照<select id="baseline-scene"></select></label><span id="scene-focus" class="caption"></span></div>
-<div id="baseline-videos" class="video-grid three"></div><div id="baseline-player" class="player-controls"></div>
+<div id="baseline-videos" class="video-grid two"></div><div id="baseline-player" class="player-controls"></div>
 </section>
 <section id="method" class="section">
 <div class="section-top"><div><div class="eyebrow">04 / REPRODUCIBILITY</div><h2>每一个数字，都有出处。</h2></div></div>

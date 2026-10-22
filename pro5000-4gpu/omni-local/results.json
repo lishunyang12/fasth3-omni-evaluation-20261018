@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792651072.5129008,
+  "updated_at": 1792651579.1363723,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -1938,11 +1938,55 @@
     },
     {
       "id": "pro5000-1gpu-36l",
-      "state": "pending",
+      "state": "measuring",
+      "gpus": [
+        0
+      ],
+      "decoder": "36l",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "model": "FastH3-Omni-NVFP4-QAD",
+      "attention": "CAKE Sage: INT8 Q/K, FP8 V",
+      "reference_canvas": "2048 short edge, nearest multiple of 32, Lanczos",
+      "offload": false,
+      "started_at": 1792651314.7950604,
       "summaries": [],
-      "media": {},
-      "memory": null,
-      "evidence": []
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
+      "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
+      "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
+      "ready_at": 1792651358.8177474,
+      "current": "image|480p",
+      "media": {
+        "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-480p.mp4"
+      },
+      "memory": {
+        "max_per_gpu_gib": 67.8056640625,
+        "per_gpu_mib": {
+          "0": 69433
+        }
+      },
+      "evidence": [
+        {
+          "rank": 0,
+          "shape": [
+            1,
+            35840,
+            56,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        }
+      ]
     },
     {
       "id": "pro5000-1gpu-8l",
@@ -1985,21 +2029,90 @@
         {
           "e2e_ms": 49450.657,
           "dit_ms": 43854.371873196214,
-          "video_vae_ms": 4210.836798883975
+          "video_vae_ms": 4210.836798883975,
+          "prompt_ms": 563.2917541079223,
+          "reference_ms": 217.32239797711372,
+          "audio_ms": 41.5978510864079,
+          "other_ms": 563.2363247483663,
+          "key": "measured-0"
         },
         {
           "e2e_ms": 49551.746,
           "dit_ms": 43957.01969321817,
-          "video_vae_ms": 4214.679261203855
+          "video_vae_ms": 4214.679261203855,
+          "prompt_ms": 565.0288141332567,
+          "reference_ms": 217.91669772937894,
+          "audio_ms": 41.651299223303795,
+          "other_ms": 555.4502344920329,
+          "key": "measured-1"
         },
         {
           "e2e_ms": 49535.933,
           "dit_ms": 43967.41431578994,
-          "video_vae_ms": 4215.54158302024
+          "video_vae_ms": 4215.54158302024,
+          "prompt_ms": 563.558136112988,
+          "reference_ms": 214.49128398671746,
+          "audio_ms": 41.61077132448554,
+          "other_ms": 533.3169097656282,
+          "key": "measured-2"
         }
       ],
       "checkpoint_revision": "88d512c5e7cc38dda499fbb65688ce58611f9c80",
       "hsdp": true,
+      "configuration": {
+        "model": "FastVideo-FastH3-Omni-8-Step-V1",
+        "parallelism": {
+          "usp": 4,
+          "text_encoder_tp": 4,
+          "vae_patch_parallel": 4,
+          "hsdp": true
+        },
+        "workload": {
+          "width": 1344,
+          "height": 768,
+          "frames": 124,
+          "fps": 24,
+          "steps": 8,
+          "seed": 1234,
+          "prompt": "A family enjoys dinner together around a wooden table. Steam rises from the ramen bowls. They smile and talk naturally. The camera slowly pushes toward the table. Warm indoor lighting, quiet conversation, soft clinking of dishes.",
+          "reference": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/framework-validation/ref2va-inputs/official-image.png"
+        },
+        "offload": "none",
+        "execution": "eager",
+        "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
+        "decoder_revision": null,
+        "server_config": {
+          "trust-remote-code": true,
+          "enforce-eager": true,
+          "num-gpus": 4,
+          "task-type": "ref2va",
+          "usp": 4,
+          "use-hsdp": true,
+          "text-encoder-tp-size": 4,
+          "vae-patch-parallel-size": 4,
+          "vae-parallel-mode": "tile",
+          "vae-use-tiling": true,
+          "diffusion-attention-config": {
+            "default": {
+              "backend": "FASTVIDEO_VSA",
+              "fastvideo_vsa_provider": "flashinfer"
+            }
+          },
+          "enable-diffusion-pipeline-profiler": true,
+          "default-sampling-params": {
+            "0": {
+              "num_inference_steps": 8,
+              "guidance_scale": 1
+            }
+          },
+          "init-timeout": 3600,
+          "stage-init-timeout": 3600,
+          "additional-config": {
+            "video_vae_decoder": null
+          }
+        }
+      },
+      "config_url": "configs/checkpoint-BF16.yaml",
       "evidence": [
         {
           "rank": 0,
@@ -2066,7 +2179,26 @@
           "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
         }
       ],
-      "timing": "One excluded warmup, then three repeated requests with seed 1234; median. CPU offload disabled. Reference dimensions preserved, rounded to 32."
+      "timing": "One excluded warmup, then three repeated requests with seed 1234; median. CPU offload disabled. Reference dimensions preserved, rounded to 32.",
+      "stage_medians": {
+        "e2e_ms": 49535.933,
+        "prompt_ms": 563.558136112988,
+        "reference_ms": 217.32239797711372,
+        "dit_ms": 43957.01969321817,
+        "video_vae_ms": 4214.679261203855,
+        "audio_ms": 41.61077132448554,
+        "other_ms": 555.4502344920329
+      },
+      "median_request": {
+        "e2e_ms": 49535.933,
+        "dit_ms": 43967.41431578994,
+        "video_vae_ms": 4215.54158302024,
+        "prompt_ms": 563.558136112988,
+        "reference_ms": 214.49128398671746,
+        "audio_ms": 41.61077132448554,
+        "other_ms": 533.3169097656282,
+        "key": "measured-2"
+      }
     },
     {
       "id": "B",
@@ -2099,21 +2231,90 @@
         {
           "e2e_ms": 28957.089,
           "dit_ms": 23442.688622977585,
-          "video_vae_ms": 4190.011222846806
+          "video_vae_ms": 4190.011222846806,
+          "prompt_ms": 499.4673691689968,
+          "reference_ms": 221.33817290887237,
+          "audio_ms": 41.58249031752348,
+          "other_ms": 562.0011217802166,
+          "key": "measured-0"
         },
         {
           "e2e_ms": 28992.401,
           "dit_ms": 23459.07594077289,
-          "video_vae_ms": 4196.206073276699
+          "video_vae_ms": 4196.206073276699,
+          "prompt_ms": 501.8794578500092,
+          "reference_ms": 229.36022700741887,
+          "audio_ms": 41.539739817380905,
+          "other_ms": 564.339561275603,
+          "key": "measured-1"
         },
         {
           "e2e_ms": 29000.862999999998,
           "dit_ms": 23472.901581786573,
-          "video_vae_ms": 4200.270327739418
+          "video_vae_ms": 4200.270327739418,
+          "prompt_ms": 501.66074000298977,
+          "reference_ms": 230.99942039698362,
+          "audio_ms": 41.52759024873376,
+          "other_ms": 553.5033398252999,
+          "key": "measured-2"
         }
       ],
       "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
       "hsdp": false,
+      "configuration": {
+        "model": "FastH3-Omni-NVFP4-QAD",
+        "parallelism": {
+          "usp": 4,
+          "text_encoder_tp": 4,
+          "vae_patch_parallel": 4,
+          "hsdp": false
+        },
+        "workload": {
+          "width": 1344,
+          "height": 768,
+          "frames": 124,
+          "fps": 24,
+          "steps": 8,
+          "seed": 1234,
+          "prompt": "A family enjoys dinner together around a wooden table. Steam rises from the ramen bowls. They smile and talk naturally. The camera slowly pushes toward the table. Warm indoor lighting, quiet conversation, soft clinking of dishes.",
+          "reference": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/framework-validation/ref2va-inputs/official-image.png"
+        },
+        "offload": "none",
+        "execution": "eager",
+        "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
+        "decoder_revision": null,
+        "server_config": {
+          "trust-remote-code": true,
+          "enforce-eager": true,
+          "num-gpus": 4,
+          "task-type": "ref2va",
+          "usp": 4,
+          "use-hsdp": false,
+          "text-encoder-tp-size": 4,
+          "vae-patch-parallel-size": 4,
+          "vae-parallel-mode": "tile",
+          "vae-use-tiling": true,
+          "diffusion-attention-config": {
+            "default": {
+              "backend": "FASTVIDEO_VSA",
+              "fastvideo_vsa_provider": "flashinfer"
+            }
+          },
+          "enable-diffusion-pipeline-profiler": true,
+          "default-sampling-params": {
+            "0": {
+              "num_inference_steps": 8,
+              "guidance_scale": 1
+            }
+          },
+          "init-timeout": 3600,
+          "stage-init-timeout": 3600,
+          "additional-config": {
+            "video_vae_decoder": null
+          }
+        }
+      },
+      "config_url": "configs/checkpoint-B.yaml",
       "evidence": [
         {
           "rank": 0,
@@ -2180,7 +2381,229 @@
           "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
         }
       ],
-      "timing": "One excluded warmup, then three repeated requests with seed 1234; median. CPU offload disabled. Reference dimensions preserved, rounded to 32."
+      "timing": "One excluded warmup, then three repeated requests with seed 1234; median. CPU offload disabled. Reference dimensions preserved, rounded to 32.",
+      "stage_medians": {
+        "e2e_ms": 28992.401,
+        "prompt_ms": 501.66074000298977,
+        "reference_ms": 229.36022700741887,
+        "dit_ms": 23459.07594077289,
+        "video_vae_ms": 4196.206073276699,
+        "audio_ms": 41.539739817380905,
+        "other_ms": 562.0011217802166
+      },
+      "median_request": {
+        "e2e_ms": 28992.401,
+        "dit_ms": 23459.07594077289,
+        "video_vae_ms": 4196.206073276699,
+        "prompt_ms": 501.8794578500092,
+        "reference_ms": 229.36022700741887,
+        "audio_ms": 41.539739817380905,
+        "other_ms": 564.339561275603,
+        "key": "measured-1"
+      }
+    },
+    {
+      "id": "D",
+      "label": "NVFP4 QAD＋36L",
+      "decoder": "NVFP4 Quality 36L 解码器",
+      "state": "complete",
+      "median": {
+        "e2e_ms": 27011.192000000003,
+        "dit_ms": 23470.31110106036,
+        "video_vae_ms": 2256.207979284227,
+        "server_inference_ms": 26969.0
+      },
+      "memory": {
+        "max_per_gpu_gib": 50.3251953125,
+        "per_gpu_mib": {
+          "0": 51313,
+          "1": 51533,
+          "2": 51437,
+          "3": 51533
+        }
+      },
+      "media": {
+        "family": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-D-family.mp4",
+        "motion": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-D-motion.mp4",
+        "animals": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-D-animals.mp4",
+        "camera": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-D-camera.mp4",
+        "details": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-D-details.mp4"
+      },
+      "trials": [
+        {
+          "e2e_ms": 26984.92,
+          "dit_ms": 23443.04562592879,
+          "video_vae_ms": 2252.9005208052695,
+          "prompt_ms": 492.31675872579217,
+          "reference_ms": 220.396907068789,
+          "audio_ms": 41.67828802019358,
+          "other_ms": 534.5818994511646,
+          "key": "measured-0"
+        },
+        {
+          "e2e_ms": 27011.192000000003,
+          "dit_ms": 23470.31110106036,
+          "video_vae_ms": 2256.207979284227,
+          "prompt_ms": 488.85376984253526,
+          "reference_ms": 220.8255990408361,
+          "audio_ms": 41.58298810943961,
+          "other_ms": 533.4105626626042,
+          "key": "measured-1"
+        },
+        {
+          "e2e_ms": 27013.539999999997,
+          "dit_ms": 23474.462007172406,
+          "video_vae_ms": 2259.133002255112,
+          "prompt_ms": 490.1042799465358,
+          "reference_ms": 216.91345795989037,
+          "audio_ms": 41.59867810085416,
+          "other_ms": 531.3285745651992,
+          "key": "measured-2"
+        }
+      ],
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "hsdp": false,
+      "configuration": {
+        "model": "FastH3-Omni-NVFP4-QAD",
+        "parallelism": {
+          "usp": 4,
+          "text_encoder_tp": 4,
+          "vae_patch_parallel": 4,
+          "hsdp": false
+        },
+        "workload": {
+          "width": 1344,
+          "height": 768,
+          "frames": 124,
+          "fps": 24,
+          "steps": 8,
+          "seed": 1234,
+          "prompt": "A family enjoys dinner together around a wooden table. Steam rises from the ramen bowls. They smile and talk naturally. The camera slowly pushes toward the table. Warm indoor lighting, quiet conversation, soft clinking of dishes.",
+          "reference": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/framework-validation/ref2va-inputs/official-image.png"
+        },
+        "offload": "none",
+        "execution": "eager",
+        "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
+        "decoder_revision": "ddd17469cab7e490b1a04baaf26b247f0f0dcf0e",
+        "server_config": {
+          "trust-remote-code": true,
+          "enforce-eager": true,
+          "num-gpus": 4,
+          "task-type": "ref2va",
+          "usp": 4,
+          "use-hsdp": false,
+          "text-encoder-tp-size": 4,
+          "vae-patch-parallel-size": 4,
+          "vae-parallel-mode": "tile",
+          "vae-use-tiling": true,
+          "diffusion-attention-config": {
+            "default": {
+              "backend": "FASTVIDEO_VSA",
+              "fastvideo_vsa_provider": "flashinfer"
+            }
+          },
+          "enable-diffusion-pipeline-profiler": true,
+          "default-sampling-params": {
+            "0": {
+              "num_inference_steps": 8,
+              "guidance_scale": 1
+            }
+          },
+          "init-timeout": 3600,
+          "stage-init-timeout": 3600,
+          "additional-config": {
+            "video_vae_decoder": "/tmp/fasth3-official-hf/hub/models--FastVideo--FastH3-NVFP4-VAE-Decoder/snapshots/ddd17469cab7e490b1a04baaf26b247f0f0dcf0e/quality-36L/decoder-nvfp4.safetensors"
+          },
+          "enable-cpu-offload": false
+        }
+      },
+      "config_url": "configs/checkpoint-D.yaml",
+      "evidence": [
+        {
+          "rank": 0,
+          "shape": [
+            1,
+            50816,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 1,
+          "shape": [
+            1,
+            50816,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 2,
+          "shape": [
+            1,
+            50816,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 3,
+          "shape": [
+            1,
+            50816,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        }
+      ],
+      "timing": "One excluded warmup, then three repeated requests with seed 1234; median. CPU offload disabled. Reference dimensions preserved, rounded to 32.",
+      "stage_medians": {
+        "e2e_ms": 27011.192000000003,
+        "prompt_ms": 490.1042799465358,
+        "reference_ms": 220.396907068789,
+        "dit_ms": 23470.31110106036,
+        "video_vae_ms": 2256.207979284227,
+        "audio_ms": 41.59867810085416,
+        "other_ms": 533.4105626626042
+      },
+      "median_request": {
+        "e2e_ms": 27011.192000000003,
+        "dit_ms": 23470.31110106036,
+        "video_vae_ms": 2256.207979284227,
+        "prompt_ms": 488.85376984253526,
+        "reference_ms": 220.8255990408361,
+        "audio_ms": 41.58298810943961,
+        "other_ms": 533.4105626626042,
+        "key": "measured-1"
+      }
     },
     {
       "id": "C",
@@ -2213,21 +2636,90 @@
         {
           "e2e_ms": 25317.227,
           "dit_ms": 23433.575273957103,
-          "video_vae_ms": 611.1236778087914
+          "video_vae_ms": 611.1236778087914,
+          "prompt_ms": 499.7041029855609,
+          "reference_ms": 222.87407098338008,
+          "audio_ms": 41.68495815247297,
+          "other_ms": 508.2649161126901,
+          "key": "measured-0"
         },
         {
           "e2e_ms": 25361.146999999997,
           "dit_ms": 23461.592447943985,
-          "video_vae_ms": 616.7349340394139
+          "video_vae_ms": 616.7349340394139,
+          "prompt_ms": 501.0032709687948,
+          "reference_ms": 230.1273881457746,
+          "audio_ms": 41.44163290038705,
+          "other_ms": 510.24732600164134,
+          "key": "measured-1"
         },
         {
           "e2e_ms": 25422.622,
           "dit_ms": 23473.60789217055,
-          "video_vae_ms": 612.8248278982937
+          "video_vae_ms": 612.8248278982937,
+          "prompt_ms": 502.2671287879348,
+          "reference_ms": 231.7274510860443,
+          "audio_ms": 41.48285090923309,
+          "other_ms": 560.711849147945,
+          "key": "measured-2"
         }
       ],
       "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
       "hsdp": false,
+      "configuration": {
+        "model": "FastH3-Omni-NVFP4-QAD",
+        "parallelism": {
+          "usp": 4,
+          "text_encoder_tp": 4,
+          "vae_patch_parallel": 4,
+          "hsdp": false
+        },
+        "workload": {
+          "width": 1344,
+          "height": 768,
+          "frames": 124,
+          "fps": 24,
+          "steps": 8,
+          "seed": 1234,
+          "prompt": "A family enjoys dinner together around a wooden table. Steam rises from the ramen bowls. They smile and talk naturally. The camera slowly pushes toward the table. Warm indoor lighting, quiet conversation, soft clinking of dishes.",
+          "reference": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/framework-validation/ref2va-inputs/official-image.png"
+        },
+        "offload": "none",
+        "execution": "eager",
+        "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
+        "decoder_revision": "ddd17469cab7e490b1a04baaf26b247f0f0dcf0e",
+        "server_config": {
+          "trust-remote-code": true,
+          "enforce-eager": true,
+          "num-gpus": 4,
+          "task-type": "ref2va",
+          "usp": 4,
+          "use-hsdp": false,
+          "text-encoder-tp-size": 4,
+          "vae-patch-parallel-size": 4,
+          "vae-parallel-mode": "tile",
+          "vae-use-tiling": true,
+          "diffusion-attention-config": {
+            "default": {
+              "backend": "FASTVIDEO_VSA",
+              "fastvideo_vsa_provider": "flashinfer"
+            }
+          },
+          "enable-diffusion-pipeline-profiler": true,
+          "default-sampling-params": {
+            "0": {
+              "num_inference_steps": 8,
+              "guidance_scale": 1
+            }
+          },
+          "init-timeout": 3600,
+          "stage-init-timeout": 3600,
+          "additional-config": {
+            "video_vae_decoder": "/tmp/fasth3-official-hf/hub/models--FastVideo--FastH3-NVFP4-VAE-Decoder/snapshots/ddd17469cab7e490b1a04baaf26b247f0f0dcf0e/fast-8L/decoder-nvfp4.safetensors"
+          }
+        }
+      },
+      "config_url": "configs/checkpoint-C.yaml",
       "evidence": [
         {
           "rank": 0,
@@ -2294,7 +2786,26 @@
           "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
         }
       ],
-      "timing": "One excluded warmup, then three repeated requests with seed 1234; median. CPU offload disabled. Reference dimensions preserved, rounded to 32."
+      "timing": "One excluded warmup, then three repeated requests with seed 1234; median. CPU offload disabled. Reference dimensions preserved, rounded to 32.",
+      "stage_medians": {
+        "e2e_ms": 25361.146999999997,
+        "prompt_ms": 501.0032709687948,
+        "reference_ms": 230.1273881457746,
+        "dit_ms": 23461.592447943985,
+        "video_vae_ms": 612.8248278982937,
+        "audio_ms": 41.48285090923309,
+        "other_ms": 510.24732600164134
+      },
+      "median_request": {
+        "e2e_ms": 25361.146999999997,
+        "dit_ms": 23461.592447943985,
+        "video_vae_ms": 616.7349340394139,
+        "prompt_ms": 501.0032709687948,
+        "reference_ms": 230.1273881457746,
+        "audio_ms": 41.44163290038705,
+        "other_ms": 510.24732600164134,
+        "key": "measured-1"
+      }
     }
   ],
   "workloads": [
@@ -2461,6 +2972,138 @@
       "evidence": []
     }
   ],
+  "attention_plan": {
+    "framework": "FastVideo native HTTP serving",
+    "attention_modes": [
+      "cake",
+      "vsa-bf16",
+      "vsa-sage3"
+    ],
+    "workloads": [
+      "image"
+    ],
+    "gpus": [
+      1,
+      4
+    ],
+    "resolutions": [
+      "480p",
+      "768p"
+    ],
+    "decoders": [
+      "36l",
+      "8l"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "warmup_seed": 12345,
+    "offload": false,
+    "checkpoint": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+    "logical_vsa_tile": 128,
+    "sparsity": 0.9,
+    "reference_keep_rate": 0.1,
+    "configurations": 24,
+    "new_configurations": 16,
+    "cake_reuse": "Same native FastVideo CAKE runs in the framework comparison",
+    "scope": "Full native attention-path comparison; official FP4 path also changes QKV projection/layout and protects prefix rows. Not an isolated fine-kernel benchmark.",
+    "source": "https://github.com/hao-ai-lab/FastVideo/blob/089a5a55a000db41b53fb64bd5f65206de727aba/docs/inference/fasth3_omniref.md",
+    "planned": [
+      "fastvideo-pro5000-1gpu-36l-vsa-bf16",
+      "fastvideo-pro5000-1gpu-36l-vsa-sage3",
+      "fastvideo-pro5000-1gpu-8l-vsa-bf16",
+      "fastvideo-pro5000-1gpu-8l-vsa-sage3",
+      "fastvideo-pro5000-4gpu-36l-vsa-bf16",
+      "fastvideo-pro5000-4gpu-36l-vsa-sage3",
+      "fastvideo-pro5000-4gpu-8l-vsa-bf16",
+      "fastvideo-pro5000-4gpu-8l-vsa-sage3"
+    ]
+  },
+  "attention_status": {
+    "state": "waiting_for_fastvideo",
+    "planned": [
+      "fastvideo-pro5000-1gpu-36l-vsa-bf16",
+      "fastvideo-pro5000-1gpu-36l-vsa-sage3",
+      "fastvideo-pro5000-1gpu-8l-vsa-bf16",
+      "fastvideo-pro5000-1gpu-8l-vsa-sage3",
+      "fastvideo-pro5000-4gpu-36l-vsa-bf16",
+      "fastvideo-pro5000-4gpu-36l-vsa-sage3",
+      "fastvideo-pro5000-4gpu-8l-vsa-bf16",
+      "fastvideo-pro5000-4gpu-8l-vsa-sage3"
+    ],
+    "completed": [],
+    "failed": [],
+    "started_at": 1792651167.7215207,
+    "updated_at": 1792651167.7215216
+  },
+  "attention_runs": [
+    {
+      "id": "fastvideo-pro5000-1gpu-36l-vsa-bf16",
+      "state": "pending",
+      "summaries": [],
+      "media": {},
+      "memory": null,
+      "evidence": []
+    },
+    {
+      "id": "fastvideo-pro5000-1gpu-36l-vsa-sage3",
+      "state": "pending",
+      "summaries": [],
+      "media": {},
+      "memory": null,
+      "evidence": []
+    },
+    {
+      "id": "fastvideo-pro5000-1gpu-8l-vsa-bf16",
+      "state": "pending",
+      "summaries": [],
+      "media": {},
+      "memory": null,
+      "evidence": []
+    },
+    {
+      "id": "fastvideo-pro5000-1gpu-8l-vsa-sage3",
+      "state": "pending",
+      "summaries": [],
+      "media": {},
+      "memory": null,
+      "evidence": []
+    },
+    {
+      "id": "fastvideo-pro5000-4gpu-36l-vsa-bf16",
+      "state": "pending",
+      "summaries": [],
+      "media": {},
+      "memory": null,
+      "evidence": []
+    },
+    {
+      "id": "fastvideo-pro5000-4gpu-36l-vsa-sage3",
+      "state": "pending",
+      "summaries": [],
+      "media": {},
+      "memory": null,
+      "evidence": []
+    },
+    {
+      "id": "fastvideo-pro5000-4gpu-8l-vsa-bf16",
+      "state": "pending",
+      "summaries": [],
+      "media": {},
+      "memory": null,
+      "evidence": []
+    },
+    {
+      "id": "fastvideo-pro5000-4gpu-8l-vsa-sage3",
+      "state": "pending",
+      "summaries": [],
+      "media": {},
+      "memory": null,
+      "evidence": []
+    }
+  ],
   "baseline_scenes": [
     {
       "id": "family",
@@ -2488,6 +3131,7 @@
       "focus": "路线牌文字 · 玻璃反光 · 细线与低照度"
     }
   ],
+  "attention_completed_configurations": 0,
   "fastvideo_completed_configurations": 0,
   "completed_configurations": 20,
   "published_media": [
@@ -2580,6 +3224,42 @@
       "bytes": 2776858,
       "sha256": "43238e3a080f542c55682aef2573c84f30382149a453d2f13db603ab99a3759d",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-C-motion.mp4"
+    },
+    {
+      "file": "baseline-D-animals.mp4",
+      "bytes": 6748896,
+      "sha256": "1ed6f6c221d87654ac9a9fd24827f70a7df8f429ee556089f3a2a8351696c629",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-D-animals.mp4"
+    },
+    {
+      "file": "baseline-D-camera.mp4",
+      "bytes": 17581161,
+      "sha256": "7af74908590c808f1f2cdfb5b646a29db1600f8ad3d015cdb4da43f419e5bc3d",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-D-camera.mp4"
+    },
+    {
+      "file": "baseline-D-details.mp4",
+      "bytes": 9280448,
+      "sha256": "2c595c1d7d559ac12d6b04c4834a42e0c44a019661fca2174e1ef696002c5307",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-D-details.mp4"
+    },
+    {
+      "file": "baseline-D-family.mp4",
+      "bytes": 6872751,
+      "sha256": "750e9d6972873da9330df01d72307a2c188d7ddc5168e1f60a48741992a6b46e",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-D-family.mp4"
+    },
+    {
+      "file": "baseline-D-motion.mp4",
+      "bytes": 2855340,
+      "sha256": "19ec5900435310228e0c2629d3dfc4857e1dcab0a10bdc8457f3561704fe9e1f",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-D-motion.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-36l-image-480p.mp4",
+      "bytes": 3479427,
+      "sha256": "2c003c270d127e2ba4330018eea3a56dbfc50cc5b4dd27724ebda6c2b111a7d8",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-480p.mp4"
     },
     {
       "file": "pro5000-4gpu-36l-clip-480p.mp4",
