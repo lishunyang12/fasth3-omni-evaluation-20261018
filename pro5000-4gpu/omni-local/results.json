@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792665134.7183113,
+  "updated_at": 1792665632.1016018,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -270,7 +270,7 @@
       }
     ],
     "pending": [],
-    "updated_at": 1792664766.5474699,
+    "updated_at": 1792665566.5374835,
     "scheduler": "continuation-status.json"
   },
   "runs": [
@@ -9643,7 +9643,7 @@
       "fastvideo-pro5000-1gpu-36l",
       "fastvideo-pro5000-4gpu-36l"
     ],
-    "updated_at": 1792664766.5501099,
+    "updated_at": 1792665566.5395865,
     "scheduler": "continuation-status.json",
     "resource_note": "Jobs wait only for their selected GPUs. No unrelated GPU process is stopped."
   },
@@ -10305,7 +10305,7 @@
       "fastvideo-pro5000-4gpu-36l-vsa-bf16",
       "fastvideo-pro5000-4gpu-36l-vsa-sage3"
     ],
-    "updated_at": 1792664766.5539436,
+    "updated_at": 1792665566.5421004,
     "scheduler": "continuation-status.json",
     "resource_note": "Jobs wait only for their selected GPUs. No unrelated GPU process is stopped."
   },
@@ -12437,7 +12437,6 @@
     "completed": [],
     "failed": [],
     "pending": [
-      "pro5000-1gpu-36l-layerwise-offload:images3|480p",
       "pro5000-1gpu-36l-layerwise-offload:video|480p",
       "pro5000-1gpu-8l-layerwise-offload:video|480p",
       "pro5000-1gpu-36l-module-offload:images3|768p",
@@ -12449,7 +12448,7 @@
       "pro5000-1gpu-8l-module-offload:video|768p",
       "pro5000-1gpu-8l-layerwise-offload:video|768p"
     ],
-    "updated_at": 1792664766.559316,
+    "updated_at": 1792665566.5473924,
     "scheduler": "continuation-status.json",
     "current": "pro5000-1gpu-36l-layerwise-offload",
     "resource_note": "Jobs wait only for their selected GPUs. No unrelated GPU process is stopped."
@@ -12903,9 +12902,91 @@
       "attention": "CAKE Sage: INT8 Q/K, FP8 V",
       "reference_canvas": "2048 short edge, nearest multiple of 32, Lanczos",
       "offload": true,
-      "started_at": 1792664766.8354404,
+      "started_at": 1792665566.800374,
       "offload_strategy": "layer_wise",
-      "summaries": [],
+      "summaries": [
+        {
+          "key": "images3|480p",
+          "workload": "images3",
+          "resolution": "480p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 182407.954,
+            "median": 182405.512,
+            "min": 182391.377,
+            "max": 182426.973,
+            "values": [
+              182391.377,
+              182426.973,
+              182405.512
+            ]
+          },
+          "dit_ms": {
+            "mean": 161673.53206671154,
+            "median": 161667.23309503868,
+            "min": 161633.0940630287,
+            "max": 161720.26904206723,
+            "values": [
+              161633.0940630287,
+              161720.26904206723,
+              161667.23309503868
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 3694.092521288743,
+            "median": 3694.8340414091945,
+            "min": 3692.066544201225,
+            "max": 3695.3769782558084,
+            "values": [
+              3695.3769782558084,
+              3694.8340414091945,
+              3692.066544201225
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 182297.0,
+            "median": 182293.0,
+            "min": 182282.0,
+            "max": 182316.0,
+            "values": [
+              182282.0,
+              182316.0,
+              182293.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 7980.863015633076,
+            "median": 7960.5687549337745,
+            "min": 7956.210806034505,
+            "max": 8025.809485930949,
+            "values": [
+              7960.5687549337745,
+              7956.210806034505,
+              8025.809485930949
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 8320.678292773664,
+            "median": 8319.579154718667,
+            "min": 8313.169409055263,
+            "max": 8329.286314547062,
+            "values": [
+              8329.286314547062,
+              8313.169409055263,
+              8319.579154718667
+            ]
+          },
+          "memory": {
+            "max_per_gpu_gib": 24.1298828125,
+            "per_gpu_mib": {
+              "0": 24709
+            },
+            "peak_total_gib": 24.1298828125,
+            "requests_with_samples": 3,
+            "requests_expected": 3
+          }
+        }
+      ],
       "failures": [],
       "seeds": [
         0,
@@ -12915,12 +12996,12 @@
       "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
       "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
       "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
-      "current": "images3|480p",
-      "ready_at": 1792664826.8622968,
+      "current": "video|480p",
+      "ready_at": 1792665622.8257306,
       "active_request": {
-        "phase": "measured",
-        "seed": 0,
-        "started_at": 1792665010.9291208
+        "phase": "warmup",
+        "seed": 12345,
+        "started_at": 1792665622.8292477
       },
       "request_memory": [
         {
@@ -12940,7 +13021,7 @@
             },
             "peak_total_gib": 23.9033203125,
             "samples": 263,
-            "sampling_interval_s": 0.7007982730865479,
+            "sampling_interval_s": 0.6925265789031982,
             "max_sampling_gap_s": 0.8267128467559814,
             "started_at": 1792664826.8688245,
             "ended_at": 1792665010.8389118,
@@ -12948,10 +13029,100 @@
             "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
           },
           "memory_status": "sampled"
+        },
+        {
+          "request": 2,
+          "workload": "images3",
+          "resolution": "480p",
+          "phase": "measured",
+          "seed": 0,
+          "status": "complete",
+          "e2e_ms": 182391.377,
+          "started_at": 1792665010.9314115,
+          "ended_at": 1792665193.3308463,
+          "memory": {
+            "max_per_gpu_gib": 24.1298828125,
+            "per_gpu_mib": {
+              "0": 24709
+            },
+            "peak_total_gib": 24.1298828125,
+            "samples": 262,
+            "sampling_interval_s": 0.6925265789031982,
+            "max_sampling_gap_s": 0.8044843673706055,
+            "started_at": 1792665010.9314115,
+            "ended_at": 1792665193.3308463,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        },
+        {
+          "request": 3,
+          "workload": "images3",
+          "resolution": "480p",
+          "phase": "measured",
+          "seed": 1,
+          "status": "complete",
+          "e2e_ms": 182426.973,
+          "started_at": 1792665193.427888,
+          "ended_at": 1792665375.8630147,
+          "memory": {
+            "max_per_gpu_gib": 24.1298828125,
+            "per_gpu_mib": {
+              "0": 24709
+            },
+            "peak_total_gib": 24.1298828125,
+            "samples": 265,
+            "sampling_interval_s": 0.6925265789031982,
+            "max_sampling_gap_s": 0.8916230201721191,
+            "started_at": 1792665193.427888,
+            "ended_at": 1792665375.8630147,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        },
+        {
+          "request": 4,
+          "workload": "images3",
+          "resolution": "480p",
+          "phase": "measured",
+          "seed": 2,
+          "status": "complete",
+          "e2e_ms": 182405.512,
+          "started_at": 1792665375.9569528,
+          "ended_at": 1792665558.3704708,
+          "memory": {
+            "max_per_gpu_gib": 24.1298828125,
+            "per_gpu_mib": {
+              "0": 24709
+            },
+            "peak_total_gib": 24.1298828125,
+            "samples": 266,
+            "sampling_interval_s": 0.6925265789031982,
+            "max_sampling_gap_s": 0.7681145668029785,
+            "started_at": 1792665375.9569528,
+            "ended_at": 1792665558.3704708,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
         }
       ],
-      "memory": null,
-      "media": {},
+      "memory": {
+        "max_per_gpu_gib": 24.1298828125,
+        "per_gpu_mib": {
+          "0": 24709
+        },
+        "peak_total_gib": 24.1298828125,
+        "requests_with_samples": 3,
+        "requests_expected": 3
+      },
+      "media": {
+        "images3|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-images3-480p.mp4",
+        "images3|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-images3-480p-seed1.mp4",
+        "images3|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-images3-480p-seed2.mp4"
+      },
       "config_url": "configs/pro5000-1gpu-36l-layerwise-offload.yaml",
       "evidence": [
         {
@@ -13249,8 +13420,12 @@
       {
         "configuration": "pro5000-1gpu-36l-layerwise-offload",
         "key": "images3|480p",
-        "state": "verified_partial",
-        "measured_seeds": [],
+        "state": "verified_complete",
+        "measured_seeds": [
+          0,
+          1,
+          2
+        ],
         "configuration_differences": [
           "enable-layerwise-offload"
         ]
@@ -13361,6 +13536,39 @@
       }
     ]
   },
+  "precision_audit": {
+    "checked_at": 1792665565.9775503,
+    "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
+    "bf16_checkpoint_revision": "88d512c5e7cc38dda499fbb65688ce58611f9c80",
+    "bf16_transformer_tensor_headers": {
+      "files": 14,
+      "BF16_tensors": 688
+    },
+    "bf16_baseline": {
+      "dit_weights": "BF16",
+      "text_encoder_weights": "BF16, including the vision model; rotary-frequency buffers and accumulation may use FP32",
+      "cake_fine_attention": "INT8 Q/K; FP8 V",
+      "original_video_vae": "FP32 reference encoding; FP16 decode autocast. Decoder optimization may materialize Linear weights in FP16; other parameters retain their own dtype."
+    },
+    "evidence": [
+      {
+        "file": "vllm_omni/diffusion/models/minimax_h3/encoder.py",
+        "line": 1140,
+        "finding": "Unquantized text and vision models are cast to torch.bfloat16."
+      },
+      {
+        "file": "vllm_omni/diffusion/models/minimax_h3/vae.py",
+        "line": 329,
+        "finding": "Original decode_dtype defaults to torch.float16; a replacement NVFP4 decoder sets torch.bfloat16 at line 376."
+      },
+      {
+        "file": "vllm_omni/diffusion/models/minimax_h3/pipeline_minimax_h3.py",
+        "line": 2365,
+        "finding": "Video decode executes inside autocast with the selected video_vae.decode_dtype."
+      }
+    ],
+    "label_correction": "Earlier original BF16 decoder wording was too broad. The original VAE uses mixed precision with FP16-autocast decode; BF16 identifies the DiT/text-encoder weight baseline. No request, configuration, timing or output was changed."
+  },
   "matched_checkpoint_status": {
     "state": "complete",
     "planned": [
@@ -13373,7 +13581,7 @@
     ],
     "failed": [],
     "pending": [],
-    "updated_at": 1792664766.5562408,
+    "updated_at": 1792665566.5441053,
     "scheduler": "continuation-status.json"
   },
   "matched_checkpoint_audit": {
@@ -13530,7 +13738,7 @@
       ],
       "protocol_version": 2,
       "timing": "One excluded warmup per reference mix, then seeds 0/1/2. Report three-seed means and ranges; retain original MP4 files for every seed. Verified prior seed-0 samples are reused when resuming after a server reload.",
-      "comparison_note": "Both checkpoints use CAKE and the original BF16 video decoder. BF16 uses HSDP; QAD uses resident replicas. Checkpoint changes include the transformer and text encoder.",
+      "comparison_note": "Both checkpoints use CAKE and the original video VAE (FP16-autocast decode). BF16 uses HSDP; QAD uses resident replicas. Checkpoint changes include the transformer and text encoder.",
       "failures": [],
       "speed_summaries": [
         {
@@ -15610,6 +15818,7 @@
           }
         }
       ],
+      "precision_note": "BF16 identifies DiT/text-encoder weights in the original checkpoint baseline; CAKE fine attention uses INT8 Q/K and FP8 V. The original video VAE uses FP32 reference encoding and FP16-autocast decode.",
       "config_url": "configs/matched-pro5000-4gpu-bf16-original.yaml",
       "evidence": [
         {
@@ -15813,7 +16022,7 @@
       ],
       "protocol_version": 2,
       "timing": "One excluded warmup per reference mix, then seeds 0/1/2. Report three-seed means and ranges; retain original MP4 files for every seed. Verified prior seed-0 samples are reused when resuming after a server reload.",
-      "comparison_note": "Both checkpoints use CAKE and the original BF16 video decoder. BF16 uses HSDP; QAD uses resident replicas. Checkpoint changes include the transformer and text encoder.",
+      "comparison_note": "Both checkpoints use CAKE and the original video VAE (FP16-autocast decode). BF16 uses HSDP; QAD uses resident replicas. Checkpoint changes include the transformer and text encoder.",
       "failures": [],
       "speed_summaries": [
         {
@@ -17748,6 +17957,7 @@
           }
         }
       ],
+      "precision_note": "BF16 identifies DiT/text-encoder weights in the original checkpoint baseline; CAKE fine attention uses INT8 Q/K and FP8 V. The original video VAE uses FP32 reference encoding and FP16-autocast decode.",
       "config_url": "configs/matched-pro5000-4gpu-qad-original.yaml",
       "evidence": [
         {
@@ -17851,12 +18061,16 @@
         "job": "pro5000-1gpu-36l-module-offload:video|480p",
         "exit_code": 0,
         "ended_at": 1792664161.491704
+      },
+      {
+        "job": "pro5000-1gpu-36l-layerwise-offload:images3|480p",
+        "exit_code": 0,
+        "ended_at": 1792665563.3460639
       }
     ],
-    "updated_at": 1792664766.5603037,
-    "current": "pro5000-1gpu-36l-layerwise-offload:images3|480p",
+    "updated_at": 1792665566.5482788,
+    "current": "pro5000-1gpu-36l-layerwise-offload:video|480p",
     "remaining": [
-      "pro5000-1gpu-36l-layerwise-offload:images3|480p",
       "pro5000-1gpu-36l-layerwise-offload:video|480p",
       "pro5000-1gpu-8l-layerwise-offload:video|480p",
       "pro5000-1gpu-36l-module-offload:images3|768p",
@@ -26087,10 +26301,97 @@
         },
         "peak_total_gib": 23.9033203125,
         "samples": 263,
-        "sampling_interval_s": 0.7007982730865479,
+        "sampling_interval_s": 0.6925265789031982,
         "max_sampling_gap_s": 0.8267128467559814,
         "started_at": 1792664826.8688245,
         "ended_at": 1792665010.8389118,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "offload_runs",
+      "configuration": "pro5000-1gpu-36l-layerwise-offload",
+      "gpu_count": 1,
+      "request": 2,
+      "workload": "images3",
+      "resolution": "480p",
+      "phase": "measured",
+      "seed": 0,
+      "status": "complete",
+      "e2e_ms": 182391.377,
+      "started_at": 1792665010.9314115,
+      "ended_at": 1792665193.3308463,
+      "memory": {
+        "max_per_gpu_gib": 24.1298828125,
+        "per_gpu_mib": {
+          "0": 24709
+        },
+        "peak_total_gib": 24.1298828125,
+        "samples": 262,
+        "sampling_interval_s": 0.6925265789031982,
+        "max_sampling_gap_s": 0.8044843673706055,
+        "started_at": 1792665010.9314115,
+        "ended_at": 1792665193.3308463,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "offload_runs",
+      "configuration": "pro5000-1gpu-36l-layerwise-offload",
+      "gpu_count": 1,
+      "request": 3,
+      "workload": "images3",
+      "resolution": "480p",
+      "phase": "measured",
+      "seed": 1,
+      "status": "complete",
+      "e2e_ms": 182426.973,
+      "started_at": 1792665193.427888,
+      "ended_at": 1792665375.8630147,
+      "memory": {
+        "max_per_gpu_gib": 24.1298828125,
+        "per_gpu_mib": {
+          "0": 24709
+        },
+        "peak_total_gib": 24.1298828125,
+        "samples": 265,
+        "sampling_interval_s": 0.6925265789031982,
+        "max_sampling_gap_s": 0.8916230201721191,
+        "started_at": 1792665193.427888,
+        "ended_at": 1792665375.8630147,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "offload_runs",
+      "configuration": "pro5000-1gpu-36l-layerwise-offload",
+      "gpu_count": 1,
+      "request": 4,
+      "workload": "images3",
+      "resolution": "480p",
+      "phase": "measured",
+      "seed": 2,
+      "status": "complete",
+      "e2e_ms": 182405.512,
+      "started_at": 1792665375.9569528,
+      "ended_at": 1792665558.3704708,
+      "memory": {
+        "max_per_gpu_gib": 24.1298828125,
+        "per_gpu_mib": {
+          "0": 24709
+        },
+        "peak_total_gib": 24.1298828125,
+        "samples": 266,
+        "sampling_interval_s": 0.6925265789031982,
+        "max_sampling_gap_s": 0.7681145668029785,
+        "started_at": 1792665375.9569528,
+        "ended_at": 1792665558.3704708,
         "bounds_source": "request_timestamps",
         "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
       },
@@ -26383,7 +26684,14 @@
       "completed_at": 1792663510.887378,
       "config_url": "configs/pro5000-1gpu-36l-module-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
-      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "execution_evidence": [
+        "(DiffusionWorker pid=3789176) INFO 10-22 17:52:36 [__init__.py:179] Enabling offloader backend: ModelLevelOffloadBackend",
+        "(DiffusionWorker pid=3789176) INFO 10-22 17:52:36 [pipeline_minimax_h3.py:1644] MiniMax-H3 model-level CPU offload enabled for selected components: legacy full topology",
+        "(DiffusionWorker pid=3907692) INFO 10-22 18:06:11 [__init__.py:179] Enabling offloader backend: ModelLevelOffloadBackend",
+        "(DiffusionWorker pid=3907692) INFO 10-22 18:06:11 [pipeline_minimax_h3.py:1644] MiniMax-H3 model-level CPU offload enabled for selected components: legacy full topology"
+      ],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-36l-layerwise-offload",
@@ -26392,9 +26700,9 @@
       "decoder": "36l",
       "strategy": "layerwise",
       "before": "oom",
-      "after": "measuring",
-      "recovered": false,
-      "transition": "OOM → measuring",
+      "after": "success",
+      "recovered": true,
+      "transition": "OOM → Success",
       "resident_failures": [
         {
           "key": "images3|480p",
@@ -26455,35 +26763,134 @@
         "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
       },
       "memory": {
-        "max_per_gpu_gib": 23.9033203125,
+        "max_per_gpu_gib": 24.1298828125,
         "per_gpu_mib": {
-          "0": 24477
+          "0": 24709
         },
-        "peak_total_gib": 23.9033203125,
-        "samples": 263,
-        "sampling_interval_s": 0.7007982730865479,
-        "max_sampling_gap_s": 0.8267128467559814,
-        "started_at": 1792664826.8688245,
-        "ended_at": 1792665010.8389118,
-        "bounds_source": "request_timestamps",
-        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+        "peak_total_gib": 24.1298828125,
+        "requests_with_samples": 3,
+        "requests_expected": 3
       },
-      "memory_scope": "warmup",
-      "measured_seeds": [],
-      "active_request": {
-        "phase": "measured",
-        "seed": 0,
+      "memory_scope": "measured_requests",
+      "measured_seeds": [
+        0,
+        1,
+        2
+      ],
+      "active_request": null,
+      "summary": {
+        "key": "images3|480p",
         "workload": "images3",
         "resolution": "480p",
-        "started_at": 1792665010.9314115,
-        "output": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/offload-runs/pro5000-1gpu-36l-layerwise-offload/480p/images3/measured-seed0.mp4",
-        "state": "running"
+        "samples": 3,
+        "e2e_ms": {
+          "mean": 182407.954,
+          "median": 182405.512,
+          "min": 182391.377,
+          "max": 182426.973,
+          "values": [
+            182391.377,
+            182426.973,
+            182405.512
+          ]
+        },
+        "dit_ms": {
+          "mean": 161673.53206671154,
+          "median": 161667.23309503868,
+          "min": 161633.0940630287,
+          "max": 161720.26904206723,
+          "values": [
+            161633.0940630287,
+            161720.26904206723,
+            161667.23309503868
+          ]
+        },
+        "video_vae_ms": {
+          "mean": 3694.092521288743,
+          "median": 3694.8340414091945,
+          "min": 3692.066544201225,
+          "max": 3695.3769782558084,
+          "values": [
+            3695.3769782558084,
+            3694.8340414091945,
+            3692.066544201225
+          ]
+        },
+        "server_inference_ms": {
+          "mean": 182297.0,
+          "median": 182293.0,
+          "min": 182282.0,
+          "max": 182316.0,
+          "values": [
+            182282.0,
+            182316.0,
+            182293.0
+          ]
+        },
+        "encode_prompt_ms": {
+          "mean": 7980.863015633076,
+          "median": 7960.5687549337745,
+          "min": 7956.210806034505,
+          "max": 8025.809485930949,
+          "values": [
+            7960.5687549337745,
+            7956.210806034505,
+            8025.809485930949
+          ]
+        },
+        "reference_encode_ms": {
+          "mean": 8320.678292773664,
+          "median": 8319.579154718667,
+          "min": 8313.169409055263,
+          "max": 8329.286314547062,
+          "values": [
+            8329.286314547062,
+            8313.169409055263,
+            8319.579154718667
+          ]
+        },
+        "memory": {
+          "max_per_gpu_gib": 24.1298828125,
+          "per_gpu_mib": {
+            "0": 24709
+          },
+          "peak_total_gib": 24.1298828125,
+          "requests_with_samples": 3,
+          "requests_expected": 3
+        }
       },
-      "summary": null,
-      "completed_at": null,
+      "completed_at": 1792665558.3704708,
       "config_url": "configs/pro5000-1gpu-36l-layerwise-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
-      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "execution_evidence": [
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:26:53 [__init__.py:179] Enabling offloader backend: LayerWiseOffloadBackend",
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:26:57 [layerwise_backend.py:363] Enabled rank-local layerwise offload for encoder text_encoder (77 blocks across 2 stacks)",
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:27:03 [layerwise_backend.py:479] Layer-wise offloading enabled on 50 layers (blocks)",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:10 [__init__.py:179] Enabling offloader backend: LayerWiseOffloadBackend",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:14 [layerwise_backend.py:363] Enabled rank-local layerwise offload for encoder text_encoder (77 blocks across 2 stacks)",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:21 [layerwise_backend.py:479] Layer-wise offloading enabled on 50 layers (blocks)"
+      ],
+      "output_matches": [
+        {
+          "seed": 0,
+          "module_sha256": "5e2ea6e0259d22d81426c0e70e0a2f613f32ed986c77fdbb36063269d6845979",
+          "layerwise_sha256": "5e2ea6e0259d22d81426c0e70e0a2f613f32ed986c77fdbb36063269d6845979",
+          "mp4_bytes_identical": true
+        },
+        {
+          "seed": 1,
+          "module_sha256": "f2786364bd41e33a141c220082d30e634d98e2ac7fbcf13ca38750b533ba5c12",
+          "layerwise_sha256": "f2786364bd41e33a141c220082d30e634d98e2ac7fbcf13ca38750b533ba5c12",
+          "mp4_bytes_identical": true
+        },
+        {
+          "seed": 2,
+          "module_sha256": "06ab0b2230fcf777fbb1899e3dc2b69703fd8ec3835dbc688ea11e7fe13dc71c",
+          "layerwise_sha256": "06ab0b2230fcf777fbb1899e3dc2b69703fd8ec3835dbc688ea11e7fe13dc71c",
+          "mp4_bytes_identical": true
+        }
+      ]
     },
     {
       "configuration": "pro5000-1gpu-36l-module-offload",
@@ -26633,7 +27040,14 @@
       "completed_at": 1792664154.2283714,
       "config_url": "configs/pro5000-1gpu-36l-module-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
-      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "execution_evidence": [
+        "(DiffusionWorker pid=3789176) INFO 10-22 17:52:36 [__init__.py:179] Enabling offloader backend: ModelLevelOffloadBackend",
+        "(DiffusionWorker pid=3789176) INFO 10-22 17:52:36 [pipeline_minimax_h3.py:1644] MiniMax-H3 model-level CPU offload enabled for selected components: legacy full topology",
+        "(DiffusionWorker pid=3907692) INFO 10-22 18:06:11 [__init__.py:179] Enabling offloader backend: ModelLevelOffloadBackend",
+        "(DiffusionWorker pid=3907692) INFO 10-22 18:06:11 [pipeline_minimax_h3.py:1644] MiniMax-H3 model-level CPU offload enabled for selected components: legacy full topology"
+      ],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-36l-layerwise-offload",
@@ -26642,9 +27056,9 @@
       "decoder": "36l",
       "strategy": "layerwise",
       "before": "oom",
-      "after": "queued",
+      "after": "warmup",
       "recovered": false,
-      "transition": "OOM → queued",
+      "transition": "OOM → warmup",
       "resident_failures": [
         {
           "key": "video|480p",
@@ -26686,12 +27100,29 @@
       "memory": null,
       "memory_scope": null,
       "measured_seeds": [],
-      "active_request": null,
+      "active_request": {
+        "phase": "warmup",
+        "seed": 12345,
+        "workload": "video",
+        "resolution": "480p",
+        "started_at": 1792665622.832169,
+        "output": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/offload-runs/pro5000-1gpu-36l-layerwise-offload/480p/video/warmup-seed12345.mp4",
+        "state": "running"
+      },
       "summary": null,
       "completed_at": null,
       "config_url": "configs/pro5000-1gpu-36l-layerwise-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
-      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "execution_evidence": [
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:26:53 [__init__.py:179] Enabling offloader backend: LayerWiseOffloadBackend",
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:26:57 [layerwise_backend.py:363] Enabled rank-local layerwise offload for encoder text_encoder (77 blocks across 2 stacks)",
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:27:03 [layerwise_backend.py:479] Layer-wise offloading enabled on 50 layers (blocks)",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:10 [__init__.py:179] Enabling offloader backend: LayerWiseOffloadBackend",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:14 [layerwise_backend.py:363] Enabled rank-local layerwise offload for encoder text_encoder (77 blocks across 2 stacks)",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:21 [layerwise_backend.py:479] Layer-wise offloading enabled on 50 layers (blocks)"
+      ],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-8l-module-offload",
@@ -26841,7 +27272,12 @@
       "completed_at": 1792664757.438151,
       "config_url": "configs/pro5000-1gpu-8l-module-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
-      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "execution_evidence": [
+        "(DiffusionWorker pid=4003703) INFO 10-22 18:16:50 [__init__.py:179] Enabling offloader backend: ModelLevelOffloadBackend",
+        "(DiffusionWorker pid=4003703) INFO 10-22 18:16:50 [pipeline_minimax_h3.py:1644] MiniMax-H3 model-level CPU offload enabled for selected components: legacy full topology"
+      ],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-8l-layerwise-offload",
@@ -26899,7 +27335,9 @@
       "completed_at": null,
       "config_url": null,
       "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
-      "checkpoint_revision": null
+      "checkpoint_revision": null,
+      "execution_evidence": [],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-36l-module-offload",
@@ -26957,7 +27395,14 @@
       "completed_at": null,
       "config_url": "configs/pro5000-1gpu-36l-module-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
-      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "execution_evidence": [
+        "(DiffusionWorker pid=3789176) INFO 10-22 17:52:36 [__init__.py:179] Enabling offloader backend: ModelLevelOffloadBackend",
+        "(DiffusionWorker pid=3789176) INFO 10-22 17:52:36 [pipeline_minimax_h3.py:1644] MiniMax-H3 model-level CPU offload enabled for selected components: legacy full topology",
+        "(DiffusionWorker pid=3907692) INFO 10-22 18:06:11 [__init__.py:179] Enabling offloader backend: ModelLevelOffloadBackend",
+        "(DiffusionWorker pid=3907692) INFO 10-22 18:06:11 [pipeline_minimax_h3.py:1644] MiniMax-H3 model-level CPU offload enabled for selected components: legacy full topology"
+      ],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-36l-layerwise-offload",
@@ -27015,7 +27460,16 @@
       "completed_at": null,
       "config_url": "configs/pro5000-1gpu-36l-layerwise-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
-      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "execution_evidence": [
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:26:53 [__init__.py:179] Enabling offloader backend: LayerWiseOffloadBackend",
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:26:57 [layerwise_backend.py:363] Enabled rank-local layerwise offload for encoder text_encoder (77 blocks across 2 stacks)",
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:27:03 [layerwise_backend.py:479] Layer-wise offloading enabled on 50 layers (blocks)",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:10 [__init__.py:179] Enabling offloader backend: LayerWiseOffloadBackend",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:14 [layerwise_backend.py:363] Enabled rank-local layerwise offload for encoder text_encoder (77 blocks across 2 stacks)",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:21 [layerwise_backend.py:479] Layer-wise offloading enabled on 50 layers (blocks)"
+      ],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-8l-module-offload",
@@ -27073,7 +27527,12 @@
       "completed_at": null,
       "config_url": "configs/pro5000-1gpu-8l-module-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
-      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "execution_evidence": [
+        "(DiffusionWorker pid=4003703) INFO 10-22 18:16:50 [__init__.py:179] Enabling offloader backend: ModelLevelOffloadBackend",
+        "(DiffusionWorker pid=4003703) INFO 10-22 18:16:50 [pipeline_minimax_h3.py:1644] MiniMax-H3 model-level CPU offload enabled for selected components: legacy full topology"
+      ],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-8l-layerwise-offload",
@@ -27131,7 +27590,9 @@
       "completed_at": null,
       "config_url": null,
       "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
-      "checkpoint_revision": null
+      "checkpoint_revision": null,
+      "execution_evidence": [],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-36l-module-offload",
@@ -27189,7 +27650,14 @@
       "completed_at": null,
       "config_url": "configs/pro5000-1gpu-36l-module-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
-      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "execution_evidence": [
+        "(DiffusionWorker pid=3789176) INFO 10-22 17:52:36 [__init__.py:179] Enabling offloader backend: ModelLevelOffloadBackend",
+        "(DiffusionWorker pid=3789176) INFO 10-22 17:52:36 [pipeline_minimax_h3.py:1644] MiniMax-H3 model-level CPU offload enabled for selected components: legacy full topology",
+        "(DiffusionWorker pid=3907692) INFO 10-22 18:06:11 [__init__.py:179] Enabling offloader backend: ModelLevelOffloadBackend",
+        "(DiffusionWorker pid=3907692) INFO 10-22 18:06:11 [pipeline_minimax_h3.py:1644] MiniMax-H3 model-level CPU offload enabled for selected components: legacy full topology"
+      ],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-36l-layerwise-offload",
@@ -27247,7 +27715,16 @@
       "completed_at": null,
       "config_url": "configs/pro5000-1gpu-36l-layerwise-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-36l.yaml",
-      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "execution_evidence": [
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:26:53 [__init__.py:179] Enabling offloader backend: LayerWiseOffloadBackend",
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:26:57 [layerwise_backend.py:363] Enabled rank-local layerwise offload for encoder text_encoder (77 blocks across 2 stacks)",
+        "(DiffusionWorker pid=4125273) INFO 10-22 18:27:03 [layerwise_backend.py:479] Layer-wise offloading enabled on 50 layers (blocks)",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:10 [__init__.py:179] Enabling offloader backend: LayerWiseOffloadBackend",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:14 [layerwise_backend.py:363] Enabled rank-local layerwise offload for encoder text_encoder (77 blocks across 2 stacks)",
+        "(DiffusionWorker pid=252717) INFO 10-22 18:40:21 [layerwise_backend.py:479] Layer-wise offloading enabled on 50 layers (blocks)"
+      ],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-8l-module-offload",
@@ -27309,7 +27786,12 @@
       "completed_at": null,
       "config_url": "configs/pro5000-1gpu-8l-module-offload.yaml",
       "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
-      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2"
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "execution_evidence": [
+        "(DiffusionWorker pid=4003703) INFO 10-22 18:16:50 [__init__.py:179] Enabling offloader backend: ModelLevelOffloadBackend",
+        "(DiffusionWorker pid=4003703) INFO 10-22 18:16:50 [pipeline_minimax_h3.py:1644] MiniMax-H3 model-level CPU offload enabled for selected components: legacy full topology"
+      ],
+      "output_matches": []
     },
     {
       "configuration": "pro5000-1gpu-8l-layerwise-offload",
@@ -27371,7 +27853,9 @@
       "completed_at": null,
       "config_url": null,
       "resident_config_url": "configs/pro5000-1gpu-8l.yaml",
-      "checkpoint_revision": null
+      "checkpoint_revision": null,
+      "execution_evidence": [],
+      "output_matches": []
     }
   ],
   "published_media": [
@@ -27854,6 +28338,24 @@
       "bytes": 6176598,
       "sha256": "a4d07e24bd7b566cc556937edad3f593a6681710abeb222aad6045c3e3095691",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-768p.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-36l-layerwise-offload-images3-480p-seed1.mp4",
+      "bytes": 3392411,
+      "sha256": "f2786364bd41e33a141c220082d30e634d98e2ac7fbcf13ca38750b533ba5c12",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-images3-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-36l-layerwise-offload-images3-480p-seed2.mp4",
+      "bytes": 3438748,
+      "sha256": "06ab0b2230fcf777fbb1899e3dc2b69703fd8ec3835dbc688ea11e7fe13dc71c",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-images3-480p-seed2.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-36l-layerwise-offload-images3-480p.mp4",
+      "bytes": 3613093,
+      "sha256": "5e2ea6e0259d22d81426c0e70e0a2f613f32ed986c77fdbb36063269d6845979",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-images3-480p.mp4"
     },
     {
       "file": "pro5000-1gpu-36l-module-offload-images3-480p-seed1.mp4",
