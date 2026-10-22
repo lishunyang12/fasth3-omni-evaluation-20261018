@@ -75,6 +75,25 @@ function openOutputs(w,res,d){
  $('output-videos').innerHTML=[1,4].map(g=>videoCard({title:`${g}× PRO 5000 · vLLM-Omni`,meta:'CAKE attention · original generated video',url:run(g,d)?.media?.[`${w}|${res}`],pro:true})).join('');$('output-dialog').showModal();
 }
 function renderCheckpoints(){const base=R.baseline.find(x=>x.id==='BF16')?.median?.e2e_ms;const labels={BF16:'Original BF16',B:'NVFP4 QAD',C:'NVFP4 QAD + 8L'};$('checkpoint-summary').innerHTML=R.baseline.map(x=>`<div><b>${labels[x.id]}</b><strong>${x.median?s(x.median.e2e_ms)+' s':'—'}</strong><span>${x.median?'Median of three requests':statusName(x.state)}</span><em>${x.median&&base?(x.id==='BF16'?'Reference deployment':(base/x.median.e2e_ms).toFixed(2)+'× vs BF16 deployment'):''}</em></div>`).join('')}
+const fvRun=(g,d)=>(R.fastvideo_runs||[]).find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}`);
+function renderFrameworks(){
+ const rows=[];
+ for(const g of [1,4])for(const res of ['480p','768p'])for(const d of ['36l','8l']){
+  const a=result(g,d,'image',res),fr=fvRun(g,d),b=fr?.summaries?.find(x=>x.key===`image|${res}`);
+  const waiting=fr?.state==='failed'?'Incomplete':fr?.current===`image|${res}`?'Measuring':'Pending';
+  const media=run(g,d)?.media?.[`image|${res}`]||fr?.media?.[`image|${res}`];
+  rows.push(`<tr><th scope="row">${g} GPU${g>1?'s':''}</th><td>${res}</td><td>${d==='36l'?'36L':'8L'}</td><td title="${esc(trialTitle(a))}">${a?s(a.e2e_ms.mean):pending(g,d,'image',res)}</td><td title="${esc(trialTitle(b))}">${b?s(b.e2e_ms.mean):waiting}</td><td>${a&&b?(b.e2e_ms.mean/a.e2e_ms.mean).toFixed(2)+'×':'—'}</td><td>${media?`<a href="#output-dialog" data-framework-gpu="${g}" data-res="${res}" data-decoder="${d}">View ↗</a>`:'—'}</td></tr>`);
+ }
+ $('framework-table').tBodies[0].innerHTML=rows.join('');
+ const count=R.fastvideo_completed_configurations||0,status=R.fastvideo_status?.state;
+ $('framework-status').textContent=`${count} / 8 FastVideo configurations measured. ${status==='waiting_for_vllm_matrix'?'Queued after the vLLM matrix; GPU measurements run sequentially.':status==='complete'?'Matched serving comparison complete.':status==='needs_attention'?'Some FastVideo configurations are incomplete.':'Native serving validation and measurements in progress.'}`;
+ $('framework-table').querySelectorAll('[data-framework-gpu]').forEach(link=>link.addEventListener('click',e=>{
+  e.preventDefault();const g=Number(link.dataset.frameworkGpu),d=link.dataset.decoder,res=link.dataset.res;
+  $('output-title').textContent=`${g}× PRO 5000 · 1 image · ${res} · ${d.toUpperCase()} · seed 0`;
+  $('output-videos').innerHTML=[{title:'vLLM-Omni',r:run(g,d)},{title:'FastVideo native serve',r:fvRun(g,d)}].map(x=>videoCard({title:x.title,meta:'NVFP4 QAD · CAKE · GPU resident',url:x.r?.media?.[`image|${res}`],pro:true})).join('');
+  $('output-dialog').showModal();
+ }));
+}
 for(const id of ['gallery-workload','latency-workload'])$(id).innerHTML=R.workloads.map(w=>`<option value="${w.id}">${names[w.id]}</option>`).join('');
 $('gallery-workload').addEventListener('change',e=>{state.gallery=e.target.value;renderGallery()});$('gallery-gpu').addEventListener('change',e=>{state.galleryGpu=Number(e.target.value);renderGallery()});$('next-example').addEventListener('click',()=>{state.gallery=R.workloads[(R.workloads.findIndex(w=>w.id===state.gallery)+1)%R.workloads.length].id;$('gallery-workload').value=state.gallery;renderGallery()});
 for(const n of ['workload','resolution','decoder'])$('latency-'+n).addEventListener('change',e=>{state[n]=e.target.value;renderChart()});$('stage-gpu').addEventListener('change',e=>{state.stageGpu=Number(e.target.value);renderStages()});
@@ -82,5 +101,5 @@ $('close-dialog').addEventListener('click',()=>$('output-dialog').close());$('ou
 try{if(localStorage.getItem('omni-theme')==='dark')document.documentElement.dataset.theme='dark'}catch{}
 $('theme').addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('omni-theme',theme)}catch{}});
 $('coverage').textContent=`${R.completed_configurations} / 40 configurations complete`;$('run-status').textContent=statusName(R.status.state);$('updated').textContent='Updated '+new Date(R.updated_at*1000).toLocaleString('en-GB',{timeZone:'Asia/Shanghai',hour12:false})+' UTC+8';
-renderGallery();renderChart();renderTables();renderCheckpoints();
+renderGallery();renderChart();renderTables();renderCheckpoints();renderFrameworks();
 window.reportUI={state,renderGallery,renderChart,openOutputs,get player(){return player}};
