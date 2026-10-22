@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="FastH3 Omni 在 RTX PRO 5000 Blackwell 上的 CAKE 实测：原文完整参考输入矩阵、NVFP4 QAD 与 BF16 对比、分阶段耗时和生成视频。">
+<title>FastH3 Omni · PRO 5000 实测</title><link rel="stylesheet" href="study-style.css"><script src="data.js" defer></script><script src="study-app.js" defer></script>
+</head>
+<body>
+<header class="masthead"><a class="brand" href="../">FastH3 <span>/ 实测笔记</span></a><nav aria-label="页面导航"><a href="#benchmark">速度</a><a href="#samples">视频</a><a href="#checkpoints">QAD 对比</a><a href="#method">方法</a></nav></header>
+<main>
+<section class="hero">
+<div class="eyebrow"><span class="dot"></span> BLACKWELL · SM120 · CAKE ATTENTION</div>
+<h1>把 PRO 5000<br>放进同一张成绩单。</h1>
+<p class="lead">复测 <a href="https://haoailab.com/blogs/fasth3-omni-local/">FastH3 Omni Local</a> 的五类参考输入，比较 480p / 768p、36 层 / 8 层解码器。另设原版 BF16 与 NVFP4 QAD 的同 CAKE 对照。</p>
+<div class="hero-meta"><span>RTX PRO 5000 Blackwell · 72 GB / 卡</span><span>1 卡 + 4 卡</span><span>8 steps · 124 frames · 24 fps</span></div>
+<div class="status-panel" role="status"><div><strong id="coverage">— / 40</strong><span>已完成配置 · 每组 3 次测量</span></div><div><strong id="run-status">读取结果</strong><span id="updated">—</span></div><a class="button ghost" href="pro5000.csv" download>下载实测 CSV <span aria-hidden="true">↗</span></a></div>
+<p class="caption">每个配置先独立预热一次；主表报告三个种子的均值。文章中的其他设备数据保留其原有精度和计时口径，属于整套部署对比。</p>
+</section>
+<section id="benchmark" class="section">
+<div class="section-top"><div><div class="eyebrow">01 / LATENCY</div><h2>同一输入，多久生成？</h2></div><span class="unit">端到端秒数 · 越低越快</span></div>
+<div class="controls"><label>参考输入<select id="workload"></select></label><fieldset><legend>输出分辨率</legend><div class="segmented" id="resolution"><button type="button" data-value="480p" aria-pressed="true">480p</button><button type="button" data-value="768p" aria-pressed="false">768p</button></div></fieldset><fieldset><legend>视频解码器</legend><div class="segmented" id="decoder"><button type="button" data-value="36l" aria-pressed="true">36L · Quality</button><button type="button" data-value="8l" aria-pressed="false">8L · Fast</button></div></fieldset></div>
+<div class="comparison-grid"><div class="card chart-card"><div class="card-heading"><h3>设备对照</h3><span class="badge">线性刻度</span></div><div id="hardware-chart" aria-live="polite"></div><p class="caption">蓝色：本次 PRO 5000 实测。灰色：原文报告。未披露 / 待测均不计作零。</p></div><div class="card stage-card"><div class="card-heading"><h3>PRO 5000 时间花在哪里</h3><label class="compact"><span class="sr-only">分阶段卡数</span><select id="stage-gpu"><option value="4">4 卡</option><option value="1">1 卡</option></select></label></div><div id="stages" aria-live="polite"></div><p class="caption">阶段耗时来自服务端记录；其他时间包含音频解码、封装、传输和剩余开销。加载模型不计入测量。</p></div></div>
+<details class="method-note"><summary>为什么不能把这里的比值直接当作 GPU 性能差距？</summary><p>设备之间的权重精度、attention、参考编码器、offload 和计时边界不同。DGX Spark / RTX 5090 使用 NVFP4；RTX 3090 为 FP8 权重、BF16 计算；M5 Max 为 INT6 且仅单次测量；8× GB200 数据来自发布文章。PRO 5000 使用 vLLM-Omni + CAKE，单卡开启 CPU offload，4 卡常驻 GPU。图表比较的是这些具体部署。</p></details>
+<div class="table-top"><h3>完整矩阵</h3><span>5 种参考 × 2 个分辨率 × 2 个解码器</span></div>
+<div class="table-scroll" tabindex="0" aria-label="完整 PRO 5000 测量表，可横向滚动"><table id="matrix"><thead><tr><th>参考输入</th><th>输出</th><th>解码器</th><th>1 卡 · 秒</th><th>4 卡 · 秒</th><th>1 卡 / 4 卡</th></tr></thead><tbody></tbody></table></div>
+<p class="caption">单卡与 4 卡的 offload 策略不同，此比值是部署加速比。悬停或点选数据可查看三次测量的范围。</p>
+</section>
+<section id="samples" class="section">
+<div class="section-top"><div><div class="eyebrow">02 / OUTPUTS</div><h2>速度之后，看生成结果。</h2></div><span class="unit">同参考 · 同提示词 · seed 0</span></div>
+<p class="section-intro">这里跟随上方的输入与分辨率。并排观看两种量化解码器，检查纹理、运动和声音；单个视频对照不构成总体质量排名。</p>
+<div class="viewer-toolbar"><label class="inline-label">生成配置<select id="gallery-gpu"><option value="4">4 卡 PRO 5000</option><option value="1">1 卡 PRO 5000</option></select></label><a id="input-source" href="https://haoailab.com/blogs/fasth3-omni-local/">查看原文输入与提示词 ↗</a></div>
+<div id="official-videos" class="video-grid two"></div><div id="official-player" class="player-controls"></div>
+</section>
+<section id="checkpoints" class="section">
+<div class="section-top"><div><div class="eyebrow">03 / CHECKPOINTS</div><h2>QAD 与原版，差别在哪。</h2></div><span class="unit">4 卡 PRO 5000 · attention 固定为 CAKE</span></div>
+<p class="section-intro">独立对照使用家庭场景单图、1344 × 768、seed 1234。先预热一次，再重复三次，报告中位数；这组输入和参考图尺寸策略与上面的原文复测不同。</p>
+<div id="baseline-cards" class="baseline-grid"></div>
+<div class="table-scroll" tabindex="0" aria-label="模型与解码器差异"><table class="definition-table"><thead><tr><th>改变什么</th><th>原版 BF16</th><th>NVFP4 QAD</th><th>NVFP4 QAD + 8L</th></tr></thead><tbody><tr><th>DiT / 文本编码器</th><td>原版 BF16 权重</td><td>NVFP4 QAD 权重</td><td>NVFP4 QAD 权重</td></tr><tr><th>视频解码器</th><td>原版</td><td>原版</td><td>量化 8 层 Fast</td></tr><tr><th>CAKE attention</th><td colspan="3">全部使用 INT8 Q/K、FP8 V；NVFP4 是模型权重与对应矩阵计算的配置，不等于 FP4 attention。</td></tr><tr><th>4 卡权重部署</th><td>HSDP 分片</td><td>每卡常驻副本</td><td>每卡常驻副本</td></tr></tbody></table></div>
+<p class="caption">这比较的是两种可运行部署，包含分片通信差异；不能全部归因为量化内核。QAD 是量化感知蒸馏，改变训练后的权重；8L 又额外改变了解码器，质量需要分别评估。</p>
+<div class="viewer-toolbar"><label class="inline-label">画面对照<select id="baseline-scene"></select></label><span id="scene-focus" class="caption"></span></div>
+<div id="baseline-videos" class="video-grid three"></div><div id="baseline-player" class="player-controls"></div>
+</section>
+<section id="method" class="section">
+<div class="section-top"><div><div class="eyebrow">04 / REPRODUCIBILITY</div><h2>每一个数字，都有出处。</h2></div></div>
+<div class="method-grid"><article class="card"><h3>原文矩阵的复测口径</h3><ul><li>原文的五组参考文件与提示词，保留顺序；图片短边 2048，按 32 对齐，Lanczos 缩放。</li><li>480p = 832 × 480；768p = 1344 × 768；8 步，124 帧，24 fps，双声道音频。</li><li>每种输入、分辨率、解码器、卡数先预热一次，再测 seed 0 / 1 / 2。原文只说明三种子均值，未公布完整种子列表。</li><li>计时从本机 HTTP 请求开始，到完整 MP4 接收结束；不包括服务启动和模型加载。</li><li>36L 为 NVFP4 Quality 解码器，8L 为 NVFP4 Fast 解码器；36L 不是原版 BF16 解码器。</li></ul></article><article class="card"><h3>硬件与运行时</h3><dl class="facts"><dt>GPU</dt><dd>RTX PRO 5000 Blackwell · SM120</dd><dt>显存 / 功率上限</dt><dd>72 GB / 350 W 每卡</dd><dt>驱动</dt><dd>580.95.05</dd><dt>并行</dt><dd>USP + 文本 TP + VAE patch parallel</dd><dt>Attention</dt><dd>FlashInfer CAKE Sage · INT8 QK / FP8 V</dd><dt>QAD revision</dt><dd><code>f01e6a23ac60</code></dd><dt>vLLM-Omni revision</dt><dd><code>c67204da85ac</code></dd></dl><p class="caption">完整版本、各 rank 的 CAKE 调用证据和逐次测量值见 JSON。显存按采样间隔约 0.5 秒统计，峰值可能低于瞬时峰值。</p></article></div>
+<div class="downloads"><a class="button" href="results.json" download>实测数据 JSON ↓</a><a class="button ghost" href="pro5000.csv" download>PRO 5000 CSV ↓</a><a class="button ghost" href="baseline.csv" download>QAD / BF16 CSV ↓</a><a class="button ghost" href="official-data.json" download>原文数据 JSON ↓</a><a class="button ghost" href="hardware.csv" download>硬件信息 ↓</a></div>
+<div class="sources"><a href="https://haoailab.com/blogs/fasth3-omni-local/">FastH3 Omni Local 原文 ↗</a><a href="https://huggingface.co/FastVideo/FastH3-Omni-NVFP4-QAD">NVFP4 QAD 模型卡 ↗</a><a href="https://huggingface.co/FastVideo/FastH3-NVFP4-VAE-Decoder">36L / 8L 解码器模型卡 ↗</a><a href="../attention/">此前的 CAKE attention 分析 ↗</a></div>
+<p class="caption">本页覆盖原文当前的 20 个工作负载组合，在两种 PRO 5000 部署上共 40 个配置。原文中的历史版本进展与 M5 参考画布消融不属于本次复测。其他设备的数字均引用原文，本页未在那些设备上重新运行。</p>
+</section>
+</main><footer><span>FastH3 Omni / PRO 5000</span><span>Measured data. Visible trade-offs.</span></footer>
+<noscript><p class="noscript">交互表格需要 JavaScript；可直接下载 <a href="pro5000.csv">CSV</a> 或 <a href="results.json">JSON</a> 查看结果。</p></noscript>
+</body></html>

@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792646778.440335,
+  "updated_at": 1792647592.255339,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -244,10 +244,11 @@
     "checkpoint": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
     "single_gpu_offload": true,
     "four_gpu_offload": false,
-    "scope": "40 configurations; 120 measured generations plus 40 warmups; separate original BF16 vs QAD study retained"
+    "scope": "40 configurations; 120 measured generations plus 40 warmups; separate original BF16 vs QAD study retained",
+    "execution_order": "All measured configurations execute sequentially; single-GPU CPU offload runs never overlap."
   },
   "status": {
-    "state": "waiting_for_checkpoint_study",
+    "state": "running_4gpu",
     "completed": [],
     "failed": [],
     "planned": [
@@ -256,17 +257,262 @@
       "pro5000-1gpu-36l",
       "pro5000-1gpu-8l"
     ],
-    "started_at": 1792645744.8626533,
-    "updated_at": 1792645744.8626547
+    "started_at": 1792646887.5404582,
+    "updated_at": 1792647067.5737648
   },
   "runs": [
     {
       "id": "pro5000-4gpu-36l",
-      "state": "pending",
-      "summaries": [],
-      "media": {},
-      "memory": null,
-      "evidence": []
+      "state": "measuring",
+      "gpus": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "decoder": "36l",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "model": "FastH3-Omni-NVFP4-QAD",
+      "attention": "CAKE Sage: INT8 Q/K, FP8 V",
+      "reference_canvas": "2048 short edge, nearest multiple of 32, Lanczos",
+      "offload": false,
+      "started_at": 1792647067.9199555,
+      "summaries": [
+        {
+          "key": "image|480p",
+          "workload": "image",
+          "resolution": "480p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 24336.906333333336,
+            "median": 24339.898,
+            "min": 24327.356000000003,
+            "max": 24343.465,
+            "values": [
+              24327.356000000003,
+              24339.898,
+              24343.465
+            ]
+          },
+          "dit_ms": {
+            "mean": 19747.446891386062,
+            "median": 19753.501692786813,
+            "min": 19731.351570691913,
+            "max": 19757.48741067946,
+            "values": [
+              19731.351570691913,
+              19753.501692786813,
+              19757.48741067946
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 968.3337475483617,
+            "median": 967.5872139632702,
+            "min": 966.8102879077196,
+            "max": 970.6037407740951,
+            "values": [
+              966.8102879077196,
+              967.5872139632702,
+              970.6037407740951
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 24273.666666666668,
+            "median": 24276.0,
+            "min": 24262.0,
+            "max": 24283.0,
+            "values": [
+              24262.0,
+              24276.0,
+              24283.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2371.8306524679065,
+            "median": 2370.6095260567963,
+            "min": 2370.1618970371783,
+            "max": 2374.720534309745,
+            "values": [
+              2370.1618970371783,
+              2370.6095260567963,
+              2374.720534309745
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 765.3468671875695,
+            "median": 764.1972796991467,
+            "min": 761.4305261522532,
+            "max": 770.4127957113087,
+            "values": [
+              770.4127957113087,
+              764.1972796991467,
+              761.4305261522532
+            ]
+          }
+        },
+        {
+          "key": "image-voice|480p",
+          "workload": "image-voice",
+          "resolution": "480p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 25132.508666666665,
+            "median": 25124.662,
+            "min": 25123.924,
+            "max": 25148.94,
+            "values": [
+              25148.94,
+              25124.662,
+              25123.924
+            ]
+          },
+          "dit_ms": {
+            "mean": 20429.254345595837,
+            "median": 20429.485272150487,
+            "min": 20426.77821405232,
+            "max": 20431.499550584704,
+            "values": [
+              20426.77821405232,
+              20429.485272150487,
+              20431.499550584704
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 964.2361151054502,
+            "median": 964.2454832792282,
+            "min": 963.3968812413514,
+            "max": 965.0659807957709,
+            "values": [
+              963.3968812413514,
+              965.0659807957709,
+              964.2454832792282
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 25070.0,
+            "median": 25063.0,
+            "min": 25061.0,
+            "max": 25086.0,
+            "values": [
+              25086.0,
+              25063.0,
+              25061.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2388.9684076420963,
+            "median": 2388.661128934473,
+            "min": 2387.038509827107,
+            "max": 2391.205584164709,
+            "values": [
+              2387.038509827107,
+              2388.661128934473,
+              2391.205584164709
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 818.5379602946341,
+            "median": 818.352703936398,
+            "min": 817.6579931750894,
+            "max": 819.6031837724149,
+            "values": [
+              819.6031837724149,
+              818.352703936398,
+              817.6579931750894
+            ]
+          }
+        }
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
+      "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
+      "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
+      "ready_at": 1792647131.948703,
+      "current": "images3|480p",
+      "media": {
+        "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-480p.mp4",
+        "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-voice-480p.mp4",
+        "images3|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-images3-480p.mp4"
+      },
+      "memory": {
+        "max_per_gpu_gib": 55.2099609375,
+        "per_gpu_mib": {
+          "0": 56439,
+          "1": 56535,
+          "2": 56439,
+          "3": 56535
+        }
+      },
+      "evidence": [
+        {
+          "rank": 0,
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 1,
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 2,
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 3,
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        }
+      ]
     },
     {
       "id": "pro5000-4gpu-8l",
@@ -526,22 +772,114 @@
       "id": "C",
       "label": "NVFP4 QAD＋8L",
       "decoder": "NVFP4 8L 解码器",
-      "state": "starting",
-      "median": null,
+      "state": "complete",
+      "median": {
+        "e2e_ms": 25361.146999999997,
+        "dit_ms": 23461.592447943985,
+        "video_vae_ms": 612.8248278982937,
+        "server_inference_ms": 25320.0
+      },
       "memory": {
-        "max_per_gpu_gib": 0.0,
+        "max_per_gpu_gib": 49.3369140625,
         "per_gpu_mib": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0
+          "0": 50301,
+          "1": 50521,
+          "2": 50425,
+          "3": 50521
         }
       },
-      "media": {},
-      "trials": [],
+      "media": {
+        "family": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-C-family.mp4",
+        "motion": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-C-motion.mp4",
+        "animals": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-C-animals.mp4",
+        "camera": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-C-camera.mp4",
+        "details": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-C-details.mp4"
+      },
+      "trials": [
+        {
+          "e2e_ms": 25317.227,
+          "dit_ms": 23433.575273957103,
+          "video_vae_ms": 611.1236778087914
+        },
+        {
+          "e2e_ms": 25361.146999999997,
+          "dit_ms": 23461.592447943985,
+          "video_vae_ms": 616.7349340394139
+        },
+        {
+          "e2e_ms": 25422.622,
+          "dit_ms": 23473.60789217055,
+          "video_vae_ms": 612.8248278982937
+        }
+      ],
       "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
       "hsdp": false,
-      "evidence": [],
+      "evidence": [
+        {
+          "rank": 0,
+          "shape": [
+            1,
+            50816,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 1,
+          "shape": [
+            1,
+            50816,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 2,
+          "shape": [
+            1,
+            50816,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        },
+        {
+          "rank": 3,
+          "shape": [
+            1,
+            50816,
+            14,
+            128
+          ],
+          "flashinfer_revision": "e91eefc725d6fb7080bc9a713bfd7efb868efcc6",
+          "kernel": "csrc/cake_sage_block_sparse_attention/sm_120a/cake_sage_block_sparse_attention_bd48d91a04a229511902_kernel.cu",
+          "kernel_sha256": "d6e97cb58cfeb079d2b6caf4ea0980959a79fd3f48df3305d055b6dde7604756",
+          "backend": "cake",
+          "precision": "INT8 Q/K; FP8 V",
+          "finite_first_warmup_output": true,
+          "experiment": "Fine-attention override; original logical tile128 routing and compression retained."
+        }
+      ],
       "timing": "One excluded warmup, then three repeated requests with seed 1234; median. CPU offload disabled. Reference dimensions preserved, rounded to 32."
     }
   ],
@@ -553,7 +891,9 @@
       "prompt_sha256": "5d92f5ca934cca0aa5648f5d654afe6f1c6fe3ed8ad4db016a3bc7e0afa1c6ed",
       "references": [
         {
-          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/hf_character_action_reference.png"
+          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/hf_character_action_reference.png",
+          "sha256": "01a6c6f29e1ce9d414276e6e2eca06b171e5a68dd54a86074a4ab77bb9cb8883",
+          "bytes": 5239867
         }
       ]
     },
@@ -564,10 +904,14 @@
       "prompt_sha256": "d75ae7f307248afb1682bf878b2283daacc5439e6d3896511096aefed64d8c42",
       "references": [
         {
-          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/hf_character_action_reference.png"
+          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/hf_character_action_reference.png",
+          "sha256": "01a6c6f29e1ce9d414276e6e2eca06b171e5a68dd54a86074a4ab77bb9cb8883",
+          "bytes": 5239867
         },
         {
-          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/official_ref2va_1_audio.mp3"
+          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/official_ref2va_1_audio.mp3",
+          "sha256": "2a48d447b343b38a2c504d5281a0c97c688db0ba87931ed9282c598bd6752454",
+          "bytes": 204432
         }
       ]
     },
@@ -578,13 +922,19 @@
       "prompt_sha256": "2606c003f9d0f8ebefc0754bf86b77f34bd15345d2dab562ff92aa1a96859b4f",
       "references": [
         {
-          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/hf_character_action_reference.png"
+          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/hf_character_action_reference.png",
+          "sha256": "01a6c6f29e1ce9d414276e6e2eca06b171e5a68dd54a86074a4ab77bb9cb8883",
+          "bytes": 5239867
         },
         {
-          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/hf_fashion_glasses_reference_3.png"
+          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/hf_fashion_glasses_reference_3.png",
+          "sha256": "7b1491e5a227f226fa1395e71ac89a84358a435d974acb9f9065b9ded0982cbe",
+          "bytes": 1057045
         },
         {
-          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/official_fl2va_0_image.png"
+          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/official_fl2va_0_image.png",
+          "sha256": "352e959e08b886406d3766cee25ebe7bbf679e6d53eeffbd1c607b8dc93e2068",
+          "bytes": 1263485
         }
       ]
     },
@@ -595,7 +945,9 @@
       "prompt_sha256": "12e975c7cdca40ba2a1c68da06d3ba40cdbf7d01e7b7650ad86b7551b8159b78",
       "references": [
         {
-          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/clip_official_ref2va_0_2s.mp4"
+          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/clip_official_ref2va_0_2s.mp4",
+          "sha256": "ccd38d9f8e6c851fa7e0841c53141e7f13c9cfc0c6d5e06fc3103bdb2b29ede2",
+          "bytes": 1589705
         }
       ]
     },
@@ -606,7 +958,9 @@
       "prompt_sha256": "12e975c7cdca40ba2a1c68da06d3ba40cdbf7d01e7b7650ad86b7551b8159b78",
       "references": [
         {
-          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/official_ref2va_0_video.mp4"
+          "url": "https://haoailab.com/blogs/fastvideo-omniref-update/media/inputs/official_ref2va_0_video.mp4",
+          "sha256": "d6edc20ac82aa980c9cbd0b05b371f60d12dc8d018492e571b42de0086819c41",
+          "bytes": 4396484
         }
       ]
     }
@@ -638,7 +992,7 @@
       "focus": "路线牌文字 · 玻璃反光 · 细线与低照度"
     }
   ],
-  "completed_configurations": 0,
+  "completed_configurations": 2,
   "published_media": [
     {
       "file": "baseline-B-animals.mp4",
@@ -699,6 +1053,54 @@
       "bytes": 2389724,
       "sha256": "99ca7e299907c7910bb8a50edbef94c6c636daf96f227ccbdc1336982a87cacb",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-BF16-motion.mp4"
+    },
+    {
+      "file": "baseline-C-animals.mp4",
+      "bytes": 6697490,
+      "sha256": "01336e49276b5846537e871bb9ae32bd8af511a383c8ebecc1544c28c3cb0e02",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-C-animals.mp4"
+    },
+    {
+      "file": "baseline-C-camera.mp4",
+      "bytes": 15830613,
+      "sha256": "9b74b2e6b7f05ddf5302bf06c346fd9e7b13ff7aee133e895b0536da5b3f95ac",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-C-camera.mp4"
+    },
+    {
+      "file": "baseline-C-details.mp4",
+      "bytes": 9075477,
+      "sha256": "a3f469950748ca609ceeb333efcf60d8dac471ededfbd118acdb14480006f736",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-C-details.mp4"
+    },
+    {
+      "file": "baseline-C-family.mp4",
+      "bytes": 7151610,
+      "sha256": "9700ce277ab05f1331a212d7f224905dea84675d87a651be1610830cbf746561",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-C-family.mp4"
+    },
+    {
+      "file": "baseline-C-motion.mp4",
+      "bytes": 2776858,
+      "sha256": "43238e3a080f542c55682aef2573c84f30382149a453d2f13db603ab99a3759d",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/baseline-C-motion.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-36l-image-480p.mp4",
+      "bytes": 3515306,
+      "sha256": "8750919d375112565710f4a53fbd88677f032625b636d0bec5d19e5f581f766b",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-480p.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-36l-image-voice-480p.mp4",
+      "bytes": 2845663,
+      "sha256": "96d819f1f256702918f9ed9016f8e5983337ac7958873f83267529458a06df7f",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-image-voice-480p.mp4"
+    },
+    {
+      "file": "pro5000-4gpu-36l-images3-480p.mp4",
+      "bytes": 3570409,
+      "sha256": "bdb81780e60fed41788f3cc1689cb465380360ca463bf88bde949ea64f57fe62",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-4gpu-36l-images3-480p.mp4"
     }
   ],
   "media_policy": "Original generated MP4 bytes, hosted as release assets in the same public repository. No recompression."
