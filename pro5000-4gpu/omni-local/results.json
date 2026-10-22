@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792692091.3600135,
+  "updated_at": 1792692489.3655937,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -14013,7 +14013,7 @@
     "time": 1792667512.3402112,
     "scope": "All new vLLM-Omni image and video tests",
     "historical_queues": "superseded",
-    "controller_pid": 2120770
+    "controller_pid": 2127523
   },
   "comfy_plan": {
     "policy": "comfy",
@@ -14721,7 +14721,7 @@
       {
         "id": "pro5000-4gpu-36l-comfy-refs",
         "key": "images3|480p",
-        "job": "pro5000-4gpu-36l-comfy-refs:images3|480p",
+        "job": "pro5000-4gpu-36l-comfy-refs:images3|480p:runtime-evidence-v2",
         "gpus": [
           0,
           1,
@@ -14741,7 +14741,8 @@
           "comfy",
           "--only-key",
           "images3|480p"
-        ]
+        ],
+        "retry_reason": "Worker INFO logs were suppressed; validate structured per-rank sequence evidence."
       },
       {
         "id": "pro5000-4gpu-36l-comfy-refs",
@@ -14846,7 +14847,7 @@
       {
         "id": "pro5000-4gpu-36l-comfy-refs",
         "key": "images3|768p",
-        "job": "pro5000-4gpu-36l-comfy-refs:images3|768p",
+        "job": "pro5000-4gpu-36l-comfy-refs:images3|768p:runtime-evidence-v2",
         "gpus": [
           0,
           1,
@@ -14866,7 +14867,8 @@
           "comfy",
           "--only-key",
           "images3|768p"
-        ]
+        ],
+        "retry_reason": "Worker INFO logs were suppressed; validate structured per-rank sequence evidence."
       },
       {
         "id": "pro5000-4gpu-36l-comfy-refs",
@@ -14971,7 +14973,7 @@
       {
         "id": "pro5000-4gpu-8l-comfy-refs",
         "key": "images3|480p",
-        "job": "pro5000-4gpu-8l-comfy-refs:images3|480p",
+        "job": "pro5000-4gpu-8l-comfy-refs:images3|480p:runtime-evidence-v2",
         "gpus": [
           0,
           1,
@@ -14991,7 +14993,8 @@
           "comfy",
           "--only-key",
           "images3|480p"
-        ]
+        ],
+        "retry_reason": "Worker INFO logs were suppressed; validate structured per-rank sequence evidence."
       },
       {
         "id": "pro5000-4gpu-8l-comfy-refs",
@@ -15096,7 +15099,7 @@
       {
         "id": "pro5000-4gpu-8l-comfy-refs",
         "key": "images3|768p",
-        "job": "pro5000-4gpu-8l-comfy-refs:images3|768p",
+        "job": "pro5000-4gpu-8l-comfy-refs:images3|768p:runtime-evidence-v2",
         "gpus": [
           0,
           1,
@@ -15116,7 +15119,8 @@
           "comfy",
           "--only-key",
           "images3|768p"
-        ]
+        ],
+        "retry_reason": "Worker INFO logs were suppressed; validate structured per-rank sequence evidence."
       },
       {
         "id": "pro5000-4gpu-8l-comfy-refs",
@@ -15351,7 +15355,7 @@
     ]
   },
   "comfy_status": {
-    "state": "draining_existing_request",
+    "state": "waiting_for_resources",
     "attempted": [
       {
         "job": "pro5000-1gpu-36l-comfy-refs:images3|480p",
@@ -15630,10 +15634,16 @@
       }
     ],
     "started_at": 1792667512.395525,
-    "existing_runner_pids": [
-      2119494
+    "current": null,
+    "remaining": [
+      "pro5000-4gpu-36l-comfy-refs:images3|480p:runtime-evidence-v2",
+      "pro5000-4gpu-36l-comfy-refs:images3|768p:runtime-evidence-v2",
+      "pro5000-4gpu-8l-comfy-refs:images3|480p:runtime-evidence-v2",
+      "pro5000-4gpu-8l-comfy-refs:images3|768p:runtime-evidence-v2",
+      "matched-pro5000-4gpu-bf16-original-comfy-refs",
+      "matched-pro5000-4gpu-qad-original-comfy-refs"
     ],
-    "updated_at": 1792692088.0468118
+    "updated_at": 1792692488.6436193
   },
   "comfy_audit": {
     "policy": "comfy",
@@ -18015,6 +18025,85 @@
           229.125414,
           233.259823
         ]
+      ]
+    }
+  },
+  "runtime_sequence_validation": {
+    "state": "validated",
+    "reference_policy": "comfy",
+    "gpus": [
+      0,
+      1
+    ],
+    "workload": "images3",
+    "resolution": "480p",
+    "expected_tokens": 17578,
+    "ranks": [
+      {
+        "rank": 0,
+        "pid": 2119679,
+        "recorded_at": 1792692142.4424267,
+        "query_shape": [
+          1,
+          17578,
+          28,
+          128
+        ],
+        "effective_sequence_length": 17578,
+        "prefix_segments": [
+          1564,
+          390,
+          390,
+          390,
+          414
+        ],
+        "video_shape": [
+          37,
+          15,
+          26
+        ],
+        "target_start": 3148,
+        "provider": "flashinfer",
+        "capture_point": "Successful _forward_h3 return, before tile padding"
+      },
+      {
+        "rank": 1,
+        "pid": 2119680,
+        "recorded_at": 1792692142.3998332,
+        "query_shape": [
+          1,
+          17578,
+          28,
+          128
+        ],
+        "effective_sequence_length": 17578,
+        "prefix_segments": [
+          1564,
+          390,
+          390,
+          390,
+          414
+        ],
+        "video_shape": [
+          37,
+          15,
+          26
+        ],
+        "target_start": 3148,
+        "provider": "flashinfer",
+        "capture_point": "Successful _forward_h3 return, before tile padding"
+      }
+    ],
+    "scope": "Two-GPU warmup diagnostic; excluded from timing means. Four-GPU retests remain queued.",
+    "cpu_regression": {
+      "passed": true,
+      "scope": "CPU capture-hook/validator regression with stubbed attention computation; not a GPU inference test",
+      "checks": [
+        "four ranks captured with logging disabled; output untouched",
+        "missing rank rejected",
+        "wrong sequence rejected",
+        "stale evidence rejected",
+        "inconsistent layout rejected"
       ]
     }
   },

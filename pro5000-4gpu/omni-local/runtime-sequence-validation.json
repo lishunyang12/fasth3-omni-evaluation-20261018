@@ -1,0 +1,79 @@
+{
+  "state": "validated",
+  "reference_policy": "comfy",
+  "gpus": [
+    0,
+    1
+  ],
+  "workload": "images3",
+  "resolution": "480p",
+  "expected_tokens": 17578,
+  "ranks": [
+    {
+      "rank": 0,
+      "pid": 2119679,
+      "recorded_at": 1792692142.4424267,
+      "query_shape": [
+        1,
+        17578,
+        28,
+        128
+      ],
+      "effective_sequence_length": 17578,
+      "prefix_segments": [
+        1564,
+        390,
+        390,
+        390,
+        414
+      ],
+      "video_shape": [
+        37,
+        15,
+        26
+      ],
+      "target_start": 3148,
+      "provider": "flashinfer",
+      "capture_point": "Successful _forward_h3 return, before tile padding"
+    },
+    {
+      "rank": 1,
+      "pid": 2119680,
+      "recorded_at": 1792692142.3998332,
+      "query_shape": [
+        1,
+        17578,
+        28,
+        128
+      ],
+      "effective_sequence_length": 17578,
+      "prefix_segments": [
+        1564,
+        390,
+        390,
+        390,
+        414
+      ],
+      "video_shape": [
+        37,
+        15,
+        26
+      ],
+      "target_start": 3148,
+      "provider": "flashinfer",
+      "capture_point": "Successful _forward_h3 return, before tile padding"
+    }
+  ],
+  "scope": "Two-GPU warmup diagnostic; excluded from timing means. Four-GPU retests remain queued.",
+  "cpu_regression": {
+    "passed": true,
+    "scope": "CPU capture-hook/validator regression with stubbed attention computation; not a GPU inference test",
+    "checks": [
+      "four ranks captured with logging disabled; output untouched",
+      "missing rank rejected",
+      "wrong sequence rejected",
+      "stale evidence rejected",
+      "inconsistent layout rejected"
+    ]
+  }
+}

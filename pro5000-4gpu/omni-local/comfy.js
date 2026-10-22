@@ -36,7 +36,8 @@
   return `<tr><th>${escape(c.id)}</th><td>${names[w]}</td><td>${res}</td><td>${status(run,c.key)}</td><td>${seconds(m?.e2e_ms.mean)}</td><td>${peak(m)}</td><td>${evidence(run,c.key)}</td></tr>`;
  }).join('');
  const done=matrix.filter(c=>summary(rows.find(x=>x.id===c.id),c.key)).length;
- el('comfy-progress').textContent=`${done} / ${matrix.length} current configurations measured. ${r.comfy_status?.current?'Running: '+r.comfy_status.current:r.comfy_status?.state||'Preparing'}. Each measured row requires seeds 0/1/2 after warmup.`;
+ const stateLabels={waiting_for_resources:'Waiting for all four GPUs to be available',draining_existing_request:'Finishing the active validation request',complete:'All planned tests attempted',needs_attention:'Some tests need review',running:'Measuring'};
+ el('comfy-progress').textContent=`${done} / ${matrix.length} current configurations measured. ${r.comfy_status?.current?'Running: '+r.comfy_status.current:stateLabels[r.comfy_status?.state]||'Preparing'}. Each measured row requires seeds 0/1/2 after warmup.`;
  const retryCases=matrix.filter(c=>rows.find(x=>x.id===c.id)?.failures?.some(f=>f.key===c.key&&f.classification==='harness_log_validation'));
  const pendingRetries=retryCases.filter(c=>!summary(rows.find(x=>x.id===c.id),c.key));
  if(retryCases.length)el('comfy-retry-note').textContent=`${retryCases.length} multi-GPU three-image warmups completed but their log-based validation failed because worker INFO logs were suppressed. Their failures are preserved. ${pendingRetries.length} retests using per-rank runtime evidence remain; ${retryCases.length-pendingRetries.length} have completed.`;
