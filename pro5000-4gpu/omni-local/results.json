@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792692489.3655937,
+  "updated_at": 1792693666.830306,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -15643,7 +15643,7 @@
       "matched-pro5000-4gpu-bf16-original-comfy-refs",
       "matched-pro5000-4gpu-qad-original-comfy-refs"
     ],
-    "updated_at": 1792692488.6436193
+    "updated_at": 1792693653.1309502
   },
   "comfy_audit": {
     "policy": "comfy",
@@ -28631,15 +28631,37 @@
     },
     {
       "id": "pro5000-1gpu-36l-layerwise-offload-native-refs",
-      "state": "pending",
-      "summaries": [],
+      "state": "starting",
       "gpus": [
         0
       ],
+      "decoder": "36l",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "model": "FastH3-Omni-NVFP4-QAD",
+      "attention": "CAKE Sage: INT8 Q/K, FP8 V",
+      "reference_policy": "native",
+      "reference_canvas": "Original dimensions, nearest multiple of 32, Lanczos",
+      "offload": true,
+      "started_at": 1792693654.411874,
+      "offload_strategy": "layer_wise",
+      "summaries": [],
+      "failures": [],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "runtime_sequence_evidence": {},
+      "validated_sequence_lengths": {},
+      "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
+      "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
+      "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
+      "current": "images3|480p",
       "request_memory": [],
       "memory": null,
       "mode": "layerwise",
       "media": {},
+      "config_url": "configs/pro5000-1gpu-36l-layerwise-offload-native-refs.yaml",
       "output_hashes": {}
     }
   ],
