@@ -9,7 +9,7 @@
  const summary=(run,key)=>[...(run?.summaries||[]),...(run?.speed_summaries||[])].find(x=>x.key===key);
  function status(run,key){
   if(summary(run,key))return 'Complete · 3/3 seeds';
-  if(run?.current===key){if(run.state==='starting')return 'Loading model';if(run.active_request?.phase==='warmup')return 'Warmup in progress';return 'Measuring';}
+  if(run?.current===key&&['starting','measuring'].includes(run.state)){if(run.state==='starting')return 'Loading model';if(run.active_request?.phase==='warmup')return 'Warmup in progress';return 'Measuring';}
   const failure=run?.failures?.filter(f=>f.key===key).at(-1);if(failure)return failure.kind==='cuda_oom'?'OOM':failure.classification==='harness_log_validation'?'Validation retry queued':'Failed';
   return 'Queued';
  }
@@ -18,12 +18,14 @@
  function render(){
   const key=el('comfy-workload').value+'|480p';
   const get=mode=>rows.find(x=>x.id===`pro5000-1gpu-36l${mode==='resident'?'':'-'+mode+'-offload'}-comfy-refs`);
-  const reference=get('resident'),base=summary(reference,key);
+  const reference=get('resident'),base=summary(reference,key),module=get('module');
   el('comfy-offload-table').tBodies[0].innerHTML=Object.keys(labels).map(mode=>{
    const run=get(mode),m=summary(run,key),keys=[key,key+'|seed1',key+'|seed2'];
    const pairs=keys.filter(k=>run?.output_hashes?.[k]&&reference?.output_hashes?.[k]);
    const equality=mode==='resident'?'Reference':pairs.length===3?`${pairs.filter(k=>run.output_hashes[k]===reference.output_hashes[k]).length}/3 byte-identical`:'Awaiting outputs';
-   return `<tr data-mode="${mode}"><th>${labels[mode]}</th><td>${status(run,key)}</td><td>${seconds(m?.e2e_ms.mean)}</td><td>${seconds(m?.dit_ms.mean)}</td><td>${peak(m)}</td><td>${m&&base?(m.e2e_ms.mean/base.e2e_ms.mean).toFixed(3)+'×':'—'}</td><td>${equality}</td><td>${evidence(run,key)}</td></tr>`;
+   const modulePairs=keys.filter(k=>run?.output_hashes?.[k]&&module?.output_hashes?.[k]);
+   const moduleEquality=mode==='module'?'Reference':modulePairs.length===3?`${modulePairs.filter(k=>run.output_hashes[k]===module.output_hashes[k]).length}/3 byte-identical`:'Awaiting outputs';
+   return `<tr data-mode="${mode}"><th>${labels[mode]}</th><td>${status(run,key)}</td><td>${seconds(m?.e2e_ms.mean)}</td><td>${seconds(m?.dit_ms.mean)}</td><td>${peak(m)}</td><td>${m&&base?(m.e2e_ms.mean/base.e2e_ms.mean).toFixed(3)+'×':'—'}</td><td>${equality}</td><td>${moduleEquality}</td><td>${evidence(run,key)}</td></tr>`;
   }).join('');
  }
  const audit=r.comfy_audit;
@@ -35,6 +37,9 @@
  }).join('');
  const done=matrix.filter(c=>summary(rows.find(x=>x.id===c.id),c.key)).length;
  el('comfy-progress').textContent=`${done} / ${matrix.length} current configurations measured. ${r.comfy_status?.current?'Running: '+r.comfy_status.current:r.comfy_status?.state||'Preparing'}. Each measured row requires seeds 0/1/2 after warmup.`;
+ const retryCases=matrix.filter(c=>rows.find(x=>x.id===c.id)?.failures?.some(f=>f.key===c.key&&f.classification==='harness_log_validation'));
+ const pendingRetries=retryCases.filter(c=>!summary(rows.find(x=>x.id===c.id),c.key));
+ if(retryCases.length)el('comfy-retry-note').textContent=`${retryCases.length} multi-GPU three-image warmups completed but their log-based validation failed because worker INFO logs were suppressed. Their failures are preserved. ${pendingRetries.length} retests using per-rank runtime evidence remain; ${retryCases.length-pendingRetries.length} have completed.`;
  const profile=r.offload_overlap_profile;
  if(profile?.state==='complete'){
   el('comfy-overlap').hidden=false;

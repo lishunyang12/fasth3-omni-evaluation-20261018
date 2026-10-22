@@ -1,11 +1,16 @@
 {
-  "updated_at": 1792691630.8704264,
+  "updated_at": 1792692009.4927962,
   "state": "complete",
   "scope": "Second request DiT only, after one warmup; profiler request excluded from speed means.",
   "configuration": "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs",
   "workload": "images3",
   "resolution": "480p",
   "reference_policy": "comfy",
+  "cuda_activity_context": {
+    "device_id": 0,
+    "context_id": 1,
+    "nsys_global_pid": 301004612435968
+  },
   "h2d_copy_count": 1292,
   "h2d_bytes": 303557915254,
   "h2d_active_s": 5.260602238,
