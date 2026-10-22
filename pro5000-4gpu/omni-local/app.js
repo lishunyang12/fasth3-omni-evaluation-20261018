@@ -6,6 +6,8 @@ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const s=ms=>Number.isFinite(ms)?(ms/1000).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'—';
 const shortTime=secs=>Number.isFinite(secs)?(secs>=180?(secs/60).toFixed(1)+' min':secs.toFixed(1)+' s'):'Not reported';
 const state={gallery:'image',galleryComparison:'machines',gallerySeed:0,galleryGpu:4,workload:'image',resolution:'480p',decoder:'36l',stageGpu:4};
+const query=new URLSearchParams(location.search);
+for(const [key,allowed] of Object.entries({workload:Object.keys(names),resolution:['480p','768p'],decoder:['36l','8l']}))if(allowed.includes(query.get(key)))state[key]=query.get(key);
 const run=(g,d)=>R.runs.find(x=>x.id===`pro5000-${g}gpu-${d}`);
 const result=(g,d,w=state.workload,res=state.resolution)=>run(g,d)?.summaries?.find(x=>x.key===`${w}|${res}`);
 const offloadRun=d=>R.offload_runs?.find(x=>x.id===`pro5000-1gpu-${d}-module-offload`);
@@ -212,6 +214,7 @@ function renderFrameworks(){
  }));
 }
 for(const id of ['gallery-workload','latency-workload'])$(id).innerHTML=R.workloads.map(w=>`<option value="${w.id}">${names[w.id]}</option>`).join('');
+for(const key of ['workload','resolution','decoder'])$('latency-'+key).value=state[key];
 function renderMemory(){
  const config=$('memory-configuration').value,phase=$('memory-phase').value;
  const rows=(R.request_memory||[]).filter(r=>(config==='all'||r.configuration===config)&&(phase==='all'||phase==='failed'&&r.status!=='complete'||phase==='warmup'&&r.phase==='warmup'&&r.status==='complete'||phase==='measured'&&['measured','qualitative'].includes(r.phase)&&r.status==='complete'));

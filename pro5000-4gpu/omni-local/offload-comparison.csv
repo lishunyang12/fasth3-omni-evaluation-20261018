@@ -1,6 +1,6 @@
 configuration,workload,resolution,decoder,resident_status,offload_status,samples,e2e_mean_s,dit_mean_s,prompt_mean_s,reference_mean_s,video_decode_mean_s,peak_per_gpu_gib,config_url
-pro5000-1gpu-36l-module-offload,images3,480p,36l,cuda_oom,measuring,0,,,,,,,configs/pro5000-1gpu-36l-module-offload.yaml
-pro5000-1gpu-36l-module-offload,video,480p,36l,cuda_oom,pending,0,,,,,,,configs/pro5000-1gpu-36l-module-offload.yaml
+pro5000-1gpu-36l-module-offload,images3,480p,36l,cuda_oom,complete,3,184.86420033333334,162.8058188192857,8.307685992370049,8.428019019464651,3.6857377492512264,58.2607421875,configs/pro5000-1gpu-36l-module-offload.yaml
+pro5000-1gpu-36l-module-offload,video,480p,36l,cuda_oom,measuring,0,,,,,,,configs/pro5000-1gpu-36l-module-offload.yaml
 pro5000-1gpu-8l-module-offload,video,480p,8l,cuda_oom,pending,0,,,,,,,
 pro5000-1gpu-36l-module-offload,images3,768p,36l,cuda_oom,pending,0,,,,,,,configs/pro5000-1gpu-36l-module-offload.yaml
 pro5000-1gpu-36l-module-offload,video,768p,36l,cuda_oom,pending,0,,,,,,,configs/pro5000-1gpu-36l-module-offload.yaml
