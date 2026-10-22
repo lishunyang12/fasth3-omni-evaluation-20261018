@@ -8,6 +8,19 @@ const shortTime=secs=>Number.isFinite(secs)?(secs>=180?(secs/60).toFixed(1)+' mi
 const state={gallery:'image',galleryComparison:'machines',gallerySeed:0,galleryGpu:4,workload:'image',resolution:'480p',decoder:'36l',stageGpu:4};
 const run=(g,d)=>R.runs.find(x=>x.id===`pro5000-${g}gpu-${d}`);
 const result=(g,d,w=state.workload,res=state.resolution)=>run(g,d)?.summaries?.find(x=>x.key===`${w}|${res}`);
+const offloadRun=d=>R.offload_runs?.find(x=>x.id===`pro5000-1gpu-${d}-module-offload`);
+const offloadResult=(d,w=state.workload,res=state.resolution)=>offloadRun(d)?.summaries?.find(x=>x.key===`${w}|${res}`);
+function offloadState(d,w=state.workload,res=state.resolution){
+ const r=offloadRun(d),key=`${w}|${res}`,failure=r?.failures?.find(x=>x.key===key);
+ if(!R.offload_plan?.cases.some(c=>c.decoder===d&&c.key===key))return 'Not tested';
+ if(failure)return failure.kind==='cuda_oom'?'OOM with offload':'Failed with offload';
+ const done=(r?.request_memory||[]).filter(x=>x.workload===w&&x.resolution===res&&x.phase==='measured'&&x.status==='complete').length;
+ return r?.current===key?`Measuring · ${done}/3 seeds`:'Queued';
+}
+function articleStatus(device,w,res,d){
+ // The source gives a profile-level capacity statement, not a full OOM matrix.
+ return res==='480p'&&d==='36l'&&R.article_memory_evidence?.reported_limit?.devices.includes(device)&&R.article_memory_evidence.reported_limit.workloads.includes(w)?'Memory limit · article profile':'Not reported';
+}
 const statusName=x=>({complete:'Complete',failed:'Incomplete',needs_attention:'Some runs need attention',starting:'Loading model',measuring:'Measuring',pending:'Pending',benchmarking:'Measuring',generating:'Generating comparison videos',waiting_for_resources:'Waiting for available GPUs',running:'Measurements in progress',waiting_for_checkpoint_study:'BF16 / QAD study in progress',running_4gpu:'4-GPU matrix in progress',running_1gpu:'1-GPU matrix in progress'}[x]||'In progress');
 const pending=(g,d,w=state.workload,res=state.resolution)=>{const r=run(g,d),key=`${w}|${res}`,failure=r?.failures?.find(x=>x.key===key);return failure?.kind==='cuda_oom'?'OOM':failure?'Failed':r?.state==='failed'?'Not yet tested':r?.current===key?'Measuring':'Pending'};
 const trialTitle=x=>x?`Three runs: ${x.e2e_ms.values.map(v=>s(v)+' s').join(' / ')}. Mean ${s(x.e2e_ms.mean)} s; range ${s(x.e2e_ms.min)}–${s(x.e2e_ms.max)} s.`:'';
@@ -114,14 +127,21 @@ function renderGallery(){
 }
 function renderChart(){
  const key=`${state.workload}|${state.resolution}|${state.decoder}`,original=R.official.latency[key]||{};
- const rows=[4,1].map(g=>({label:`${g}× RTX PRO 5000`,note:`vLLM-Omni · NVFP4 QAD · CAKE · ${run(g,state.decoder)?.offload?'CPU offload':'GPU resident'} · peak ${gib(memoryFor(run(g,state.decoder),state.workload+'|'+state.resolution))} GiB/GPU`,value:result(g,state.decoder)?.e2e_ms.mean/1000,kind:'pro',missing:pending(g,state.decoder)})).concat(R.official.devices.map(d=>({label:d.label,note:d.note,value:original[d.key],kind:d.key.startsWith('spark')?'spark':'other',missing:'Not reported'})));
+ const workloadKey=`${state.workload}|${state.resolution}`,offload=offloadRun(state.decoder),recovered=offloadResult(state.decoder),planned=R.offload_plan?.cases.some(c=>c.decoder===state.decoder&&c.key===workloadKey);
+ const rows=[4,1].map(g=>({label:`${g}× RTX PRO 5000`,note:`vLLM-Omni · NVFP4 QAD · CAKE · GPU resident · sampled peak ${gib(memoryFor(run(g,state.decoder),workloadKey))} GiB/GPU`,value:result(g,state.decoder)?.e2e_ms.mean/1000,kind:'pro',missing:pending(g,state.decoder)}));
+ if(planned)rows.push({label:'1× RTX PRO 5000 · offload',note:`Same request · module CPU offload · sampled peak ${gib(memoryFor(offload,workloadKey))} GiB`,value:recovered?.e2e_ms.mean/1000,kind:'pro offload',missing:offloadState(state.decoder)});
+ rows.push(...R.official.devices.map(d=>({label:d.label,note:d.note,value:original[d.key],kind:d.key.startsWith('spark')?'spark':'other',missing:articleStatus(d.key,state.workload,state.resolution,state.decoder)})));
  const max=Math.max(...rows.filter(x=>Number.isFinite(x.value)).map(x=>x.value),1);
  $('chart-title').textContent=`${names[state.workload]} · ${state.resolution} · ${state.decoder==='36l'?'36':'8'}-layer decoder`;
- $('latency-chart').innerHTML=rows.map(r=>`<div class="bar-row ${r.kind}"><div class="bar-label">${esc(r.label)}<small>${esc(r.note)}</small></div><div class="bar-area">${Number.isFinite(r.value)?`<div class="bar ${r.kind}" style="width:${r.value/max*100}%" title="${r.value.toFixed(3)} seconds"><span class="bar-value">${shortTime(r.value)}</span></div>`:`<span class="bar-missing">${r.missing}</span>`}</div></div>`).join('');renderStages();renderMatrix();
+ $('latency-chart').innerHTML=rows.map(r=>`<div class="bar-row ${r.kind}"><div class="bar-label">${esc(r.label)}<small>${esc(r.note)}</small></div><div class="bar-area">${Number.isFinite(r.value)?`<div class="bar ${r.kind}" style="width:${r.value/max*100}%" title="${r.value.toFixed(3)} seconds"><span class="bar-value">${shortTime(r.value)}</span></div>`:`<span class="bar-missing">${esc(r.missing)}</span>`}</div></div>`).join('');
+ const resident=result(1,state.decoder),residentStatus=pending(1,state.decoder);
+ $('capacity-summary').innerHTML=planned?`<strong>${recovered?'Single-GPU OOM recovered with module offload.':'Single-GPU memory recovery test.'}</strong> GPU resident: ${esc(residentStatus)}. ${recovered?`The same input completes in ${s(recovered.e2e_ms.mean)} s (three-seed mean), with a sampled peak of ${gib(recovered.memory)} GiB. Component transfers are included.`:`Module offload: ${esc(offloadState(state.decoder))}. A successful warmup or partial seed set is not a completed benchmark.`} <a href="#module-offload">Request results and outputs →</a>`:resident?`<strong>Single-GPU resident execution.</strong> ${s(resident.e2e_ms.mean)} s, sampled peak ${gib(resident.memory)} GiB. CPU offload is disabled. Memory capacity is assessed through completed request sizes and offload requirements.`:'Single-GPU capacity will be assessed after the request completes.';
+ renderStages();renderMatrix();
 }
 function renderStages(){
- const m=result(state.stageGpu,state.decoder),r=run(state.stageGpu,state.decoder);
- if(!m){$('stages').innerHTML=`<p class="small">${pending(state.stageGpu,state.decoder)} — stage timings will appear when all three measurements complete.</p>`;return}
+ $('stage-policy').disabled=state.stageGpu!==1;
+ const useOffload=state.stageGpu===1&&$('stage-policy').value==='offload',r=useOffload?offloadRun(state.decoder):run(state.stageGpu,state.decoder),m=useOffload?offloadResult(state.decoder):result(state.stageGpu,state.decoder);
+ if(!m){$('stages').innerHTML=`<p class="small">${useOffload?offloadState(state.decoder):pending(state.stageGpu,state.decoder)} — stage timings will appear when all three measurements complete.</p>`;return}
  const total=m.e2e_ms.mean,parts=[{name:'DiT',value:m.dit_ms?.mean||0,color:'#147851'},{name:'Prompt encoding',value:m.encode_prompt_ms?.mean||0,color:'#4989c4'},{name:'Reference encoding',value:m.reference_encode_ms?.mean||0,color:'#8bb6d3'},{name:'Video decoding',value:m.video_vae_ms?.mean||0,color:'#c79751'}];
  const used=parts.reduce((n,p)=>n+p.value,0);parts.push({name:'Audio, MP4 & other',value:Math.max(0,total-used),color:'#b8bdb7'});
  $('stages').innerHTML=`<div class="stage-total"><strong>${s(total)} s mean</strong> · range ${s(m.e2e_ms.min)}–${s(m.e2e_ms.max)} s · ${r.offload?'CPU offload':'GPU resident'}</div><div class="stage-stack">${parts.map(p=>`<span style="width:${p.value/Math.max(total,used)*100}%;background:${p.color}"></span>`).join('')}</div><div class="stage-values">${parts.map(p=>`<div><i class="key" style="background:${p.color}"></i>${p.name}<b>${s(p.value)} s</b></div>`).join('')}</div><p class="small">${m.memory?`Peak during this configuration’s measured requests: ${gib(m.memory)} GiB/GPU. ${memTitle(m.memory)}.`:''} Stage means are recorded by the server; the remainder includes audio decoding, encoding the MP4 and transport.</p>`;
@@ -130,7 +150,7 @@ function proCell(g,d,w,res){const m=result(g,d,w,res);return m?`<td class="pro-c
 function renderTables(){
  const number=n=>Number.isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1}):'—';
  $('reference-table').tBodies[0].innerHTML=R.workloads.map(w=>`<tr><th scope="row">${names[w.id]}</th>${['480p','768p'].map(res=>{const a=R.official.latency[`${w.id}|${res}|36l`];return `<td class="number">${number(a.spark2)}</td><td>${number(a.spark1)}</td>${proCell(4,'36l',w.id,res)}${proCell(1,'36l',w.id,res)}`}).join('')}</tr>`).join('');
- $('local-table').tBodies[0].innerHTML=R.workloads.map(w=>{const a=R.official.latency[`${w.id}|480p|36l`];return `<tr><th scope="row">${names[w.id]}</th>${['spark1','rtx5090','rtx3090','m5max'].map(d=>`<td>${number(a[d])}</td>`).join('')}${proCell(1,'36l',w.id,'480p')}${proCell(4,'36l',w.id,'480p')}</tr>`}).join('');
+ $('local-table').tBodies[0].innerHTML=R.workloads.map(w=>{const a=R.official.latency[`${w.id}|480p|36l`],m=offloadResult('36l',w.id,'480p'),planned=R.offload_plan?.cases.some(c=>c.decoder==='36l'&&c.key===w.id+'|480p');return `<tr><th scope="row">${names[w.id]}</th>${['spark1','rtx5090','rtx3090','m5max'].map(d=>`<td>${Number.isFinite(a[d])?number(a[d]):esc(articleStatus(d,w.id,'480p','36l'))}</td>`).join('')}${proCell(1,'36l',w.id,'480p')}<td class="pro-col">${m?s(m.e2e_ms.mean):planned?esc(offloadState('36l',w.id,'480p')):'Not tested'}</td>${proCell(4,'36l',w.id,'480p')}</tr>`}).join('');
 }
 function renderMatrix(){
  const rows=[];
@@ -201,7 +221,7 @@ function renderMemory(){
 function renderOffload(){
  const cases=R.offload_plan?.cases||[];let complete=0;
  $('offload-table').tBodies[0].innerHTML=cases.map(c=>{const r=R.offload_runs?.find(x=>x.id===c.id),m=r?.summaries?.find(x=>x.key===c.key),[w,res]=c.key.split('|'),resident=run(1,c.decoder),url=r?.media?.[c.key];if(m)complete++;
- return `<tr><th>${esc(names[w])}</th><td>${res}</td><td>${c.decoder.toUpperCase()}</td><td>${pending(1,c.decoder,w,res)}</td><td>${gib(memoryFor(resident,c.key))}</td><td>${m?s(m.e2e_ms.mean):r?.current===c.key?'Measuring':r?.failures?.some(x=>x.key===c.key)?'Failed':'Pending'}</td><td>${gib(memoryFor(r,c.key))}</td><td>${url?`<a href="${esc(url)}">Original MP4 ↗</a>`:'—'}</td></tr>`;}).join('');
+ return `<tr><th>${esc(names[w])}</th><td>${res}</td><td>${c.decoder.toUpperCase()}</td><td>${pending(1,c.decoder,w,res)}</td><td>${gib(memoryFor(resident,c.key))}</td><td>${m?s(m.e2e_ms.mean):esc(offloadState(c.decoder,w,res))}</td><td>${gib(memoryFor(r,c.key))}</td><td>${url?`<a href="${esc(url)}">Original MP4 ↗</a>`:'—'}${r?.config_url?`<br><a href="${esc(r.config_url)}" download>Config YAML ↓</a>`:''}</td></tr>`;}).join('');
  $('offload-status').textContent=`${complete} / ${cases.length} module-offload configurations completed. Three seeds per configuration after an excluded warmup.`;
 }
 $('memory-configuration').innerHTML+=[...new Set((R.request_memory||[]).map(x=>x.configuration))].sort().map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');
@@ -212,6 +232,7 @@ $('gallery-seed').addEventListener('change',e=>{state.gallerySeed=Number(e.targe
 $('matched-show-decoders').addEventListener('change',renderGallery);
 $('gallery-workload').addEventListener('change',e=>{state.gallery=e.target.value;renderGallery()});$('gallery-gpu').addEventListener('change',e=>{state.galleryGpu=Number(e.target.value);renderGallery()});$('next-example').addEventListener('click',()=>{state.gallery=R.workloads[(R.workloads.findIndex(w=>w.id===state.gallery)+1)%R.workloads.length].id;$('gallery-workload').value=state.gallery;renderGallery()});
 for(const n of ['workload','resolution','decoder'])$('latency-'+n).addEventListener('change',e=>{state[n]=e.target.value;renderChart()});$('stage-gpu').addEventListener('change',e=>{state.stageGpu=Number(e.target.value);renderStages()});
+$('stage-policy').addEventListener('change',renderStages);
 $('close-dialog').addEventListener('click',()=>$('output-dialog').close());$('output-dialog').addEventListener('close',()=>$('output-videos').querySelectorAll('video').forEach(v=>v.pause()));
 try{if(localStorage.getItem('omni-theme')==='dark')document.documentElement.dataset.theme='dark'}catch{}
 $('theme').addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('omni-theme',theme)}catch{}});
