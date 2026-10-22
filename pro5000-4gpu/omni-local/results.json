@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792652572.0066571,
+  "updated_at": 1792653061.9975958,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -3540,7 +3540,7 @@
     {
       "id": "fastvideo-pro5000-4gpu-8l-vsa-bf16",
       "framework": "FastVideo",
-      "state": "measuring",
+      "state": "complete",
       "gpus": [
         0,
         1,
@@ -3652,6 +3652,78 @@
               2158.0028124153614
             ]
           }
+        },
+        {
+          "key": "image|768p",
+          "workload": "image",
+          "resolution": "768p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 67815.79666666666,
+            "median": 67811.286,
+            "min": 67794.073,
+            "max": 67842.031,
+            "values": [
+              67811.286,
+              67794.073,
+              67842.031
+            ]
+          },
+          "dit_ms": {
+            "mean": 61846.75898045922,
+            "median": 61845.73492174968,
+            "min": 61845.28581099585,
+            "max": 61849.25620863214,
+            "values": [
+              61845.73492174968,
+              61849.25620863214,
+              61845.28581099585
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 422.9598515667021,
+            "median": 416.34568898007274,
+            "min": 416.0681120119989,
+            "max": 436.46575370803475,
+            "values": [
+              416.0681120119989,
+              416.34568898007274,
+              436.46575370803475
+            ]
+          },
+          "decode_stage_ms": {
+            "mean": 472.7566825846831,
+            "median": 466.0285320132971,
+            "min": 465.8308927901089,
+            "max": 486.4106229506433,
+            "values": [
+              465.8308927901089,
+              466.0285320132971,
+              486.4106229506433
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 67761.0,
+            "median": 67756.0,
+            "min": 67740.0,
+            "max": 67787.0,
+            "values": [
+              67756.0,
+              67740.0,
+              67787.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2174.275098989407,
+            "median": 2174.714421853423,
+            "min": 2172.330438159406,
+            "max": 2175.7804369553924,
+            "values": [
+              2172.330438159406,
+              2175.7804369553924,
+              2174.714421853423
+            ]
+          }
         }
       ],
       "seeds": [
@@ -3661,18 +3733,19 @@
       ],
       "timing": "Native /v1/videos/sync request to full MP4; one excluded warmup, seeds 0/1/2. Model loading excluded. Reference memo disabled.",
       "ready_at": 1792652311.8793423,
-      "current": "image|768p",
+      "ended_at": 1792652754.304494,
       "media": {
-        "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p.mp4"
+        "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p.mp4",
+        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p.mp4"
       },
       "config_url": "configs/fastvideo-pro5000-4gpu-8l-vsa-bf16.yaml",
       "memory": {
-        "max_per_gpu_gib": 63.3642578125,
+        "max_per_gpu_gib": 70.9697265625,
         "per_gpu_mib": {
-          "0": 64885,
-          "1": 63649,
-          "2": 63489,
-          "3": 62911
+          "0": 72673,
+          "1": 69007,
+          "2": 68847,
+          "3": 68269
         }
       },
       "evidence": [
@@ -3768,14 +3841,328 @@
     },
     {
       "id": "fastvideo-pro5000-4gpu-8l-vsa-sage3",
-      "state": "pending",
-      "summaries": [],
-      "media": {},
+      "framework": "FastVideo",
+      "state": "complete",
+      "gpus": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "decoder": "8l",
+      "offload": false,
+      "model": "FastH3-Omni-NVFP4-QAD",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "attention_mode": "vsa-sage3",
+      "attention": "Hao AI Lab VSA + SageAttention3 FP4; protected FP8 prefix",
+      "runtime_revision": "089a5a55a000db41b53fb64bd5f65206de727aba",
+      "reference_canvas": "Native FastVideo 2048 short edge, nearest multiple of 32, Lanczos",
+      "reference_transport": "Typed local references, pre-staged on server; vLLM article runs upload identical bytes.",
+      "parallelism": {
+        "sp_size": 4,
+        "text_encoder_tp": 1,
+        "use_fsdp_inference": false
+      },
+      "execution_env": {
+        "FASTVIDEO_ATTENTION_BACKEND": "VIDEO_SPARSE_ATTN_H3",
+        "FASTVIDEO_H3_VSA_FP4": "1",
+        "FASTVIDEO_VSA_TRITON": "1",
+        "FASTVIDEO_VSA_PTX_BLACKWELL": "0",
+        "FASTVIDEO_FA4": "0",
+        "FASTVIDEO_MINIMAX_H3_FUSIONS": "all",
+        "FASTVIDEO_H3_GATE_CHUNK_ROWS": "8192",
+        "FASTVIDEO_H3_VAE_TILE_BATCH": "8",
+        "FASTVIDEO_H3_ADALN_CACHE": "0",
+        "FASTVIDEO_H3_ENCODER_LAYERWISE": "0",
+        "FASTVIDEO_H3_VAE_INT8_OVERLAY": "0",
+        "FASTVIDEO_H3_REF2VA_MEMO_ENTRIES": "0",
+        "FASTVIDEO_STAGE_LOGGING": "1",
+        "FASTVIDEO_H3_VAE_NVFP4_DECODER": "/tmp/fasth3-official-hf/hub/models--FastVideo--FastH3-NVFP4-VAE-Decoder/snapshots/ddd17469cab7e490b1a04baaf26b247f0f0dcf0e/fast-8L/decoder-nvfp4.safetensors",
+        "FASTH3_ATTENTION_MODE": "vsa-sage3",
+        "FASTH3_ATTENTION_EVIDENCE": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/attention-runs/fastvideo-pro5000-4gpu-8l-vsa-sage3/kernel-evidence",
+        "FASTVIDEO_H3_VSA_FP4_PREFIX": "fp8",
+        "FASTVIDEO_H3_VSA_FP4_TWO_LEVEL_P": "1",
+        "FASTVIDEO_H3_VSA_FP4_K_SMOOTH": "1"
+      },
+      "started_at": 1792652758.474874,
+      "summaries": [
+        {
+          "key": "image|480p",
+          "workload": "image",
+          "resolution": "480p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 23044.448666666667,
+            "median": 23042.211000000003,
+            "min": 23035.801,
+            "max": 23055.334,
+            "values": [
+              23035.801,
+              23042.211000000003,
+              23055.334
+            ]
+          },
+          "dit_ms": {
+            "mean": 17524.201908148825,
+            "median": 17524.307563435286,
+            "min": 17520.34738101065,
+            "max": 17527.950780000538,
+            "values": [
+              17524.307563435286,
+              17520.34738101065,
+              17527.950780000538
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 175.1349043721954,
+            "median": 172.07305412739515,
+            "min": 172.05501394346356,
+            "max": 181.2766450457275,
+            "values": [
+              181.2766450457275,
+              172.07305412739515,
+              172.05501394346356
+            ]
+          },
+          "decode_stage_ms": {
+            "mean": 224.96857571726045,
+            "median": 221.9324642792344,
+            "min": 221.77068796008825,
+            "max": 231.20257491245866,
+            "values": [
+              231.20257491245866,
+              221.9324642792344,
+              221.77068796008825
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 22993.0,
+            "median": 22991.0,
+            "min": 22985.0,
+            "max": 23003.0,
+            "values": [
+              22985.0,
+              22991.0,
+              23003.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2165.1316986729703,
+            "median": 2167.140800971538,
+            "min": 2156.4605119638145,
+            "max": 2171.793783083558,
+            "values": [
+              2156.4605119638145,
+              2167.140800971538,
+              2171.793783083558
+            ]
+          }
+        },
+        {
+          "key": "image|768p",
+          "workload": "image",
+          "resolution": "768p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 39674.924,
+            "median": 39678.018000000004,
+            "min": 39659.886,
+            "max": 39686.867999999995,
+            "values": [
+              39686.867999999995,
+              39678.018000000004,
+              39659.886
+            ]
+          },
+          "dit_ms": {
+            "mean": 33704.36400485536,
+            "median": 33705.47068212181,
+            "min": 33694.93027124554,
+            "max": 33712.69106119871,
+            "values": [
+              33712.69106119871,
+              33694.93027124554,
+              33705.47068212181
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 417.6770198779802,
+            "median": 419.0306691452861,
+            "min": 414.4768393598497,
+            "max": 419.5235511288047,
+            "values": [
+              419.0306691452861,
+              419.5235511288047,
+              414.4768393598497
+            ]
+          },
+          "decode_stage_ms": {
+            "mean": 467.4600213766098,
+            "median": 468.9587880857289,
+            "min": 464.2781801521778,
+            "max": 469.1430958919227,
+            "values": [
+              468.9587880857289,
+              469.1430958919227,
+              464.2781801521778
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 39620.333333333336,
+            "median": 39624.0,
+            "min": 39603.0,
+            "max": 39634.0,
+            "values": [
+              39634.0,
+              39624.0,
+              39603.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2173.9059877581894,
+            "median": 2172.978673595935,
+            "min": 2172.22531279549,
+            "max": 2176.513976883143,
+            "values": [
+              2172.22531279549,
+              2172.978673595935,
+              2176.513976883143
+            ]
+          }
+        }
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "timing": "Native /v1/videos/sync request to full MP4; one excluded warmup, seeds 0/1/2. Model loading excluded. Reference memo disabled.",
+      "ready_at": 1792652802.4914625,
+      "ended_at": 1792653061.824853,
+      "media": {
+        "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p.mp4",
+        "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p.mp4"
+      },
       "config_url": "configs/fastvideo-pro5000-4gpu-8l-vsa-sage3.yaml",
-      "memory": null,
-      "evidence": []
+      "memory": {
+        "max_per_gpu_gib": 68.0693359375,
+        "per_gpu_mib": {
+          "0": 69703,
+          "1": 65227,
+          "2": 65067,
+          "3": 65077
+        }
+      },
+      "evidence": [
+        {
+          "rank": 0,
+          "backend": "vsa-sage3",
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "finite_first_warmup_output": true,
+          "framework": "FastVideo native HTTP server",
+          "runtime_revision": "089a5a55a000db41b53fb64bd5f65206de727aba",
+          "precision": "SageAttention3 FP4 video rows; FP8 Q/K and BF16 P/V prefix",
+          "entry_point": "sageattn_blackwell_sparse_bshd",
+          "prefix_rows": 15360,
+          "prefix_precision": "fp8",
+          "two_level_p": true,
+          "smooth_k": true,
+          "sources": {
+            "fastvideo/models/dits/minimax_h3_vsa_fp4.py": "45222cc5d60a7f0504b5ed88e00eaac72d753dac53af0f63cfed132dd36ff71d",
+            "fastvideo-kernel/attn_qat_infer/api.py": "6d729dbcc32467293472dba615f7cba5fc9358df0d251edf3613a4e8a8270047",
+            "fastvideo-kernel/attn_qat_infer/blackwell/api.cu": "c96f9d822e506df1b8f0d64de7f56269538525ae2b419107ee9cf3e44493edf2"
+          }
+        },
+        {
+          "rank": 1,
+          "backend": "vsa-sage3",
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "finite_first_warmup_output": true,
+          "framework": "FastVideo native HTTP server",
+          "runtime_revision": "089a5a55a000db41b53fb64bd5f65206de727aba",
+          "precision": "SageAttention3 FP4 video rows; FP8 Q/K and BF16 P/V prefix",
+          "entry_point": "sageattn_blackwell_sparse_bshd",
+          "prefix_rows": 15360,
+          "prefix_precision": "fp8",
+          "two_level_p": true,
+          "smooth_k": true,
+          "sources": {
+            "fastvideo/models/dits/minimax_h3_vsa_fp4.py": "45222cc5d60a7f0504b5ed88e00eaac72d753dac53af0f63cfed132dd36ff71d",
+            "fastvideo-kernel/attn_qat_infer/api.py": "6d729dbcc32467293472dba615f7cba5fc9358df0d251edf3613a4e8a8270047",
+            "fastvideo-kernel/attn_qat_infer/blackwell/api.cu": "c96f9d822e506df1b8f0d64de7f56269538525ae2b419107ee9cf3e44493edf2"
+          }
+        },
+        {
+          "rank": 2,
+          "backend": "vsa-sage3",
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "finite_first_warmup_output": true,
+          "framework": "FastVideo native HTTP server",
+          "runtime_revision": "089a5a55a000db41b53fb64bd5f65206de727aba",
+          "precision": "SageAttention3 FP4 video rows; FP8 Q/K and BF16 P/V prefix",
+          "entry_point": "sageattn_blackwell_sparse_bshd",
+          "prefix_rows": 15360,
+          "prefix_precision": "fp8",
+          "two_level_p": true,
+          "smooth_k": true,
+          "sources": {
+            "fastvideo/models/dits/minimax_h3_vsa_fp4.py": "45222cc5d60a7f0504b5ed88e00eaac72d753dac53af0f63cfed132dd36ff71d",
+            "fastvideo-kernel/attn_qat_infer/api.py": "6d729dbcc32467293472dba615f7cba5fc9358df0d251edf3613a4e8a8270047",
+            "fastvideo-kernel/attn_qat_infer/blackwell/api.cu": "c96f9d822e506df1b8f0d64de7f56269538525ae2b419107ee9cf3e44493edf2"
+          }
+        },
+        {
+          "rank": 3,
+          "backend": "vsa-sage3",
+          "shape": [
+            1,
+            35840,
+            14,
+            128
+          ],
+          "finite_first_warmup_output": true,
+          "framework": "FastVideo native HTTP server",
+          "runtime_revision": "089a5a55a000db41b53fb64bd5f65206de727aba",
+          "precision": "SageAttention3 FP4 video rows; FP8 Q/K and BF16 P/V prefix",
+          "entry_point": "sageattn_blackwell_sparse_bshd",
+          "prefix_rows": 15360,
+          "prefix_precision": "fp8",
+          "two_level_p": true,
+          "smooth_k": true,
+          "sources": {
+            "fastvideo/models/dits/minimax_h3_vsa_fp4.py": "45222cc5d60a7f0504b5ed88e00eaac72d753dac53af0f63cfed132dd36ff71d",
+            "fastvideo-kernel/attn_qat_infer/api.py": "6d729dbcc32467293472dba615f7cba5fc9358df0d251edf3613a4e8a8270047",
+            "fastvideo-kernel/attn_qat_infer/blackwell/api.cu": "c96f9d822e506df1b8f0d64de7f56269538525ae2b419107ee9cf3e44493edf2"
+          }
+        }
+      ]
     }
   ],
+  "priority_attention_status": {
+    "state": "running",
+    "started_at": 1792651864.0895436,
+    "completed": [
+      "cake",
+      "vsa-bf16"
+    ],
+    "failed": [],
+    "current": "vsa-sage3"
+  },
   "baseline_scenes": [
     {
       "id": "family",
@@ -3803,7 +4190,7 @@
       "focus": "路线牌文字 · 玻璃反光 · 细线与低照度"
     }
   ],
-  "attention_completed_configurations": 3,
+  "attention_completed_configurations": 6,
   "fastvideo_completed_configurations": 2,
   "completed_configurations": 22,
   "failed_configurations": [
@@ -3956,6 +4343,24 @@
       "bytes": 1860771,
       "sha256": "b1d32a63cccaf7284001f7f80485d7b1274375af3f1887e7b22f4590e55ceb52",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-480p.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p.mp4",
+      "bytes": 3695820,
+      "sha256": "8858207cd751c0fa4a683362e576438a6b5ffe1e879d03391419e104db89426e",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-bf16-image-768p.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p.mp4",
+      "bytes": 1931826,
+      "sha256": "b38730d90e585ce57abc1c38a740bfa7a521a3a141a149448959512f4fea87f6",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-480p.mp4"
+    },
+    {
+      "file": "fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p.mp4",
+      "bytes": 3758603,
+      "sha256": "c0514cd05f505d8f4486968c31ee9b8c931cbc9936b9ae83569ef978c101b441",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/fastvideo-pro5000-4gpu-8l-vsa-sage3-image-768p.mp4"
     },
     {
       "file": "pro5000-1gpu-36l-image-480p.mp4",

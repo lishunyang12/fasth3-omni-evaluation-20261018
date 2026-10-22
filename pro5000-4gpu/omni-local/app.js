@@ -94,9 +94,9 @@ function renderCheckpoints(){
 function renderAttention(){
  const g=Number($('attention-gpu').value),d=$('attention-decoder').value,res=$('attention-resolution').value,key='image|'+res;
  const rows=[{label:'CAKE · INT8 QK / FP8 V',r:fvRun(g,d)},{label:'Hao AI Lab VSA · BF16',r:R.attention_runs?.find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}-vsa-bf16`)},{label:'Hao AI Lab VSA + Sage3 · FP4',r:R.attention_runs?.find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}-vsa-sage3`)}];
- rows.forEach(x=>x.m=x.r?.summaries?.find(m=>m.key===key));const cake=rows[0].m?.e2e_ms.mean;
- $('attention-status').textContent=`${R.attention_completed_configurations||0} / 24 native attention configurations measured. ${R.attention_status?.state==='waiting_for_fastvideo'?'Queued after the serving-framework runs.':'Measurements run sequentially on allocated GPUs.'}`;
- $('attention-table').tBodies[0].innerHTML=rows.map(x=>`<tr><th>${x.label}${x.r?.config_url?`<br><a href="${esc(x.r.config_url)}" download>Config YAML ↓</a>`:''}</th>${['e2e_ms','dit_ms','video_vae_ms'].map(k=>`<td>${x.m?s(x.m[k]?.mean):x.r?.state==='failed'?'Incomplete':x.r?.current===key?'Measuring':'Pending'}</td>`).join('')}<td>${cake&&x.m?(x.m.e2e_ms.mean/cake).toFixed(2)+'×':'—'}</td></tr>`).join('');
+ rows.forEach(x=>x.m=x.r?.summaries?.find(m=>m.key===key));const cake=rows[0].m?.e2e_ms.mean,cakeDit=rows[0].m?.dit_ms?.mean;
+ $('attention-status').textContent=`${R.attention_completed_configurations||0} / 24 native attention configurations measured. ${R.priority_attention_status?.state==='running'?'The first matched 4-GPU / 8L comparison is running.':R.attention_status?.state==='waiting_for_fastvideo'?'Remaining configurations are queued after the serving-framework runs.':'Measurements run sequentially on allocated GPUs.'}`;
+ $('attention-table').tBodies[0].innerHTML=rows.map(x=>`<tr><th>${x.label}${x.r?.config_url?`<br><a href="${esc(x.r.config_url)}" download>Config YAML ↓</a>`:''}</th>${['e2e_ms','dit_ms','video_vae_ms'].map(k=>`<td>${x.m?s(x.m[k]?.mean):x.r?.state==='failed'?'Incomplete':x.r?.current===key?'Measuring':'Pending'}</td>`).join('')}<td>${cake&&x.m?(x.m.e2e_ms.mean/cake).toFixed(2)+'×':'—'}</td><td>${cakeDit&&x.m?.dit_ms?(x.m.dit_ms.mean/cakeDit).toFixed(2)+'×':'—'}</td></tr>`).join('');
  $('attention-videos').querySelectorAll('video').forEach(v=>{v.pause();v.removeAttribute('src');v.load()});
  $('attention-videos').innerHTML=rows.map(x=>videoCard({title:x.label,meta:`${g} GPU · ${res} · ${d.toUpperCase()} · seed 0`,url:x.r?.media?.[key],pro:true})).join('');
 }
