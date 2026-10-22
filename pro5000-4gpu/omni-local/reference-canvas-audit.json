@@ -1,0 +1,174 @@
+{
+  "workload": "images3",
+  "output": [
+    832,
+    480
+  ],
+  "policies": {
+    "article2048": {
+      "images": [
+        {
+          "file": "hf_character_action_reference.png",
+          "sha256": "01a6c6f29e1ce9d414276e6e2eca06b171e5a68dd54a86074a4ab77bb9cb8883",
+          "original_wh": [
+            2560,
+            1440
+          ],
+          "reference_vae_wh": [
+            3648,
+            2048
+          ],
+          "vision_wh": [
+            3648,
+            2048
+          ],
+          "vision_grid_thw": [
+            1,
+            128,
+            228
+          ],
+          "vision_tokens": 7296,
+          "vae_tokens": 7296
+        },
+        {
+          "file": "hf_fashion_glasses_reference_3.png",
+          "sha256": "7b1491e5a227f226fa1395e71ac89a84358a435d974acb9f9065b9ded0982cbe",
+          "original_wh": [
+            2272,
+            1262
+          ],
+          "reference_vae_wh": [
+            3680,
+            2048
+          ],
+          "vision_wh": [
+            3680,
+            2048
+          ],
+          "vision_grid_thw": [
+            1,
+            128,
+            230
+          ],
+          "vision_tokens": 7360,
+          "vae_tokens": 7360
+        },
+        {
+          "file": "official_fl2va_0_image.png",
+          "sha256": "352e959e08b886406d3766cee25ebe7bbf679e6d53eeffbd1c607b8dc93e2068",
+          "original_wh": [
+            1920,
+            1080
+          ],
+          "reference_vae_wh": [
+            3648,
+            2048
+          ],
+          "vision_wh": [
+            3648,
+            2048
+          ],
+          "vision_grid_thw": [
+            1,
+            128,
+            228
+          ],
+          "vision_tokens": 7296,
+          "vae_tokens": 7296
+        }
+      ],
+      "text_encoder_output_tokens": 22346,
+      "vision_tokens": 21952,
+      "prompt_and_label_tokens": 394,
+      "reference_vae_tokens": 21952,
+      "video_tokens": 14430,
+      "audio_tokens": 414,
+      "packed_effective_tokens": 59142
+    },
+    "native": {
+      "images": [
+        {
+          "file": "hf_character_action_reference.png",
+          "sha256": "01a6c6f29e1ce9d414276e6e2eca06b171e5a68dd54a86074a4ab77bb9cb8883",
+          "original_wh": [
+            2560,
+            1440
+          ],
+          "reference_vae_wh": [
+            2560,
+            1440
+          ],
+          "vision_wh": [
+            2560,
+            1440
+          ],
+          "vision_grid_thw": [
+            1,
+            90,
+            160
+          ],
+          "vision_tokens": 3600,
+          "vae_tokens": 3600
+        },
+        {
+          "file": "hf_fashion_glasses_reference_3.png",
+          "sha256": "7b1491e5a227f226fa1395e71ac89a84358a435d974acb9f9065b9ded0982cbe",
+          "original_wh": [
+            2272,
+            1262
+          ],
+          "reference_vae_wh": [
+            2272,
+            1248
+          ],
+          "vision_wh": [
+            2272,
+            1248
+          ],
+          "vision_grid_thw": [
+            1,
+            78,
+            142
+          ],
+          "vision_tokens": 2769,
+          "vae_tokens": 2769
+        },
+        {
+          "file": "official_fl2va_0_image.png",
+          "sha256": "352e959e08b886406d3766cee25ebe7bbf679e6d53eeffbd1c607b8dc93e2068",
+          "original_wh": [
+            1920,
+            1080
+          ],
+          "reference_vae_wh": [
+            1920,
+            1088
+          ],
+          "vision_wh": [
+            1920,
+            1088
+          ],
+          "vision_grid_thw": [
+            1,
+            68,
+            120
+          ],
+          "vision_tokens": 2040,
+          "vae_tokens": 2040
+        }
+      ],
+      "text_encoder_output_tokens": 8803,
+      "vision_tokens": 8409,
+      "prompt_and_label_tokens": 394,
+      "reference_vae_tokens": 8409,
+      "video_tokens": 14430,
+      "audio_tokens": 414,
+      "packed_effective_tokens": 32056
+    }
+  },
+  "root_cause": "The article benchmark launcher replaced the already-fixed reference-shape resolver with a forced 2048-short-edge policy.",
+  "correction": "Launcher now defaults to native dimensions. Historical article runs explicitly opt in to article2048; native runs use separate IDs and manifests.",
+  "token_method": "Actual CPU image_processor grids and presentation tokenizer; VAE patch tokens use width/32 * height/32. Packed video/audio token counts cross-checked against runtime routing logs.",
+  "historical_scope": "Existing article matrix, BF16/QAD matched gallery, and original OOM/offload records use article2048. They are not results for the corrected native-size deployment.",
+  "effective_token_reduction_fraction": 0.45798248283791554
+}

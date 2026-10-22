@@ -238,7 +238,25 @@ function renderOffload(){
 }
 $('memory-configuration').innerHTML+=[...new Set((R.request_memory||[]).map(x=>x.configuration))].sort().map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');
 for(const id of ['memory-configuration','memory-phase'])$(id).addEventListener('change',renderMemory);
-renderMemory();renderOffload();
+function renderReferenceCanvas(){
+ const a=R.reference_canvas_audit?.policies?.article2048,b=R.reference_canvas_audit?.policies?.native;
+ if(a&&b){
+  const size=x=>x.join(' × ');
+  $('reference-size-table').tBodies[0].innerHTML=a.images.map((x,i)=>`<tr><th>Picture ${i+1}</th><td>${size(x.original_wh)}</td><td>${size(x.reference_vae_wh)}</td><td>${size(b.images[i].reference_vae_wh)}</td><td>${(x.vision_tokens+x.vae_tokens).toLocaleString('en-US')} → ${(b.images[i].vision_tokens+b.images[i].vae_tokens).toLocaleString('en-US')}</td></tr>`).join('');
+  $('reference-token-summary').textContent=`Effective packed sequence: ${a.packed_effective_tokens.toLocaleString('en-US')} → ${b.packed_effective_tokens.toLocaleString('en-US')} tokens (${(R.reference_canvas_audit.effective_token_reduction_fraction*100).toFixed(1)}% fewer). Native: ${b.vision_tokens.toLocaleString('en-US')} vision + ${b.reference_vae_tokens.toLocaleString('en-US')} reference VAE + ${b.prompt_and_label_tokens} prompt/labels + ${b.video_tokens.toLocaleString('en-US')} video + ${b.audio_tokens} audio tokens. Kernel padding is additional.`;
+ }
+ const rows=R.native_reference_runs||[],ref=rows.find(r=>r.mode==='resident');
+ $('native-reference-table').tBodies[0].innerHTML=rows.map(r=>{
+  const m=r.summaries?.find(x=>x.key==='images3|480p'),f=r.failures?.find(x=>x.key==='images3|480p'),n=Object.keys(r.output_hashes||{}).length;
+  const status=m?'Complete · 3/3 seeds':f?.kind==='cuda_oom'?'OOM':f?'Failed':r.active_request?.phase==='warmup'?'Warmup in progress':r.state==='starting'?'Loading model':r.state==='measuring'?`Measuring · ${n}/3 seeds`:'Queued';
+  const pairs=[0,1,2].filter(seed=>r.output_hashes?.[seed]&&ref?.output_hashes?.[seed]);
+  const eq=r.mode==='resident'?'Reference':pairs.length===3?`${pairs.filter(seed=>r.output_hashes[seed]===ref.output_hashes[seed]).length}/3 byte-identical`:'Awaiting paired outputs';
+  return `<tr data-mode="${esc(r.mode)}"><th>${esc({resident:'GPU resident',module:'Module CPU offload',layerwise:'Layerwise CPU offload'}[r.mode])}</th><td>${status}</td><td>${m?s(m.e2e_ms.mean):'—'}</td><td>${m?s(m.dit_ms.mean):'—'}</td><td>${m?gib(m.memory):'Not yet measured'}</td><td>${eq}</td><td>${r.media?.['images3|480p']?`<a href="${esc(r.media['images3|480p'])}">Seed 0 MP4 ↗</a>`:''}${r.config_url?` <a href="${esc(r.config_url)}" download>Config ↓</a>`:''}</td></tr>`;
+ }).join('');
+ const base=ref?.summaries?.[0],layer=rows.find(r=>r.mode==='layerwise')?.summaries?.[0];
+ $('native-reference-summary').textContent=base&&layer?`Layerwise / resident: ${(layer.e2e_ms.mean/base.e2e_ms.mean).toFixed(3)}× end-to-end, ${(layer.dit_ms.mean/base.dit_ms.mean).toFixed(3)}× DiT. These are observed timing ratios; a transfer timeline is required to quantify hidden copy time. MP4 byte equality does not compare quality against the different historical reference canvas.`:'Waiting for matched native-size measurements. Near-zero offload overhead has not yet been established for this corrected workload.';
+}
+renderMemory();renderOffload();renderReferenceCanvas();
 $('gallery-comparison').addEventListener('change',e=>{state.galleryComparison=e.target.value;renderGallery()});
 $('gallery-seed').addEventListener('change',e=>{state.gallerySeed=Number(e.target.value);renderGallery()});
 $('matched-show-decoders').addEventListener('change',renderGallery);
