@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792660480.3164334,
+  "updated_at": 1792660675.6531427,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -268,7 +268,7 @@
     "pending": [
       "pro5000-1gpu-8l:video|768p"
     ],
-    "updated_at": 1792659293.7089682,
+    "updated_at": 1792660641.0284598,
     "scheduler": "continuation-status.json",
     "resource_note": "Jobs wait only for their selected GPUs. No unrelated GPU process is stopped."
   },
@@ -4029,7 +4029,7 @@
       "fastvideo-pro5000-1gpu-36l",
       "fastvideo-pro5000-4gpu-36l"
     ],
-    "updated_at": 1792659293.7120254,
+    "updated_at": 1792660641.0312204,
     "scheduler": "continuation-status.json",
     "resource_note": "Jobs wait only for their selected GPUs. No unrelated GPU process is stopped."
   },
@@ -4427,7 +4427,7 @@
       "fastvideo-pro5000-4gpu-36l-vsa-bf16",
       "fastvideo-pro5000-4gpu-36l-vsa-sage3"
     ],
-    "updated_at": 1792659293.716346,
+    "updated_at": 1792660641.0345669,
     "scheduler": "continuation-status.json",
     "resource_note": "Jobs wait only for their selected GPUs. No unrelated GPU process is stopped."
   },
@@ -5597,19 +5597,37 @@
     "completed": [],
     "failed": [],
     "pending": [
-      "matched-pro5000-4gpu-bf16-original",
-      "matched-pro5000-4gpu-qad-original"
+      "matched-pro5000-4gpu-qad-original:speed-v2",
+      "matched-pro5000-4gpu-bf16-original:speed-v2"
     ],
-    "updated_at": 1792659293.7185555,
+    "updated_at": 1792660641.0366783,
     "scheduler": "continuation-status.json",
-    "current": "matched-pro5000-4gpu-bf16-original",
+    "current": "matched-pro5000-4gpu-qad-original",
     "resource_note": "Jobs wait only for their selected GPUs. No unrelated GPU process is stopped."
+  },
+  "matched_checkpoint_audit": {
+    "cases": {
+      "bf16": {
+        "state": "complete",
+        "verified_outputs": 5,
+        "seed0_outputs": 5,
+        "completed_timing_groups": 0
+      },
+      "qad": {
+        "state": "starting",
+        "verified_outputs": 0,
+        "seed0_outputs": 0,
+        "completed_timing_groups": 0
+      }
+    },
+    "input_provenance_verified": true,
+    "errors": []
   },
   "matched_checkpoint_runs": [
     {
       "id": "matched-pro5000-4gpu-bf16-original",
       "case": "bf16",
-      "state": "generating",
+      "state": "complete",
       "model": "FastVideo-FastH3-Omni-8-Step-V1",
       "model_path": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/hf-hub/models--FastVideo--FastVideo-FastH3-Omni-8-Step-V1/snapshots/88d512c5e7cc38dda499fbb65688ce58611f9c80",
       "checkpoint_revision": "88d512c5e7cc38dda499fbb65688ce58611f9c80",
@@ -5739,12 +5757,13 @@
       "failures": [],
       "started_at": 1792659293.9501488,
       "ready_at": 1792660048.1030793,
-      "current": "video|480p",
+      "ended_at": 1792660631.091119,
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-bf16-original-image-480p.mp4",
         "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-bf16-original-image-voice-480p.mp4",
         "images3|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-bf16-original-images3-480p.mp4",
-        "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-bf16-original-clip-480p.mp4"
+        "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-bf16-original-clip-480p.mp4",
+        "video|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-bf16-original-video-480p.mp4"
       },
       "quality_samples": [
         {
@@ -5910,6 +5929,47 @@
           "video_vae_ms": 1804.6155250631273,
           "encode_prompt_ms": 926.1282989755273,
           "reference_encode_ms": 3310.8756579458714
+        },
+        {
+          "phase": "qualitative",
+          "seed": 0,
+          "workload": "video",
+          "resolution": "480p",
+          "e2e_ms": 75380.862,
+          "server_inference_ms": 75365.0,
+          "stages": {
+            "MiniMaxH3Pipeline.encode_prompt": 1.7563929241150618,
+            "MiniMaxH3Pipeline._encode_local_media": 8.779702759813517,
+            "MiniMaxH3Pipeline.diffuse": 61.36370050441474,
+            "MiniMaxH3Pipeline.video_vae.decode_latent": 1.803476165048778,
+            "MiniMaxH3Pipeline.audio_vae.decode_latent": 0.041760381776839495,
+            "MiniMaxH3Pipeline.decode": 1.8757177870720625,
+            "queue_wait_ms": 0.24789618328213692,
+            "stage_0_gen_ms": 75201.46346092224
+          },
+          "started_at": 1792660555.6289794,
+          "ended_at": 1792660631.0856738,
+          "media": [
+            {
+              "codec_type": "video",
+              "width": 832,
+              "height": 480,
+              "r_frame_rate": "24/1",
+              "nb_read_frames": "124"
+            },
+            {
+              "codec_type": "audio",
+              "sample_rate": "32000",
+              "channels": 2,
+              "r_frame_rate": "0/0",
+              "nb_read_frames": "162"
+            }
+          ],
+          "output_sha256": "5a67f96bf36e0ad34b7b295e536177f5c6d2e6246450cb64f55ceae448b7e8d3",
+          "dit_ms": 61363.70050441474,
+          "video_vae_ms": 1803.476165048778,
+          "encode_prompt_ms": 1756.3929241150618,
+          "reference_encode_ms": 8779.702759813517
         }
       ],
       "config_url": "configs/matched-pro5000-4gpu-bf16-original.yaml",
@@ -5980,19 +6040,19 @@
         }
       ],
       "memory": {
-        "max_per_gpu_gib": 53.0244140625,
+        "max_per_gpu_gib": 53.2587890625,
         "per_gpu_mib": {
-          "0": 53461,
-          "1": 53589,
-          "2": 53461,
-          "3": 54297
+          "0": 54409,
+          "1": 54537,
+          "2": 54409,
+          "3": 54537
         }
       }
     },
     {
       "id": "matched-pro5000-4gpu-qad-original",
       "case": "qad",
-      "state": "prepared",
+      "state": "starting",
       "model": "FastH3-Omni-NVFP4-QAD",
       "model_path": "/dev/shm/fasth3-perf-4gpu-20261021-sylarl/models/FastH3-Omni-NVFP4-QAD",
       "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
@@ -6117,19 +6177,35 @@
       "fps": 24,
       "steps": 8,
       "seed": 0,
-      "timing": "Qualitative comparison: one excluded warmup per reference mix, then one seed-0 sample. Single-request timings are not three-run means.",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "protocol_version": 2,
+      "timing": "One excluded warmup per reference mix, then seeds 0/1/2. Report three-seed means and ranges; retain original MP4 files for every seed. Verified prior seed-0 samples are reused when resuming after a server reload.",
       "comparison_note": "Both checkpoints use CAKE and the original BF16 video decoder. BF16 uses HSDP; QAD uses resident replicas. Checkpoint changes include the transformer and text encoder.",
       "failures": [],
+      "speed_summaries": [],
+      "started_at": 1792660641.2890432,
       "media": {},
       "quality_samples": [],
       "config_url": "configs/matched-pro5000-4gpu-qad-original.yaml",
       "evidence": [],
-      "memory": null
+      "memory": {
+        "max_per_gpu_gib": 0.0,
+        "per_gpu_mib": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0
+        }
+      }
     }
   ],
-  "matched_checkpoint_outputs": 4,
+  "matched_checkpoint_outputs": 5,
   "continuation_status": {
-    "state": "draining_existing_request",
+    "state": "running",
     "started_at": 1792658626.7571661,
     "attempted": [
       {
@@ -6143,10 +6219,23 @@
         "ended_at": 1792659290.5245008
       }
     ],
-    "updated_at": 1792660480.1996353,
-    "existing_runner_pids": [
-      1376165
-    ]
+    "updated_at": 1792660641.037836,
+    "current": "matched-pro5000-4gpu-qad-original:speed-v2",
+    "remaining": [
+      "matched-pro5000-4gpu-qad-original:speed-v2",
+      "matched-pro5000-4gpu-bf16-original:speed-v2",
+      "pro5000-1gpu-8l:video|768p",
+      "fastvideo-pro5000-1gpu-8l",
+      "fastvideo-pro5000-1gpu-36l",
+      "fastvideo-pro5000-1gpu-8l-vsa-bf16",
+      "fastvideo-pro5000-1gpu-8l-vsa-sage3",
+      "fastvideo-pro5000-1gpu-36l-vsa-bf16",
+      "fastvideo-pro5000-1gpu-36l-vsa-sage3",
+      "fastvideo-pro5000-4gpu-36l",
+      "fastvideo-pro5000-4gpu-36l-vsa-bf16",
+      "fastvideo-pro5000-4gpu-36l-vsa-sage3"
+    ],
+    "busy_gpus": {}
   },
   "baseline_scenes": [
     {
@@ -6518,6 +6607,12 @@
       "bytes": 3466614,
       "sha256": "4799e10d2aa85f5d4bf896849e2000cbdba7b8fd4be9b6cbfa05ae916eeb52f6",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-bf16-original-images3-480p.mp4"
+    },
+    {
+      "file": "matched-pro5000-4gpu-bf16-original-video-480p.mp4",
+      "bytes": 2765287,
+      "sha256": "5a67f96bf36e0ad34b7b295e536177f5c6d2e6246450cb64f55ceae448b7e8d3",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/matched-pro5000-4gpu-bf16-original-video-480p.mp4"
     },
     {
       "file": "pro5000-1gpu-36l-clip-480p.mp4",
