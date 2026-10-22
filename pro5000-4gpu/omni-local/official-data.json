@@ -1,0 +1,202 @@
+{
+  "devices": [
+    {
+      "focus": true,
+      "key": "spark2",
+      "label": "2\u00d7 DGX Spark",
+      "note": "3-seed mean"
+    },
+    {
+      "focus": true,
+      "key": "spark1",
+      "label": "1\u00d7 DGX Spark",
+      "note": "3-seed mean"
+    },
+    {
+      "focus": false,
+      "key": "rtx5090",
+      "label": "RTX 5090 (32 GB)",
+      "note": "3-seed mean \u00b7 NVFP4"
+    },
+    {
+      "focus": false,
+      "key": "rtx3090",
+      "label": "RTX 3090 (24 GB)",
+      "note": "3-seed mean \u00b7 FP8 \u00b7 excl. model load"
+    },
+    {
+      "focus": false,
+      "key": "m5max",
+      "label": "Apple M5 Max (64 GB)",
+      "note": "single run \u00b7 INT6"
+    },
+    {
+      "focus": false,
+      "key": "gb200",
+      "label": "8\u00d7 GB200 (UniServe)",
+      "note": "data center \u00b7 from the release post"
+    }
+  ],
+  "latency": {
+    "clip|480p|36l": {
+      "gb200": null,
+      "m5max": 861.27,
+      "rtx3090": 872.6,
+      "rtx5090": 57.2,
+      "spark1": 194.8,
+      "spark2": 116.2
+    },
+    "clip|480p|8l": {
+      "gb200": null,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 199.2,
+      "spark2": 113.6
+    },
+    "clip|768p|36l": {
+      "gb200": 5.17,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 332.6,
+      "spark2": 200.6
+    },
+    "clip|768p|8l": {
+      "gb200": null,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 324.4,
+      "spark2": 180.5
+    },
+    "image-voice|480p|36l": {
+      "gb200": null,
+      "m5max": 1203.64,
+      "rtx3090": 1081.4,
+      "rtx5090": 63.6,
+      "spark1": 198.3,
+      "spark2": 128.6
+    },
+    "image-voice|480p|8l": {
+      "gb200": null,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 191.1,
+      "spark2": 122.1
+    },
+    "image-voice|768p|36l": {
+      "gb200": 5.84,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 378.5,
+      "spark2": 220.9
+    },
+    "image-voice|768p|8l": {
+      "gb200": null,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 362.3,
+      "spark2": 211.1
+    },
+    "images3|480p|36l": {
+      "gb200": null,
+      "m5max": 3546.86,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 640.3,
+      "spark2": 390.5
+    },
+    "images3|480p|8l": {
+      "gb200": null,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 635.9,
+      "spark2": 418.8
+    },
+    "images3|768p|36l": {
+      "gb200": 12.42,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 957.9,
+      "spark2": 594.8
+    },
+    "images3|768p|8l": {
+      "gb200": null,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 958.9,
+      "spark2": 551.8
+    },
+    "image|480p|36l": {
+      "gb200": null,
+      "m5max": 1172.62,
+      "rtx3090": 1012.9,
+      "rtx5090": 61.9,
+      "spark1": 192,
+      "spark2": 130.1
+    },
+    "image|480p|8l": {
+      "gb200": null,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 184.1,
+      "spark2": 124.9
+    },
+    "image|768p|36l": {
+      "gb200": 5.67,
+      "m5max": 2961.44,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 361.3,
+      "spark2": 217.8
+    },
+    "image|768p|8l": {
+      "gb200": null,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 346.7,
+      "spark2": 210.3
+    },
+    "video|480p|36l": {
+      "gb200": null,
+      "m5max": 2657.88,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 504.6,
+      "spark2": 261.4
+    },
+    "video|480p|8l": {
+      "gb200": null,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 498.6,
+      "spark2": 257.9
+    },
+    "video|768p|36l": {
+      "gb200": 8.34,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 656.9,
+      "spark2": 366.5
+    },
+    "video|768p|8l": {
+      "gb200": null,
+      "m5max": null,
+      "rtx3090": null,
+      "rtx5090": null,
+      "spark1": 611.5,
+      "spark2": 361.1
+    }
+  }
+}

@@ -1,0 +1,9 @@
+index, name, pci.device_id, pci.sub_device_id, driver_version, memory.total [MiB], power.limit [W], clocks.max.sm [MHz]
+0, NVIDIA Graphics Device, 0x2BB310DE, 0x227A10DE, 580.95.05, 73415 MiB, 350.00 W, 3090 MHz
+1, NVIDIA Graphics Device, 0x2BB310DE, 0x227A10DE, 580.95.05, 73415 MiB, 350.00 W, 3090 MHz
+2, NVIDIA Graphics Device, 0x2BB310DE, 0x227A10DE, 580.95.05, 73415 MiB, 350.00 W, 3090 MHz
+3, NVIDIA Graphics Device, 0x2BB310DE, 0x227A10DE, 580.95.05, 73415 MiB, 350.00 W, 3090 MHz
+4, NVIDIA Graphics Device, 0x2BB310DE, 0x227A10DE, 580.95.05, 73415 MiB, 350.00 W, 3090 MHz
+5, NVIDIA Graphics Device, 0x2BB310DE, 0x227A10DE, 580.95.05, 73415 MiB, 350.00 W, 3090 MHz
+6, NVIDIA Graphics Device, 0x2BB310DE, 0x227A10DE, 580.95.05, 73415 MiB, 350.00 W, 3090 MHz
+7, NVIDIA Graphics Device, 0x2BB310DE, 0x227A10DE, 580.95.05, 73415 MiB, 350.00 W, 3090 MHz
