@@ -93,12 +93,11 @@ function renderCheckpoints(){
 }
 function renderAttention(){
  const g=Number($('attention-gpu').value),d=$('attention-decoder').value,res=$('attention-resolution').value,key='image|'+res;
- const rows=[{label:'CAKE · INT8 QK / FP8 V',r:fvRun(g,d)},{label:'Hao AI Lab VSA · BF16',r:R.attention_runs?.find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}-vsa-bf16`)},{label:'Hao AI Lab VSA + Sage3 · FP4',r:R.attention_runs?.find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}-vsa-sage3`)}];
+ const rows=[{label:'CAKE · INT8 QK / FP8 V',r:fvRun(g,d)},{label:'Hao AI Lab VSA · BF16',r:R.attention_runs?.find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}-vsa-bf16`)},{label:'FastVideo VSA + Sage2 · INT8 / FP8',mode:'vsa-sage2',r:R.attention_runs?.find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}-vsa-sage2`)},{label:'Hao AI Lab VSA + Sage3 · FP4',r:R.attention_runs?.find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}-vsa-sage3`)}];
  rows.forEach(x=>x.m=x.r?.summaries?.find(m=>m.key===key));const cake=rows[0].m?.e2e_ms.mean,cakeDit=rows[0].m?.dit_ms?.mean;
- $('attention-status').textContent=`${R.attention_completed_configurations||0} / 24 native attention configurations measured. ${R.priority_attention_status?.state==='running'?'The first matched 4-GPU / 8L comparison is running.':R.attention_status?.state==='waiting_for_fastvideo'?'Remaining configurations are queued after the serving-framework runs.':'Measurements run sequentially on allocated GPUs.'}`;
+ $('attention-status').textContent=`${R.attention_completed_configurations||0} / ${R.attention_plan?.configurations||26} native attention configurations measured. ${R.priority_attention_status?.state==='running'?'The first matched 4-GPU / 8L comparison is running.':R.attention_status?.state==='waiting_for_fastvideo'?'Remaining configurations are queued after the serving-framework runs.':'Measurements run sequentially on allocated GPUs.'}`;
  $('attention-table').tBodies[0].innerHTML=rows.map(x=>`<tr><th>${x.label}${x.r?.config_url?`<br><a href="${esc(x.r.config_url)}" download>Config YAML ↓</a>`:''}</th>${['e2e_ms','dit_ms','video_vae_ms'].map(k=>`<td>${x.m?s(x.m[k]?.mean):x.r?.state==='failed'?'Incomplete':x.r?.current===key?'Measuring':'Pending'}</td>`).join('')}<td>${cake&&x.m?(x.m.e2e_ms.mean/cake).toFixed(2)+'×':'—'}</td><td>${cakeDit&&x.m?.dit_ms?(x.m.dit_ms.mean/cakeDit).toFixed(2)+'×':'—'}</td></tr>`).join('');
- $('attention-videos').querySelectorAll('video').forEach(v=>{v.pause();v.removeAttribute('src');v.load()});
- $('attention-videos').innerHTML=rows.map(x=>videoCard({title:x.label,meta:`${g} GPU · ${res} · ${d.toUpperCase()} · seed 0`,url:x.r?.media?.[key],pro:true})).join('');
+ window.renderAttentionQuality(rows,g,d,res);
 }
 const fvRun=(g,d)=>(R.fastvideo_runs||[]).find(x=>x.id===`fastvideo-pro5000-${g}gpu-${d}`);
 function renderFrameworks(){
@@ -126,6 +125,6 @@ $('close-dialog').addEventListener('click',()=>$('output-dialog').close());$('ou
 try{if(localStorage.getItem('omni-theme')==='dark')document.documentElement.dataset.theme='dark'}catch{}
 $('theme').addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('omni-theme',theme)}catch{}});
 $('coverage').textContent=`${R.completed_configurations} / 40 configurations measured${R.oom_configurations?' · '+R.oom_configurations+' OOM':''}`;$('run-status').textContent=statusName(R.status.state);$('updated').textContent='Updated '+new Date(R.updated_at*1000).toLocaleString('en-GB',{timeZone:'Asia/Shanghai',hour12:false})+' UTC+8';
-for(const id of ['attention-gpu','attention-resolution','attention-decoder'])$(id).addEventListener('change',renderAttention);
+for(const id of ['attention-gpu','attention-resolution','attention-decoder','quality-seed'])$(id).addEventListener('change',renderAttention);
 renderGallery();renderChart();renderTables();renderCheckpoints();renderFrameworks();renderAttention();
 window.reportUI={state,renderGallery,renderChart,openOutputs,get player(){return player}};

@@ -1,0 +1,90 @@
+--- upstream/qk_int_sv_f8_cuda_sm89.cuh
++++ h3/qk_int_sv_f8_cuda_sm89.cuh
+@@ -41,7 +41,7 @@
+ 
+ template<uint32_t CTA_Q, uint32_t CTA_K, uint32_t WARP_Q, uint32_t WARP_K, uint32_t head_dim, DataType DTypeQK, QuantGranularity Q_GRAN, QuantGranularity K_GRAN,
+         typename DTypeSVAccum = float, bool use_inst_buffer = false, bool use_pv_fp16_accu=false, PVThresholdMode pv_threashold_mode, typename DTypeOut = half, ComputeUnit DenominatorAccumUnit, MaskMode mask_mode = MaskMode::kNone, bool fuse_v_scale = false, bool return_pv_count = false>
+-__global__ void qk_int_sv_f8_block_sparse_attn_kernel(int8_t *__restrict__ Q, int8_t *__restrict__ K, int8_t *__restrict__ V, DTypeOut *__restrict__ O, int32_t *__restrict__ PV_Count, int32_t *__restrict__ Lut, int32_t *__restrict__ Valid_Block_Num, float *__restrict__ PV_Threshold,
++__global__ void qk_int_sv_f8_block_sparse_attn_kernel(int8_t *__restrict__ Q, int8_t *__restrict__ K, int8_t *__restrict__ V, DTypeOut *__restrict__ O, int32_t *__restrict__ PV_Count, int32_t *__restrict__ Lut, int32_t *__restrict__ Valid_Block_Num, float *__restrict__ PV_Threshold, int32_t *__restrict__ KV_Valid,
+                       float *__restrict__ Q_scale, float *__restrict__ K_scale, float *__restrict__ V_scale,
+                       const uint32_t qo_len, const uint32_t kv_len, const uint32_t num_kv_groups,
+                       const uint32_t stride_bz_q, const uint32_t stride_seq_q, const uint32_t stride_h_q, 
+@@ -298,6 +298,8 @@
+         }
+       }
+     }
++
++    apply_out_of_bound_mask<num_tiles_q, num_tiles_k>(K_idx_lane_base, RS_f32, (K_idx_lane_base / CTA_K) * CTA_K + KV_Valid[K_idx_lane_base / CTA_K]);
+ 
+     if constexpr (pv_threashold_mode != PVThresholdMode::kNone) // use pv_threshold to skip unnecessary computation
+     {
+@@ -509,6 +511,8 @@
+     {
+       apply_causal_mask<num_tiles_q, num_tiles_k>(Q_idx_lane_base, K_idx_lane_base, RS_f32);
+     }
++    apply_out_of_bound_mask<num_tiles_q, num_tiles_k>(K_idx_lane_base, RS_f32, (K_idx_lane_base / CTA_K) * CTA_K + KV_Valid[K_idx_lane_base / CTA_K]);
++
+     K_idx_lane_base += KV_block_increm * CTA_K;
+ 
+     update_mdo<num_tiles_q, num_tiles_k, num_tiles_v, false, true, false>(RS_f32, RO, m, d, original_sm_scale);
+@@ -603,6 +607,9 @@
+       apply_causal_mask<num_tiles_q, num_tiles_k>(Q_idx_lane_base, K_idx_lane_base, RS_f32);
+     }
+     apply_out_of_bound_mask<num_tiles_q, num_tiles_k>(K_idx_lane_base, RS_f32, kv_len);
++    apply_out_of_bound_mask<num_tiles_q, num_tiles_k>(K_idx_lane_base, RS_f32, (K_idx_lane_base / CTA_K) * CTA_K + KV_Valid[K_idx_lane_base / CTA_K]);
++
++
+ 
+     update_mdo<num_tiles_q, num_tiles_k, num_tiles_v, false, true, false>(RS_f32, RO, m, d, original_sm_scale);
+ 
+@@ -757,7 +764,7 @@
+ template<uint32_t CTA_Q, uint32_t CTA_K, uint32_t WARP_Q, uint32_t WARP_K, uint32_t head_dim, uint32_t qk_quant_gran, typename DTypePVAccum, bool use_inst_buffer, bool use_pv_fp16_accu, uint32_t pv_threashold_mode, typename DTypeOut, bool is_causal, bool fuse_v_scale, bool return_pv_count>
+ void SpargeAttentionSM89Dispatched(
+   int8_t* Q, int8_t* K, __nv_fp8_e4m3* V, DTypeOut* O,
+-  int32_t* PV_Count, int32_t *__restrict__ Lut, int32_t *__restrict__ Valid_Block_Num, float *__restrict__ PV_Threshold,
++  int32_t* PV_Count, int32_t *__restrict__ Lut, int32_t *__restrict__ Valid_Block_Num, float *__restrict__ PV_Threshold, int32_t *__restrict__ KV_Valid,
+   float* Q_scale, float* K_scale, float* V_scale,
+   const uint32_t batch_size, const uint32_t qo_len, const uint32_t kv_len, const uint32_t num_qo_heads, const uint32_t num_kv_heads,
+   const uint32_t stride_bz_q, const uint32_t stride_seq_q, const uint32_t stride_h_q,
+@@ -777,7 +784,7 @@
+   dim3 grid(div_ceil(qo_len, CTA_Q), num_qo_heads, batch_size);
+   dim3 block(32, (CTA_Q / WARP_Q) * (CTA_K / WARP_K));
+ 
+-  kernel_func<<<grid, block, smem_max>>>(
++  kernel_func<<<grid, block, smem_max, at::cuda::getCurrentCUDAStream()>>>(
+     Q, 
+     K,
+     reinterpret_cast<int8_t*>(V), // legacy
+@@ -786,6 +793,7 @@
+     Lut,
+     Valid_Block_Num,
+     PV_Threshold,
++    KV_Valid,
+     Q_scale,
+     K_scale,
+     V_scale,
+--- upstream/fused.cu
++++ h3/fused.cu
+@@ -1,3 +1,4 @@
++#include <ATen/cuda/CUDAContext.h>
+ #include <ATen/cuda/CUDAContext.h>
+ #include <torch/extension.h>
+ 
+@@ -255,7 +256,7 @@
+ 
+       dim3 block(CTA_SIZE * (HEAD_DIM / 8));
+ 
+-      TransposePadPermuteKernel<HEAD_DIM, CTA_SIZE, true, c_type><<<grid, block>>>(
++      TransposePadPermuteKernel<HEAD_DIM, CTA_SIZE, true, c_type><<<grid, block, 0, at::cuda::getCurrentCUDAStream()>>>(
+         reinterpret_cast<c_type*>(input.data_ptr()),
+         reinterpret_cast<c_type*>(output.data_ptr()),
+         num_tokens,
+@@ -328,7 +329,7 @@
+   auto input_dtype = input.scalar_type();
+ 
+   DISPATCH_PYTORCH_DTYPE_TO_CTYPE_FP16(input_dtype, c_type, {
+-    MeanScaleKernel<128, false, c_type><<<grid, block>>>(
++    MeanScaleKernel<128, false, c_type><<<grid, block, 0, at::cuda::getCurrentCUDAStream()>>>(
+       reinterpret_cast<c_type*>(input.data_ptr()),
+       reinterpret_cast<int8_t*>(output.data_ptr()),
+       nullptr,

@@ -1,0 +1,44 @@
+{
+  "state": "passed",
+  "time": 1792654206.4337533,
+  "device": "NVIDIA Graphics Device",
+  "cases": [
+    {
+      "case": "single_k",
+      "cosine": 0.9994187355041504,
+      "relative_rmse": 0.03409566357731819,
+      "passed": true
+    },
+    {
+      "case": "two_k",
+      "cosine": 0.9993751049041748,
+      "relative_rmse": 0.03535231947898865,
+      "passed": true
+    },
+    {
+      "case": "many_k",
+      "cosine": 0.9992746114730835,
+      "relative_rmse": 0.038083791732788086,
+      "passed": true
+    },
+    {
+      "case": "sparse_ragged",
+      "cosine": 0.9993357062339783,
+      "relative_rmse": 0.03644679859280586,
+      "passed": true
+    },
+    {
+      "case": "poisoned_internal_padding",
+      "nondefault_stream": false,
+      "max_error_from_one": 0.03125,
+      "passed": true
+    },
+    {
+      "case": "poisoned_internal_padding",
+      "nondefault_stream": true,
+      "max_error_from_one": 0.03125,
+      "passed": true
+    }
+  ],
+  "scope": "Kernel correctness on synthetic masks; not a perceptual video quality score."
+}
