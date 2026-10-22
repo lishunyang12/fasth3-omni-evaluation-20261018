@@ -13,6 +13,17 @@ const pending=(g,d,w=state.workload,res=state.resolution)=>{const r=run(g,d),key
 const trialTitle=x=>x?`Three runs: ${x.e2e_ms.values.map(v=>s(v)+' s').join(' / ')}. Mean ${s(x.e2e_ms.mean)} s; range ${s(x.e2e_ms.min)}–${s(x.e2e_ms.max)} s.`:'';
 let player=null;
 function videoCard({title,meta,url,poster,pro=false,key}){return `<div class="video-card ${pro?'pro-card':''}" data-key="${esc(key||title)}"><h4>${esc(title)}</h4><p class="video-meta">${esc(meta)}</p>${url?`<div class="gallery-viewport"><video controls muted playsinline preload="${pro?'metadata':'none'}" ${poster?`poster="${esc(poster)}"`:''} src="${esc(url)}" aria-label="${esc(title)}"></video></div><a class="download" href="${esc(url)}" download>Download original MP4</a>`:'<div class="empty-video"><strong>Awaiting measured output</strong><span>Published after this request completes.</span></div><span class="download">Not available yet</span>'}</div>`;}
+function checkpointCard(c,seed=0){
+ const r=(R.matched_checkpoint_runs||[]).find(x=>x.case===c),key=state.gallery+'|480p',mediaKey=key+(seed?'|seed'+seed:'');
+ const sample=r?.quality_samples?.find(x=>x.workload===state.gallery&&x.seed===seed),m=r?.speed_summaries?.find(x=>x.key===key);
+ const timing=m?s(m.e2e_ms.mean)+' s · three-seed mean':sample?s(sample.e2e_ms)+' s · single sample; timing study pending':r?.current===key?'Generating':r?.state==='failed'?'Generation failed':'Queued';
+ const title='4× PRO 5000 · '+(c==='bf16'?'Original BF16':'QAD NVFP4');
+ const card=videoCard({title,meta:`Original BF16 decoder · vLLM-Omni + CAKE · seed ${seed} · ${timing}`,url:r?.media?.[mediaKey],pro:true,key:'matched-'+c});
+ const model=c==='bf16'?'FastVideo-FastH3-Omni-8-Step-V1':'FastH3-Omni-NVFP4-QAD';
+ const checkpoint=`<a class="download" href="https://huggingface.co/FastVideo/${model}">${esc(model)} ↗</a>`;
+ const revision=r?.checkpoint_revision?`<span class="download">Revision <code>${esc(r.checkpoint_revision.slice(0,12))}</code></span>`:'';
+ return card.slice(0,-6)+checkpoint+revision+(r?.config_url?'<a class="download" href="'+esc(r.config_url)+'" download>Server config YAML</a>':'')+'</div>';
+}
 function attachPlayer(){
  player?.dispose();
  const videos=[...document.querySelectorAll('#source-videos video,#pro-videos video,#matched-checkpoint-videos video,#matched-decoder-videos video')];
@@ -58,18 +69,14 @@ function renderGallery(){
  const checkpointView=state.galleryComparison==='checkpoints';
  $('matched-checkpoint-panel').hidden=!checkpointView;
  $('gallery-pro-heading').hidden=checkpointView;
+ $('gallery-bf16-note').hidden=checkpointView;
  $('gallery-gpu').closest('label').hidden=checkpointView;
  $('gallery-seed-label').hidden=!checkpointView;
  if(checkpointView){
   $('source-videos').innerHTML='';$('pro-videos').innerHTML='';
   const rows=(R.matched_checkpoint_runs||[]),mediaKey=key+(state.gallerySeed?'|seed'+state.gallerySeed:'');
   const summary=c=>rows.find(x=>x.case===c)?.speed_summaries?.find(x=>x.key===key);
-  $('matched-checkpoint-videos').innerHTML=['bf16','qad'].map(c=>{
-   const r=rows.find(x=>x.case===c),sample=r?.quality_samples?.find(x=>x.workload===state.gallery&&x.seed===state.gallerySeed),m=summary(c),title=c==='bf16'?'Original BF16':'QAD NVFP4';
-   const meta=m?s(m.e2e_ms.mean)+' s · three-seed mean':sample?s(sample.e2e_ms)+' s · single sample; timing study pending':r?.current===key?'Generating':r?.state==='failed'?'Generation failed':'Queued';
-   const card=videoCard({title,meta:`4 GPUs · original decoder · CAKE · seed ${state.gallerySeed} · ${meta}`,url:r?.media?.[mediaKey],pro:true,key:'matched-'+c});
-   return card.slice(0,-6)+`${r?.config_url?'<a class="download" href="'+esc(r.config_url)+'" download>Server config YAML</a>':''}</div>`;
-  }).join('');
+  $('matched-checkpoint-videos').innerHTML=['bf16','qad'].map(c=>checkpointCard(c,state.gallerySeed)).join('');
   const ready=rows.filter(r=>r.media?.[mediaKey]).length;
   $('matched-checkpoint-status').textContent=`${ready} / 2 outputs ready for ${names[state.gallery]}, seed ${state.gallerySeed}. ${R.matched_checkpoint_outputs||0} / 30 checkpoint outputs across five reference mixes and three seeds. ${R.matched_checkpoint_status?.state==='waiting_for_resources'?'Waiting for four available GPUs.':''}`;
   const stages=[['e2e_ms','End to end'],['encode_prompt_ms','Prompt encoding'],['reference_encode_ms','Reference encoding'],['dit_ms','DiT denoising'],['video_vae_ms','Video decoding']];
@@ -87,6 +94,7 @@ function renderGallery(){
  const originals=[{title:'DGX Spark · 36L decoder',prefix:'spark1x-36l',device:'spark1',decoder:'36l'},{title:'DGX Spark · 8L decoder',prefix:'spark1x-8l',device:'spark1',decoder:'8l'},{title:'Apple M5 Max · 36L decoder',prefix:'m5max-36l',device:'m5max',decoder:'36l'}];
  $('source-videos').innerHTML=originals.map(x=>videoCard({title:x.title,meta:shortTime(R.official.latency[`${key}|${x.decoder}`]?.[x.device])+` end to end · ${x.device==='m5max'?'single run':'three-seed mean'} · article`,url:`${source}media/outputs/${x.prefix}-${state.gallery}-480p.mp4`,poster:`${source}media/posters/${x.prefix}-${state.gallery}-480p.jpg`,key:x.prefix})).join('');
  $('pro-videos').innerHTML=['36l','8l'].map(d=>{const m=result(state.galleryGpu,d,state.gallery,'480p');return videoCard({title:`${state.galleryGpu}× PRO 5000 · ${d==='36l'?'36L':'8L'} decoder`,meta:`${m?s(m.e2e_ms.mean)+' s · three-seed mean':pending(state.galleryGpu,d,state.gallery,'480p')} · NVFP4 QAD · vLLM-Omni + CAKE`,url:run(state.galleryGpu,d)?.media?.[key],pro:true,key:'pro-'+d})}).join('');
+ $('pro-videos').insertAdjacentHTML('beforeend',checkpointCard('bf16',0));
  }
  $('gallery-title').textContent=names[state.gallery]+' · 5 s request';$('gallery-status').textContent=names[state.gallery]+(checkpointView&&!document.querySelector('#matched-checkpoint-videos video,#matched-decoder-videos video')?'. Waiting for the matched BF16/QAD outputs.':'. Ready to compare available outputs.');
  $('prompt-source').href=w.source_url;$('prompt-hash').textContent=w.prompt_sha256;
