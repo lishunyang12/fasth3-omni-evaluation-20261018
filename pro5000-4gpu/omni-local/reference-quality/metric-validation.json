@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "scope": "Optical-flow direction and warp residual sanity test; not a calibration of perceptual quality.",
+  "tolerances": {
+    "static_motion_pixels": 0.001,
+    "static_residual": 0.0001,
+    "translation_error_pixels": 0.05
+  },
+  "identical_frames": {
+    "temporal_warp_error": 1.1072172128478996e-05,
+    "motion_pixels": 0.00036506791366264224,
+    "flow_warp_per_pair": [
+      1.1072172128478996e-05,
+      1.1072172128478996e-05
+    ],
+    "flow_magnitude_per_pair": [
+      0.00036506791366264224,
+      0.00036506791366264224
+    ]
+  },
+  "known_2px_translation": {
+    "temporal_warp_error": 5.2434535973588936e-05,
+    "motion_pixels": 2.0008565187454224,
+    "flow_warp_per_pair": [
+      4.958731369697489e-05,
+      5.5281758250202984e-05
+    ],
+    "flow_magnitude_per_pair": [
+      2.0009865760803223,
+      2.0007264614105225
+    ]
+  },
+  "unwarped_difference": 0.07454216943187532
+}

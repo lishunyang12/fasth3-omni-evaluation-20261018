@@ -1,0 +1,65 @@
+{
+  "scope": "One three-image prompt, output 832×480, 124 frames at 24 FPS, seeds 0/1/2; 9 clips. This is a pilot, not a broad quality-equivalence study.",
+  "control": "native",
+  "candidate": "match",
+  "diagnostic": "upscaled",
+  "fixed": "1× PRO 5000, QAD checkpoint, CAKE attention, 36L decoder, DiT+encoder layerwise offload, same source files/prompt/seeds.",
+  "sampled_frame_indices": [
+    0,
+    8,
+    16,
+    24,
+    32,
+    40,
+    48,
+    56,
+    64,
+    72,
+    80,
+    88,
+    96,
+    104,
+    112,
+    120,
+    123
+  ],
+  "reference_crops_normalized": [
+    [
+      0.44,
+      0.08,
+      0.7,
+      0.51
+    ],
+    [
+      0.02,
+      0.16,
+      0.35,
+      0.48
+    ],
+    [
+      0,
+      0,
+      1,
+      1
+    ]
+  ],
+  "clip_descriptions": [
+    "A young man with dark curly hair, a white T-shirt and silver wraparound sunglasses joins a family dinner in a warmly lit traditional Japanese room.",
+    "A young man wearing silver wraparound sunglasses with dark lenses."
+  ],
+  "reference_matching": "Person and glasses: mean over sampled frames of the maximum cosine across a full frame plus nine fixed half-width/half-height windows. Scene: full-reference to full-frame cosine. Identical evaluator preprocessing for every policy; original references are always the evaluator inputs.",
+  "temporal": "DINO adjacency is measured on the sampled frames. Optical flow and warp residual use all 123 adjacent frame pairs, downsampled to 208×120. Camera/object movement and occlusions affect these descriptive measures.",
+  "uncertainty": "Paired differences aggregate each entire clip first. Two-sided 95% Student-t intervals use three seed-pair differences (df=2); frames are not independent samples. Intervals describe seed variation for this one prompt only.",
+  "adoption_rule": "Prefer match only for a validated workload when reference detail, prompt/action completion, temporal quality and audio show no material regression. These uncalibrated proxies alone cannot pass that gate. No universal numeric margin or official VBench score is asserted.",
+  "limitations": [
+    "DINO/CLIP are appearance/semantic proxies, not calibrated face-identity or small-detail recognizers.",
+    "Static frames do not verify action ordering, speech or lip synchronization.",
+    "Stability can reward static videos; always inspect motion and the original MP4.",
+    "Three seeds for one prompt cannot establish general non-inferiority."
+  ],
+  "sources": [
+    "https://github.com/Vchitect/VBench/tree/master/vbench2_beta_i2v",
+    "https://github.com/facebookresearch/dinov2",
+    "https://github.com/openai/CLIP"
+  ]
+}
