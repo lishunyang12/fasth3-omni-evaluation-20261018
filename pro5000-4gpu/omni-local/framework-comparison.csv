@@ -3,3 +3,4 @@ vLLM-Omni,pro5000-4gpu-36l,image,480p,36l,3,24.336906333333335,19.74744689138606
 vLLM-Omni,pro5000-4gpu-36l,image,768p,36l,3,42.22483833333333,36.12217675444359,2.257186363606403,False,Multipart uploads of original reference bytes
 vLLM-Omni,pro5000-4gpu-8l,image,480p,8l,3,23.658229666666667,19.752656219216686,0.26401432572553557,False,Multipart uploads of original reference bytes
 vLLM-Omni,pro5000-4gpu-8l,image,768p,8l,3,40.576099,36.12073371636992,0.6102611292153597,False,Multipart uploads of original reference bytes
+vLLM-Omni,pro5000-1gpu-36l,image,480p,36l,3,59.609097999999996,50.49851310967157,3.679717045122137,False,Multipart uploads of original reference bytes
