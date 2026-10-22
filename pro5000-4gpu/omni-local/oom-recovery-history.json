@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792666617.9368029,
+  "updated_at": 1792666704.7305658,
   "records": [
     {
       "configuration": "pro5000-1gpu-36l-module-offload",
@@ -923,7 +923,7 @@
         },
         "peak_total_gib": 23.8701171875,
         "samples": 187,
-        "sampling_interval_s": 0.6999849081039429,
+        "sampling_interval_s": 0.6957378387451172,
         "max_sampling_gap_s": 0.785752534866333,
         "started_at": 1792666361.6442842,
         "ended_at": 1792666492.8237357,
@@ -932,15 +932,16 @@
       },
       "memory_scope": "partial_measured_requests",
       "measured_seeds": [
-        0
+        0,
+        1
       ],
       "active_request": {
         "phase": "measured",
-        "seed": 1,
+        "seed": 2,
         "workload": "video",
         "resolution": "480p",
-        "started_at": 1792666492.8999922,
-        "output": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/offload-runs/pro5000-1gpu-8l-layerwise-offload/480p/video/measured-seed1.mp4",
+        "started_at": 1792666623.6761212,
+        "output": "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/offload-runs/pro5000-1gpu-8l-layerwise-offload/480p/video/measured-seed2.mp4",
         "state": "running"
       },
       "summary": null,
@@ -958,6 +959,12 @@
           "seed": 0,
           "module_sha256": "c823caafed24be36d6160ce25aaaf1763f96419739aa27f096663937448839a9",
           "layerwise_sha256": "c823caafed24be36d6160ce25aaaf1763f96419739aa27f096663937448839a9",
+          "mp4_bytes_identical": true
+        },
+        {
+          "seed": 1,
+          "module_sha256": "ca902bd92a4e9c2d1e8b93accab852ff0b60ee6162d2b5060efb6055ebcc79d9",
+          "layerwise_sha256": "ca902bd92a4e9c2d1e8b93accab852ff0b60ee6162d2b5060efb6055ebcc79d9",
           "mp4_bytes_identical": true
         }
       ]
