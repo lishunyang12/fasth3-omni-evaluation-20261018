@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792656487.9503052,
+  "updated_at": 1792656975.5702908,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -1950,7 +1950,7 @@
     },
     {
       "id": "pro5000-1gpu-36l",
-      "state": "measuring",
+      "state": "starting",
       "gpus": [
         0
       ],
@@ -1960,7 +1960,7 @@
       "attention": "CAKE Sage: INT8 Q/K, FP8 V",
       "reference_canvas": "2048 short edge, nearest multiple of 32, Lanczos",
       "offload": false,
-      "started_at": 1792655972.0337017,
+      "started_at": 1792656935.4442434,
       "summaries": [
         {
           "key": "image|480p",
@@ -2249,6 +2249,78 @@
               2748.1259740889072
             ]
           }
+        },
+        {
+          "key": "image-voice|768p",
+          "workload": "image-voice",
+          "resolution": "768p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 113250.27233333334,
+            "median": 113255.016,
+            "min": 112907.75600000001,
+            "max": 113588.045,
+            "values": [
+              112907.75600000001,
+              113588.045,
+              113255.016
+            ]
+          },
+          "dit_ms": {
+            "mean": 98740.76916867246,
+            "median": 98727.94438526034,
+            "min": 98721.07604984194,
+            "max": 98773.2870709151,
+            "values": [
+              98773.2870709151,
+              98721.07604984194,
+              98727.94438526034
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 8602.725110327205,
+            "median": 8600.022879894823,
+            "min": 8599.976647179574,
+            "max": 8608.175803907216,
+            "values": [
+              8599.976647179574,
+              8608.175803907216,
+              8600.022879894823
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 113189.66666666667,
+            "median": 113195.0,
+            "min": 112847.0,
+            "max": 113527.0,
+            "values": [
+              112847.0,
+              113527.0,
+              113195.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 2225.1185357260206,
+            "median": 2182.5862652622163,
+            "min": 2176.9168828614056,
+            "max": 2315.8524590544403,
+            "values": [
+              2176.9168828614056,
+              2315.8524590544403,
+              2182.5862652622163
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 3115.6538810270526,
+            "median": 3198.0299660936,
+            "min": 2792.855302337557,
+            "max": 3356.0763746500015,
+            "values": [
+              2792.855302337557,
+              3356.0763746500015,
+              3198.0299660936
+            ]
+          }
         }
       ],
       "failures": [
@@ -2272,6 +2344,20 @@
           "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
           "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1014.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 208.62 MiB is free. Including non-PyTorch memory, this process has 70.91 GiB memory in use. Of the allocated memory 67.82 GiB is allocated by PyTorch, and 2.69 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
           "time": 1792655396.8972323
+        },
+        {
+          "key": "images3|768p",
+          "kind": "cuda_oom",
+          "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+          "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1.10 GiB. GPU 0 has a total capacity of 71.12 GiB of which 4.62 MiB is free. Including non-PyTorch memory, this process has 71.11 GiB memory in use. Of the allocated memory 67.26 GiB is allocated by PyTorch, and 3.45 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+          "time": 1792656573.6605508
+        },
+        {
+          "key": "clip|768p",
+          "kind": "request_error",
+          "reason": "Command '['curl', '--fail-with-body', '-sS', '--max-time', '2400', 'http://127.0.0.1:19453/v1/videos/sync', '--form-string', \"prompt=subject_definitions:\\n<Subject 1> is the young man with short wavy blonde hair, wearing a bright pink suit jacket, matching pink trousers, an unbuttoned white shirt an",
+          "detail": "Command '['curl', '--fail-with-body', '-sS', '--max-time', '2400', 'http://127.0.0.1:19453/v1/videos/sync', '--form-string', \"prompt=subject_definitions:\\n<Subject 1> is the young man with short wavy blonde hair, wearing a bright pink suit jacket, matching pink trousers, an unbuttoned white shirt and silver rings, holding a small black lamb in his arms in <Video 1>.\\n<Subject 2> is the environment in <Video 1>: a grassy hill at golden hour with white lambs grazing.\\n<Audio 1> is the synchronized audio track of <Video 1>, a soft background music.\\n\\nsummary:\\n[reference generation + audio reference] <Subject 1> spends a quiet moment with the black lamb in <Subject 2>, over music in the manner of <Audio 1>.\\n\\nretention_analysis:\\n<Subject 1> (appears in [Shot 1]): fully_preserved - the man's blonde hair, pink suit, white shirt, rings and the black lamb are retained.\\n<Subject 2> (appears in [Shot 1]): fully_preserved - the grassy hill, golden light and grazing lambs are retained.\\n<Audio 1>: reference - the soft background music is referenced throughout.\\n\\ndetailed_description:\\nThe target video is in a realistic photographic style with golden-hour light.\\n[Shot 1] A steady medium shot. <Subject 1> cradles the black lamb in the warm, low sunlight of <Subject 2>. The lamb lifts its head and nuzzles his chin; he laughs softly, tilts his head toward the camera and grins while the white lambs keep grazing on the hill.\\n\\noverall_soundscape:\\nA light breeze over the grass and distant bleating, beneath gentle music in the manner of <Audio 1>.\\n\\nnon_diegetic_music:\\nN/A\", '--form-string', 'size=1344x768', '--form-string', 'seconds=5', '--form-string', 'seed=2', '-F', 'input_references=@/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/inputs/clip_official_ref2va_0_2s.mp4', '-D', '/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/runs/pro5000-1gpu-36l/768p/",
+          "time": 1792656930.9619958
         }
       ],
       "seeds": [
@@ -2282,20 +2368,19 @@
       "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
       "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
       "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
-      "ready_at": 1792656034.0563023,
-      "current": "image-voice|768p",
       "media": {
         "image|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-480p.mp4",
         "image-voice|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-480p.mp4",
         "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-clip-480p.mp4",
         "image|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-768p.mp4",
-        "image-voice|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-768p.mp4"
+        "image-voice|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-768p.mp4",
+        "clip|768p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-clip-768p.mp4"
       },
       "config_url": "configs/pro5000-1gpu-36l.yaml",
       "memory": {
-        "max_per_gpu_gib": 71.0869140625,
+        "max_per_gpu_gib": 71.123046875,
         "per_gpu_mib": {
-          "0": 72793
+          "0": 72830
         }
       },
       "evidence": [
@@ -2303,7 +2388,7 @@
           "rank": 0,
           "shape": [
             1,
-            62080,
+            64128,
             56,
             128
           ],
@@ -5105,7 +5190,7 @@
   ],
   "attention_completed_configurations": 8,
   "fastvideo_completed_configurations": 2,
-  "completed_configurations": 27,
+  "completed_configurations": 28,
   "failed_configurations": [
     {
       "run": "pro5000-1gpu-36l",
@@ -5122,10 +5207,26 @@
       "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
       "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1014.00 MiB. GPU 0 has a total capacity of 71.12 GiB of which 208.62 MiB is free. Including non-PyTorch memory, this process has 70.91 GiB memory in use. Of the allocated memory 67.82 GiB is allocated by PyTorch, and 2.69 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
       "time": 1792655396.8972323
+    },
+    {
+      "run": "pro5000-1gpu-36l",
+      "key": "images3|768p",
+      "kind": "cuda_oom",
+      "reason": "CUDA OOM; GPU-resident deployment exceeded available memory.",
+      "detail": "Video generation failed: CUDA out of memory. Tried to allocate 1.10 GiB. GPU 0 has a total capacity of 71.12 GiB of which 4.62 MiB is free. Including non-PyTorch memory, this process has 71.11 GiB memory in use. Of the allocated memory 67.26 GiB is allocated by PyTorch, and 3.45 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org<path>#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+      "time": 1792656573.6605508
+    },
+    {
+      "run": "pro5000-1gpu-36l",
+      "key": "clip|768p",
+      "kind": "request_error",
+      "reason": "Command '['curl', '--fail-with-body', '-sS', '--max-time', '2400', 'http://127.0.0.1:19453/v1/videos/sync', '--form-string', \"prompt=subject_definitions:\\n<Subject 1> is the young man with short wavy blonde hair, wearing a bright pink suit jacket, matching pink trousers, an unbuttoned white shirt an",
+      "detail": "Command '['curl', '--fail-with-body', '-sS', '--max-time', '2400', 'http://127.0.0.1:19453/v1/videos/sync', '--form-string', \"prompt=subject_definitions:\\n<Subject 1> is the young man with short wavy blonde hair, wearing a bright pink suit jacket, matching pink trousers, an unbuttoned white shirt and silver rings, holding a small black lamb in his arms in <Video 1>.\\n<Subject 2> is the environment in <Video 1>: a grassy hill at golden hour with white lambs grazing.\\n<Audio 1> is the synchronized audio track of <Video 1>, a soft background music.\\n\\nsummary:\\n[reference generation + audio reference] <Subject 1> spends a quiet moment with the black lamb in <Subject 2>, over music in the manner of <Audio 1>.\\n\\nretention_analysis:\\n<Subject 1> (appears in [Shot 1]): fully_preserved - the man's blonde hair, pink suit, white shirt, rings and the black lamb are retained.\\n<Subject 2> (appears in [Shot 1]): fully_preserved - the grassy hill, golden light and grazing lambs are retained.\\n<Audio 1>: reference - the soft background music is referenced throughout.\\n\\ndetailed_description:\\nThe target video is in a realistic photographic style with golden-hour light.\\n[Shot 1] A steady medium shot. <Subject 1> cradles the black lamb in the warm, low sunlight of <Subject 2>. The lamb lifts its head and nuzzles his chin; he laughs softly, tilts his head toward the camera and grins while the white lambs keep grazing on the hill.\\n\\noverall_soundscape:\\nA light breeze over the grass and distant bleating, beneath gentle music in the manner of <Audio 1>.\\n\\nnon_diegetic_music:\\nN/A\", '--form-string', 'size=1344x768', '--form-string', 'seconds=5', '--form-string', 'seed=2', '-F', 'input_references=@/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/inputs/clip_official_ref2va_0_2s.mp4', '-D', '/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/omni-local-20261022/runs/pro5000-1gpu-36l/768p/",
+      "time": 1792656930.9619958
     }
   ],
-  "oom_configurations": 2,
-  "attempted_configurations": 29,
+  "oom_configurations": 3,
+  "attempted_configurations": 32,
   "published_media": [
     {
       "file": "baseline-B-animals.mp4",
@@ -5396,6 +5497,12 @@
       "bytes": 3199740,
       "sha256": "5b4f237d59ce0e55dbe84e22e9488741a68df713d646f214fe945db7ea5384d2",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-clip-480p.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-36l-clip-768p.mp4",
+      "bytes": 6272919,
+      "sha256": "c2fd46501e0e93c1024a6c4cfd95ac4a82b575ded99898a09b0682d1c299ba4f",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-clip-768p.mp4"
     },
     {
       "file": "pro5000-1gpu-36l-image-480p.mp4",
