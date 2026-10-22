@@ -5,17 +5,17 @@ const source='https://haoailab.com/blogs/fasth3-omni-local/';
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const s=ms=>Number.isFinite(ms)?(ms/1000).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'—';
 const shortTime=secs=>Number.isFinite(secs)?(secs>=180?(secs/60).toFixed(1)+' min':secs.toFixed(1)+' s'):'Not reported';
-const state={gallery:'image',galleryGpu:4,workload:'image',resolution:'480p',decoder:'36l',stageGpu:4};
+const state={gallery:'image',galleryComparison:'machines',galleryGpu:4,workload:'image',resolution:'480p',decoder:'36l',stageGpu:4};
 const run=(g,d)=>R.runs.find(x=>x.id===`pro5000-${g}gpu-${d}`);
 const result=(g,d,w=state.workload,res=state.resolution)=>run(g,d)?.summaries?.find(x=>x.key===`${w}|${res}`);
-const statusName=x=>({complete:'Complete',failed:'Incomplete',needs_attention:'Some runs need attention',starting:'Loading model',measuring:'Measuring',pending:'Pending',benchmarking:'Measuring',generating:'Generating comparison videos',waiting_for_checkpoint_study:'BF16 / QAD study in progress',running_4gpu:'4-GPU matrix in progress',running_1gpu:'1-GPU matrix in progress'}[x]||'In progress');
+const statusName=x=>({complete:'Complete',failed:'Incomplete',needs_attention:'Some runs need attention',starting:'Loading model',measuring:'Measuring',pending:'Pending',benchmarking:'Measuring',generating:'Generating comparison videos',waiting_for_resources:'Waiting for available GPUs',running:'Measurements in progress',waiting_for_checkpoint_study:'BF16 / QAD study in progress',running_4gpu:'4-GPU matrix in progress',running_1gpu:'1-GPU matrix in progress'}[x]||'In progress');
 const pending=(g,d,w=state.workload,res=state.resolution)=>{const r=run(g,d),key=`${w}|${res}`,failure=r?.failures?.find(x=>x.key===key);return failure?.kind==='cuda_oom'?'OOM':failure?'Failed':r?.state==='failed'?'Not yet tested':r?.current===key?'Measuring':'Pending'};
 const trialTitle=x=>x?`Three runs: ${x.e2e_ms.values.map(v=>s(v)+' s').join(' / ')}. Mean ${s(x.e2e_ms.mean)} s; range ${s(x.e2e_ms.min)}–${s(x.e2e_ms.max)} s.`:'';
 let player=null;
 function videoCard({title,meta,url,poster,pro=false,key}){return `<div class="video-card ${pro?'pro-card':''}" data-key="${esc(key||title)}"><h4>${esc(title)}</h4><p class="video-meta">${esc(meta)}</p>${url?`<video controls muted playsinline preload="${pro?'metadata':'none'}" ${poster?`poster="${esc(poster)}"`:''} src="${esc(url)}" aria-label="${esc(title)}"></video><a class="download" href="${esc(url)}" download>Download original MP4</a>`:'<div class="empty-video"><strong>Awaiting measured output</strong><span>Published after this request completes.</span></div><span class="download">Not available yet</span>'}</div>`;}
 function attachPlayer(){
  player?.dispose();
- const videos=[...document.querySelectorAll('#source-videos video,#pro-videos video')];
+ const videos=[...document.querySelectorAll('#source-videos video,#pro-videos video,#matched-checkpoint-videos video')];
  const titles=videos.map(v=>v.closest('.video-card').querySelector('h4').textContent);
  $('gallery-player').innerHTML=`<button id="play-all" type="button">Play together</button><button id="pause-all" type="button">Pause all</button><label>Listen to <select id="gallery-audio"><option value="-1">Mute all</option>${titles.map((t,i)=>`<option value="${i}">${esc(t)}</option>`).join('')}</select></label><input id="gallery-timeline" aria-label="Video frame" type="range" min="0" max="123" step="1" value="0"><span class="time">0.00 / 5.17 s</span>`;
  const button=$('play-all'),timeline=$('gallery-timeline'),clock=$('gallery-player').querySelector('.time');let playing=false,disposed=false,timer=null;
@@ -23,17 +23,35 @@ function attachPlayer(){
  const seek=time=>{pause();videos.forEach(v=>{if(v.readyState>=1)v.currentTime=Math.min(time,Math.max(0,v.duration-.03))});timeline.value=Math.round(time*24);clock.textContent=`${time.toFixed(2)} / 5.17 s`;};
  const tick=()=>{if(!playing||disposed)return;const lead=videos[0];if(lead.ended){pause();return}timeline.value=Math.min(123,Math.round(lead.currentTime*24));clock.textContent=`${lead.currentTime.toFixed(2)} / 5.17 s`;for(const v of videos.slice(1))if(v.readyState>=2&&Math.abs(v.currentTime-lead.currentTime)>.15)v.currentTime=lead.currentTime;timer=requestAnimationFrame(tick);};
  const ready=v=>v.readyState>=2?Promise.resolve():new Promise((resolve,reject)=>{const timeout=setTimeout(()=>{cleanup();reject(Error('A video took too long to load. Try again or use its download link.'))},40000);const cleanup=()=>{clearTimeout(timeout);v.removeEventListener('loadeddata',done);v.removeEventListener('error',fail)};const done=()=>{cleanup();resolve()};const fail=()=>{cleanup();reject(Error('A video could not be loaded. Its source may be temporarily unavailable.'))};v.addEventListener('loadeddata',done,{once:true});v.addEventListener('error',fail,{once:true});v.preload='auto';v.load()});
- const play=async()=>{button.disabled=true;$('gallery-status').textContent='Loading selected videos…';try{await Promise.all(videos.map(ready));if(disposed)return;const time=videos[0].currentTime>=5.1?0:videos[0].currentTime;videos.forEach(v=>v.currentTime=time);await Promise.all(videos.map(v=>v.play()));if(disposed){videos.forEach(v=>v.pause());return}playing=true;$('gallery-status').textContent='Playing matched outputs. Use the audio selector to listen to one device.';tick()}catch(e){pause();$('gallery-status').textContent=e.message}finally{button.disabled=false}};
+ const play=async()=>{if(!videos.length)return;button.disabled=true;$('gallery-status').textContent='Loading selected videos…';try{await Promise.all(videos.map(ready));if(disposed)return;const time=videos[0].currentTime>=5.1?0:videos[0].currentTime;videos.forEach(v=>v.currentTime=time);await Promise.all(videos.map(v=>v.play()));if(disposed){videos.forEach(v=>v.pause());return}playing=true;$('gallery-status').textContent='Playing matched outputs. Use the audio selector to listen to one device.';tick()}catch(e){pause();$('gallery-status').textContent=e.message}finally{button.disabled=false}};
  button.addEventListener('click',play);$('pause-all').addEventListener('click',pause);timeline.addEventListener('input',()=>seek(Number(timeline.value)/24));$('gallery-audio').addEventListener('change',e=>videos.forEach((v,i)=>v.muted=i!==Number(e.target.value)));videos.forEach(v=>v.addEventListener('ended',pause));
+ button.disabled=!videos.length;$('pause-all').disabled=!videos.length;timeline.disabled=!videos.length;
  player={play,pause,seek,videos,dispose(){disposed=true;pause();videos.forEach(v=>{v.removeAttribute('src');v.load()})}};
 }
 function renderGallery(){
  player?.dispose();
  const w=R.workloads.find(x=>x.id===state.gallery),key=state.gallery+'|480p';
+ const checkpointView=state.galleryComparison==='checkpoints';
+ $('matched-checkpoint-panel').hidden=!checkpointView;
+ $('gallery-pro-heading').hidden=checkpointView;
+ $('gallery-gpu').closest('label').hidden=checkpointView;
+ if(checkpointView){
+  $('source-videos').innerHTML='';$('pro-videos').innerHTML='';
+  const rows=(R.matched_checkpoint_runs||[]);
+  $('matched-checkpoint-videos').innerHTML=['bf16','qad'].map(c=>{
+   const r=rows.find(x=>x.case===c),sample=r?.quality_samples?.find(x=>x.workload===state.gallery),title=c==='bf16'?'Original BF16':'QAD NVFP4';
+   const card=videoCard({title,meta:`4 GPUs · original BF16 decoder · CAKE · ${sample?s(sample.e2e_ms)+' s · single request':r?.current===key?'Generating':r?.state==='failed'?'Generation failed':'Queued'}`,url:r?.media?.[key],pro:true,key:'matched-'+c});
+   return card.slice(0,-6)+`${r?.config_url?'<a class="download" href="'+esc(r.config_url)+'" download>Server config YAML</a>':''}</div>`;
+  }).join('');
+  const ready=rows.filter(r=>r.media?.[key]).length;
+  $('matched-checkpoint-status').textContent=`${ready} / 2 outputs ready for ${names[state.gallery]}. ${(R.matched_checkpoint_outputs||0)} / 10 outputs across five reference mixes. ${R.matched_checkpoint_status?.state==='waiting_for_resources'?'Waiting for four available GPUs.':''}`;
+ }else{
+ $('matched-checkpoint-videos').innerHTML='';
  const originals=[{title:'DGX Spark · 36L decoder',prefix:'spark1x-36l',device:'spark1',decoder:'36l'},{title:'DGX Spark · 8L decoder',prefix:'spark1x-8l',device:'spark1',decoder:'8l'},{title:'Apple M5 Max · 36L decoder',prefix:'m5max-36l',device:'m5max',decoder:'36l'}];
  $('source-videos').innerHTML=originals.map(x=>videoCard({title:x.title,meta:shortTime(R.official.latency[`${key}|${x.decoder}`]?.[x.device])+` end to end · ${x.device==='m5max'?'single run':'three-seed mean'} · article`,url:`${source}media/outputs/${x.prefix}-${state.gallery}-480p.mp4`,poster:`${source}media/posters/${x.prefix}-${state.gallery}-480p.jpg`,key:x.prefix})).join('');
  $('pro-videos').innerHTML=['36l','8l'].map(d=>{const m=result(state.galleryGpu,d,state.gallery,'480p');return videoCard({title:`${state.galleryGpu}× PRO 5000 · ${d==='36l'?'36L':'8L'} decoder`,meta:`${m?s(m.e2e_ms.mean)+' s · three-seed mean':pending(state.galleryGpu,d,state.gallery,'480p')} · NVFP4 QAD · vLLM-Omni + CAKE`,url:run(state.galleryGpu,d)?.media?.[key],pro:true,key:'pro-'+d})}).join('');
- $('gallery-title').textContent=names[state.gallery]+' · 5 s request';$('gallery-status').textContent=names[state.gallery]+'. Ready to compare available outputs.';
+ }
+ $('gallery-title').textContent=names[state.gallery]+' · 5 s request';$('gallery-status').textContent=names[state.gallery]+(checkpointView&&!document.querySelector('#matched-checkpoint-videos video')?'. Waiting for the matched BF16/QAD outputs.':'. Ready to compare available outputs.');
  $('prompt-source').href=w.source_url;$('prompt-hash').textContent=w.prompt_sha256;
  $('references').querySelector('summary').textContent=`Source references (${w.references.length})`;
  $('reference-media').innerHTML=w.references.map((r,i)=>{const u=esc(r.url);let media;if(/\.(png|jpe?g|webp)$/i.test(r.url))media=`<img loading="lazy" src="${u}" alt="Original reference image ${i+1}">`;else if(/\.(mp3|wav|flac)$/i.test(r.url))media=`<audio controls preload="none" src="${u}"></audio>`;else media=`<video controls muted playsinline preload="none" src="${u}"></video>`;return `<figure>${media}<figcaption><a href="${u}">Reference ${i+1} ↗</a></figcaption></figure>`}).join('');
@@ -110,7 +128,7 @@ function renderFrameworks(){
  }
  $('framework-table').tBodies[0].innerHTML=rows.join('');
  const count=R.fastvideo_completed_configurations||0,status=R.fastvideo_status?.state;
- $('framework-status').textContent=`${count} / 8 FastVideo configurations measured. ${status==='waiting_for_vllm_matrix'?'Queued after the vLLM matrix; GPU measurements run sequentially.':status==='complete'?'Matched serving comparison complete.':status==='needs_attention'?'Some FastVideo configurations are incomplete.':'Native serving validation and measurements in progress.'}`;
+ $('framework-status').textContent=`${count} / 8 FastVideo configurations measured. ${status==='waiting_for_vllm_matrix'?'Queued after the vLLM matrix; GPU measurements run sequentially.':status==='waiting_for_resources'?'Waiting for the selected GPUs to become available.':status==='complete'?'Matched serving comparison complete.':status==='needs_attention'?'Some FastVideo configurations are incomplete.':'Native serving validation and measurements in progress.'}`;
  $('framework-table').querySelectorAll('[data-framework-gpu]').forEach(link=>link.addEventListener('click',e=>{
   e.preventDefault();const g=Number(link.dataset.frameworkGpu),d=link.dataset.decoder,res=link.dataset.res;
   $('output-title').textContent=`${g}× PRO 5000 · 1 image · ${res} · ${d.toUpperCase()} · seed 0`;
@@ -119,6 +137,7 @@ function renderFrameworks(){
  }));
 }
 for(const id of ['gallery-workload','latency-workload'])$(id).innerHTML=R.workloads.map(w=>`<option value="${w.id}">${names[w.id]}</option>`).join('');
+$('gallery-comparison').addEventListener('change',e=>{state.galleryComparison=e.target.value;renderGallery()});
 $('gallery-workload').addEventListener('change',e=>{state.gallery=e.target.value;renderGallery()});$('gallery-gpu').addEventListener('change',e=>{state.galleryGpu=Number(e.target.value);renderGallery()});$('next-example').addEventListener('click',()=>{state.gallery=R.workloads[(R.workloads.findIndex(w=>w.id===state.gallery)+1)%R.workloads.length].id;$('gallery-workload').value=state.gallery;renderGallery()});
 for(const n of ['workload','resolution','decoder'])$('latency-'+n).addEventListener('change',e=>{state[n]=e.target.value;renderChart()});$('stage-gpu').addEventListener('change',e=>{state.stageGpu=Number(e.target.value);renderStages()});
 $('close-dialog').addEventListener('click',()=>$('output-dialog').close());$('output-dialog').addEventListener('close',()=>$('output-videos').querySelectorAll('video').forEach(v=>v.pause()));
