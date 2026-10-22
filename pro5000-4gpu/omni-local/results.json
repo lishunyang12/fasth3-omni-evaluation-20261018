@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792670532.3081114,
+  "updated_at": 1792671032.9486938,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -15259,13 +15259,17 @@
         "job": "pro5000-1gpu-36l-comfy-refs:clip|480p",
         "exit_code": 0,
         "ended_at": 1792670527.9444864
+      },
+      {
+        "job": "pro5000-1gpu-36l-module-offload-comfy-refs:clip|480p",
+        "exit_code": 0,
+        "ended_at": 1792670816.4694579
       }
     ],
     "started_at": 1792667512.395525,
-    "updated_at": 1792670531.1883378,
-    "current": "pro5000-1gpu-36l-module-offload-comfy-refs:clip|480p",
+    "updated_at": 1792670819.6661003,
+    "current": "pro5000-1gpu-36l-layerwise-offload-comfy-refs:clip|480p",
     "remaining": [
-      "pro5000-1gpu-36l-module-offload-comfy-refs:clip|480p",
       "pro5000-1gpu-36l-layerwise-offload-comfy-refs:clip|480p",
       "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs:clip|480p",
       "pro5000-1gpu-36l-comfy-refs:image|480p",
@@ -16398,7 +16402,7 @@
     },
     {
       "id": "pro5000-1gpu-36l-layerwise-offload-comfy-refs",
-      "state": "partial",
+      "state": "measuring",
       "gpus": [
         0
       ],
@@ -16409,7 +16413,7 @@
       "reference_policy": "comfy",
       "reference_canvas": "ComfyUI match: down-only to output area, nearest 32; video native/capped canvas and floor to 17k+5 frames",
       "offload": true,
-      "started_at": 1792669077.222094,
+      "started_at": 1792670819.9307973,
       "offload_strategy": "layer_wise",
       "summaries": [
         {
@@ -16584,8 +16588,13 @@
       "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
       "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
       "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
-      "ready_at": 1792669133.2469387,
-      "ended_at": 1792669667.8110306,
+      "current": "clip|480p",
+      "ready_at": 1792670875.9562647,
+      "active_request": {
+        "phase": "measured",
+        "seed": 1,
+        "started_at": 1792670984.167802
+      },
       "request_memory": [
         {
           "request": 1,
@@ -16604,7 +16613,7 @@
             },
             "peak_total_gib": 10.2158203125,
             "samples": 39,
-            "sampling_interval_s": 0.6932706832885742,
+            "sampling_interval_s": 0.6930568218231201,
             "max_sampling_gap_s": 0.81095290184021,
             "started_at": 1792667939.3073335,
             "ended_at": 1792667966.1763809,
@@ -16630,7 +16639,7 @@
             },
             "peak_total_gib": 10.3564453125,
             "samples": 37,
-            "sampling_interval_s": 0.6932706832885742,
+            "sampling_interval_s": 0.6930568218231201,
             "max_sampling_gap_s": 0.8101401329040527,
             "started_at": 1792667966.2756593,
             "ended_at": 1792667992.0742068,
@@ -16656,7 +16665,7 @@
             },
             "peak_total_gib": 10.3583984375,
             "samples": 37,
-            "sampling_interval_s": 0.6932706832885742,
+            "sampling_interval_s": 0.6930568218231201,
             "max_sampling_gap_s": 0.7305803298950195,
             "started_at": 1792667992.170675,
             "ended_at": 1792668018.0527987,
@@ -16682,7 +16691,7 @@
             },
             "peak_total_gib": 10.3564453125,
             "samples": 37,
-            "sampling_interval_s": 0.6932706832885742,
+            "sampling_interval_s": 0.6930568218231201,
             "max_sampling_gap_s": 0.7460997104644775,
             "started_at": 1792668018.1522903,
             "ended_at": 1792668043.9819388,
@@ -16708,7 +16717,7 @@
             },
             "peak_total_gib": 23.7451171875,
             "samples": 195,
-            "sampling_interval_s": 0.6932706832885742,
+            "sampling_interval_s": 0.6930568218231201,
             "max_sampling_gap_s": 0.7716548442840576,
             "started_at": 1792669133.25286,
             "ended_at": 1792669267.7136858,
@@ -16734,7 +16743,7 @@
             },
             "peak_total_gib": 23.8837890625,
             "samples": 193,
-            "sampling_interval_s": 0.6932706832885742,
+            "sampling_interval_s": 0.6930568218231201,
             "max_sampling_gap_s": 0.8268156051635742,
             "started_at": 1792669267.793795,
             "ended_at": 1792669401.1280441,
@@ -16760,7 +16769,7 @@
             },
             "peak_total_gib": 23.8837890625,
             "samples": 192,
-            "sampling_interval_s": 0.6932706832885742,
+            "sampling_interval_s": 0.6930568218231201,
             "max_sampling_gap_s": 0.825070858001709,
             "started_at": 1792669401.2222214,
             "ended_at": 1792669534.4832587,
@@ -16786,10 +16795,62 @@
             },
             "peak_total_gib": 23.8837890625,
             "samples": 192,
-            "sampling_interval_s": 0.6932706832885742,
+            "sampling_interval_s": 0.6930568218231201,
             "max_sampling_gap_s": 0.7720248699188232,
             "started_at": 1792669534.573247,
             "ended_at": 1792669667.732689,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        },
+        {
+          "request": 9,
+          "workload": "clip",
+          "resolution": "480p",
+          "phase": "warmup",
+          "seed": 12345,
+          "status": "complete",
+          "e2e_ms": 54608.15,
+          "started_at": 1792670875.9631433,
+          "ended_at": 1792670930.6341693,
+          "memory": {
+            "max_per_gpu_gib": 13.8623046875,
+            "per_gpu_mib": {
+              "0": 14195
+            },
+            "peak_total_gib": 13.8623046875,
+            "samples": 79,
+            "sampling_interval_s": 0.6930568218231201,
+            "max_sampling_gap_s": 0.7836651802062988,
+            "started_at": 1792670875.9631433,
+            "ended_at": 1792670930.6341693,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        },
+        {
+          "request": 10,
+          "workload": "clip",
+          "resolution": "480p",
+          "phase": "measured",
+          "seed": 0,
+          "status": "complete",
+          "e2e_ms": 53321.013999999996,
+          "started_at": 1792670930.7212734,
+          "ended_at": 1792670984.0841084,
+          "memory": {
+            "max_per_gpu_gib": 14.0126953125,
+            "per_gpu_mib": {
+              "0": 14349
+            },
+            "peak_total_gib": 14.0126953125,
+            "samples": 77,
+            "sampling_interval_s": 0.6930568218231201,
+            "max_sampling_gap_s": 0.8005800247192383,
+            "started_at": 1792670930.7212734,
+            "ended_at": 1792670984.0841084,
             "bounds_source": "request_timestamps",
             "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
           },
@@ -16802,8 +16863,8 @@
           "0": 24457
         },
         "peak_total_gib": 23.8837890625,
-        "requests_with_samples": 6,
-        "requests_expected": 6
+        "requests_with_samples": 7,
+        "requests_expected": 7
       },
       "media": {
         "images3|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-comfy-refs-images3-480p-seed0.mp4",
@@ -16811,7 +16872,8 @@
         "images3|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-comfy-refs-images3-480p-seed2.mp4",
         "video|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-comfy-refs-video-480p-seed0.mp4",
         "video|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-comfy-refs-video-480p-seed1.mp4",
-        "video|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-comfy-refs-video-480p-seed2.mp4"
+        "video|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-comfy-refs-video-480p-seed2.mp4",
+        "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-comfy-refs-clip-480p-seed0.mp4"
       },
       "output_hashes": {
         "images3|480p": "a2bdd532776335d3f5831eae9740558a2bf5548aa1417a411169fdf9d96d5cb5",
@@ -16819,13 +16881,14 @@
         "images3|480p|seed2": "ee34d2d2c51d4522b72cce90d63f2f2669d43cbedefa22ce603faf8029ae570b",
         "video|480p": "741473514016d1c648e1ce7fecdffa9015718c202c836bc814a935e76d66c6e6",
         "video|480p|seed1": "1711c4d1be0221869c526a9772322b911642bfc064e5d2fa5cd91097befe39c2",
-        "video|480p|seed2": "11dc40a1a4f48d7a41ca00584a25a941acf6aa611b6694065df0914c601ad205"
+        "video|480p|seed2": "11dc40a1a4f48d7a41ca00584a25a941acf6aa611b6694065df0914c601ad205",
+        "clip|480p": "af0ad39a08a3143812f7f2012da64a4dc591931ea49409c38d483c3fcaa2075a"
       },
       "config_url": "configs/pro5000-1gpu-36l-layerwise-offload-comfy-refs.yaml"
     },
     {
       "id": "pro5000-1gpu-36l-module-offload-comfy-refs",
-      "state": "starting",
+      "state": "partial",
       "gpus": [
         0
       ],
@@ -17000,6 +17063,87 @@
             "requests_with_samples": 3,
             "requests_expected": 3
           }
+        },
+        {
+          "key": "clip|480p",
+          "workload": "clip",
+          "resolution": "480p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 55963.59333333333,
+            "median": 55959.758,
+            "min": 55936.735,
+            "max": 55994.287,
+            "values": [
+              55994.287,
+              55936.735,
+              55959.758
+            ]
+          },
+          "dit_ms": {
+            "mean": 36356.57621361315,
+            "median": 36359.876359812915,
+            "min": 36300.187109969556,
+            "max": 36409.665171056986,
+            "values": [
+              36409.665171056986,
+              36359.876359812915,
+              36300.187109969556
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 3674.9432096257806,
+            "median": 3674.4545619003475,
+            "min": 3674.3781371042132,
+            "max": 3675.996929872781,
+            "values": [
+              3674.3781371042132,
+              3674.4545619003475,
+              3675.996929872781
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 55954.0,
+            "median": 55950.0,
+            "min": 55927.0,
+            "max": 55985.0,
+            "values": [
+              55985.0,
+              55927.0,
+              55950.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 819.2500372727712,
+            "median": 821.4393202215433,
+            "min": 789.7919248789549,
+            "max": 846.5188667178154,
+            "values": [
+              846.5188667178154,
+              789.7919248789549,
+              821.4393202215433
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 13057.134493719786,
+            "median": 13068.349602632225,
+            "min": 12993.709054309875,
+            "max": 13109.34482421726,
+            "values": [
+              12993.709054309875,
+              13109.34482421726,
+              13068.349602632225
+            ]
+          },
+          "memory": {
+            "max_per_gpu_gib": 48.3837890625,
+            "per_gpu_mib": {
+              "0": 49545
+            },
+            "peak_total_gib": 48.3837890625,
+            "requests_with_samples": 3,
+            "requests_expected": 3
+          }
         }
       ],
       "failures": [],
@@ -17011,7 +17155,8 @@
       "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
       "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
       "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
-      "current": "clip|480p",
+      "ready_at": 1792670575.4665596,
+      "ended_at": 1792670811.6377063,
       "request_memory": [
         {
           "request": 1,
@@ -17030,7 +17175,7 @@
             },
             "peak_total_gib": 44.6611328125,
             "samples": 92,
-            "sampling_interval_s": 0.694786787033081,
+            "sampling_interval_s": 0.6941757202148438,
             "max_sampling_gap_s": 0.8027167320251465,
             "started_at": 1792667711.4069765,
             "ended_at": 1792667775.9987712,
@@ -17056,7 +17201,7 @@
             },
             "peak_total_gib": 44.7451171875,
             "samples": 45,
-            "sampling_interval_s": 0.694786787033081,
+            "sampling_interval_s": 0.6941757202148438,
             "max_sampling_gap_s": 0.7456974983215332,
             "started_at": 1792667776.0974422,
             "ended_at": 1792667807.1087844,
@@ -17082,7 +17227,7 @@
             },
             "peak_total_gib": 44.7451171875,
             "samples": 44,
-            "sampling_interval_s": 0.694786787033081,
+            "sampling_interval_s": 0.6941757202148438,
             "max_sampling_gap_s": 0.770531415939331,
             "started_at": 1792667807.206017,
             "ended_at": 1792667838.4078035,
@@ -17108,7 +17253,7 @@
             },
             "peak_total_gib": 44.7470703125,
             "samples": 45,
-            "sampling_interval_s": 0.694786787033081,
+            "sampling_interval_s": 0.6941757202148438,
             "max_sampling_gap_s": 0.7873196601867676,
             "started_at": 1792667838.506324,
             "ended_at": 1792667869.8420713,
@@ -17134,7 +17279,7 @@
             },
             "peak_total_gib": 58.1669921875,
             "samples": 241,
-            "sampling_interval_s": 0.694786787033081,
+            "sampling_interval_s": 0.6941757202148438,
             "max_sampling_gap_s": 0.8328418731689453,
             "started_at": 1792668483.056392,
             "ended_at": 1792668650.6912103,
@@ -17160,7 +17305,7 @@
             },
             "peak_total_gib": 58.2431640625,
             "samples": 197,
-            "sampling_interval_s": 0.694786787033081,
+            "sampling_interval_s": 0.6941757202148438,
             "max_sampling_gap_s": 0.8109865188598633,
             "started_at": 1792668650.7718008,
             "ended_at": 1792668788.4259858,
@@ -17186,7 +17331,7 @@
             },
             "peak_total_gib": 58.2412109375,
             "samples": 201,
-            "sampling_interval_s": 0.694786787033081,
+            "sampling_interval_s": 0.6941757202148438,
             "max_sampling_gap_s": 0.8055884838104248,
             "started_at": 1792668788.5199986,
             "ended_at": 1792668927.3422544,
@@ -17212,10 +17357,114 @@
             },
             "peak_total_gib": 58.2412109375,
             "samples": 200,
-            "sampling_interval_s": 0.694786787033081,
+            "sampling_interval_s": 0.6941757202148438,
             "max_sampling_gap_s": 0.8217785358428955,
             "started_at": 1792668927.4347835,
             "ended_at": 1792669066.4087703,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        },
+        {
+          "request": 9,
+          "workload": "clip",
+          "resolution": "480p",
+          "phase": "warmup",
+          "seed": 12345,
+          "status": "complete",
+          "e2e_ms": 67878.398,
+          "started_at": 1792670575.4738634,
+          "ended_at": 1792670643.3600311,
+          "memory": {
+            "max_per_gpu_gib": 48.2978515625,
+            "per_gpu_mib": {
+              "0": 49457
+            },
+            "peak_total_gib": 48.2978515625,
+            "samples": 98,
+            "sampling_interval_s": 0.6941757202148438,
+            "max_sampling_gap_s": 0.8169877529144287,
+            "started_at": 1792670575.4738634,
+            "ended_at": 1792670643.3600311,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        },
+        {
+          "request": 10,
+          "workload": "clip",
+          "resolution": "480p",
+          "phase": "measured",
+          "seed": 0,
+          "status": "complete",
+          "e2e_ms": 55994.287,
+          "started_at": 1792670643.4474263,
+          "ended_at": 1792670699.4484406,
+          "memory": {
+            "max_per_gpu_gib": 48.3837890625,
+            "per_gpu_mib": {
+              "0": 49545
+            },
+            "peak_total_gib": 48.3837890625,
+            "samples": 81,
+            "sampling_interval_s": 0.6941757202148438,
+            "max_sampling_gap_s": 0.7431411743164062,
+            "started_at": 1792670643.4474263,
+            "ended_at": 1792670699.4484406,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        },
+        {
+          "request": 11,
+          "workload": "clip",
+          "resolution": "480p",
+          "phase": "measured",
+          "seed": 1,
+          "status": "complete",
+          "e2e_ms": 55936.735,
+          "started_at": 1792670699.5339696,
+          "ended_at": 1792670755.496465,
+          "memory": {
+            "max_per_gpu_gib": 48.3759765625,
+            "per_gpu_mib": {
+              "0": 49537
+            },
+            "peak_total_gib": 48.3759765625,
+            "samples": 80,
+            "sampling_interval_s": 0.6941757202148438,
+            "max_sampling_gap_s": 0.8250179290771484,
+            "started_at": 1792670699.5339696,
+            "ended_at": 1792670755.496465,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        },
+        {
+          "request": 12,
+          "workload": "clip",
+          "resolution": "480p",
+          "phase": "measured",
+          "seed": 2,
+          "status": "complete",
+          "e2e_ms": 55959.758,
+          "started_at": 1792670755.5826104,
+          "ended_at": 1792670811.5546,
+          "memory": {
+            "max_per_gpu_gib": 48.3837890625,
+            "per_gpu_mib": {
+              "0": 49545
+            },
+            "peak_total_gib": 48.3837890625,
+            "samples": 80,
+            "sampling_interval_s": 0.6941757202148438,
+            "max_sampling_gap_s": 0.7223641872406006,
+            "started_at": 1792670755.5826104,
+            "ended_at": 1792670811.5546,
             "bounds_source": "request_timestamps",
             "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
           },
@@ -17228,8 +17477,8 @@
           "0": 59641
         },
         "peak_total_gib": 58.2431640625,
-        "requests_with_samples": 6,
-        "requests_expected": 6
+        "requests_with_samples": 9,
+        "requests_expected": 9
       },
       "media": {
         "images3|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-images3-480p-seed0.mp4",
@@ -17237,7 +17486,10 @@
         "images3|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-images3-480p-seed2.mp4",
         "video|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-video-480p-seed0.mp4",
         "video|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-video-480p-seed1.mp4",
-        "video|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-video-480p-seed2.mp4"
+        "video|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-video-480p-seed2.mp4",
+        "clip|480p": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-clip-480p-seed0.mp4",
+        "clip|480p|seed1": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-clip-480p-seed1.mp4",
+        "clip|480p|seed2": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-clip-480p-seed2.mp4"
       },
       "output_hashes": {
         "images3|480p": "a2bdd532776335d3f5831eae9740558a2bf5548aa1417a411169fdf9d96d5cb5",
@@ -17245,7 +17497,10 @@
         "images3|480p|seed2": "ee34d2d2c51d4522b72cce90d63f2f2669d43cbedefa22ce603faf8029ae570b",
         "video|480p": "741473514016d1c648e1ce7fecdffa9015718c202c836bc814a935e76d66c6e6",
         "video|480p|seed1": "1711c4d1be0221869c526a9772322b911642bfc064e5d2fa5cd91097befe39c2",
-        "video|480p|seed2": "11dc40a1a4f48d7a41ca00584a25a941acf6aa611b6694065df0914c601ad205"
+        "video|480p|seed2": "11dc40a1a4f48d7a41ca00584a25a941acf6aa611b6694065df0914c601ad205",
+        "clip|480p": "af0ad39a08a3143812f7f2012da64a4dc591931ea49409c38d483c3fcaa2075a",
+        "clip|480p|seed1": "9682869a647409c32ae29a84513a95ba25769ab07fafdad89812617a6d1080a8",
+        "clip|480p|seed2": "02237142067905d20e0c4417fb998754b372d1cddbc52a512699f7aa430e0034"
       },
       "config_url": "configs/pro5000-1gpu-36l-module-offload-comfy-refs.yaml"
     },
@@ -31549,7 +31804,7 @@
         },
         "peak_total_gib": 10.2158203125,
         "samples": 39,
-        "sampling_interval_s": 0.6932706832885742,
+        "sampling_interval_s": 0.6930568218231201,
         "max_sampling_gap_s": 0.81095290184021,
         "started_at": 1792667939.3073335,
         "ended_at": 1792667966.1763809,
@@ -31578,7 +31833,7 @@
         },
         "peak_total_gib": 10.3564453125,
         "samples": 37,
-        "sampling_interval_s": 0.6932706832885742,
+        "sampling_interval_s": 0.6930568218231201,
         "max_sampling_gap_s": 0.8101401329040527,
         "started_at": 1792667966.2756593,
         "ended_at": 1792667992.0742068,
@@ -31607,7 +31862,7 @@
         },
         "peak_total_gib": 10.3583984375,
         "samples": 37,
-        "sampling_interval_s": 0.6932706832885742,
+        "sampling_interval_s": 0.6930568218231201,
         "max_sampling_gap_s": 0.7305803298950195,
         "started_at": 1792667992.170675,
         "ended_at": 1792668018.0527987,
@@ -31636,7 +31891,7 @@
         },
         "peak_total_gib": 10.3564453125,
         "samples": 37,
-        "sampling_interval_s": 0.6932706832885742,
+        "sampling_interval_s": 0.6930568218231201,
         "max_sampling_gap_s": 0.7460997104644775,
         "started_at": 1792668018.1522903,
         "ended_at": 1792668043.9819388,
@@ -31665,7 +31920,7 @@
         },
         "peak_total_gib": 23.7451171875,
         "samples": 195,
-        "sampling_interval_s": 0.6932706832885742,
+        "sampling_interval_s": 0.6930568218231201,
         "max_sampling_gap_s": 0.7716548442840576,
         "started_at": 1792669133.25286,
         "ended_at": 1792669267.7136858,
@@ -31694,7 +31949,7 @@
         },
         "peak_total_gib": 23.8837890625,
         "samples": 193,
-        "sampling_interval_s": 0.6932706832885742,
+        "sampling_interval_s": 0.6930568218231201,
         "max_sampling_gap_s": 0.8268156051635742,
         "started_at": 1792669267.793795,
         "ended_at": 1792669401.1280441,
@@ -31723,7 +31978,7 @@
         },
         "peak_total_gib": 23.8837890625,
         "samples": 192,
-        "sampling_interval_s": 0.6932706832885742,
+        "sampling_interval_s": 0.6930568218231201,
         "max_sampling_gap_s": 0.825070858001709,
         "started_at": 1792669401.2222214,
         "ended_at": 1792669534.4832587,
@@ -31752,10 +32007,68 @@
         },
         "peak_total_gib": 23.8837890625,
         "samples": 192,
-        "sampling_interval_s": 0.6932706832885742,
+        "sampling_interval_s": 0.6930568218231201,
         "max_sampling_gap_s": 0.7720248699188232,
         "started_at": 1792669534.573247,
         "ended_at": 1792669667.732689,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "comfy_runs",
+      "configuration": "pro5000-1gpu-36l-layerwise-offload-comfy-refs",
+      "gpu_count": 1,
+      "request": 9,
+      "workload": "clip",
+      "resolution": "480p",
+      "phase": "warmup",
+      "seed": 12345,
+      "status": "complete",
+      "e2e_ms": 54608.15,
+      "started_at": 1792670875.9631433,
+      "ended_at": 1792670930.6341693,
+      "memory": {
+        "max_per_gpu_gib": 13.8623046875,
+        "per_gpu_mib": {
+          "0": 14195
+        },
+        "peak_total_gib": 13.8623046875,
+        "samples": 79,
+        "sampling_interval_s": 0.6930568218231201,
+        "max_sampling_gap_s": 0.7836651802062988,
+        "started_at": 1792670875.9631433,
+        "ended_at": 1792670930.6341693,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "comfy_runs",
+      "configuration": "pro5000-1gpu-36l-layerwise-offload-comfy-refs",
+      "gpu_count": 1,
+      "request": 10,
+      "workload": "clip",
+      "resolution": "480p",
+      "phase": "measured",
+      "seed": 0,
+      "status": "complete",
+      "e2e_ms": 53321.013999999996,
+      "started_at": 1792670930.7212734,
+      "ended_at": 1792670984.0841084,
+      "memory": {
+        "max_per_gpu_gib": 14.0126953125,
+        "per_gpu_mib": {
+          "0": 14349
+        },
+        "peak_total_gib": 14.0126953125,
+        "samples": 77,
+        "sampling_interval_s": 0.6930568218231201,
+        "max_sampling_gap_s": 0.8005800247192383,
+        "started_at": 1792670930.7212734,
+        "ended_at": 1792670984.0841084,
         "bounds_source": "request_timestamps",
         "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
       },
@@ -31781,7 +32094,7 @@
         },
         "peak_total_gib": 44.6611328125,
         "samples": 92,
-        "sampling_interval_s": 0.694786787033081,
+        "sampling_interval_s": 0.6941757202148438,
         "max_sampling_gap_s": 0.8027167320251465,
         "started_at": 1792667711.4069765,
         "ended_at": 1792667775.9987712,
@@ -31810,7 +32123,7 @@
         },
         "peak_total_gib": 44.7451171875,
         "samples": 45,
-        "sampling_interval_s": 0.694786787033081,
+        "sampling_interval_s": 0.6941757202148438,
         "max_sampling_gap_s": 0.7456974983215332,
         "started_at": 1792667776.0974422,
         "ended_at": 1792667807.1087844,
@@ -31839,7 +32152,7 @@
         },
         "peak_total_gib": 44.7451171875,
         "samples": 44,
-        "sampling_interval_s": 0.694786787033081,
+        "sampling_interval_s": 0.6941757202148438,
         "max_sampling_gap_s": 0.770531415939331,
         "started_at": 1792667807.206017,
         "ended_at": 1792667838.4078035,
@@ -31868,7 +32181,7 @@
         },
         "peak_total_gib": 44.7470703125,
         "samples": 45,
-        "sampling_interval_s": 0.694786787033081,
+        "sampling_interval_s": 0.6941757202148438,
         "max_sampling_gap_s": 0.7873196601867676,
         "started_at": 1792667838.506324,
         "ended_at": 1792667869.8420713,
@@ -31897,7 +32210,7 @@
         },
         "peak_total_gib": 58.1669921875,
         "samples": 241,
-        "sampling_interval_s": 0.694786787033081,
+        "sampling_interval_s": 0.6941757202148438,
         "max_sampling_gap_s": 0.8328418731689453,
         "started_at": 1792668483.056392,
         "ended_at": 1792668650.6912103,
@@ -31926,7 +32239,7 @@
         },
         "peak_total_gib": 58.2431640625,
         "samples": 197,
-        "sampling_interval_s": 0.694786787033081,
+        "sampling_interval_s": 0.6941757202148438,
         "max_sampling_gap_s": 0.8109865188598633,
         "started_at": 1792668650.7718008,
         "ended_at": 1792668788.4259858,
@@ -31955,7 +32268,7 @@
         },
         "peak_total_gib": 58.2412109375,
         "samples": 201,
-        "sampling_interval_s": 0.694786787033081,
+        "sampling_interval_s": 0.6941757202148438,
         "max_sampling_gap_s": 0.8055884838104248,
         "started_at": 1792668788.5199986,
         "ended_at": 1792668927.3422544,
@@ -31984,10 +32297,126 @@
         },
         "peak_total_gib": 58.2412109375,
         "samples": 200,
-        "sampling_interval_s": 0.694786787033081,
+        "sampling_interval_s": 0.6941757202148438,
         "max_sampling_gap_s": 0.8217785358428955,
         "started_at": 1792668927.4347835,
         "ended_at": 1792669066.4087703,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "comfy_runs",
+      "configuration": "pro5000-1gpu-36l-module-offload-comfy-refs",
+      "gpu_count": 1,
+      "request": 9,
+      "workload": "clip",
+      "resolution": "480p",
+      "phase": "warmup",
+      "seed": 12345,
+      "status": "complete",
+      "e2e_ms": 67878.398,
+      "started_at": 1792670575.4738634,
+      "ended_at": 1792670643.3600311,
+      "memory": {
+        "max_per_gpu_gib": 48.2978515625,
+        "per_gpu_mib": {
+          "0": 49457
+        },
+        "peak_total_gib": 48.2978515625,
+        "samples": 98,
+        "sampling_interval_s": 0.6941757202148438,
+        "max_sampling_gap_s": 0.8169877529144287,
+        "started_at": 1792670575.4738634,
+        "ended_at": 1792670643.3600311,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "comfy_runs",
+      "configuration": "pro5000-1gpu-36l-module-offload-comfy-refs",
+      "gpu_count": 1,
+      "request": 10,
+      "workload": "clip",
+      "resolution": "480p",
+      "phase": "measured",
+      "seed": 0,
+      "status": "complete",
+      "e2e_ms": 55994.287,
+      "started_at": 1792670643.4474263,
+      "ended_at": 1792670699.4484406,
+      "memory": {
+        "max_per_gpu_gib": 48.3837890625,
+        "per_gpu_mib": {
+          "0": 49545
+        },
+        "peak_total_gib": 48.3837890625,
+        "samples": 81,
+        "sampling_interval_s": 0.6941757202148438,
+        "max_sampling_gap_s": 0.7431411743164062,
+        "started_at": 1792670643.4474263,
+        "ended_at": 1792670699.4484406,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "comfy_runs",
+      "configuration": "pro5000-1gpu-36l-module-offload-comfy-refs",
+      "gpu_count": 1,
+      "request": 11,
+      "workload": "clip",
+      "resolution": "480p",
+      "phase": "measured",
+      "seed": 1,
+      "status": "complete",
+      "e2e_ms": 55936.735,
+      "started_at": 1792670699.5339696,
+      "ended_at": 1792670755.496465,
+      "memory": {
+        "max_per_gpu_gib": 48.3759765625,
+        "per_gpu_mib": {
+          "0": 49537
+        },
+        "peak_total_gib": 48.3759765625,
+        "samples": 80,
+        "sampling_interval_s": 0.6941757202148438,
+        "max_sampling_gap_s": 0.8250179290771484,
+        "started_at": 1792670699.5339696,
+        "ended_at": 1792670755.496465,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "comfy_runs",
+      "configuration": "pro5000-1gpu-36l-module-offload-comfy-refs",
+      "gpu_count": 1,
+      "request": 12,
+      "workload": "clip",
+      "resolution": "480p",
+      "phase": "measured",
+      "seed": 2,
+      "status": "complete",
+      "e2e_ms": 55959.758,
+      "started_at": 1792670755.5826104,
+      "ended_at": 1792670811.5546,
+      "memory": {
+        "max_per_gpu_gib": 48.3837890625,
+        "per_gpu_mib": {
+          "0": 49545
+        },
+        "peak_total_gib": 48.3837890625,
+        "samples": 80,
+        "sampling_interval_s": 0.6941757202148438,
+        "max_sampling_gap_s": 0.7223641872406006,
+        "started_at": 1792670755.5826104,
+        "ended_at": 1792670811.5546,
         "bounds_source": "request_timestamps",
         "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
       },
@@ -34118,6 +34547,12 @@
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-image-voice-768p.mp4"
     },
     {
+      "file": "pro5000-1gpu-36l-layerwise-offload-comfy-refs-clip-480p-seed0.mp4",
+      "bytes": 3158090,
+      "sha256": "af0ad39a08a3143812f7f2012da64a4dc591931ea49409c38d483c3fcaa2075a",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-comfy-refs-clip-480p-seed0.mp4"
+    },
+    {
       "file": "pro5000-1gpu-36l-layerwise-offload-comfy-refs-images3-480p-seed0.mp4",
       "bytes": 3584567,
       "sha256": "a2bdd532776335d3f5831eae9740558a2bf5548aa1417a411169fdf9d96d5cb5",
@@ -34188,6 +34623,24 @@
       "bytes": 2760363,
       "sha256": "b858e86b0c153ba5bafebe72402e279952d49e0662c5c1670c2858b6383d5513",
       "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-layerwise-offload-video-480p.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-36l-module-offload-comfy-refs-clip-480p-seed0.mp4",
+      "bytes": 3158090,
+      "sha256": "af0ad39a08a3143812f7f2012da64a4dc591931ea49409c38d483c3fcaa2075a",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-clip-480p-seed0.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-36l-module-offload-comfy-refs-clip-480p-seed1.mp4",
+      "bytes": 3156918,
+      "sha256": "9682869a647409c32ae29a84513a95ba25769ab07fafdad89812617a6d1080a8",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-clip-480p-seed1.mp4"
+    },
+    {
+      "file": "pro5000-1gpu-36l-module-offload-comfy-refs-clip-480p-seed2.mp4",
+      "bytes": 3141505,
+      "sha256": "02237142067905d20e0c4417fb998754b372d1cddbc52a512699f7aa430e0034",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/pro5000-omni-local-20261022/pro5000-1gpu-36l-module-offload-comfy-refs-clip-480p-seed2.mp4"
     },
     {
       "file": "pro5000-1gpu-36l-module-offload-comfy-refs-images3-480p-seed0.mp4",
