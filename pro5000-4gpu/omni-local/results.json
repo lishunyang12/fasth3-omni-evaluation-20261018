@@ -1,5 +1,5 @@
 {
-  "updated_at": 1792667192.4548135,
+  "updated_at": 1792667720.4863338,
   "article_url": "https://haoailab.com/blogs/fasth3-omni-local/",
   "official": {
     "devices": [
@@ -14008,6 +14008,1798 @@
     ],
     "label_correction": "Earlier original BF16 decoder wording was too broad. The original VAE uses mixed precision with FP16-autocast decode; BF16 identifies the DiT/text-encoder weight baseline. No request, configuration, timing or output was changed."
   },
+  "active_preprocessing_policy": {
+    "policy": "comfy",
+    "time": 1792667512.3402112,
+    "scope": "All new vLLM-Omni image and video tests",
+    "historical_queues": "superseded",
+    "controller_pid": 961710
+  },
+  "comfy_plan": {
+    "policy": "comfy",
+    "comfy_revision": "8d534945ebd53cff61e8def81757c6a6c1b9cf2d",
+    "scope": "All new vLLM-Omni measurements; image match canvas and native/capped video canvas with aligned frames.",
+    "historical_jobs": "article2048 and native-size diagnostic queues superseded, not resumed",
+    "cases": [
+      {
+        "id": "pro5000-1gpu-36l-comfy-refs",
+        "key": "images3|480p",
+        "job": "pro5000-1gpu-36l-comfy-refs:images3|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "images3|480p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-module-offload-comfy-refs",
+        "key": "images3|480p",
+        "job": "pro5000-1gpu-36l-module-offload-comfy-refs:images3|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "module",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "images3|480p",
+          "--module-offload"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-layerwise-offload-comfy-refs",
+        "key": "images3|480p",
+        "job": "pro5000-1gpu-36l-layerwise-offload-comfy-refs:images3|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "layerwise",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "images3|480p",
+          "--layerwise-offload"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs",
+        "key": "images3|480p",
+        "job": "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs:images3|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "dit-layerwise",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "images3|480p",
+          "--dit-layerwise-offload"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-comfy-refs",
+        "key": "video|480p",
+        "job": "pro5000-1gpu-36l-comfy-refs:video|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "video|480p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-module-offload-comfy-refs",
+        "key": "video|480p",
+        "job": "pro5000-1gpu-36l-module-offload-comfy-refs:video|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "module",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "video|480p",
+          "--module-offload"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-layerwise-offload-comfy-refs",
+        "key": "video|480p",
+        "job": "pro5000-1gpu-36l-layerwise-offload-comfy-refs:video|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "layerwise",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "video|480p",
+          "--layerwise-offload"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs",
+        "key": "video|480p",
+        "job": "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs:video|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "dit-layerwise",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "video|480p",
+          "--dit-layerwise-offload"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-comfy-refs",
+        "key": "clip|480p",
+        "job": "pro5000-1gpu-36l-comfy-refs:clip|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "clip|480p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-module-offload-comfy-refs",
+        "key": "clip|480p",
+        "job": "pro5000-1gpu-36l-module-offload-comfy-refs:clip|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "module",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "clip|480p",
+          "--module-offload"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-layerwise-offload-comfy-refs",
+        "key": "clip|480p",
+        "job": "pro5000-1gpu-36l-layerwise-offload-comfy-refs:clip|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "layerwise",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "clip|480p",
+          "--layerwise-offload"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs",
+        "key": "clip|480p",
+        "job": "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs:clip|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "dit-layerwise",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "clip|480p",
+          "--dit-layerwise-offload"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-comfy-refs",
+        "key": "image|480p",
+        "job": "pro5000-1gpu-36l-comfy-refs:image|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image|480p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-comfy-refs",
+        "key": "image-voice|480p",
+        "job": "pro5000-1gpu-36l-comfy-refs:image-voice|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image-voice|480p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-comfy-refs",
+        "key": "image|768p",
+        "job": "pro5000-1gpu-36l-comfy-refs:image|768p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image|768p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-comfy-refs",
+        "key": "image-voice|768p",
+        "job": "pro5000-1gpu-36l-comfy-refs:image-voice|768p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image-voice|768p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-comfy-refs",
+        "key": "images3|768p",
+        "job": "pro5000-1gpu-36l-comfy-refs:images3|768p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "images3|768p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-comfy-refs",
+        "key": "clip|768p",
+        "job": "pro5000-1gpu-36l-comfy-refs:clip|768p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "clip|768p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-36l-comfy-refs",
+        "key": "video|768p",
+        "job": "pro5000-1gpu-36l-comfy-refs:video|768p",
+        "gpus": [
+          0
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "video|768p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-8l-comfy-refs",
+        "key": "image|480p",
+        "job": "pro5000-1gpu-8l-comfy-refs:image|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image|480p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-8l-comfy-refs",
+        "key": "image-voice|480p",
+        "job": "pro5000-1gpu-8l-comfy-refs:image-voice|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image-voice|480p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-8l-comfy-refs",
+        "key": "images3|480p",
+        "job": "pro5000-1gpu-8l-comfy-refs:images3|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "images3|480p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-8l-comfy-refs",
+        "key": "clip|480p",
+        "job": "pro5000-1gpu-8l-comfy-refs:clip|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "clip|480p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-8l-comfy-refs",
+        "key": "video|480p",
+        "job": "pro5000-1gpu-8l-comfy-refs:video|480p",
+        "gpus": [
+          0
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "video|480p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-8l-comfy-refs",
+        "key": "image|768p",
+        "job": "pro5000-1gpu-8l-comfy-refs:image|768p",
+        "gpus": [
+          0
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image|768p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-8l-comfy-refs",
+        "key": "image-voice|768p",
+        "job": "pro5000-1gpu-8l-comfy-refs:image-voice|768p",
+        "gpus": [
+          0
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image-voice|768p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-8l-comfy-refs",
+        "key": "images3|768p",
+        "job": "pro5000-1gpu-8l-comfy-refs:images3|768p",
+        "gpus": [
+          0
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "images3|768p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-8l-comfy-refs",
+        "key": "clip|768p",
+        "job": "pro5000-1gpu-8l-comfy-refs:clip|768p",
+        "gpus": [
+          0
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "clip|768p"
+        ]
+      },
+      {
+        "id": "pro5000-1gpu-8l-comfy-refs",
+        "key": "video|768p",
+        "job": "pro5000-1gpu-8l-comfy-refs:video|768p",
+        "gpus": [
+          0
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "video|768p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-36l-comfy-refs",
+        "key": "image|480p",
+        "job": "pro5000-4gpu-36l-comfy-refs:image|480p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image|480p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-36l-comfy-refs",
+        "key": "image-voice|480p",
+        "job": "pro5000-4gpu-36l-comfy-refs:image-voice|480p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image-voice|480p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-36l-comfy-refs",
+        "key": "images3|480p",
+        "job": "pro5000-4gpu-36l-comfy-refs:images3|480p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "images3|480p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-36l-comfy-refs",
+        "key": "clip|480p",
+        "job": "pro5000-4gpu-36l-comfy-refs:clip|480p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "clip|480p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-36l-comfy-refs",
+        "key": "video|480p",
+        "job": "pro5000-4gpu-36l-comfy-refs:video|480p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "video|480p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-36l-comfy-refs",
+        "key": "image|768p",
+        "job": "pro5000-4gpu-36l-comfy-refs:image|768p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image|768p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-36l-comfy-refs",
+        "key": "image-voice|768p",
+        "job": "pro5000-4gpu-36l-comfy-refs:image-voice|768p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image-voice|768p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-36l-comfy-refs",
+        "key": "images3|768p",
+        "job": "pro5000-4gpu-36l-comfy-refs:images3|768p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "images3|768p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-36l-comfy-refs",
+        "key": "clip|768p",
+        "job": "pro5000-4gpu-36l-comfy-refs:clip|768p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "clip|768p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-36l-comfy-refs",
+        "key": "video|768p",
+        "job": "pro5000-4gpu-36l-comfy-refs:video|768p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "36l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "36l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "video|768p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-8l-comfy-refs",
+        "key": "image|480p",
+        "job": "pro5000-4gpu-8l-comfy-refs:image|480p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image|480p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-8l-comfy-refs",
+        "key": "image-voice|480p",
+        "job": "pro5000-4gpu-8l-comfy-refs:image-voice|480p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image-voice|480p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-8l-comfy-refs",
+        "key": "images3|480p",
+        "job": "pro5000-4gpu-8l-comfy-refs:images3|480p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "images3|480p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-8l-comfy-refs",
+        "key": "clip|480p",
+        "job": "pro5000-4gpu-8l-comfy-refs:clip|480p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "clip|480p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-8l-comfy-refs",
+        "key": "video|480p",
+        "job": "pro5000-4gpu-8l-comfy-refs:video|480p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "video|480p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-8l-comfy-refs",
+        "key": "image|768p",
+        "job": "pro5000-4gpu-8l-comfy-refs:image|768p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image|768p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-8l-comfy-refs",
+        "key": "image-voice|768p",
+        "job": "pro5000-4gpu-8l-comfy-refs:image-voice|768p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "image-voice|768p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-8l-comfy-refs",
+        "key": "images3|768p",
+        "job": "pro5000-4gpu-8l-comfy-refs:images3|768p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "images3|768p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-8l-comfy-refs",
+        "key": "clip|768p",
+        "job": "pro5000-4gpu-8l-comfy-refs:clip|768p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "clip|768p"
+        ]
+      },
+      {
+        "id": "pro5000-4gpu-8l-comfy-refs",
+        "key": "video|768p",
+        "job": "pro5000-4gpu-8l-comfy-refs:video|768p",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "8l",
+        "mode": "resident",
+        "folder": "comfy-reference-runs",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_omni_local_case.py",
+          "--gpus",
+          "0,1,2,3",
+          "--decoder",
+          "8l",
+          "--reference-policy",
+          "comfy",
+          "--only-key",
+          "video|768p"
+        ]
+      },
+      {
+        "id": "matched-pro5000-4gpu-bf16-original-comfy-refs",
+        "key": null,
+        "job": "matched-pro5000-4gpu-bf16-original-comfy-refs",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "original",
+        "mode": "resident",
+        "folder": "comfy-matched-checkpoints",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_matched_checkpoint_quality.py",
+          "--case",
+          "bf16",
+          "--reference-policy",
+          "comfy"
+        ]
+      },
+      {
+        "id": "matched-pro5000-4gpu-qad-original-comfy-refs",
+        "key": null,
+        "job": "matched-pro5000-4gpu-qad-original-comfy-refs",
+        "gpus": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "decoder": "original",
+        "mode": "resident",
+        "folder": "comfy-matched-checkpoints",
+        "command": [
+          "/lustre/raplab/client/sylarl/fasth3-omni-integration-20261018/pro5000-4gpu-perf-20261021/scripts/run_matched_checkpoint_quality.py",
+          "--case",
+          "qad",
+          "--reference-policy",
+          "comfy"
+        ]
+      }
+    ]
+  },
+  "comfy_status": {
+    "state": "running",
+    "attempted": [
+      {
+        "job": "pro5000-1gpu-36l-comfy-refs:images3|480p",
+        "exit_code": 0,
+        "ended_at": 1792667661.827639
+      }
+    ],
+    "started_at": 1792667512.395525,
+    "current": "pro5000-1gpu-36l-module-offload-comfy-refs:images3|480p",
+    "remaining": [
+      "pro5000-1gpu-36l-module-offload-comfy-refs:images3|480p",
+      "pro5000-1gpu-36l-layerwise-offload-comfy-refs:images3|480p",
+      "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs:images3|480p",
+      "pro5000-1gpu-36l-comfy-refs:video|480p",
+      "pro5000-1gpu-36l-module-offload-comfy-refs:video|480p",
+      "pro5000-1gpu-36l-layerwise-offload-comfy-refs:video|480p",
+      "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs:video|480p",
+      "pro5000-1gpu-36l-comfy-refs:clip|480p",
+      "pro5000-1gpu-36l-module-offload-comfy-refs:clip|480p",
+      "pro5000-1gpu-36l-layerwise-offload-comfy-refs:clip|480p",
+      "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs:clip|480p",
+      "pro5000-1gpu-36l-comfy-refs:image|480p",
+      "pro5000-1gpu-36l-comfy-refs:image-voice|480p",
+      "pro5000-1gpu-36l-comfy-refs:image|768p",
+      "pro5000-1gpu-36l-comfy-refs:image-voice|768p",
+      "pro5000-1gpu-36l-comfy-refs:images3|768p",
+      "pro5000-1gpu-36l-comfy-refs:clip|768p",
+      "pro5000-1gpu-36l-comfy-refs:video|768p",
+      "pro5000-1gpu-8l-comfy-refs:image|480p",
+      "pro5000-1gpu-8l-comfy-refs:image-voice|480p",
+      "pro5000-1gpu-8l-comfy-refs:images3|480p",
+      "pro5000-1gpu-8l-comfy-refs:clip|480p",
+      "pro5000-1gpu-8l-comfy-refs:video|480p",
+      "pro5000-1gpu-8l-comfy-refs:image|768p",
+      "pro5000-1gpu-8l-comfy-refs:image-voice|768p",
+      "pro5000-1gpu-8l-comfy-refs:images3|768p",
+      "pro5000-1gpu-8l-comfy-refs:clip|768p",
+      "pro5000-1gpu-8l-comfy-refs:video|768p",
+      "pro5000-4gpu-36l-comfy-refs:image|480p",
+      "pro5000-4gpu-36l-comfy-refs:image-voice|480p",
+      "pro5000-4gpu-36l-comfy-refs:images3|480p",
+      "pro5000-4gpu-36l-comfy-refs:clip|480p",
+      "pro5000-4gpu-36l-comfy-refs:video|480p",
+      "pro5000-4gpu-36l-comfy-refs:image|768p",
+      "pro5000-4gpu-36l-comfy-refs:image-voice|768p",
+      "pro5000-4gpu-36l-comfy-refs:images3|768p",
+      "pro5000-4gpu-36l-comfy-refs:clip|768p",
+      "pro5000-4gpu-36l-comfy-refs:video|768p",
+      "pro5000-4gpu-8l-comfy-refs:image|480p",
+      "pro5000-4gpu-8l-comfy-refs:image-voice|480p",
+      "pro5000-4gpu-8l-comfy-refs:images3|480p",
+      "pro5000-4gpu-8l-comfy-refs:clip|480p",
+      "pro5000-4gpu-8l-comfy-refs:video|480p",
+      "pro5000-4gpu-8l-comfy-refs:image|768p",
+      "pro5000-4gpu-8l-comfy-refs:image-voice|768p",
+      "pro5000-4gpu-8l-comfy-refs:images3|768p",
+      "pro5000-4gpu-8l-comfy-refs:clip|768p",
+      "pro5000-4gpu-8l-comfy-refs:video|768p",
+      "matched-pro5000-4gpu-bf16-original-comfy-refs",
+      "matched-pro5000-4gpu-qad-original-comfy-refs"
+    ],
+    "updated_at": 1792667665.1078677
+  },
+  "comfy_audit": {
+    "policy": "comfy",
+    "comfy_revision": "8d534945ebd53cff61e8def81757c6a6c1b9cf2d",
+    "source_sha256": "108ceff11e5a5c9a34a57bbc380447cf9941beb673a1bd421abc818de54ccd5c",
+    "dimension_parity": {
+      "video_cases": 6551,
+      "image_cases": 13102,
+      "all_match": true
+    },
+    "images": {
+      "480p": {
+        "original_wh": [
+          [
+            2560,
+            1440
+          ],
+          [
+            2272,
+            1262
+          ],
+          [
+            1920,
+            1080
+          ]
+        ],
+        "prepared_wh": [
+          [
+            832,
+            480
+          ],
+          [
+            832,
+            480
+          ],
+          [
+            832,
+            480
+          ]
+        ],
+        "vision_grid_thw": [
+          [
+            1,
+            30,
+            52
+          ],
+          [
+            1,
+            30,
+            52
+          ],
+          [
+            1,
+            30,
+            52
+          ]
+        ],
+        "text_tokens": 1564,
+        "reference_vae_tokens": 1170,
+        "effective_sequence_length": 17578
+      },
+      "768p": {
+        "original_wh": [
+          [
+            2560,
+            1440
+          ],
+          [
+            2272,
+            1262
+          ],
+          [
+            1920,
+            1080
+          ]
+        ],
+        "prepared_wh": [
+          [
+            1344,
+            768
+          ],
+          [
+            1376,
+            768
+          ],
+          [
+            1344,
+            768
+          ]
+        ],
+        "vision_grid_thw": [
+          [
+            1,
+            48,
+            84
+          ],
+          [
+            1,
+            48,
+            86
+          ],
+          [
+            1,
+            48,
+            84
+          ]
+        ],
+        "text_tokens": 3442,
+        "reference_vae_tokens": 3048,
+        "effective_sequence_length": 44200
+      }
+    },
+    "videos": [
+      {
+        "workload": "clip",
+        "original_wh": [
+          1920,
+          1080
+        ],
+        "original_fps": 24.0,
+        "original_frames": 50,
+        "prepared_wh": [
+          1344,
+          768
+        ],
+        "prepared_frames_before_grid": 50,
+        "vae_frames": 39,
+        "qwen_frame_indices": [
+          0,
+          12,
+          24,
+          36
+        ],
+        "qwen_block_timestamps": [
+          0.25,
+          1.25
+        ],
+        "reference_audio_seconds": 2.083333
+      },
+      {
+        "workload": "video",
+        "original_wh": [
+          1920,
+          1080
+        ],
+        "original_fps": 24.0,
+        "original_frames": 145,
+        "prepared_wh": [
+          1344,
+          768
+        ],
+        "prepared_frames_before_grid": 124,
+        "vae_frames": 124,
+        "qwen_frame_indices": [
+          0,
+          12,
+          24,
+          36,
+          48,
+          60,
+          72,
+          84,
+          96,
+          108,
+          120
+        ],
+        "qwen_block_timestamps": [
+          0.25,
+          1.25,
+          2.25,
+          3.25,
+          4.25,
+          5.0
+        ],
+        "reference_audio_seconds": 6.041667
+      }
+    ],
+    "scope": "Geometry, frame count, 2-fps sampling and reference soundtrack extent follow pinned ComfyUI. This does not establish pixel-identical resize/decode or full model numerical parity.",
+    "video_policy": "Do not enlarge small sources; cap large sources to 768 short edge / 768*1344 pixels; 32 alignment. Input normalized to 24fps, capped at generated frame count, then floored to 17k+5. Qwen samples every 12 frames. Supplied soundtrack retains source-segment duration."
+  },
+  "comfy_runs": [
+    {
+      "id": "pro5000-1gpu-36l-comfy-refs",
+      "state": "partial",
+      "gpus": [
+        0
+      ],
+      "decoder": "36l",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "model": "FastH3-Omni-NVFP4-QAD",
+      "attention": "CAKE Sage: INT8 Q/K, FP8 V",
+      "reference_policy": "comfy",
+      "reference_canvas": "ComfyUI match: down-only to output area, nearest 32; video native/capped canvas and floor to 17k+5 frames",
+      "offload": false,
+      "started_at": 1792667512.9035046,
+      "offload_strategy": "none",
+      "summaries": [
+        {
+          "key": "images3|480p",
+          "workload": "images3",
+          "resolution": "480p",
+          "samples": 3,
+          "e2e_ms": {
+            "mean": 25227.631,
+            "median": 25254.14,
+            "min": 25120.655,
+            "max": 25308.098,
+            "values": [
+              25120.655,
+              25254.14,
+              25308.098
+            ]
+          },
+          "dit_ms": {
+            "mean": 20401.325543876737,
+            "median": 20416.15978209302,
+            "min": 20309.066754300147,
+            "max": 20478.750095237046,
+            "values": [
+              20309.066754300147,
+              20416.15978209302,
+              20478.750095237046
+            ]
+          },
+          "video_vae_ms": {
+            "mean": 3666.366981031994,
+            "median": 3665.644777007401,
+            "min": 3662.017249967903,
+            "max": 3671.438916120678,
+            "values": [
+              3662.017249967903,
+              3665.644777007401,
+              3671.438916120678
+            ]
+          },
+          "server_inference_ms": {
+            "mean": 25117.333333333332,
+            "median": 25144.0,
+            "min": 25012.0,
+            "max": 25196.0,
+            "values": [
+              25012.0,
+              25144.0,
+              25196.0
+            ]
+          },
+          "encode_prompt_ms": {
+            "mean": 251.84901105239987,
+            "median": 247.02223809435964,
+            "min": 246.7919820919633,
+            "max": 261.7328129708767,
+            "values": [
+              261.7328129708767,
+              247.02223809435964,
+              246.7919820919633
+            ]
+          },
+          "reference_encode_ms": {
+            "mean": 471.62387675295275,
+            "median": 471.4173302054405,
+            "min": 471.28094313666224,
+            "max": 472.17335691675544,
+            "values": [
+              472.17335691675544,
+              471.28094313666224,
+              471.4173302054405
+            ]
+          },
+          "memory": {
+            "max_per_gpu_gib": 63.4111328125,
+            "per_gpu_mib": {
+              "0": 64933
+            },
+            "peak_total_gib": 63.4111328125,
+            "requests_with_samples": 3,
+            "requests_expected": 3
+          }
+        }
+      ],
+      "failures": [],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
+      "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
+      "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
+      "ready_at": 1792667558.924344,
+      "validated_sequence_lengths": {
+        "images3|480p": 17578
+      },
+      "ended_at": 1792667660.952569,
+      "request_memory": [
+        {
+          "request": 1,
+          "workload": "images3",
+          "resolution": "480p",
+          "phase": "warmup",
+          "seed": 12345,
+          "status": "complete",
+          "e2e_ms": 25866.053,
+          "started_at": 1792667558.9304757,
+          "ended_at": 1792667584.8349352,
+          "memory": {
+            "max_per_gpu_gib": 63.2509765625,
+            "per_gpu_mib": {
+              "0": 64769
+            },
+            "peak_total_gib": 63.2509765625,
+            "samples": 37,
+            "sampling_interval_s": 0.7027813196182251,
+            "max_sampling_gap_s": 0.7350907325744629,
+            "started_at": 1792667558.9304757,
+            "ended_at": 1792667584.8349352,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        },
+        {
+          "request": 2,
+          "workload": "images3",
+          "resolution": "480p",
+          "phase": "measured",
+          "seed": 0,
+          "status": "complete",
+          "e2e_ms": 25120.655,
+          "started_at": 1792667584.9337249,
+          "ended_at": 1792667610.0626385,
+          "memory": {
+            "max_per_gpu_gib": 63.4111328125,
+            "per_gpu_mib": {
+              "0": 64933
+            },
+            "peak_total_gib": 63.4111328125,
+            "samples": 36,
+            "sampling_interval_s": 0.7027813196182251,
+            "max_sampling_gap_s": 0.834327220916748,
+            "started_at": 1792667584.9337249,
+            "ended_at": 1792667610.0626385,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        },
+        {
+          "request": 3,
+          "workload": "images3",
+          "resolution": "480p",
+          "phase": "measured",
+          "seed": 1,
+          "status": "complete",
+          "e2e_ms": 25254.14,
+          "started_at": 1792667610.1551576,
+          "ended_at": 1792667635.4173338,
+          "memory": {
+            "max_per_gpu_gib": 63.3076171875,
+            "per_gpu_mib": {
+              "0": 64827
+            },
+            "peak_total_gib": 63.3076171875,
+            "samples": 35,
+            "sampling_interval_s": 0.7027813196182251,
+            "max_sampling_gap_s": 0.7668392658233643,
+            "started_at": 1792667610.1551576,
+            "ended_at": 1792667635.4173338,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        },
+        {
+          "request": 4,
+          "workload": "images3",
+          "resolution": "480p",
+          "phase": "measured",
+          "seed": 2,
+          "status": "complete",
+          "e2e_ms": 25308.098,
+          "started_at": 1792667635.516445,
+          "ended_at": 1792667660.8327878,
+          "memory": {
+            "max_per_gpu_gib": 63.3076171875,
+            "per_gpu_mib": {
+              "0": 64827
+            },
+            "peak_total_gib": 63.3076171875,
+            "samples": 36,
+            "sampling_interval_s": 0.7027813196182251,
+            "max_sampling_gap_s": 0.7499973773956299,
+            "started_at": 1792667635.516445,
+            "ended_at": 1792667660.8327878,
+            "bounds_source": "request_timestamps",
+            "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+          },
+          "memory_status": "sampled"
+        }
+      ],
+      "memory": {
+        "max_per_gpu_gib": 63.4111328125,
+        "per_gpu_mib": {
+          "0": 64933
+        },
+        "peak_total_gib": 63.4111328125,
+        "requests_with_samples": 3,
+        "requests_expected": 3
+      },
+      "media": {
+        "images3|480p": "media/pro5000-1gpu-36l-comfy-refs-images3-480p-seed0.mp4",
+        "images3|480p|seed1": "media/pro5000-1gpu-36l-comfy-refs-images3-480p-seed1.mp4",
+        "images3|480p|seed2": "media/pro5000-1gpu-36l-comfy-refs-images3-480p-seed2.mp4"
+      },
+      "output_hashes": {
+        "images3|480p": "47b4580c9cc0c6500dc14d05021b18fcc11c2966ffcf1cd88f23948aeaaa3a9d",
+        "images3|480p|seed1": "345624b48efc871a5eabb21979d162cd997331541efcde08ee1483d90baefe6f",
+        "images3|480p|seed2": "2bb3ff437c47927e810129b915caee7eeb4735675b88b7b7bb4a4219dbdb7ea5"
+      },
+      "config_url": "configs/pro5000-1gpu-36l-comfy-refs.yaml"
+    },
+    {
+      "id": "pro5000-1gpu-36l-dit-layerwise-offload-comfy-refs",
+      "state": "pending",
+      "summaries": [],
+      "request_memory": [],
+      "memory": null,
+      "media": {},
+      "output_hashes": {}
+    },
+    {
+      "id": "pro5000-1gpu-36l-layerwise-offload-comfy-refs",
+      "state": "pending",
+      "summaries": [],
+      "request_memory": [],
+      "memory": null,
+      "media": {},
+      "output_hashes": {}
+    },
+    {
+      "id": "pro5000-1gpu-36l-module-offload-comfy-refs",
+      "state": "measuring",
+      "gpus": [
+        0
+      ],
+      "decoder": "36l",
+      "checkpoint_revision": "f01e6a23ac6066aa9eb622cf94b6259442e70ec2",
+      "model": "FastH3-Omni-NVFP4-QAD",
+      "attention": "CAKE Sage: INT8 Q/K, FP8 V",
+      "reference_policy": "comfy",
+      "reference_canvas": "ComfyUI match: down-only to output area, nearest 32; video native/capped canvas and floor to 17k+5 frames",
+      "offload": true,
+      "started_at": 1792667665.3819785,
+      "offload_strategy": "model_level",
+      "summaries": [],
+      "failures": [],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "timing": "HTTP request to complete MP4, one excluded warmup per input and resolution, then seeds 0/1/2. Model loading excluded.",
+      "source_article": "https://haoailab.com/blogs/fasth3-omni-local/",
+      "runtime_revision": "c67204da85acd701a4b85c105843e287205800ec",
+      "current": "images3|480p",
+      "ready_at": 1792667711.400845,
+      "active_request": {
+        "phase": "warmup",
+        "seed": 12345,
+        "started_at": 1792667711.4045858
+      },
+      "request_memory": [],
+      "memory": null,
+      "media": {},
+      "output_hashes": {},
+      "config_url": "configs/pro5000-1gpu-36l-module-offload-comfy-refs.yaml"
+    },
+    {
+      "id": "pro5000-1gpu-8l-comfy-refs",
+      "state": "pending",
+      "summaries": [],
+      "request_memory": [],
+      "memory": null,
+      "media": {},
+      "output_hashes": {}
+    },
+    {
+      "id": "pro5000-4gpu-36l-comfy-refs",
+      "state": "pending",
+      "summaries": [],
+      "request_memory": [],
+      "memory": null,
+      "media": {},
+      "output_hashes": {}
+    },
+    {
+      "id": "pro5000-4gpu-8l-comfy-refs",
+      "state": "pending",
+      "summaries": [],
+      "request_memory": [],
+      "memory": null,
+      "media": {},
+      "output_hashes": {}
+    }
+  ],
+  "comfy_matched_runs": [
+    {
+      "id": "matched-pro5000-4gpu-bf16-original-comfy-refs",
+      "state": "pending",
+      "summaries": [],
+      "request_memory": [],
+      "memory": null,
+      "media": {},
+      "output_hashes": {}
+    },
+    {
+      "id": "matched-pro5000-4gpu-qad-original-comfy-refs",
+      "state": "pending",
+      "summaries": [],
+      "request_memory": [],
+      "memory": null,
+      "media": {},
+      "output_hashes": {}
+    }
+  ],
   "reference_canvas_audit": {
     "workload": "images3",
     "output": [
@@ -27741,6 +29533,122 @@
         "max_sampling_gap_s": 0.7825427055358887,
         "started_at": 1792667014.3017101,
         "ended_at": 1792667081.6042485,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "comfy_runs",
+      "configuration": "pro5000-1gpu-36l-comfy-refs",
+      "gpu_count": 1,
+      "request": 1,
+      "workload": "images3",
+      "resolution": "480p",
+      "phase": "warmup",
+      "seed": 12345,
+      "status": "complete",
+      "e2e_ms": 25866.053,
+      "started_at": 1792667558.9304757,
+      "ended_at": 1792667584.8349352,
+      "memory": {
+        "max_per_gpu_gib": 63.2509765625,
+        "per_gpu_mib": {
+          "0": 64769
+        },
+        "peak_total_gib": 63.2509765625,
+        "samples": 37,
+        "sampling_interval_s": 0.7027813196182251,
+        "max_sampling_gap_s": 0.7350907325744629,
+        "started_at": 1792667558.9304757,
+        "ended_at": 1792667584.8349352,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "comfy_runs",
+      "configuration": "pro5000-1gpu-36l-comfy-refs",
+      "gpu_count": 1,
+      "request": 2,
+      "workload": "images3",
+      "resolution": "480p",
+      "phase": "measured",
+      "seed": 0,
+      "status": "complete",
+      "e2e_ms": 25120.655,
+      "started_at": 1792667584.9337249,
+      "ended_at": 1792667610.0626385,
+      "memory": {
+        "max_per_gpu_gib": 63.4111328125,
+        "per_gpu_mib": {
+          "0": 64933
+        },
+        "peak_total_gib": 63.4111328125,
+        "samples": 36,
+        "sampling_interval_s": 0.7027813196182251,
+        "max_sampling_gap_s": 0.834327220916748,
+        "started_at": 1792667584.9337249,
+        "ended_at": 1792667610.0626385,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "comfy_runs",
+      "configuration": "pro5000-1gpu-36l-comfy-refs",
+      "gpu_count": 1,
+      "request": 3,
+      "workload": "images3",
+      "resolution": "480p",
+      "phase": "measured",
+      "seed": 1,
+      "status": "complete",
+      "e2e_ms": 25254.14,
+      "started_at": 1792667610.1551576,
+      "ended_at": 1792667635.4173338,
+      "memory": {
+        "max_per_gpu_gib": 63.3076171875,
+        "per_gpu_mib": {
+          "0": 64827
+        },
+        "peak_total_gib": 63.3076171875,
+        "samples": 35,
+        "sampling_interval_s": 0.7027813196182251,
+        "max_sampling_gap_s": 0.7668392658233643,
+        "started_at": 1792667610.1551576,
+        "ended_at": 1792667635.4173338,
+        "bounds_source": "request_timestamps",
+        "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
+      },
+      "memory_status": "sampled"
+    },
+    {
+      "study": "comfy_runs",
+      "configuration": "pro5000-1gpu-36l-comfy-refs",
+      "gpu_count": 1,
+      "request": 4,
+      "workload": "images3",
+      "resolution": "480p",
+      "phase": "measured",
+      "seed": 2,
+      "status": "complete",
+      "e2e_ms": 25308.098,
+      "started_at": 1792667635.516445,
+      "ended_at": 1792667660.8327878,
+      "memory": {
+        "max_per_gpu_gib": 63.3076171875,
+        "per_gpu_mib": {
+          "0": 64827
+        },
+        "peak_total_gib": 63.3076171875,
+        "samples": 36,
+        "sampling_interval_s": 0.7027813196182251,
+        "max_sampling_gap_s": 0.7499973773956299,
+        "started_at": 1792667635.516445,
+        "ended_at": 1792667660.8327878,
         "bounds_source": "request_timestamps",
         "measurement": "nvidia-smi device memory.used; sampled, not allocator high-water mark"
       },
