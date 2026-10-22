@@ -1,0 +1,3 @@
+framework,configuration,workload,resolution,decoder,samples,e2e_mean_s,dit_mean_s,video_decode_mean_s,cpu_offload,reference_transport
+vLLM-Omni,pro5000-4gpu-36l,image,480p,36l,3,24.336906333333335,19.747446891386062,0.9683337475483617,False,Multipart uploads of original reference bytes
+vLLM-Omni,pro5000-4gpu-36l,image,768p,36l,3,42.22483833333333,36.12217675444359,2.257186363606403,False,Multipart uploads of original reference bytes
