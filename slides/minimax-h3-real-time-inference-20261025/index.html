@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Real-Time Video Generation with MiniMax H3</title>
+  <title>Real-Time Video Generation With MiniMax H3</title>
   <style>
-    :root { color-scheme: light; --green:#76b900; --ink:#111; --gray:#666; --line:#d8d8d8; }
+    :root { color-scheme: light; --green:#76b900; --ink:#000; --gray:#313131; --line:#a7a7a7; }
     * { box-sizing:border-box; }
     body { margin:0; font:16px/1.5 Arial,Helvetica,sans-serif; color:var(--ink); background:#fff; }
     main { width:min(920px,calc(100% - 40px)); margin:72px auto; }
@@ -13,7 +13,7 @@
     h1 { margin:0 0 10px; font-size:clamp(34px,5vw,58px); line-height:1.04; letter-spacing:-.025em; }
     .sub { margin:0 0 38px; color:var(--gray); font-size:18px; }
     .downloads { display:flex; flex-wrap:wrap; gap:12px; margin:0 0 36px; }
-    a.button { display:inline-block; padding:13px 18px; border:2px solid var(--green); color:#111; font-weight:700; text-decoration:none; }
+    a.button { display:inline-block; padding:13px 18px; border:2px solid var(--green); color:#000; font-weight:700; text-decoration:none; }
     a.button.primary { color:#fff; background:var(--green); }
     table { width:100%; border-collapse:collapse; margin:24px 0 34px; }
     th,td { padding:12px 10px; border-bottom:1px solid var(--line); text-align:left; }
@@ -26,16 +26,17 @@
 <body>
   <main>
     <div class="rule"></div>
-    <h1>Real-Time Video Generation with MiniMax H3</h1>
-    <p class="sub">NVIDIA public-slide edition · v1.4 · 14 slides · updated 25 October 2026</p>
+    <h1>Real-Time Video Generation With MiniMax H3</h1>
+    <p class="sub">NVIDIA public-slide edition · v1.5 · 15 slides · updated 25 October 2026</p>
     <div class="downloads">
-      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.4.pptx" download>Download PPTX</a>
-      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.4.pdf" download>Download PDF</a>
-      <a class="button" href="slide-06-latency-breakdown-v1.4.png">View Slide 6</a>
+      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.5.pptx" download>Download PPTX</a>
+      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.5.pdf" download>Download PDF</a>
+      <a class="button" href="contact-sheet-v1.5.png">View All Slides</a>
+      <a class="button" href="slide-06-latency-breakdown-v1.5.png">View Slide 6</a>
       <a class="button" href="SHA256SUMS.txt">SHA-256</a>
     </div>
     <table>
-      <thead><tr><th>Latency breakdown</th><th>Avg. time / GPU</th><th>Share</th></tr></thead>
+      <thead><tr><th>Latency Breakdown</th><th>Mean Time per GPU</th><th>Share</th></tr></thead>
       <tbody>
         <tr><td><strong>Repeated DiT loop</strong></td><td><strong>237.7 s</strong></td><td><strong>95.7%</strong></td></tr>
         <tr><td>↳ Communication + movement</td><td>153.2 s</td><td>61.7%</td></tr>
