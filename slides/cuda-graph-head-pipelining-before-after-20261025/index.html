@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CUDA Graph for Head Pipelining</title>
+  <style>
+    :root { --green:#76b900; --dark:#313131; --gray:#a7a7a7; --light:#f7f7f7; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--dark); background:var(--light); font-family:Arial,Helvetica,sans-serif; }
+    main { width:min(1200px,calc(100% - 32px)); margin:36px auto 64px; }
+    h1 { margin:0 0 8px; color:#000; font-size:clamp(30px,4vw,52px); line-height:1.05; }
+    p { margin:0 0 24px; font-size:18px; line-height:1.5; }
+    nav { display:flex; flex-wrap:wrap; gap:12px; margin:0 0 28px; }
+    a { display:inline-block; padding:12px 18px; color:#000; background:#fff; border:1px solid var(--gray); text-decoration:none; font-weight:700; }
+    a.primary { background:var(--green); border-color:var(--green); }
+    img { display:block; width:100%; height:auto; background:#fff; border:1px solid var(--gray); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>CUDA Graph for Head Pipelining</h1>
+    <p>All-head replay cuts launch gaps; head bands expose communication–compute overlap.</p>
+    <nav>
+      <a class="primary" href="CUDA_Graph_Head_Pipelining_Before_After_NVIDIA.pptx" download>Download PPTX</a>
+      <a href="CUDA_Graph_Head_Pipelining_Before_After_NVIDIA.pdf" download>Download PDF</a>
+      <a href="diagram.png" download>Download diagram</a>
+    </nav>
+    <img src="preview.png" alt="NVIDIA-style slide comparing all-head CUDA Graph with head-batched CUDA Graph timelines">
+  </main>
+</body>
+</html>
