@@ -14,19 +14,29 @@
     nav { display:flex; flex-wrap:wrap; gap:12px; margin:0 0 28px; }
     a { display:inline-block; padding:12px 18px; color:#000; background:#fff; border:1px solid var(--gray); text-decoration:none; font-weight:700; }
     a.primary { background:var(--green); border-color:var(--green); }
+    section { margin-top:24px; }
+    h2 { margin:0 0 10px; color:#000; font-size:24px; }
     img { display:block; width:100%; height:auto; background:#fff; border:1px solid var(--gray); }
   </style>
 </head>
 <body>
   <main>
     <h1>CUDA Graph for Head Pipelining</h1>
-    <p>All-head replay cuts launch gaps; head bands expose communication–compute overlap.</p>
+    <p>Two NVIDIA-style slides cover head-pipelined replay and shape-aware Graph reuse for video generation.</p>
     <nav>
-      <a class="primary" href="CUDA_Graph_Head_Pipelining_Before_After_NVIDIA.pptx" download>Download PPTX</a>
-      <a href="CUDA_Graph_Head_Pipelining_Before_After_NVIDIA.pdf" download>Download PDF</a>
+      <a class="primary" href="CUDA_Graph_Head_Pipelining_and_Video_Profile_NVIDIA.pptx" download>Download two-slide PPTX</a>
+      <a href="CUDA_Graph_Head_Pipelining_and_Video_Profile_NVIDIA.pdf" download>Download two-slide PDF</a>
+      <a href="CUDA_Graph_Head_Pipelining_Before_After_NVIDIA.pptx" download>Download Before / After slide</a>
       <a href="diagram.png" download>Download diagram</a>
     </nav>
-    <img src="preview.png" alt="NVIDIA-style slide comparing all-head CUDA Graph with head-batched CUDA Graph timelines">
+    <section>
+      <h2>1 · CUDA Graph for Head Pipelining</h2>
+      <img src="preview.png" alt="NVIDIA-style slide comparing all-head CUDA Graph with head-batched CUDA Graph timelines">
+    </section>
+    <section>
+      <h2>2 · CUDA Graph Reuse Depends on the Video Profile</h2>
+      <img src="shape-cache.png" alt="NVIDIA-style comparison of LLM decode and H3 video CUDA Graph reuse">
+    </section>
   </main>
 </body>
 </html>
