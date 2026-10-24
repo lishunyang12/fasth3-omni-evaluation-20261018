@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Real-Time Video Generation with MiniMax H3</title>
+  <style>
+    :root { color-scheme: light; --green:#76b900; --ink:#111; --gray:#666; --line:#d8d8d8; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 Arial,Helvetica,sans-serif; color:var(--ink); background:#fff; }
+    main { width:min(920px,calc(100% - 40px)); margin:72px auto; }
+    .rule { width:72px; height:6px; margin-bottom:28px; background:var(--green); }
+    h1 { margin:0 0 10px; font-size:clamp(34px,5vw,58px); line-height:1.04; letter-spacing:-.025em; }
+    .sub { margin:0 0 38px; color:var(--gray); font-size:18px; }
+    .downloads { display:flex; flex-wrap:wrap; gap:12px; margin:0 0 36px; }
+    a.button { display:inline-block; padding:13px 18px; border:2px solid var(--green); color:#111; font-weight:700; text-decoration:none; }
+    a.button.primary { color:#fff; background:var(--green); }
+    table { width:100%; border-collapse:collapse; margin:24px 0 34px; }
+    th,td { padding:12px 10px; border-bottom:1px solid var(--line); text-align:left; }
+    th { color:var(--green); font-size:13px; letter-spacing:.04em; text-transform:uppercase; }
+    td:nth-child(2),td:nth-child(3) { text-align:right; font-variant-numeric:tabular-nums; }
+    .note { color:var(--gray); font-size:14px; }
+    code { overflow-wrap:anywhere; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="rule"></div>
+    <h1>Real-Time Video Generation with MiniMax H3</h1>
+    <p class="sub">NVIDIA public-slide edition · 14 slides · updated 25 October 2026</p>
+    <div class="downloads">
+      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.0.pptx" download>Download PPTX</a>
+      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.0.pdf" download>Download PDF</a>
+      <a class="button" href="SHA256SUMS.txt">SHA-256</a>
+    </div>
+    <table>
+      <thead><tr><th>Locked Base50 finding</th><th>Mean s/GPU</th><th>GPU operation-time share</th></tr></thead>
+      <tbody>
+        <tr><td>DiT NCCL collectives</td><td>114.7</td><td>46.2%</td></tr>
+        <tr><td>DiT attention</td><td>45.3</td><td>18.3%</td></tr>
+        <tr><td>DiT GEMM / MLP</td><td>39.2</td><td>15.8%</td></tr>
+        <tr><td>DiT H→D / layout</td><td>38.5</td><td>15.5%</td></tr>
+        <tr><td>VAE + other</td><td>10.6</td><td>4.3%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">The Nsight denominator is kernel + memcpy + memset duration summed across eight RTX PRO 5000 GPUs. Shares describe aggregate GPU operation time, not end-to-end critical-path latency; NCCL kernel time includes synchronization and waiting.</p>
+  </main>
+</body>
+</html>
