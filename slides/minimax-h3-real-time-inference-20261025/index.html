@@ -27,26 +27,31 @@
   <main>
     <div class="rule"></div>
     <h1>Real-Time Video Generation With MiniMax H3</h1>
-    <p class="sub">NVIDIA public-slide edition · v1.5 · 15 slides · updated 25 October 2026</p>
+    <p class="sub">NVIDIA public-slide edition · v1.6 · 15 slides · updated 25 October 2026</p>
     <div class="downloads">
-      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.5.pptx" download>Download PPTX</a>
-      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.5.pdf" download>Download PDF</a>
-      <a class="button" href="contact-sheet-v1.5.png">View All Slides</a>
-      <a class="button" href="slide-06-latency-breakdown-v1.5.png">View Slide 6</a>
+      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.6.pptx" download>Download PPTX</a>
+      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.6.pdf" download>Download PDF</a>
+      <a class="button" href="contact-sheet-v1.6.png">View All Slides</a>
+      <a class="button" href="slide-06-latency-breakdown-v1.6.png">View Slide 6</a>
+      <a class="button" href="slide-07-pdd-v1.6.png">View Slide 7</a>
+      <a class="button" href="slide-08-vsa-v1.6.png">View Slide 8</a>
       <a class="button" href="SHA256SUMS.txt">SHA-256</a>
     </div>
     <table>
       <thead><tr><th>Latency Breakdown</th><th>Mean Time per GPU</th><th>Share</th></tr></thead>
       <tbody>
-        <tr><td><strong>Repeated DiT loop</strong></td><td><strong>237.7 s</strong></td><td><strong>95.7%</strong></td></tr>
-        <tr><td>↳ Communication + movement</td><td>153.2 s</td><td>61.7%</td></tr>
-        <tr><td>&nbsp;&nbsp;&nbsp;↳ DiT USP8 all-to-all (NCCL)</td><td>114.7 s</td><td>46.2%</td></tr>
-        <tr><td>&nbsp;&nbsp;&nbsp;↳ AdaLN cache misses + layout</td><td>38.5 s</td><td>15.5%</td></tr>
-        <tr><td>↳ Tensor compute</td><td>84.5 s</td><td>34.0%</td></tr>
-        <tr><td><strong>Encoders + VAE + other</strong></td><td><strong>10.6 s</strong></td><td><strong>4.3%</strong></td></tr>
+        <tr><td><strong>Mean GPU timeline</strong></td><td><strong>250.0 s</strong></td><td><strong>100.0%</strong></td></tr>
+        <tr><td>↳ NCCL communication</td><td>123.0 s</td><td>49.2%</td></tr>
+        <tr><td>&nbsp;&nbsp;&nbsp;↳ DiT collectives</td><td>116.1 s</td><td>46.4%</td></tr>
+        <tr><td>&nbsp;&nbsp;&nbsp;↳ Encoder, VAE, and other collectives</td><td>7.0 s</td><td>2.8%</td></tr>
+        <tr><td>↳ Tensor compute</td><td>84.5 s</td><td>33.8%</td></tr>
+        <tr><td>&nbsp;&nbsp;&nbsp;↳ Attention</td><td>45.3 s</td><td>18.1%</td></tr>
+        <tr><td>&nbsp;&nbsp;&nbsp;↳ GEMM / MLP</td><td>39.2 s</td><td>15.7%</td></tr>
+        <tr><td>↳ Local H→D staging + layout</td><td>38.5 s</td><td>15.4%</td></tr>
+        <tr><td>↳ Encoder, VAE, and other GPU work</td><td>4.0 s</td><td>1.6%</td></tr>
       </tbody>
     </table>
-    <p class="note">Base50 median end-to-end latency is 248 seconds for 5.17 seconds of output. This trace uses a partial AdaLN cache; a full schedule-precompute rerun is pending. NCCL time includes synchronization and peer waiting.</p>
+    <p class="note">Matched Nsight request: 252.773 seconds for 5.167 seconds of output, RTF 48.924. NCCL time includes synchronization and peer wait. Local H→D staging and layout are reported separately.</p>
   </main>
 </body>
 </html>
