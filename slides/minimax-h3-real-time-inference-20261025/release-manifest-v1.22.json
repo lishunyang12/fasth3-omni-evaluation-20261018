@@ -1,0 +1,142 @@
+{
+  "version": "v1.22",
+  "date": "2026-10-26",
+  "slide_count": 22,
+  "revised_slide": 16,
+  "inserted_slide": 17,
+  "unchanged_existing_content_except_page_numbers": true,
+  "comparison": {
+    "summary": [
+      {
+        "sequence": 15104,
+        "route": "nccl",
+        "samples": 90,
+        "median_ms": 5.5599215,
+        "p10_ms": 5.464282000000001,
+        "p90_ms": 5.776382,
+        "round_medians_ms": [
+          5.5446314999999995,
+          5.5613515,
+          5.569026
+        ],
+        "TX_bytes_per_GPU": 94732288,
+        "effective_TX_GBps_per_GPU": 17.038421855416484
+      },
+      {
+        "sequence": 15104,
+        "route": "rdma",
+        "samples": 90,
+        "median_ms": 2.3746525,
+        "p10_ms": 2.3610830000000003,
+        "p90_ms": 2.387686,
+        "round_medians_ms": [
+          2.3754575,
+          2.3743675,
+          2.3743375
+        ],
+        "TX_bytes_per_GPU": 94732288,
+        "effective_TX_GBps_per_GPU": 39.893116150678885
+      },
+      {
+        "sequence": 32768,
+        "route": "nccl",
+        "samples": 90,
+        "median_ms": 12.123344,
+        "p10_ms": 11.8987111,
+        "p90_ms": 12.4382989,
+        "round_medians_ms": [
+          12.0223615,
+          12.136538999999999,
+          12.241837499999999
+        ],
+        "TX_bytes_per_GPU": 205520896,
+        "effective_TX_GBps_per_GPU": 16.952492315651526
+      },
+      {
+        "sequence": 32768,
+        "route": "rdma",
+        "samples": 90,
+        "median_ms": 4.9158825,
+        "p10_ms": 4.904389,
+        "p90_ms": 4.929872,
+        "round_medians_ms": [
+          4.916513,
+          4.918573,
+          4.9130175000000005
+        ],
+        "TX_bytes_per_GPU": 205520896,
+        "effective_TX_GBps_per_GPU": 41.80752814982864
+      },
+      {
+        "sequence": 65536,
+        "route": "nccl",
+        "samples": 90,
+        "median_ms": 22.4714855,
+        "p10_ms": 21.618092100000002,
+        "p90_ms": 23.0818239,
+        "round_medians_ms": [
+          22.239369500000002,
+          22.4875045,
+          22.560588000000003
+        ],
+        "TX_bytes_per_GPU": 411041792,
+        "effective_TX_GBps_per_GPU": 18.2917053703459
+      },
+      {
+        "sequence": 65536,
+        "route": "rdma",
+        "samples": 90,
+        "median_ms": 9.6350585,
+        "p10_ms": 9.622725099999998,
+        "p90_ms": 9.661646,
+        "round_medians_ms": [
+          9.634298000000001,
+          9.639059,
+          9.631359
+        ],
+        "TX_bytes_per_GPU": 411041792,
+        "effective_TX_GBps_per_GPU": 42.661058259272636
+      }
+    ],
+    "measurement": {
+      "gpus": 8,
+      "heads": 56,
+      "head_dim": 128,
+      "batch": 1,
+      "dtype": "BF16",
+      "calls": "3 scatter Q/K/V + 1 gather O",
+      "statistics": "3 process rounds x 30 interleaved individual-call samples; pooled median of rank-max time",
+      "scope": "Unmodified AST-extracted original vLLM-Omni all_to_all_4D, eager execution; local-only NCCL config; ordinary inputs; includes layout, RDMA input staging, allocations and synchronization; no attention/GEMM or full-model torch.compile",
+      "correctness": "exact before timing and again after changing all inputs",
+      "local_nccl_environment": {
+        "NCCL_IB_DISABLE": "1",
+        "NCCL_NET_DISABLE_INTRA": "1",
+        "NCCL_P2P_DISABLE": "0",
+        "NCCL_SHM_DISABLE": "0"
+      },
+      "e2e_scope": "Not a rerun of historical E2E; NET_DISABLE_INTRA is an explicit additional local-only control",
+      "limitations": "clocks not locked; idle-gated SGLang service remains on GPUs4\u20137; pmon dashes are unavailable readings"
+    },
+    "ceilings": {
+      "pcie_host_uplink_GBps": 63.01538461538462,
+      "pcie_uplink_only_B_GBps_per_GPU": 36.75897435897436,
+      "cross_NUMA_constraint": "4 * B * 4/7 <= C_xGMI_effective; B <= 7*C/16",
+      "pcie_combined_constraint": "B <= min(36.76, 7*C/16) GB/s/GPU",
+      "all_rdma_B_GBps_per_GPU": 50,
+      "all_rdma_constraint": "B <= min(GPU PCIe 63.015, shared NIC PCIe 128/2, port 400/8) = 50",
+      "network_assumption": "all remote peers use the assigned 400G port; physical counter probes support this for the tested all-RDMA configuration",
+      "scope": "optimistic necessary capacity bounds, not predicted or measured throughput; balanced equal-size eight-rank all-to-all"
+    },
+    "source_sha256": "c2fde22afc97e6d027454c56e181d1faa9d2895d0f96ab551473ae4b8333b4b2"
+  },
+  "pptx_sha256": "e8659c5f2d6f3e6572caafa6732f0860bd04bc07df707e34af65519c64de0600",
+  "pdf_sha256": "57ffdcc1e571e644bfbea645c5779c5dadd8e9cff7e9af8bf59725524762a285",
+  "source_commit": "63487a7f22db603adefcdac378cfe2a26f6bcb7c",
+  "source_sha256": {
+    "vllm_omni/diffusion/distributed/comm.py": "daac23a33e8110c3f42f56cf6d02492542e3625361c39f9be113ee4d5bedbf5c",
+    "vllm_omni/diffusion/attention/parallel/ulysses.py": "60fbf76ef12e6f93d5e375f6fd6b35acfc84bc7894984ba756d237ddc8320e33",
+    "vllm_omni/diffusion/attention/layer.py": "bbb1b74e2c39e175d8d225dcf52ee674a18cdfb30be4451f39833721c9793648",
+    "vllm_omni/diffusion/attention/parallel/factory.py": "856d284ccf849d21c951f4ec99bf50e3c61baaa6b611133b5e80918e5f85e856"
+  },
+  "publication": "GitHub Pages"
+}
