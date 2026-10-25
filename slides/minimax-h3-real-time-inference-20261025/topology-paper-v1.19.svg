@@ -1,0 +1,719 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="650" viewBox="0.00 0.00 1600.00 650.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(0 650)">
+<title>topology</title>
+<polygon fill="white" stroke="transparent" points="0,0 0,-650 1600,-650 1600,0 0,0" />
+
+<rect x="20" y="-646" width="710" height="540" fill="#F7F7F7" stroke="none" /><rect x="870" y="-646" width="710" height="540" fill="#F7F7F7" stroke="none" /><g id="edge1" class="edge">
+<title>canvas_0--canvas_1</title>
+<path fill="none" stroke="transparent" stroke-width="0" d="M0.07,-649.97C12.43,-644.95 1587.62,-5.03 1599.93,-0.03" />
+</g>
+
+<g id="edge2" class="edge">
+<title>memory0_0--memory0_1</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M239.07,-570C241.93,-570 332.12,-570 334.93,-570" />
+</g>
+
+<g id="edge3" class="edge">
+<title>memory1_0--memory1_1</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M1265.07,-570C1267.93,-570 1358.12,-570 1360.93,-570" />
+</g>
+
+<g id="edge4" class="edge">
+<title>cpu_link_0--cpu_link_1</title>
+<path fill="none" stroke="#313131" stroke-width="2" d="M615.07,-570C620.71,-570 979.33,-570 984.93,-570" />
+</g>
+
+<g id="edge5" class="edge">
+<title>cpu_uplink_left0_0--cpu_uplink_left0_1</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M405,-537.92C405,-536.39 405,-512.56 405,-511.07" />
+</g>
+
+<g id="edge6" class="edge">
+<title>cpu_uplink_left0_1--cpu_uplink_left0_2</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M404.94,-511C399.67,-511 65.29,-511 60.06,-511" />
+</g>
+
+<g id="edge7" class="edge">
+<title>cpu_uplink_left0_2--cpu_uplink_left0_3</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M60,-510.9C60,-506.69 60,-374.24 60,-370.1" />
+</g>
+
+<g id="edge8" class="edge">
+<title>cpu_uplink_left0_3--cpu_uplink_left0_4</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M60.14,-370C62.98,-370 107.11,-370 109.87,-370" />
+</g>
+
+<g id="edge9" class="edge">
+<title>cpu_uplink_right0_0--cpu_uplink_right0_1</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M545,-537.92C545,-536.39 545,-512.56 545,-511.07" />
+</g>
+
+<g id="edge10" class="edge">
+<title>cpu_uplink_right0_1--cpu_uplink_right0_2</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M544.91,-511C541.18,-511 423.76,-511 420.09,-511" />
+</g>
+
+<g id="edge11" class="edge">
+<title>cpu_uplink_right0_2--cpu_uplink_right0_3</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M420,-510.9C420,-506.69 420,-374.24 420,-370.1" />
+</g>
+
+<g id="edge12" class="edge">
+<title>cpu_uplink_right0_3--cpu_uplink_right0_4</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M420.14,-370C422.98,-370 467.11,-370 469.87,-370" />
+</g>
+
+<g id="edge13" class="edge">
+<title>cpu_uplink_left1_0--cpu_uplink_left1_1</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M1055,-537.92C1055,-536.39 1055,-512.56 1055,-511.07" />
+</g>
+
+<g id="edge14" class="edge">
+<title>cpu_uplink_left1_1--cpu_uplink_left1_2</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M1054.87,-511C1049.35,-511 875.56,-511 870.13,-511" />
+</g>
+
+<g id="edge15" class="edge">
+<title>cpu_uplink_left1_2--cpu_uplink_left1_3</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M870,-510.9C870,-506.69 870,-374.24 870,-370.1" />
+</g>
+
+<g id="edge16" class="edge">
+<title>cpu_uplink_left1_3--cpu_uplink_left1_4</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M870.14,-370C872.98,-370 917.11,-370 919.87,-370" />
+</g>
+
+<g id="edge17" class="edge">
+<title>cpu_uplink_right1_0--cpu_uplink_right1_1</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M1195,-537.92C1195,-536.39 1195,-512.56 1195,-511.07" />
+</g>
+
+<g id="edge18" class="edge">
+<title>cpu_uplink_right1_1--cpu_uplink_right1_2</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M1195.1,-511C1197.09,-511 1227.98,-511 1229.91,-511" />
+</g>
+
+<g id="edge19" class="edge">
+<title>cpu_uplink_right1_2--cpu_uplink_right1_3</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M1230,-510.9C1230,-506.69 1230,-374.24 1230,-370.1" />
+</g>
+
+<g id="edge20" class="edge">
+<title>cpu_uplink_right1_3--cpu_uplink_right1_4</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M1230.14,-370C1232.98,-370 1277.11,-370 1279.87,-370" />
+</g>
+
+<g id="edge21" class="edge">
+<title>internal_nic0_0--internal_nic0_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M215,-346.94C215,-345.69 215,-326.27 215,-325.06" />
+</g>
+
+<g id="edge22" class="edge">
+<title>gpu_branch0_0--gpu_branch0_1</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M145,-346.95C145,-346.07 145,-332.82 145,-331.17" />
+</g>
+
+<g id="edge23" class="edge">
+<title>gpu_branch0_1--gpu_branch0_2</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M144.95,-331C142.71,-331 72.25,-331 70.05,-331" />
+</g>
+
+<g id="edge24" class="edge">
+<title>gpu_branch0_2--gpu_branch0_3</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M70,-330.91C70,-327.18 70,-209.76 70,-206.09" />
+</g>
+
+<g id="edge25" class="edge">
+<title>gpu_branch0_3--gpu_branch0_4</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M70.05,-206C71.92,-206 131.11,-206 132.96,-206" />
+</g>
+
+<g id="edge26" class="edge">
+<title>gpu_branch0_4--gpu_branch0_5</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M133,-205.94C133,-204.75 133,-186.21 133,-185.06" />
+</g>
+
+<g id="edge27" class="edge">
+<title>gpu_branch1_0--gpu_branch1_1</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M285,-346.95C285,-346.07 285,-332.82 285,-331.17" />
+</g>
+
+<g id="edge28" class="edge">
+<title>gpu_branch1_1--gpu_branch1_2</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M285.05,-331C287.29,-331 357.75,-331 359.95,-331" />
+</g>
+
+<g id="edge29" class="edge">
+<title>gpu_branch1_2--gpu_branch1_3</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M360,-330.91C360,-327.18 360,-209.76 360,-206.09" />
+</g>
+
+<g id="edge30" class="edge">
+<title>gpu_branch1_3--gpu_branch1_4</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M359.95,-206C358.08,-206 298.89,-206 297.04,-206" />
+</g>
+
+<g id="edge31" class="edge">
+<title>gpu_branch1_4--gpu_branch1_5</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M297,-205.94C297,-204.75 297,-186.21 297,-185.06" />
+</g>
+
+<g id="edge32" class="edge">
+<title>network_0_0_0--network_0_0_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M207,-244.87C207,-239.63 207,-74.29 207,-69.12" />
+</g>
+
+<g id="edge33" class="edge">
+<title>network_0_1_0--network_0_1_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M223,-244.87C223,-239.63 223,-74.29 223,-69.12" />
+</g>
+
+<g id="edge34" class="edge">
+<title>internal_nic1_0--internal_nic1_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M575,-346.94C575,-345.69 575,-326.27 575,-325.06" />
+</g>
+
+<g id="edge35" class="edge">
+<title>gpu_branch2_0--gpu_branch2_1</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M505,-346.95C505,-346.07 505,-332.82 505,-331.17" />
+</g>
+
+<g id="edge36" class="edge">
+<title>gpu_branch2_1--gpu_branch2_2</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M504.95,-331C502.71,-331 432.25,-331 430.05,-331" />
+</g>
+
+<g id="edge37" class="edge">
+<title>gpu_branch2_2--gpu_branch2_3</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M430,-330.91C430,-327.18 430,-209.76 430,-206.09" />
+</g>
+
+<g id="edge38" class="edge">
+<title>gpu_branch2_3--gpu_branch2_4</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M430.05,-206C431.92,-206 491.11,-206 492.96,-206" />
+</g>
+
+<g id="edge39" class="edge">
+<title>gpu_branch2_4--gpu_branch2_5</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M493,-205.94C493,-204.75 493,-186.21 493,-185.06" />
+</g>
+
+<g id="edge40" class="edge">
+<title>gpu_branch3_0--gpu_branch3_1</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M645,-346.95C645,-346.07 645,-332.82 645,-331.17" />
+</g>
+
+<g id="edge41" class="edge">
+<title>gpu_branch3_1--gpu_branch3_2</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M645.05,-331C647.29,-331 717.75,-331 719.95,-331" />
+</g>
+
+<g id="edge42" class="edge">
+<title>gpu_branch3_2--gpu_branch3_3</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M720,-330.91C720,-327.18 720,-209.76 720,-206.09" />
+</g>
+
+<g id="edge43" class="edge">
+<title>gpu_branch3_3--gpu_branch3_4</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M719.95,-206C718.08,-206 658.89,-206 657.04,-206" />
+</g>
+
+<g id="edge44" class="edge">
+<title>gpu_branch3_4--gpu_branch3_5</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M657,-205.94C657,-204.75 657,-186.21 657,-185.06" />
+</g>
+
+<g id="edge45" class="edge">
+<title>network_1_0_0--network_1_0_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M567,-244.87C567,-239.63 567,-74.29 567,-69.12" />
+</g>
+
+<g id="edge46" class="edge">
+<title>network_1_1_0--network_1_1_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M583,-244.87C583,-239.63 583,-74.29 583,-69.12" />
+</g>
+
+<g id="edge47" class="edge">
+<title>internal_nic2_0--internal_nic2_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M1025,-346.94C1025,-345.69 1025,-326.27 1025,-325.06" />
+</g>
+
+<g id="edge48" class="edge">
+<title>gpu_branch4_0--gpu_branch4_1</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M955,-346.95C955,-346.07 955,-332.82 955,-331.17" />
+</g>
+
+<g id="edge49" class="edge">
+<title>gpu_branch4_1--gpu_branch4_2</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M954.95,-331C952.71,-331 882.25,-331 880.05,-331" />
+</g>
+
+<g id="edge50" class="edge">
+<title>gpu_branch4_2--gpu_branch4_3</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M880,-330.91C880,-327.18 880,-209.76 880,-206.09" />
+</g>
+
+<g id="edge51" class="edge">
+<title>gpu_branch4_3--gpu_branch4_4</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M880.05,-206C881.92,-206 941.11,-206 942.96,-206" />
+</g>
+
+<g id="edge52" class="edge">
+<title>gpu_branch4_4--gpu_branch4_5</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M943,-205.94C943,-204.75 943,-186.21 943,-185.06" />
+</g>
+
+<g id="edge53" class="edge">
+<title>gpu_branch5_0--gpu_branch5_1</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M1095,-346.95C1095,-346.07 1095,-332.82 1095,-331.17" />
+</g>
+
+<g id="edge54" class="edge">
+<title>gpu_branch5_1--gpu_branch5_2</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M1095.05,-331C1097.29,-331 1167.75,-331 1169.95,-331" />
+</g>
+
+<g id="edge55" class="edge">
+<title>gpu_branch5_2--gpu_branch5_3</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M1170,-330.91C1170,-327.18 1170,-209.76 1170,-206.09" />
+</g>
+
+<g id="edge56" class="edge">
+<title>gpu_branch5_3--gpu_branch5_4</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M1169.95,-206C1168.08,-206 1108.89,-206 1107.04,-206" />
+</g>
+
+<g id="edge57" class="edge">
+<title>gpu_branch5_4--gpu_branch5_5</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M1107,-205.94C1107,-204.75 1107,-186.21 1107,-185.06" />
+</g>
+
+<g id="edge58" class="edge">
+<title>network_2_0_0--network_2_0_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M1017,-244.87C1017,-239.63 1017,-74.29 1017,-69.12" />
+</g>
+
+<g id="edge59" class="edge">
+<title>network_2_1_0--network_2_1_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M1033,-244.87C1033,-239.63 1033,-74.29 1033,-69.12" />
+</g>
+
+<g id="edge60" class="edge">
+<title>internal_nic3_0--internal_nic3_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M1385,-346.94C1385,-345.69 1385,-326.27 1385,-325.06" />
+</g>
+
+<g id="edge61" class="edge">
+<title>gpu_branch6_0--gpu_branch6_1</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M1315,-346.95C1315,-346.07 1315,-332.82 1315,-331.17" />
+</g>
+
+<g id="edge62" class="edge">
+<title>gpu_branch6_1--gpu_branch6_2</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M1314.95,-331C1312.71,-331 1242.25,-331 1240.05,-331" />
+</g>
+
+<g id="edge63" class="edge">
+<title>gpu_branch6_2--gpu_branch6_3</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M1240,-330.91C1240,-327.18 1240,-209.76 1240,-206.09" />
+</g>
+
+<g id="edge64" class="edge">
+<title>gpu_branch6_3--gpu_branch6_4</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M1240.05,-206C1241.92,-206 1301.11,-206 1302.96,-206" />
+</g>
+
+<g id="edge65" class="edge">
+<title>gpu_branch6_4--gpu_branch6_5</title>
+<path fill="none" stroke="#a7a7a7" stroke-width="1.8" d="M1303,-205.94C1303,-204.75 1303,-186.21 1303,-185.06" />
+</g>
+
+<g id="edge66" class="edge">
+<title>gpu_branch7_0--gpu_branch7_1</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M1455,-346.95C1455,-346.07 1455,-332.82 1455,-331.17" />
+</g>
+
+<g id="edge67" class="edge">
+<title>gpu_branch7_1--gpu_branch7_2</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M1455.05,-331C1457.29,-331 1527.75,-331 1529.95,-331" />
+</g>
+
+<g id="edge68" class="edge">
+<title>gpu_branch7_2--gpu_branch7_3</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M1530,-330.91C1530,-327.18 1530,-209.76 1530,-206.09" />
+</g>
+
+<g id="edge69" class="edge">
+<title>gpu_branch7_3--gpu_branch7_4</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M1529.95,-206C1528.08,-206 1468.89,-206 1467.04,-206" />
+</g>
+
+<g id="edge70" class="edge">
+<title>gpu_branch7_4--gpu_branch7_5</title>
+<path fill="none" stroke="#0074df" stroke-width="2.8" d="M1467,-205.94C1467,-204.75 1467,-186.21 1467,-185.06" />
+</g>
+
+<g id="edge71" class="edge">
+<title>network_3_0_0--network_3_0_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M1377,-244.87C1377,-239.63 1377,-74.29 1377,-69.12" />
+</g>
+
+<g id="edge72" class="edge">
+<title>network_3_1_0--network_3_1_1</title>
+<path fill="none" stroke="#1dbba4" stroke-width="2" d="M1393,-244.87C1393,-239.63 1393,-74.29 1393,-69.12" />
+</g>
+
+
+
+<g id="node3" class="node">
+<title>numa0</title>
+<text text-anchor="start" x="149" y="-623.4" font-family="Arial" font-weight="bold" font-size="22.00" fill="#313131">NUMA 0</text>
+</g>
+
+<g id="node4" class="node">
+<title>numa1</title>
+<text text-anchor="start" x="1369" y="-623.4" font-family="Arial" font-weight="bold" font-size="22.00" fill="#313131">NUMA 1</text>
+</g>
+
+<g id="node5" class="node">
+<title>ram0</title>
+<polygon fill="white" stroke="#a7a7a7" stroke-width="1.25" points="239,-597 61,-597 61,-543 239,-543 239,-597" />
+<text text-anchor="start" x="97" y="-563.6" font-family="Arial" font-size="23.00" fill="#313131">Host RAM</text>
+</g>
+
+<g id="node6" class="node">
+<title>cpu0</title>
+<polygon fill="white" stroke="#a7a7a7" stroke-width="1.25" points="615,-602 335,-602 335,-538 615,-538 615,-602" />
+<text text-anchor="start" x="383" y="-564.8" font-family="Arial" font-weight="bold" font-size="24.00" fill="#313131">CPU 0 / PCIe I/O</text>
+</g>
+
+<g id="node7" class="node">
+<title>cpu1</title>
+<polygon fill="white" stroke="#0074df" stroke-width="1.25" points="1265,-602 985,-602 985,-538 1265,-538 1265,-602" />
+<text text-anchor="start" x="1033" y="-564.8" font-family="Arial" font-weight="bold" font-size="24.00" fill="#313131">CPU 1 / PCIe I/O</text>
+</g>
+
+<g id="node8" class="node">
+<title>ram1</title>
+<polygon fill="white" stroke="#a7a7a7" stroke-width="1.25" points="1539,-597 1361,-597 1361,-543 1539,-543 1539,-597" />
+<text text-anchor="start" x="1397" y="-563.6" font-family="Arial" font-size="23.00" fill="#313131">Host RAM</text>
+</g>
+
+
+
+
+
+
+
+<g id="node15" class="node">
+<title>cpu_link_label</title>
+<text text-anchor="start" x="690" y="-595" font-family="Arial" font-size="20.00" fill="#313131">CPU interconnect / xGMI</text>
+</g>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<g id="node36" class="node">
+<title>subtree_A</title>
+<polygon fill="none" stroke="#a7a7a7" stroke-width="1.4" stroke-dasharray="5,2" points="385,-492 45,-492 45,-108 385,-108 385,-492" />
+</g>
+
+<g id="node37" class="node">
+<title>subtree_label0</title>
+<text text-anchor="start" x="138" y="-463.4" font-family="Arial" font-weight="bold" font-size="22.00" fill="#313131">PCIe subtree A</text>
+</g>
+
+<g id="node38" class="node">
+<title>cx8_device_A</title>
+<polygon fill="none" stroke="#313131" stroke-width="1.4" points="340,-441 90,-441 90,-237 340,-237 340,-441" />
+</g>
+
+<g id="node39" class="node">
+<title>cx8_label0</title>
+<text text-anchor="start" x="140" y="-413.6" font-family="Arial" font-weight="bold" font-size="23.00" fill="#313131">ConnectX-8 A</text>
+</g>
+
+<g id="node40" class="node">
+<title>switch0</title>
+<polygon fill="white" stroke="#a7a7a7" stroke-width="1.25" points="320,-393 110,-393 110,-347 320,-347 320,-393" />
+<text text-anchor="start" x="145" y="-364.2" font-family="Arial" font-size="21.00" fill="#313131">PCIe switching</text>
+</g>
+
+<g id="node41" class="node">
+<title>nic0</title>
+<polygon fill="white" stroke="#1dbba4" stroke-width="1.25" points="320,-325 110,-325 110,-245 320,-245 320,-325" />
+<text text-anchor="start" x="141" y="-301" font-family="Arial" font-size="20.00" fill="#313131">Network / RDMA</text>
+<text text-anchor="start" x="156" y="-279" font-family="Arial" font-size="15.00" fill="#313131">GPU 0 → mlx5_2</text>
+<text text-anchor="start" x="156" y="-258" font-family="Arial" font-size="15.00" fill="#313131">GPU 1 → mlx5_3</text>
+</g>
+
+
+
+
+
+
+
+
+
+<g id="node50" class="node">
+<title>gpu0</title>
+<polygon fill="white" stroke="#76b900" stroke-width="1.25" points="197,-185 69,-185 69,-131 197,-131 197,-185" />
+<text text-anchor="start" x="95" y="-153" font-family="Arial" font-weight="bold" font-size="25.00" fill="#313131">GPU 0</text>
+</g>
+
+
+
+
+
+
+
+<g id="node57" class="node">
+<title>gpu1</title>
+<polygon fill="white" stroke="#76b900" stroke-width="1.25" points="361,-185 233,-185 233,-131 361,-131 361,-185" />
+<text text-anchor="start" x="259" y="-153" font-family="Arial" font-weight="bold" font-size="25.00" fill="#313131">GPU 1</text>
+</g>
+
+
+
+
+
+<g id="node62" class="node">
+<title>subtree_B</title>
+<polygon fill="none" stroke="#a7a7a7" stroke-width="1.4" stroke-dasharray="5,2" points="745,-492 405,-492 405,-108 745,-108 745,-492" />
+</g>
+
+<g id="node63" class="node">
+<title>subtree_label1</title>
+<text text-anchor="start" x="497" y="-463.4" font-family="Arial" font-weight="bold" font-size="22.00" fill="#313131">PCIe subtree B</text>
+</g>
+
+<g id="node64" class="node">
+<title>cx8_device_B</title>
+<polygon fill="none" stroke="#313131" stroke-width="1.4" points="700,-441 450,-441 450,-237 700,-237 700,-441" />
+</g>
+
+<g id="node65" class="node">
+<title>cx8_label1</title>
+<text text-anchor="start" x="500" y="-413.6" font-family="Arial" font-weight="bold" font-size="23.00" fill="#313131">ConnectX-8 B</text>
+</g>
+
+<g id="node66" class="node">
+<title>switch1</title>
+<polygon fill="white" stroke="#a7a7a7" stroke-width="1.25" points="680,-393 470,-393 470,-347 680,-347 680,-393" />
+<text text-anchor="start" x="505" y="-364.2" font-family="Arial" font-size="21.00" fill="#313131">PCIe switching</text>
+</g>
+
+<g id="node67" class="node">
+<title>nic1</title>
+<polygon fill="white" stroke="#1dbba4" stroke-width="1.25" points="680,-325 470,-325 470,-245 680,-245 680,-325" />
+<text text-anchor="start" x="501" y="-301" font-family="Arial" font-size="20.00" fill="#313131">Network / RDMA</text>
+<text text-anchor="start" x="516" y="-279" font-family="Arial" font-size="15.00" fill="#313131">GPU 2 → mlx5_0</text>
+<text text-anchor="start" x="516" y="-258" font-family="Arial" font-size="15.00" fill="#313131">GPU 3 → mlx5_1</text>
+</g>
+
+
+
+
+
+
+
+
+
+<g id="node76" class="node">
+<title>gpu2</title>
+<polygon fill="white" stroke="#76b900" stroke-width="1.25" points="557,-185 429,-185 429,-131 557,-131 557,-185" />
+<text text-anchor="start" x="455" y="-153" font-family="Arial" font-weight="bold" font-size="25.00" fill="#313131">GPU 2</text>
+</g>
+
+
+
+
+
+
+
+<g id="node83" class="node">
+<title>gpu3</title>
+<polygon fill="white" stroke="#76b900" stroke-width="1.25" points="721,-185 593,-185 593,-131 721,-131 721,-185" />
+<text text-anchor="start" x="619" y="-153" font-family="Arial" font-weight="bold" font-size="25.00" fill="#313131">GPU 3</text>
+</g>
+
+
+
+
+
+<g id="node88" class="node">
+<title>subtree_C</title>
+<polygon fill="none" stroke="#a7a7a7" stroke-width="1.4" stroke-dasharray="5,2" points="1195,-492 855,-492 855,-108 1195,-108 1195,-492" />
+</g>
+
+<g id="node89" class="node">
+<title>subtree_label2</title>
+<text text-anchor="start" x="947" y="-463.4" font-family="Arial" font-weight="bold" font-size="22.00" fill="#313131">PCIe subtree C</text>
+</g>
+
+<g id="node90" class="node">
+<title>cx8_device_C</title>
+<polygon fill="none" stroke="#313131" stroke-width="1.4" points="1150,-441 900,-441 900,-237 1150,-237 1150,-441" />
+</g>
+
+<g id="node91" class="node">
+<title>cx8_label2</title>
+<text text-anchor="start" x="950" y="-413.6" font-family="Arial" font-weight="bold" font-size="23.00" fill="#313131">ConnectX-8 C</text>
+</g>
+
+<g id="node92" class="node">
+<title>switch2</title>
+<polygon fill="white" stroke="#0074df" stroke-width="1.25" points="1130,-393 920,-393 920,-347 1130,-347 1130,-393" />
+<text text-anchor="start" x="955" y="-364.2" font-family="Arial" font-size="21.00" fill="#313131">PCIe switching</text>
+</g>
+
+<g id="node93" class="node">
+<title>nic2</title>
+<polygon fill="white" stroke="#1dbba4" stroke-width="1.25" points="1130,-325 920,-325 920,-245 1130,-245 1130,-325" />
+<text text-anchor="start" x="951" y="-301" font-family="Arial" font-size="20.00" fill="#313131">Network / RDMA</text>
+<text text-anchor="start" x="966" y="-279" font-family="Arial" font-size="15.00" fill="#313131">GPU 4 → mlx5_6</text>
+<text text-anchor="start" x="966" y="-258" font-family="Arial" font-size="15.00" fill="#313131">GPU 5 → mlx5_7</text>
+</g>
+
+
+
+
+
+
+
+
+
+<g id="node102" class="node">
+<title>gpu4</title>
+<polygon fill="white" stroke="#0074df" stroke-width="1.25" points="1007,-185 879,-185 879,-131 1007,-131 1007,-185" />
+<text text-anchor="start" x="905" y="-153" font-family="Arial" font-weight="bold" font-size="25.00" fill="#313131">GPU 4</text>
+</g>
+
+
+
+
+
+
+
+<g id="node109" class="node">
+<title>gpu5</title>
+<polygon fill="white" stroke="#76b900" stroke-width="1.25" points="1171,-185 1043,-185 1043,-131 1171,-131 1171,-185" />
+<text text-anchor="start" x="1069" y="-153" font-family="Arial" font-weight="bold" font-size="25.00" fill="#313131">GPU 5</text>
+</g>
+
+
+
+
+
+<g id="node114" class="node">
+<title>subtree_D</title>
+<polygon fill="none" stroke="#a7a7a7" stroke-width="1.4" stroke-dasharray="5,2" points="1555,-492 1215,-492 1215,-108 1555,-108 1555,-492" />
+</g>
+
+<g id="node115" class="node">
+<title>subtree_label3</title>
+<text text-anchor="start" x="1307" y="-463.4" font-family="Arial" font-weight="bold" font-size="22.00" fill="#313131">PCIe subtree D</text>
+</g>
+
+<g id="node116" class="node">
+<title>cx8_device_D</title>
+<polygon fill="none" stroke="#313131" stroke-width="1.4" points="1510,-441 1260,-441 1260,-237 1510,-237 1510,-441" />
+</g>
+
+<g id="node117" class="node">
+<title>cx8_label3</title>
+<text text-anchor="start" x="1310" y="-413.6" font-family="Arial" font-weight="bold" font-size="23.00" fill="#313131">ConnectX-8 D</text>
+</g>
+
+<g id="node118" class="node">
+<title>switch3</title>
+<polygon fill="white" stroke="#0074df" stroke-width="1.25" points="1490,-393 1280,-393 1280,-347 1490,-347 1490,-393" />
+<text text-anchor="start" x="1315" y="-364.2" font-family="Arial" font-size="21.00" fill="#313131">PCIe switching</text>
+</g>
+
+<g id="node119" class="node">
+<title>nic3</title>
+<polygon fill="white" stroke="#1dbba4" stroke-width="1.25" points="1490,-325 1280,-325 1280,-245 1490,-245 1490,-325" />
+<text text-anchor="start" x="1311" y="-301" font-family="Arial" font-size="20.00" fill="#313131">Network / RDMA</text>
+<text text-anchor="start" x="1326" y="-279" font-family="Arial" font-size="15.00" fill="#313131">GPU 6 → mlx5_4</text>
+<text text-anchor="start" x="1326" y="-258" font-family="Arial" font-size="15.00" fill="#313131">GPU 7 → mlx5_5</text>
+</g>
+
+
+
+
+
+
+
+
+
+<g id="node128" class="node">
+<title>gpu6</title>
+<polygon fill="white" stroke="#76b900" stroke-width="1.25" points="1367,-185 1239,-185 1239,-131 1367,-131 1367,-185" />
+<text text-anchor="start" x="1265" y="-153" font-family="Arial" font-weight="bold" font-size="25.00" fill="#313131">GPU 6</text>
+</g>
+
+
+
+
+
+
+
+<g id="node135" class="node">
+<title>gpu7</title>
+<polygon fill="white" stroke="#0074df" stroke-width="1.25" points="1531,-185 1403,-185 1403,-131 1531,-131 1531,-185" />
+<text text-anchor="start" x="1429" y="-153" font-family="Arial" font-weight="bold" font-size="25.00" fill="#313131">GPU 7</text>
+</g>
+
+
+
+
+
+<g id="node140" class="node">
+<title>host_spec</title>
+<text text-anchor="start" x="746" y="-485" font-family="Arial" font-size="20.00" fill="#313131">Host uplinks</text>
+<text text-anchor="start" x="767" y="-463" font-family="Arial" font-size="15.00" fill="#313131">Gen5 ×16</text>
+</g>
+
+<g id="node141" class="node">
+<title>function_legend</title>
+<text text-anchor="start" x="755" y="-355" font-family="Arial" font-size="20.00" fill="#313131">Integrated</text>
+<text text-anchor="start" x="758" y="-333" font-family="Arial" font-size="15.00" fill="#313131">switch + NIC</text>
+</g>
+
+<g id="node142" class="node">
+<title>gpu_spec</title>
+<text text-anchor="start" x="756" y="-178" font-family="Arial" font-size="20.00" fill="#313131">GPU links</text>
+<text text-anchor="start" x="767" y="-156" font-family="Arial" font-size="15.00" fill="#313131">Gen5 ×16</text>
+</g>
+
+<g id="node143" class="node">
+<title>network_spec</title>
+<text text-anchor="start" x="718" y="-90" font-family="Arial" font-size="20.00" fill="#313131">8 × 400 Gb/s ports</text>
+</g>
+
+<g id="node144" class="node">
+<title>fabric</title>
+<polygon fill="#f7f7f7" stroke="#1dbba4" stroke-width="1.25" points="1537,-69 63,-69 63,-11 1537,-11 1537,-69" />
+<text text-anchor="start" x="444" y="-33.8" font-family="Arial" font-size="24.00" fill="#313131">RoCE fabric   ·   50 GB/s per port   ·   400 GB/s aggregate line rate</text>
+</g>
+</g>
+</svg>
