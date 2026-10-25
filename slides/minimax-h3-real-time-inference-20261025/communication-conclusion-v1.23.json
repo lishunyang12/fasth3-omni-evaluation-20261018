@@ -1,0 +1,229 @@
+{
+  "conclusion": "Use GPU-affine FI RDMA for the tested Ulysses communication implementation",
+  "speedups": [
+    {
+      "sequence": 15104,
+      "speedup": 2.341362157199843
+    },
+    {
+      "sequence": 32768,
+      "speedup": 2.4661582126912105
+    },
+    {
+      "sequence": 65536,
+      "speedup": 2.3322624870414645
+    }
+  ],
+  "pcie_shared_uplink_bound_GBps_per_GPU": 36.75897435897436,
+  "required_socket_bandwidth_at_pcie_bound_GBps": 84.02051282051282,
+  "cpu_remote_read_summary": [
+    {
+      "reader_socket": 0,
+      "memory_node": 1,
+      "data_direction": "1->0",
+      "threads": 8,
+      "kind": "remote",
+      "median_GBps": 135.709437,
+      "min_GBps": 119.997211,
+      "max_GBps": 136.802592,
+      "round_medians_GBps": [
+        135.606774,
+        136.468552,
+        135.709437
+      ],
+      "samples": 15,
+      "buffer_bytes": 1073741824
+    },
+    {
+      "reader_socket": 0,
+      "memory_node": 1,
+      "data_direction": "1->0",
+      "threads": 16,
+      "kind": "remote",
+      "median_GBps": 117.96363,
+      "min_GBps": 117.428866,
+      "max_GBps": 118.851881,
+      "round_medians_GBps": [
+        118.323994,
+        117.96363,
+        117.787775
+      ],
+      "samples": 15,
+      "buffer_bytes": 2147483648
+    },
+    {
+      "reader_socket": 0,
+      "memory_node": 1,
+      "data_direction": "1->0",
+      "threads": 32,
+      "kind": "remote",
+      "median_GBps": 116.009608,
+      "min_GBps": 115.318046,
+      "max_GBps": 116.208136,
+      "round_medians_GBps": [
+        115.894844,
+        116.134131,
+        116.005097
+      ],
+      "samples": 15,
+      "buffer_bytes": 4294967296
+    },
+    {
+      "reader_socket": 0,
+      "memory_node": 1,
+      "data_direction": "1->0",
+      "threads": 56,
+      "kind": "remote",
+      "median_GBps": 115.697139,
+      "min_GBps": 115.602416,
+      "max_GBps": 115.793494,
+      "round_medians_GBps": [
+        115.679898,
+        115.713615,
+        115.68853
+      ],
+      "samples": 15,
+      "buffer_bytes": 7516192768
+    },
+    {
+      "reader_socket": 1,
+      "memory_node": 0,
+      "data_direction": "0->1",
+      "threads": 8,
+      "kind": "remote",
+      "median_GBps": 118.917252,
+      "min_GBps": 116.989073,
+      "max_GBps": 120.299324,
+      "round_medians_GBps": [
+        119.182584,
+        119.366579,
+        117.750575
+      ],
+      "samples": 15,
+      "buffer_bytes": 1073741824
+    },
+    {
+      "reader_socket": 1,
+      "memory_node": 0,
+      "data_direction": "0->1",
+      "threads": 16,
+      "kind": "remote",
+      "median_GBps": 114.694756,
+      "min_GBps": 114.309806,
+      "max_GBps": 115.418217,
+      "round_medians_GBps": [
+        114.933752,
+        114.460244,
+        114.924264
+      ],
+      "samples": 15,
+      "buffer_bytes": 2147483648
+    },
+    {
+      "reader_socket": 1,
+      "memory_node": 0,
+      "data_direction": "0->1",
+      "threads": 32,
+      "kind": "remote",
+      "median_GBps": 113.020958,
+      "min_GBps": 112.744708,
+      "max_GBps": 113.463623,
+      "round_medians_GBps": [
+        113.319976,
+        113.020958,
+        112.98248
+      ],
+      "samples": 15,
+      "buffer_bytes": 4294967296
+    },
+    {
+      "reader_socket": 1,
+      "memory_node": 0,
+      "data_direction": "0->1",
+      "threads": 56,
+      "kind": "remote",
+      "median_GBps": 113.220739,
+      "min_GBps": 113.074637,
+      "max_GBps": 113.391927,
+      "round_medians_GBps": [
+        113.223724,
+        113.212596,
+        113.289844
+      ],
+      "samples": 15,
+      "buffer_bytes": 7516192768
+    },
+    {
+      "reader_socket": 0,
+      "memory_node": 0,
+      "data_direction": "0->0",
+      "threads": 32,
+      "kind": "local",
+      "median_GBps": 527.730875,
+      "min_GBps": 506.193286,
+      "max_GBps": 533.52268,
+      "round_medians_GBps": [
+        527.730875,
+        524.471454,
+        529.331643
+      ],
+      "samples": 15,
+      "buffer_bytes": 4294967296
+    },
+    {
+      "reader_socket": 0,
+      "memory_node": 0,
+      "data_direction": "0->0",
+      "threads": 56,
+      "kind": "local",
+      "median_GBps": 528.482216,
+      "min_GBps": 520.912777,
+      "max_GBps": 535.305069,
+      "round_medians_GBps": [
+        529.12182,
+        528.482216,
+        527.357239
+      ],
+      "samples": 15,
+      "buffer_bytes": 7516192768
+    },
+    {
+      "reader_socket": 1,
+      "memory_node": 1,
+      "data_direction": "1->1",
+      "threads": 32,
+      "kind": "local",
+      "median_GBps": 504.618473,
+      "min_GBps": 498.176442,
+      "max_GBps": 510.875109,
+      "round_medians_GBps": [
+        507.050513,
+        501.971971,
+        504.618473
+      ],
+      "samples": 15,
+      "buffer_bytes": 4294967296
+    },
+    {
+      "reader_socket": 1,
+      "memory_node": 1,
+      "data_direction": "1->1",
+      "threads": 56,
+      "kind": "local",
+      "median_GBps": 520.657487,
+      "min_GBps": 517.308378,
+      "max_GBps": 523.704292,
+      "round_medians_GBps": [
+        520.657487,
+        521.194889,
+        519.040022
+      ],
+      "samples": 15,
+      "buffer_bytes": 7516192768
+    }
+  ],
+  "cpu_measurement_scope": "CPU AVX-512 sequential reads of strictly bound remote host memory; not GPU P2P, not NCCL, not raw xGMI link capacity",
+  "cpu_measurement_validation": "All pages verified on requested memory node before and after; each pass checksum checked; buffer 128 MiB per thread exceeds LLC; one thread per physical core spread across CCDs",
+  "cpu_measurement_limitations": "Shared host; existing services preserved; clocks not locked; no HSMP link-width/rate or xGMI counters available; includes DRAM, fabric and core constraints",
+  "attribution": "Neither PCIe nor xGMI saturation is isolated; CPU remote reads do not establish GPU/SHM path capacity; communication speedup is not E2E speedup"
+}

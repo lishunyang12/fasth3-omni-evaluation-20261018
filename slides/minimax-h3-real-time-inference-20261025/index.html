@@ -27,22 +27,25 @@
   <main>
     <div class="rule"></div>
     <h1>Real-Time Video Generation With MiniMax H3</h1>
-    <p class="sub">NVIDIA public-slide edition · v1.22 · 22 slides · updated 26 October 2026</p>
+    <p class="sub">NVIDIA public-slide edition · v1.23 · 23 slides · updated 26 October 2026</p>
     <div class="downloads">
-      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.22.pptx" download>Download PPTX</a>
-      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.22.pdf" download>Download PDF</a>
-      <a class="button" href="contact-sheet-v1.22.png">View All Slides</a>
-      <a class="button" href="slide-14-ulysses-v1.22.png">Slide 14 · Ulysses</a>
-      <a class="button" href="slide-15-topology-v1.22.png">Slide 15 · Topology</a>
-      <a class="button" href="slide-16-local-nccl-rdma-v1.22.png">Slide 16 · Local NCCL to RDMA</a>
-      <a class="button" href="slide-17-original-ulysses-code-v1.22.png">Slide 17 · Original Ulysses Code</a>
-      <a class="button" href="topology-bandwidth-v1.22.svg">Topology SVG</a>
-      <a class="button" href="sequence-comparison-v1.22.svg">Sequence Comparison SVG</a>
-      <a class="button" href="sequence-comparison-v1.22.json">Comparison Data</a>
-      <a class="button" href="starter-guide-validation-v1.22.json">NVIDIA Template Validation</a>
+      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.23.pptx" download>Download PPTX</a>
+      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.23.pdf" download>Download PDF</a>
+      <a class="button" href="contact-sheet-v1.23.png">View All Slides</a>
+      <a class="button" href="slide-14-ulysses-v1.23.png">Slide 14 · Ulysses</a>
+      <a class="button" href="slide-15-topology-v1.23.png">Slide 15 · Topology</a>
+      <a class="button" href="slide-16-local-nccl-rdma-v1.23.png">Slide 16 · Local NCCL to RDMA</a>
+      <a class="button" href="slide-17-original-ulysses-code-v1.23.png">Slide 17 · Original Ulysses Code</a>
+      <a class="button" href="slide-19-comms-conclusion-v1.23.png">Slide 19 · Communication Conclusion</a>
+      <a class="button" href="quantization-three-videos-layout-v1.23.png">Quantization · Three-Video Layout Draft</a>
+      <a class="button" href="MiniMax_H3_Quantization_Three_Videos_Draft_v1.23.pptx">Quantization Draft PPTX · Videos Pending</a>
+      <a class="button" href="topology-bandwidth-v1.23.svg">Topology SVG</a>
+      <a class="button" href="sequence-comparison-v1.23.svg">Sequence Comparison SVG</a>
+      <a class="button" href="sequence-comparison-v1.23.json">Comparison Data</a>
+      <a class="button" href="starter-guide-validation-v1.23.json">NVIDIA Template Validation</a>
       <a class="button" href="SHA256SUMS.txt">SHA-256</a>
     </div>
-    <p class="note">v1.22 adds the original Ulysses source walkthrough and compares local NCCL (P2P/SHM) with FI all-RDMA at three sequence lengths. The local-only experiment explicitly disables intra-host NET routing. Results are communication microbenchmarks, not E2E speedups. The xGMI annotation is a raw platform maximum; installed link configuration is unverified.</p>
+    <p class="note">v1.23 closes the communication section: FI RDMA is 2.33–2.47× faster than the controlled local NCCL implementation across three sequence lengths. The topology separates the shared 128 GB/s NIC PCIe interface from each GPU’s 400G network port (50 GB/s per direction). Installed xGMI capacity is unverified; PCIe versus xGMI saturation is not isolated. These are communication microbenchmarks, not E2E speedups. A separate Quantization layout draft has three portrait panels for BF16 Reference, Online NVFP4, and QAD NVFP4; video files are pending.</p>
     <table>
       <thead><tr><th>Latency Breakdown</th><th>Average GPU Time*</th><th>Share</th></tr></thead>
       <tbody>
