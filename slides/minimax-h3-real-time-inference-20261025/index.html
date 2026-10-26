@@ -27,18 +27,20 @@
   <main>
     <div class="rule"></div>
     <h1>Real-Time Video Generation With MiniMax H3</h1>
-    <p class="sub">NVIDIA public-slide edition · v1.35 · 21 slides · updated 27 October 2026</p>
+    <p class="sub">NVIDIA public-slide edition · v1.36 · 21 slides · updated 27 October 2026</p>
     <div class="downloads">
-      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.35.pptx">Download PPTX v1.35</a>
-      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.35.pdf">Download PDF v1.35</a>
-      <a class="button" href="contact-sheet-v1.35.png">View All 21 Slides</a>
+      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.36.pptx">Download PPTX v1.36</a>
+      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.36.pdf">Download PDF v1.36</a>
+      <a class="button" href="contact-sheet-v1.36.png">View All 21 Slides</a>
+      <a class="button" href="slide-18-v1.36.png">Slide 18: From Baseline to Real-Time</a>
+      <a class="button" href="slide-14-v1.36.png">Slide 14: Communication Limits</a>
       <a class="button" href="slide-11-native-fp4-comparison-v1.35.png">Slide 11: Native NVFP4 Comparison</a>
       <a class="button" href="v1.35/four-videos.html">Play Four Videos and View Measurements</a>
-      <a class="button" href="v1.35/measurements.json">Measurement Summary</a>
-      <a class="button" href="SHA256SUMS-v1.35.txt">SHA-256</a>
+      <a class="button" href="v1.36/stage-breakdown.json">Stage Breakdown Data</a>
+      <a class="button" href="SHA256SUMS-v1.36.txt">SHA-256</a>
     </div>
-    <p class="note">v1.35 updates the fourth comparison on slide 11 to QAD + Optimized FP4, including the new video, 69.95 s request time and LPIPS / SSIM scores. The original 21-slide structure is retained.</p>
-    <p class="note">The PPTX embeds all four videos; the PDF shows still frames. Single-request times include CPU offload and first-use variation. Similarity on one scene does not establish general video quality. See the comparison page for measurement scope.</p>
+    <p class="note">v1.36 reflows slide 14 and adds a measured optimization table on slide 18. The historical eight-GPU QAD + CAKE study falls from 17.681 s to 14.974 s for 15.083 s of video: RTF 1.172 to 0.993. The Base50 reference uses a different request and is shown separately; model-stage latency reductions on that request are unmeasured.</p>
+    <p class="note">The optimized native FP4 comparison on slide 11 remains a separate single-GPU experiment. The PPTX embeds its four videos; the PDF shows still frames. See the comparison page for timing and quality measurement scope.</p>
     <table>
       <thead><tr><th>Latency Breakdown</th><th>Average GPU Time*</th><th>Share</th></tr></thead>
       <tbody>

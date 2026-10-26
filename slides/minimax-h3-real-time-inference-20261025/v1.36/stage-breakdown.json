@@ -1,0 +1,53 @@
+{
+  "media_seconds": 15.083333333333334,
+  "workload": "960x544 / 362 frames / 24 fps / eight GPUs / historical QAD + CAKE",
+  "timing": "Mean of three formal warm requests per stage, HTTP upload through finished MP4",
+  "baseline_reference": {
+    "seconds": 247.956371,
+    "frames": 124,
+    "fps": 24,
+    "comparable_with_table": false
+  },
+  "stages": [
+    {
+      "stage": "QAD + VSA + NCCL control",
+      "change": "Eight-step NVFP4 student; original communication",
+      "e2e_seconds": 17.680982666666665,
+      "rtf": 1.1722198453038672
+    },
+    {
+      "stage": "RDMA + direct layout",
+      "change": "Reduce Ulysses exchange and layout overhead",
+      "e2e_seconds": 16.249928,
+      "rtf": 1.0773432928176796
+    },
+    {
+      "stage": "V / gate overlap",
+      "change": "Overlap eligible work with communication",
+      "e2e_seconds": 15.624446,
+      "rtf": 1.0358748729281768
+    },
+    {
+      "stage": "NCCL IB route enabled",
+      "change": "Use the network route for remaining collectives",
+      "e2e_seconds": 15.532005666666667,
+      "rtf": 1.0297462320441988
+    },
+    {
+      "stage": "MP4 pre-encode pipeline",
+      "change": "Overlap output encoding with generation",
+      "e2e_seconds": 14.972898666666666,
+      "rtf": 0.9926783646408839
+    },
+    {
+      "stage": "Production confirmation",
+      "change": "Synchronized stage profiler disabled",
+      "e2e_seconds": 14.974404333333332,
+      "rtf": 0.9927781878453038
+    }
+  ],
+  "production_latency_reduction": 0.15307850159459463,
+  "native_fp4_eight_gpu_result": false,
+  "head_bands_232_included": false,
+  "cuda_graph_included": false
+}
