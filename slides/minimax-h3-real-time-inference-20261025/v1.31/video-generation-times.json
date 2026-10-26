@@ -1,0 +1,58 @@
+{
+  "timing": "curl time_total from request submission through complete MP4 receipt; includes CPU offload, generation and encoding; excludes model loading and offline weight packing",
+  "hardware": "One RTX PRO 5000 Blackwell GPU (SM120)",
+  "parallelism": 1,
+  "cpu_offload": "layerwise, DiT and encoder; one resident DiT layer",
+  "seed": 1234,
+  "steps": 8,
+  "frames": 124,
+  "fps": 24,
+  "resolution": [
+    1344,
+    768
+  ],
+  "matched_request_fields": true,
+  "matched_runtime_configuration": true,
+  "encoder": "original BF16, identical for all three variants",
+  "attention": "cuDNN BF16 VSA, identical",
+  "video_and_audio_vae": "original BF16, identical",
+  "results": [
+    {
+      "variant": "bf16_ref",
+      "request_seconds": 152.576882,
+      "http_status": 200,
+      "video_bytes": 11809163,
+      "video_sha256": "62c1f8ffbc35322a4b63581bdec92de3cd7febe61dcc93877eee4517ce2b37ef",
+      "samples": 1,
+      "warmup_state": "First request after model startup; no separate warmup",
+      "evidence": "timing-evidence/bf16_ref.curl.log",
+      "evidence_sha256": "569ddf76ec000511a3c4bf1903bad670b0cb1847cbf5b38419222ae87eb48703"
+    },
+    {
+      "variant": "online_nvfp4",
+      "request_seconds": 103.137217,
+      "http_status": 200,
+      "video_bytes": 11801190,
+      "video_sha256": "57c6e1d21b9648df1ddc05c500bd5cd3274389f25bad2e1a9def51c65ccc8e7b",
+      "samples": 1,
+      "warmup_state": "First request after model startup; no separate warmup",
+      "evidence": "timing-evidence/online_nvfp4.curl.log",
+      "evidence_sha256": "5be613f6658ff27eeefc66bec128f78a10e4684ab55be15cdf4c24367b0168db"
+    },
+    {
+      "variant": "qad_nvfp4",
+      "request_seconds": 102.527651,
+      "http_status": 200,
+      "video_bytes": 11202370,
+      "video_sha256": "65e1016c6bdaceb9201fd2664a6b87621e504cbd311ccec7a171315c6254df48",
+      "samples": 1,
+      "warmup_state": "First request after model startup; no separate warmup",
+      "evidence": "timing-evidence/qad_nvfp4.curl.log",
+      "evidence_sha256": "4c69232a5efc5e798b33f307dfdf03ffe7456e92e413f8f93cd50b347a6277a9"
+    }
+  ],
+  "limitations": [
+    "One first request per model; includes possible first-use JIT.",
+    "Not a four-GPU production latency benchmark or clean quantization speedup experiment."
+  ]
+}

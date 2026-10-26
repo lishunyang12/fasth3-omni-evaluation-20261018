@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="500" viewBox="0 0 1080 500"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#757575"/></marker></defs><rect width="1080" height="500" fill="white"/>
+<text x="24" y="35" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="27" fill="#313131" font-weight="700" text-anchor="start">Same GPU kernels; fewer CPU submissions</text>
+<text x="1055" y="35" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="20" fill="#313131" font-weight="400" text-anchor="end">Conceptual</text>
+<text x="24" y="81" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="24" fill="#313131" font-weight="700" text-anchor="start">Eager: a launch call for each kernel</text>
+<text x="24" y="279" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="24" fill="#76B900" font-weight="700" text-anchor="start">Graph: one replay per compute band</text>
+<text x="24" y="130" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="700" text-anchor="start">CPU</text>
+<text x="24" y="207" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="700" text-anchor="start">GPU</text>
+<text x="24" y="328" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="700" text-anchor="start">CPU</text>
+<text x="24" y="406" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="700" text-anchor="start">GPU</text>
+<path d="M140 146H1055" fill="none" stroke="#999999" stroke-width="1.7"/>
+<path d="M140 228H1055" fill="none" stroke="#999999" stroke-width="1.7"/>
+<path d="M140 344H1055" fill="none" stroke="#999999" stroke-width="1.7"/>
+<path d="M140 426H1055" fill="none" stroke="#999999" stroke-width="1.7"/>
+<rect x="145" y="106" width="111" height="40" rx="3" fill="#EDF5FE" stroke="#0074DF" stroke-width="1.5"/>
+<text x="200" y="133" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="20" fill="#0074DF" font-weight="400" text-anchor="middle">launch 1</text>
+<rect x="175" y="172" width="160" height="56" rx="3" fill="#EBEBEB" stroke="#A7A7A7" stroke-width="1.5"/>
+<text x="255.0" y="196" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="400" text-anchor="middle">Unpack</text>
+<text x="255.0" y="220" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="400" text-anchor="middle">QKV</text>
+<circle cx="165" cy="146" r="4" fill="#0074DF"/>
+<path d="M165 150L175 171" fill="none" stroke="#999999" stroke-width="1.7" marker-end="url(#a)"/>
+<rect x="370" y="106" width="111" height="40" rx="3" fill="#EDF5FE" stroke="#0074DF" stroke-width="1.5"/>
+<text x="425" y="133" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="20" fill="#0074DF" font-weight="400" text-anchor="middle">launch 2</text>
+<rect x="400" y="172" width="180" height="56" rx="3" fill="#EBEBEB" stroke="#A7A7A7" stroke-width="1.5"/>
+<text x="490.0" y="196" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="400" text-anchor="middle">Coarse</text>
+<text x="490.0" y="220" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="400" text-anchor="middle">/ Top-K</text>
+<circle cx="390" cy="146" r="4" fill="#0074DF"/>
+<path d="M390 150L400 171" fill="none" stroke="#999999" stroke-width="1.7" marker-end="url(#a)"/>
+<rect x="615" y="106" width="111" height="40" rx="3" fill="#EDF5FE" stroke="#0074DF" stroke-width="1.5"/>
+<text x="670" y="133" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="20" fill="#0074DF" font-weight="400" text-anchor="middle">launch 3</text>
+<rect x="645" y="172" width="160" height="56" rx="3" fill="#EBEBEB" stroke="#A7A7A7" stroke-width="1.5"/>
+<text x="725.0" y="196" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="400" text-anchor="middle">Fine</text>
+<text x="725.0" y="220" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="400" text-anchor="middle">attention</text>
+<circle cx="635" cy="146" r="4" fill="#0074DF"/>
+<path d="M635 150L645 171" fill="none" stroke="#999999" stroke-width="1.7" marker-end="url(#a)"/>
+<rect x="835" y="106" width="111" height="40" rx="3" fill="#EDF5FE" stroke="#0074DF" stroke-width="1.5"/>
+<text x="890" y="133" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="20" fill="#0074DF" font-weight="400" text-anchor="middle">launch 4</text>
+<rect x="865" y="172" width="150" height="56" rx="3" fill="#EBEBEB" stroke="#A7A7A7" stroke-width="1.5"/>
+<text x="940.0" y="196" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="400" text-anchor="middle">Pack</text>
+<text x="940.0" y="220" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="#313131" font-weight="400" text-anchor="middle">O</text>
+<circle cx="855" cy="146" r="4" fill="#0074DF"/>
+<path d="M855 150L865 171" fill="none" stroke="#999999" stroke-width="1.7" marker-end="url(#a)"/>
+<rect x="335" y="172" width="65" height="56" rx="3" fill="#F7F7F7" stroke="#D6D6D6" stroke-width="1.5"/>
+<rect x="580" y="172" width="65" height="56" rx="3" fill="#F7F7F7" stroke="#D6D6D6" stroke-width="1.5"/>
+<rect x="805" y="172" width="60" height="56" rx="3" fill="#F7F7F7" stroke="#D6D6D6" stroke-width="1.5"/>
+<text x="1050" y="252" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="20" fill="#313131" font-weight="400" text-anchor="end">Dots mark enqueue points within CPU API calls</text>
+<rect x="145" y="304" width="224" height="40" rx="3" fill="#EDF5FE" stroke="#0074DF" stroke-width="1.5"/>
+<text x="257" y="331" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="21" fill="#0074DF" font-weight="700" text-anchor="middle">cudaGraphLaunch</text>
+<circle cx="165" cy="344" r="4" fill="#0074DF"/>
+<path d="M165 348L175 369" fill="none" stroke="#999999" stroke-width="1.7" marker-end="url(#a)"/>
+<rect x="175" y="370" width="160" height="56" rx="3" fill="#76B900" stroke="#76B900" stroke-width="1.5"/>
+<text x="255.0" y="394" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="white" font-weight="400" text-anchor="middle">Unpack</text>
+<text x="255.0" y="418" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="white" font-weight="400" text-anchor="middle">QKV</text>
+<rect x="341" y="370" width="180" height="56" rx="3" fill="#76B900" stroke="#76B900" stroke-width="1.5"/>
+<text x="431.0" y="394" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="white" font-weight="400" text-anchor="middle">Coarse</text>
+<text x="431.0" y="418" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="white" font-weight="400" text-anchor="middle">/ Top-K</text>
+<rect x="527" y="370" width="160" height="56" rx="3" fill="#76B900" stroke="#76B900" stroke-width="1.5"/>
+<text x="607.0" y="394" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="white" font-weight="400" text-anchor="middle">Fine</text>
+<text x="607.0" y="418" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="white" font-weight="400" text-anchor="middle">attention</text>
+<rect x="693" y="370" width="150" height="56" rx="3" fill="#76B900" stroke="#76B900" stroke-width="1.5"/>
+<text x="768.0" y="394" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="white" font-weight="400" text-anchor="middle">Pack</text>
+<text x="768.0" y="418" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="22" fill="white" font-weight="400" text-anchor="middle">O</text>
+<text x="1050" y="455" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="21" fill="#76B900" font-weight="700" text-anchor="end">Replay reduces gaps when submission limits progress</text>
+<text x="24" y="488" font-family="NVIDIA Sans,DejaVu Sans,sans-serif" font-size="21" fill="#313131" font-weight="400" text-anchor="start">GPU execution may begin before the launch API returns.</text>
+</svg>

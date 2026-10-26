@@ -1,0 +1,41 @@
+{
+  "scene": "Dense night market: crowd, shops, lanterns and continuous walking motion",
+  "selection": "User selected the James Lo crowded night-market reference before any outputs were generated; evaluated for dense scene detail and multi-person motion.",
+  "prompt_file": "dynamic-prompt.txt",
+  "prompt_sha256": "0120c32ba6775b16b736d437d9574f1caa5422e098f0afc56fdb3feef27869be",
+  "references": [
+    {
+      "file": "assets/reference-1.jpg",
+      "sha256": "1f5699302f34c940c225382a950e658c1855f31557c76665477ea1f98661fe38"
+    }
+  ],
+  "reference_source": {
+    "author": "James Lo",
+    "page": "https://unsplash.com/photos/crowded-street-market-at-night-with-lanterns-prZR_BQiZzU",
+    "image": "https://images.unsplash.com/photo-1760537463598-fab17d33b5fd?auto=format&fit=max&w=2400&q=95",
+    "license": "Unsplash License"
+  },
+  "bf16_source_revision": "88d512c5e7cc38dda499fbb65688ce58611f9c80",
+  "qad_dit_revision": "0087718b2c8fe4b7e2d0a97463dc38da13f7703f",
+  "common_encoder_vae_revision": "9bfb6693f2cf6de171db46d1aa586f67d773a1da",
+  "QAD_encoder_used": false,
+  "online_uses_qad_weights_or_scales": false,
+  "online_uses_calibration_table": false,
+  "generation_config": "generation-config.yaml",
+  "generation_config_sha256": "2dd5e068fdf5dbd67cd7d317a13885f267d9865750923af2013855a08af0014e",
+  "metrics": "video-metrics.json",
+  "timing": "video-generation-times.json",
+  "poster_frame_index": 60,
+  "scope": "New matching crowded-night-market clips; same original encoder/VAE and runtime settings, one prompt and seed.",
+  "requested_actions": "Wide crowded street, slow forward movement, independent pedestrians and a shopping-bag handoff; prompt targets must be distinguished from observed behavior.",
+  "visual_review": {
+    "method": "Visual inspection of decoded frames 0, 24, 48, 72, 96 and 120 for all three outputs.",
+    "observed": "All three retain a densely populated night-market wide composition, shopfronts and overhead lanterns. Foreground pedestrians move through and occlude the crowd; positions and appearances diverge between variants.",
+    "not_verified": "The prompt requested a shopping-bag handoff and a one-metre camera glide; neither is asserted as successfully realized.",
+    "files": [
+      "bf16-contact.png",
+      "online-contact.png",
+      "qad-contact.png"
+    ]
+  }
+}
