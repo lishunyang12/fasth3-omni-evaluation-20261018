@@ -1,0 +1,76 @@
+{
+  "method": "Conservative transport phase: opening cudaEventSynchronize return -> CPU start of the closing UlyssesPcieBarrier cudaLaunchKernel API, intersected with productive GPU kernel intervals. Both profiles use identical exclusions (NCCL/Ulysses and device-copy/direct-copy plus QKV pack/unpack and O-bundle packing). Closing launch API boundaries were independently re-read from each source SQLite and joined to the closing barrier by process/correlationId. Original return->closing GPU-start proxy is retained for explanation.",
+  "limitations": [
+    "This phase still contains host posting, CQ polling and GPUDirect flush; it is not exact NIC wire time.",
+    "Removing GPU scheduling delay avoids crediting an idle NIC while the closing barrier waits, but does not measure payload bytes or exact wire duration.",
+    "Productive includes routing/quantization/indexing/gate math as well as fine attention and GEMM.",
+    "Nsight diagnostics mention possible incomplete CUDA/NVTX/OSRT collection; all expected exchange windows reconcile in both profiles.",
+    "Profiled DiT time is not a production end-to-end latency benchmark."
+  ],
+  "profiles": [
+    {
+      "label": "baseline",
+      "aggregate": {
+        "window_count": 16000,
+        "conservative_phase_s": 30.094242929,
+        "conservative_productive_overlap_s": 4.140983235,
+        "conservative_exposed_s": 25.953259694,
+        "conservative_overlap_fraction": 0.13760051199060352,
+        "original_proxy_s": 30.195051231,
+        "original_proxy_overlap_s": 4.140983235,
+        "original_proxy_exposed_s": 26.054067996,
+        "original_proxy_overlap_fraction": 0.1371411230045745,
+        "removed_closing_queue_s": 0.100808302,
+        "removed_queue_productive_s": 0.0,
+        "device_count": 8,
+        "mean_device_dit_s": 12.539975213,
+        "mean_device_conservative_phase_s": 3.761780366125,
+        "mean_device_conservative_exposed_s": 3.24415746175,
+        "mean_device_conservative_overlap_fraction": 0.1376007137318332,
+        "min_device_conservative_overlap_fraction": 0.1335677594332007,
+        "max_device_conservative_overlap_fraction": 0.14241861700342234,
+        "mean_device_original_proxy_s": 3.774381403875,
+        "mean_device_original_proxy_exposed_s": 3.2567584995,
+        "mean_device_removed_closing_queue_s": 0.01260103775
+      }
+    },
+    {
+      "label": "head4_graph",
+      "aggregate": {
+        "window_count": 25600,
+        "conservative_phase_s": 26.053839803,
+        "conservative_productive_overlap_s": 22.696392186,
+        "conservative_exposed_s": 3.357447617,
+        "conservative_overlap_fraction": 0.8711342496005751,
+        "original_proxy_s": 33.786256945,
+        "original_proxy_overlap_s": 30.383429488,
+        "original_proxy_exposed_s": 3.402827457,
+        "original_proxy_overlap_fraction": 0.8992836802685956,
+        "removed_closing_queue_s": 7.732417142,
+        "removed_queue_productive_s": 7.687037302,
+        "device_count": 8,
+        "mean_device_dit_s": 9.797740086375,
+        "mean_device_conservative_phase_s": 3.256729975375,
+        "mean_device_conservative_exposed_s": 0.419680952125,
+        "mean_device_conservative_overlap_fraction": 0.8711370297872265,
+        "min_device_conservative_overlap_fraction": 0.8641436822773237,
+        "max_device_conservative_overlap_fraction": 0.8798780122613241,
+        "mean_device_original_proxy_s": 4.223282118125,
+        "mean_device_original_proxy_exposed_s": 0.425353432125,
+        "mean_device_removed_closing_queue_s": 0.96655214275
+      }
+    }
+  ],
+  "selected_head_bands": [
+    2,
+    3,
+    2
+  ],
+  "selected_head_bands_measured": false,
+  "historical_pipeline_head_bands": [
+    1,
+    2,
+    3,
+    1
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "title": "FastH3 quantization comparison",
+  "metricsPresent": true,
+  "overflow": false,
+  "videos": [
+    {
+      "width": 1344,
+      "height": 768,
+      "time": 1.163038,
+      "paused": false,
+      "muted": true,
+      "error": null
+    },
+    {
+      "width": 1344,
+      "height": 768,
+      "time": 1.163126,
+      "paused": false,
+      "muted": true,
+      "error": null
+    },
+    {
+      "width": 1344,
+      "height": 768,
+      "time": 1.163024,
+      "paused": false,
+      "muted": true,
+      "error": null
+    }
+  ],
+  "status": "pass",
+  "scope": "Browser playback; native PowerPoint playback not exercised"
+}

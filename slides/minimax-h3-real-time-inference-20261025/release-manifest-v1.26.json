@@ -1,0 +1,182 @@
+{
+  "version": "v1.26",
+  "slides": 26,
+  "updated_pages": [
+    9,
+    10,
+    11,
+    14,
+    15,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "three_videos_same_slide": 11,
+  "embedded_videos": [
+    {
+      "label": "BF16 Reference",
+      "file": "v1.25/media/bf16_ref.mp4",
+      "sha256": "4d28a4683d88498c8b1dea109f66c5b8e718a09a3d1dc5f9bf17c1f472c42769",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "Online NVFP4",
+      "file": "v1.25/media/online_nvfp4.mp4",
+      "sha256": "8e572a9dafa5eae815e5e73ba0c0579f3be694f07bfa980909f7f0d4a65e1d3f",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "QAD NVFP4",
+      "file": "v1.25/media/qad_nvfp4.mp4",
+      "sha256": "b9fdc849d389b7bb27ba6d04ce4e2ce03a6ea13a5379c6204053ca5a403eb8dc",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    }
+  ],
+  "qad_source_revision": "ea3275dfd1ce48cbb01f9fc7f28e918e857a0536",
+  "qad_training_reproduced": false,
+  "base": "v1.25",
+  "publication": "GitHub Pages release v1.26",
+  "pdf_video_behavior": "frame-24 posters only",
+  "pptx_sha256": "0133dce2af6ba8d7f821fd704c335805fb2e8f6d94259365f35beefcc997bc52",
+  "pdf_sha256": "17d3b9773d750b551a275493965f5e208b428de94bbeb8603febbaca8592937e",
+  "online_nvfp4_generated": true,
+  "uses_calibration_table_for_online_nvfp4": false,
+  "online_nvfp4_recipe": "v1.25/online-nvfp4-recipe.json",
+  "quality_report": "v1.25/video-metrics.json",
+  "generation_times": "v1.25/video-generation-times.json",
+  "published_commit": "c13d28b3d178129028abd2c9f2ffdc7d2811490f",
+  "public_base_url": "https://lishunyang12.github.io/fasth3-omni-evaluation-20261018/slides/minimax-h3-real-time-inference-20261025/",
+  "page_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    10,
+    13,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    "problem",
+    "pipeline",
+    15,
+    16,
+    23,
+    24,
+    25,
+    26
+  ],
+  "selected_head_bands": [
+    2,
+    3,
+    2
+  ],
+  "selected_head_bands_benchmarked": false,
+  "historical_measured_head_bands": [
+    1,
+    2,
+    3,
+    1
+  ],
+  "xgmi_model_raw_one_way_GBps": 256,
+  "xgmi_installed_capacity_verified": false,
+  "validation": {
+    "status": "pass_with_media_playback_exception",
+    "unresolved_errors": 0,
+    "warnings": 0,
+    "media_playback_exception": true
+  },
+  "comparison_page": "three-videos-v1.26.html",
+  "nsys_screenshot": "v1.26/nsys-rdma-baseline.png",
+  "nsys_screenshot_provenance": "v1.26/nsys-screenshot-provenance.json",
+  "transport_overlap_evidence": "v1.26/transport-overlap-evidence.json",
+  "browser_playback": {
+    "title": "FastH3 quantization comparison",
+    "metricsPresent": true,
+    "overflow": false,
+    "videos": [
+      {
+        "width": 1344,
+        "height": 768,
+        "time": 1.163038,
+        "paused": false,
+        "muted": true,
+        "error": null
+      },
+      {
+        "width": 1344,
+        "height": 768,
+        "time": 1.163126,
+        "paused": false,
+        "muted": true,
+        "error": null
+      },
+      {
+        "width": 1344,
+        "height": 768,
+        "time": 1.163024,
+        "paused": false,
+        "muted": true,
+        "error": null
+      }
+    ],
+    "status": "pass",
+    "scope": "Browser playback; native PowerPoint playback not exercised"
+  }
+}

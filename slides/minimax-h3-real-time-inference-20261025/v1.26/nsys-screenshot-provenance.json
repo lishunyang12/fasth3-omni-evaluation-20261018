@@ -1,0 +1,19 @@
+{
+  "kind": "actual Nsight Systems GUI screenshot",
+  "source_report": "FastH3_QAD36L_8xPRO5000_960x544_PCIe_GPU_NIC.nsys-rep",
+  "report_sha256": "7486db9e78de1917932f5373b0b0e3e51aa3710d36998959a9e4a2daa0365c5f",
+  "screenshot_sha256": "d53db5d10c0d17b05ae5eebd8edade6e3594b3015fd9e63c46577f5b08a5960a",
+  "capture_bbox": [
+    428,
+    90,
+    1768,
+    735
+  ],
+  "visible_time_seconds_approx": [
+    6.667,
+    6.702
+  ],
+  "profile": "pre-head-pipeline FI RDMA baseline",
+  "image_content_edited": false,
+  "selected_232_plan_shown": false
+}
