@@ -1,0 +1,391 @@
+{
+  "description": "Retained evidence for CUDA Graph slides; no new 2/3/2 benchmark was run.",
+  "four_arm": {
+    "scope": "Paired four-arm H3 head-compute benchmark on one dedicated GPU.\n\nThe four arms use the current production head-pipeline compute body on a saved\nreal layer-0 input:\n\n* one seven-head band, eager\n* one seven-head band, CUDA Graph\n* bands 1,2,3,1, eager\n* bands 1,2,3,1, CUDA Graph\n\nTimed work is unpack QKV -> fine/coarse VSA attention -> O_BUNDLE packing.\nThere is no collective, RDMA, local gate kernel, W_O, other DiT work, encoder,\nVAE, or HTTP request.  The result is a component benchmark, not an end-to-end\nlatency or communication-overlap claim.\n",
+    "source_sha256": "59d18bd1041978e08a6b9175887bcae6c573c4f9b3a656348eda545eac8aee71",
+    "valid_global_rows": 56912,
+    "padded_global_rows": 56960,
+    "local_rows": 7120,
+    "kmax": 100,
+    "rounds": 12,
+    "repeats_per_round": 20,
+    "warmup_repeats": 5,
+    "timed_components": [
+      "unpack QKV",
+      "fine and coarse VSA attention",
+      "pack O_BUNDLE"
+    ],
+    "excluded_components": [
+      "RDMA and all collectives",
+      "local gate assembly",
+      "W_O",
+      "other DiT operations",
+      "encoder",
+      "VAE",
+      "HTTP request"
+    ],
+    "arms": [
+      {
+        "name": "all_head_eager",
+        "head_bands": [
+          7
+        ],
+        "mode": "eager",
+        "graph_execs_per_profile": 0
+      },
+      {
+        "name": "all_head_graph",
+        "head_bands": [
+          7
+        ],
+        "mode": "graph",
+        "graph_execs_per_profile": 1
+      },
+      {
+        "name": "bands_1231_eager",
+        "head_bands": [
+          1,
+          2,
+          3,
+          1
+        ],
+        "mode": "eager",
+        "graph_execs_per_profile": 0
+      },
+      {
+        "name": "bands_1231_graph",
+        "head_bands": [
+          1,
+          2,
+          3,
+          1
+        ],
+        "mode": "graph",
+        "graph_execs_per_profile": 4
+      }
+    ],
+    "paired_round_order": "Four-position counterbalance; eager/graph order reverses within each layout pair and the leading layout alternates.",
+    "capture": {
+      "all_head_graph": {
+        "definition": "Current replay_band cold path after external geometry JIT; includes its configured eager warmup, graph capture and instantiate, and explicit first replay.",
+        "entries": [
+          {
+            "band": 0,
+            "start_head": 0,
+            "heads": 7,
+            "cold_install_wall_ms": 30.02431383356452,
+            "memory": {
+              "allocated_delta_mib": 0.0009765625,
+              "reserved_delta_mib": 2.0,
+              "free_memory_delta_mib": 2.0,
+              "peak_allocated_above_start_mib": 1145.5390625
+            },
+            "graph_entries_delta": 1,
+            "graph_replays_delta": 1
+          }
+        ],
+        "total_wall_ms": 33.69199996814132,
+        "incremental_memory": {
+          "allocated_delta_mib": 0.0009765625,
+          "reserved_delta_mib": 2.0,
+          "free_memory_delta_mib": 2.0,
+          "peak_allocated_above_start_mib": 1145.5390625
+        },
+        "stats_after": {
+          "entries": 1,
+          "replays": 1
+        }
+      },
+      "bands_1231_graph": {
+        "definition": "Current replay_band cold path after external geometry JIT; includes its configured eager warmup, graph capture and instantiate, and explicit first replay.",
+        "entries": [
+          {
+            "band": 0,
+            "start_head": 0,
+            "heads": 1,
+            "cold_install_wall_ms": 6.80236890912056,
+            "memory": {
+              "allocated_delta_mib": 0.0009765625,
+              "reserved_delta_mib": 170.0,
+              "free_memory_delta_mib": 170.0,
+              "peak_allocated_above_start_mib": 148.9384765625
+            },
+            "graph_entries_delta": 1,
+            "graph_replays_delta": 1
+          },
+          {
+            "band": 1,
+            "start_head": 1,
+            "heads": 2,
+            "cold_install_wall_ms": 9.995901957154274,
+            "memory": {
+              "allocated_delta_mib": 0.0009765625,
+              "reserved_delta_mib": 352.0,
+              "free_memory_delta_mib": 352.0,
+              "peak_allocated_above_start_mib": 328.1904296875
+            },
+            "graph_entries_delta": 1,
+            "graph_replays_delta": 1
+          },
+          {
+            "band": 2,
+            "start_head": 3,
+            "heads": 3,
+            "cold_install_wall_ms": 13.654767069965601,
+            "memory": {
+              "allocated_delta_mib": 0.0009765625,
+              "reserved_delta_mib": 530.0,
+              "free_memory_delta_mib": 530.0,
+              "peak_allocated_above_start_mib": 490.6884765625
+            },
+            "graph_entries_delta": 1,
+            "graph_replays_delta": 1
+          },
+          {
+            "band": 3,
+            "start_head": 6,
+            "heads": 1,
+            "cold_install_wall_ms": 6.681240163743496,
+            "memory": {
+              "allocated_delta_mib": 0.0009765625,
+              "reserved_delta_mib": 170.0,
+              "free_memory_delta_mib": 170.0,
+              "peak_allocated_above_start_mib": 148.9384765625
+            },
+            "graph_entries_delta": 1,
+            "graph_replays_delta": 1
+          }
+        ],
+        "total_wall_ms": 38.66271022707224,
+        "incremental_memory": {
+          "allocated_delta_mib": 0.00390625,
+          "reserved_delta_mib": 1222.0,
+          "free_memory_delta_mib": 1222.0,
+          "peak_allocated_above_start_mib": 148.94140625
+        },
+        "stats_after": {
+          "entries": 5,
+          "replays": 5
+        }
+      }
+    },
+    "correctness": {
+      "after_capture": {
+        "passed": true,
+        "checks": {
+          "all_head_eager": {
+            "golden_bit_exact": true,
+            "golden_max_abs": 0.0
+          },
+          "all_head_graph": {
+            "golden_bit_exact": true,
+            "golden_max_abs": 0.0
+          },
+          "bands_1231_eager": {
+            "golden_bit_exact": true,
+            "golden_max_abs": 0.0
+          },
+          "bands_1231_graph": {
+            "golden_bit_exact": true,
+            "golden_max_abs": 0.0
+          },
+          "all_head_graph_vs_eager": {
+            "bit_exact": true,
+            "max_abs": 0.0
+          },
+          "bands_1231_graph_vs_eager": {
+            "bit_exact": true,
+            "max_abs": 0.0
+          },
+          "all_head_eager_vs_bands_1231_eager": {
+            "bit_exact": true,
+            "max_abs": 0.0
+          }
+        }
+      },
+      "after_measurement": {
+        "passed": true,
+        "checks": {
+          "all_head_eager": {
+            "golden_bit_exact": true,
+            "golden_max_abs": 0.0
+          },
+          "all_head_graph": {
+            "golden_bit_exact": true,
+            "golden_max_abs": 0.0
+          },
+          "bands_1231_eager": {
+            "golden_bit_exact": true,
+            "golden_max_abs": 0.0
+          },
+          "bands_1231_graph": {
+            "golden_bit_exact": true,
+            "golden_max_abs": 0.0
+          },
+          "all_head_graph_vs_eager": {
+            "bit_exact": true,
+            "max_abs": 0.0
+          },
+          "bands_1231_graph_vs_eager": {
+            "bit_exact": true,
+            "max_abs": 0.0
+          },
+          "all_head_eager_vs_bands_1231_eager": {
+            "bit_exact": true,
+            "max_abs": 0.0
+          }
+        }
+      }
+    },
+    "summaries": {
+      "all_head_eager": {
+        "samples": 12,
+        "mean_gpu_ms": 11.703171412150065,
+        "median_gpu_ms": 11.704798126220702,
+        "min_gpu_ms": 11.671419525146485,
+        "max_gpu_ms": 11.733267211914063,
+        "sample_stdev_gpu_ms": 0.015256910877232844,
+        "mean_wall_ms": 11.710519729725396,
+        "median_wall_ms": 11.711883603129536
+      },
+      "all_head_graph": {
+        "samples": 12,
+        "mean_gpu_ms": 11.658073425292969,
+        "median_gpu_ms": 11.661919784545898,
+        "min_gpu_ms": 11.629003143310547,
+        "max_gpu_ms": 11.688486480712891,
+        "sample_stdev_gpu_ms": 0.019156252288577754,
+        "mean_wall_ms": 11.665529610278705,
+        "median_wall_ms": 11.667468887753785
+      },
+      "bands_1231_eager": {
+        "samples": 12,
+        "mean_gpu_ms": 12.323460133870443,
+        "median_gpu_ms": 12.318780136108398,
+        "min_gpu_ms": 12.292832183837891,
+        "max_gpu_ms": 12.351634979248047,
+        "sample_stdev_gpu_ms": 0.018447475388364214,
+        "mean_wall_ms": 12.331266569284102,
+        "median_wall_ms": 12.326993583701551
+      },
+      "bands_1231_graph": {
+        "samples": 12,
+        "mean_gpu_ms": 12.040123176574706,
+        "median_gpu_ms": 12.039180755615234,
+        "min_gpu_ms": 12.017806243896484,
+        "max_gpu_ms": 12.061399841308594,
+        "sample_stdev_gpu_ms": 0.01296864884979319,
+        "mean_wall_ms": 12.04731409670785,
+        "median_wall_ms": 12.046064587775618
+      }
+    },
+    "comparisons": {
+      "graph_effect_all_head": {
+        "numerator_arm": "all_head_eager",
+        "denominator_arm": "all_head_graph",
+        "speedup": 1.0038683910464359,
+        "reduction_fraction": 0.0038534842624176058,
+        "mean_paired_delta_ms": 0.045097986857096505,
+        "median_paired_delta_ms": 0.04263114929199219,
+        "paired_delta_stdev_ms": 0.017151948533364825
+      },
+      "graph_effect_bands_1231": {
+        "numerator_arm": "bands_1231_eager",
+        "denominator_arm": "bands_1231_graph",
+        "speedup": 1.023532729120828,
+        "reduction_fraction": 0.022991672323992685,
+        "mean_paired_delta_ms": 0.28333695729573566,
+        "median_paired_delta_ms": 0.27381858825683647,
+        "paired_delta_stdev_ms": 0.02695568172453433
+      },
+      "banding_effect_eager": {
+        "numerator_arm": "all_head_eager",
+        "denominator_arm": "bands_1231_eager",
+        "speedup": 0.9496660260201155,
+        "reduction_fraction": -0.05300176335761453,
+        "mean_paired_delta_ms": -0.6202887217203776,
+        "median_paired_delta_ms": -0.6107387542724609,
+        "paired_delta_stdev_ms": 0.024618093146169032
+      },
+      "banding_effect_graph": {
+        "numerator_arm": "all_head_graph",
+        "denominator_arm": "bands_1231_graph",
+        "speedup": 0.968268617714389,
+        "reduction_fraction": -0.032771259653662455,
+        "mean_paired_delta_ms": -0.38204975128173846,
+        "median_paired_delta_ms": -0.38217048645019513,
+        "paired_delta_stdev_ms": 0.019481769999573854
+      },
+      "combined_vs_all_head_eager": {
+        "numerator_arm": "all_head_eager",
+        "denominator_arm": "bands_1231_graph",
+        "speedup": 0.9720142593657002,
+        "reduction_fraction": -0.028791491857909746,
+        "mean_paired_delta_ms": -0.336951764424642,
+        "median_paired_delta_ms": -0.33521614074706996,
+        "paired_delta_stdev_ms": 0.01613950148205096
+      }
+    }
+  },
+  "four_arm_source_file": "cuda-graph-four-arm-20261025.json",
+  "four_arm_source_sha256": "31f1898e39c61f59803165c5e1cb4db745967823973f5c34dbec79b56ac42f7b",
+  "historical_request": {
+    "head_bands": [
+      1,
+      2,
+      3,
+      1
+    ],
+    "gpu_count": 8,
+    "geometry": {
+      "width": 960,
+      "height": 544,
+      "frames": 362,
+      "fps": 24
+    },
+    "steps": 8,
+    "timing": "Local HTTP upload to complete MP4 response. Excludes model loading and one per-shape warmup.",
+    "graph_requests_seconds": [
+      11.962109,
+      11.985705,
+      12.033014
+    ],
+    "graph_mean_seconds": 11.993609333333334,
+    "eager_mean_seconds": 13.249868,
+    "reduction_fraction": 0.09481291939411518,
+    "scope": "Retained warmed request cohorts, three measured requests each. Not a newly randomized graph-only experiment.",
+    "eager_source": "head4-performance-v2.json",
+    "graph_source_cohort": "8gpu-head4-graph-production-v1",
+    "graph_source_sha256": "1a9520b55f4d6f25502ce51fa6708023c322a7df6fee49fd07393bf78125b173"
+  },
+  "implementation_audit": {
+    "source_file": "qad_head_compute_graph.py",
+    "source_sha256": "20a4cf376e6f887eafb74978bb9c852d9b4d1b28367a2380f4d85408226e844c",
+    "captured": [
+      "unpack QKV",
+      "original fine/coarse VSA",
+      "pack O_BUNDLE"
+    ],
+    "outside_capture": [
+      "RDMA",
+      "input/output readiness events",
+      "local gate assembly",
+      "full W_O"
+    ],
+    "cache_miss": "Exact-shape eager warmup, synchronize, private-pool capture, explicit first replay",
+    "cache_full": "Raises; proposed production eager fallback is not implemented here.",
+    "profile_key": [
+      "runtime and compute stream",
+      "band index/start/head count",
+      "receive/send pointers, shapes, strides, dtype and device",
+      "route-plan identity",
+      "complete layout/reference/padding/sparsity metadata",
+      "backend settings",
+      "callable identity"
+    ]
+  },
+  "primary_documentation": [
+    "https://docs.nvidia.com/cuda/cuda-programming-guide/04-special-topics/cuda-graphs.html",
+    "https://docs.pytorch.org/docs/stable/notes/cuda"
+  ]
+}

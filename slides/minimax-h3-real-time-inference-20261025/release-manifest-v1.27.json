@@ -1,0 +1,189 @@
+{
+  "version": "v1.27",
+  "slides": 24,
+  "updated_pages": [
+    15,
+    18,
+    19,
+    20
+  ],
+  "three_videos_same_slide": 11,
+  "embedded_videos": [
+    {
+      "label": "BF16 Reference",
+      "file": "v1.25/media/bf16_ref.mp4",
+      "sha256": "4d28a4683d88498c8b1dea109f66c5b8e718a09a3d1dc5f9bf17c1f472c42769",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "Online NVFP4",
+      "file": "v1.25/media/online_nvfp4.mp4",
+      "sha256": "8e572a9dafa5eae815e5e73ba0c0579f3be694f07bfa980909f7f0d4a65e1d3f",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "QAD NVFP4",
+      "file": "v1.25/media/qad_nvfp4.mp4",
+      "sha256": "b9fdc849d389b7bb27ba6d04ce4e2ce03a6ea13a5379c6204053ca5a403eb8dc",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    }
+  ],
+  "qad_source_revision": "ea3275dfd1ce48cbb01f9fc7f28e918e857a0536",
+  "qad_training_reproduced": false,
+  "base": "v1.26",
+  "publication": "GitHub Pages release v1.27",
+  "pdf_video_behavior": "frame-24 posters only",
+  "pptx_sha256": "ec41e06d7f9f7136fc93eaa514c52d7ddd61f932f4b998e318e5b07d7d2fe345",
+  "pdf_sha256": "39d338163daa230c74d8a2095c5a2879669f2934b8ec8d720c5f78bd8a2f101f",
+  "online_nvfp4_generated": true,
+  "uses_calibration_table_for_online_nvfp4": false,
+  "online_nvfp4_recipe": "v1.25/online-nvfp4-recipe.json",
+  "quality_report": "v1.25/video-metrics.json",
+  "generation_times": "v1.25/video-generation-times.json",
+  "public_base_url": "https://lishunyang12.github.io/fasth3-omni-evaluation-20261018/slides/minimax-h3-real-time-inference-20261025/",
+  "page_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    19,
+    20,
+    "graph",
+    "why",
+    23,
+    24,
+    25,
+    26
+  ],
+  "selected_head_bands": [
+    2,
+    3,
+    2
+  ],
+  "selected_head_bands_benchmarked": false,
+  "historical_measured_head_bands": [
+    1,
+    2,
+    3,
+    1
+  ],
+  "xgmi_model_raw_one_way_GBps": 256,
+  "xgmi_installed_capacity_verified": false,
+  "merged_prior_pages": {
+    "17": 15,
+    "18": 15
+  },
+  "cuda_graph_timeline": {
+    "page": 19,
+    "kind": "conceptual illustration, not measured trace",
+    "historical_measured_head_bands": [
+      1,
+      2,
+      3,
+      1
+    ],
+    "selected_232_benchmarked": false
+  },
+  "cuda_graph_suitability_page": 20,
+  "validation": {
+    "status": "pass_with_media_playback_exception",
+    "unresolved_errors": 0,
+    "warnings": 0,
+    "media_playback_exception": true
+  },
+  "comparison_page": "three-videos-v1.27.html",
+  "nsys_screenshot": "v1.26/nsys-rdma-baseline.png",
+  "nsys_screenshot_provenance": "v1.26/nsys-screenshot-provenance.json",
+  "transport_overlap_evidence": "v1.26/transport-overlap-evidence.json",
+  "cuda_graph_evidence": "v1.27/cuda-graph-evidence.json",
+  "browser_playback": {
+    "title": "FastH3 quantization comparison",
+    "metricsPresent": true,
+    "overflow": false,
+    "videos": [
+      {
+        "width": 1344,
+        "height": 768,
+        "time": 1.162742,
+        "paused": false,
+        "muted": true,
+        "error": null
+      },
+      {
+        "width": 1344,
+        "height": 768,
+        "time": 1.162684,
+        "paused": false,
+        "muted": true,
+        "error": null
+      },
+      {
+        "width": 1344,
+        "height": 768,
+        "time": 1.162685,
+        "paused": false,
+        "muted": true,
+        "error": null
+      }
+    ],
+    "status": "pass",
+    "scope": "Browser playback; native PowerPoint playback not exercised"
+  }
+}

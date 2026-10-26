@@ -27,36 +27,38 @@
   <main>
     <div class="rule"></div>
     <h1>Real-Time Video Generation With MiniMax H3</h1>
-    <p class="sub">NVIDIA public-slide edition · v1.26 · 26 slides · updated 26 October 2026</p>
+    <p class="sub">NVIDIA public-slide edition · v1.27 · 24 slides · updated 26 October 2026</p>
     <div class="downloads">
-      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.26.pptx">Download PPTX</a>
-      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.26.pdf">Download PDF</a>
-      <a class="button" href="contact-sheet-v1.26.png">View All 26 Slides</a>
-      <a class="button" href="three-videos-v1.26.html">Play Three Videos · Timing + LPIPS / SSIM</a>
-      <a class="button" href="Quantization_Three_Videos_v1.26.pptx">Three-Video Slide PPTX</a>
-      <a class="button" href="slide-09-sparse-attention-v1.26.png">Slide 9 · VSA</a>
-      <a class="button" href="slide-10-qad-training-v1.26.png">Slide 10 · QAD Training + Precision</a>
-      <a class="button" href="slide-11-three-videos-v1.26.png">Slide 11 · Three Videos</a>
-      <a class="button" href="slide-13-ulysses-v1.26.png">Slide 13 · Ulysses</a>
-      <a class="button" href="slide-14-topology-v1.26.png">Slide 14 · Topology</a>
-      <a class="button" href="slide-15-local-nccl-rdma-v1.26.png">Slide 15 · Local NCCL to RDMA</a>
-      <a class="button" href="slide-18-comms-conclusion-v1.26.png">Slide 18 · Communication Conclusion</a>
-      <a class="button" href="slide-19-nsys-bubbles-v1.26.png">Slide 19 · Actual Nsight Bubbles</a>
-      <a class="button" href="slide-20-head-pipeline-232-v1.26.png">Slide 20 · Head Pipeline 2 / 3 / 2</a>
-      <a class="button" href="slide-21-cuda-graph-v1.26.png">Slide 21 · CUDA Graph</a>
-      <a class="button" href="slide-22-graph-reuse-v1.26.png">Slide 22 · Graph Reuse</a>
-      <a class="button" href="v1.26/head-pipeline-232.svg">Head Pipeline SVG</a>
+      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.27.pptx">Download PPTX</a>
+      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.27.pdf">Download PDF</a>
+      <a class="button" href="contact-sheet-v1.27.png">View All 24 Slides</a>
+      <a class="button" href="three-videos-v1.27.html">Play Three Videos · Timing + LPIPS / SSIM</a>
+      <a class="button" href="Quantization_Three_Videos_v1.27.pptx">Three-Video Slide PPTX</a>
+      <a class="button" href="slide-09-sparse-attention-v1.27.png">Slide 9 · VSA</a>
+      <a class="button" href="slide-10-qad-training-v1.27.png">Slide 10 · QAD Training + Precision</a>
+      <a class="button" href="slide-11-three-videos-v1.27.png">Slide 11 · Three Videos</a>
+      <a class="button" href="slide-13-ulysses-v1.27.png">Slide 13 · Ulysses</a>
+      <a class="button" href="slide-14-topology-v1.27.png">Slide 14 · Topology</a>
+      <a class="button" href="slide-15-local-nccl-rdma-v1.27.png">Slide 15 · Local NCCL to RDMA + Conclusion</a>
+      <a class="button" href="slide-17-nsys-bubbles-v1.27.png">Slide 17 · Actual Nsight Bubbles</a>
+      <a class="button" href="slide-18-head-pipeline-232-v1.27.png">Slide 18 · Head Pipeline 2 / 3 / 2</a>
+      <a class="button" href="slide-19-cuda-graph-v1.27.png">Slide 19 · CUDA Graph Before / After</a>
+      <a class="button" href="slide-20-why-cuda-graph-v1.27.png">Slide 20 · Why CUDA Graph Fits H3</a>
+      <a class="button" href="v1.27/head-pipeline-232.svg">Head Pipeline SVG</a>
+      <a class="button" href="v1.27/cuda-graph-before-after.svg">CUDA Graph Timeline SVG</a>
+      <a class="button" href="v1.27/cuda-graph-evidence.json">CUDA Graph Evidence</a>
       <a class="button" href="v1.26/nsys-rdma-baseline.png">Original Nsight Screenshot</a>
       <a class="button" href="v1.26/nsys-screenshot-provenance.json">Screenshot Provenance</a>
       <a class="button" href="v1.26/transport-overlap-evidence.json">Transport Overlap Evidence</a>
       <a class="button" href="sequence-comparison-v1.23.json">Retained Communication Comparison Data</a>
-      <a class="button" href="release-validation-v1.26.json">Template Validation · Video Playback Exception</a>
-      <a class="button" href="release-manifest-v1.26.json">Release Manifest</a>
-      <a class="button" href="SHA256SUMS-v1.26.txt">SHA-256</a>
+      <a class="button" href="release-validation-v1.27.json">Template Validation · Video Playback Exception</a>
+      <a class="button" href="release-manifest-v1.27.json">Release Manifest</a>
+      <a class="button" href="SHA256SUMS-v1.27.txt">SHA-256</a>
     </div>
-    <p class="note">v1.26 explains VSA using its coarse/fine attention design, combines QAD training and execution precision on slide 10, and follows with all three videos side by side on slide 11. Direct Online NVFP4 uses original BF16 weights and runtime activation scaling without calibration, fine-tuning or QAD. The retained videos, request times and LPIPS / SSIM are unchanged.</p>
-    <p class="note">Ulysses and RDMA now precede head pipelining and CUDA Graph. Slide 19 uses a real Nsight Systems screenshot of the retained RDMA baseline to show exposed waits. Slide 20 presents the selected 2 / 3 / 2 head split as a dependency schematic. Historical graph measurements used 1 / 2 / 3 / 1; no 2 / 3 / 2 performance result is claimed. The xGMI calculation uses C = 256 GB/s as a raw one-way aggregate capacity model input, not verified installed throughput.</p>
-    <p class="note">Request times are single observations with different warmup, encoder and HSDP settings. Similarity metrics describe one checkpoint comparison. Communication results are controlled microbenchmarks and do not establish full-model speedup. PowerPoint contains embedded videos; PDF contains still frames.</p>
+    <p class="note">v1.27 consolidates the communication conclusion and separate Q/K-first candidate validation into slide 15. Slide 17 retains the actual Nsight baseline screenshot; slide 18 refines the selected 2 / 3 / 2 head-band schedule. The presentation now contains 24 slides.</p>
+    <p class="note">Slide 19 adds a conceptual eager-versus-graph timeline with identical work and fewer submission gaps. It is an illustration, not a measured trace. Historical 1 / 2 / 3 / 1 request cohorts improved from 13.250 to 11.994 seconds; a separate single-GPU compute experiment improved from 12.323 to 12.040 milliseconds. No 2 / 3 / 2 result is claimed. Slide 20 explains stable geometry, buffers, repeated compute, capture boundaries and reuse limits. RDMA and readiness events remain outside the inspected prototype capture.</p>
+    <p class="note">All three videos remain side by side on slide 11. Direct Online NVFP4 was regenerated for v1.25 from original BF16 weights with runtime activation scaling and no calibration table, fine-tuning or QAD numerical artifacts. v1.27 retains those videos, timings and LPIPS / SSIM. Request times are single observations with different warmup, encoder and HSDP settings. Similarity metrics describe one checkpoint comparison; communication measurements do not establish full-model speedup.</p>
+    <p class="note">The xGMI calculation uses C = 256 GB/s as a raw one-way aggregate model input, not verified installed throughput. The PowerPoint embeds videos; the PDF uses still frames. The template audit retains the requested video-playback timing exception, with no other errors or warnings.</p>
     <table>
       <thead><tr><th>Latency Breakdown</th><th>Average GPU Time*</th><th>Share</th></tr></thead>
       <tbody>

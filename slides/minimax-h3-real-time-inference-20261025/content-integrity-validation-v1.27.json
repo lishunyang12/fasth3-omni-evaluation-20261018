@@ -1,0 +1,102 @@
+{
+  "status": "pass",
+  "slide_count": 24,
+  "modified_pages": [
+    15,
+    18,
+    19,
+    20
+  ],
+  "unchanged_slide_xml_except_page_number": [
+    {
+      "prior_page": 1,
+      "current_page": 1
+    },
+    {
+      "prior_page": 2,
+      "current_page": 2
+    },
+    {
+      "prior_page": 3,
+      "current_page": 3
+    },
+    {
+      "prior_page": 4,
+      "current_page": 4
+    },
+    {
+      "prior_page": 5,
+      "current_page": 5
+    },
+    {
+      "prior_page": 6,
+      "current_page": 6
+    },
+    {
+      "prior_page": 7,
+      "current_page": 7
+    },
+    {
+      "prior_page": 8,
+      "current_page": 8
+    },
+    {
+      "prior_page": 9,
+      "current_page": 9
+    },
+    {
+      "prior_page": 10,
+      "current_page": 10
+    },
+    {
+      "prior_page": 11,
+      "current_page": 11
+    },
+    {
+      "prior_page": 12,
+      "current_page": 12
+    },
+    {
+      "prior_page": 13,
+      "current_page": 13
+    },
+    {
+      "prior_page": 14,
+      "current_page": 14
+    },
+    {
+      "prior_page": 16,
+      "current_page": 16
+    },
+    {
+      "prior_page": 19,
+      "current_page": 17
+    },
+    {
+      "prior_page": 23,
+      "current_page": 21
+    },
+    {
+      "prior_page": 24,
+      "current_page": 22
+    },
+    {
+      "prior_page": 25,
+      "current_page": 23
+    },
+    {
+      "prior_page": 26,
+      "current_page": 24
+    }
+  ],
+  "three_video_slide_xml_exact": true,
+  "video_payload_hashes_verified_by_release_validator": true,
+  "selected_232_benchmarked": false,
+  "cuda_graph_timeline": "conceptual illustration; measured evidence labeled separately",
+  "visual_reviewed_pages": [
+    15,
+    18,
+    19,
+    20
+  ]
+}
