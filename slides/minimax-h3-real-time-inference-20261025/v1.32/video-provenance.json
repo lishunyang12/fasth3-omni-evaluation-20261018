@@ -1,0 +1,95 @@
+{
+  "scene": "Dense night market: crowd, shops, lanterns and continuous walking motion",
+  "selection": "User selected the James Lo crowded night-market reference before any outputs were generated; evaluated for dense scene detail and multi-person motion.",
+  "prompt_file": "dynamic-prompt.txt",
+  "prompt_sha256": "0120c32ba6775b16b736d437d9574f1caa5422e098f0afc56fdb3feef27869be",
+  "references": [
+    {
+      "file": "assets/reference-1.jpg",
+      "sha256": "1f5699302f34c940c225382a950e658c1855f31557c76665477ea1f98661fe38"
+    }
+  ],
+  "reference_source": {
+    "author": "James Lo",
+    "page": "https://unsplash.com/photos/crowded-street-market-at-night-with-lanterns-prZR_BQiZzU",
+    "image": "https://images.unsplash.com/photo-1760537463598-fab17d33b5fd?auto=format&fit=max&w=2400&q=95",
+    "license": "Unsplash License"
+  },
+  "bf16_source_revision": "88d512c5e7cc38dda499fbb65688ce58611f9c80",
+  "qad_dit_revision": "0087718b2c8fe4b7e2d0a97463dc38da13f7703f",
+  "common_encoder_vae_revision": "9bfb6693f2cf6de171db46d1aa586f67d773a1da",
+  "QAD_encoder_used": false,
+  "online_uses_qad_weights_or_scales": false,
+  "online_uses_calibration_table": false,
+  "generation_config": "generation-config.yaml",
+  "generation_config_sha256": "2dd5e068fdf5dbd67cd7d317a13885f267d9865750923af2013855a08af0014e",
+  "metrics": "video-metrics.json",
+  "timing": "video-generation-times.json",
+  "poster_frame_index": 60,
+  "scope": "Four matching clips; QAD cuDNN and QAD Sage newly generated as a pair; BF16/Online retained from v1.31.",
+  "requested_actions": "Wide crowded street, slow forward movement, independent pedestrians and a shopping-bag handoff; prompt targets must be distinguished from observed behavior.",
+  "visual_review": {
+    "scope": "Visual contact-sheet review at frames 0,24,48,72,96,120; full-video similarity measured separately.",
+    "retained_BF16_Online_review": {
+      "method": "Visual inspection of decoded frames 0, 24, 48, 72, 96 and 120 for all three outputs.",
+      "observed": "All three retain a densely populated night-market wide composition, shopfronts and overhead lanterns. Foreground pedestrians move through and occlude the crowd; positions and appearances diverge between variants.",
+      "not_verified": "The prompt requested a shopping-bag handoff and a one-metre camera glide; neither is asserted as successfully realized.",
+      "files": [
+        "bf16-contact.png",
+        "online-contact.png",
+        "qad-contact.png"
+      ]
+    },
+    "new_QAD_and_Sage": [
+      "Dense crowd, shops, lantern strings and the wide night-market composition persist in both clips.",
+      "Foreground pedestrians change position and occlude others; the two clips differ in individual appearance and motion.",
+      "No whole-frame corruption or blank frames was apparent in the sampled frames.",
+      "Small-face and text fidelity, action correctness and temporal stability are not established by this sampled visual check."
+    ],
+    "requested_actions_not_verified": [
+      "Specific shopping-bag handoff",
+      "Exact one-meter camera travel"
+    ]
+  },
+  "sage_generation_config": "sage-generation-config.yaml",
+  "sage_generation_config_sha256": "ab3b029be74e6a9a1cbcb5d055dd39801ab7c7058dac594ccfd913381e163bd1",
+  "timing_limitations": [
+    "One first request per fresh model process with shared GEMM/Sage JIT cache populated; no full-model warmup. The initial QAD cold-compile request is retained separately and excluded from displayed timing.",
+    "Both new QAD variants ran on physical GPU 3 with the same isolated runtime and FlashInfer source; Sage ran before the displayed warm-cache QAD repeat. Other GPUs had unrelated workloads.",
+    "BF16 and direct Online NVFP4 are retained from v1.31 on GPU 0 of the same machine; cross-arm request times are not a controlled production speed benchmark.",
+    "Single-GPU layerwise CPU offload; one sample does not establish steady-state SageAttention speedup."
+  ],
+  "observed_attention": [
+    {
+      "variant": "bf16_ref",
+      "observed_dispatch": "provider=cudnn precision=bf16 block_size=128",
+      "log_sha256": "01a6ecfa03ca4b08d77e1eef6ef32ce674d80a0711eb97cc0985b9c654a4ac1c"
+    },
+    {
+      "variant": "online_nvfp4",
+      "observed_dispatch": "provider=cudnn precision=bf16 block_size=128",
+      "log_sha256": "121e4e40693f35778c7ad3c4772d4d024dc81e866467490dfe5c887361f5565e"
+    },
+    {
+      "variant": "qad_nvfp4",
+      "observed_dispatch": "provider=cudnn precision=bf16 block_size=128",
+      "log_sha256": "5dddd8799bff4f2242b2bc77e1de52085c4426baba1adb7f956e0340c7f398a7"
+    },
+    {
+      "variant": "qad_nvfp4_sage",
+      "observed_dispatch": "provider=flashinfer precision=sage block_size=128",
+      "log_sha256": "4cc00373222582f7fd739f630d6e9162365769c988a4bf71234351db825f8e52"
+    }
+  ],
+  "sage_attention": {
+    "linears": "Same published QAD NVFP4 DiT checkpoint as QAD control",
+    "fine_attention": "CAKE Sage via FlashInfer: INT8 Q/K and FP8 V, BF16 output",
+    "routing": "Logical tile128 and sparsity0.9 retained; exact mask expansion to 64-token compute tiles; pooling, top-k, dense prefix and learned coarse correction unchanged",
+    "token_refiner": "Same BF16 SDPA fallback as other arms",
+    "runtime_overlay": "Two guards in isolated runtime enable existing tile128 mask adapter for Sage; see sage-tile128-dispatch.patch",
+    "flashinfer_source_revision": "2595440318693ac03c8eb42cb3c19aac0e20281f",
+    "kernel": "cake_sage_block_sparse_attention_bd48d91a04a229511902",
+    "validation": "sage-dispatch-validation.json",
+    "new_calibration_or_tuning": false
+  }
+}

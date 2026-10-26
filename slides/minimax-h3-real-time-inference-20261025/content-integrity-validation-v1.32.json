@@ -1,0 +1,101 @@
+{
+  "status": "pass",
+  "slide_count": 21,
+  "modified_pages": [
+    11,
+    13
+  ],
+  "unchanged_slide_xml_except_page_number": [
+    {
+      "prior_page": 1,
+      "current_page": 1
+    },
+    {
+      "prior_page": 2,
+      "current_page": 2
+    },
+    {
+      "prior_page": 3,
+      "current_page": 3
+    },
+    {
+      "prior_page": 4,
+      "current_page": 4
+    },
+    {
+      "prior_page": 5,
+      "current_page": 5
+    },
+    {
+      "prior_page": 6,
+      "current_page": 6
+    },
+    {
+      "prior_page": 7,
+      "current_page": 7
+    },
+    {
+      "prior_page": 8,
+      "current_page": 8
+    },
+    {
+      "prior_page": 9,
+      "current_page": 9
+    },
+    {
+      "prior_page": 10,
+      "current_page": 10
+    },
+    {
+      "prior_page": 12,
+      "current_page": 12
+    },
+    {
+      "prior_page": 14,
+      "current_page": 14
+    },
+    {
+      "prior_page": 15,
+      "current_page": 15
+    },
+    {
+      "prior_page": 17,
+      "current_page": 16
+    },
+    {
+      "prior_page": 18,
+      "current_page": 17
+    },
+    {
+      "prior_page": 19,
+      "current_page": 18
+    },
+    {
+      "prior_page": 20,
+      "current_page": 19
+    },
+    {
+      "prior_page": 21,
+      "current_page": 20
+    },
+    {
+      "prior_page": 22,
+      "current_page": 21
+    }
+  ],
+  "removed_prior_pages": [
+    16
+  ],
+  "page_numbers_contiguous": true,
+  "layout_audit": {
+    "method": "Rendered text bounds against shape boxes and pairwise text overlaps, plus visual review",
+    "limitations": "Preview font metrics; native PowerPoint rendering is not exercised. Intended screenshot annotation overlays are excluded from text-overlap checks.",
+    "overflows": [],
+    "text_overlaps": [],
+    "reviewed_pages": [
+      11,
+      13
+    ]
+  },
+  "selected_232_benchmarked": false
+}

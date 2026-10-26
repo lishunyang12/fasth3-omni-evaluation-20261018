@@ -1,0 +1,24 @@
+--- a/vllm_omni/diffusion/attention/ops/block_sparse.py
++++ b/vllm_omni/diffusion/attention/ops/block_sparse.py
+@@ -185,8 +185,10 @@
+         require_cudnn_sparse(device)
+         return provider
+     if block_size == 128:
+-        if precision != "bf16" or dtype != torch.bfloat16 or head_size != 128:
+-            raise ValueError("tile128 VSA requires BF16 with head dimension 128")
++        if precision not in ("bf16", "sage") or dtype != torch.bfloat16 or head_size != 128:
++            raise ValueError("tile128 VSA requires BF16 inputs and bf16/sage precision with head dimension 128")
++        if precision == "sage" and provider not in ("auto", "flashinfer"):
++            raise ValueError("tile128 Sage requires FlashInfer")
+         if device.type != "cuda":
+             raise ValueError("tile128 VSA requires CUDA")
+         capability = current_omni_platform.get_device_capability(device.index)
+@@ -317,7 +319,7 @@
+         return flashinfer_block_sparse_attention(
+             query, key, value, block_map, block_sizes, softmax_scale, precision=precision
+         )
+-    if provider not in ("fastvideo", "flashinfer") or precision != "bf16":
++    if provider not in ("fastvideo", "flashinfer") or precision not in ("bf16", "sage") or (provider == "fastvideo" and precision != "bf16"):
+         raise ValueError("block-sparse attention requires fastvideo/bf16, cudnn/bf16 or flashinfer/bf16|sage")
+     if query.ndim != 4 or query.shape != key.shape or query.shape != value.shape or min(query.shape) < 1:
+         raise ValueError("FastVideo block-sparse requires matching nonempty BSHD inputs")

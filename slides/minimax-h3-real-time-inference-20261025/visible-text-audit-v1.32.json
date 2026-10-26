@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "scope": "Native slide text, table cells and actively embedded SVG text. Graphical connectors are preserved. Raster image text is reviewed visually.",
+  "text_blocks": 435,
+  "textual_arrow_occurrences": []
+}

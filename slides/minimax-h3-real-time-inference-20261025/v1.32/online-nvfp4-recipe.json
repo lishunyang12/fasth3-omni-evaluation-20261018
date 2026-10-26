@@ -1,0 +1,87 @@
+{
+  "status": "complete",
+  "source_revision": "88d512c5e7cc38dda499fbb65688ce58611f9c80",
+  "uses_calibration_table": false,
+  "qad_training": false,
+  "weight_quantization": "BF16 -> NVFP4 RTN, global 2688/amax(W), per-16 E4M3 scales",
+  "activation_quantization": "per-forward global 2688/amax(current_input), with dynamic per-16 E4M3 scales for all 350 DiT projections",
+  "cache_semantics": "Weights quantized once before model load and cached; activations quantized on every forward",
+  "attention": "cuDNN BF16 VSA, matching the retained video comparison",
+  "encoder": "original BF16 encoder from the pinned base model",
+  "decoder": "original BF16 video/audio decoders",
+  "numeric_checks": [
+    {
+      "projection": "transformer_blocks.0.attn.to_q",
+      "shape": [
+        128,
+        7168
+      ],
+      "finite": true,
+      "cache_bit_exact": true
+    },
+    {
+      "projection": "transformer_blocks.0.ff.fc_in",
+      "shape": [
+        128,
+        28672
+      ],
+      "finite": true,
+      "cache_bit_exact": true
+    },
+    {
+      "projection": "transformer_blocks.0.ff.fc_out",
+      "shape": [
+        128,
+        5376
+      ],
+      "finite": true,
+      "cache_bit_exact": true
+    }
+  ],
+  "elapsed_s": 32.69589138031006,
+  "source_model": "https://huggingface.co/FastVideo/FastVideo-FastH3-Omni-8-Step-V1/tree/88d512c5e7cc38dda499fbb65688ce58611f9c80",
+  "quantized_projection_count": 350,
+  "activation_global_multiplier": "2688 / max(max(abs(current_input)), 1e-12)",
+  "weight_global_multiplier": "2688 / max(max(abs(weight)), 1e-12)",
+  "format": "E2M1 values, per-16 E4M3 block scales, FP32 tensor-global scale; 2688 = 6 * 448",
+  "activation_reduction_scope": "Current projection input tensor on each GPU at each forward",
+  "dynamic_runtime_validation": {
+    "status": "pass",
+    "projection_count": 350,
+    "serialized_activation_scale_count": 0,
+    "tests": [
+      {
+        "projection": "transformer_blocks.0.attn.to_q",
+        "stored_scale_poison_ignored": true,
+        "input_magnitudes_checked": [
+          0.01,
+          1.0,
+          100.0
+        ],
+        "zero_input_exact": true
+      },
+      {
+        "projection": "transformer_blocks.0.ff.fc_in",
+        "stored_scale_poison_ignored": true,
+        "input_magnitudes_checked": [
+          0.01,
+          1.0,
+          100.0
+        ],
+        "zero_input_exact": true
+      },
+      {
+        "projection": "transformer_blocks.0.ff.fc_out",
+        "stored_scale_poison_ignored": true,
+        "input_magnitudes_checked": [
+          0.01,
+          1.0,
+          100.0
+        ],
+        "zero_input_exact": true
+      }
+    ]
+  },
+  "weight_packing_script_sha256": "da7949b008f04da206ba0cda0ce07f40619bfdf59311ef661afbf746b8093098",
+  "runtime_adapter_sha256": "12e5ebb7aee27fa2d2bea484de627325635298478a1493763001f6a9ccdc91d8"
+}

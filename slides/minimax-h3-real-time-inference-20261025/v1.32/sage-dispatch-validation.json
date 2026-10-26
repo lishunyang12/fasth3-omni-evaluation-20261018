@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "tile128_mask_exact_after_split": true,
+  "ragged_sizes": [
+    128,
+    81,
+    128,
+    35
+  ],
+  "head_dim": 128,
+  "heads": 2,
+  "sage_vs_sdpa_cosine": 0.99931800365448,
+  "sage_vs_sdpa_rmse": 0.0038326182402670383,
+  "provider": "flashinfer",
+  "precision": "Q/K INT8 and V FP8; CAKE Sage fine attention; BF16 output",
+  "note": "A random ragged sparse-layout numerical smoke check, not a full-model quality guarantee."
+}

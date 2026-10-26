@@ -1,0 +1,43 @@
+{
+  "title": "FastH3: Crowded Night Market Quantization Comparison",
+  "url": "file:///tmp/h3-slides-v1.32/four-videos.html",
+  "metricsPresent": true,
+  "overflow": false,
+  "videos": [
+    {
+      "width": 1344,
+      "height": 768,
+      "time": 1.163506,
+      "paused": false,
+      "muted": true,
+      "error": null
+    },
+    {
+      "width": 1344,
+      "height": 768,
+      "time": 1.163607,
+      "paused": false,
+      "muted": true,
+      "error": null
+    },
+    {
+      "width": 1344,
+      "height": 768,
+      "time": 1.163579,
+      "paused": false,
+      "muted": true,
+      "error": null
+    },
+    {
+      "width": 1344,
+      "height": 768,
+      "time": 1.163561,
+      "paused": false,
+      "muted": true,
+      "error": null
+    }
+  ],
+  "status": "pass",
+  "shared_seek_and_speed_verified": true,
+  "scope": "Browser playback; native PowerPoint playback not exercised"
+}

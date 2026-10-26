@@ -1,0 +1,88 @@
+{
+  "timing": "curl time_total from submission through complete MP4 receipt; includes CPU offload, generation and encoding; excludes model loading and offline weight packing",
+  "hardware": "One RTX PRO 5000 Blackwell GPU (SM120) per run",
+  "parallelism": 1,
+  "cpu_offload": "layerwise, DiT and encoder; one resident DiT layer",
+  "seed": 1234,
+  "steps": 8,
+  "frames": 124,
+  "fps": 24,
+  "resolution": [
+    1344,
+    768
+  ],
+  "matched_request_fields": true,
+  "matched_non_attention_configuration": true,
+  "encoder": "original BF16, identical for all four",
+  "attention": "cuDNN BF16 VSA for first three; CAKE Sage VSA for fourth, same logical tile128 routing and sparsity 0.9",
+  "video_and_audio_vae": "original BF16, identical",
+  "results": [
+    {
+      "variant": "bf16_ref",
+      "request_seconds": 152.576882,
+      "http_status": 200,
+      "video_bytes": 11809163,
+      "video_sha256": "62c1f8ffbc35322a4b63581bdec92de3cd7febe61dcc93877eee4517ce2b37ef",
+      "samples": 1,
+      "warmup_state": "First request after model startup; no separate warmup",
+      "physical_gpu": 0,
+      "generation_release": "v1.31",
+      "attention": "cuDNN BF16 VSA",
+      "evidence": "timing-evidence/bf16_ref.curl.log",
+      "evidence_sha256": "569ddf76ec000511a3c4bf1903bad670b0cb1847cbf5b38419222ae87eb48703"
+    },
+    {
+      "variant": "online_nvfp4",
+      "request_seconds": 103.137217,
+      "http_status": 200,
+      "video_bytes": 11801190,
+      "video_sha256": "57c6e1d21b9648df1ddc05c500bd5cd3274389f25bad2e1a9def51c65ccc8e7b",
+      "samples": 1,
+      "warmup_state": "First request after model startup; no separate warmup",
+      "physical_gpu": 0,
+      "generation_release": "v1.31",
+      "attention": "cuDNN BF16 VSA",
+      "evidence": "timing-evidence/online_nvfp4.curl.log",
+      "evidence_sha256": "5be613f6658ff27eeefc66bec128f78a10e4684ab55be15cdf4c24367b0168db"
+    },
+    {
+      "variant": "qad_nvfp4",
+      "request_seconds": 102.064296,
+      "http_status": 200,
+      "video_bytes": 11202370,
+      "video_sha256": "65e1016c6bdaceb9201fd2664a6b87621e504cbd311ccec7a171315c6254df48",
+      "samples": 1,
+      "warmup_state": "First request after fresh model startup; shared GEMM/Sage JIT cache already populated; no full-model warmup in this process",
+      "physical_gpu": 3,
+      "generation_release": "v1.32",
+      "attention": "cuDNN BF16 VSA",
+      "evidence": "timing-evidence/qad_nvfp4.curl.log",
+      "evidence_sha256": "7f5c66529e743df32b2ea8e69d975f1210a98d38ecc0436259c50d233dc1f7e6"
+    },
+    {
+      "variant": "qad_nvfp4_sage",
+      "request_seconds": 85.050002,
+      "http_status": 200,
+      "video_bytes": 11596259,
+      "video_sha256": "02dc723ae958fd8ded5fef4c392034b2caa1fd4e58bc7fdb7ea743096da2d047",
+      "samples": 1,
+      "warmup_state": "First request after model startup; no separate warmup",
+      "physical_gpu": 3,
+      "generation_release": "v1.32",
+      "attention": "FlashInfer CAKE Sage VSA",
+      "evidence": "timing-evidence/qad_nvfp4_sage.curl.log",
+      "evidence_sha256": "ffde153d1972ff7251e6b52f1b01cad15ef3fd09a965d4a43f7373a2365edcd6"
+    }
+  ],
+  "limitations": [
+    "One first request per fresh model process with shared GEMM/Sage JIT cache populated; no full-model warmup. The initial QAD cold-compile request is retained separately and excluded from displayed timing.",
+    "Both new QAD variants ran on physical GPU 3 with the same isolated runtime and FlashInfer source; Sage ran before the displayed warm-cache QAD repeat. Other GPUs had unrelated workloads.",
+    "BF16 and direct Online NVFP4 are retained from v1.31 on GPU 0 of the same machine; cross-arm request times are not a controlled production speed benchmark.",
+    "Single-GPU layerwise CPU offload; one sample does not establish steady-state SageAttention speedup."
+  ],
+  "excluded_cold_compile_control": {
+    "request_seconds": 193.750382,
+    "video_sha256": "65e1016c6bdaceb9201fd2664a6b87621e504cbd311ccec7a171315c6254df48",
+    "warmup": "First request after model startup; no separate warmup"
+  }
+}

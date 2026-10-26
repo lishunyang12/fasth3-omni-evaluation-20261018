@@ -1,0 +1,139 @@
+{
+  "status": "complete",
+  "reference": "bf16_ref",
+  "videos": {
+    "bf16_ref": {
+      "file": "media/bf16_ref.mp4",
+      "sha256": "62c1f8ffbc35322a4b63581bdec92de3cd7febe61dcc93877eee4517ce2b37ef",
+      "width": 1344,
+      "height": 768,
+      "r_frame_rate": "24/1",
+      "nb_read_frames": "124"
+    },
+    "online_nvfp4": {
+      "file": "media/online_nvfp4.mp4",
+      "sha256": "57c6e1d21b9648df1ddc05c500bd5cd3274389f25bad2e1a9def51c65ccc8e7b",
+      "width": 1344,
+      "height": 768,
+      "r_frame_rate": "24/1",
+      "nb_read_frames": "124"
+    },
+    "qad_nvfp4": {
+      "file": "media/qad_nvfp4.mp4",
+      "sha256": "65e1016c6bdaceb9201fd2664a6b87621e504cbd311ccec7a171315c6254df48",
+      "width": 1344,
+      "height": 768,
+      "r_frame_rate": "24/1",
+      "nb_read_frames": "124"
+    },
+    "qad_nvfp4_sage": {
+      "file": "media/qad_nvfp4_sage.mp4",
+      "sha256": "02dc723ae958fd8ded5fef4c392034b2caa1fd4e58bc7fdb7ea743096da2d047",
+      "width": 1344,
+      "height": 768,
+      "r_frame_rate": "24/1",
+      "nb_read_frames": "124"
+    }
+  },
+  "method": {
+    "decode": "ffmpeg RGB24, original resolution; no resize or crop",
+    "alignment": "Same frame index 0..123; no temporal or spatial registration",
+    "aggregation": "Unweighted arithmetic mean over all 124 frames",
+    "lpips": {
+      "backbone": "ImageNet pretrained AlexNet",
+      "version": "0.1",
+      "input": "float32 RGB normalized to [-1,1]",
+      "learned_calibration": true,
+      "backbone_sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+      "calibration_sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+      "direction": "lower is closer to BF16"
+    },
+    "ssim": {
+      "color_space": "RGB, arithmetic mean over channels",
+      "data_range": 255,
+      "channel_axis": -1,
+      "gaussian_weights": true,
+      "sigma": 1.5,
+      "win_size": 11,
+      "use_sample_covariance": false,
+      "K1": 0.01,
+      "K2": 0.03,
+      "direction": "higher is closer to BF16"
+    }
+  },
+  "versions": {
+    "torch": "2.13.0",
+    "torchvision": "0.28.0",
+    "lpips": "0.1.4",
+    "numpy": "2.3.5",
+    "scikit-image": "0.26.0"
+  },
+  "device": "cpu",
+  "self_comparison_sanity_check": {
+    "lpips": 0.0,
+    "ssim": 1.0
+  },
+  "results": {
+    "online_nvfp4": {
+      "lpips_alex_v0_1": {
+        "mean": 0.20293374329565034,
+        "std_population": 0.025967516105094113,
+        "min": 0.10791829973459244,
+        "max": 0.24780380725860596,
+        "frames": 124
+      },
+      "ssim_rgb": {
+        "mean": 0.5856079840882614,
+        "std_population": 0.06557552277576059,
+        "min": 0.4950069698834845,
+        "max": 0.7241507284598728,
+        "frames": 124
+      }
+    },
+    "qad_nvfp4": {
+      "lpips_alex_v0_1": {
+        "mean": 0.1864361187983905,
+        "std_population": 0.03237268742291045,
+        "min": 0.0830867737531662,
+        "max": 0.26430436968803406,
+        "frames": 124
+      },
+      "ssim_rgb": {
+        "mean": 0.6437654416671673,
+        "std_population": 0.05560447690054216,
+        "min": 0.5207953646026361,
+        "max": 0.8245423213251488,
+        "frames": 124
+      }
+    },
+    "qad_nvfp4_sage": {
+      "lpips_alex_v0_1": {
+        "mean": 0.19817851513864532,
+        "std_population": 0.02879523384700233,
+        "min": 0.09071141481399536,
+        "max": 0.2357463389635086,
+        "frames": 124
+      },
+      "ssim_rgb": {
+        "mean": 0.6264287235545855,
+        "std_population": 0.05985428408962352,
+        "min": 0.548336103427627,
+        "max": 0.8068987751583977,
+        "frames": 124
+      }
+    }
+  },
+  "elapsed_seconds": 83.72846479900181,
+  "scope": [
+    "Single prompt, seed 1234, one reference image, 8 denoising steps.",
+    "Metrics compare decoded MP4 frames, including compression effects; audio is not scored.",
+    "Framewise similarity to BF16 is not an overall perceptual or temporal quality score.",
+    "All four use the same original BF16 encoder, original VAE and single-GPU layerwise CPU offload. The fourth adds CAKE Sage attention with unchanged logical sparse routing.",
+    "Published QAD DiT is compared with direct NVFP4 and its source BF16 checkpoint; one sample does not isolate every training change.",
+    "Crowd motion and spatial alignment can diverge across models; framewise scores do not isolate texture preservation or motion correctness."
+  ],
+  "sources": [
+    "https://github.com/richzhang/PerceptualSimilarity",
+    "https://scikit-image.org/docs/stable/api/skimage.metrics.html#skimage.metrics.structural_similarity"
+  ]
+}
