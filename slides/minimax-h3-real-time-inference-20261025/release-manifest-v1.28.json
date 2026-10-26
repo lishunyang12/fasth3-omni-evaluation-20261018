@@ -1,0 +1,153 @@
+{
+  "version": "v1.28",
+  "slides": 23,
+  "updated_pages": [],
+  "three_videos_same_slide": 11,
+  "embedded_videos": [
+    {
+      "label": "BF16 Reference",
+      "file": "v1.25/media/bf16_ref.mp4",
+      "sha256": "4d28a4683d88498c8b1dea109f66c5b8e718a09a3d1dc5f9bf17c1f472c42769",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "Online NVFP4",
+      "file": "v1.25/media/online_nvfp4.mp4",
+      "sha256": "8e572a9dafa5eae815e5e73ba0c0579f3be694f07bfa980909f7f0d4a65e1d3f",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "QAD NVFP4",
+      "file": "v1.25/media/qad_nvfp4.mp4",
+      "sha256": "b9fdc849d389b7bb27ba6d04ce4e2ce03a6ea13a5379c6204053ca5a403eb8dc",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    }
+  ],
+  "qad_source_revision": "ea3275dfd1ce48cbb01f9fc7f28e918e857a0536",
+  "qad_training_reproduced": false,
+  "base": "v1.27",
+  "publication": "GitHub Pages release v1.28",
+  "pdf_video_behavior": "frame-24 posters only",
+  "pptx_sha256": "d5c7fc2f4ca6230f75c7dc7e0dc6db042e2239ea8531bcb5ebcba7dcfbf240d7",
+  "pdf_sha256": "9258476e41cc536fdca922c8f9596ecb909eaf84863853e40b73443fd866bf17",
+  "online_nvfp4_generated": true,
+  "uses_calibration_table_for_online_nvfp4": false,
+  "online_nvfp4_recipe": "v1.25/online-nvfp4-recipe.json",
+  "quality_report": "v1.25/video-metrics.json",
+  "generation_times": "v1.25/video-generation-times.json",
+  "public_base_url": "https://lishunyang12.github.io/fasth3-omni-evaluation-20261018/slides/minimax-h3-real-time-inference-20261025/",
+  "page_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "selected_head_bands": [
+    2,
+    3,
+    2
+  ],
+  "selected_head_bands_benchmarked": false,
+  "historical_measured_head_bands": [
+    1,
+    2,
+    3,
+    1
+  ],
+  "xgmi_model_raw_one_way_GBps": 256,
+  "xgmi_installed_capacity_verified": false,
+  "cuda_graph_timeline": {
+    "page": 18,
+    "kind": "conceptual illustration, not measured trace",
+    "historical_measured_head_bands": [
+      1,
+      2,
+      3,
+      1
+    ],
+    "selected_232_benchmarked": false
+  },
+  "cuda_graph_suitability_page": 19,
+  "removed_prior_pages": [
+    {
+      "page": 12,
+      "title": "QAD: Recover Video and Audio"
+    }
+  ],
+  "validation": {
+    "status": "pass_with_media_playback_exception",
+    "unresolved_errors": 0,
+    "warnings": 0,
+    "media_playback_exception": true
+  },
+  "comparison_page": "three-videos-v1.27.html",
+  "nsys_screenshot": "v1.26/nsys-rdma-baseline.png",
+  "nsys_screenshot_provenance": "v1.26/nsys-screenshot-provenance.json",
+  "transport_overlap_evidence": "v1.26/transport-overlap-evidence.json",
+  "cuda_graph_evidence": "v1.27/cuda-graph-evidence.json",
+  "retained_video_browser_validation": "browser-playback-validation-v1.27.json"
+}
