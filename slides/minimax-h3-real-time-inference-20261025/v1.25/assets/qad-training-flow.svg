@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#313131"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#76B900"/></marker></defs>
+<rect width="1100" height="650" fill="white"/>
+<g fill="#F7F7F7" stroke="#A7A7A7" stroke-width="1.5"><rect x="24" y="232" width="210" height="150"/><rect x="320" y="60" width="350" height="120"/><rect x="320" y="270" width="350" height="145"/><rect x="785" y="165" width="285" height="150"/><rect x="320" y="510" width="350" height="95"/></g>
+<g fill="none" stroke="#313131" stroke-width="2.5" marker-end="url(#a)"><path d="M234 290H275V120H320"/><path d="M234 320H275V342H320"/><path d="M670 120H730V205H785"/><path d="M670 342H730V275H785"/><path d="M495 510V415"/></g>
+<path d="M927 315V557H670" fill="none" stroke="#76B900" stroke-width="3" marker-end="url(#g)"/>
+<g font-family="NVIDIA Sans,DejaVu Sans,sans-serif" text-anchor="middle" fill="#313131"><text x="129" y="279" font-size="25">Noisy latent</text><text x="129" y="317" font-size="23">References</text><text x="129" y="351" font-size="23">Sampling step</text>
+<text x="495" y="109" font-size="29" font-weight="bold">BF16 teacher</text><text x="495" y="147" font-size="24">Frozen parameters</text>
+<text x="495" y="311" font-size="29" font-weight="bold" fill="#76B900">Quantized student</text><text x="495" y="352" font-size="24">NVFP4 W4A4 linears</text><text x="495" y="388" font-size="23">FP4 attention emulator</text>
+<text x="927" y="213" font-size="27" font-weight="bold">Distillation losses</text><text x="927" y="254" font-size="23">Denoised output</text><text x="927" y="289" font-size="23">Layer reconstruction</text>
+<text x="495" y="568" font-size="28" font-weight="bold">FP32 master weights</text>
+<text x="796" y="536" font-size="23" fill="#76B900">STE update</text><text x="605" y="470" font-size="22">Quantize</text></g></svg>

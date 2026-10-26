@@ -27,30 +27,30 @@
   <main>
     <div class="rule"></div>
     <h1>Real-Time Video Generation With MiniMax H3</h1>
-    <p class="sub">NVIDIA public-slide edition · v1.24 · 26 slides · updated 26 October 2026</p>
+    <p class="sub">NVIDIA public-slide edition · v1.25 · 26 slides · updated 26 October 2026</p>
     <div class="downloads">
-      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.24.pptx">Download PPTX</a>
-      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.24.pdf">Download PDF</a>
-      <a class="button" href="three-videos-v1.24.html">Play Three Videos · Timing + LPIPS / SSIM</a>
-      <a class="button" href="contact-sheet-v1.24.png">View All 26 Slides</a>
-      <a class="button" href="slide-10-three-videos-v1.24.png">Slide 10 · Quantization Comparison</a>
-      <a class="button" href="Quantization_Three_Videos_v1.24.pptx">Three-Video Slide PPTX</a>
-      <a class="button" href="slide-11-qad-training-v1.24.png">Slide 11 · QAD Training</a>
-      <a class="button" href="slide-12-qad-precision-v1.24.png">Slide 12 · QAD Precision</a>
-      <a class="button" href="slide-13-qad-losses-v1.24.png">Slide 13 · QAD Losses</a>
-      <a class="button" href="slide-17-ulysses-v1.24.png">Slide 17 · Ulysses</a>
-      <a class="button" href="slide-18-topology-v1.24.png">Slide 18 · Topology</a>
-      <a class="button" href="slide-19-local-nccl-rdma-v1.24.png">Slide 19 · Local NCCL to RDMA</a>
-      <a class="button" href="slide-20-original-ulysses-code-v1.24.png">Slide 20 · Original Ulysses Code</a>
-      <a class="button" href="slide-22-comms-conclusion-v1.24.png">Slide 22 · Communication Conclusion</a>
+      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.25.pptx">Download PPTX</a>
+      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.25.pdf">Download PDF</a>
+      <a class="button" href="three-videos-v1.25.html">Play Three Videos · Timing + LPIPS / SSIM</a>
+      <a class="button" href="contact-sheet-v1.25.png">View All 26 Slides</a>
+      <a class="button" href="slide-10-three-videos-v1.25.png">Slide 10 · Quantization Comparison</a>
+      <a class="button" href="Quantization_Three_Videos_v1.25.pptx">Three-Video Slide PPTX</a>
+      <a class="button" href="slide-11-qad-training-v1.25.png">Slide 11 · QAD Training</a>
+      <a class="button" href="slide-12-qad-precision-v1.25.png">Slide 12 · QAD Precision</a>
+      <a class="button" href="slide-13-qad-losses-v1.25.png">Slide 13 · QAD Losses</a>
+      <a class="button" href="slide-17-ulysses-v1.25.png">Slide 17 · Ulysses</a>
+      <a class="button" href="slide-18-topology-v1.25.png">Slide 18 · Topology</a>
+      <a class="button" href="slide-19-local-nccl-rdma-v1.25.png">Slide 19 · Local NCCL to RDMA</a>
+      <a class="button" href="slide-20-original-ulysses-code-v1.25.png">Slide 20 · Original Ulysses Code</a>
+      <a class="button" href="slide-22-comms-conclusion-v1.25.png">Slide 22 · Communication Conclusion</a>
       <a class="button" href="topology-bandwidth-v1.23.svg">Topology SVG</a>
       <a class="button" href="sequence-comparison-v1.23.json">Communication Comparison Data</a>
-      <a class="button" href="v1.24/video-metrics-per-frame.csv">Per-Frame Metrics CSV</a>
-      <a class="button" href="release-validation-v1.24.json">Template Validation · Video Playback Exception</a>
-      <a class="button" href="release-manifest-v1.24.json">Release Manifest</a>
-      <a class="button" href="SHA256SUMS-v1.24.txt">SHA-256</a>
+      <a class="button" href="v1.25/video-metrics-per-frame.csv">Per-Frame Metrics CSV</a>
+      <a class="button" href="release-validation-v1.25.json">Template Validation · Video Playback Exception</a>
+      <a class="button" href="release-manifest-v1.25.json">Release Manifest</a>
+      <a class="button" href="SHA256SUMS-v1.25.txt">SHA-256</a>
     </div>
-    <p class="note">v1.24 embeds BF16 Reference, Online NVFP4 from the original BF16 weights, and published QAD NVFP4 on one slide. Slide 10 includes the recorded request times and measured LPIPS / SSIM against BF16 across all 124 frames. The browser comparison plays all three videos; the PDF contains still frames. Pages 11–13 explain the public Omni QAD training implementation.</p>
+    <p class="note">v1.25 replaces the middle video with direct NVFP4 from the original BF16 weights: current-input activation scaling, no calibration table and no QAD training. BF16 Reference, Online NVFP4, and published QAD NVFP4 remain side by side on one slide. Slide 10 includes the recorded request times and measured LPIPS / SSIM against BF16 across all 124 frames. The browser comparison plays all three videos; the PDF contains still frames. Pages 11–13 explain the public Omni QAD training implementation.</p>
     <p class="note">Request times are single observations with different warmup, encoder and HSDP settings. Quality metrics describe this single checkpoint comparison; they do not isolate DiT QAD training. Communication results remain controlled microbenchmarks: FI RDMA is 2.33–2.47× faster than the tested local NCCL implementation. Installed xGMI capacity is unverified, and no communication-only result is presented as an E2E speedup.</p>
     <table>
       <thead><tr><th>Latency Breakdown</th><th>Average GPU Time*</th><th>Share</th></tr></thead>

@@ -1,0 +1,114 @@
+{
+  "status": "complete",
+  "reference": "bf16_ref",
+  "videos": {
+    "bf16_ref": {
+      "file": "media/bf16_ref.mp4",
+      "sha256": "4d28a4683d88498c8b1dea109f66c5b8e718a09a3d1dc5f9bf17c1f472c42769",
+      "width": 1344,
+      "height": 768,
+      "r_frame_rate": "24/1",
+      "nb_read_frames": "124"
+    },
+    "online_nvfp4": {
+      "file": "media/online_nvfp4.mp4",
+      "sha256": "8e572a9dafa5eae815e5e73ba0c0579f3be694f07bfa980909f7f0d4a65e1d3f",
+      "width": 1344,
+      "height": 768,
+      "r_frame_rate": "24/1",
+      "nb_read_frames": "124"
+    },
+    "qad_nvfp4": {
+      "file": "media/qad_nvfp4.mp4",
+      "sha256": "b9fdc849d389b7bb27ba6d04ce4e2ce03a6ea13a5379c6204053ca5a403eb8dc",
+      "width": 1344,
+      "height": 768,
+      "r_frame_rate": "24/1",
+      "nb_read_frames": "124"
+    }
+  },
+  "method": {
+    "decode": "ffmpeg RGB24, original resolution; no resize or crop",
+    "alignment": "Same frame index 0..123; no temporal or spatial registration",
+    "aggregation": "Unweighted arithmetic mean over all 124 frames",
+    "lpips": {
+      "backbone": "ImageNet pretrained AlexNet",
+      "version": "0.1",
+      "input": "float32 RGB normalized to [-1,1]",
+      "learned_calibration": true,
+      "backbone_sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+      "calibration_sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+      "direction": "lower is closer to BF16"
+    },
+    "ssim": {
+      "color_space": "RGB, arithmetic mean over channels",
+      "data_range": 255,
+      "channel_axis": -1,
+      "gaussian_weights": true,
+      "sigma": 1.5,
+      "win_size": 11,
+      "use_sample_covariance": false,
+      "K1": 0.01,
+      "K2": 0.03,
+      "direction": "higher is closer to BF16"
+    }
+  },
+  "versions": {
+    "torch": "2.13.0",
+    "torchvision": "0.28.0",
+    "lpips": "0.1.4",
+    "numpy": "2.3.5",
+    "scikit-image": "0.26.0"
+  },
+  "device": "cuda:0",
+  "self_comparison_sanity_check": {
+    "lpips": 0.0,
+    "ssim": 1.0
+  },
+  "results": {
+    "online_nvfp4": {
+      "lpips_alex_v0_1": {
+        "mean": 0.2977905738497934,
+        "std_population": 0.1439843131812286,
+        "min": 0.09652196615934372,
+        "max": 0.5121737718582153,
+        "frames": 124
+      },
+      "ssim_rgb": {
+        "mean": 0.5777637524457234,
+        "std_population": 0.13019779426300312,
+        "min": 0.4346516289486761,
+        "max": 0.8592144454339667,
+        "frames": 124
+      }
+    },
+    "qad_nvfp4": {
+      "lpips_alex_v0_1": {
+        "mean": 0.2501977474819268,
+        "std_population": 0.1342112506959792,
+        "min": 0.08768212795257568,
+        "max": 0.44881367683410645,
+        "frames": 124
+      },
+      "ssim_rgb": {
+        "mean": 0.6437721022708937,
+        "std_population": 0.13355167661847192,
+        "min": 0.5014632406551502,
+        "max": 0.8743636803808933,
+        "frames": 124
+      }
+    }
+  },
+  "elapsed_seconds": 45.53779539791867,
+  "scope": [
+    "Single prompt, seed 1234, two reference images, 8 denoising steps.",
+    "Metrics compare decoded MP4 frames, including compression effects; audio is not scored.",
+    "Framewise similarity to BF16 is not an overall perceptual or temporal quality score.",
+    "QAD uses its published checkpoint encoder; BF16 and Online NVFP4 use BF16 encoder.",
+    "This checkpoint comparison does not isolate the causal effect of DiT QAD training."
+  ],
+  "sources": [
+    "https://github.com/richzhang/PerceptualSimilarity",
+    "https://scikit-image.org/docs/stable/api/skimage.metrics.html#skimage.metrics.structural_similarity"
+  ]
+}

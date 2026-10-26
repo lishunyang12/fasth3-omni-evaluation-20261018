@@ -1,0 +1,60 @@
+{
+  "timing": "curl time_total for the exact displayed video: request start through complete MP4 receipt; includes generation and encoding, excludes model loading and offline weight packing",
+  "hardware": "4 GPUs, RTX PRO 5000 Blackwell (SM120)",
+  "seed": 1234,
+  "frames": 124,
+  "fps": 24,
+  "resolution": [
+    1344,
+    768
+  ],
+  "steps": 8,
+  "source": "BF16 and QAD timings retained from original video logs; Online NVFP4 newly generated without a calibration table",
+  "matched_request_fields": true,
+  "results": [
+    {
+      "variant": "bf16_ref",
+      "request_seconds": 48.120028,
+      "http_status": 200,
+      "video_bytes": 7173185,
+      "evidence": "timing-evidence/bf16_ref.curl.log",
+      "evidence_sha256": "2e3d50ba2936ce4baf2587def1c443c9530459a473ab13cfaff7fb0f4af01750",
+      "hsdp": true,
+      "encoder": "BF16",
+      "warmup_state": "Retained request; server previously used for inference",
+      "samples": 1
+    },
+    {
+      "variant": "online_nvfp4",
+      "request_seconds": 32.436486,
+      "http_status": 200,
+      "video_bytes": 6969138,
+      "evidence": "timing-evidence/online_nvfp4.curl.log",
+      "evidence_sha256": "db68c351e48fc1764628d24bc9c91344821843221c94e723d0006d7291d3f16e",
+      "hsdp": false,
+      "encoder": "BF16",
+      "warmup_state": "First generation request after server readiness",
+      "samples": 1,
+      "quantization": "dynamic activation tensor amax; no calibration table"
+    },
+    {
+      "variant": "qad_nvfp4",
+      "request_seconds": 28.398944,
+      "http_status": 200,
+      "video_bytes": 6777116,
+      "evidence": "timing-evidence/qad_nvfp4.curl.log",
+      "evidence_sha256": "aca796999bdb78bd35af2312d27e689fe545d7ac0d8e0dab43fcd20edccdccd0",
+      "hsdp": false,
+      "encoder": "Published quantized checkpoint encoder",
+      "warmup_state": "Retained request; server previously used for inference",
+      "samples": 1
+    }
+  ],
+  "limitations": [
+    "Single request per variant, from separate sessions with different warmup states.",
+    "BF16 uses HSDP; both NVFP4 runs disable HSDP.",
+    "QAD uses its published checkpoint encoder; other two runs use BF16 encoder.",
+    "These timings do not isolate quantization or QAD speedup.",
+    "Online NVFP4 computes the activation global amax for each DiT projection, each call, on each GPU."
+  ]
+}

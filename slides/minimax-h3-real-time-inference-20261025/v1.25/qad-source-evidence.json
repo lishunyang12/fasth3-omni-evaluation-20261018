@@ -1,0 +1,68 @@
+{
+  "upstream_revision": "ea3275dfd1ce48cbb01f9fc7f28e918e857a0536",
+  "source_manifests": [
+    {
+      "revision": "ea3275dfd1ce48cbb01f9fc7f28e918e857a0536",
+      "files": [
+        {
+          "path": "docs/training/minimax_h3_fp4_qad.md",
+          "url": "https://raw.githubusercontent.com/hao-ai-lab/FastVideo/ea3275dfd1ce48cbb01f9fc7f28e918e857a0536/docs/training/minimax_h3_fp4_qad.md",
+          "bytes": 11910,
+          "sha256": "72597dae9e9344bbadc9f872ca4f02cc50d14033f08aa47c7569f479bcf8099a"
+        },
+        {
+          "path": "examples/train/configs/knowledge_distillation/minimax_h3/omniref_nvfp4_qad.yaml",
+          "url": "https://raw.githubusercontent.com/hao-ai-lab/FastVideo/ea3275dfd1ce48cbb01f9fc7f28e918e857a0536/examples/train/configs/knowledge_distillation/minimax_h3/omniref_nvfp4_qad.yaml",
+          "bytes": 4191,
+          "sha256": "39b8e29e50c1a73ecc7e17d07ca4f740305ea1a41b2bd97fd9e7fd7e663420dc"
+        },
+        {
+          "path": "fastvideo/layers/quantization/nvfp4_qad.py",
+          "url": "https://raw.githubusercontent.com/hao-ai-lab/FastVideo/ea3275dfd1ce48cbb01f9fc7f28e918e857a0536/fastvideo/layers/quantization/nvfp4_qad.py",
+          "bytes": 12328,
+          "sha256": "ae4d640fef3cde54e5f8f0fab4edc9f589bea231c98e9e540d5c8c82c2c1d2cb"
+        },
+        {
+          "path": "fastvideo/train/methods/knowledge_distillation/pdd_qad.py",
+          "url": "https://raw.githubusercontent.com/hao-ai-lab/FastVideo/ea3275dfd1ce48cbb01f9fc7f28e918e857a0536/fastvideo/train/methods/knowledge_distillation/pdd_qad.py",
+          "bytes": 43684,
+          "sha256": "954b1d4fe4169c7bc5470f5cc0f187fc7e44b81bd207f159d45f5495a62b33c3"
+        },
+        {
+          "path": "fastvideo/train/methods/knowledge_distillation/pdd_qad_metrics.py",
+          "url": "https://raw.githubusercontent.com/hao-ai-lab/FastVideo/ea3275dfd1ce48cbb01f9fc7f28e918e857a0536/fastvideo/train/methods/knowledge_distillation/pdd_qad_metrics.py",
+          "bytes": 9631,
+          "sha256": "5a370c715edf7f979fca4d804828bef6d484b85e3c6d1b3cc82aed97e93b432c"
+        },
+        {
+          "path": "fastvideo/attention/backends/fp4_vsa_qat.py",
+          "url": "https://raw.githubusercontent.com/hao-ai-lab/FastVideo/ea3275dfd1ce48cbb01f9fc7f28e918e857a0536/fastvideo/attention/backends/fp4_vsa_qat.py",
+          "bytes": 5365,
+          "sha256": "430d800a9c4fe9296f10bd616f61202ce09a1b3e3f0437d7855bd2f6becb6806"
+        }
+      ]
+    },
+    [
+      {
+        "path": "fastvideo/train/methods/knowledge_distillation/pdd_qad_recon.py",
+        "bytes": 12768,
+        "url": "https://raw.githubusercontent.com/hao-ai-lab/FastVideo/ea3275dfd1ce48cbb01f9fc7f28e918e857a0536/fastvideo/train/methods/knowledge_distillation/pdd_qad_recon.py",
+        "sha256": "f7c91332f64baf114f6ba608183ac0e8af9e5ec65c5824b366347d5bb247aa83"
+      },
+      {
+        "path": "fastvideo/train/models/minimax_h3/omniref_pdd.py",
+        "bytes": 23062,
+        "url": "https://raw.githubusercontent.com/hao-ai-lab/FastVideo/ea3275dfd1ce48cbb01f9fc7f28e918e857a0536/fastvideo/train/models/minimax_h3/omniref_pdd.py",
+        "sha256": "188f935b5c69cac3d03ecd047cbd4e117b8a922fa949744d14a763ea05ba6e01"
+      },
+      {
+        "path": "fastvideo-kernel/python/fastvideo_kernel/triton_kernels/attn_qat_vsa_reference.py",
+        "bytes": 17897,
+        "url": "https://raw.githubusercontent.com/hao-ai-lab/FastVideo/ea3275dfd1ce48cbb01f9fc7f28e918e857a0536/fastvideo-kernel/python/fastvideo_kernel/triton_kernels/attn_qat_vsa_reference.py",
+        "sha256": "d828b207041012819dbf8658fae5726f35821c53d6cc63a905d062edc0044664"
+      }
+    ]
+  ],
+  "public_pr": "https://github.com/hao-ai-lab/FastVideo/pull/1989",
+  "public_pr_status_at_inspection": "open"
+}
