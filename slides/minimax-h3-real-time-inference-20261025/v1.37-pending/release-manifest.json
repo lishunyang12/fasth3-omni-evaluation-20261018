@@ -1,0 +1,146 @@
+{
+  "version": "v1.37-pending",
+  "base": "v1.36",
+  "slides": 21,
+  "updated_pages": [
+    1,
+    3,
+    6,
+    7,
+    9,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    18,
+    19,
+    20
+  ],
+  "inserted_pages": [],
+  "embedded_videos": [
+    {
+      "label": "BF16 Reference",
+      "file": "../v1.34/media/bf16_ref.mp4",
+      "sha256": "62c1f8ffbc35322a4b63581bdec92de3cd7febe61dcc93877eee4517ce2b37ef",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "Online NVFP4",
+      "file": "../v1.34/media/online_nvfp4.mp4",
+      "sha256": "326e1f827c108c6c3c13e9da9fe2b3fa4b2e9c10d9e97cab5fe577f7e1a2c7b1",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "QAD NVFP4",
+      "file": "../v1.34/media/qad_nvfp4.mp4",
+      "sha256": "1ad1a14e406fc4964d38a448302adc28438b03c0710c1e757d0ae46dfded2d07",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "QAD + Native FP4",
+      "file": "../v1.35/media/qad_optimized.mp4",
+      "sha256": "d4b6053d00de53e182ede795598404d105056f8a046b501cd4d1c9100f043a58",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    }
+  ],
+  "pptx_sha256": "cc5396c0d0b4c7c60c0beb9c46202f3f94af151f220853aa4f302e04a5a157b0",
+  "publication": "public_pending_benchmarks",
+  "scope": "Retained historical evidence and seven pending cumulative E2E benchmarks",
+  "pdf_video_behavior": "Four original frame-60 poster images; playable videos remain embedded in PPTX.",
+  "new_benchmark_groups_measured": 0,
+  "pending_benchmark_groups": 7,
+  "preview_fonts": "Retained embedded NVIDIA Sans and Roboto Mono",
+  "vae_precision_note": "Native 36L VAE decode uses FP16 autocast with mixed-precision operations. The final NVFP4 decoder uses 216 packed linears and BF16 autocast. BF16 baseline refers to the DiT.",
+  "source_snapshot": "v1.37-draft",
+  "live_target_achieved": null,
+  "pdf_sha256": "a1ccdae68eb674d46449f26536db744ab9dd298b2ad82f0497a278d623388bce",
+  "layout_validation": "pass",
+  "validation": {
+    "status": "pass_with_existing_video_playback_timing",
+    "unresolved_errors": 0,
+    "missing_glyphs": 0,
+    "text_overflows": 0,
+    "text_overlaps": 0,
+    "reviewed_slides": 21,
+    "native_powerpoint_rendering_and_playback_verified": false,
+    "independent_office_render": "pass",
+    "editable_paragraphs_preserved": 348
+  },
+  "pdf_rendering": "LibreOffice Impress; searchable text with NVIDIA Sans and Roboto Mono embedded",
+  "local_preview": {
+    "entry": "index.html",
+    "videos": "four-videos.html",
+    "browser_validation": "browser-preview-validation.json",
+    "viewports_checked": [
+      1600,
+      768,
+      390
+    ],
+    "publication": "public"
+  },
+  "public_base_url": "https://lishunyang12.github.io/fasth3-omni-evaluation-20261018/slides/minimax-h3-real-time-inference-20261025/v1.37-pending/",
+  "public_asset_reuse": {
+    "assets/bf16_ref.png": "../v1.34/assets/bf16_ref.png",
+    "assets/online_nvfp4.png": "../v1.34/assets/online_nvfp4.png",
+    "assets/qad_nvfp4.png": "../v1.34/assets/qad_nvfp4.png",
+    "assets/qad_optimized.png": "../v1.35/assets/qad_optimized.png",
+    "media/bf16_ref.mp4": "../v1.34/media/bf16_ref.mp4",
+    "media/online_nvfp4.mp4": "../v1.34/media/online_nvfp4.mp4",
+    "media/qad_nvfp4.mp4": "../v1.34/media/qad_nvfp4.mp4",
+    "media/qad_optimized.mp4": "../v1.35/media/qad_optimized.mp4"
+  }
+}

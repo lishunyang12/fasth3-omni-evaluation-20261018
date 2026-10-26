@@ -1,0 +1,78 @@
+{
+  "status": "pending_measurements",
+  "columns": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      5,
+      6,
+      7
+    ]
+  ],
+  "target_seconds": 5.0,
+  "media_seconds": 5.166666666666667,
+  "groups": [
+    {
+      "group": 0,
+      "name": "Retained Baseline",
+      "change": "BF16 DiT \u00b7 dense attention\n50 steps \u00b7 local NCCL",
+      "e2e_seconds": 247.9563708677888,
+      "status": "retained_baseline"
+    },
+    {
+      "group": 1,
+      "name": "PDD: 50 to 8 Steps",
+      "change": "Reduce denoiser evaluations\nEight-step Ref2VA schedule",
+      "e2e_seconds": null,
+      "status": "pending"
+    },
+    {
+      "group": 2,
+      "name": "VSA",
+      "change": "Select fine-attention blocks\nKeep global coarse context",
+      "e2e_seconds": null,
+      "status": "pending"
+    },
+    {
+      "group": 3,
+      "name": "QAD + Native FP4 Attention",
+      "change": "NVFP4 DiT \u00b7 unified prefix / video\nDevice-aware SM scheduling",
+      "e2e_seconds": null,
+      "status": "pending"
+    },
+    {
+      "group": 4,
+      "name": "Ulysses Communication",
+      "change": "RDMA + direct layout + V / gate overlap\nIB for remaining NCCL collectives",
+      "e2e_seconds": null,
+      "status": "pending"
+    },
+    {
+      "group": 5,
+      "name": "2 / 3 / 2 Head Pipeline",
+      "change": "Overlap communication and attention\nRestore heads before output projection",
+      "e2e_seconds": null,
+      "status": "pending"
+    },
+    {
+      "group": 6,
+      "name": "CUDA Graph",
+      "change": "Replay each head band's compute\nReduce repeated CPU launch overhead",
+      "e2e_seconds": null,
+      "status": "pending"
+    },
+    {
+      "group": 7,
+      "name": "NVFP4 36L VAE + MP4",
+      "change": "Native 36-layer decoder to NVFP4\nMP4 pre-encoding pipeline",
+      "e2e_seconds": null,
+      "status": "pending"
+    }
+  ],
+  "live_target_achieved": null
+}

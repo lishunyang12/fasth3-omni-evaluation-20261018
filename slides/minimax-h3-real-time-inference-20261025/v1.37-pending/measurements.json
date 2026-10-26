@@ -1,0 +1,64 @@
+{
+  "version": "v1.37-pending",
+  "framework": "vLLM-Omni",
+  "resolution": [
+    1344,
+    768
+  ],
+  "frames": 124,
+  "fps": 24,
+  "steps": 8,
+  "seed": 1234,
+  "reference": "BF16",
+  "results": [
+    {
+      "variant": "bf16_ref",
+      "request_seconds": 152.576882,
+      "LPIPS": 0,
+      "SSIM": 1,
+      "video_sha256": "62c1f8ffbc35322a4b63581bdec92de3cd7febe61dcc93877eee4517ce2b37ef"
+    },
+    {
+      "variant": "online_nvfp4",
+      "request_seconds": 89.120574,
+      "LPIPS": 0.23131718847059435,
+      "SSIM": 0.5487940447833932,
+      "video_sha256": "326e1f827c108c6c3c13e9da9fe2b3fa4b2e9c10d9e97cab5fe577f7e1a2c7b1"
+    },
+    {
+      "variant": "qad_nvfp4",
+      "request_seconds": 84.467848,
+      "LPIPS": 0.2176599696639084,
+      "SSIM": 0.6224843577170246,
+      "video_sha256": "1ad1a14e406fc4964d38a448302adc28438b03c0710c1e757d0ae46dfded2d07"
+    },
+    {
+      "variant": "qad_optimized",
+      "request_seconds": 69.949291,
+      "LPIPS": 0.21690964861021889,
+      "SSIM": 0.6222483881112602,
+      "video_sha256": "d4b6053d00de53e182ede795598404d105056f8a046b501cd4d1c9100f043a58"
+    }
+  ],
+  "method": {
+    "LPIPS": "AlexNet v0.1, full-resolution RGB, lower is closer to BF16",
+    "SSIM": "RGB Gaussian 11x11 window, sigma 1.5, population covariance, higher is closer to BF16",
+    "frames": "All 124 decoded frames, matched by index; no resize, registration or selection",
+    "time": "One first request per model, including CPU offload, generation and encoding; excludes loading and offline weight packing"
+  },
+  "limitations": [
+    "One request per variant with CPU offload, including encoding. Excludes server startup and model loading.",
+    "BF16 retained from GPU 0; Online and protected-prefix QAD from GPU 3; QAD + Native FP4 from GPU 1.",
+    "These cross-run request times are descriptive, not a controlled production-speed comparison.",
+    "One scene and seed; frame similarity to BF16 is affected by motion differences and is not a general quality score.",
+    "The unified-prefix native FP4 variant changes prefix precision relative to baseline QAD; equivalent general quality has not been established."
+  ],
+  "precision": {
+    "Online and QAD": "NVFP4 linear layers plus native FP4 sparse attention; native prefix QK uses FP8 and PV uses BF16",
+    "retained_higher_precision": "Vision tower, audio VAE, norms, boundary modules and sparse routing",
+    "QAD + Native FP4": "Same QAD encoder, decoder and linear scales; native FP4 attention with unified prefix/video and device-aware SM scheduling, including prefix queries."
+  },
+  "validation": "PPTX static, media-payload and layout checks passed; native PowerPoint playback was not exercised.",
+  "source_measurements_version": "v1.35",
+  "scope": "Retained slide-11 single-GPU comparison; not the seven pending slide-18 benchmarks."
+}
