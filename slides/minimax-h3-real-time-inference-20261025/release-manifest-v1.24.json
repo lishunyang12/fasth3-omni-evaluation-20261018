@@ -1,0 +1,125 @@
+{
+  "version": "v1.24",
+  "slides": 26,
+  "updated_pages": [
+    10,
+    11,
+    12,
+    13
+  ],
+  "three_videos_same_slide": 10,
+  "embedded_videos": [
+    {
+      "label": "BF16 Reference",
+      "file": "v1.24/media/bf16_ref.mp4",
+      "sha256": "4d28a4683d88498c8b1dea109f66c5b8e718a09a3d1dc5f9bf17c1f472c42769",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "Online NVFP4",
+      "file": "v1.24/media/online_nvfp4.mp4",
+      "sha256": "eda34b5be1588ec3c18e92c7c2b4f5e964415d2ca054cbe21ea7b8bb7697eadc",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "QAD NVFP4",
+      "file": "v1.24/media/qad_nvfp4.mp4",
+      "sha256": "b9fdc849d389b7bb27ba6d04ce4e2ce03a6ea13a5379c6204053ca5a403eb8dc",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    }
+  ],
+  "qad_source_revision": "ea3275dfd1ce48cbb01f9fc7f28e918e857a0536",
+  "qad_training_reproduced": false,
+  "base": "v1.23 local deck",
+  "publication": "GitHub Pages release v1.24",
+  "pdf_video_behavior": "frame-24 posters only",
+  "pptx_sha256": "2235f8d438c754bef585b5756378f132f188dc0136d5e6ac59d58fd841383782",
+  "pdf_sha256": "99e5b1c6508751345401d2388d428ca6189f18a5f056453d8cc2d6a1cbea1c4e",
+  "validation": {
+    "status": "pass_with_media_playback_exception",
+    "unresolved_errors": 0,
+    "warnings": 0,
+    "media_playback_exception": true
+  },
+  "quality_report": "v1.24/video-metrics.json",
+  "generation_times": "v1.24/video-generation-times.json",
+  "comparison_page": "three-videos-v1.24.html",
+  "online_nvfp4_generated": true,
+  "browser_playback": {
+    "title": "FastH3 quantization comparison",
+    "overflow": false,
+    "videos": [
+      {
+        "width": 1344,
+        "height": 768,
+        "time": 1.162006,
+        "paused": false,
+        "muted": true,
+        "error": null
+      },
+      {
+        "width": 1344,
+        "height": 768,
+        "time": 1.162022,
+        "paused": false,
+        "muted": true,
+        "error": null
+      },
+      {
+        "width": 1344,
+        "height": 768,
+        "time": 1.161911,
+        "paused": false,
+        "muted": true,
+        "error": null
+      }
+    ],
+    "status": "pass",
+    "scope": "Browser playback; native PowerPoint playback not exercised"
+  }
+}

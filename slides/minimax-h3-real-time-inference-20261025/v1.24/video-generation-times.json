@@ -1,0 +1,58 @@
+{
+  "timing": "curl time_total for the exact displayed video: request start through complete MP4 receipt; includes generation and encoding, excludes model loading and offline weight packing",
+  "hardware": "4 GPUs, RTX PRO 5000 Blackwell (SM120)",
+  "seed": 1234,
+  "frames": 124,
+  "fps": 24,
+  "resolution": [
+    1344,
+    768
+  ],
+  "steps": 8,
+  "source": "Original generation logs; timings were retrieved, not newly benchmarked",
+  "matched_request_fields": true,
+  "results": [
+    {
+      "variant": "bf16_ref",
+      "request_seconds": 48.120028,
+      "http_status": 200,
+      "video_bytes": 7173185,
+      "evidence": "timing-evidence/bf16_ref.curl.log",
+      "evidence_sha256": "2e3d50ba2936ce4baf2587def1c443c9530459a473ab13cfaff7fb0f4af01750",
+      "hsdp": true,
+      "encoder": "BF16",
+      "warmup_state": "Retained request; server previously used for inference",
+      "samples": 1
+    },
+    {
+      "variant": "online_nvfp4",
+      "request_seconds": 32.372101,
+      "http_status": 200,
+      "video_bytes": 7015924,
+      "evidence": "timing-evidence/online_nvfp4.curl.log",
+      "evidence_sha256": "b7c72f3573020f780a7160fe489c5bb58210afe233ee41c78059ff2c75c6ad27",
+      "hsdp": false,
+      "encoder": "BF16",
+      "warmup_state": "First generation request after server readiness",
+      "samples": 1
+    },
+    {
+      "variant": "qad_nvfp4",
+      "request_seconds": 28.398944,
+      "http_status": 200,
+      "video_bytes": 6777116,
+      "evidence": "timing-evidence/qad_nvfp4.curl.log",
+      "evidence_sha256": "aca796999bdb78bd35af2312d27e689fe545d7ac0d8e0dab43fcd20edccdccd0",
+      "hsdp": false,
+      "encoder": "Published quantized checkpoint encoder",
+      "warmup_state": "Retained request; server previously used for inference",
+      "samples": 1
+    }
+  ],
+  "limitations": [
+    "Single request per variant, from separate sessions with different warmup states.",
+    "BF16 uses HSDP; both NVFP4 runs disable HSDP.",
+    "QAD uses its published checkpoint encoder; other two runs use BF16 encoder.",
+    "These timings do not isolate quantization or QAD speedup."
+  ]
+}
