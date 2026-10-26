@@ -1,0 +1,35 @@
+{
+  "title": "FastH3: Complex Motion Quantization Comparison",
+  "url": "file:///tmp/h3-slides-v1.30/three-videos.html",
+  "metricsPresent": true,
+  "overflow": false,
+  "videos": [
+    {
+      "width": 1344,
+      "height": 768,
+      "time": 1.162874,
+      "paused": false,
+      "muted": true,
+      "error": null
+    },
+    {
+      "width": 1344,
+      "height": 768,
+      "time": 1.162883,
+      "paused": false,
+      "muted": true,
+      "error": null
+    },
+    {
+      "width": 1344,
+      "height": 768,
+      "time": 1.162888,
+      "paused": false,
+      "muted": true,
+      "error": null
+    }
+  ],
+  "status": "pass",
+  "shared_seek_and_speed_verified": true,
+  "scope": "Browser playback; native PowerPoint playback not exercised"
+}

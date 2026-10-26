@@ -1,0 +1,56 @@
+{
+  "deck": "MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.30.pptx",
+  "template": "NVIDIA_powerpoint_template.pptx",
+  "slide_count": 22,
+  "status": "pass_with_media_playback_exception",
+  "error_count": 0,
+  "warning_count": 0,
+  "theme": {
+    "colors": {
+      "dk1": "000000",
+      "lt1": "FFFFFF",
+      "dk2": "313131",
+      "lt2": "F7F7F7",
+      "accent1": "76B900",
+      "accent2": "1DBBA4",
+      "accent3": "0074DF",
+      "accent4": "952FC6",
+      "accent5": "EF9100",
+      "accent6": "757575",
+      "hlink": "757575",
+      "folHlink": "757575"
+    },
+    "fonts": {
+      "major": "NVIDIA Sans Medium",
+      "minor": "NVIDIA Sans"
+    }
+  },
+  "issues": [],
+  "limitations": [
+    "This is a static Open XML audit; it does not prove visual balance, overflow, overlap, or rendered contrast",
+    "Table roles follow the Starter Guide example: row 1 is the column-header row and column 1 contains row headings",
+    "Bullet detection uses explicit bullet XML or paragraph levels above zero; unusual master-only bullet definitions can be missed",
+    "Placeholder inheritance is resolved through the slide layout and master, but SmartArt, OLE objects, and formatting inside linked workbooks are not expanded",
+    "Raster-image pixels are not color-audited; only the PowerPoint picture frame and its effective outline are checked",
+    "An explicit DrawingML line with no width attribute is interpreted as PowerPoint's 0.75 pt default"
+  ],
+  "accepted_media_playback_exception": {
+    "raw_finding": {
+      "severity": "error",
+      "code": "animation_timing",
+      "message": "Slide contains p:timing animation XML; the Starter Guide says to use separate build slides",
+      "slide": 11,
+      "object_name": null,
+      "expected": "no p:timing elements",
+      "actual": "1 p:timing element(s)"
+    },
+    "reason": "The user explicitly requested three embedded videos on one slide. The timing tree contains only parallel video playback and targets exactly those three movies; no shape animation or transition is present.",
+    "embedded_mp4_count": 3,
+    "same_slide": 11,
+    "parallel_zero_delay": true,
+    "default_muted": true,
+    "payload_hashes_match_sources": true,
+    "source_aspect_preserved": true,
+    "native_powerpoint_playback_verified": false
+  }
+}

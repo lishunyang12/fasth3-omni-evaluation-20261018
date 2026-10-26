@@ -1,0 +1,30 @@
+{
+  "scene": "martial artist: two punches, pivot, side kick, recovery and cloth motion",
+  "selection": "Chosen for articulated limb motion, self-occlusion, changing pose, cloth motion and camera parallax before observing outputs.",
+  "prompt_file": "dynamic-prompt.txt",
+  "prompt_sha256": "12d7c8fe36577c961ecd223080eb182990c986208a2e032deeffb6f9de957871",
+  "references": [
+    {
+      "file": "assets/reference-1.png",
+      "sha256": "608c313315567f14a4e1c8f86a05decbcec4f71c3a429cc46b9b1bfe0a68c214"
+    },
+    {
+      "file": "assets/reference-2.png",
+      "sha256": "dd1fe59922db9e9764978237ab4b75ebaba10f5cc56bd3ece8ed4d8ea5405c69"
+    }
+  ],
+  "bf16_source_revision": "88d512c5e7cc38dda499fbb65688ce58611f9c80",
+  "qad_dit_revision": "0087718b2c8fe4b7e2d0a97463dc38da13f7703f",
+  "common_encoder_vae_revision": "9bfb6693f2cf6de171db46d1aa586f67d773a1da",
+  "QAD_encoder_used": false,
+  "online_uses_qad_weights_or_scales": false,
+  "online_uses_calibration_table": false,
+  "generation_config": "generation-config.yaml",
+  "generation_config_sha256": "2dd5e068fdf5dbd67cd7d317a13885f267d9865750923af2013855a08af0014e",
+  "metrics": "video-metrics.json",
+  "timing": "video-generation-times.json",
+  "poster_frame_index": 60,
+  "scope": "New matching dynamic-action clips; same original encoder/VAE and runtime settings, one prompt and seed.",
+  "requested_actions": "two punches, pivot, side kick and recovery",
+  "observed_actions": "The three clips visibly show punches, guard recovery, stance and cloth changes; the requested side kick is not clearly realized."
+}
