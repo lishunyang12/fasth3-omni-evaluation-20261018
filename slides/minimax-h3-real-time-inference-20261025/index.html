@@ -27,19 +27,18 @@
   <main>
     <div class="rule"></div>
     <h1>Real-Time Video Generation With MiniMax H3</h1>
-    <p class="sub">NVIDIA public-slide edition · v1.34 · 21 slides · updated 26 October 2026</p>
+    <p class="sub">NVIDIA public-slide edition · v1.35 · 21 slides · updated 27 October 2026</p>
     <div class="downloads">
-      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.34.pptx">Download PPTX v1.34</a>
-      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.34.pdf">Download PDF v1.34</a>
-      <a class="button" href="contact-sheet-v1.34.png">View All 21 Slides</a>
-      <a class="button" href="slide-11-four-videos-v1.34.png">Slide 11: Native NVFP4 Comparison</a>
-      <a class="button" href="v1.34/four-videos.html">Play Four Videos and View Measurements</a>
-      <a class="button" href="v1.34/measurements.json">Measurement Summary</a>
-      <a class="button" href="SHA256SUMS-v1.34.txt">SHA-256</a>
+      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.35.pptx">Download PPTX v1.35</a>
+      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.35.pdf">Download PDF v1.35</a>
+      <a class="button" href="contact-sheet-v1.35.png">View All 21 Slides</a>
+      <a class="button" href="slide-11-native-fp4-comparison-v1.35.png">Slide 11: Native NVFP4 Comparison</a>
+      <a class="button" href="v1.35/four-videos.html">Play Four Videos and View Measurements</a>
+      <a class="button" href="v1.35/measurements.json">Measurement Summary</a>
+      <a class="button" href="SHA256SUMS-v1.35.txt">SHA-256</a>
     </div>
-    <p class="note">v1.34 updates slide 11 with a full quantization comparison inside vLLM-Omni. Online and QAD both use native FP4 sparse attention and NVFP4 linear layers in the DiT, language encoder and video decoder. QAD retains checkpoint scales. Online is independently quantized from original weights, without QAD weights, QAD scale tables or calibration data. The fourth clip uses the same QAD weights with CAKE Sage attention.</p>
-    <p class="note">The videos include request times and full-resolution LPIPS / SSIM. Single-request CPU-offload timings are not steady-state benchmarks. A single scene does not establish general quality; motion differences affect frame similarity. Earlier v1.30–v1.32 QAD videos used an incorrect activation-scale override and a narrower quantization scope; this release supersedes that comparison.</p>
-    <p class="note">The 21-slide layout and existing communication / CUDA Graph analysis are retained. Four videos are embedded side by side in PowerPoint; the PDF uses still frames. Browser playback and shared seek were checked. The template audit retains the requested media-playback timing exception, with no other errors or warnings.</p>
+    <p class="note">v1.35 updates the fourth comparison on slide 11 to QAD + Optimized FP4, including the new video, 69.95 s request time and LPIPS / SSIM scores. The original 21-slide structure is retained.</p>
+    <p class="note">The PPTX embeds all four videos; the PDF shows still frames. Single-request times include CPU offload and first-use variation. Similarity on one scene does not establish general video quality. See the comparison page for measurement scope.</p>
     <table>
       <thead><tr><th>Latency Breakdown</th><th>Average GPU Time*</th><th>Share</th></tr></thead>
       <tbody>
