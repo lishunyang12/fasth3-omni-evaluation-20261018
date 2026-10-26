@@ -1,0 +1,26 @@
+{
+  "screenshot_sha256": "d53db5d10c0d17b05ae5eebd8edade6e3594b3015fd9e63c46577f5b08a5960a",
+  "image_content_edited": false,
+  "annotations": [
+    {
+      "label": "Bubble 1: input-readiness phase, little productive compute",
+      "source_pixel_box": [
+        525,
+        74,
+        207,
+        174
+      ]
+    },
+    {
+      "label": "Bubble 2: exposed O-return tail",
+      "source_pixel_box": [
+        1118,
+        74,
+        56,
+        174
+      ]
+    }
+  ],
+  "scope": "Visually selected GPU-lane regions; not measured duration brackets",
+  "profile": "pre-head-pipeline FI RDMA baseline"
+}

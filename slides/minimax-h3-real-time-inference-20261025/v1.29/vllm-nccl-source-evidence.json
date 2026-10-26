@@ -1,0 +1,19 @@
+{
+  "revision": "63487a7f22db603adefcdac378cfe2a26f6bcb7c",
+  "kind": "Original vLLM-Omni application call path; not NCCL library internals",
+  "files": {
+    "comm.py": {
+      "sha256": "daac23a33e8110c3f42f56cf6d02492542e3625361c39f9be113ee4d5bedbf5c",
+      "path": "vllm_omni/diffusion/distributed/comm.py"
+    },
+    "ulysses.py": {
+      "sha256": "60fbf76ef12e6f93d5e375f6fd6b35acfc84bc7894984ba756d237ddc8320e33",
+      "path": "vllm_omni/diffusion/attention/parallel/ulysses.py"
+    }
+  },
+  "excerpts": {
+    "comm.py": "QKV branch expressions: lines 44, 46, 51, 57, 60; line wraps and outer parentheses adjusted; guards omitted",
+    "ulysses.py": "Query call at 538\u2013540 and O inverse at 721; key/value use same call path"
+  },
+  "layout": "Native NVIDIA coding layout with Roboto Mono; separate implementation, call sites and interpretation regions"
+}
