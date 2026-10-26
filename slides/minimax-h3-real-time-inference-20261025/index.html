@@ -27,36 +27,19 @@
   <main>
     <div class="rule"></div>
     <h1>Real-Time Video Generation With MiniMax H3</h1>
-    <p class="sub">NVIDIA public-slide edition · v1.32 · 21 slides · updated 26 October 2026</p>
+    <p class="sub">NVIDIA public-slide edition · v1.34 · 21 slides · updated 26 October 2026</p>
     <div class="downloads">
-      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.32.pptx">Download PPTX</a>
-      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.32.pdf">Download PDF</a>
-      <a class="button" href="contact-sheet-v1.32.png">View All 21 Slides</a>
-      <a class="button" href="v1.32/four-videos.html">Play Crowded Night Market Videos · Timing + LPIPS / SSIM</a>
-      <a class="button" href="Quantization_Four_Videos_v1.32.pptx">Four-Video Slide PPTX</a>
-      <a class="button" href="slide-09-sparse-attention-v1.32.png">Slide 9 · VSA</a>
-      <a class="button" href="slide-10-qad-training-v1.32.png">Slide 10 · QAD Training + Precision</a>
-      <a class="button" href="slide-11-four-videos-v1.32.png">Slide 11 · Crowded Night Market Comparison</a>
-      <a class="button" href="slide-12-ulysses-v1.32.png">Slide 12 · Ulysses</a>
-      <a class="button" href="slide-13-topology-v1.32.png">Slide 13 · Topology</a>
-      <a class="button" href="slide-14-local-nccl-rdma-v1.32.png">Slide 14 · Local NCCL to RDMA + Conclusion</a>
-      <a class="button" href="slide-15-vllm-omni-nccl-v1.32.png">Slide 15 · Original vLLM-Omni NCCL Implementation</a>
-      <a class="button" href="slide-16-head-pipeline-232-v1.32.png">Slide 16 · Head Pipeline 2 / 3 / 2</a>
-      <a class="button" href="slide-17-cuda-graph-v1.32.png">Slide 17 · Why Head Bands Strengthen CUDA Graph Benefits</a>
-      <a class="button" href="v1.32/assets/slide-13-diagram.svg">Redrawn Topology SVG</a>
-      <a class="button" href="v1.32/assets/slide-17-diagram.svg">Head Pipeline SVG</a>
-      <a class="button" href="v1.32/assets/cuda-graph-pipeline.svg">CUDA Graph Timeline SVG</a>
-      <a class="button" href="v1.27/cuda-graph-evidence.json">CUDA Graph Evidence</a>
-      <a class="button" href="v1.32/video-provenance.json">New Video Provenance</a>
-      <a class="button" href="release-validation-v1.32.json">Template Validation · Video Playback Exception</a>
-      <a class="button" href="release-manifest-v1.32.json">Release Manifest</a>
-      <a class="button" href="SHA256SUMS-v1.32.txt">SHA-256</a>
+      <a class="button primary" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.34.pptx">Download PPTX v1.34</a>
+      <a class="button" href="MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.34.pdf">Download PDF v1.34</a>
+      <a class="button" href="contact-sheet-v1.34.png">View All 21 Slides</a>
+      <a class="button" href="slide-11-four-videos-v1.34.png">Slide 11: Native NVFP4 Comparison</a>
+      <a class="button" href="v1.34/four-videos.html">Play Four Videos and View Measurements</a>
+      <a class="button" href="v1.34/measurements.json">Measurement Summary</a>
+      <a class="button" href="SHA256SUMS-v1.34.txt">SHA-256</a>
     </div>
-    <p class="note">v1.32 adds a fourth side-by-side video on slide 11: QAD NVFP4 + SageAttention. The new QAD cuDNN and QAD Sage clips are a matched pair on GPU 3; BF16 and direct Online clips are retained from v1.31 on GPU 0. All four share prompt, reference, seed, original BF16 encoder/VAE and layerwise CPU offload. Sage uses INT8 Q/K and FP8 V while preserving logical tile128 sparse routing. Photo: <a href="https://unsplash.com/photos/crowded-street-market-at-night-with-lanterns-prZR_BQiZzU">James Lo / Unsplash</a>. The new clip timings and all four clips’ LPIPS / SSIM are included. The page offers shared seeking and slow playback.</p>
-    <p class="note">Slide 17 explains that CUDA Graph is possible before head banding, while repeated per-band submissions strengthen its benefit. The retained compute-only four-arm experiment shows 0.39% improvement for seven heads together and 2.30% for 1/2/3/1 bands. Banding still adds compute cost; end-to-end improvement depends on communication overlap. Fixed shapes, stable buffers and repeated calls suit graph replay.</p>
-    <p class="note">The graph timeline is conceptual, with enqueue points marked before GPU execution. GPU work can begin before the CPU launch API returns. RDMA, readiness events and full W_O stay outside this prototype capture. Selected 2/3/2 is not a measured full-model result. Textual arrows were replaced by words; diagram connectors remain.</p>
-    <p class="note">The new video request times include CPU offload and possible first-use JIT. They do not establish production speedup. Framewise similarity, with independently moving crowds, does not alone measure action correctness, temporal stability or general video quality. Online NVFP4 uses no calibration table or QAD weights/scales.</p>
-    <p class="note">C = 256 GB/s remains a raw one-way xGMI model input, not verified installed throughput. The topology is redrawn as SVG with separated GPU, host and NIC wiring. The former slide 16 (annotated Nsight bubbles) has been removed at the user’s request; following pages are renumbered. PowerPoint embeds videos; PDF uses still frames. The template audit retains the requested video-playback timing exception, with no other errors or warnings.</p>
+    <p class="note">v1.34 updates slide 11 with a full quantization comparison inside vLLM-Omni. Online and QAD both use native FP4 sparse attention and NVFP4 linear layers in the DiT, language encoder and video decoder. QAD retains checkpoint scales. Online is independently quantized from original weights, without QAD weights, QAD scale tables or calibration data. The fourth clip uses the same QAD weights with CAKE Sage attention.</p>
+    <p class="note">The videos include request times and full-resolution LPIPS / SSIM. Single-request CPU-offload timings are not steady-state benchmarks. A single scene does not establish general quality; motion differences affect frame similarity. Earlier v1.30–v1.32 QAD videos used an incorrect activation-scale override and a narrower quantization scope; this release supersedes that comparison.</p>
+    <p class="note">The 21-slide layout and existing communication / CUDA Graph analysis are retained. Four videos are embedded side by side in PowerPoint; the PDF uses still frames. Browser playback and shared seek were checked. The template audit retains the requested media-playback timing exception, with no other errors or warnings.</p>
     <table>
       <thead><tr><th>Latency Breakdown</th><th>Average GPU Time*</th><th>Share</th></tr></thead>
       <tbody>

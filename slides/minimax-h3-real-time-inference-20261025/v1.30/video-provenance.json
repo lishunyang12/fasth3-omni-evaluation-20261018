@@ -26,5 +26,7 @@
   "poster_frame_index": 60,
   "scope": "New matching dynamic-action clips; same original encoder/VAE and runtime settings, one prompt and seed.",
   "requested_actions": "two punches, pivot, side kick and recovery",
-  "observed_actions": "The three clips visibly show punches, guard recovery, stance and cloth changes; the requested side kick is not clearly realized."
+  "observed_actions": "The three clips visibly show punches, guard recovery, stance and cloth changes; the requested side kick is not clearly realized.",
+  "correction": "The QAD clips used dynamic activation globals instead of checkpoint globals, with non-native attention/encoder/decoder precision. See the corrected v1.34 comparison.",
+  "superseded_by": "../v1.34/four-videos.html"
 }
