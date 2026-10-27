@@ -1,0 +1,365 @@
+{
+  "status": "limited_review_complete",
+  "reviewed_at": 1793112955.1376593,
+  "scope": "One representative formal output per cohort; five sampled frames plus full video/audio decoding and signal checks",
+  "sampled_frame_indices": [
+    0,
+    31,
+    62,
+    93,
+    123
+  ],
+  "groups": {
+    "00-baseline": {
+      "status": "five_sampled_frames_reviewed",
+      "observation": "Reference subject, clothing and room remain consistent in the five sampled frames. A head turn is visible near the middle sample.",
+      "mp4_sha256": "2abd1d159c6c381d7996f7fad7984d608bd421a36b920b551cae473fd89fb0a7"
+    },
+    "01-pdd8": {
+      "status": "five_sampled_frames_reviewed",
+      "observation": "Reference subject and background remain recognizable. Head-turn direction and expression differ from Base50 in the sampled frames.",
+      "mp4_sha256": "78e93faab8a641b01eecabd22fc671e4745ff006be67a931411155c40e581ede"
+    },
+    "02-vsa": {
+      "status": "five_sampled_frames_reviewed",
+      "observation": "Subject and background remain recognizable; expression and motion differ from the dense eight-step sample.",
+      "mp4_sha256": "bfe9a1b1080842c1819900bf6f2c3917c6e4f1cd956fce760a24e5c7bfc3675f"
+    },
+    "03-qad-native-fp4": {
+      "status": "five_sampled_frames_reviewed",
+      "observation": "Sampled frames preserve the subject and room; head motion and mouth shapes differ from earlier model configurations.",
+      "mp4_sha256": "258531442a9fd9a3eb727b7129556c648a24855ae79f61560b0a84f3adc754c0"
+    },
+    "04-ulysses": {
+      "status": "five_sampled_frames_reviewed",
+      "observation": "No obvious structural corruption in sampled face, clothing or background; output pixels and generated audio differ from group 3.",
+      "mp4_sha256": "fbe372c8fdd748c48c643b98033afcfe28b7fd7159458be8db4b1f1c320b1990"
+    },
+    "05-head-232": {
+      "status": "five_sampled_frames_reviewed",
+      "observation": "No obvious structural corruption in sampled frames; face, clothing and background remain consistent.",
+      "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f"
+    },
+    "06-cuda-graph": {
+      "status": "five_sampled_frames_reviewed",
+      "observation": "Sampled appearance matches group 5; decoded formal video and audio hashes match group 5 exactly.",
+      "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f"
+    },
+    "07-vae-output": {
+      "status": "five_sampled_frames_reviewed",
+      "observation": "Sampled face, clothing and room remain consistent; minor rendering differences from group 6 are visible. No black or empty sampled frames.",
+      "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282"
+    }
+  },
+  "subjective_speech_quality": "not_rated",
+  "lip_synchronization": "not_rated",
+  "rolling_continuity": "not_tested",
+  "perceptual_equivalence_claimed": false,
+  "overall_observation": "No obvious structural failure in sampled frames. All decoded audio samples are finite and non-silent; no sample reaches full scale. These checks do not establish equal perceptual quality across model configurations.",
+  "signal_checks": {
+    "00-baseline": {
+      "mp4_sha256": "2abd1d159c6c381d7996f7fad7984d608bd421a36b920b551cae473fd89fb0a7",
+      "sampled_frame_indices": [
+        0,
+        31,
+        62,
+        93,
+        123
+      ],
+      "video": {
+        "decoded_frames": 124,
+        "analysis_resolution": [
+          96,
+          54
+        ],
+        "min_frame_mean_luma": 90.72993827160494,
+        "max_frame_mean_luma": 95.62847222222223,
+        "identical_adjacent_downsampled_frames": 0,
+        "mean_adjacent_luma_difference": 2.3340516159791225
+      },
+      "audio": {
+        "sample_rate": 32000,
+        "channels": 2,
+        "decoded_sample_frames": 165600,
+        "finite": true,
+        "peak_absolute": 0.942912757396698,
+        "rms": 0.13361693918704987,
+        "fraction_at_or_above_full_scale": 0.0
+      },
+      "visual_review": "five_sampled_frames_reviewed",
+      "subjective_audio_review": "not_performed",
+      "limitations": [
+        "Signal checks detect structural failures, not speech or audiovisual quality.",
+        "Frame sampling does not establish full temporal continuity or lip synchronization.",
+        "Generative output differences across configurations are not treated as quality scores."
+      ],
+      "visual_observation": "Reference subject, clothing and room remain consistent in the five sampled frames. A head turn is visible near the middle sample."
+    },
+    "01-pdd8": {
+      "mp4_sha256": "78e93faab8a641b01eecabd22fc671e4745ff006be67a931411155c40e581ede",
+      "sampled_frame_indices": [
+        0,
+        31,
+        62,
+        93,
+        123
+      ],
+      "video": {
+        "decoded_frames": 124,
+        "analysis_resolution": [
+          96,
+          54
+        ],
+        "min_frame_mean_luma": 92.07484567901234,
+        "max_frame_mean_luma": 96.89158950617283,
+        "identical_adjacent_downsampled_frames": 0,
+        "mean_adjacent_luma_difference": 1.5293507854060022
+      },
+      "audio": {
+        "sample_rate": 32000,
+        "channels": 2,
+        "decoded_sample_frames": 165600,
+        "finite": true,
+        "peak_absolute": 0.662887454032898,
+        "rms": 0.0740273967385292,
+        "fraction_at_or_above_full_scale": 0.0
+      },
+      "visual_review": "five_sampled_frames_reviewed",
+      "subjective_audio_review": "not_performed",
+      "limitations": [
+        "Signal checks detect structural failures, not speech or audiovisual quality.",
+        "Frame sampling does not establish full temporal continuity or lip synchronization.",
+        "Generative output differences across configurations are not treated as quality scores."
+      ],
+      "visual_observation": "Reference subject and background remain recognizable. Head-turn direction and expression differ from Base50 in the sampled frames."
+    },
+    "02-vsa": {
+      "mp4_sha256": "bfe9a1b1080842c1819900bf6f2c3917c6e4f1cd956fce760a24e5c7bfc3675f",
+      "sampled_frame_indices": [
+        0,
+        31,
+        62,
+        93,
+        123
+      ],
+      "video": {
+        "decoded_frames": 124,
+        "analysis_resolution": [
+          96,
+          54
+        ],
+        "min_frame_mean_luma": 92.94116512345678,
+        "max_frame_mean_luma": 97.96624228395062,
+        "identical_adjacent_downsampled_frames": 0,
+        "mean_adjacent_luma_difference": 1.5033687142426981
+      },
+      "audio": {
+        "sample_rate": 32000,
+        "channels": 2,
+        "decoded_sample_frames": 165600,
+        "finite": true,
+        "peak_absolute": 0.9394198060035706,
+        "rms": 0.10387200862169266,
+        "fraction_at_or_above_full_scale": 0.0
+      },
+      "visual_review": "five_sampled_frames_reviewed",
+      "subjective_audio_review": "not_performed",
+      "limitations": [
+        "Signal checks detect structural failures, not speech or audiovisual quality.",
+        "Frame sampling does not establish full temporal continuity or lip synchronization.",
+        "Generative output differences across configurations are not treated as quality scores."
+      ],
+      "visual_observation": "Subject and background remain recognizable; expression and motion differ from the dense eight-step sample."
+    },
+    "03-qad-native-fp4": {
+      "mp4_sha256": "258531442a9fd9a3eb727b7129556c648a24855ae79f61560b0a84f3adc754c0",
+      "sampled_frame_indices": [
+        0,
+        31,
+        62,
+        93,
+        123
+      ],
+      "video": {
+        "decoded_frames": 124,
+        "analysis_resolution": [
+          96,
+          54
+        ],
+        "min_frame_mean_luma": 92.14525462962963,
+        "max_frame_mean_luma": 95.9417438271605,
+        "identical_adjacent_downsampled_frames": 0,
+        "mean_adjacent_luma_difference": 1.5716933905450166
+      },
+      "audio": {
+        "sample_rate": 32000,
+        "channels": 2,
+        "decoded_sample_frames": 165600,
+        "finite": true,
+        "peak_absolute": 0.8941975831985474,
+        "rms": 0.07968815416097641,
+        "fraction_at_or_above_full_scale": 0.0
+      },
+      "visual_review": "five_sampled_frames_reviewed",
+      "subjective_audio_review": "not_performed",
+      "limitations": [
+        "Signal checks detect structural failures, not speech or audiovisual quality.",
+        "Frame sampling does not establish full temporal continuity or lip synchronization.",
+        "Generative output differences across configurations are not treated as quality scores."
+      ],
+      "visual_observation": "Sampled frames preserve the subject and room; head motion and mouth shapes differ from earlier model configurations."
+    },
+    "04-ulysses": {
+      "mp4_sha256": "fbe372c8fdd748c48c643b98033afcfe28b7fd7159458be8db4b1f1c320b1990",
+      "sampled_frame_indices": [
+        0,
+        31,
+        62,
+        93,
+        123
+      ],
+      "video": {
+        "decoded_frames": 124,
+        "analysis_resolution": [
+          96,
+          54
+        ],
+        "min_frame_mean_luma": 92.3582175925926,
+        "max_frame_mean_luma": 96.09375,
+        "identical_adjacent_downsampled_frames": 0,
+        "mean_adjacent_luma_difference": 1.4976004968383019
+      },
+      "audio": {
+        "sample_rate": 32000,
+        "channels": 2,
+        "decoded_sample_frames": 165600,
+        "finite": true,
+        "peak_absolute": 0.8238783478736877,
+        "rms": 0.07316966354846954,
+        "fraction_at_or_above_full_scale": 0.0
+      },
+      "visual_review": "five_sampled_frames_reviewed",
+      "subjective_audio_review": "not_performed",
+      "limitations": [
+        "Signal checks detect structural failures, not speech or audiovisual quality.",
+        "Frame sampling does not establish full temporal continuity or lip synchronization.",
+        "Generative output differences across configurations are not treated as quality scores."
+      ],
+      "visual_observation": "No obvious structural corruption in sampled face, clothing or background; output pixels and generated audio differ from group 3."
+    },
+    "05-head-232": {
+      "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f",
+      "sampled_frame_indices": [
+        0,
+        31,
+        62,
+        93,
+        123
+      ],
+      "video": {
+        "decoded_frames": 124,
+        "analysis_resolution": [
+          96,
+          54
+        ],
+        "min_frame_mean_luma": 92.13908179012346,
+        "max_frame_mean_luma": 96.2079475308642,
+        "identical_adjacent_downsampled_frames": 0,
+        "mean_adjacent_luma_difference": 1.4981478344876042
+      },
+      "audio": {
+        "sample_rate": 32000,
+        "channels": 2,
+        "decoded_sample_frames": 165600,
+        "finite": true,
+        "peak_absolute": 0.6741859912872314,
+        "rms": 0.0715479776263237,
+        "fraction_at_or_above_full_scale": 0.0
+      },
+      "visual_review": "five_sampled_frames_reviewed",
+      "subjective_audio_review": "not_performed",
+      "limitations": [
+        "Signal checks detect structural failures, not speech or audiovisual quality.",
+        "Frame sampling does not establish full temporal continuity or lip synchronization.",
+        "Generative output differences across configurations are not treated as quality scores."
+      ],
+      "visual_observation": "No obvious structural corruption in sampled frames; face, clothing and background remain consistent."
+    },
+    "06-cuda-graph": {
+      "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f",
+      "sampled_frame_indices": [
+        0,
+        31,
+        62,
+        93,
+        123
+      ],
+      "video": {
+        "decoded_frames": 124,
+        "analysis_resolution": [
+          96,
+          54
+        ],
+        "min_frame_mean_luma": 92.13908179012346,
+        "max_frame_mean_luma": 96.2079475308642,
+        "identical_adjacent_downsampled_frames": 0,
+        "mean_adjacent_luma_difference": 1.4981478344876042
+      },
+      "audio": {
+        "sample_rate": 32000,
+        "channels": 2,
+        "decoded_sample_frames": 165600,
+        "finite": true,
+        "peak_absolute": 0.6741859912872314,
+        "rms": 0.0715479776263237,
+        "fraction_at_or_above_full_scale": 0.0
+      },
+      "visual_review": "five_sampled_frames_reviewed",
+      "subjective_audio_review": "not_performed",
+      "limitations": [
+        "Signal checks detect structural failures, not speech or audiovisual quality.",
+        "Frame sampling does not establish full temporal continuity or lip synchronization.",
+        "Generative output differences across configurations are not treated as quality scores."
+      ],
+      "visual_observation": "Sampled appearance matches group 5; decoded formal video and audio hashes match group 5 exactly."
+    },
+    "07-vae-output": {
+      "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+      "sampled_frame_indices": [
+        0,
+        31,
+        62,
+        93,
+        123
+      ],
+      "video": {
+        "decoded_frames": 124,
+        "analysis_resolution": [
+          96,
+          54
+        ],
+        "min_frame_mean_luma": 92.32619598765432,
+        "max_frame_mean_luma": 96.44637345679013,
+        "identical_adjacent_downsampled_frames": 0,
+        "mean_adjacent_luma_difference": 1.5079716827260867
+      },
+      "audio": {
+        "sample_rate": 32000,
+        "channels": 2,
+        "decoded_sample_frames": 165600,
+        "finite": true,
+        "peak_absolute": 0.6741859912872314,
+        "rms": 0.0715479776263237,
+        "fraction_at_or_above_full_scale": 0.0
+      },
+      "visual_review": "five_sampled_frames_reviewed",
+      "subjective_audio_review": "not_performed",
+      "limitations": [
+        "Signal checks detect structural failures, not speech or audiovisual quality.",
+        "Frame sampling does not establish full temporal continuity or lip synchronization.",
+        "Generative output differences across configurations are not treated as quality scores."
+      ],
+      "visual_observation": "Sampled face, clothing and room remain consistent; minor rendering differences from group 6 are visible. No black or empty sampled frames."
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "status": "pass",
+  "slides": 21,
+  "changed_slides": [
+    1,
+    18
+  ],
+  "numbers_match_raw_measurements": true,
+  "glyph_and_layout_audit": {
+    "status": "pass",
+    "slides_reviewed": 21,
+    "text_lines_checked": 405,
+    "fonts": [
+      {
+        "family": "NVIDIA Sans",
+        "style": "regular",
+        "uses": 202
+      },
+      {
+        "family": "NVIDIA Sans Medium",
+        "style": "regular",
+        "uses": 125
+      },
+      {
+        "family": "NVIDIA Sans",
+        "style": "bold",
+        "uses": 1
+      },
+      {
+        "family": "Roboto Mono",
+        "style": "regular",
+        "uses": 24
+      }
+    ],
+    "font_substitution": false,
+    "missing_glyphs": [],
+    "overflows": [],
+    "text_overlaps": [],
+    "method": "Embedded-font raster preview; actual glyph bounds against containers and other text",
+    "limitations": [
+      "Custom preview engine; native PowerPoint rendering and playback were not exercised.",
+      "Text inside existing raster diagrams is checked visually rather than through glyph geometry."
+    ]
+  },
+  "independent_office_render": {
+    "status": "text_checks_pass",
+    "renderer": "LibreOffice Impress",
+    "pdf_pages": 21,
+    "pptx_sha256": "4a2c6e694e514a88d758410b9cd14d62215ebcf10faa6cc76981a5861370654e",
+    "pdf_sha256": "5749b88132e2d18e479c5ab8cd9a2985444b48b9e3cc199cac15935833c29bdb",
+    "editable_paragraphs_checked": 348,
+    "rendered_fonts": {
+      "NVIDIASans-Regular": 8946,
+      "NVIDIASans-Medium": 2741,
+      "RobotoMono-Regular": 581
+    },
+    "unmatched_paragraphs": [],
+    "text_outside_page": [],
+    "native_powerpoint_rendering_and_playback_verified": false,
+    "visual_review": "reviewed",
+    "notes": [
+      "Paragraph checks ignore whitespace, soft hyphens and Unicode compatibility forms.",
+      "Impress is an independent office renderer, not Microsoft PowerPoint."
+    ],
+    "visual_review_scope": "All 21 slides inspected in office-rendered contact sheets; slides 1 and 18 inspected at full resolution."
+  },
+  "quality_review": "limited_visual_and_signal_checks"
+}

@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Slide 18 · Measured H3 benchmarks</title>
+<style>*{box-sizing:border-box}body{margin:0;background:white;color:#161616;font:16px/1.5 Arial,Helvetica,sans-serif}main{width:min(1180px,calc(100% - 32px));margin:40px auto}a{color:#346800}h1{font-size:clamp(28px,4vw,46px);line-height:1.15}.status{padding:16px 20px;background:#f5f7f2;border-left:5px solid #76b900}.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;margin:24px 0;font-variant-numeric:tabular-nums}td,th{text-align:left;padding:12px 10px;border-bottom:1px solid #ccc}th{color:#346800}td:last-child{white-space:nowrap;font-size:14px}.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}section{min-width:0;scroll-margin-top:20px}h2{font-size:20px;min-height:3em}video,img{display:block;max-width:100%;height:auto}video{width:100%;aspect-ratio:960/544;background:#111}img{width:100%;border:1px solid #ddd}.note{font-size:14px;color:#444}footer{margin:35px 0;border-top:1px solid #ccc;padding-top:20px}a:focus-visible{outline:3px solid #346800;outline-offset:3px}@media(max-width:700px){.gallery{grid-template-columns:1fr}h2{min-height:0}}</style></head><body><main>
+<p><a href="index.html">Back to the slides</a> · <a href="benchmark-data.json">Download measurement JSON</a> · <a href="timings.csv">Download request timings</a></p>
+<h1>Slide 18: seven measured optimization groups</h1>
+<div class="status"><p><strong>960 × 544 · 124 frames at 24 FPS · 8 GPUs · seed 43</strong></p>
+<p>Standalone Ref2VA, with the same reference image, audio and prompt. End-to-end timing ends when the complete audiovisual MP4 response has arrived.</p>
+<p>Each new cohort has one initialization request, one warmup request and three formal requests. Only formal requests contribute to the displayed median.</p>
+<p>The final configuration did not put all three formal requests below 5.000 s.</p></div>
+<div class="scroll"><table><thead><tr><th>Group</th><th>Cumulative configuration</th><th>Median (s)</th><th>Worst (s)</th><th>Three formal samples (s)</th></tr></thead><tbody><tr><td>0</td><td><a href="#case-0">Retained Base50 baseline</a></td><td>247.956</td><td>248.298</td><td>247.956371, 246.200546, 248.297979</td></tr>
+<tr><td>1</td><td><a href="#case-1">PDD: 50 to 8 steps</a></td><td>42.962</td><td>42.968</td><td>42.890917, 42.961756, 42.968086</td></tr>
+<tr><td>2</td><td><a href="#case-2">VSA sparse attention</a></td><td>26.199</td><td>26.205</td><td>26.120714, 26.198997, 26.204949</td></tr>
+<tr><td>3</td><td><a href="#case-3">QAD + native FP4 attention</a></td><td>19.351</td><td>19.385</td><td>19.351314, 19.385305, 19.309999</td></tr>
+<tr><td>4</td><td><a href="#case-4">Ulysses: RDMA, layout, V/gate overlap and NCCL IB</a></td><td>6.831</td><td>6.887</td><td>6.887250, 6.826748, 6.830541</td></tr>
+<tr><td>5</td><td><a href="#case-5">2/3/2 head pipeline</a></td><td>6.472</td><td>6.472</td><td>6.471757, 6.429025, 6.471706</td></tr>
+<tr><td>6</td><td><a href="#case-6">CUDA Graph</a></td><td>6.201</td><td>6.260</td><td>6.259960, 6.201149, 6.200940</td></tr>
+<tr><td>7</td><td><a href="#case-7">NVFP4 36L VAE + MP4 pre-encoding</a></td><td>5.418</td><td>5.422</td><td>5.414622, 5.417645, 5.422367</td></tr></tbody></table></div>
+<p class="note">The 247.956 s Base50 baseline is retained historical evidence. Checkpoints and runtime configurations change cumulatively; differences between rows do not isolate individual kernel speedups. These measurements do not establish PRO 5500 performance or rolling livestream continuity.</p>
+<p class="note">Every new request passed full video/audio decoding and eight-rank runtime checks. The three formal outputs within each new cohort have matching decoded video and audio hashes. Review includes five sampled frames per cohort and audio signal checks. Appearance, expression, motion and audio differ across configurations. Subjective speech quality and lip synchronization were not rated; perceptual equivalence is not claimed. <a href="quality-review.json">Review details</a>.</p>
+<div class="gallery"><section id="case-0"><h2>0 · Retained Base50 baseline</h2>
+<p>Median 247.956 s · Worst 248.298 s · RTF 47.992</p>
+<video controls playsinline preload="metadata" width="960" height="544" src="benchmark-media/00-baseline.mp4"></video>
+<p><a href="benchmark-media/00-baseline.mp4" download>Download representative formal output</a></p>
+<a href="benchmark-media/00-baseline-frames.png"><img loading="lazy" src="benchmark-media/00-baseline-frames.png" width="1920" height="218" alt="Frames 0, 31, 62, 93 and 123 from Retained Base50 baseline"></a></section>
+<section id="case-1"><h2>1 · PDD: 50 to 8 steps</h2>
+<p>Median 42.962 s · Worst 42.968 s · RTF 8.315</p>
+<video controls playsinline preload="metadata" width="960" height="544" src="benchmark-media/01-pdd8.mp4"></video>
+<p><a href="benchmark-media/01-pdd8.mp4" download>Download representative formal output</a></p>
+<a href="benchmark-media/01-pdd8-frames.png"><img loading="lazy" src="benchmark-media/01-pdd8-frames.png" width="1920" height="218" alt="Frames 0, 31, 62, 93 and 123 from PDD: 50 to 8 steps"></a></section>
+<section id="case-2"><h2>2 · VSA sparse attention</h2>
+<p>Median 26.199 s · Worst 26.205 s · RTF 5.071</p>
+<video controls playsinline preload="metadata" width="960" height="544" src="benchmark-media/02-vsa.mp4"></video>
+<p><a href="benchmark-media/02-vsa.mp4" download>Download representative formal output</a></p>
+<a href="benchmark-media/02-vsa-frames.png"><img loading="lazy" src="benchmark-media/02-vsa-frames.png" width="1920" height="218" alt="Frames 0, 31, 62, 93 and 123 from VSA sparse attention"></a></section>
+<section id="case-3"><h2>3 · QAD + native FP4 attention</h2>
+<p>Median 19.351 s · Worst 19.385 s · RTF 3.745</p>
+<video controls playsinline preload="metadata" width="960" height="544" src="benchmark-media/03-qad-native-fp4.mp4"></video>
+<p><a href="benchmark-media/03-qad-native-fp4.mp4" download>Download representative formal output</a></p>
+<a href="benchmark-media/03-qad-native-fp4-frames.png"><img loading="lazy" src="benchmark-media/03-qad-native-fp4-frames.png" width="1920" height="218" alt="Frames 0, 31, 62, 93 and 123 from QAD + native FP4 attention"></a></section>
+<section id="case-4"><h2>4 · Ulysses: RDMA, layout, V/gate overlap and NCCL IB</h2>
+<p>Median 6.831 s · Worst 6.887 s · RTF 1.322</p>
+<video controls playsinline preload="metadata" width="960" height="544" src="benchmark-media/04-ulysses.mp4"></video>
+<p><a href="benchmark-media/04-ulysses.mp4" download>Download representative formal output</a></p>
+<a href="benchmark-media/04-ulysses-frames.png"><img loading="lazy" src="benchmark-media/04-ulysses-frames.png" width="1920" height="218" alt="Frames 0, 31, 62, 93 and 123 from Ulysses: RDMA, layout, V/gate overlap and NCCL IB"></a></section>
+<section id="case-5"><h2>5 · 2/3/2 head pipeline</h2>
+<p>Median 6.472 s · Worst 6.472 s · RTF 1.253</p>
+<video controls playsinline preload="metadata" width="960" height="544" src="benchmark-media/05-head-232.mp4"></video>
+<p><a href="benchmark-media/05-head-232.mp4" download>Download representative formal output</a></p>
+<a href="benchmark-media/05-head-232-frames.png"><img loading="lazy" src="benchmark-media/05-head-232-frames.png" width="1920" height="218" alt="Frames 0, 31, 62, 93 and 123 from 2/3/2 head pipeline"></a></section>
+<section id="case-6"><h2>6 · CUDA Graph</h2>
+<p>Median 6.201 s · Worst 6.260 s · RTF 1.200</p>
+<video controls playsinline preload="metadata" width="960" height="544" src="benchmark-media/06-cuda-graph.mp4"></video>
+<p><a href="benchmark-media/06-cuda-graph.mp4" download>Download representative formal output</a></p>
+<a href="benchmark-media/06-cuda-graph-frames.png"><img loading="lazy" src="benchmark-media/06-cuda-graph-frames.png" width="1920" height="218" alt="Frames 0, 31, 62, 93 and 123 from CUDA Graph"></a></section>
+<section id="case-7"><h2>7 · NVFP4 36L VAE + MP4 pre-encoding</h2>
+<p>Median 5.418 s · Worst 5.422 s · RTF 1.049</p>
+<video controls playsinline preload="metadata" width="960" height="544" src="benchmark-media/07-vae-output.mp4"></video>
+<p><a href="benchmark-media/07-vae-output.mp4" download>Download representative formal output</a></p>
+<a href="benchmark-media/07-vae-output-frames.png"><img loading="lazy" src="benchmark-media/07-vae-output-frames.png" width="1920" height="218" alt="Frames 0, 31, 62, 93 and 123 from NVFP4 36L VAE + MP4 pre-encoding"></a></section></div><footer><a href="stage-breakdown.json">Slide data</a> · <a href="release-manifest.json">Release manifest</a> · <a href="SHA256SUMS.txt">Checksums</a></footer></main></body></html>

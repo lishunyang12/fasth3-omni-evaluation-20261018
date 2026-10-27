@@ -1,0 +1,290 @@
+{
+  "schema": "h3-slide18-measured-v1",
+  "status": "all_seven_new_cohorts_measured",
+  "workload": {
+    "width": 960,
+    "height": 544,
+    "frames": 124,
+    "fps": 24,
+    "seed": 43,
+    "request_mode": "standalone_ref2va",
+    "rolling_continuation": false,
+    "timing": "Client wall time around curl through complete MP4 response, matching Base50"
+  },
+  "inputs": {
+    "image": "560c094f9900ea762227f84481ca8a2f73adac69963e0d1a78563bec1844d6b8",
+    "audio": "14a5be7b854870175e6d47204e34cdd7c2827b1c816d833a98c3eae504db9557",
+    "prompt": "24128acdf2df32aa5f8fef871019db5a2459c04e9a330edeb8e7d87fa998a95e"
+  },
+  "formal_repeats": 3,
+  "excluded_phases": [
+    "initialize",
+    "warmup"
+  ],
+  "groups": [
+    {
+      "group": 0,
+      "id": "00-baseline",
+      "label": "Retained Base50 baseline",
+      "median_seconds": 247.9563708677888,
+      "worst_seconds": 248.29797918722034,
+      "formal_samples_seconds": [
+        247.9563708677888,
+        246.20054612867534,
+        248.29797918722034
+      ],
+      "rtf": 47.99155565183008,
+      "video": "benchmark-media/00-baseline.mp4",
+      "frames": "benchmark-media/00-baseline-frames.png",
+      "mp4_sha256": "2abd1d159c6c381d7996f7fad7984d608bd421a36b920b551cae473fd89fb0a7",
+      "source": "Retained Base50 measurement",
+      "full_decode": true
+    },
+    {
+      "group": 1,
+      "id": "01-pdd8",
+      "label": "PDD: 50 to 8 steps",
+      "median_seconds": 42.96175599377602,
+      "worst_seconds": 42.96808601170778,
+      "formal_samples_seconds": [
+        42.890916941687465,
+        42.96175599377602,
+        42.96808601170778
+      ],
+      "rtf": 8.31517857944052,
+      "video": "benchmark-media/01-pdd8.mp4",
+      "frames": "benchmark-media/01-pdd8-frames.png",
+      "mp4_sha256": "78e93faab8a641b01eecabd22fc671e4745ff006be67a931411155c40e581ede",
+      "full_decode": true,
+      "decoded_video_hashes": [
+        "SHA256=2d64b5f5c390d9d2cdcdfea26c54d3b9ea33ba157ba97239422c9def76af1c9f",
+        "SHA256=2d64b5f5c390d9d2cdcdfea26c54d3b9ea33ba157ba97239422c9def76af1c9f",
+        "SHA256=2d64b5f5c390d9d2cdcdfea26c54d3b9ea33ba157ba97239422c9def76af1c9f"
+      ],
+      "decoded_audio_hashes": [
+        "SHA256=9981a8e45f1582640f6385e3fa6a6a2490dd7cabb67b94619f50586566e9cfaf",
+        "SHA256=9981a8e45f1582640f6385e3fa6a6a2490dd7cabb67b94619f50586566e9cfaf",
+        "SHA256=9981a8e45f1582640f6385e3fa6a6a2490dd7cabb67b94619f50586566e9cfaf"
+      ],
+      "formal_output_repeatable": true,
+      "max_sampled_gpu_memory_mib": 60867,
+      "all_eight_ranks_verified": true,
+      "stage_sha256": "12fa524d8fc12c445bc1f327e78b9dca8b92c6e1dbbcb6fdbaf1e85fec631a45",
+      "summary_sha256": "d5451492528dbd8ed6dbad360d63a1e9927086aa8532a5edc9e1fb031bc6ca1f"
+    },
+    {
+      "group": 2,
+      "id": "02-vsa",
+      "label": "VSA sparse attention",
+      "median_seconds": 26.198997436091304,
+      "worst_seconds": 26.20494867861271,
+      "formal_samples_seconds": [
+        26.12071413639933,
+        26.198997436091304,
+        26.20494867861271
+      ],
+      "rtf": 5.070773697307994,
+      "video": "benchmark-media/02-vsa.mp4",
+      "frames": "benchmark-media/02-vsa-frames.png",
+      "mp4_sha256": "bfe9a1b1080842c1819900bf6f2c3917c6e4f1cd956fce760a24e5c7bfc3675f",
+      "full_decode": true,
+      "decoded_video_hashes": [
+        "SHA256=2dd33c9c7b79f9bd03f484743108d176c9e8dfb78019b48894c9de46a5ac77b4",
+        "SHA256=2dd33c9c7b79f9bd03f484743108d176c9e8dfb78019b48894c9de46a5ac77b4",
+        "SHA256=2dd33c9c7b79f9bd03f484743108d176c9e8dfb78019b48894c9de46a5ac77b4"
+      ],
+      "decoded_audio_hashes": [
+        "SHA256=fc26b97dea311493b8beca1ecc49391a488b77fba050c758fc6b47e43a48a53c",
+        "SHA256=fc26b97dea311493b8beca1ecc49391a488b77fba050c758fc6b47e43a48a53c",
+        "SHA256=fc26b97dea311493b8beca1ecc49391a488b77fba050c758fc6b47e43a48a53c"
+      ],
+      "formal_output_repeatable": true,
+      "max_sampled_gpu_memory_mib": 63361,
+      "all_eight_ranks_verified": true,
+      "stage_sha256": "f36245f0e9d87947016c0055d90377a33b0ab920b0104b3e58ef38e15c8d80c9",
+      "summary_sha256": "9362251ed92c2e8f50d4883d752adbb3760289b3a777b07650f5e894db7d39a2"
+    },
+    {
+      "group": 3,
+      "id": "03-qad-native-fp4",
+      "label": "QAD + native FP4 attention",
+      "median_seconds": 19.351314012892544,
+      "worst_seconds": 19.385305075906217,
+      "formal_samples_seconds": [
+        19.351314012892544,
+        19.385305075906217,
+        19.309999227523804
+      ],
+      "rtf": 3.745415615398557,
+      "video": "benchmark-media/03-qad-native-fp4.mp4",
+      "frames": "benchmark-media/03-qad-native-fp4-frames.png",
+      "mp4_sha256": "258531442a9fd9a3eb727b7129556c648a24855ae79f61560b0a84f3adc754c0",
+      "full_decode": true,
+      "decoded_video_hashes": [
+        "SHA256=81c14f1ac385c36fc1da2dc1d2fce69224ad22b50d4dac6f8f630678a185df87",
+        "SHA256=81c14f1ac385c36fc1da2dc1d2fce69224ad22b50d4dac6f8f630678a185df87",
+        "SHA256=81c14f1ac385c36fc1da2dc1d2fce69224ad22b50d4dac6f8f630678a185df87"
+      ],
+      "decoded_audio_hashes": [
+        "SHA256=deaa1064b3c348128d65b89ab6528c70ce77d25c22736a195a8c62da594fc36c",
+        "SHA256=deaa1064b3c348128d65b89ab6528c70ce77d25c22736a195a8c62da594fc36c",
+        "SHA256=deaa1064b3c348128d65b89ab6528c70ce77d25c22736a195a8c62da594fc36c"
+      ],
+      "formal_output_repeatable": true,
+      "max_sampled_gpu_memory_mib": 59667,
+      "all_eight_ranks_verified": true,
+      "stage_sha256": "0cf4ea34dc7eb85a1af4223c762e9ba8566625db1cd6c79193b4e2329b4c4570",
+      "summary_sha256": "2cc389fa4c22272ec2f79b5a78ef73f470342107778063aa6a0928c14aaecdef"
+    },
+    {
+      "group": 4,
+      "id": "04-ulysses",
+      "label": "Ulysses: RDMA, layout, V/gate overlap and NCCL IB",
+      "median_seconds": 6.830540991388261,
+      "worst_seconds": 6.88725016079843,
+      "formal_samples_seconds": [
+        6.88725016079843,
+        6.826748240739107,
+        6.830540991388261
+      ],
+      "rtf": 1.322040191881599,
+      "video": "benchmark-media/04-ulysses.mp4",
+      "frames": "benchmark-media/04-ulysses-frames.png",
+      "mp4_sha256": "fbe372c8fdd748c48c643b98033afcfe28b7fd7159458be8db4b1f1c320b1990",
+      "full_decode": true,
+      "decoded_video_hashes": [
+        "SHA256=44680da9ce639f291cb734797bc047862422897d15d08e9c40ede3605b2fbf9b",
+        "SHA256=44680da9ce639f291cb734797bc047862422897d15d08e9c40ede3605b2fbf9b",
+        "SHA256=44680da9ce639f291cb734797bc047862422897d15d08e9c40ede3605b2fbf9b"
+      ],
+      "decoded_audio_hashes": [
+        "SHA256=7e8345adbc1b65d2b10fb54b02b2c20b988b0a5c8ec6c7171cc0dd3359366659",
+        "SHA256=7e8345adbc1b65d2b10fb54b02b2c20b988b0a5c8ec6c7171cc0dd3359366659",
+        "SHA256=7e8345adbc1b65d2b10fb54b02b2c20b988b0a5c8ec6c7171cc0dd3359366659"
+      ],
+      "formal_output_repeatable": true,
+      "max_sampled_gpu_memory_mib": 61279,
+      "all_eight_ranks_verified": true,
+      "stage_sha256": "75a6b1991708f82cddfe4fe62e0564c5226910018d3b2ed681106e9ff3fcd806",
+      "summary_sha256": "33d3652f2b4b7a64ffbfbbd22b33b67ab709952564cec4c7aff03cb7cc346d1a"
+    },
+    {
+      "group": 5,
+      "id": "05-head-232",
+      "label": "2/3/2 head pipeline",
+      "median_seconds": 6.471706103533506,
+      "worst_seconds": 6.471756603568792,
+      "formal_samples_seconds": [
+        6.471756603568792,
+        6.429024522192776,
+        6.471706103533506
+      ],
+      "rtf": 1.2525882781032591,
+      "video": "benchmark-media/05-head-232.mp4",
+      "frames": "benchmark-media/05-head-232-frames.png",
+      "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f",
+      "full_decode": true,
+      "decoded_video_hashes": [
+        "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17",
+        "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17",
+        "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17"
+      ],
+      "decoded_audio_hashes": [
+        "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93",
+        "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93",
+        "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+      ],
+      "formal_output_repeatable": true,
+      "max_sampled_gpu_memory_mib": 61907,
+      "all_eight_ranks_verified": true,
+      "stage_sha256": "805f295635b67db93efc39bbdc64975308b8079f84f23e4f2f6afe660b8a1fa1",
+      "summary_sha256": "a8ad6fab4abeb11d93816ddb5aad914c109132aea8b883dff9af96c516ca3826"
+    },
+    {
+      "group": 6,
+      "id": "06-cuda-graph",
+      "label": "CUDA Graph",
+      "median_seconds": 6.201149457134306,
+      "worst_seconds": 6.259960030205548,
+      "formal_samples_seconds": [
+        6.259960030205548,
+        6.201149457134306,
+        6.200940256007016
+      ],
+      "rtf": 1.2002224755743818,
+      "video": "benchmark-media/06-cuda-graph.mp4",
+      "frames": "benchmark-media/06-cuda-graph-frames.png",
+      "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f",
+      "full_decode": true,
+      "decoded_video_hashes": [
+        "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17",
+        "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17",
+        "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17"
+      ],
+      "decoded_audio_hashes": [
+        "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93",
+        "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93",
+        "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+      ],
+      "formal_output_repeatable": true,
+      "max_sampled_gpu_memory_mib": 62447,
+      "all_eight_ranks_verified": true,
+      "stage_sha256": "1004a1ac86d26f8e94e706afb6a00562f4e255afe260dbd1f83cc07840336409",
+      "summary_sha256": "8283a100b0a475906a5261efc6ddd90a34e0d4cf8f76ce881f97e85cd8bf88f1"
+    },
+    {
+      "group": 7,
+      "id": "07-vae-output",
+      "label": "NVFP4 36L VAE + MP4 pre-encoding",
+      "median_seconds": 5.417645109817386,
+      "worst_seconds": 5.422367399558425,
+      "formal_samples_seconds": [
+        5.414621825329959,
+        5.417645109817386,
+        5.422367399558425
+      ],
+      "rtf": 1.048576472867881,
+      "video": "benchmark-media/07-vae-output.mp4",
+      "frames": "benchmark-media/07-vae-output-frames.png",
+      "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+      "full_decode": true,
+      "decoded_video_hashes": [
+        "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+        "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+        "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d"
+      ],
+      "decoded_audio_hashes": [
+        "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93",
+        "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93",
+        "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+      ],
+      "formal_output_repeatable": true,
+      "max_sampled_gpu_memory_mib": 54315,
+      "all_eight_ranks_verified": true,
+      "stage_sha256": "a1d92779d612a4b7fc973b185385f2c9ac6a3ab8db692a115d93b39bac9ffedd",
+      "summary_sha256": "93eeba5790fe9490dc22ec4c456c94dd00719cc1f49dad52db228221c602056e"
+    }
+  ],
+  "live_target_achieved": false,
+  "final_worst_seconds": 5.422367399558425,
+  "interpretation": "Cumulative configurations with recorded model/runtime changes; individual kernel speedups cannot be inferred. Historical baseline retained.",
+  "quality_review": "quality-review.json",
+  "limitations": [
+    "One fixed input and seed; no broad quality or latency distribution claim.",
+    "Historical Base50 retained; checkpoint and runtime configurations change cumulatively.",
+    "Standalone request; rolling livestream continuity is outside this comparison.",
+    "SM120 reference machine; no PRO 5500 measurement."
+  ],
+  "input_geometry": {
+    "image": {
+      "width": 1344,
+      "height": 768,
+      "mode": "RGB"
+    },
+    "audio": {
+      "channels": 2,
+      "sample_rate": 32000,
+      "sample_frames": 166624
+    }
+  }
+}

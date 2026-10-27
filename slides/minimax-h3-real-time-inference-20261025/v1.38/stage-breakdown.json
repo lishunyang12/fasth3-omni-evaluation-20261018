@@ -1,0 +1,130 @@
+{
+  "status": "seven_groups_measured",
+  "columns": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      5,
+      6,
+      7
+    ]
+  ],
+  "target_seconds": 5.0,
+  "media_seconds": 5.166666666666667,
+  "groups": [
+    {
+      "group": 0,
+      "name": "Retained Baseline",
+      "change": "BF16 DiT \u00b7 dense attention\n50 steps \u00b7 local NCCL",
+      "e2e_seconds": 247.9563708677888,
+      "status": "retained_baseline",
+      "samples_seconds": [
+        247.9563708677888,
+        246.20054612867534,
+        248.29797918722034
+      ],
+      "worst_seconds": 248.29797918722034
+    },
+    {
+      "group": 1,
+      "name": "PDD: 50 to 8 Steps",
+      "change": "Reduce denoiser evaluations\nEight-step Ref2VA schedule",
+      "e2e_seconds": 42.96175599377602,
+      "status": "measured",
+      "samples_seconds": [
+        42.890916941687465,
+        42.96175599377602,
+        42.96808601170778
+      ],
+      "worst_seconds": 42.96808601170778
+    },
+    {
+      "group": 2,
+      "name": "VSA",
+      "change": "Select fine-attention blocks\nKeep global coarse context",
+      "e2e_seconds": 26.198997436091304,
+      "status": "measured",
+      "samples_seconds": [
+        26.12071413639933,
+        26.198997436091304,
+        26.20494867861271
+      ],
+      "worst_seconds": 26.20494867861271
+    },
+    {
+      "group": 3,
+      "name": "QAD + Native FP4 Attention",
+      "change": "NVFP4 DiT \u00b7 unified prefix / video\nDevice-aware SM scheduling",
+      "e2e_seconds": 19.351314012892544,
+      "status": "measured",
+      "samples_seconds": [
+        19.351314012892544,
+        19.385305075906217,
+        19.309999227523804
+      ],
+      "worst_seconds": 19.385305075906217
+    },
+    {
+      "group": 4,
+      "name": "Ulysses Communication",
+      "change": "RDMA + direct layout + V / gate overlap\nIB for remaining NCCL collectives",
+      "e2e_seconds": 6.830540991388261,
+      "status": "measured",
+      "samples_seconds": [
+        6.88725016079843,
+        6.826748240739107,
+        6.830540991388261
+      ],
+      "worst_seconds": 6.88725016079843
+    },
+    {
+      "group": 5,
+      "name": "2 / 3 / 2 Head Pipeline",
+      "change": "Overlap communication and attention\nRestore heads before output projection",
+      "e2e_seconds": 6.471706103533506,
+      "status": "measured",
+      "samples_seconds": [
+        6.471756603568792,
+        6.429024522192776,
+        6.471706103533506
+      ],
+      "worst_seconds": 6.471756603568792
+    },
+    {
+      "group": 6,
+      "name": "CUDA Graph",
+      "change": "Replay each head band's compute\nReduce repeated CPU launch overhead",
+      "e2e_seconds": 6.201149457134306,
+      "status": "measured",
+      "samples_seconds": [
+        6.259960030205548,
+        6.201149457134306,
+        6.200940256007016
+      ],
+      "worst_seconds": 6.259960030205548
+    },
+    {
+      "group": 7,
+      "name": "NVFP4 36L VAE + MP4",
+      "change": "Native 36-layer decoder to NVFP4\nMP4 pre-encoding pipeline",
+      "e2e_seconds": 5.417645109817386,
+      "status": "measured",
+      "samples_seconds": [
+        5.414621825329959,
+        5.417645109817386,
+        5.422367399558425
+      ],
+      "worst_seconds": 5.422367399558425
+    }
+  ],
+  "live_target_achieved": false,
+  "formal_samples_per_new_group": 3,
+  "timing": "Client wall time around curl through complete MP4 response, matching Base50",
+  "interpretation": "Cumulative configurations with recorded model/runtime changes; individual kernel speedups cannot be inferred. Historical baseline retained.",
+  "quality_review": "quality-review.json"
+}
