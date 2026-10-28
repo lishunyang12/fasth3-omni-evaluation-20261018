@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "baseline": "Historical Base50 with default AdaLN offload",
+  "configuration": {
+    "task": "ref2va",
+    "width": 960,
+    "height": 544,
+    "frames": 124,
+    "fps": 24,
+    "clip_seconds": 5.166666666666667,
+    "steps": 50,
+    "seed": 43,
+    "precision": "bf16",
+    "attention": {
+      "default": {
+        "backend": "CUDNN_ATTN"
+      },
+      "per_role": {
+        "minimax_h3.token_refiner": {
+          "backend": "TORCH_SDPA"
+        }
+      }
+    },
+    "quantization": null,
+    "adapter": null,
+    "transport": "local NCCL",
+    "rdma": false,
+    "parallelism": "TP1/USP8/TE8/VAE-tile8",
+    "adaln": "exact runtime cache + default SM120 weight offload"
+  },
+  "software": {
+    "python": "3.12.13",
+    "packages": {
+      "torch": "2.13.0+cu132",
+      "torchvision": "0.28.0+cu132",
+      "torchaudio": "2.11.0+cpu",
+      "transformers": "5.14.1",
+      "diffusers": "0.40.0",
+      "vllm": "0.30.0",
+      "triton": "3.7.1",
+      "nvidia-cutlass-dsl": "4.7.1",
+      "cache-dit": "1.5.0",
+      "numpy": "2.3.5",
+      "fastvideo-kernel": "0.3.4",
+      "huggingface-hub": "1.31.0",
+      "quack-kernels": "0.6.5"
+    },
+    "vllm_omni_revision": "63487a7f22db603adefcdac378cfe2a26f6bcb7c"
+  },
+  "unprofiled": {
+    "median_seconds": 247.9563708677888,
+    "samples_seconds": [
+      247.9563708677888,
+      246.20054612867534,
+      248.29797918722034
+    ],
+    "measurement": "Client wall time through complete audiovisual MP4; initialization and warmup excluded"
+  },
+  "profiled": {
+    "http_seconds": 252.77305156691,
+    "requests": 1,
+    "rank0_pid": 1141029,
+    "cpu_nvtx_ranges": {
+      "forward": {
+        "start_ns": 110709807,
+        "end_ns": 252544199004,
+        "seconds": 252.433489197
+      },
+      "encode_prompt": {
+        "start_ns": 229754528,
+        "end_ns": 7850969309,
+        "seconds": 7.621214781
+      },
+      "diffuse": {
+        "start_ns": 8367485893,
+        "end_ns": 250784096775,
+        "seconds": 242.416610882
+      },
+      "decode": {
+        "start_ns": 250785370303,
+        "end_ns": 252516683447,
+        "seconds": 1.731313144
+      }
+    },
+    "wall_time_rows": [
+      {
+        "label": "Prompt encoding",
+        "seconds": 7.621214781
+      },
+      {
+        "label": "DiT \u00b7 50 evaluations",
+        "seconds": 242.416610882
+      },
+      {
+        "label": "Video + audio decode",
+        "seconds": 1.731313144
+      },
+      {
+        "label": "Other / uncovered work + response",
+        "seconds": 1.0039127599100084
+      }
+    ]
+  },
+  "gpu_accounting": {
+    "denominator_ns": 1999901830618,
+    "average_gpu_seconds": 249.98772882725,
+    "rows": [
+      {
+        "label": "NCCL communication",
+        "total_ns": 984373476694,
+        "mean_seconds": 123.04668458675,
+        "share_percent": 49.221089836685316
+      },
+      {
+        "label": "DiT attention + GEMM / MLP",
+        "total_ns": 676007192622,
+        "mean_seconds": 84.50089907775,
+        "share_percent": 33.80201879274762
+      },
+      {
+        "label": "AdaLN staging + device layout",
+        "total_ns": 307638901015,
+        "mean_seconds": 38.454862626875,
+        "share_percent": 15.38270010583144
+      },
+      {
+        "label": "Encoder, VAE + other GPU work",
+        "total_ns": 31882260287,
+        "mean_seconds": 3.985282535875,
+        "share_percent": 1.5941912647356244
+      }
+    ],
+    "dit_nccl_mean_seconds": 116.073690559625,
+    "other_nccl_mean_seconds": 6.972994027125,
+    "attention_mean_seconds": 45.3087766475,
+    "gemm_mean_seconds": 39.19212243025
+  },
+  "sources": [
+    {
+      "name": "run-base50-bf16-nccl-nsys-r2/analysis/nvtx/summary.json",
+      "sha256": "a8cb907bc876ef7e20beb48fdcd543ba254a6071ab272120c395c62d876f3eaa"
+    },
+    {
+      "name": "run-base50-bf16-nccl-nsys-r2/analysis/e2e/summary.json",
+      "sha256": "7ed7fc81dff11de27c30705e1dfe25a807e8bf4051e76f24822f737ace86ab72"
+    },
+    {
+      "name": "run-base50-bf16-nccl-nsys-r2/launch.json",
+      "sha256": "010d84db63397701cb0aa7775ca338574259d48c0f929de981f9a6f2f5ab190c"
+    },
+    {
+      "name": "run-base50-bf16-nccl-nsys-r2/environment.json",
+      "sha256": "25c56bb7756451fddcdf5b79887942ac8c2f6e06a33eb6b6132d4c69e19b268b"
+    },
+    {
+      "name": "run-base50-bf16-nccl-r4/analysis/summary.json",
+      "sha256": "5b6d71e67a431884733c527260d93f1b5c73cea8b151eb3e0031b938f2f82f0f"
+    }
+  ],
+  "trace_sqlite_sha256": "ea85dcc3b90bdec018d1532144e65c22f7ea9ea9a7bf8b43f90f24e5dcb1e365",
+  "validation": {
+    "matched_profile": "pass",
+    "independent_nsys_totals": "exact_match",
+    "gpu_categories_sum_to_total": true,
+    "rank0_stage_ranges_nonoverlapping": true
+  },
+  "limitations": [
+    "GPU categories are operation residency summed across eight GPUs, divided by eight; they are not an E2E critical-path breakdown.",
+    "NCCL kernel time includes synchronization and peer waiting.",
+    "Profiled and unprofiled values come from separate runs; do not scale the profile to the unprofiled median.",
+    "The historical baseline includes default AdaLN CPU weight offload. The resident/precomputed BF16 baseline remains unmeasured."
+  ]
+}

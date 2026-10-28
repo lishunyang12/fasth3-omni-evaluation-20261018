@@ -1,0 +1,9 @@
+{
+  "engine": "LibreOffice Impress 7.3.2.2",
+  "source_pptx_sha256": "18190385ed1b810504b88e73009ffb37aacf0517ae8ab092d695cd9456a92b83",
+  "export_copy_sha256": "1d1de8fa09a2e36674268ee5753dbe8e1794373e7f29469457e5a2e52f18c4a6",
+  "static_video_posters": 4,
+  "export_copy_changes": "Slide 11 video playback metadata replaced by retained poster images for static PDF export; Hidden slides made visible in the audit-only copy; all text, geometry, fonts and images unchanged.",
+  "editable_pptx_modified_by_export": false,
+  "microsoft_powerpoint_playback_verified": false
+}

@@ -1,0 +1,23 @@
+{
+  "status": "pass",
+  "base": "http://127.0.0.1:8841/slides/minimax-h3-real-time-inference-20261025/",
+  "checks": [
+    "12-slide route, 21-slide details, hidden-slide deep link, keyboard navigation and demo links pass",
+    "baseline-breakdown.html desktop/mobile pass",
+    "index.html desktop/mobile pass",
+    "latency-breakdown.html desktop/mobile pass",
+    {
+      "media": {
+        "duration": 5.175,
+        "width": 960,
+        "height": 544
+      },
+      "interactive_timeline": "play/pause/scrub/reset pass"
+    },
+    "continuous-generation.html desktop/mobile pass",
+    "benchmarks.html desktop/mobile pass",
+    "four-videos.html desktop/mobile pass"
+  ],
+  "js_errors": [],
+  "http_errors": []
+}

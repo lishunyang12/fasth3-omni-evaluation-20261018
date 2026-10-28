@@ -81,7 +81,8 @@ def main():
         image = folder/slide['image']
         slide.update(image=str(image.relative_to(DECK)), sha256=sha(image), hidden=slide['number'] in manifest.get('hidden_slides', []))
     related = []
-    for name, label, numbers in [('latency-breakdown.html', 'Current breakdown and GPU work', [6]),
+    for name, label, numbers in [('baseline-breakdown.html', 'Baseline config and measured costs', [6]),
+                                  ('latency-breakdown.html', 'Current breakdown and GPU work', [6]),
                                   ('continuous-generation.html', 'Five-second generation timeline', [7]),
                                   ('four-videos.html', 'Play slide 11 videos', [11]),
                                   ('benchmarks.html', 'Slide 18 measurements and videos', [18])]:

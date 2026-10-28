@@ -1,0 +1,138 @@
+{
+  "version": "v1.40",
+  "base": "v1.39",
+  "slides": 21,
+  "updated_pages": [
+    6
+  ],
+  "inserted_pages": [],
+  "embedded_videos": [
+    {
+      "label": "BF16 Reference",
+      "file": "media/bf16_ref.mp4",
+      "sha256": "62c1f8ffbc35322a4b63581bdec92de3cd7febe61dcc93877eee4517ce2b37ef",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "Online NVFP4",
+      "file": "media/online_nvfp4.mp4",
+      "sha256": "326e1f827c108c6c3c13e9da9fe2b3fa4b2e9c10d9e97cab5fe577f7e1a2c7b1",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "QAD NVFP4",
+      "file": "media/qad_nvfp4.mp4",
+      "sha256": "1ad1a14e406fc4964d38a448302adc28438b03c0710c1e757d0ae46dfded2d07",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    },
+    {
+      "label": "QAD + Native FP4",
+      "file": "media/qad_optimized.mp4",
+      "sha256": "d4b6053d00de53e182ede795598404d105056f8a046b501cd4d1c9100f043a58",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1344,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "124"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "162"
+        }
+      ]
+    }
+  ],
+  "pptx_sha256": "18190385ed1b810504b88e73009ffb37aacf0517ae8ab092d695cd9456a92b83",
+  "publication": "public_reviewed",
+  "scope": "Start with historical Base50 configuration and measured breakdown, then present optimization results and demos",
+  "pdf_video_behavior": "Visible PDF excludes hidden slide 11; four original videos remain embedded in PPTX.",
+  "new_benchmark_groups_measured": 0,
+  "pending_benchmark_groups": 0,
+  "preview_fonts": "Retained embedded NVIDIA Sans and Roboto Mono",
+  "vae_precision_note": "Native 36L VAE decode uses FP16 autocast with mixed-precision operations. The final NVFP4 decoder uses 216 packed linears and BF16 autocast. BF16 baseline refers to the DiT.",
+  "live_target_achieved": false,
+  "pdf_rendering": "LibreOffice Impress searchable-text export; 12 visible slides selected from 21-page audited export",
+  "quality_review": "Limited visual and signal review; no perceptual equivalence claim",
+  "hidden_slides": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "presentation_slides": 12,
+  "retained_slide18_measured_groups": 7,
+  "improved_bf16_baseline": "pending; retained historical default is not an optimized BF16 baseline",
+  "demo_status": "Historical timing reconstruction and separately labeled recorded examples; live rerun pending",
+  "pdf_sha256": "efa6bc031014b0b6c887f5bedb4b7667ed1a1c5795edbde09f1b30d5492d2253",
+  "layout_validation": "pass",
+  "pdf_pages": 12,
+  "pdf_slide_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    12,
+    18,
+    19,
+    20,
+    21
+  ],
+  "validation": {
+    "status": "pass_office_text_and_visual_review",
+    "office_report": "office-validation.json",
+    "protected_media_fonts_theme_parts_unchanged": 70,
+    "native_powerpoint_playback_verified": false,
+    "browser_report": "browser-validation.json"
+  },
+  "lower_resolution_status": "Recovery queue writing to /tmp and waiting for eight idle GPUs; no new measurements"
+}
