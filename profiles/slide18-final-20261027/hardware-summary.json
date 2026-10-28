@@ -1,0 +1,290 @@
+[
+  {
+    "typeId": 281479271677952,
+    "metricId": 7,
+    "samples": 55802,
+    "mean": 61.617719794989426,
+    "peak": 100,
+    "metric": "SMs Active [Throughput %]",
+    "cuda_device": 2
+  },
+  {
+    "typeId": 281479271677952,
+    "metricId": 9,
+    "samples": 55802,
+    "mean": 27.74301996344217,
+    "peak": 98,
+    "metric": "Tensor Active [Throughput %]",
+    "cuda_device": 2
+  },
+  {
+    "typeId": 281479271677952,
+    "metricId": 21,
+    "samples": 55802,
+    "mean": 19.156033833912762,
+    "peak": 96,
+    "metric": "PCIe RX Throughput [Throughput %]",
+    "cuda_device": 2
+  },
+  {
+    "typeId": 281479271677952,
+    "metricId": 22,
+    "samples": 55802,
+    "mean": 19.523547543098815,
+    "peak": 96,
+    "metric": "PCIe TX Throughput [Throughput %]",
+    "cuda_device": 2
+  },
+  {
+    "typeId": 281479271677953,
+    "metricId": 7,
+    "samples": 55802,
+    "mean": 61.2847926597613,
+    "peak": 100,
+    "metric": "SMs Active [Throughput %]",
+    "cuda_device": 3
+  },
+  {
+    "typeId": 281479271677953,
+    "metricId": 9,
+    "samples": 55802,
+    "mean": 27.561001397799362,
+    "peak": 98,
+    "metric": "Tensor Active [Throughput %]",
+    "cuda_device": 3
+  },
+  {
+    "typeId": 281479271677953,
+    "metricId": 21,
+    "samples": 55802,
+    "mean": 19.153256155693345,
+    "peak": 96,
+    "metric": "PCIe RX Throughput [Throughput %]",
+    "cuda_device": 3
+  },
+  {
+    "typeId": 281479271677953,
+    "metricId": 22,
+    "samples": 55802,
+    "mean": 19.524461488835527,
+    "peak": 96,
+    "metric": "PCIe TX Throughput [Throughput %]",
+    "cuda_device": 3
+  },
+  {
+    "typeId": 281479271677954,
+    "metricId": 7,
+    "samples": 55802,
+    "mean": 62.142987706533816,
+    "peak": 100,
+    "metric": "SMs Active [Throughput %]",
+    "cuda_device": 0
+  },
+  {
+    "typeId": 281479271677954,
+    "metricId": 9,
+    "samples": 55802,
+    "mean": 27.582667287910827,
+    "peak": 98,
+    "metric": "Tensor Active [Throughput %]",
+    "cuda_device": 0
+  },
+  {
+    "typeId": 281479271677954,
+    "metricId": 21,
+    "samples": 55802,
+    "mean": 19.184007741658004,
+    "peak": 95,
+    "metric": "PCIe RX Throughput [Throughput %]",
+    "cuda_device": 0
+  },
+  {
+    "typeId": 281479271677954,
+    "metricId": 22,
+    "samples": 55802,
+    "mean": 19.581986308734454,
+    "peak": 97,
+    "metric": "PCIe TX Throughput [Throughput %]",
+    "cuda_device": 0
+  },
+  {
+    "typeId": 281479271677955,
+    "metricId": 7,
+    "samples": 55803,
+    "mean": 61.50481156927047,
+    "peak": 100,
+    "metric": "SMs Active [Throughput %]",
+    "cuda_device": 1
+  },
+  {
+    "typeId": 281479271677955,
+    "metricId": 9,
+    "samples": 55803,
+    "mean": 27.704836657527373,
+    "peak": 98,
+    "metric": "Tensor Active [Throughput %]",
+    "cuda_device": 1
+  },
+  {
+    "typeId": 281479271677955,
+    "metricId": 21,
+    "samples": 55803,
+    "mean": 19.1699012597889,
+    "peak": 96,
+    "metric": "PCIe RX Throughput [Throughput %]",
+    "cuda_device": 1
+  },
+  {
+    "typeId": 281479271677955,
+    "metricId": 22,
+    "samples": 55803,
+    "mean": 19.52502553626149,
+    "peak": 96,
+    "metric": "PCIe TX Throughput [Throughput %]",
+    "cuda_device": 1
+  },
+  {
+    "typeId": 281479271677956,
+    "metricId": 7,
+    "samples": 55802,
+    "mean": 61.039299666678616,
+    "peak": 100,
+    "metric": "SMs Active [Throughput %]",
+    "cuda_device": 6
+  },
+  {
+    "typeId": 281479271677956,
+    "metricId": 9,
+    "samples": 55802,
+    "mean": 27.45795849611125,
+    "peak": 98,
+    "metric": "Tensor Active [Throughput %]",
+    "cuda_device": 6
+  },
+  {
+    "typeId": 281479271677956,
+    "metricId": 21,
+    "samples": 55802,
+    "mean": 19.162431454069747,
+    "peak": 95,
+    "metric": "PCIe RX Throughput [Throughput %]",
+    "cuda_device": 6
+  },
+  {
+    "typeId": 281479271677956,
+    "metricId": 22,
+    "samples": 55802,
+    "mean": 19.525339593562954,
+    "peak": 95,
+    "metric": "PCIe TX Throughput [Throughput %]",
+    "cuda_device": 6
+  },
+  {
+    "typeId": 281479271677957,
+    "metricId": 7,
+    "samples": 55802,
+    "mean": 56.82375183685173,
+    "peak": 100,
+    "metric": "SMs Active [Throughput %]",
+    "cuda_device": 7
+  },
+  {
+    "typeId": 281479271677957,
+    "metricId": 9,
+    "samples": 55802,
+    "mean": 26.098437331995267,
+    "peak": 98,
+    "metric": "Tensor Active [Throughput %]",
+    "cuda_device": 7
+  },
+  {
+    "typeId": 281479271677957,
+    "metricId": 21,
+    "samples": 55802,
+    "mean": 19.10427941650837,
+    "peak": 95,
+    "metric": "PCIe RX Throughput [Throughput %]",
+    "cuda_device": 7
+  },
+  {
+    "typeId": 281479271677957,
+    "metricId": 22,
+    "samples": 55802,
+    "mean": 19.515304110963765,
+    "peak": 95,
+    "metric": "PCIe TX Throughput [Throughput %]",
+    "cuda_device": 7
+  },
+  {
+    "typeId": 281479271677958,
+    "metricId": 7,
+    "samples": 55802,
+    "mean": 60.57198666714455,
+    "peak": 100,
+    "metric": "SMs Active [Throughput %]",
+    "cuda_device": 4
+  },
+  {
+    "typeId": 281479271677958,
+    "metricId": 9,
+    "samples": 55802,
+    "mean": 27.173757213003118,
+    "peak": 98,
+    "metric": "Tensor Active [Throughput %]",
+    "cuda_device": 4
+  },
+  {
+    "typeId": 281479271677958,
+    "metricId": 21,
+    "samples": 55802,
+    "mean": 19.16526289380309,
+    "peak": 95,
+    "metric": "PCIe RX Throughput [Throughput %]",
+    "cuda_device": 4
+  },
+  {
+    "typeId": 281479271677958,
+    "metricId": 22,
+    "samples": 55802,
+    "mean": 19.524927421956203,
+    "peak": 96,
+    "metric": "PCIe TX Throughput [Throughput %]",
+    "cuda_device": 4
+  },
+  {
+    "typeId": 281479271677959,
+    "metricId": 7,
+    "samples": 55802,
+    "mean": 60.80418264578331,
+    "peak": 100,
+    "metric": "SMs Active [Throughput %]",
+    "cuda_device": 5
+  },
+  {
+    "typeId": 281479271677959,
+    "metricId": 9,
+    "samples": 55802,
+    "mean": 27.35088348087882,
+    "peak": 98,
+    "metric": "Tensor Active [Throughput %]",
+    "cuda_device": 5
+  },
+  {
+    "typeId": 281479271677959,
+    "metricId": 21,
+    "samples": 55802,
+    "mean": 19.162037202967635,
+    "peak": 95,
+    "metric": "PCIe RX Throughput [Throughput %]",
+    "cuda_device": 5
+  },
+  {
+    "typeId": 281479271677959,
+    "metricId": 22,
+    "samples": 55802,
+    "mean": 19.52424644277983,
+    "peak": 95,
+    "metric": "PCIe TX Throughput [Throughput %]",
+    "cuda_device": 5
+  }
+]

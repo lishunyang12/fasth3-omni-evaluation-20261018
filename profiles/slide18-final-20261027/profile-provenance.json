@@ -1,0 +1,116 @@
+{
+  "nsys_version": "2025.3.2.474",
+  "profile": {
+    "path": "/lustre/raplab/client/sylarl/h3-nvidia-presentation-20261024/live-target-20261027/results/nsys-final-20261027/H3_Slide18_Final_8GPU_NVFP4_36L_NodeTrace.nsys-rep",
+    "bytes": 102032016,
+    "sha256": "03c76df8c18947804dc931d9e2ccb5757c6105fa170f836c03e2a31064657ef4"
+  },
+  "case": {
+    "task": "Ref2VA",
+    "width": 960,
+    "height": 544,
+    "frames": 124,
+    "fps": 24,
+    "seed": 43,
+    "model_evaluations": 8,
+    "gpus": 8
+  },
+  "configuration": "Slide 18 group 7: QAD native FP4, RDMA/direct layout, V/gate overlap, 2/3/2 heads, compute-band CUDA Graph, 36L NVFP4 VAE and MP4 pre-encoding",
+  "vae": {
+    "layers": 36,
+    "packed_nvfp4_linears": 216,
+    "decode_autocast_dtype": "torch.bfloat16"
+  },
+  "graph_trace": "node",
+  "gpu_metrics_hz": 10000,
+  "nic_metrics": true,
+  "benchmark_median_seconds": 5.417645109817386,
+  "capture_requests": [
+    {
+      "phase": "initialize",
+      "e2e_seconds": 9.652551813051105,
+      "decoded_sha256": {
+        "video": "SHA256=66739b2b62d04722306c8d12600294a110dd6ceaa593204ad1747361a0a15530",
+        "audio": "SHA256=6cc672b848ea0caddfad169e616a7e70a58fddc370146c484d967a7a410dd6a2"
+      }
+    },
+    {
+      "phase": "warmup",
+      "e2e_seconds": 5.502428511157632,
+      "decoded_sha256": {
+        "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+        "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+      }
+    },
+    {
+      "phase": "control-before",
+      "e2e_seconds": 5.469498483464122,
+      "decoded_sha256": {
+        "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+        "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+      }
+    },
+    {
+      "phase": "profiled",
+      "e2e_seconds": 5.663555474020541,
+      "decoded_sha256": {
+        "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+        "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+      }
+    },
+    {
+      "phase": "control-after",
+      "e2e_seconds": 5.483365647494793,
+      "decoded_sha256": {
+        "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+        "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+      }
+    }
+  ],
+  "output_exact_to_original_final_group": true,
+  "expected_and_observed_per_gpu": {
+    "graph_launches": 1200,
+    "graph_node_kernels": 79200,
+    "head_exchanges": 2400,
+    "barrier_kernels": 4800
+  },
+  "capture_diagnostics": [
+    {
+      "severity": 2,
+      "text": "CUDA profiling might have not been started correctly.",
+      "count": 2
+    },
+    {
+      "severity": 2,
+      "text": "No CUDA events collected. Does the process use CUDA?",
+      "count": 3
+    },
+    {
+      "severity": 2,
+      "text": "No NVTX events collected. Does the process use NVTX?",
+      "count": 3
+    },
+    {
+      "severity": 2,
+      "text": "Not all CUDA events might have been collected.",
+      "count": 9
+    },
+    {
+      "severity": 2,
+      "text": "Not all NVTX events might have been collected.",
+      "count": 10
+    },
+    {
+      "severity": 2,
+      "text": "Not all OS runtime libraries events might have been collected.",
+      "count": 10
+    },
+    {
+      "severity": 2,
+      "text": "Scheduling information is absent. The thread activity is deduced based on OS runtime libraries traces. This is inaccurate and does not take into account asynchronous interrupts and exception faults.",
+      "count": 1
+    }
+  ],
+  "scope": "Standalone 124-frame Ref2VA case. This is neither the deployed rolling avatar nor the 15-second FastH3 workload.",
+  "original_benchmarks": "../../slides/minimax-h3-real-time-inference-20261025/v1.38/benchmarks.html"
+}

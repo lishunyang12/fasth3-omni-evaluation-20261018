@@ -1,0 +1,1749 @@
+{
+  "method": "Each annotated exchange: end of opening cudaEventSynchronize to host start of closing UlyssesPcieBarrier launch. Union per GPU, intersected with compute-kernel union. This excludes the closing GPU scheduling delay.",
+  "limitations": [
+    "Proxy includes host post/poll/flush; it is not exact NIC wire time.",
+    "Overlap is temporal and is not a directly recoverable speedup.",
+    "Per-slot durations may overlap; do not add them or sum across GPUs.",
+    "Includes profiling overhead and shares collection warnings with the original report."
+  ],
+  "validation_issues": [],
+  "devices": [
+    {
+      "cuda_device": 0,
+      "exchanges": 2400,
+      "graph_launches": 1200,
+      "transport_proxy_union_s": 1.239584926,
+      "compute_overlap_s": 0.908371884,
+      "exposed_transport_proxy_s": 0.331213042,
+      "overlap_fraction": 0.73280326740598,
+      "slots": [
+        {
+          "slot": "in:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.254333587,
+          "overlapped_s": 0.086185167,
+          "exposed_s": 0.16814842,
+          "overlap_fraction": 0.33886663580929244,
+          "summed_input_ready_wait_s": 0.728921871
+        },
+        {
+          "slot": "in:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.377928947,
+          "overlapped_s": 0.355299208,
+          "exposed_s": 0.022629739,
+          "overlap_fraction": 0.9401217102324793,
+          "summed_input_ready_wait_s": 0.077537744
+        },
+        {
+          "slot": "in:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.253365738,
+          "overlapped_s": 0.244317856,
+          "exposed_s": 0.009047882,
+          "overlap_fraction": 0.9642892441913358,
+          "summed_input_ready_wait_s": 0.022592119
+        },
+        {
+          "slot": "out:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.092588178,
+          "overlapped_s": 0.079472117,
+          "exposed_s": 0.013116061,
+          "overlap_fraction": 0.8583397871810373,
+          "summed_input_ready_wait_s": 0.143036355
+        },
+        {
+          "slot": "out:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.171030495,
+          "overlapped_s": 0.142427338,
+          "exposed_s": 0.028603157,
+          "overlap_fraction": 0.8327599005078012,
+          "summed_input_ready_wait_s": 0.399697585
+        },
+        {
+          "slot": "out:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.090337981,
+          "overlapped_s": 0.000670198,
+          "exposed_s": 0.089667783,
+          "overlap_fraction": 0.007418784353836732,
+          "summed_input_ready_wait_s": 0.301930141
+        }
+      ]
+    },
+    {
+      "cuda_device": 1,
+      "exchanges": 2400,
+      "graph_launches": 1200,
+      "transport_proxy_union_s": 1.244317021,
+      "compute_overlap_s": 0.906749611,
+      "exposed_transport_proxy_s": 0.33756741,
+      "overlap_fraction": 0.7287126959585326,
+      "slots": [
+        {
+          "slot": "in:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.253935109,
+          "overlapped_s": 0.095315943,
+          "exposed_s": 0.158619166,
+          "overlap_fraction": 0.375355512577034,
+          "summed_input_ready_wait_s": 0.696120289
+        },
+        {
+          "slot": "in:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.378159297,
+          "overlapped_s": 0.35574974,
+          "exposed_s": 0.022409557,
+          "overlap_fraction": 0.9407404308772025,
+          "summed_input_ready_wait_s": 0.061813479
+        },
+        {
+          "slot": "in:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.253588002,
+          "overlapped_s": 0.242654789,
+          "exposed_s": 0.010933213,
+          "overlap_fraction": 0.9568859215981361,
+          "summed_input_ready_wait_s": 0.020552527
+        },
+        {
+          "slot": "out:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.096367005,
+          "overlapped_s": 0.069484379,
+          "exposed_s": 0.026882626,
+          "overlap_fraction": 0.7210391046188475,
+          "summed_input_ready_wait_s": 0.12543106
+        },
+        {
+          "slot": "out:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.171553764,
+          "overlapped_s": 0.134485778,
+          "exposed_s": 0.037067986,
+          "overlap_fraction": 0.7839278769773889,
+          "summed_input_ready_wait_s": 0.387659576
+        },
+        {
+          "slot": "out:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.090713844,
+          "overlapped_s": 0.009058982,
+          "exposed_s": 0.081654862,
+          "overlap_fraction": 0.09986327996419157,
+          "summed_input_ready_wait_s": 0.301238766
+        }
+      ]
+    },
+    {
+      "cuda_device": 2,
+      "exchanges": 2400,
+      "graph_launches": 1200,
+      "transport_proxy_union_s": 1.244035928,
+      "compute_overlap_s": 0.912122178,
+      "exposed_transport_proxy_s": 0.33191375,
+      "overlap_fraction": 0.7331960094322935,
+      "slots": [
+        {
+          "slot": "in:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.254527749,
+          "overlapped_s": 0.0900147,
+          "exposed_s": 0.164513049,
+          "overlap_fraction": 0.353653777844081,
+          "summed_input_ready_wait_s": 0.751647327
+        },
+        {
+          "slot": "in:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.378310029,
+          "overlapped_s": 0.354406845,
+          "exposed_s": 0.023903184,
+          "overlap_fraction": 0.9368158859991523,
+          "summed_input_ready_wait_s": 0.081557738
+        },
+        {
+          "slot": "in:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.256031346,
+          "overlapped_s": 0.245678508,
+          "exposed_s": 0.010352838,
+          "overlap_fraction": 0.9595641777393928,
+          "summed_input_ready_wait_s": 0.024482677
+        },
+        {
+          "slot": "out:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.093721824,
+          "overlapped_s": 0.078809379,
+          "exposed_s": 0.014912445,
+          "overlap_fraction": 0.8408860992718196,
+          "summed_input_ready_wait_s": 0.144440979
+        },
+        {
+          "slot": "out:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.171755359,
+          "overlapped_s": 0.140675584,
+          "exposed_s": 0.031079775,
+          "overlap_fraction": 0.819046257531912,
+          "summed_input_ready_wait_s": 0.402259226
+        },
+        {
+          "slot": "out:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.089689621,
+          "overlapped_s": 0.002537162,
+          "exposed_s": 0.087152459,
+          "overlap_fraction": 0.028288245303210724,
+          "summed_input_ready_wait_s": 0.306465409
+        }
+      ]
+    },
+    {
+      "cuda_device": 3,
+      "exchanges": 2400,
+      "graph_launches": 1200,
+      "transport_proxy_union_s": 1.243132114,
+      "compute_overlap_s": 0.919516271,
+      "exposed_transport_proxy_s": 0.323615843,
+      "overlap_fraction": 0.7396770308195899,
+      "slots": [
+        {
+          "slot": "in:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.254523968,
+          "overlapped_s": 0.086485437,
+          "exposed_s": 0.168038531,
+          "overlap_fraction": 0.3397928991897533,
+          "summed_input_ready_wait_s": 0.734434781
+        },
+        {
+          "slot": "in:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.381742362,
+          "overlapped_s": 0.354357414,
+          "exposed_s": 0.027384948,
+          "overlap_fraction": 0.9282632719708482,
+          "summed_input_ready_wait_s": 0.080129013
+        },
+        {
+          "slot": "in:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.253453247,
+          "overlapped_s": 0.245684774,
+          "exposed_s": 0.007768473,
+          "overlap_fraction": 0.9693494832204694,
+          "summed_input_ready_wait_s": 0.023718585
+        },
+        {
+          "slot": "out:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.092319924,
+          "overlapped_s": 0.083505372,
+          "exposed_s": 0.008814552,
+          "overlap_fraction": 0.9045216718332654,
+          "summed_input_ready_wait_s": 0.143810773
+        },
+        {
+          "slot": "out:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.170359371,
+          "overlapped_s": 0.149264322,
+          "exposed_s": 0.021095049,
+          "overlap_fraction": 0.8761732396863569,
+          "summed_input_ready_wait_s": 0.401398528
+        },
+        {
+          "slot": "out:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.090733242,
+          "overlapped_s": 0.000218952,
+          "exposed_s": 0.09051429,
+          "overlap_fraction": 0.0024131398280687467,
+          "summed_input_ready_wait_s": 0.304016684
+        }
+      ]
+    },
+    {
+      "cuda_device": 4,
+      "exchanges": 2400,
+      "graph_launches": 1200,
+      "transport_proxy_union_s": 1.23933843,
+      "compute_overlap_s": 0.913471924,
+      "exposed_transport_proxy_s": 0.325866506,
+      "overlap_fraction": 0.7370641480067717,
+      "slots": [
+        {
+          "slot": "in:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.25424777,
+          "overlapped_s": 0.079435283,
+          "exposed_s": 0.174812487,
+          "overlap_fraction": 0.31243256528857655,
+          "summed_input_ready_wait_s": 0.732701022
+        },
+        {
+          "slot": "in:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.37781603,
+          "overlapped_s": 0.355276577,
+          "exposed_s": 0.022539453,
+          "overlap_fraction": 0.9403427827029996,
+          "summed_input_ready_wait_s": 0.067517449
+        },
+        {
+          "slot": "in:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.25333478,
+          "overlapped_s": 0.245229612,
+          "exposed_s": 0.008105168,
+          "overlap_fraction": 0.9680060984914902,
+          "summed_input_ready_wait_s": 0.021705557
+        },
+        {
+          "slot": "out:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.092350971,
+          "overlapped_s": 0.081960053,
+          "exposed_s": 0.010390918,
+          "overlap_fraction": 0.8874844748519212,
+          "summed_input_ready_wait_s": 0.134370465
+        },
+        {
+          "slot": "out:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.170669851,
+          "overlapped_s": 0.151516703,
+          "exposed_s": 0.019153148,
+          "overlap_fraction": 0.8877766173241693,
+          "summed_input_ready_wait_s": 0.392193141
+        },
+        {
+          "slot": "out:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.090919028,
+          "overlapped_s": 5.3696e-05,
+          "exposed_s": 0.090865332,
+          "overlap_fraction": 0.0005905914436304797,
+          "summed_input_ready_wait_s": 0.302237809
+        }
+      ]
+    },
+    {
+      "cuda_device": 5,
+      "exchanges": 2400,
+      "graph_launches": 1200,
+      "transport_proxy_union_s": 1.241737353,
+      "compute_overlap_s": 0.917264516,
+      "exposed_transport_proxy_s": 0.324472837,
+      "overlap_fraction": 0.7386944701179493,
+      "slots": [
+        {
+          "slot": "in:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.254455651,
+          "overlapped_s": 0.083699723,
+          "exposed_s": 0.170755928,
+          "overlap_fraction": 0.32893638899770394,
+          "summed_input_ready_wait_s": 0.727438903
+        },
+        {
+          "slot": "in:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.378260423,
+          "overlapped_s": 0.356169001,
+          "exposed_s": 0.022091422,
+          "overlap_fraction": 0.9415973211662167,
+          "summed_input_ready_wait_s": 0.065195906
+        },
+        {
+          "slot": "in:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.253558543,
+          "overlapped_s": 0.245426304,
+          "exposed_s": 0.008132239,
+          "overlap_fraction": 0.967927568506339,
+          "summed_input_ready_wait_s": 0.021706591
+        },
+        {
+          "slot": "out:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.092947423,
+          "overlapped_s": 0.079758231,
+          "exposed_s": 0.013189192,
+          "overlap_fraction": 0.8581005091448313,
+          "summed_input_ready_wait_s": 0.134246438
+        },
+        {
+          "slot": "out:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.171718422,
+          "overlapped_s": 0.152106673,
+          "exposed_s": 0.019611749,
+          "overlap_fraction": 0.8857912344430932,
+          "summed_input_ready_wait_s": 0.39180253
+        },
+        {
+          "slot": "out:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.090796891,
+          "overlapped_s": 0.000104584,
+          "exposed_s": 0.090692307,
+          "overlap_fraction": 0.0011518456066959386,
+          "summed_input_ready_wait_s": 0.302298257
+        }
+      ]
+    },
+    {
+      "cuda_device": 6,
+      "exchanges": 2400,
+      "graph_launches": 1200,
+      "transport_proxy_union_s": 1.240789186,
+      "compute_overlap_s": 0.911937814,
+      "exposed_transport_proxy_s": 0.328851372,
+      "overlap_fraction": 0.7349659589957129,
+      "slots": [
+        {
+          "slot": "in:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.254415488,
+          "overlapped_s": 0.084960598,
+          "exposed_s": 0.16945489,
+          "overlap_fraction": 0.3339442840838369,
+          "summed_input_ready_wait_s": 0.749695996
+        },
+        {
+          "slot": "in:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.378144172,
+          "overlapped_s": 0.354926986,
+          "exposed_s": 0.023217186,
+          "overlap_fraction": 0.9386022905570524,
+          "summed_input_ready_wait_s": 0.074473974
+        },
+        {
+          "slot": "in:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.253464611,
+          "overlapped_s": 0.245074733,
+          "exposed_s": 0.008389878,
+          "overlap_fraction": 0.9668992133974869,
+          "summed_input_ready_wait_s": 0.022795525
+        },
+        {
+          "slot": "out:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.09347393,
+          "overlapped_s": 0.079784269,
+          "exposed_s": 0.013689661,
+          "overlap_fraction": 0.8535456784581541,
+          "summed_input_ready_wait_s": 0.137550073
+        },
+        {
+          "slot": "out:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.17056898,
+          "overlapped_s": 0.147100214,
+          "exposed_s": 0.023468766,
+          "overlap_fraction": 0.8624089444634071,
+          "summed_input_ready_wait_s": 0.39351616
+        },
+        {
+          "slot": "out:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.090722005,
+          "overlapped_s": 9.1014e-05,
+          "exposed_s": 0.090630991,
+          "overlap_fraction": 0.0010032185686372343,
+          "summed_input_ready_wait_s": 0.303325131
+        }
+      ]
+    },
+    {
+      "cuda_device": 7,
+      "exchanges": 2400,
+      "graph_launches": 1200,
+      "transport_proxy_union_s": 1.243182459,
+      "compute_overlap_s": 0.912258873,
+      "exposed_transport_proxy_s": 0.330923586,
+      "overlap_fraction": 0.733809318492001,
+      "slots": [
+        {
+          "slot": "in:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.257403319,
+          "overlapped_s": 0.088649605,
+          "exposed_s": 0.168753714,
+          "overlap_fraction": 0.3443996190274454,
+          "summed_input_ready_wait_s": 0.748537409
+        },
+        {
+          "slot": "in:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.378373525,
+          "overlapped_s": 0.355312643,
+          "exposed_s": 0.023060882,
+          "overlap_fraction": 0.9390526015264942,
+          "summed_input_ready_wait_s": 0.081924512
+        },
+        {
+          "slot": "in:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.253337148,
+          "overlapped_s": 0.244961047,
+          "exposed_s": 0.008376101,
+          "overlap_fraction": 0.9669369412811105,
+          "summed_input_ready_wait_s": 0.023969976
+        },
+        {
+          "slot": "out:0:2",
+          "count": 400,
+          "transport_proxy_s": 0.093809028,
+          "overlapped_s": 0.080468551,
+          "exposed_s": 0.013340477,
+          "overlap_fraction": 0.8577911179295025,
+          "summed_input_ready_wait_s": 0.14458563
+        },
+        {
+          "slot": "out:1:3",
+          "count": 400,
+          "transport_proxy_s": 0.170710194,
+          "overlapped_s": 0.141937712,
+          "exposed_s": 0.028772482,
+          "overlap_fraction": 0.8314542246961537,
+          "summed_input_ready_wait_s": 0.40236207
+        },
+        {
+          "slot": "out:2:2",
+          "count": 400,
+          "transport_proxy_s": 0.089549245,
+          "overlapped_s": 0.000929315,
+          "exposed_s": 0.08861993,
+          "overlap_fraction": 0.010377697768417814,
+          "summed_input_ready_wait_s": 0.305389625
+        }
+      ]
+    }
+  ],
+  "nic_metrics": [
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "Eth: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "Eth: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "Eth: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "Eth: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "Eth: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "Eth: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "IB: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3247.732538330494,
+      "peak": 15898
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "IB: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3257.4463373083477,
+      "peak": 22751
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "IB: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11767615.366269166,
+      "peak": 45146160
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "IB: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11178392.367972743,
+      "peak": 30069124
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "IB: CNPs received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.22146507666098808,
+      "peak": 1
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "IB: CNPs sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 4.260647359454855,
+      "peak": 13
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "IB: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2973.8432708688247,
+      "peak": 11684
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "IB: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2825.115843270869,
+      "peak": 7823
+    },
+    {
+      "nic": "mlx5_0",
+      "port": 0,
+      "metric": "IB: Send waits",
+      "unit": "ticks/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "Eth: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "Eth: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "Eth: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "Eth: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "Eth: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "Eth: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "IB: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3232.3764906303236,
+      "peak": 4480
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "IB: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3273.7836456558775,
+      "peak": 29041
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "IB: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 10796016.340715503,
+      "peak": 17186020
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "IB: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 10693015.727427598,
+      "peak": 15502596
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "IB: CNPs received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.3679727427597956,
+      "peak": 7
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "IB: CNPs sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 3.8926746166950594,
+      "peak": 7
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "IB: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2723.2402044293017,
+      "peak": 4373
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "IB: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2700.4616695059626,
+      "peak": 3933
+    },
+    {
+      "nic": "mlx5_1",
+      "port": 0,
+      "metric": "IB: Send waits",
+      "unit": "ticks/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "Eth: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "Eth: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "Eth: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "Eth: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "Eth: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "Eth: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "IB: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3312.453151618399,
+      "peak": 48413
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "IB: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3241.0289608177172,
+      "peak": 7510
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "IB: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11277419.264054514,
+      "peak": 29929040
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "IB: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11178077.431005111,
+      "peak": 30022752
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "IB: CNPs received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.879045996592845,
+      "peak": 3
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "IB: CNPs sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0017035775127768314,
+      "peak": 1
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "IB: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2844.161839863714,
+      "peak": 7647
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "IB: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2818.008517887564,
+      "peak": 7689
+    },
+    {
+      "nic": "mlx5_2",
+      "port": 0,
+      "metric": "IB: Send waits",
+      "unit": "ticks/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "Eth: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "Eth: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "Eth: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "Eth: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "Eth: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "Eth: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "IB: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3223.9982964224873,
+      "peak": 5939
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "IB: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3215.03066439523,
+      "peak": 4235
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "IB: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11280655.066439522,
+      "peak": 29947832
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "IB: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11178689.4241908,
+      "peak": 29830344
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "IB: CNPs received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.9727427597955707,
+      "peak": 6
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "IB: CNPs sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "IB: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2851.4327086882454,
+      "peak": 7817
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "IB: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2821.1516183986373,
+      "peak": 7683
+    },
+    {
+      "nic": "mlx5_3",
+      "port": 0,
+      "metric": "IB: Send waits",
+      "unit": "ticks/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "Eth: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "Eth: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "Eth: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "Eth: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "Eth: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "Eth: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "IB: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3225.4088586030666,
+      "peak": 5055
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "IB: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3216.8739352640546,
+      "peak": 5600
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "IB: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11282374.957410563,
+      "peak": 29874744
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "IB: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11177795.979557069,
+      "peak": 29812700
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "IB: CNPs received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.8807495741056218,
+      "peak": 3
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "IB: CNPs sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 1.1873935264054514,
+      "peak": 42
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "IB: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2848.0766609880748,
+      "peak": 7688
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "IB: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2824.471890971039,
+      "peak": 7776
+    },
+    {
+      "nic": "mlx5_4",
+      "port": 0,
+      "metric": "IB: Send waits",
+      "unit": "ticks/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "Eth: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "Eth: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "Eth: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "Eth: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "Eth: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "Eth: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "IB: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3231.2299829642247,
+      "peak": 7329
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "IB: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3214.9454855195913,
+      "peak": 5297
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "IB: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11282532.770017035,
+      "peak": 29937048
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "IB: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11175151.83645656,
+      "peak": 29904888
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "IB: CNPs received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.8858603066439523,
+      "peak": 3
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "IB: CNPs sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "IB: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2846.3764906303236,
+      "peak": 7635
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "IB: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2817.872231686542,
+      "peak": 7638
+    },
+    {
+      "nic": "mlx5_5",
+      "port": 0,
+      "metric": "IB: Send waits",
+      "unit": "ticks/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "Eth: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "Eth: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "Eth: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "Eth: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "Eth: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "Eth: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "IB: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3216.2180579216356,
+      "peak": 5014
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "IB: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3214.03066439523,
+      "peak": 5882
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "IB: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 10797604.885860307,
+      "peak": 17184980
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "IB: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 10693777.12436116,
+      "peak": 15521040
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "IB: CNPs received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 1.425894378194208,
+      "peak": 20
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "IB: CNPs sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "IB: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2728.3918228279385,
+      "peak": 4362
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "IB: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2700.4310051107327,
+      "peak": 4016
+    },
+    {
+      "nic": "mlx5_6",
+      "port": 0,
+      "metric": "IB: Send waits",
+      "unit": "ticks/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "Eth: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "Eth: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "Eth: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "Eth: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "Eth: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "Eth: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "IB: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3206.5161839863713,
+      "peak": 4223
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "IB: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3219.5672913117546,
+      "peak": 4654
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "IB: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11768801.110732539,
+      "peak": 44979472
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "IB: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 11179236.504258944,
+      "peak": 30087644
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "IB: CNPs received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 1.4395229982964224,
+      "peak": 21
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "IB: CNPs sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "IB: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2979.8977853492333,
+      "peak": 11824
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "IB: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 2820.4105621805793,
+      "peak": 7734
+    },
+    {
+      "nic": "mlx5_7",
+      "port": 0,
+      "metric": "IB: Send waits",
+      "unit": "ticks/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "Eth: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "Eth: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 0.6235093696763203,
+      "peak": 203
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "Eth: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 4.190800681431005,
+      "peak": 440
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "Eth: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 14.076660988074957,
+      "peak": 406
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "Eth: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "Eth: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.005110732538330494,
+      "peak": 2
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "IB: Avg. received packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 3.79045996592845,
+      "peak": 532
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "IB: Avg. sent packet size",
+      "unit": "bytes",
+      "samples": 587,
+      "mean": 12.126064735945485,
+      "peak": 4860
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "IB: Bytes received",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 14.262350936967632,
+      "peak": 4808
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "IB: Bytes sent",
+      "unit": "bytes/ms",
+      "samples": 587,
+      "mean": 22.344122657580918,
+      "peak": 4860
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "IB: CNPs received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "IB: CNPs sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "IB: Packets received",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.030664395229982964,
+      "peak": 13
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "IB: Packets sent",
+      "unit": "packets/ms",
+      "samples": 587,
+      "mean": 0.03236797274275979,
+      "peak": 13
+    },
+    {
+      "nic": "mlx5_bond_0",
+      "port": 0,
+      "metric": "IB: Send waits",
+      "unit": "ticks/ms",
+      "samples": 587,
+      "mean": 0.0,
+      "peak": 0
+    }
+  ]
+}

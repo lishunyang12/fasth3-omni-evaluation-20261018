@@ -1,0 +1,77 @@
+{
+  "method": "CUPTI deviceId is the CUDA ordinal; GPU metric typeId low byte is the Nsight inventory ID. Cross-checked all eight worker PIDs against nvidia-smi GPU UUIDs during capture.",
+  "devices": [
+    {
+      "cuda_device": 0,
+      "nsys_inventory_id": 2,
+      "uuid": "69d1fff1-d9f5-e15d-4d2c-058a4010f106",
+      "pci_bus": "0000:06:00.0",
+      "worker_pid": 15546,
+      "global_pid": 281735795310592,
+      "validated_against_nvidia_smi": true
+    },
+    {
+      "cuda_device": 1,
+      "nsys_inventory_id": 3,
+      "uuid": "9db4ee11-aeaf-55c1-c752-966a0a70b707",
+      "pci_bus": "0000:09:00.0",
+      "worker_pid": 15547,
+      "global_pid": 281735812087808,
+      "validated_against_nvidia_smi": true
+    },
+    {
+      "cuda_device": 2,
+      "nsys_inventory_id": 0,
+      "uuid": "ab3d387a-b17d-bd26-a5cf-7968a2129522",
+      "pci_bus": "0000:76:00.0",
+      "worker_pid": 15548,
+      "global_pid": 281735828865024,
+      "validated_against_nvidia_smi": true
+    },
+    {
+      "cuda_device": 3,
+      "nsys_inventory_id": 1,
+      "uuid": "2fdb0b79-0ba7-f356-b714-6c461b71ce12",
+      "pci_bus": "0000:79:00.0",
+      "worker_pid": 15549,
+      "global_pid": 281735845642240,
+      "validated_against_nvidia_smi": true
+    },
+    {
+      "cuda_device": 4,
+      "nsys_inventory_id": 6,
+      "uuid": "4a286357-c999-9547-3a04-25961b1ffd08",
+      "pci_bus": "0000:86:00.0",
+      "worker_pid": 15550,
+      "global_pid": 281735862419456,
+      "validated_against_nvidia_smi": true
+    },
+    {
+      "cuda_device": 5,
+      "nsys_inventory_id": 7,
+      "uuid": "c2ac6efb-f30a-c323-6d38-83908adfb14f",
+      "pci_bus": "0000:89:00.0",
+      "worker_pid": 15551,
+      "global_pid": 281735879196672,
+      "validated_against_nvidia_smi": true
+    },
+    {
+      "cuda_device": 6,
+      "nsys_inventory_id": 4,
+      "uuid": "3b4186a5-be56-d240-d6c4-2476804ba106",
+      "pci_bus": "0000:f6:00.0",
+      "worker_pid": 15552,
+      "global_pid": 281735895973888,
+      "validated_against_nvidia_smi": true
+    },
+    {
+      "cuda_device": 7,
+      "nsys_inventory_id": 5,
+      "uuid": "4da3ee86-412f-96e0-cb4e-ca8cc0f3dd9d",
+      "pci_bus": "0000:f9:00.0",
+      "worker_pid": 15553,
+      "global_pid": 281735912751104,
+      "validated_against_nvidia_smi": true
+    }
+  ]
+}
