@@ -120,7 +120,7 @@
   });
   window.addEventListener('hashchange', () => show(hashSlide(), false));
   window.addEventListener('keydown', e => {
-    if (e.target.closest('select,input,textarea,button,a') || e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.target.closest('select,input,textarea,[contenteditable=true]') || e.altKey || e.ctrlKey || e.metaKey) return;
     if (['ArrowRight','PageDown','ArrowLeft','PageUp','Home','End'].includes(e.key)) {
       e.preventDefault(); show(e.key === 'Home' ? 1 : e.key === 'End' ? deck?.slides.length || 1 : current + (['ArrowRight','PageDown'].includes(e.key) ? 1 : -1));
     }
