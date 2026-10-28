@@ -1,0 +1,35 @@
+[
+  {
+    "file": "assets/decode-reset.mp4",
+    "sha256": "3076957991842029106578b0306c3c1dbbfe533259874ec2f529a7586cca90e6",
+    "bytes": 6205922,
+    "width": 576,
+    "height": 1024,
+    "frames": 753,
+    "fps": "24/1",
+    "duration": 31.375,
+    "copied_without_reencoding": true
+  },
+  {
+    "file": "assets/decode-continuous.mp4",
+    "sha256": "bc8833432fdd49e72b4463eade689ee742a05e37a412e985c70cbfee374e6c9f",
+    "bytes": 6214321,
+    "width": 576,
+    "height": 1024,
+    "frames": 753,
+    "fps": "24/1",
+    "duration": 31.375,
+    "copied_without_reencoding": true
+  },
+  {
+    "file": "assets/tpp-portrait51.mp4",
+    "sha256": "7bc772e6c46f3a52165d040a135db2bf3fc0417fe426cbb1715c87ef2397cc86",
+    "bytes": 5636227,
+    "width": 416,
+    "height": 736,
+    "frames": 1093,
+    "fps": "24/1",
+    "duration": 45.542,
+    "copied_without_reencoding": true
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "label": "desktop",
+      "title": "LiveAvatar \u2192 H3 | Five-second avatar retrospective",
+      "language": "en",
+      "bodyOverflow": false,
+      "images": true,
+      "qualityRows": 7,
+      "chunkRows": 3,
+      "tppRows": 3,
+      "brokenAnchors": [],
+      "hasChinese": false
+    },
+    {
+      "label": "mobile",
+      "title": "LiveAvatar \u2192 H3 | Five-second avatar retrospective",
+      "language": "en",
+      "bodyOverflow": false,
+      "images": true,
+      "qualityRows": 7,
+      "chunkRows": 3,
+      "tppRows": 3,
+      "brokenAnchors": [],
+      "hasChinese": false
+    }
+  ],
+  "errors": [],
+  "playback": [
+    {
+      "width": 576,
+      "height": 1024,
+      "duration": 31.375,
+      "currentTime": 0.140461,
+      "paused": true,
+      "error": null
+    },
+    {
+      "width": 576,
+      "height": 1024,
+      "duration": 31.375,
+      "currentTime": 0.140499,
+      "paused": true,
+      "error": null
+    }
+  ],
+  "seek": true,
+  "thirdVideo": {
+    "width": 416,
+    "height": 736,
+    "duration": 45.542,
+    "error": null
+  },
+  "validation_scope": "Local Chromium desktop/mobile layout and playback against the exact local assets; public deployment checked separately."
+}

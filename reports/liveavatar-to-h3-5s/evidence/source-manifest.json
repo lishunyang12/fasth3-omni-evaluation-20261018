@@ -1,0 +1,96 @@
+{
+  "compiled_on": "2026-10-28",
+  "sources": [
+    {
+      "id": "historical-avatar",
+      "source": "h3-optimizations/evidence/sku-avatar5-history.json",
+      "sha256": "31bd3c22359f1d48f6e23c3b314d863c1d917ddc294062653058a2f200329fdf",
+      "bytes": 6520
+    },
+    {
+      "id": "quality-screen",
+      "source": "h3-liveavatar-ablation-20261014/evaluation/public/summary.json",
+      "sha256": "abb909f3cb4fdb47a44e383c1c67aeaf721bec61d7a533341487e8aea0bd9756",
+      "bytes": 126422
+    },
+    {
+      "id": "quality-design",
+      "source": "h3-liveavatar-ablation-20261014/plan.json",
+      "sha256": "99cecdc6c84265e98cb00369293510647761374dae809ba646f0aacebdf5f68f",
+      "bytes": 5224
+    },
+    {
+      "id": "timestep-kv",
+      "source": "h3-timestep-forcing-20261015/public/summary.json",
+      "sha256": "83fb141f4a4dbdaf3964d1f1913ec16edccaf92bd2ead39841478db063c4d548",
+      "bytes": 52328
+    },
+    {
+      "id": "overlap-trajectory",
+      "source": "h3-overlap-bridge-20261015/public/summary.json",
+      "sha256": "edbdd2e26921a64fbc0a222d0f8574deee8343a11398c6928857104f2997eb48",
+      "bytes": 8700
+    },
+    {
+      "id": "continuous-vae",
+      "source": "h3-decode-continuity-20261015/public/summary.json",
+      "sha256": "e2108f005a28fb0ebc8118a35d4b70c48ebd1754321555105cc7c2e77dca617b",
+      "bytes": 80473
+    },
+    {
+      "id": "continuity-refinement",
+      "source": "h3-continuity-refine-20261015/public/summary.json",
+      "sha256": "e97b8a5f82ab1d3d0abaea819485a0e994e43ec01fbfdd70357442103d585a05",
+      "bytes": 168484
+    },
+    {
+      "id": "combined-aas",
+      "source": "h3-continuity-aas-20261015/decision.json",
+      "sha256": "6de569fb710dab6d1549b5b2b4fec1278331bd511d64ab0bfda0135d1c33a183",
+      "bytes": 372
+    },
+    {
+      "id": "short-chunks",
+      "source": "h3-short-chunk-20261015/public/summary.json",
+      "sha256": "cfabc2c6f494f1d4f641296ab2b0c3b966b01945563c8aa4f0a2eb0c9579f047",
+      "bytes": 247618
+    },
+    {
+      "id": "tpp-matched",
+      "source": "h3-tpp-five-20261015/public/summary.json",
+      "sha256": "03dfa6a14cbcd4c82e63aeb6f84b257aafe2556d6b0c586e0cbd7e00a15bc0df",
+      "bytes": 81250
+    },
+    {
+      "id": "tpp-resolution-study",
+      "source": "h3-tpp-five-20261015/evidence/fps-study-summary.json",
+      "sha256": "2480b352ebe266933ae68bb98e9910439774e2a8ed55266fe6c1c4bce1fc9af7",
+      "bytes": 33256
+    },
+    {
+      "id": "tpp-ten-minute",
+      "source": "h3-tpp-five-20261015/public-long/summary.json",
+      "sha256": "6eba0cc43ea8d67480d3fa8f266d222447b3478d5138e45228577e81b4805f37",
+      "bytes": 22946
+    },
+    {
+      "id": "streaming-browser",
+      "source": "native-v9-live-measurements.json",
+      "sha256": "be0e205f1c55387016e2784e4339863328eeaa341b02e03ff1e2ff84ea0f5984",
+      "bytes": 3725
+    },
+    {
+      "id": "streaming-configuration",
+      "source": "native-v9-comparison.json",
+      "sha256": "29cfdcac253e1f4c8b6165714959fe9778a9ea4a7864d86ee2f764f1cae165a2",
+      "bytes": 929
+    },
+    {
+      "id": "quality-protocol",
+      "source": "h3-liveavatar-ablation-20261014/evaluation/protocol.json",
+      "sha256": "46c23ed95ea0788189db6295d56084e748939774b839797df3b6a6358d92332d",
+      "bytes": 5006
+    }
+  ],
+  "note": "SHA-256 identifies the retained source files. The public results file contains selected fields with English labels, not the complete source artifacts."
+}

@@ -1,0 +1,1383 @@
+{
+  "compiled_on": "2026-10-28",
+  "scope": "Historical H3 five-second avatar baseline and subsequent LiveAvatar-inspired H3 inference experiments. These are distinct workloads.",
+  "baseline": {
+    "date": "2026-09-22",
+    "resolution": [
+      960,
+      544
+    ],
+    "fps": 24,
+    "window_frames": 124,
+    "overlap_frames": 5,
+    "new_frames": 119,
+    "gpu_count": 8,
+    "records": [
+      {
+        "ordinal": 0,
+        "phase": "warmup",
+        "http_seconds": 3.9655029529239982,
+        "ready_seconds": 4.12205924699083,
+        "frames": 124,
+        "media_seconds": 5.166666666666667,
+        "sha256": "a0a5cfa6a3b6d72dfb41fdb39dbe9fdcee2ab66478b62b927674a863991b3d8a",
+        "action": "rest"
+      },
+      {
+        "ordinal": 1,
+        "phase": "warmup",
+        "http_seconds": 3.957478916971013,
+        "ready_seconds": 4.075688830111176,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "85f679d0ab841a38becdf694428bad1b91dd8a9e7270e1a93937abd1690876a0",
+        "action": "rest"
+      },
+      {
+        "ordinal": 2,
+        "phase": "warmup",
+        "http_seconds": 3.5490841479040682,
+        "ready_seconds": 3.668491831049323,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "4a957911599ac674bf53a37807a5d35b2514365fd1741f36db014193d7121b24",
+        "action": "rest"
+      },
+      {
+        "ordinal": 3,
+        "phase": "measured",
+        "http_seconds": 3.5442530040163547,
+        "ready_seconds": 3.665281177032739,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "939586a5ad2802d41ab2c3a8a6d748e3838e1d34599399e5d0ec17600e8343a3",
+        "action": "rest"
+      },
+      {
+        "ordinal": 4,
+        "phase": "measured",
+        "http_seconds": 3.5451254488434643,
+        "ready_seconds": 3.661568744108081,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "0d10ceefa09488fe4abe90ebdea6b72b4710a328872203fc389e94a88bb737c9",
+        "action": "rest"
+      },
+      {
+        "ordinal": 5,
+        "phase": "measured",
+        "http_seconds": 3.545881126075983,
+        "ready_seconds": 3.6619727469515055,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "98fe883afa568b952f12878bde34bb09f29a08104ed7e00fde9f5dce9b00da40",
+        "action": "rest"
+      },
+      {
+        "ordinal": 6,
+        "phase": "measured",
+        "http_seconds": 3.5540667409077287,
+        "ready_seconds": 3.669778869021684,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "9812af5d795d50c738588a8697b5e2286ef7b36324f50693c2b9b4f2e8441879",
+        "action": "rest"
+      },
+      {
+        "ordinal": 7,
+        "phase": "measured",
+        "http_seconds": 3.547505117021501,
+        "ready_seconds": 3.6664876979775727,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "568f0d75329629921b36571ae6209da21986595bcc0e5deefa28d0f99c247f79",
+        "action": "rest"
+      },
+      {
+        "ordinal": 8,
+        "phase": "measured",
+        "http_seconds": 3.8996319340076298,
+        "ready_seconds": 4.028935521142557,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "76b4b4489e715a9902d2aa45fb5ddc5f9a7257a34e05a35c45bdd2fd36b2c333",
+        "action": "speak"
+      },
+      {
+        "ordinal": 9,
+        "phase": "measured",
+        "http_seconds": 3.9727099989540875,
+        "ready_seconds": 4.093477816786617,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "7515e1584613d62e9525d469efa7dfb7cd57992b361b9a9f7a97cfbd3a41698e",
+        "action": "rest"
+      },
+      {
+        "ordinal": 10,
+        "phase": "measured",
+        "http_seconds": 3.9779565557837486,
+        "ready_seconds": 4.096392116043717,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "ed2d08865810b350afde3ad08f895bb4c2fc162238eb1ad784435efa532c5795",
+        "action": "turn_page"
+      },
+      {
+        "ordinal": 11,
+        "phase": "measured",
+        "http_seconds": 3.9052701250184327,
+        "ready_seconds": 4.029596529901028,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "6e97ed7c5b906aa2dae9c8b039c8b548ab685c46dc8ccf7261ca5df029ff9f32",
+        "action": "speak"
+      },
+      {
+        "ordinal": 12,
+        "phase": "measured",
+        "http_seconds": 4.055993593065068,
+        "ready_seconds": 4.177112315082923,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "e5cfc02638e3417212193c1a6d276995f03f44acb88924b74ed6b26c95744fa6",
+        "action": "speak"
+      },
+      {
+        "ordinal": 13,
+        "phase": "measured",
+        "http_seconds": 3.582710525020957,
+        "ready_seconds": 3.6981664272025228,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "d8df6273d8df06a3e9809c58b58e11b0200831ccb11f3c385144b213660c9bbb",
+        "action": "rest"
+      },
+      {
+        "ordinal": 14,
+        "phase": "measured",
+        "http_seconds": 3.5897789399605244,
+        "ready_seconds": 3.7062881940510124,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "ced323d935a23f2860804ce1478db2419eb29b9d9aa2ee713c7e80e24a27d04a",
+        "action": "rest"
+      },
+      {
+        "ordinal": 15,
+        "phase": "measured",
+        "http_seconds": 3.6023559370078146,
+        "ready_seconds": 3.719565568957478,
+        "frames": 119,
+        "media_seconds": 4.958333333333333,
+        "sha256": "b2e4729729a2ebaf3da7c80d0a5fbfd011d7f5b44cac642758588416e2cc1da7",
+        "action": "rest"
+      }
+    ],
+    "http_median_s": 3.5897789399605244,
+    "ready_median_s": 3.7062881940510124,
+    "timing_scope": "HTTP includes inference and complete MP4. Historical ready_seconds additionally includes application media/seam screening. Replay measures HTTP only; no Twitch/chat pipeline."
+  },
+  "quality_screen": {
+    "date": "2026-10-14",
+    "planned_trajectories": 56,
+    "scored_trajectories": 25,
+    "complete_paired_units": 3,
+    "planned_paired_units": 8,
+    "stopping": {
+      "clip_limit": 1636,
+      "actual_completed_clips": 1688,
+      "included_clips": 1636,
+      "excluded_completed_clips": 52,
+      "eligible_complete_trajectories": 25,
+      "stopping_rule": "User-requested early stop after seeing preliminary results; original full matrix not completed."
+    },
+    "table": [
+      {
+        "arm": "baseline",
+        "n": 3,
+        "scores": {
+          "IQA": {
+            "n": 3,
+            "mean": 4.76942732753577,
+            "sd": 0.321399517480681
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 3.182559536563025,
+            "sd": 0.135044738168744
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.9159082686459575,
+            "sd": 0.07263353060240689
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": 0.9970658212634118,
+            "sd": 0.00048288594777860235
+          }
+        },
+        "delta": {
+          "IQA": {
+            "n": 3,
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": 0.0,
+            "sd": 0.0
+          }
+        },
+        "late_delta": {
+          "IQA": {
+            "n": 3,
+            "mean": -0.5358399033546446,
+            "sd": 0.6962281355264265
+          },
+          "ASE": {
+            "n": 3,
+            "mean": -0.50190482934316,
+            "sd": 0.11175977395613351
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": -0.08075159192085264,
+            "sd": 0.08384709840065216
+          }
+        }
+      },
+      {
+        "arm": "anchor",
+        "n": 3,
+        "scores": {
+          "IQA": {
+            "n": 3,
+            "mean": 4.965413852091189,
+            "sd": 0.0023444454429451846
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 3.309934708365688,
+            "sd": 0.021873551609879603
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.9421946463761506,
+            "sd": 0.013830822132214352
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": 0.997061137861047,
+            "sd": 0.0004504631111492039
+          }
+        },
+        "delta": {
+          "IQA": {
+            "n": 3,
+            "mean": 0.1959865245554182,
+            "sd": 0.3205421562250691
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 0.1273751718026621,
+            "sd": 0.15033135433423891
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.02628637773019297,
+            "sd": 0.05889274929845155
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": -4.683402364757949e-06,
+            "sd": 3.242283662939844e-05
+          }
+        },
+        "late_delta": {
+          "IQA": {
+            "n": 3,
+            "mean": -0.01510241826375284,
+            "sd": 0.004786913095212023
+          },
+          "ASE": {
+            "n": 3,
+            "mean": -0.15289793809254984,
+            "sd": 0.08296425772436453
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": -0.028227204084396385,
+            "sd": 0.009295043666248691
+          }
+        }
+      },
+      {
+        "arm": "history",
+        "n": 3,
+        "scores": {
+          "IQA": {
+            "n": 3,
+            "mean": 4.970151177159061,
+            "sd": 0.017697402499604584
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 3.4151164341855935,
+            "sd": 0.0381922167236015
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.9499139491054747,
+            "sd": 0.02365279049940205
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": 0.9966103262645414,
+            "sd": 0.0007640729781611468
+          }
+        },
+        "delta": {
+          "IQA": {
+            "n": 3,
+            "mean": 0.20072384962329112,
+            "sd": 0.3037049975751707
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 0.23255689762256773,
+            "sd": 0.11140374219430849
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.03400568045951705,
+            "sd": 0.04936513391646041
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": -0.00045549499887037603,
+            "sd": 0.0002811870303825444
+          }
+        },
+        "late_delta": {
+          "IQA": {
+            "n": 3,
+            "mean": -0.02315624554951956,
+            "sd": 0.037460821986460904
+          },
+          "ASE": {
+            "n": 3,
+            "mean": -0.05489382743835428,
+            "sd": 0.07480286439164018
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": -0.03739211757977804,
+            "sd": 0.041851587540081586
+          }
+        }
+      },
+      {
+        "arm": "global_fixed",
+        "n": 3,
+        "scores": {
+          "IQA": {
+            "n": 3,
+            "mean": 4.68968914548556,
+            "sd": 0.39035551650145844
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 3.172844870222939,
+            "sd": 0.21610816904952396
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.8290525781335655,
+            "sd": 0.047733413848889926
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": 0.9893934789353422,
+            "sd": 0.0003074874458465269
+          }
+        },
+        "delta": {
+          "IQA": {
+            "n": 3,
+            "mean": -0.07973818205021033,
+            "sd": 0.07595575646420018
+          },
+          "ASE": {
+            "n": 3,
+            "mean": -0.009714666340086294,
+            "sd": 0.09326637441574186
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": -0.08685569051239221,
+            "sd": 0.02598455364470272
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": -0.00767234232806957,
+            "sd": 0.00017539850193207544
+          }
+        },
+        "late_delta": {
+          "IQA": {
+            "n": 3,
+            "mean": -0.03114304542541498,
+            "sd": 0.007917726715661336
+          },
+          "ASE": {
+            "n": 3,
+            "mean": -0.14427910645802808,
+            "sd": 0.1231699828098004
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": -0.14119900862375898,
+            "sd": 0.02484589602885506
+          }
+        }
+      },
+      {
+        "arm": "global_follow",
+        "n": 3,
+        "scores": {
+          "IQA": {
+            "n": 3,
+            "mean": 4.910164969055741,
+            "sd": 0.08330914064118308
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 3.2988542848163185,
+            "sd": 0.07403693211557792
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.8747624772014442,
+            "sd": 0.011922365993520714
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": 0.9910178853329968,
+            "sd": 0.0004877085574862606
+          }
+        },
+        "delta": {
+          "IQA": {
+            "n": 3,
+            "mean": 0.14073764151997045,
+            "sd": 0.23809162239988393
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 0.11629474825329256,
+            "sd": 0.07111414069482953
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": -0.0411457914445135,
+            "sd": 0.06075620001076356
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": -0.006047935930414916,
+            "sd": 4.822609707658281e-06
+          }
+        },
+        "late_delta": {
+          "IQA": {
+            "n": 3,
+            "mean": -0.20281853675842262,
+            "sd": 0.25256019772296767
+          },
+          "ASE": {
+            "n": 3,
+            "mean": -0.34699312051137293,
+            "sd": 0.13712960021746023
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": -0.18261546889940902,
+            "sd": 0.04822827182465142
+          }
+        }
+      },
+      {
+        "arm": "prefix_off",
+        "n": 3,
+        "scores": {
+          "IQA": {
+            "n": 3,
+            "mean": 4.978384394998904,
+            "sd": 0.006453090337842285
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 3.5112937238481314,
+            "sd": 0.0693651361757959
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.9575240509377586,
+            "sd": 0.013824800941838737
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": 0.9963009402756654,
+            "sd": 0.0008750251187875644
+          }
+        },
+        "delta": {
+          "IQA": {
+            "n": 3,
+            "mean": 0.2089570674631327,
+            "sd": 0.31506022330339717
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 0.32873418728510534,
+            "sd": 0.06639354090268908
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.041615782291800886,
+            "sd": 0.05946541390669615
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": -0.0007648809877463525,
+            "sd": 0.0003921391710089621
+          }
+        },
+        "late_delta": {
+          "IQA": {
+            "n": 3,
+            "mean": 0.0003803730010985736,
+            "sd": 0.004460986815182218
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 0.049606108665466365,
+            "sd": 0.03068230293771335
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": -0.014655222495396969,
+            "sd": 0.008969991888641076
+          }
+        }
+      },
+      {
+        "arm": "history_prefix_off",
+        "n": 3,
+        "scores": {
+          "IQA": {
+            "n": 3,
+            "mean": 4.973839334646861,
+            "sd": 0.003175234731684703
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 3.5062202201949226,
+            "sd": 0.04938664395734607
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.9395064321105128,
+            "sd": 0.019017770012769965
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": 0.9958280645704886,
+            "sd": 0.0009466359618759402
+          }
+        },
+        "delta": {
+          "IQA": {
+            "n": 3,
+            "mean": 0.20441200711109028,
+            "sd": 0.3219220057223208
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 0.3236606836318969,
+            "sd": 0.08567697209996068
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.023598163464555084,
+            "sd": 0.055870501671059065
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": -0.0012377566929231976,
+            "sd": 0.0004637500140973378
+          }
+        },
+        "late_delta": {
+          "IQA": {
+            "n": 3,
+            "mean": 0.0659352302551272,
+            "sd": 0.10566924943096569
+          },
+          "ASE": {
+            "n": 3,
+            "mean": 0.08084526062011725,
+            "sd": 0.01749828287612523
+          },
+          "Dino-S": {
+            "n": 3,
+            "mean": 0.10403068313995996,
+            "sd": 0.0974385920810461
+          }
+        }
+      }
+    ],
+    "coverage": [
+      {
+        "scene": "nora_idle",
+        "seed": 8300,
+        "scored": [
+          "anchor",
+          "baseline",
+          "global_fixed",
+          "global_follow",
+          "history",
+          "history_prefix_off",
+          "prefix_off"
+        ],
+        "included": true
+      },
+      {
+        "scene": "nora_idle",
+        "seed": 18300,
+        "scored": [
+          "anchor",
+          "baseline",
+          "global_fixed",
+          "global_follow",
+          "history",
+          "history_prefix_off",
+          "prefix_off"
+        ],
+        "included": true
+      },
+      {
+        "scene": "nora_speech",
+        "seed": 8300,
+        "scored": [
+          "anchor",
+          "baseline",
+          "global_fixed",
+          "global_follow",
+          "history",
+          "history_prefix_off",
+          "prefix_off"
+        ],
+        "included": true
+      },
+      {
+        "scene": "nora_speech",
+        "seed": 18300,
+        "scored": [
+          "global_follow",
+          "history",
+          "history_prefix_off",
+          "prefix_off"
+        ],
+        "included": false
+      },
+      {
+        "scene": "nora_hand",
+        "seed": 8300,
+        "scored": [],
+        "included": false
+      },
+      {
+        "scene": "nora_hand",
+        "seed": 18300,
+        "scored": [],
+        "included": false
+      },
+      {
+        "scene": "zhiwei_turn",
+        "seed": 8300,
+        "scored": [],
+        "included": false
+      },
+      {
+        "scene": "zhiwei_turn",
+        "seed": 18300,
+        "scored": [],
+        "included": false
+      }
+    ]
+  },
+  "timestep_kv": {
+    "summaries": [
+      {
+        "scene": "nora_idle",
+        "arm": "baseline",
+        "n": 2,
+        "scores": {
+          "IQA": {
+            "n": 2,
+            "mean": 4.9820537156528895,
+            "sd": 0.0015815389486487541
+          },
+          "ASE": {
+            "n": 2,
+            "mean": 3.5505661063724094,
+            "sd": 0.019212601556632267
+          },
+          "Dino-S": {
+            "n": 2,
+            "mean": 0.9651763728923268,
+            "sd": 0.005558961628283482
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": 0.9963009402756654,
+            "sd": 0.0008750251187875644
+          }
+        },
+        "late_minus_early": {
+          "IQA": {
+            "n": 2,
+            "mean": 0.0029487371444703037,
+            "sd": 0.0004709994614790686
+          },
+          "ASE": {
+            "n": 2,
+            "mean": 0.06714026927948002,
+            "sd": 0.006174681894240333
+          },
+          "Dino-S": {
+            "n": 2,
+            "mean": -0.01040281951427463,
+            "sd": 0.00724043660848049
+          }
+        }
+      },
+      {
+        "scene": "nora_idle",
+        "arm": "matched",
+        "n": 2,
+        "scores": {
+          "IQA": {
+            "n": 2,
+            "mean": 4.98498076862759,
+            "sd": 0.00027845017916218256
+          },
+          "ASE": {
+            "n": 2,
+            "mean": 3.519791235526403,
+            "sd": 0.003790529270238749
+          },
+          "Dino-S": {
+            "n": 2,
+            "mean": 0.972458891901705,
+            "sd": 0.00013868069278769475
+          },
+          "T.Flicker": {
+            "n": 2,
+            "mean": 0.9973986571551359,
+            "sd": 1.2828393997798796e-05
+          }
+        },
+        "late_minus_early": {
+          "IQA": {
+            "n": 2,
+            "mean": 0.0009889841079706585,
+            "sd": 0.0038803760487009916
+          },
+          "ASE": {
+            "n": 2,
+            "mean": 0.03969477415084843,
+            "sd": 0.040873052737718796
+          },
+          "Dino-S": {
+            "n": 2,
+            "mean": -0.0033559650182724,
+            "sd": 0.0017423886496041132
+          }
+        }
+      },
+      {
+        "scene": "nora_speech",
+        "arm": "baseline",
+        "n": 1,
+        "scores": {
+          "IQA": {
+            "n": 1,
+            "mean": 4.971045753690931,
+            "sd": null
+          },
+          "ASE": {
+            "n": 1,
+            "mean": 3.432748958799574,
+            "sd": null
+          },
+          "Dino-S": {
+            "n": 1,
+            "mean": 0.9422194070286221,
+            "sd": null
+          },
+          "T.Flicker": {
+            "n": 1,
+            "mean": 0.9942449114484314,
+            "sd": null
+          }
+        },
+        "late_minus_early": {
+          "IQA": {
+            "n": 1,
+            "mean": -0.0047563552856448865,
+            "sd": null
+          },
+          "ASE": {
+            "n": 1,
+            "mean": 0.014537787437439054,
+            "sd": null
+          },
+          "Dino-S": {
+            "n": 1,
+            "mean": -0.023160028457641646,
+            "sd": null
+          }
+        }
+      },
+      {
+        "scene": "nora_speech",
+        "arm": "matched",
+        "n": 1,
+        "scores": {
+          "IQA": {
+            "n": 1,
+            "mean": 4.975881716940138,
+            "sd": null
+          },
+          "ASE": {
+            "n": 1,
+            "mean": 3.396515989303589,
+            "sd": null
+          },
+          "Dino-S": {
+            "n": 1,
+            "mean": 0.9504200223419401,
+            "sd": null
+          },
+          "T.Flicker": {
+            "n": 1,
+            "mean": 0.9939979180666303,
+            "sd": null
+          }
+        },
+        "late_minus_early": {
+          "IQA": {
+            "n": 1,
+            "mean": -0.004522609710693182,
+            "sd": null
+          },
+          "ASE": {
+            "n": 1,
+            "mean": -0.0216946840286254,
+            "sd": null
+          },
+          "Dino-S": {
+            "n": 1,
+            "mean": -0.01623580455780027,
+            "sd": null
+          }
+        }
+      }
+    ],
+    "controls": {
+      "baseline": "Clean prefix off; native guide KV recomputed each forward",
+      "matched": "Clean prefix off; previous block actual per-timestep AV target KV reused"
+    },
+    "limitations": [
+      "Current block remains bidirectional; no causal adaptation training.",
+      "Two idle seeds and one speech seed; three paired 181.54-second trajectories."
+    ]
+  },
+  "overlap": {
+    "results": [
+      {
+        "arm": "matched",
+        "seam_mae": 5.79538094997406,
+        "interior_mae": 1.4201155403829484,
+        "quality": {
+          "IQA": 4.976733684539795,
+          "ASE": 3.394113810857137,
+          "Dino-S": 0.9551345467567444,
+          "T.Flicker": 0.9941922837924045
+        }
+      },
+      {
+        "arm": "noise",
+        "seam_mae": 5.9057251691818236,
+        "interior_mae": 1.4519335701878726,
+        "quality": {
+          "IQA": 4.973585255940756,
+          "ASE": 3.3956885894139606,
+          "Dino-S": 0.956224141518275,
+          "T.Flicker": 0.994063224230985
+        }
+      },
+      {
+        "arm": "trajectory",
+        "seam_mae": 3.500789451599121,
+        "interior_mae": 1.4627025472528103,
+        "quality": {
+          "IQA": 4.973924620946248,
+          "ASE": 3.3866185506184894,
+          "Dino-S": 0.955384780963262,
+          "T.Flicker": 0.9941527502770864
+        }
+      }
+    ],
+    "limitations": [
+      "One seed and approximately 30 seconds; no long-run validation.",
+      "Pixel changes mix movement, texture and exposure.",
+      "AV history KV policy is held fixed; generated audio and video outside the overlap can still change through joint attention. Whole-frame Dino-S is an appearance proxy, not a biometric identity guarantee."
+    ]
+  },
+  "decode": {
+    "results": [
+      {
+        "arm": "reset",
+        "frames": 753,
+        "duration": 31.375,
+        "video_sha256": "3076957991842029106578b0306c3c1dbbfe533259874ec2f529a7586cca90e6",
+        "audio_decoded_exact": true,
+        "seam_mae": 3.4307512636537907,
+        "mean_neighborhood_peak": 3.4307512636537907,
+        "quality": {
+          "IQA": 4.992796579996745,
+          "ASE": 3.432099978129069,
+          "Dino-S": 0.9637579957644145
+        }
+      },
+      {
+        "arm": "continuous",
+        "frames": 753,
+        "duration": 31.375,
+        "video_sha256": "bc8833432fdd49e72b4463eade689ee742a05e37a412e985c70cbfee374e6c9f",
+        "audio_decoded_exact": true,
+        "seam_mae": 2.773821230287905,
+        "mean_neighborhood_peak": 2.829861506709346,
+        "quality": {
+          "IQA": 4.992878866195679,
+          "ASE": 3.4330769856770833,
+          "Dino-S": 0.9637910147507985
+        }
+      }
+    ],
+    "seam_reduction_percent": 19.14828510960738,
+    "improved_seams": 10,
+    "limitations": [
+      "One seed, one 31.375-second speech video; not long-duration qualification.",
+      "Native overlap blending distributes a transition; it does not correct generated pose resets.",
+      "DINO measures whole-frame appearance, not a guarantee of face identity.",
+      "Offline continuous decoding tested; production streaming integration not deployed."
+    ]
+  },
+  "refinement": {
+    "results": [
+      {
+        "arm": "native",
+        "seam_mae": 2.773821230287905,
+        "seam_reduction_percent": 0.0,
+        "dino_delta": 0.0,
+        "improved_seams": 0
+      },
+      {
+        "arm": "linear",
+        "seam_mae": 2.7562229297779224,
+        "seam_reduction_percent": 0.6344424910236901,
+        "dino_delta": -3.545284271244675e-05,
+        "improved_seams": 9
+      },
+      {
+        "arm": "smooth",
+        "seam_mae": 2.7562229297779224,
+        "seam_reduction_percent": 0.6344424910236901,
+        "dino_delta": -3.545284271244675e-05,
+        "improved_seams": 9
+      },
+      {
+        "arm": "prompt",
+        "seam_mae": 2.914167898672598,
+        "seam_reduction_percent": -5.059686862737212,
+        "dino_delta": 0.002965372800826982,
+        "improved_seams": 3
+      }
+    ],
+    "limitations": [
+      "One seed, one speech scene, 31.375 seconds; no long-run or cross-seed qualification.",
+      "Blend treatments and prompt treatment are independent; no combined arm is tested.",
+      "Whole-frame DINO and IQA are proxies; no human MOS or automatic lip-sync score.",
+      "Local sparse optical flow and sharpness are diagnostics, not standalone quality rankings."
+    ]
+  },
+  "combined_aas": {
+    "selected": "native",
+    "aas_implemented": true,
+    "aas_default_enabled": false,
+    "reason": "In this one paired three-minute speech sample, AAS lowers DINO and ASE while increasing mean seam MAE; no quality/continuity gain established.",
+    "dino_delta": -0.0070640607012641965,
+    "seam_change_percent": 2.389094830860783,
+    "improved_seams": 20,
+    "total_seams": 63
+  },
+  "short_chunks": {
+    "results": [
+      {
+        "arm": "f68",
+        "window_frames": 73,
+        "new_frames": 68,
+        "chunk_seconds": 2.8333333333333335,
+        "http_mean": 4.670650135858783,
+        "http_rtf": 1.6484647538325117,
+        "measured_requests": 7,
+        "common_seam_mae": 2.6917427910698786,
+        "quality": {
+          "IQA": 4.989701867103577,
+          "ASE": 3.4626561062676564,
+          "Dino-S": 0.958307004400662
+        }
+      },
+      {
+        "arm": "f34",
+        "window_frames": 39,
+        "new_frames": 34,
+        "chunk_seconds": 1.4166666666666667,
+        "http_mean": 2.9710827161941458,
+        "http_rtf": 2.097234858489985,
+        "measured_requests": 17,
+        "common_seam_mae": 2.5692826447663486,
+        "quality": {
+          "IQA": 4.9897119998931885,
+          "ASE": 3.485010428088052,
+          "Dino-S": 0.9611680614096778
+        }
+      },
+      {
+        "arm": "f17",
+        "window_frames": 22,
+        "new_frames": 17,
+        "chunk_seconds": 0.7083333333333334,
+        "http_mean": 2.2550019647145794,
+        "http_rtf": 3.183532185479406,
+        "measured_requests": 37,
+        "common_seam_mae": 2.7566935221354165,
+        "quality": {
+          "IQA": 4.992322274616787,
+          "ASE": 3.4464672037533353,
+          "Dino-S": 0.9581021794251033
+        }
+      }
+    ],
+    "duration": 31.375,
+    "timing_scope": "Four GPUs. Serial HTTP full-request latency, audits enabled. Standalone bounded decoder verified separately; not a deployed online-stream benchmark.",
+    "limitations": [
+      "One scene, one seed schedule, 31.375 seconds per arm; short pilot, not a three-minute drift test.",
+      "Shared exact silent opening. Same 40-word absolute script, one word per 17 new frames; prompts necessarily partition differently.",
+      "Same seed schedule, but tensor dimensions differ; not exact identical noise for every global latent.",
+      "DINO is whole-image reference similarity. IQA/ASE are model proxies. No human MOS or lip-sync/intelligibility score.",
+      "RGB seam change can decrease when motion decreases. Common-time seams are compared, with own seams also reported.",
+      "Public audio retains each arm's generated speech with per-segment timeline alignment; no speech replacement or time stretch.",
+      "Sampled frames show model-generated on-screen text at 20 s in f68 and 30 s in f34; these artifacts remain included in videos and scores.",
+      "No production service changed. AAS off. No weight changes or retraining."
+    ]
+  },
+  "tpp_matched": {
+    "resolution": [
+      576,
+      1024
+    ],
+    "fps": 24,
+    "new_frames": 17,
+    "chunk_seconds": 0.7083333333333334,
+    "devices": [
+      4,
+      5,
+      6,
+      7,
+      3
+    ],
+    "steady_fps": 14.78043409407799,
+    "steady_av_interval": {
+      "n": 17,
+      "mean": 1.1501691961003577,
+      "p50": 1.150038727093488,
+      "p95": 1.1554173333570361,
+      "minimum": 1.1461790767498314,
+      "maximum": 1.1645165057852864
+    },
+    "steady_chunk_av_latency": {
+      "n": 17,
+      "mean": 5.096647924305323,
+      "p50": 5.064609516877681,
+      "p95": 5.199629292823374,
+      "minimum": 5.037607746664435,
+      "maximum": 5.713342701084912
+    },
+    "first_rgb_seconds": 10.927372342906892,
+    "matched_comparison": {
+      "throughput_gain_fraction": 0.36293719191721463,
+      "chunk_latency_ratio": 2.507539000897385,
+      "held_fixed": [
+        "five physical GPUs",
+        "576x1024",
+        "17 new frames",
+        "four denoising steps",
+        "MXFP8/Sage/NVFP4 precision",
+        "preencoded inputs and seeds",
+        "prefix off",
+        "actual timestep history KV",
+        "full overlap trajectory",
+        "canonical history Q",
+        "native video/audio decode",
+        "timing scope"
+      ],
+      "changed": "DiT sequence parallelism vs fixed-timestep pipeline; associated transport and head partitioning.",
+      "limit": "One 413-frame pilot per arm; not an eight-GPU matched comparison or a production end-to-end latency measurement."
+    },
+    "scope": "Pre-encoded prompts and references; warm model. Includes interprocess transport, timestep history, overlap trajectories, native AV decode and RGB delivery to host. Excludes text/reference encoding, HTTP, H.264/AAC, network delivery, browser playback, and post-run oracle/quality checks.",
+    "caveats": [
+      "One subject, one seed schedule, 17.21-second pilot. Not a long-video or general quality conclusion.",
+      "DINO/Q-Align do not establish speech correctness or lip-sync quality.",
+      "The SP4 HTTP result includes encoding and request overhead; do not treat its ratio to this pipeline interval as a matched speedup.",
+      "First request remains the shared 73-frame opening; first-output latency is not the steady chunk interval.",
+      "Canonical history Query is an inference change needed to prevent shared 32-row Sage quantization from depending on unavailable clean history. Production was not changed."
+    ],
+    "numerical_validation": {
+      "serial_vs_five_gpu_all_21_video_audio_exact": true,
+      "step_local_history_all_21_exact": true,
+      "clean_vs_placeholder_first_3_exact": true,
+      "canonical_query_changes_original_numerics": true,
+      "native_stream_vs_joined_rgb_exact": true
+    },
+    "sp4_fps": 10.844545281860471,
+    "sp4_chunk_latency": {
+      "n": 17,
+      "mean": 2.0325298719108105,
+      "p50": 2.0311581711284816,
+      "p95": 2.0372653051279483,
+      "minimum": 2.0289759361185133,
+      "maximum": 2.049281483050436
+    }
+  },
+  "tpp_resolution": {
+    "rows": [
+      {
+        "arm": "hd17",
+        "width": 576,
+        "height": 1024,
+        "new_frames": 17,
+        "block_seconds": 0.7083333333333334,
+        "measured_fps": 14.78043409407799,
+        "warm_run_fps": 11.936820341360804,
+        "chunk_av_latency": {
+          "n": 17,
+          "mean": 5.096647924305323,
+          "p95": 5.199629292823374,
+          "minimum": 5.037607746664435,
+          "maximum": 5.713342701084912
+        },
+        "first_rgb_seconds": 10.927372342906892,
+        "serial_all_latents_exact": true,
+        "chunks": 21,
+        "total_frames": 413
+      },
+      {
+        "arm": "wide17",
+        "width": 736,
+        "height": 416,
+        "new_frames": 17,
+        "block_seconds": 0.7083333333333334,
+        "measured_fps": 30.46387624183577,
+        "warm_run_fps": 25.057224304105976,
+        "chunk_av_latency": {
+          "n": 17,
+          "mean": 2.505100879599066,
+          "p95": 2.577921681012958,
+          "minimum": 2.4589923759922385,
+          "maximum": 2.892199661117047
+        },
+        "first_rgb_seconds": 4.900491214822978,
+        "serial_all_latents_exact": true,
+        "chunks": 21,
+        "total_frames": 413
+      },
+      {
+        "arm": "wide34",
+        "width": 736,
+        "height": 416,
+        "new_frames": 34,
+        "block_seconds": 1.4166666666666667,
+        "measured_fps": 42.833603246605165,
+        "warm_run_fps": 31.031678003600867,
+        "chunk_av_latency": {
+          "n": 7,
+          "mean": 3.6683364706113935,
+          "p95": 3.776485192775726,
+          "minimum": 3.6304368171840906,
+          "maximum": 3.832916847895831
+        },
+        "first_rgb_seconds": 4.9511211616918445,
+        "serial_all_latents_exact": true,
+        "chunks": 11,
+        "total_frames": 413
+      },
+      {
+        "arm": "wide34_mlp",
+        "width": 736,
+        "height": 416,
+        "new_frames": 34,
+        "block_seconds": 1.4166666666666667,
+        "measured_fps": 44.17507331605895,
+        "warm_run_fps": 31.579661199161006,
+        "chunk_av_latency": {
+          "n": 7,
+          "mean": 3.5807131293362806,
+          "p95": 3.7022933870553967,
+          "minimum": 3.542988314293325,
+          "maximum": 3.766043597832322
+        },
+        "first_rgb_seconds": 4.931310694664717,
+        "serial_all_latents_exact": true,
+        "chunks": 11,
+        "total_frames": 413
+      },
+      {
+        "arm": "portrait34",
+        "width": 416,
+        "height": 736,
+        "new_frames": 34,
+        "block_seconds": 1.4166666666666667,
+        "measured_fps": 44.24535283890352,
+        "warm_run_fps": 31.66128195217171,
+        "chunk_av_latency": {
+          "n": 7,
+          "mean": 3.567322088738105,
+          "p95": 3.6966180658433583,
+          "minimum": 3.530466916039586,
+          "maximum": 3.764233904890716
+        },
+        "first_rgb_seconds": 4.9109580516815186,
+        "serial_all_latents_exact": true,
+        "chunks": 11,
+        "total_frames": 413
+      },
+      {
+        "arm": "portrait51",
+        "width": 416,
+        "height": 736,
+        "new_frames": 51,
+        "block_seconds": 2.125,
+        "measured_fps": 48.80762927964478,
+        "warm_run_fps": 41.565180976893636,
+        "chunk_av_latency": {
+          "n": 17,
+          "mean": 4.87598622628652,
+          "p95": 4.927331057470292,
+          "minimum": 4.831669260747731,
+          "maximum": 4.9491643640212715
+        },
+        "first_rgb_seconds": 4.906959890387952,
+        "serial_all_latents_exact": true,
+        "chunks": 21,
+        "total_frames": 1093
+      }
+    ],
+    "scope": "Warm, preencoded inputs; includes DiT, interstage transfer, native video/audio VAE and RGB host delivery. Excludes text/reference encoding, H.264/AAC, network and browser playback.",
+    "limitations": [
+      "One subject and seed schedule per configuration.",
+      "51-frame blocks are longer than both the 17-frame trial and the paper default; report latency separately.",
+      "Steady generation FPS is not display frame rate or end-to-end interactive latency."
+    ]
+  },
+  "ten_minute": {
+    "resolution": [
+      480,
+      864
+    ],
+    "frames": 14404,
+    "duration": 600.1666666666666,
+    "chunks": 282,
+    "playback_fps": 24,
+    "generation_fps": 33.545816240357176,
+    "warm_run_fps": 33.028927388259326,
+    "warm_run_seconds": 436.10256641637534,
+    "first_rgb_seconds": 7.200241487007588,
+    "av_encoded_interval": {
+      "mean": 1.5203088109283993,
+      "p95": 1.5825534963980317,
+      "minimum": 1.454721414949745,
+      "maximum": 1.5885303257964551
+    },
+    "chunk_latency": {
+      "mean": 7.5913064797348575,
+      "p95": 7.66603182523977,
+      "minimum": 7.46922060707584,
+      "maximum": 8.099410464987159
+    },
+    "serial_exact_chunks": 21,
+    "all_video_overlaps_exact": true,
+    "prompt_policy": "20 encoded speech chunks cycle; every video block uses a new seed and the actual preceding noisy KV/overlap trajectory. No output video looping.",
+    "timing_scope": "Warmed models, preencoded conditions, DiT, latent transport, native AV decode and H.264/AAC encode; excludes model loading, online text/reference encoding, network and browser. Review-only lossless packet remux and quality scoring are excluded.",
+    "limitations": [
+      "One person and one continuous run; finite-duration test, not proof of indefinite stability.",
+      "Speech conditioning repeats for a stability test; not a ten-minute original speech script.",
+      "DINO/IQA/ASE do not evaluate speech correctness or lip synchronization.",
+      "Media currently resides in temporary memory-backed storage because persistent quota is full."
+    ]
+  },
+  "later_browser_prototype": {
+    "scope": "Browser on inference host via public tunnel and actual H3; synthetic microphone, not physical acoustic echo cancellation.",
+    "wall_seconds": 312.3282999997139,
+    "steady_generated_fps": 24.002742118049394,
+    "browser_presented_fps": 23.408061325235966,
+    "stall_count": 11,
+    "stall_seconds": 3.839800000667572,
+    "longest_stall_seconds": 0.7847000002861023,
+    "median_window_delivery_seconds": 3.555481933057308,
+    "response_sample_count": 3,
+    "barge_in_ms": 625.7999997138977,
+    "quality_qualified": false,
+    "input_end_to_present_ms": [
+      6946.300000190735,
+      6738.699999904631,
+      6014.700000190729
+    ],
+    "configuration": {
+      "steps": 4,
+      "decoder": "native_H3_NVFP4",
+      "width": 480,
+      "height": 864,
+      "new_frames": 17
+    },
+    "dit_gpu_count": 6,
+    "codec_gpu_count": 1,
+    "voice_gpu_count": 1
+  }
+}
