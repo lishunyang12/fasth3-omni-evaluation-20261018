@@ -79,12 +79,16 @@ def main():
         raise ValueError('Preview is missing slides or slide titles')
     for slide in parsed.slides:
         image = folder/slide['image']
-        slide.update(image=str(image.relative_to(DECK)), sha256=sha(image))
+        slide.update(image=str(image.relative_to(DECK)), sha256=sha(image), hidden=slide['number'] in manifest.get('hidden_slides', []))
     related = []
-    for name, label, numbers in [('four-videos.html', 'Play slide 11 videos', [11]),
+    for name, label, numbers in [('latency-breakdown.html', 'Current breakdown and GPU work', [6]),
+                                  ('continuous-generation.html', 'Five-second generation timeline', [7]),
+                                  ('four-videos.html', 'Play slide 11 videos', [11]),
                                   ('benchmarks.html', 'Slide 18 measurements and videos', [18])]:
         if (folder/name).is_file():
             related.append(dict(label=label, url=f'{version}/{name}', slides=numbers))
+    if (folder/'continuous-generation.html').is_file():
+        related.append(dict(label='AAS / Rolling RoPE archive', url='../../reports/h3-liveavatar-long-video-20261014/long/', slides=[7, 12]))
     payload = dict(schema_version=1, title=parsed.slides[0]['title'], version=version,
                    slides=parsed.slides, downloads=files, release_url=f'{version}/', related=related,
                    profile_url='../../profiles/slide18-final-20261027/',

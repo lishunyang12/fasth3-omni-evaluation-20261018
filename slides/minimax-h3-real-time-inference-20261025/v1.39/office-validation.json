@@ -1,0 +1,21 @@
+{
+  "status": "pass_text_and_visual_review",
+  "renderer": "LibreOffice Impress",
+  "pdf_pages": 21,
+  "pptx_sha256": "c2ad346691add172135168cba76f23f142dfa7bb16161018fec3de01d6f30a3d",
+  "pdf_sha256": "e7d8cbc9740faf38c13fdabedae67499f70f70ee8be02be044fb1cbf37407bbc",
+  "editable_paragraphs_checked": 362,
+  "rendered_fonts": {
+    "NVIDIASans-Regular": 9609,
+    "NVIDIASans-Medium": 2762,
+    "RobotoMono-Regular": 581
+  },
+  "unmatched_paragraphs": [],
+  "text_outside_page": [],
+  "native_powerpoint_rendering_and_playback_verified": false,
+  "visual_review": "pass; all 21 office previews reviewed; changed pages 6, 7, 12 and 18 checked at full size",
+  "notes": [
+    "Paragraph checks ignore whitespace, soft hyphens and Unicode compatibility forms.",
+    "Impress is an independent office renderer, not Microsoft PowerPoint."
+  ]
+}

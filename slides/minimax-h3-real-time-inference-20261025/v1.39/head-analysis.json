@@ -1,0 +1,854 @@
+{
+  "schema": 1,
+  "status": "analyzed_retained_trace",
+  "profile_sha256": "03c76df8c18947804dc931d9e2ccb5757c6105fa170f836c03e2a31064657ef4",
+  "workload": {
+    "resolution": [
+      960,
+      544
+    ],
+    "frames": 124,
+    "fps": 24,
+    "model_evaluations": 8,
+    "gpus": 8,
+    "head_bands": [
+      2,
+      3,
+      2
+    ],
+    "formal_http_median_s": 5.417645109817386,
+    "profiled_http_s": 5.663555474020541
+  },
+  "samples": {
+    "gpus": 8,
+    "blocks_per_gpu": 400,
+    "graphs_per_gpu": 1200,
+    "nodes_per_graph": 66
+  },
+  "head_window_statistics_ms": {
+    "head_window_ms": {
+      "n": 3200,
+      "mean": 6.926201265,
+      "median": 6.8192575,
+      "p95": 7.310561,
+      "maximum": 13.860231
+    },
+    "startup_wall_ms": {
+      "n": 3200,
+      "mean": 0.9006905446875,
+      "median": 0.8580015,
+      "p95": 1.034176,
+      "maximum": 4.427586
+    },
+    "startup_no_cuda_ms": {
+      "n": 3200,
+      "mean": 0.5787616528125,
+      "median": 0.5586405000000001,
+      "p95": 0.621729,
+      "maximum": 3.963298
+    },
+    "between_0_1_wall_ms": {
+      "n": 3200,
+      "mean": 0.046043284375,
+      "median": 0.004512,
+      "p95": 0.005568,
+      "maximum": 4.389475
+    },
+    "between_0_1_no_cuda_ms": {
+      "n": 3200,
+      "mean": 0.026292525937500002,
+      "median": 0.002048,
+      "p95": 0.00304,
+      "maximum": 2.371714
+    },
+    "between_1_2_wall_ms": {
+      "n": 3200,
+      "mean": 0.04297857875,
+      "median": 0.032096,
+      "p95": 0.034784,
+      "maximum": 3.199967
+    },
+    "between_1_2_no_cuda_ms": {
+      "n": 3200,
+      "mean": 0.009228065625,
+      "median": 0.002432,
+      "p95": 0.007424,
+      "maximum": 2.754143
+    },
+    "drain_wall_ms": {
+      "n": 3200,
+      "mean": 0.3794682071875,
+      "median": 0.363137,
+      "p95": 0.455457,
+      "maximum": 2.891841
+    },
+    "drain_no_cuda_ms": {
+      "n": 3200,
+      "mean": 0.2789967396875,
+      "median": 0.280672,
+      "p95": 0.293056,
+      "maximum": 0.932256
+    }
+  },
+  "graphs": [
+    {
+      "band": 0,
+      "heads": 2,
+      "envelope_ms": {
+        "n": 3200,
+        "mean": 1.6622676871875,
+        "median": 1.6628475,
+        "p95": 1.676358,
+        "maximum": 2.409669
+      },
+      "kernel_union_ms": {
+        "n": 3200,
+        "mean": 1.5295904065625,
+        "median": 1.5309775,
+        "p95": 1.547238,
+        "maximum": 1.563073
+      },
+      "launch_host_ms": {
+        "n": 3200,
+        "mean": 0.072025055,
+        "median": 0.059164,
+        "p95": 0.075889,
+        "maximum": 3.341415
+      },
+      "launch_start_to_gpu_ms": {
+        "n": 3200,
+        "mean": 0.0604521646875,
+        "median": 0.047923,
+        "p95": 0.06181,
+        "maximum": 3.287524
+      }
+    },
+    {
+      "band": 1,
+      "heads": 3,
+      "envelope_ms": {
+        "n": 3200,
+        "mean": 2.28906088625,
+        "median": 2.29185,
+        "p95": 2.309124,
+        "maximum": 2.610913
+      },
+      "kernel_union_ms": {
+        "n": 3200,
+        "mean": 2.206356650625,
+        "median": 2.208023,
+        "p95": 2.22477,
+        "maximum": 2.241601
+      },
+      "launch_host_ms": {
+        "n": 3200,
+        "mean": 0.0526886621875,
+        "median": 0.0526495,
+        "p95": 0.066629,
+        "maximum": 2.112615
+      },
+      "launch_start_to_gpu_ms": {
+        "n": 3200,
+        "mean": 0.3862777575,
+        "median": 0.4067765,
+        "p95": 0.435446,
+        "maximum": 1.329403
+      }
+    },
+    {
+      "band": 2,
+      "heads": 2,
+      "envelope_ms": {
+        "n": 3200,
+        "mean": 1.5714803621875,
+        "median": 1.5722109999999998,
+        "p95": 1.585798,
+        "maximum": 2.390207
+      },
+      "kernel_union_ms": {
+        "n": 3200,
+        "mean": 1.5258640021875,
+        "median": 1.52701,
+        "p95": 1.540806,
+        "maximum": 1.547078
+      },
+      "launch_host_ms": {
+        "n": 3200,
+        "mean": 0.0521101621875,
+        "median": 0.051864,
+        "p95": 0.066129,
+        "maximum": 2.895362
+      },
+      "launch_start_to_gpu_ms": {
+        "n": 3200,
+        "mean": 1.045985866875,
+        "median": 1.0928205,
+        "p95": 1.132939,
+        "maximum": 1.754722
+      }
+    }
+  ],
+  "transport_slots": [
+    {
+      "slot": "in:0:2",
+      "mean_transport_ms_per_block": 0.6368258253125,
+      "mean_exposed_ms_per_block": 0.4197175578125,
+      "overlap_fraction": 0.34092271035221544,
+      "mean_exposed_ms_per_rank": 167.88702312499998
+    },
+    {
+      "slot": "in:1:3",
+      "mean_transport_ms_per_block": 0.9464796203125,
+      "mean_exposed_ms_per_block": 0.0585113659375,
+      "overlap_fraction": 0.9381920368790556,
+      "mean_exposed_ms_per_rank": 23.404546375
+    },
+    {
+      "slot": "in:2:2",
+      "mean_transport_ms_per_block": 0.6344166921875,
+      "mean_exposed_ms_per_block": 0.02222056,
+      "overlap_fraction": 0.9649823310532201,
+      "mean_exposed_ms_per_rank": 8.888224
+    },
+    {
+      "slot": "out:0:2",
+      "mean_transport_ms_per_block": 0.2336182134375,
+      "mean_exposed_ms_per_block": 0.03572997875,
+      "overlap_fraction": 0.8477135554111723,
+      "mean_exposed_ms_per_rank": 14.2919915
+    },
+    {
+      "slot": "out:1:3",
+      "mean_transport_ms_per_block": 0.42761451125,
+      "mean_exposed_ms_per_block": 0.065266285,
+      "overlap_fraction": 0.8474172869537853,
+      "mean_exposed_ms_per_rank": 26.106514
+    },
+    {
+      "slot": "out:2:2",
+      "mean_transport_ms_per_block": 0.2260818303125,
+      "mean_exposed_ms_per_block": 0.221811860625,
+      "overlap_fraction": 0.018888350354586154,
+      "mean_exposed_ms_per_rank": 88.72474425
+    }
+  ],
+  "devices": [
+    {
+      "gpu": 0,
+      "dit_cpu_envelope_ms": 4302.397355,
+      "copies": {
+        "host_to_device": {
+          "count": 92,
+          "bytes": 9030210,
+          "gpu_sum_ms": 0.359553,
+          "gpu_union_ms": 0.359553,
+          "max_bytes": 7633152
+        },
+        "device_to_host": {
+          "count": 5094,
+          "bytes": 1039112,
+          "gpu_sum_ms": 3.606438,
+          "gpu_union_ms": 3.606438,
+          "max_bytes": 387072
+        },
+        "device_to_device": {
+          "count": 3666,
+          "bytes": 23915560736,
+          "gpu_sum_ms": 32.210125,
+          "gpu_union_ms": 32.210125,
+          "max_bytes": 16933632
+        }
+      },
+      "layout_kernels": [
+        {
+          "name": "_pack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 73.244979
+        },
+        {
+          "name": "_unpack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 61.587232
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "count": 1200,
+          "gpu_sum_ms": 24.039585
+        },
+        {
+          "name": "_gate_and_assemble",
+          "count": 1200,
+          "gpu_sum_ms": 32.705132
+        }
+      ],
+      "identified_layout_union_ms": 158.871796
+    },
+    {
+      "gpu": 1,
+      "dit_cpu_envelope_ms": 4302.360636,
+      "copies": {
+        "host_to_device": {
+          "count": 92,
+          "bytes": 9030210,
+          "gpu_sum_ms": 0.405249,
+          "gpu_union_ms": 0.405249,
+          "max_bytes": 7633152
+        },
+        "device_to_host": {
+          "count": 5094,
+          "bytes": 1039112,
+          "gpu_sum_ms": 2.478116,
+          "gpu_union_ms": 2.478116,
+          "max_bytes": 387072
+        },
+        "device_to_device": {
+          "count": 3666,
+          "bytes": 23915560736,
+          "gpu_sum_ms": 30.619949,
+          "gpu_union_ms": 30.619949,
+          "max_bytes": 16933632
+        }
+      },
+      "layout_kernels": [
+        {
+          "name": "_pack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 69.904896
+        },
+        {
+          "name": "_unpack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 62.547167
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "count": 1200,
+          "gpu_sum_ms": 24.084243
+        },
+        {
+          "name": "_gate_and_assemble",
+          "count": 1200,
+          "gpu_sum_ms": 33.510737
+        }
+      ],
+      "identified_layout_union_ms": 156.536306
+    },
+    {
+      "gpu": 2,
+      "dit_cpu_envelope_ms": 4302.318217,
+      "copies": {
+        "host_to_device": {
+          "count": 92,
+          "bytes": 9030210,
+          "gpu_sum_ms": 0.277345,
+          "gpu_union_ms": 0.277345,
+          "max_bytes": 7633152
+        },
+        "device_to_host": {
+          "count": 5094,
+          "bytes": 1039112,
+          "gpu_sum_ms": 3.418894,
+          "gpu_union_ms": 3.418894,
+          "max_bytes": 387072
+        },
+        "device_to_device": {
+          "count": 3666,
+          "bytes": 23915560736,
+          "gpu_sum_ms": 32.051921,
+          "gpu_union_ms": 32.051921,
+          "max_bytes": 16933632
+        }
+      },
+      "layout_kernels": [
+        {
+          "name": "_pack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 73.295217
+        },
+        {
+          "name": "_unpack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 60.974332
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "count": 1200,
+          "gpu_sum_ms": 24.072435
+        },
+        {
+          "name": "_gate_and_assemble",
+          "count": 1200,
+          "gpu_sum_ms": 33.108335
+        }
+      ],
+      "identified_layout_union_ms": 158.341984
+    },
+    {
+      "gpu": 3,
+      "dit_cpu_envelope_ms": 4302.303217,
+      "copies": {
+        "host_to_device": {
+          "count": 92,
+          "bytes": 9030210,
+          "gpu_sum_ms": 0.279619,
+          "gpu_union_ms": 0.279619,
+          "max_bytes": 7633152
+        },
+        "device_to_host": {
+          "count": 5094,
+          "bytes": 1039112,
+          "gpu_sum_ms": 3.688343,
+          "gpu_union_ms": 3.688343,
+          "max_bytes": 387072
+        },
+        "device_to_device": {
+          "count": 3666,
+          "bytes": 23915560736,
+          "gpu_sum_ms": 34.693115,
+          "gpu_union_ms": 34.693115,
+          "max_bytes": 16933632
+        }
+      },
+      "layout_kernels": [
+        {
+          "name": "_pack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 73.717673
+        },
+        {
+          "name": "_unpack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 60.217467
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "count": 1200,
+          "gpu_sum_ms": 23.94819
+        },
+        {
+          "name": "_gate_and_assemble",
+          "count": 1200,
+          "gpu_sum_ms": 31.927886
+        }
+      ],
+      "identified_layout_union_ms": 157.88333
+    },
+    {
+      "gpu": 4,
+      "dit_cpu_envelope_ms": 4302.350966,
+      "copies": {
+        "host_to_device": {
+          "count": 92,
+          "bytes": 9030210,
+          "gpu_sum_ms": 0.364704,
+          "gpu_union_ms": 0.364704,
+          "max_bytes": 7633152
+        },
+        "device_to_host": {
+          "count": 5094,
+          "bytes": 1039112,
+          "gpu_sum_ms": 3.489926,
+          "gpu_union_ms": 3.489926,
+          "max_bytes": 387072
+        },
+        "device_to_device": {
+          "count": 3666,
+          "bytes": 23915560736,
+          "gpu_sum_ms": 33.834225,
+          "gpu_union_ms": 33.834225,
+          "max_bytes": 16933632
+        }
+      },
+      "layout_kernels": [
+        {
+          "name": "_pack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 70.487451
+        },
+        {
+          "name": "_unpack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 59.981914
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "count": 1200,
+          "gpu_sum_ms": 23.703722
+        },
+        {
+          "name": "_gate_and_assemble",
+          "count": 1200,
+          "gpu_sum_ms": 31.955505
+        }
+      ],
+      "identified_layout_union_ms": 154.173087
+    },
+    {
+      "gpu": 5,
+      "dit_cpu_envelope_ms": 4302.329146,
+      "copies": {
+        "host_to_device": {
+          "count": 92,
+          "bytes": 9030210,
+          "gpu_sum_ms": 0.396225,
+          "gpu_union_ms": 0.396225,
+          "max_bytes": 7633152
+        },
+        "device_to_host": {
+          "count": 5094,
+          "bytes": 1039112,
+          "gpu_sum_ms": 3.233476,
+          "gpu_union_ms": 3.233476,
+          "max_bytes": 387072
+        },
+        "device_to_device": {
+          "count": 3666,
+          "bytes": 23915560736,
+          "gpu_sum_ms": 32.361417,
+          "gpu_union_ms": 32.360905,
+          "max_bytes": 16933632
+        }
+      },
+      "layout_kernels": [
+        {
+          "name": "_pack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 69.970019
+        },
+        {
+          "name": "_unpack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 59.189246
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "count": 1200,
+          "gpu_sum_ms": 23.775225
+        },
+        {
+          "name": "_gate_and_assemble",
+          "count": 1200,
+          "gpu_sum_ms": 32.964622
+        }
+      ],
+      "identified_layout_union_ms": 152.93449
+    },
+    {
+      "gpu": 6,
+      "dit_cpu_envelope_ms": 4302.299667,
+      "copies": {
+        "host_to_device": {
+          "count": 92,
+          "bytes": 9030210,
+          "gpu_sum_ms": 0.431776,
+          "gpu_union_ms": 0.431776,
+          "max_bytes": 7633152
+        },
+        "device_to_host": {
+          "count": 5094,
+          "bytes": 1039112,
+          "gpu_sum_ms": 3.191645,
+          "gpu_union_ms": 3.191645,
+          "max_bytes": 387072
+        },
+        "device_to_device": {
+          "count": 3666,
+          "bytes": 23915560736,
+          "gpu_sum_ms": 30.865934,
+          "gpu_union_ms": 30.865934,
+          "max_bytes": 16933632
+        }
+      },
+      "layout_kernels": [
+        {
+          "name": "_pack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 71.615988
+        },
+        {
+          "name": "_unpack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 59.729349
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "count": 1200,
+          "gpu_sum_ms": 23.961712
+        },
+        {
+          "name": "_gate_and_assemble",
+          "count": 1200,
+          "gpu_sum_ms": 33.157677
+        }
+      ],
+      "identified_layout_union_ms": 155.307049
+    },
+    {
+      "gpu": 7,
+      "dit_cpu_envelope_ms": 4302.249827,
+      "copies": {
+        "host_to_device": {
+          "count": 92,
+          "bytes": 9030210,
+          "gpu_sum_ms": 0.250624,
+          "gpu_union_ms": 0.250624,
+          "max_bytes": 7633152
+        },
+        "device_to_host": {
+          "count": 5094,
+          "bytes": 1039112,
+          "gpu_sum_ms": 3.530082,
+          "gpu_union_ms": 3.530082,
+          "max_bytes": 387072
+        },
+        "device_to_device": {
+          "count": 3666,
+          "bytes": 23915560736,
+          "gpu_sum_ms": 30.126741,
+          "gpu_union_ms": 30.126229,
+          "max_bytes": 16933632
+        }
+      },
+      "layout_kernels": [
+        {
+          "name": "_pack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 74.369676
+        },
+        {
+          "name": "_unpack_qkv",
+          "count": 1200,
+          "gpu_sum_ms": 59.990854
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "count": 1200,
+          "gpu_sum_ms": 24.017585
+        },
+        {
+          "name": "_gate_and_assemble",
+          "count": 1200,
+          "gpu_sum_ms": 32.968762
+        }
+      ],
+      "identified_layout_union_ms": 158.378115
+    }
+  ],
+  "representative_block": {
+    "gpu": 0,
+    "block": 184,
+    "step": 3,
+    "layer": 34,
+    "start_ns": 2732759066,
+    "end_ns": 2739577349,
+    "head_window_ms": 6.818283,
+    "startup_wall_ms": 0.843106,
+    "startup_no_cuda_ms": 0.542273,
+    "between_0_1_wall_ms": 0.004288,
+    "between_0_1_no_cuda_ms": 0.001824,
+    "between_1_2_wall_ms": 0.031488,
+    "between_1_2_no_cuda_ms": 0.001856,
+    "drain_wall_ms": 0.360897,
+    "drain_no_cuda_ms": 0.276865,
+    "graphs": [
+      {
+        "gpu": 0,
+        "block": 184,
+        "band": 0,
+        "heads": 2,
+        "start_ns": 2733634844,
+        "end_ns": 2735305726,
+        "kernel_union_ms": 1.53885,
+        "envelope_ms": 1.670882,
+        "launch_host_ms": 0.048329,
+        "launch_start_to_gpu_ms": 0.040804
+      },
+      {
+        "gpu": 0,
+        "block": 184,
+        "band": 1,
+        "heads": 3,
+        "start_ns": 2735310014,
+        "end_ns": 2737612738,
+        "kernel_union_ms": 2.21754,
+        "envelope_ms": 2.302724,
+        "launch_host_ms": 0.041209,
+        "launch_start_to_gpu_ms": 0.406755
+      },
+      {
+        "gpu": 0,
+        "block": 184,
+        "band": 2,
+        "heads": 2,
+        "start_ns": 2737644226,
+        "end_ns": 2739216452,
+        "kernel_union_ms": 1.524002,
+        "envelope_ms": 1.572226,
+        "launch_host_ms": 0.04028,
+        "launch_start_to_gpu_ms": 1.094265
+      }
+    ],
+    "packs": [
+      {
+        "block": 184,
+        "band": 0,
+        "start_ns": 2732759066,
+        "end_ns": 2732791738
+      },
+      {
+        "block": 184,
+        "band": 1,
+        "start_ns": 2733697660,
+        "end_ns": 2733809916
+      },
+      {
+        "block": 184,
+        "band": 2,
+        "start_ns": 2735712959,
+        "end_ns": 2735751903
+      }
+    ],
+    "gates": [
+      {
+        "block": 184,
+        "band": 0,
+        "start_ns": 2737614754,
+        "end_ns": 2737639810
+      },
+      {
+        "block": 184,
+        "band": 1,
+        "start_ns": 2739218308,
+        "end_ns": 2739255300
+      },
+      {
+        "block": 184,
+        "band": 2,
+        "start_ns": 2739558309,
+        "end_ns": 2739577349
+      }
+    ],
+    "exchanges": [
+      {
+        "block": 184,
+        "band": 0,
+        "direction": "in",
+        "start_ns": 2732853833,
+        "end_ns": 2733489352
+      },
+      {
+        "block": 184,
+        "band": 0,
+        "direction": "out",
+        "start_ns": 2735374461,
+        "end_ns": 2735596827
+      },
+      {
+        "block": 184,
+        "band": 1,
+        "direction": "in",
+        "start_ns": 2733867466,
+        "end_ns": 2734810460
+      },
+      {
+        "block": 184,
+        "band": 1,
+        "direction": "out",
+        "start_ns": 2737671303,
+        "end_ns": 2738097076
+      },
+      {
+        "block": 184,
+        "band": 2,
+        "direction": "in",
+        "start_ns": 2735775894,
+        "end_ns": 2736408674
+      },
+      {
+        "block": 184,
+        "band": 2,
+        "direction": "out",
+        "start_ns": 2739280166,
+        "end_ns": 2739502772
+      }
+    ],
+    "segments": {
+      "startup": [
+        2732791738,
+        2733634844
+      ],
+      "between_0_1": [
+        2735305726,
+        2735310014
+      ],
+      "between_1_2": [
+        2737612738,
+        2737644226
+      ],
+      "drain": [
+        2739216452,
+        2739577349
+      ]
+    }
+  },
+  "adaln": {
+    "runtime_cache_mib": 256,
+    "hits_per_warm_request_per_rank": 366,
+    "misses_per_warm_request_per_rank": 42,
+    "cpu_weight_staging": false,
+    "reason": "Quantized FastH3NVFP4Config disables the unquantized-only automatic AdaLN CPU staging path. Small observed H2D copies cannot represent large AdaLN projection weights.",
+    "projection_compute_ms": null,
+    "projection_compute_attribution": "No dedicated AdaLN projection NVTX range; 42 misses imply recomputation, not CPU weight loads."
+  },
+  "limitations": [
+    "Single warmed profiling-only request; repeated blocks are not independent benchmark trials.",
+    "Graph GPU work matched through PID + CUDA correlationId, with 66 graph nodes per replay.",
+    "Startup and drain are dependency windows, not wholly idle time. no_cuda excludes recorded kernels, memcpy and memset but RDMA may still be active.",
+    "Transport proxy includes host post/poll/flush, not exact NIC wire time. Temporal overlap is not recoverable speedup.",
+    "Identified layout covers QKV pack/unpack and O-bundle; gate assembly has arithmetic and is separate. Generic gather/index kernels are not automatically attributed to layout.",
+    "GPU sums/unions are per device and overlap the E2E timeline; do not add across GPUs or claim equivalent E2E savings.",
+    "Trace has the original collection warnings; CPU context-switch capture is unavailable."
+  ],
+  "candidate_plan": {
+    "status": "not_run",
+    "reference": [
+      2,
+      3,
+      2
+    ],
+    "candidates": [
+      [
+        1,
+        4,
+        2
+      ],
+      [
+        2,
+        4,
+        1
+      ],
+      [
+        1,
+        5,
+        1
+      ]
+    ],
+    "rationale": [
+      "Shrink the exposed first-input band.",
+      "Shrink the exposed final-output band.",
+      "Shrink both ends while retaining three graph replays."
+    ],
+    "unchanged": [
+      "960x544",
+      "124 frames at 24 fps",
+      "8 model evaluations",
+      "8 GPUs",
+      "NVFP4 36L VAE",
+      "256 MiB AdaLN cache",
+      "three bands",
+      "same inputs and seed"
+    ],
+    "qualification": "Numerical/media checks first; counterbalanced unprofiled E2E measurements next; profile only a confirmed improvement.",
+    "source_constraint": "The retained runtime explicitly permits only 2,3,2. Candidate work requires an isolated source variant and new pins; changing an environment variable alone will fail."
+  }
+}
