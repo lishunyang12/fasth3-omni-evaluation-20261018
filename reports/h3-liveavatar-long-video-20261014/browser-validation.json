@@ -1,0 +1,365 @@
+{
+  "passed": true,
+  "errors": [],
+  "missing": [],
+  "pages": [
+    {
+      "section": "report",
+      "title": "H3 长视频画质消融 · 实验报告"
+    },
+    {
+      "section": "long",
+      "title": "H3 画质消融"
+    },
+    {
+      "section": "aas",
+      "title": "Base + AAS 单项对照"
+    },
+    {
+      "section": "prefix",
+      "title": "原始 Baseline vs Prefix off · 三分钟配对"
+    },
+    {
+      "section": "timestep",
+      "title": "Timestep-forcing · 三分钟配对"
+    }
+  ],
+  "videoGroups": [
+    {
+      "section": "long",
+      "group": "nora_idle / 8300",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-baseline.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-anchor.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-history.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-global_fixed.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-global_follow.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-prefix_off.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-history_prefix_off.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "long",
+      "group": "nora_idle / 18300",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-baseline.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-anchor.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-history.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-global_fixed.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-global_follow.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-prefix_off.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-history_prefix_off.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "long",
+      "group": "nora_speech / 8300",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-baseline.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-anchor.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-history.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-global_fixed.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-global_follow.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-prefix_off.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-history_prefix_off.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "long",
+      "group": "nora_speech / 18300",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-18300-history.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-18300-global_follow.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-18300-prefix_off.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-18300-history_prefix_off.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "aas",
+      "group": "0",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-baseline.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-anchor.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "aas",
+      "group": "1",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-baseline.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-anchor.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "aas",
+      "group": "2",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-baseline.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-anchor.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "prefix",
+      "group": "0",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-baseline.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-prefix_off.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "prefix",
+      "group": "1",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-baseline.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-prefix_off.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "prefix",
+      "group": "2",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-baseline.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-prefix_off.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "timestep",
+      "group": "0",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_idle-8300-baseline.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_idle-8300-matched.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "timestep",
+      "group": "1",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_idle-18300-baseline.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_idle-18300-matched.mp4",
+          "duration": 181.541667,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "section": "timestep",
+      "group": "2",
+      "videos": [
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_speech-8300-baseline-av.mp4",
+          "duration": 181.542,
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_speech-8300-matched-av.mp4",
+          "duration": 181.542,
+          "width": 576,
+          "height": 1024
+        }
+      ]
+    }
+  ]
+}

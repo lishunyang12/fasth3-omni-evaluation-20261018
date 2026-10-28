@@ -1,0 +1,392 @@
+{
+  "restored_on": "2026-10-28",
+  "source_scope": "Original October 14\u201315 H3 LiveAvatar-inspired long-video inference studies. Original analysis and experiment cutoffs retained.",
+  "screening_trajectories": 25,
+  "timestep_comparison_videos": 6,
+  "modifications": [
+    "Rebased static links and video URLs",
+    "Added archive navigation and provenance notice",
+    "Restricted seven-way viewer to retained full trajectories; omitted individual segment controls"
+  ],
+  "original_artifacts": [
+    {
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/quality.html",
+      "sha256": "954862471732cfd9203ad745701de30131b4b5e1b524ebf555ce1a592bd0d200",
+      "bytes": 671734
+    },
+    {
+      "source": "h3-liveavatar-ablation-20261014/evaluation/public/quality-curves.png",
+      "sha256": "f8d5687f742a5dc4ef6e65ee1d239cc8759af68aff4c0e47a61e9153f4cc0f97",
+      "bytes": 692785
+    },
+    {
+      "source": "h3-liveavatar-ablation-20261014/evaluation/public/protocol.json",
+      "sha256": "46c23ed95ea0788189db6295d56084e748939774b839797df3b6a6358d92332d",
+      "bytes": 5006
+    },
+    {
+      "source": "h3-liveavatar-ablation-20261014/evaluation/public/ablation.csv",
+      "sha256": "6997d0988a7505fec0fc10d5d7004f7bf6ce79c50122d9a2b28cc91a2d58283d",
+      "bytes": 2717
+    },
+    {
+      "source": "h3-liveavatar-ablation-20261014/evaluation/public/summary.json",
+      "sha256": "abb909f3cb4fdb47a44e383c1c67aeaf721bec61d7a533341487e8aea0bd9756",
+      "bytes": 126422
+    },
+    {
+      "source": "h3-liveavatar-ablation-20261014/evaluation/public/quality-curves.pdf",
+      "sha256": "889cae8804c2ae38ab3d9add42b0920283ecfcebd9f2237a52d4944ac5b371b8",
+      "bytes": 34879
+    },
+    {
+      "source": "h3-liveavatar-ablation-20261014/evaluation/public/index.html",
+      "sha256": "e2fbeaeffccc7135ad1f51bc6859c31d6f19082bd74339c8ca261d2e4d10d30b",
+      "bytes": 90584
+    },
+    {
+      "source": "h3-liveavatar-ablation-20261014/evaluation/public/per-frame.csv",
+      "sha256": "52fd79344b2185a19f33abbc3efcf2f8ccdbedfc35a2bec1e445ad535f9b1ffa",
+      "bytes": 395647
+    },
+    {
+      "source": "h3-aas-baseline-20261015/public/ablation.csv",
+      "sha256": "331cc5e861bccf2ad5c281e3d51ba5e4c57ca856d97c3807e5b07bb0d5730e4a",
+      "bytes": 829
+    },
+    {
+      "source": "h3-aas-baseline-20261015/public/quality-curves.png",
+      "sha256": "c8bb450ebf1b6f1aa622e6109288713c8bcd25dc223682bf8255dc0050e56e9e",
+      "bytes": 440692
+    },
+    {
+      "source": "h3-aas-baseline-20261015/public/summary.json",
+      "sha256": "9ddf5699c41123fc9111ed19e495d200ddb22cad79b4fdceb564f17254f235b0",
+      "bytes": 36424
+    },
+    {
+      "source": "h3-aas-baseline-20261015/public/protocol.json",
+      "sha256": "f25ed8303062efb20e3ff414f8965e4f932fa2bce0e06c8730b2a4a4ccb400fa",
+      "bytes": 5964
+    },
+    {
+      "source": "h3-aas-baseline-20261015/public/per-frame.csv",
+      "sha256": "e8d93ad4de0644f019075eb65b91fe03567d6ebb6587f98b60d0be5070247921",
+      "bytes": 90560
+    },
+    {
+      "source": "h3-aas-baseline-20261015/public/index.html",
+      "sha256": "7e6732bd2736b8c5f95fc6a69a9220b396cf334784b13ab77870730c4921fb83",
+      "bytes": 28945
+    },
+    {
+      "source": "h3-aas-baseline-20261015/public/paired-frames.png",
+      "sha256": "b03b3b9e84805ca49fbb43a07889eb6565fefc9d0941680356ff2000f0f68456",
+      "bytes": 5309704
+    },
+    {
+      "source": "h3-aas-baseline-20261015/public/quality-curves.pdf",
+      "sha256": "0b3e3cbb90f05611ed5d51b5382db6aaca14d4e26f78def072f88a8e2ba4c1ed",
+      "bytes": 27244
+    },
+    {
+      "source": "h3-prefix-baseline-20261015/public/quality-curves.png",
+      "sha256": "641a69414e9901a119cc3aee2025e955c833ba50be6fd93826ac463abb30dbad",
+      "bytes": 418743
+    },
+    {
+      "source": "h3-prefix-baseline-20261015/public/protocol.json",
+      "sha256": "8d03fdc525eb08965e59066665ef2f461e897d62794005621c3f0fddf574a49e",
+      "bytes": 6078
+    },
+    {
+      "source": "h3-prefix-baseline-20261015/public/ablation.csv",
+      "sha256": "d66b76912d9821f8dd63a8a505f822c7da1f148459aa0565d7cd17ca34af0287",
+      "bytes": 846
+    },
+    {
+      "source": "h3-prefix-baseline-20261015/public/summary.json",
+      "sha256": "3369ad57a99993a713c29cfd631f4796bcb357b554ef95bb49b81bf1b645310d",
+      "bytes": 36484
+    },
+    {
+      "source": "h3-prefix-baseline-20261015/public/quality-curves.pdf",
+      "sha256": "171513e787c5ee8126e6899c296f3d7bd046d8ca2f323db26d9267b1e3466a2d",
+      "bytes": 27955
+    },
+    {
+      "source": "h3-prefix-baseline-20261015/public/paired-frames.png",
+      "sha256": "1f23882800016a867fac456e874f587c5963bec9762976da526a48f136a68be9",
+      "bytes": 5264854
+    },
+    {
+      "source": "h3-prefix-baseline-20261015/public/index.html",
+      "sha256": "947860ce52d4e6e0fc76570c8168a12e972e98fc3e8f62a9f51fee4e52fa5391",
+      "bytes": 29293
+    },
+    {
+      "source": "h3-prefix-baseline-20261015/public/per-frame.csv",
+      "sha256": "108ce13306cdecce0738193bbf09d394b146866a0a049d60fd7f726b6adbcfbb",
+      "bytes": 92692
+    },
+    {
+      "source": "h3-timestep-forcing-20261015/public/quality-curves.pdf",
+      "sha256": "66134300654a3e944b890e4d9abb7749418361875a2fa4d1f1659790b2a4d45c",
+      "bytes": 27098
+    },
+    {
+      "source": "h3-timestep-forcing-20261015/public/quality-curves.png",
+      "sha256": "93938fa1486afd4395dd5fafdedb5fd285b9737601e17d6b1b2854cd9bce51f9",
+      "bytes": 558480
+    },
+    {
+      "source": "h3-timestep-forcing-20261015/public/summary.json",
+      "sha256": "83fb141f4a4dbdaf3964d1f1913ec16edccaf92bd2ead39841478db063c4d548",
+      "bytes": 52328
+    },
+    {
+      "source": "h3-timestep-forcing-20261015/public/per-frame.csv",
+      "sha256": "f20771aa5c4773142e6d2380f83cb915f3b2c7cfbbc277d592ae040d9be771a2",
+      "bytes": 91085
+    },
+    {
+      "source": "h3-timestep-forcing-20261015/public/paired-frames.png",
+      "sha256": "c356ccbb65edebf584e01412159622f246f7e8d42a3b3010432c4f9294cb0d1c",
+      "bytes": 4995345
+    },
+    {
+      "source": "h3-timestep-forcing-20261015/public/index.html",
+      "sha256": "dccf4a71916652233278d7551070e827072391d3f7238b004ace43889e375d80",
+      "bytes": 42442
+    },
+    {
+      "source": "h3-timestep-forcing-20261015/public/protocol.json",
+      "sha256": "6dbd96087eb67f23e65a8c7fce2c3cd8206deee1235e7c1a5558e17096409db1",
+      "bytes": 7485
+    },
+    {
+      "source": "h3-timestep-forcing-20261015/public/ablation.csv",
+      "sha256": "4640877f5c64586110e190eee867dcc3964157aa7ca956d803176478faeba68f",
+      "bytes": 836
+    }
+  ],
+  "videos": [
+    {
+      "asset": "screen--nora_idle-18300-anchor.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-anchor.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-18300-anchor.mp4",
+      "sha256": "bd6a7f8d07df608649b194a610ea56b0552a809c1c657e1a91247a950c072ef6",
+      "bytes": 27718519
+    },
+    {
+      "asset": "screen--nora_idle-18300-baseline.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-baseline.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-18300-baseline.mp4",
+      "sha256": "547167a01c0d045abb2bb266ffc4d30da92e30d4a949a902e60a4cc157f22641",
+      "bytes": 27349469
+    },
+    {
+      "asset": "screen--nora_idle-18300-global_fixed.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-global_fixed.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-18300-global_fixed.mp4",
+      "sha256": "fae85668a4e77130c155359f86fe1c863c35b7f240814e1646d75358124b610d",
+      "bytes": 34274536
+    },
+    {
+      "asset": "screen--nora_idle-18300-global_follow.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-global_follow.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-18300-global_follow.mp4",
+      "sha256": "e0fcf754a1c1a946e773e34f8cbe2c483be71b542029fa443d635bc7b0e6c6b5",
+      "bytes": 33946152
+    },
+    {
+      "asset": "screen--nora_idle-18300-history.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-history.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-18300-history.mp4",
+      "sha256": "2ccddd1a03197f50d9482e3dcb75a8753a7c8edaada8ccde458b54c341bc7045",
+      "bytes": 28548316
+    },
+    {
+      "asset": "screen--nora_idle-18300-history_prefix_off.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-history_prefix_off.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-18300-history_prefix_off.mp4",
+      "sha256": "3adbcfdde263e9baa258b0fd75c7957e1d9576de5fe8e13fa5642d3bc4014b2f",
+      "bytes": 24963087
+    },
+    {
+      "asset": "screen--nora_idle-18300-prefix_off.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-18300-prefix_off.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-18300-prefix_off.mp4",
+      "sha256": "f06d75b45aaedb6b57b56539be0c5ca1e08b04fb65450eda257ff06c03d04426",
+      "bytes": 27840938
+    },
+    {
+      "asset": "screen--nora_idle-8300-anchor.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-anchor.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-8300-anchor.mp4",
+      "sha256": "782a2592c73049538743d0ad5cf4981e91817127a7ca1c7d57ca50017c1d8260",
+      "bytes": 29145396
+    },
+    {
+      "asset": "screen--nora_idle-8300-baseline.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-baseline.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-8300-baseline.mp4",
+      "sha256": "be0b4f9c251ab46a4cea6cee2ba54190254471cb0e417c5e0084932ca7404bfa",
+      "bytes": 28946116
+    },
+    {
+      "asset": "screen--nora_idle-8300-global_fixed.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-global_fixed.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-8300-global_fixed.mp4",
+      "sha256": "0f64354ecb59f1c65f5b72effdb23db5e6697bed8d2385f386ee567b0ca2f525",
+      "bytes": 35905564
+    },
+    {
+      "asset": "screen--nora_idle-8300-global_follow.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-global_follow.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-8300-global_follow.mp4",
+      "sha256": "032b406afaa40062c20b0d3953285f611d8964dfabf2834b53d72cb95ab929db",
+      "bytes": 34156244
+    },
+    {
+      "asset": "screen--nora_idle-8300-history.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-history.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-8300-history.mp4",
+      "sha256": "41a3c06bac90ae1cf1d40605e87b124a1f8d27f54f1417ef704c1fc781bdfd04",
+      "bytes": 29223694
+    },
+    {
+      "asset": "screen--nora_idle-8300-history_prefix_off.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-history_prefix_off.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-8300-history_prefix_off.mp4",
+      "sha256": "b74d968200a7aa3a932060cd034bafe08e099a4d256661891c334801bf112ae7",
+      "bytes": 25462497
+    },
+    {
+      "asset": "screen--nora_idle-8300-prefix_off.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_idle-8300-prefix_off.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_idle-8300-prefix_off.mp4",
+      "sha256": "740c2a9ebe917ca117ae7a82de869874bec9a9f35ccd3d64c1439f0e4ee7d836",
+      "bytes": 28658080
+    },
+    {
+      "asset": "screen--nora_speech-18300-global_follow.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-18300-global_follow.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_speech-18300-global_follow.mp4",
+      "sha256": "389c8d9f019d770eb42c7d595a19fe7d8769a945292e1a2245be5d68a12c2624",
+      "bytes": 36576077
+    },
+    {
+      "asset": "screen--nora_speech-18300-history.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-18300-history.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_speech-18300-history.mp4",
+      "sha256": "47859bc3a0f3815c47d80a6ffc395a5703f1e852836a1e0b60e0d0ada5d6a1f2",
+      "bytes": 36394299
+    },
+    {
+      "asset": "screen--nora_speech-18300-history_prefix_off.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-18300-history_prefix_off.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_speech-18300-history_prefix_off.mp4",
+      "sha256": "42056c4d1eb559fcea8764b879dc697f169d2cc4eafd59e097e49489a617c323",
+      "bytes": 29098280
+    },
+    {
+      "asset": "screen--nora_speech-18300-prefix_off.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-18300-prefix_off.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_speech-18300-prefix_off.mp4",
+      "sha256": "b8fd15660c002a5d9c8b92c837f8e3fce18fd10dea1cdc2a05e83c64b8b78340",
+      "bytes": 32957690
+    },
+    {
+      "asset": "screen--nora_speech-8300-anchor.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-anchor.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_speech-8300-anchor.mp4",
+      "sha256": "df6afdb11c68f5b6afa988414bcae0826914ba26860466da7a63f36e47571c81",
+      "bytes": 35455753
+    },
+    {
+      "asset": "screen--nora_speech-8300-baseline.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-baseline.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_speech-8300-baseline.mp4",
+      "sha256": "fa069d6cf5d89d3f1b5fbcc46da3f0ac356515035db3c2fffc23976957076914",
+      "bytes": 37369061
+    },
+    {
+      "asset": "screen--nora_speech-8300-global_fixed.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-global_fixed.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_speech-8300-global_fixed.mp4",
+      "sha256": "28098012ce3d55f6ce68a0bb167b150f9861b50e87e311580e0025609991e956",
+      "bytes": 34003036
+    },
+    {
+      "asset": "screen--nora_speech-8300-global_follow.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-global_follow.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_speech-8300-global_follow.mp4",
+      "sha256": "321caaf7c36124b2d1d042c858f83a6d1d582b4331c348ffe1e5dd29b7499573",
+      "bytes": 37913637
+    },
+    {
+      "asset": "screen--nora_speech-8300-history.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-history.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_speech-8300-history.mp4",
+      "sha256": "6c63744788e2c10ee43d7de923431b0998434ac15e707021a1fa6847d2ba37ce",
+      "bytes": 35984231
+    },
+    {
+      "asset": "screen--nora_speech-8300-history_prefix_off.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-history_prefix_off.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_speech-8300-history_prefix_off.mp4",
+      "sha256": "8a20a6ebc1d52f13317d08dc058210630038966549a2e7c3000513cf5b77c18e",
+      "bytes": 30393351
+    },
+    {
+      "asset": "screen--nora_speech-8300-prefix_off.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/screen--nora_speech-8300-prefix_off.mp4",
+      "source": "h3-liveavatar-ablation-20261014/runs/1791985658417493477/trajectories/nora_speech-8300-prefix_off.mp4",
+      "sha256": "d4f15ba76a2073b48b22c664cef73635cc223aef1cff3bd4761794b07fc9b0fc",
+      "bytes": 32389955
+    },
+    {
+      "asset": "timestep--nora_idle-8300-baseline.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_idle-8300-baseline.mp4",
+      "source": "h3-timestep-forcing-20261015/runs/timestep-v1/trajectories/nora_idle-8300-baseline.mp4",
+      "sha256": "740c2a9ebe917ca117ae7a82de869874bec9a9f35ccd3d64c1439f0e4ee7d836",
+      "bytes": 28658080
+    },
+    {
+      "asset": "timestep--nora_idle-8300-matched.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_idle-8300-matched.mp4",
+      "source": "h3-timestep-forcing-20261015/runs/timestep-v1/trajectories/nora_idle-8300-matched.mp4",
+      "sha256": "61476fd0000c53b35533eef6b01638dcc033ad79ff7fc8e2044380bad254f307",
+      "bytes": 26188453
+    },
+    {
+      "asset": "timestep--nora_idle-18300-baseline.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_idle-18300-baseline.mp4",
+      "source": "h3-timestep-forcing-20261015/runs/timestep-v1/trajectories/nora_idle-18300-baseline.mp4",
+      "sha256": "f06d75b45aaedb6b57b56539be0c5ca1e08b04fb65450eda257ff06c03d04426",
+      "bytes": 27840938
+    },
+    {
+      "asset": "timestep--nora_idle-18300-matched.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_idle-18300-matched.mp4",
+      "source": "h3-timestep-forcing-20261015/runs/timestep-v1/trajectories/nora_idle-18300-matched.mp4",
+      "sha256": "92eac35d7bd2255f3479bbe9d9d65a1b56441ac868dcacebbd059735f1917e3c",
+      "bytes": 26228603
+    },
+    {
+      "asset": "timestep--nora_speech-8300-baseline-av.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_speech-8300-baseline-av.mp4",
+      "source": "h3-timestep-forcing-20261015/runs/timestep-v1/trajectories/nora_speech-8300-baseline-av.mp4",
+      "sha256": "9b16851ea279280688b20a859527fe9a4c2aa99aa0e5c1f7ba950da89591d191",
+      "bytes": 35537364
+    },
+    {
+      "asset": "timestep--nora_speech-8300-matched-av.mp4",
+      "url": "https://github.com/lishunyang12/fasth3-omni-evaluation-20261018/releases/download/h3-liveavatar-long-video-archive-20261028/timestep--nora_speech-8300-matched-av.mp4",
+      "source": "h3-timestep-forcing-20261015/runs/timestep-v1/trajectories/nora_speech-8300-matched-av.mp4",
+      "sha256": "4e13914eea431a2855819a88cbf41245acf2b6a44deb03b0e9bc2768f6a48a08",
+      "bytes": 34403633
+    }
+  ]
+}
