@@ -1,0 +1,65 @@
+{
+  "status": "component_profile_pass",
+  "started_at": 1793209087.555005,
+  "pid": 3074838,
+  "gpu_uuid": "GPU-3b4186a5-be56-d240-d6c4-2476804ba106",
+  "replays_per_range": 20,
+  "checks": [
+    {
+      "heads": 2,
+      "variant": "reference",
+      "bit_exact": true,
+      "finite": true
+    },
+    {
+      "heads": 2,
+      "variant": "previous_output",
+      "bit_exact": true,
+      "finite": true
+    },
+    {
+      "heads": 2,
+      "variant": "direct_input_output",
+      "bit_exact": true,
+      "finite": true
+    },
+    {
+      "heads": 3,
+      "variant": "reference",
+      "bit_exact": true,
+      "finite": true
+    },
+    {
+      "heads": 3,
+      "variant": "previous_output",
+      "bit_exact": true,
+      "finite": true
+    },
+    {
+      "heads": 3,
+      "variant": "direct_input_output",
+      "bit_exact": true,
+      "finite": true
+    }
+  ],
+  "scope": "Warmed single-GPU graphs on local buffers, no model weights, RDMA, VAE, AAC or HTTP.",
+  "fixed_resolution": [
+    960,
+    544
+  ],
+  "h3_end_to_end_measured": false,
+  "profile_timings_are_diagnostic": true,
+  "inference_mode": true,
+  "synchronization": "Each NVTX range contains replay submissions and a final device synchronization.",
+  "gpu_name": "NVIDIA Graphics Device",
+  "torch_version": "2.13.0+cu130",
+  "completed_at": 1793209097.3029802,
+  "source_sha256": {
+    "profile_attention_components.py": "bfa4107c8a284fb43ee7fbbc0dea97f40a671423dfc5676f8ca4e51302043acc",
+    "launch_direct_input.py": "2a44f6dad17b079ca57c1215cea47fe286ac055abd57d64f9a329781c7fd21b5",
+    "tile_received_qkv.py": "eb72f1988ed52faee827fc1558e76a777c1186b24345e6cce6611598f6d63221",
+    "launch_output_fusion.py": "b1bdd4de91a1618a142bf6814bce48d0f6376aed5cd4f9cc1bd7733269e5aa5c",
+    "output_bundle.py": "cb995bc17dd236157f0332ccde0f18a8f72b0f6e4dae3abfe33bc606094942d1",
+    "tile_qkv.py": "42a3fc6ff35e8daaf6b59acdda3395b6649316c5f828de5fe28f59c0e520b2f3"
+  }
+}
