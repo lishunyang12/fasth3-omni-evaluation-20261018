@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "title": "Toward Real-Time Generation With MiniMax H3",
+  "version": "v1.38",
+  "slides": [
+    {
+      "number": 1,
+      "title": "Toward Real-Time Generation With MiniMax H3",
+      "image": "v1.38/preview/slide-01.png",
+      "sha256": "9797bdeafb417b1f56bf6fedaefda67fc274564dd97689a68ea9e9d6454de19a"
+    },
+    {
+      "number": 2,
+      "title": "Agenda",
+      "image": "v1.38/preview/slide-02.png",
+      "sha256": "f4016ff02b21173d1d9fff6d1efe64181d7d8cc2cdd927fda631ff1cb51c8acf"
+    },
+    {
+      "number": 3,
+      "title": "01 · Real-Time H3 Generation",
+      "image": "v1.38/preview/slide-03.png",
+      "sha256": "5717537667b6ca453324bd9d5cba286182b3b37002863b63889106b872cd23e0"
+    },
+    {
+      "number": 4,
+      "title": "Real-Time Ref2VA Raises the Systems Bar",
+      "image": "v1.38/preview/slide-04.png",
+      "sha256": "33aa1dd64a79c939e1159426f8622af870ec121a09a52c2ea53df95c361b0fd7"
+    },
+    {
+      "number": 5,
+      "title": "SM120 Brings FP4 Compute; PCIe Limits Scale",
+      "image": "v1.38/preview/slide-05.png",
+      "sha256": "3c92d966dbc0dab7dc52b81da9eb95c0dbae8521fbfce5a99dae2250757c7e67"
+    },
+    {
+      "number": 6,
+      "title": "Retained Baseline: Latency Breakdown",
+      "image": "v1.38/preview/slide-06.png",
+      "sha256": "2367f1a987840b9a4ca6a00a0902c0333d8589ac30caabd0fa9cfdb09ca95c31"
+    },
+    {
+      "number": 7,
+      "title": "How Denoising Works",
+      "image": "v1.38/preview/slide-07.png",
+      "sha256": "1bef44fb3f6af5db1c3be693dc2fe77db07fbf688e2311915b8e9a18fea31a11"
+    },
+    {
+      "number": 8,
+      "title": "Few-Step Distillation",
+      "image": "v1.38/preview/slide-08.png",
+      "sha256": "912fe1e348467e5e7fdfeb23eb730a42b21b131326dafad250275284d849974e"
+    },
+    {
+      "number": 9,
+      "title": "Sparse Attention",
+      "image": "v1.38/preview/slide-09.png",
+      "sha256": "80be9c4a6a2a9e55f83c70505490b95d7c0dc0c5c6bfdc3dbe75560e721cd2a9"
+    },
+    {
+      "number": 10,
+      "title": "FastH3 Omni: Quantization-Aware Distillation",
+      "image": "v1.38/preview/slide-10.png",
+      "sha256": "0e84dd64bc67489f7cb27990aa11d3497a27819efe82888931ef934403217c48"
+    },
+    {
+      "number": 11,
+      "title": "Prior Study: Quantization Quality",
+      "image": "v1.38/preview/slide-11.png",
+      "sha256": "660097c9ae358524c5aec5ade34fbd34526f5205eb713deffe42acfb78b6e960"
+    },
+    {
+      "number": 12,
+      "title": "Ulysses",
+      "image": "v1.38/preview/slide-12.png",
+      "sha256": "4beececff8f44c76a15dfa8a1d33bae5763d2377507daeed94aa87784583f7fa"
+    },
+    {
+      "number": 13,
+      "title": "Eight-GPU Topology",
+      "image": "v1.38/preview/slide-13.png",
+      "sha256": "2fd518275a2b3aeb197e9d5c8de674c2450b0c9f1bf8a5b9033dd5ae50827650"
+    },
+    {
+      "number": 14,
+      "title": "Local NCCL to RDMA",
+      "image": "v1.38/preview/slide-14.png",
+      "sha256": "b76410ee6049e7d7d8fc1d348bfd63adaa12d6998a39c1870583ad02343e2ab4"
+    },
+    {
+      "number": 15,
+      "title": "vLLM-Omni Ulysses: NCCL Implementation",
+      "image": "v1.38/preview/slide-15.png",
+      "sha256": "80b2eb6f2e81fb5b233b6a6f56f03d45606a2d0436808a843ea4d1a65f3471b8"
+    },
+    {
+      "number": 16,
+      "title": "Pipeline Ulysses by Head Bands",
+      "image": "v1.38/preview/slide-16.png",
+      "sha256": "6b41d34b8f3152318bded6c379954d662d29e5fb97de681930d10cb4563b04ed"
+    },
+    {
+      "number": 17,
+      "title": "Head Bands Make CUDA Graph More Valuable",
+      "image": "v1.38/preview/slide-17.png",
+      "sha256": "eee81228d9e6dbab16354415c511e79ef0c6a55eb0eaeb2841228e450f32083a"
+    },
+    {
+      "number": 18,
+      "title": "Optimization Roadmap: 5 s Live Target",
+      "image": "v1.38/preview/slide-18.png",
+      "sha256": "2c25e1c0f2acf99dc4a9759ec1ff03ff093cde5addda75191e0ca43a355c27cc"
+    },
+    {
+      "number": 19,
+      "title": "02 · ComfyUI Apps With vLLM-Omni",
+      "image": "v1.38/preview/slide-19.png",
+      "sha256": "479c5344c10f2edf069426a907ba3a8a139091ead5951fd1a295478db5014a82"
+    },
+    {
+      "number": 20,
+      "title": "vLLM-Omni Brings Multi-GPU H3 to ComfyUI",
+      "image": "v1.38/preview/slide-20.png",
+      "sha256": "6f375c371dbe441432bf597dd85ced0174f90f9705d00cc04f249c9777fc37b4"
+    },
+    {
+      "number": 21,
+      "title": "Closing slide",
+      "image": "v1.38/preview/slide-21.png",
+      "sha256": "7a7b698d5ee9bffa18a49d39b66fb96185c115d7f08264b5643736bf7b3b3dfb"
+    }
+  ],
+  "downloads": {
+    "pptx": "v1.38/MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.38.pptx",
+    "pdf": "v1.38/MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.38.pdf"
+  },
+  "release_url": "v1.38/",
+  "related": [
+    {
+      "label": "Play slide 11 videos",
+      "url": "v1.38/four-videos.html",
+      "slides": [
+        11
+      ]
+    },
+    {
+      "label": "Slide 18 measurements and videos",
+      "url": "v1.38/benchmarks.html",
+      "slides": [
+        18
+      ]
+    }
+  ],
+  "profile_url": "../../profiles/slide18-final-20261027/",
+  "history": [
+    {
+      "label": "v1.38 · archived release",
+      "url": "v1.38/"
+    },
+    {
+      "label": "v1.37 · benchmarks pending",
+      "url": "v1.37-pending/"
+    },
+    {
+      "label": "v1.36 · historical edition",
+      "url": "historical-v1.36.html"
+    }
+  ],
+  "revision": "33ea21ecad64b1e8ea695b5d902dad943fd0d014d9e17242a408ade7cc2fcf48",
+  "updated_at_utc": "2026-10-28T04:36:20.662527+00:00"
+}

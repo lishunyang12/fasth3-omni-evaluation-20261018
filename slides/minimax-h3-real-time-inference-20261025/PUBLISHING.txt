@@ -1,0 +1,31 @@
+Permanent online presentation
+=============================
+
+Share this URL for all future updates:
+https://lishunyang12.github.io/fasth3-omni-evaluation-20261018/slides/minimax-h3-real-time-inference-20261025/
+
+The root index.html is the live viewer. Do not replace it with a version-specific
+landing page. Current content is selected by latest.json. Active browser tabs
+check that file every 30 seconds and retain the current slide when it changes.
+Changing a local PowerPoint file alone does not publish it.
+
+For each update:
+1. Render and review the updated presentation in a version directory. Keep
+   published historical versions intact. Include the slide previews, index.html,
+   reviewed release-manifest.json, and matching PPTX/PDF downloads.
+2. From the repository root run:
+     python3 scripts/update_live_slides.py --release v1.38
+   Substitute the new reviewed version. Omitting --release selects the newest
+   reviewed stable version. Draft and pending version directories are excluded.
+3. Run:
+     python3 scripts/update_live_slides.py --check
+4. Commit latest.json together with the reviewed release files, then push main.
+5. Verify the GitHub Pages deployment and the permanent URL. The online viewer
+   checks after publication; GitHub Pages deployment can take several minutes.
+
+The audience uses only the permanent URL. PPTX/PDF exports and archived editions
+remain available from the viewer. The browser preview uses slide images; playable
+video comparisons are linked on the relevant slides, and PPTX keeps embedded
+videos. The online preview does not reproduce PowerPoint slide animations.
+
+No credentials or new hosting account are required for readers.
