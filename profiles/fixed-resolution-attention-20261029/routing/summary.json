@@ -1,0 +1,1035 @@
+{
+  "status": "component_profile_analyzed",
+  "validation": {
+    "status": "component_profile_pass",
+    "started_at": 1793210697.8407032,
+    "pid": 3896335,
+    "gpu_uuid": "GPU-3b4186a5-be56-d240-d6c4-2476804ba106",
+    "replays_per_range": 20,
+    "checks": [
+      {
+        "heads": 2,
+        "variant": "reference",
+        "bit_exact": true,
+        "finite": true
+      },
+      {
+        "heads": 2,
+        "variant": "previous_direct",
+        "bit_exact": true,
+        "finite": true
+      },
+      {
+        "heads": 2,
+        "variant": "routing_compaction",
+        "bit_exact": true,
+        "finite": true
+      },
+      {
+        "heads": 3,
+        "variant": "reference",
+        "bit_exact": true,
+        "finite": true
+      },
+      {
+        "heads": 3,
+        "variant": "previous_direct",
+        "bit_exact": true,
+        "finite": true
+      },
+      {
+        "heads": 3,
+        "variant": "routing_compaction",
+        "bit_exact": true,
+        "finite": true
+      }
+    ],
+    "scope": "Warmed single-GPU graphs on local buffers, no model weights, RDMA, VAE, AAC or HTTP.",
+    "fixed_resolution": [
+      960,
+      544
+    ],
+    "h3_end_to_end_measured": false,
+    "profile_timings_are_diagnostic": true,
+    "inference_mode": true,
+    "synchronization": "Each NVTX range contains replay submissions and a final device synchronization.",
+    "gpu_name": "NVIDIA Graphics Device",
+    "torch_version": "2.13.0+cu130",
+    "completed_at": 1793210708.439348,
+    "source_sha256": {
+      "profile_compact_attention.py": "875d3f338283db607e2790663fb126f26ab753d82e9f3b526683e69f08183c8c",
+      "compact_fp4_routing.py": "3d12feb755cbbe3c6744c14345f41271b543bbb4c1d0fc6770211050e0052143",
+      "launch_compact_routing.py": "42528b18c7277b47e868647b438a067dcb303adc7cc56b20bbae42b6227d44e2",
+      "launch_direct_input.py": "2a44f6dad17b079ca57c1215cea47fe286ac055abd57d64f9a329781c7fd21b5",
+      "tile_received_qkv.py": "eb72f1988ed52faee827fc1558e76a777c1186b24345e6cce6611598f6d63221",
+      "launch_output_fusion.py": "b1bdd4de91a1618a142bf6814bce48d0f6376aed5cd4f9cc1bd7733269e5aa5c",
+      "output_bundle.py": "cb995bc17dd236157f0332ccde0f18a8f72b0f6e4dae3abfe33bc606094942d1",
+      "tile_qkv.py": "42a3fc6ff35e8daaf6b59acdda3395b6649316c5f828de5fe28f59c0e520b2f3"
+    }
+  },
+  "h3_end_to_end_measured": false,
+  "rdma_executed": false,
+  "interpretation": "Kernel counts establish eliminated layout operations. Node-level Nsight timings include profiler overhead and are not formal performance measurements or eight-GPU pipeline bubble measurements.",
+  "trace": "/tmp/h3-compact-profile-20261029-r1/attention.nsys-rep",
+  "trace_sha256": "e2613b1e5afda377cb87f89c153dc5ca914b10e578468350bdcfdd5c0d996bac",
+  "sqlite": "/tmp/h3-compact-profile-20261029-r1/attention.sqlite",
+  "total_kernels": 6040,
+  "all_kernels_assigned_to_ranges": true,
+  "profiler_diagnostics": [
+    {
+      "severity": 2,
+      "text": "No NVTX events collected. Does the process use NVTX?",
+      "globalPid": 346860820627456
+    },
+    {
+      "severity": 2,
+      "text": "No NVTX events collected. Does the process use NVTX?",
+      "globalPid": 346860904513536
+    },
+    {
+      "severity": 2,
+      "text": "No NVTX events collected. Does the process use NVTX?",
+      "globalPid": 346861139394560
+    },
+    {
+      "severity": 2,
+      "text": "No NVTX events collected. Does the process use NVTX?",
+      "globalPid": 346861021954048
+    },
+    {
+      "severity": 2,
+      "text": "No NVTX events collected. Does the process use NVTX?",
+      "globalPid": 346861223280640
+    },
+    {
+      "severity": 2,
+      "text": "No NVTX events collected. Does the process use NVTX?",
+      "globalPid": 346860568969216
+    },
+    {
+      "severity": 2,
+      "text": "Not all NVTX events might have been collected.",
+      "globalPid": 346844630614016
+    },
+    {
+      "severity": 2,
+      "text": "CUDA profiling might have not been started correctly.",
+      "globalPid": 346860820627456
+    },
+    {
+      "severity": 2,
+      "text": "No CUDA events collected. Does the process use CUDA?",
+      "globalPid": 346860820627456
+    },
+    {
+      "severity": 2,
+      "text": "CUDA profiling might have not been started correctly.",
+      "globalPid": 346860904513536
+    },
+    {
+      "severity": 2,
+      "text": "No CUDA events collected. Does the process use CUDA?",
+      "globalPid": 346860904513536
+    },
+    {
+      "severity": 2,
+      "text": "CUDA profiling might have not been started correctly.",
+      "globalPid": 346861139394560
+    },
+    {
+      "severity": 2,
+      "text": "No CUDA events collected. Does the process use CUDA?",
+      "globalPid": 346861139394560
+    },
+    {
+      "severity": 2,
+      "text": "CUDA profiling might have not been started correctly.",
+      "globalPid": 346861021954048
+    },
+    {
+      "severity": 2,
+      "text": "No CUDA events collected. Does the process use CUDA?",
+      "globalPid": 346861021954048
+    },
+    {
+      "severity": 2,
+      "text": "CUDA profiling might have not been started correctly.",
+      "globalPid": 346861223280640
+    },
+    {
+      "severity": 2,
+      "text": "No CUDA events collected. Does the process use CUDA?",
+      "globalPid": 346861223280640
+    },
+    {
+      "severity": 2,
+      "text": "CUDA profiling might have not been started correctly.",
+      "globalPid": 346860568969216
+    },
+    {
+      "severity": 2,
+      "text": "No CUDA events collected. Does the process use CUDA?",
+      "globalPid": 346860568969216
+    },
+    {
+      "severity": 2,
+      "text": "Not all CUDA events might have been collected.",
+      "globalPid": 346844630614016
+    }
+  ],
+  "diagnostics_note": "Nsight emits partial-collection warnings for the bounded capture and no-event warnings for guard subprocesses. All six requested NVTX ranges, 120 graph launches and equal replay counts for every captured graph node were verified. This is not a whole-process trace.",
+  "ranges": [
+    {
+      "heads": 2,
+      "variant": "reference",
+      "replays": 20,
+      "label": "H3.attention.heads2.reference.replays20",
+      "kernels_per_replay": 66,
+      "kernel_count": 1320,
+      "cuda_graph_launch_count": 20,
+      "each_captured_graph_node_observed_in_every_replay": true,
+      "summed_kernel_ms_per_replay": 1.5023870000000001,
+      "nvtx_envelope_ms_per_replay": 1.54004875,
+      "by_kernel": [
+        {
+          "name": "compute_attn_ws",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 1.07657665
+        },
+        {
+          "name": "index_elementwise_kernel",
+          "count": 80,
+          "kernels_per_replay": 4,
+          "summed_kernel_ms_per_replay": 0.07670360000000001
+        },
+        {
+          "name": "vectorized_gather_kernel",
+          "count": 80,
+          "kernels_per_replay": 4,
+          "summed_kernel_ms_per_replay": 0.056494
+        },
+        {
+          "name": "elementwise_kernel",
+          "count": 300,
+          "kernels_per_replay": 15,
+          "summed_kernel_ms_per_replay": 0.05623335
+        },
+        {
+          "name": "reduce_kernel",
+          "count": 100,
+          "kernels_per_replay": 5,
+          "summed_kernel_ms_per_replay": 0.0476414
+        },
+        {
+          "name": "vectorized_elementwise_kernel",
+          "count": 380,
+          "kernels_per_replay": 19,
+          "summed_kernel_ms_per_replay": 0.0426157
+        },
+        {
+          "name": "_unpack_qkv",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0398062
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.01969265
+        },
+        {
+          "name": "Kernel2",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.0195439
+        },
+        {
+          "name": "scaled_fp4_quant_trans_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.01741905
+        },
+        {
+          "name": "scaled_fp4_quant_kernel",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.015943850000000002
+        },
+        {
+          "name": "gatherTopK",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0073936
+        },
+        {
+          "name": "tensor_kernel_scan_innermost_dim",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.007062400000000001
+        },
+        {
+          "name": "_scatter_gather_elementwise_kernel",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.006729549999999999
+        },
+        {
+          "name": "unrolled_elementwise_kernel",
+          "count": 60,
+          "kernels_per_replay": 3,
+          "summed_kernel_ms_per_replay": 0.0059616
+        },
+        {
+          "name": "bitonicSortKVInPlace",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0038191500000000003
+        },
+        {
+          "name": "softmax_warp_forward",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.00150395
+        },
+        {
+          "name": "elementwise_kernel_with_index",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.0012464
+        }
+      ]
+    },
+    {
+      "heads": 2,
+      "variant": "previous_direct",
+      "replays": 20,
+      "label": "H3.attention.heads2.previous_direct.replays20",
+      "kernels_per_replay": 54,
+      "kernel_count": 1080,
+      "cuda_graph_launch_count": 20,
+      "each_captured_graph_node_observed_in_every_replay": true,
+      "summed_kernel_ms_per_replay": 1.33664065,
+      "nvtx_envelope_ms_per_replay": 1.36539445,
+      "by_kernel": [
+        {
+          "name": "compute_attn_ws",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 1.0768791
+        },
+        {
+          "name": "_tile_received",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.053743700000000005
+        },
+        {
+          "name": "reduce_kernel",
+          "count": 100,
+          "kernels_per_replay": 5,
+          "summed_kernel_ms_per_replay": 0.0495212
+        },
+        {
+          "name": "elementwise_kernel",
+          "count": 280,
+          "kernels_per_replay": 14,
+          "summed_kernel_ms_per_replay": 0.0397712
+        },
+        {
+          "name": "Kernel2",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.01910705
+        },
+        {
+          "name": "scaled_fp4_quant_trans_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.01725745
+        },
+        {
+          "name": "scaled_fp4_quant_kernel",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.01595025
+        },
+        {
+          "name": "vectorized_elementwise_kernel",
+          "count": 300,
+          "kernels_per_replay": 15,
+          "summed_kernel_ms_per_replay": 0.01567025
+        },
+        {
+          "name": "_output_bundle",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.01315515
+        },
+        {
+          "name": "gatherTopK",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.00741595
+        },
+        {
+          "name": "tensor_kernel_scan_innermost_dim",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0070544
+        },
+        {
+          "name": "_scatter_gather_elementwise_kernel",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.00674385
+        },
+        {
+          "name": "unrolled_elementwise_kernel",
+          "count": 60,
+          "kernels_per_replay": 3,
+          "summed_kernel_ms_per_replay": 0.00595195
+        },
+        {
+          "name": "bitonicSortKVInPlace",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.00382075
+        },
+        {
+          "name": "index_elementwise_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0018207999999999998
+        },
+        {
+          "name": "softmax_warp_forward",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0015168
+        },
+        {
+          "name": "elementwise_kernel_with_index",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.0012607999999999999
+        }
+      ]
+    },
+    {
+      "heads": 2,
+      "variant": "routing_compaction",
+      "replays": 20,
+      "label": "H3.attention.heads2.routing_compaction.replays20",
+      "kernels_per_replay": 31,
+      "kernel_count": 620,
+      "cuda_graph_launch_count": 20,
+      "each_captured_graph_node_observed_in_every_replay": true,
+      "summed_kernel_ms_per_replay": 1.29511295,
+      "nvtx_envelope_ms_per_replay": 1.31742135,
+      "by_kernel": [
+        {
+          "name": "compute_attn_ws",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 1.07860695
+        },
+        {
+          "name": "_tile_received",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.05102845
+        },
+        {
+          "name": "reduce_kernel",
+          "count": 80,
+          "kernels_per_replay": 4,
+          "summed_kernel_ms_per_replay": 0.045756599999999994
+        },
+        {
+          "name": "elementwise_kernel",
+          "count": 140,
+          "kernels_per_replay": 7,
+          "summed_kernel_ms_per_replay": 0.028235
+        },
+        {
+          "name": "Kernel2",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.01923835
+        },
+        {
+          "name": "scaled_fp4_quant_trans_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.01724315
+        },
+        {
+          "name": "scaled_fp4_quant_kernel",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.0160191
+        },
+        {
+          "name": "_output_bundle",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.013161500000000001
+        },
+        {
+          "name": "vectorized_elementwise_kernel",
+          "count": 140,
+          "kernels_per_replay": 7,
+          "summed_kernel_ms_per_replay": 0.0081791
+        },
+        {
+          "name": "gatherTopK",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.00741115
+        },
+        {
+          "name": "bitonicSortKVInPlace",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0038272000000000002
+        },
+        {
+          "name": "_scatter_gather_elementwise_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0032896
+        },
+        {
+          "name": "_compact_routing",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0016063999999999998
+        },
+        {
+          "name": "softmax_warp_forward",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0015103999999999999
+        }
+      ]
+    },
+    {
+      "heads": 3,
+      "variant": "reference",
+      "replays": 20,
+      "label": "H3.attention.heads3.reference.replays20",
+      "kernels_per_replay": 66,
+      "kernel_count": 1320,
+      "cuda_graph_launch_count": 20,
+      "each_captured_graph_node_observed_in_every_replay": true,
+      "summed_kernel_ms_per_replay": 2.16089075,
+      "nvtx_envelope_ms_per_replay": 2.20144985,
+      "by_kernel": [
+        {
+          "name": "compute_attn_ws",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 1.56670825
+        },
+        {
+          "name": "index_elementwise_kernel",
+          "count": 80,
+          "kernels_per_replay": 4,
+          "summed_kernel_ms_per_replay": 0.10745065000000001
+        },
+        {
+          "name": "vectorized_gather_kernel",
+          "count": 80,
+          "kernels_per_replay": 4,
+          "summed_kernel_ms_per_replay": 0.0818555
+        },
+        {
+          "name": "elementwise_kernel",
+          "count": 300,
+          "kernels_per_replay": 15,
+          "summed_kernel_ms_per_replay": 0.0721916
+        },
+        {
+          "name": "vectorized_elementwise_kernel",
+          "count": 380,
+          "kernels_per_replay": 19,
+          "summed_kernel_ms_per_replay": 0.07004930000000001
+        },
+        {
+          "name": "_unpack_qkv",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.06897085
+        },
+        {
+          "name": "reduce_kernel",
+          "count": 100,
+          "kernels_per_replay": 5,
+          "summed_kernel_ms_per_replay": 0.06489875
+        },
+        {
+          "name": "scaled_fp4_quant_trans_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.027119900000000002
+        },
+        {
+          "name": "scaled_fp4_quant_kernel",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.0230879
+        },
+        {
+          "name": "Kernel2",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.02091675
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0203215
+        },
+        {
+          "name": "gatherTopK",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0102079
+        },
+        {
+          "name": "tensor_kernel_scan_innermost_dim",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.00704
+        },
+        {
+          "name": "_scatter_gather_elementwise_kernel",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.0066767499999999995
+        },
+        {
+          "name": "unrolled_elementwise_kernel",
+          "count": 60,
+          "kernels_per_replay": 3,
+          "summed_kernel_ms_per_replay": 0.0061408
+        },
+        {
+          "name": "bitonicSortKVInPlace",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0039008000000000003
+        },
+        {
+          "name": "softmax_warp_forward",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0020784
+        },
+        {
+          "name": "elementwise_kernel_with_index",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.00127515
+        }
+      ]
+    },
+    {
+      "heads": 3,
+      "variant": "previous_direct",
+      "replays": 20,
+      "label": "H3.attention.heads3.previous_direct.replays20",
+      "kernels_per_replay": 54,
+      "kernel_count": 1080,
+      "cuda_graph_launch_count": 20,
+      "each_captured_graph_node_observed_in_every_replay": true,
+      "summed_kernel_ms_per_replay": 1.90927595,
+      "nvtx_envelope_ms_per_replay": 1.9356098,
+      "by_kernel": [
+        {
+          "name": "compute_attn_ws",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 1.56586025
+        },
+        {
+          "name": "_tile_received",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0881963
+        },
+        {
+          "name": "reduce_kernel",
+          "count": 100,
+          "kernels_per_replay": 5,
+          "summed_kernel_ms_per_replay": 0.05935169999999999
+        },
+        {
+          "name": "elementwise_kernel",
+          "count": 280,
+          "kernels_per_replay": 14,
+          "summed_kernel_ms_per_replay": 0.04810355
+        },
+        {
+          "name": "scaled_fp4_quant_trans_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.028100649999999998
+        },
+        {
+          "name": "scaled_fp4_quant_kernel",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.023055899999999997
+        },
+        {
+          "name": "_output_bundle",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.020332700000000002
+        },
+        {
+          "name": "Kernel2",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.0201423
+        },
+        {
+          "name": "vectorized_elementwise_kernel",
+          "count": 300,
+          "kernels_per_replay": 15,
+          "summed_kernel_ms_per_replay": 0.01714715
+        },
+        {
+          "name": "gatherTopK",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0101983
+        },
+        {
+          "name": "tensor_kernel_scan_innermost_dim",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.007060800000000001
+        },
+        {
+          "name": "_scatter_gather_elementwise_kernel",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.00668795
+        },
+        {
+          "name": "unrolled_elementwise_kernel",
+          "count": 60,
+          "kernels_per_replay": 3,
+          "summed_kernel_ms_per_replay": 0.006129600000000001
+        },
+        {
+          "name": "bitonicSortKVInPlace",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0038864000000000004
+        },
+        {
+          "name": "softmax_warp_forward",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0019456
+        },
+        {
+          "name": "index_elementwise_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0018
+        },
+        {
+          "name": "elementwise_kernel_with_index",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.0012768
+        }
+      ]
+    },
+    {
+      "heads": 3,
+      "variant": "routing_compaction",
+      "replays": 20,
+      "label": "H3.attention.heads3.routing_compaction.replays20",
+      "kernels_per_replay": 31,
+      "kernel_count": 620,
+      "cuda_graph_launch_count": 20,
+      "each_captured_graph_node_observed_in_every_replay": true,
+      "summed_kernel_ms_per_replay": 1.8640634500000002,
+      "nvtx_envelope_ms_per_replay": 1.88419825,
+      "by_kernel": [
+        {
+          "name": "compute_attn_ws",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 1.56746345
+        },
+        {
+          "name": "_tile_received",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0884731
+        },
+        {
+          "name": "reduce_kernel",
+          "count": 80,
+          "kernels_per_replay": 4,
+          "summed_kernel_ms_per_replay": 0.052145399999999995
+        },
+        {
+          "name": "elementwise_kernel",
+          "count": 140,
+          "kernels_per_replay": 7,
+          "summed_kernel_ms_per_replay": 0.03512625
+        },
+        {
+          "name": "scaled_fp4_quant_trans_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0280111
+        },
+        {
+          "name": "scaled_fp4_quant_kernel",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.02311505
+        },
+        {
+          "name": "_output_bundle",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.02034555
+        },
+        {
+          "name": "Kernel2",
+          "count": 40,
+          "kernels_per_replay": 2,
+          "summed_kernel_ms_per_replay": 0.020118249999999997
+        },
+        {
+          "name": "gatherTopK",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0101695
+        },
+        {
+          "name": "vectorized_elementwise_kernel",
+          "count": 140,
+          "kernels_per_replay": 7,
+          "summed_kernel_ms_per_replay": 0.00817265
+        },
+        {
+          "name": "bitonicSortKVInPlace",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.003888
+        },
+        {
+          "name": "_scatter_gather_elementwise_kernel",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0032624
+        },
+        {
+          "name": "softmax_warp_forward",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.0019264
+        },
+        {
+          "name": "_compact_routing",
+          "count": 20,
+          "kernels_per_replay": 1,
+          "summed_kernel_ms_per_replay": 0.00184635
+        }
+      ]
+    }
+  ],
+  "changed_kernel_counts": [
+    {
+      "heads": 2,
+      "counts": [
+        {
+          "name": "_compact_routing",
+          "reference": 0,
+          "previous_direct": 0,
+          "routing_compaction": 1
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "reference": 1,
+          "previous_direct": 0,
+          "routing_compaction": 0
+        },
+        {
+          "name": "_output_bundle",
+          "reference": 0,
+          "previous_direct": 1,
+          "routing_compaction": 1
+        },
+        {
+          "name": "_scatter_gather_elementwise_kernel",
+          "reference": 2,
+          "previous_direct": 2,
+          "routing_compaction": 1
+        },
+        {
+          "name": "_tile_received",
+          "reference": 0,
+          "previous_direct": 1,
+          "routing_compaction": 1
+        },
+        {
+          "name": "_unpack_qkv",
+          "reference": 1,
+          "previous_direct": 0,
+          "routing_compaction": 0
+        },
+        {
+          "name": "elementwise_kernel",
+          "reference": 15,
+          "previous_direct": 14,
+          "routing_compaction": 7
+        },
+        {
+          "name": "elementwise_kernel_with_index",
+          "reference": 2,
+          "previous_direct": 2,
+          "routing_compaction": 0
+        },
+        {
+          "name": "index_elementwise_kernel",
+          "reference": 4,
+          "previous_direct": 1,
+          "routing_compaction": 0
+        },
+        {
+          "name": "reduce_kernel",
+          "reference": 5,
+          "previous_direct": 5,
+          "routing_compaction": 4
+        },
+        {
+          "name": "tensor_kernel_scan_innermost_dim",
+          "reference": 1,
+          "previous_direct": 1,
+          "routing_compaction": 0
+        },
+        {
+          "name": "unrolled_elementwise_kernel",
+          "reference": 3,
+          "previous_direct": 3,
+          "routing_compaction": 0
+        },
+        {
+          "name": "vectorized_elementwise_kernel",
+          "reference": 19,
+          "previous_direct": 15,
+          "routing_compaction": 7
+        },
+        {
+          "name": "vectorized_gather_kernel",
+          "reference": 4,
+          "previous_direct": 0,
+          "routing_compaction": 0
+        }
+      ]
+    },
+    {
+      "heads": 3,
+      "counts": [
+        {
+          "name": "_compact_routing",
+          "reference": 0,
+          "previous_direct": 0,
+          "routing_compaction": 1
+        },
+        {
+          "name": "_h3_vsa_o_bundle_kernel",
+          "reference": 1,
+          "previous_direct": 0,
+          "routing_compaction": 0
+        },
+        {
+          "name": "_output_bundle",
+          "reference": 0,
+          "previous_direct": 1,
+          "routing_compaction": 1
+        },
+        {
+          "name": "_scatter_gather_elementwise_kernel",
+          "reference": 2,
+          "previous_direct": 2,
+          "routing_compaction": 1
+        },
+        {
+          "name": "_tile_received",
+          "reference": 0,
+          "previous_direct": 1,
+          "routing_compaction": 1
+        },
+        {
+          "name": "_unpack_qkv",
+          "reference": 1,
+          "previous_direct": 0,
+          "routing_compaction": 0
+        },
+        {
+          "name": "elementwise_kernel",
+          "reference": 15,
+          "previous_direct": 14,
+          "routing_compaction": 7
+        },
+        {
+          "name": "elementwise_kernel_with_index",
+          "reference": 2,
+          "previous_direct": 2,
+          "routing_compaction": 0
+        },
+        {
+          "name": "index_elementwise_kernel",
+          "reference": 4,
+          "previous_direct": 1,
+          "routing_compaction": 0
+        },
+        {
+          "name": "reduce_kernel",
+          "reference": 5,
+          "previous_direct": 5,
+          "routing_compaction": 4
+        },
+        {
+          "name": "tensor_kernel_scan_innermost_dim",
+          "reference": 1,
+          "previous_direct": 1,
+          "routing_compaction": 0
+        },
+        {
+          "name": "unrolled_elementwise_kernel",
+          "reference": 3,
+          "previous_direct": 3,
+          "routing_compaction": 0
+        },
+        {
+          "name": "vectorized_elementwise_kernel",
+          "reference": 19,
+          "previous_direct": 15,
+          "routing_compaction": 7
+        },
+        {
+          "name": "vectorized_gather_kernel",
+          "reference": 4,
+          "previous_direct": 0,
+          "routing_compaction": 0
+        }
+      ]
+    }
+  ]
+}

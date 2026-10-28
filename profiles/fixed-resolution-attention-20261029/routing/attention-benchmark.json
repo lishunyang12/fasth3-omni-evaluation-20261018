@@ -1,0 +1,144 @@
+{
+  "status": "component_pass",
+  "h3_end_to_end_measured": false,
+  "gpu_uuid": "GPU-3b4186a5-be56-d240-d6c4-2476804ba106",
+  "completed_at": 1793210552.8431811,
+  "checks": [
+    {
+      "heads": 2,
+      "trials": [
+        {
+          "seed": 43,
+          "bit_exact": true,
+          "previous_candidate_bit_exact": true,
+          "finite": true,
+          "max_abs": 0.0
+        },
+        {
+          "seed": 44,
+          "bit_exact": true,
+          "previous_candidate_bit_exact": true,
+          "finite": true,
+          "max_abs": 0.0
+        },
+        {
+          "seed": 45,
+          "bit_exact": true,
+          "previous_candidate_bit_exact": true,
+          "finite": true,
+          "max_abs": 0.0
+        }
+      ],
+      "samples_ms": {
+        "reference": [
+          1.5084230041503905,
+          1.507565460205078,
+          1.5075558471679686,
+          1.5079525756835936,
+          1.507927703857422,
+          1.5076626586914061
+        ],
+        "previous_direct": [
+          1.3368914794921876,
+          1.338077392578125,
+          1.3386834716796876,
+          1.337335662841797,
+          1.337469482421875,
+          1.337076416015625
+        ],
+        "candidate": [
+          1.2953042602539062,
+          1.2945126342773436,
+          1.2948185729980468,
+          1.2959046936035157,
+          1.2959590148925781,
+          1.2944044494628906
+        ]
+      },
+      "production_replay_band_bit_exact": true,
+      "graph_kernel_ms": {
+        "reference": 1.5076626586914061,
+        "previous_direct": 1.337469482421875,
+        "candidate": 1.2948185729980468
+      }
+    },
+    {
+      "heads": 3,
+      "trials": [
+        {
+          "seed": 43,
+          "bit_exact": true,
+          "previous_candidate_bit_exact": true,
+          "finite": true,
+          "max_abs": 0.0
+        },
+        {
+          "seed": 44,
+          "bit_exact": true,
+          "previous_candidate_bit_exact": true,
+          "finite": true,
+          "max_abs": 0.0
+        },
+        {
+          "seed": 45,
+          "bit_exact": true,
+          "previous_candidate_bit_exact": true,
+          "finite": true,
+          "max_abs": 0.0
+        }
+      ],
+      "samples_ms": {
+        "reference": [
+          2.190510711669922,
+          2.1910182189941407,
+          2.1897740173339844,
+          2.188304595947266,
+          2.187502746582031,
+          2.1890713500976564
+        ],
+        "previous_direct": [
+          1.9298912048339845,
+          1.928462677001953,
+          1.9272288513183593,
+          1.9271846008300781,
+          1.9270477294921875,
+          1.9269100952148437
+        ],
+        "candidate": [
+          1.8774630737304687,
+          1.8773408508300782,
+          1.8762937927246093,
+          1.8780455017089843,
+          1.8763763427734375,
+          1.8774362182617188
+        ]
+      },
+      "production_replay_band_bit_exact": true,
+      "graph_kernel_ms": {
+        "reference": 2.1890713500976564,
+        "previous_direct": 1.9271846008300781,
+        "candidate": 1.8773408508300782
+      }
+    }
+  ],
+  "fixed_resolution": [
+    960,
+    544
+  ],
+  "scope": "Original vs direct input/output fusion vs added integer route compaction; actual native FP4 attention under inference mode on local buffers; no model/RDMA/AAC.",
+  "inputs": {
+    "description": "Random finite BF16 QKV; seeds 43,44,45; original tile128 geometry.",
+    "vsa_sparsity": 0.9,
+    "ref_keep_rate": 0.1
+  },
+  "source_sha256": {
+    "check_compact_attention.py": "f7fe4c5f024296f47ed6e968c66ff0401612151c721ae113e81a6cf98a38137b",
+    "compact_fp4_routing.py": "3d12feb755cbbe3c6744c14345f41271b543bbb4c1d0fc6770211050e0052143",
+    "launch_compact_routing.py": "42528b18c7277b47e868647b438a067dcb303adc7cc56b20bbae42b6227d44e2",
+    "launch_direct_input.py": "2a44f6dad17b079ca57c1215cea47fe286ac055abd57d64f9a329781c7fd21b5",
+    "tile_received_qkv.py": "eb72f1988ed52faee827fc1558e76a777c1186b24345e6cce6611598f6d63221",
+    "launch_output_fusion.py": "b1bdd4de91a1618a142bf6814bce48d0f6376aed5cd4f9cc1bd7733269e5aa5c",
+    "output_bundle.py": "cb995bc17dd236157f0332ccde0f18a8f72b0f6e4dae3abfe33bc606094942d1",
+    "tile_qkv.py": "42a3fc6ff35e8daaf6b59acdda3395b6649316c5f828de5fe28f59c0e520b2f3"
+  }
+}

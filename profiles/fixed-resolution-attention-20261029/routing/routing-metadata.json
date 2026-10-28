@@ -1,0 +1,546 @@
+{
+  "status": "component_pass",
+  "gpu_uuid": "GPU-3b4186a5-be56-d240-d6c4-2476804ba106",
+  "h3_end_to_end_measured": false,
+  "scope": "Integer route conversion only; fixed tile128 and 227 blocks; no attention/model/RDMA.",
+  "checks": [
+    {
+      "heads": 2,
+      "size_mode": "all_zero",
+      "pattern": "empty",
+      "density": 0,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "all_zero",
+      "pattern": "full",
+      "density": 1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "all_zero",
+      "pattern": "prefix",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "all_zero",
+      "pattern": "random",
+      "density": 0.01,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "all_zero",
+      "pattern": "random",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "all_zero",
+      "pattern": "random",
+      "density": 0.5,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "all_full",
+      "pattern": "empty",
+      "density": 0,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "all_full",
+      "pattern": "full",
+      "density": 1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "all_full",
+      "pattern": "prefix",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "all_full",
+      "pattern": "random",
+      "density": 0.01,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "all_full",
+      "pattern": "random",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "all_full",
+      "pattern": "random",
+      "density": 0.5,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "boundaries",
+      "pattern": "empty",
+      "density": 0,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "boundaries",
+      "pattern": "full",
+      "density": 1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "boundaries",
+      "pattern": "prefix",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "boundaries",
+      "pattern": "random",
+      "density": 0.01,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "boundaries",
+      "pattern": "random",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "boundaries",
+      "pattern": "random",
+      "density": 0.5,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "random",
+      "pattern": "empty",
+      "density": 0,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "random",
+      "pattern": "full",
+      "density": 1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "random",
+      "pattern": "prefix",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "random",
+      "pattern": "random",
+      "density": 0.01,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "random",
+      "pattern": "random",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 2,
+      "size_mode": "random",
+      "pattern": "random",
+      "density": 0.5,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_zero",
+      "pattern": "empty",
+      "density": 0,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_zero",
+      "pattern": "full",
+      "density": 1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_zero",
+      "pattern": "prefix",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_zero",
+      "pattern": "random",
+      "density": 0.01,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_zero",
+      "pattern": "random",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_zero",
+      "pattern": "random",
+      "density": 0.5,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_full",
+      "pattern": "empty",
+      "density": 0,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_full",
+      "pattern": "full",
+      "density": 1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_full",
+      "pattern": "prefix",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_full",
+      "pattern": "random",
+      "density": 0.01,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_full",
+      "pattern": "random",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "all_full",
+      "pattern": "random",
+      "density": 0.5,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "boundaries",
+      "pattern": "empty",
+      "density": 0,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "boundaries",
+      "pattern": "full",
+      "density": 1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "boundaries",
+      "pattern": "prefix",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "boundaries",
+      "pattern": "random",
+      "density": 0.01,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "boundaries",
+      "pattern": "random",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "boundaries",
+      "pattern": "random",
+      "density": 0.5,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "random",
+      "pattern": "empty",
+      "density": 0,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "random",
+      "pattern": "full",
+      "density": 1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "random",
+      "pattern": "prefix",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "random",
+      "pattern": "random",
+      "density": 0.01,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "random",
+      "pattern": "random",
+      "density": 0.1,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    },
+    {
+      "heads": 3,
+      "size_mode": "random",
+      "pattern": "random",
+      "density": 0.5,
+      "indices_exact": true,
+      "counts_exact": true,
+      "valid_halves_exact": true,
+      "quadrants_none": true
+    }
+  ],
+  "timings": [
+    {
+      "heads": 2,
+      "samples_ms": {
+        "reference": [
+          0.045420479774475095,
+          0.04510047912597656,
+          0.04546783924102783,
+          0.04511392116546631,
+          0.04542208194732666,
+          0.04512608051300049
+        ],
+        "candidate": [
+          0.002133760005235672,
+          0.004346559941768646,
+          0.002152319997549057,
+          0.004247359931468964,
+          0.0021568000316619872,
+          0.0042444801330566405
+        ]
+      },
+      "median_ms": {
+        "reference": 0.04512608051300049,
+        "candidate": 0.0042444801330566405
+      }
+    },
+    {
+      "heads": 3,
+      "samples_ms": {
+        "reference": [
+          0.047510719299316405,
+          0.04725759983062744,
+          0.04752927780151367,
+          0.04725823879241944,
+          0.04760064125061035,
+          0.04731520175933838
+        ],
+        "candidate": [
+          0.004133439958095551,
+          0.004423039853572845,
+          0.00413567990064621,
+          0.0043337601423263546,
+          0.004125120043754578,
+          0.004324159920215607
+        ]
+      },
+      "median_ms": {
+        "reference": 0.04731520175933838,
+        "candidate": 0.004324159920215607
+      }
+    }
+  ],
+  "completed_at": 1793210415.8349793,
+  "source_sha256": {
+    "check_compact_routing.py": "77b0eead7108129a93429369f176e35b8c01c75d8da4407944f702303ce5724f",
+    "compact_fp4_routing.py": "3d12feb755cbbe3c6744c14345f41271b543bbb4c1d0fc6770211050e0052143",
+    "launch_compact_routing.py": "42528b18c7277b47e868647b438a067dcb303adc7cc56b20bbae42b6227d44e2"
+  }
+}
