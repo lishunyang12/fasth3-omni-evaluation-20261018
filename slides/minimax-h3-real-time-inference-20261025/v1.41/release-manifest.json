@@ -1,0 +1,69 @@
+{
+  "status": "measured",
+  "version": "v1.41",
+  "slides": 22,
+  "hidden": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "visible": 13,
+  "updated_slides": [
+    6,
+    7,
+    18
+  ],
+  "added_slide": 21,
+  "closing_slide": 22,
+  "protected_parts": 70,
+  "pptx_sha256": "f5de5149943c47b05c3870747f601f772fe9ab36f1d6eac2abc1eba77b3a0f5c",
+  "source_pptx_sha256": "18190385ed1b810504b88e73009ffb37aacf0517ae8ab092d695cd9456a92b83",
+  "benchmark_completed": 13,
+  "benchmark_total": 13,
+  "generated_at": "2026-10-30T07:21:51.441324+00:00",
+  "publication": "public_release_candidate",
+  "hidden_slides": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "validation": {
+    "status": "pass",
+    "office": "office-validation.json",
+    "visual_review": "pass",
+    "browser": "browser-validation.json"
+  },
+  "baseline_profile_url": "v1.40/baseline-breakdown.html",
+  "quality_video_url": "v1.40/four-videos.html",
+  "historical_continuity_url": "../../reports/h3-liveavatar-long-video-20261014/long/",
+  "measurement_status": "complete",
+  "formal_requests": 42,
+  "final_median_seconds": 4.9224158665165305,
+  "final_recheck_median_seconds": 4.927015350200236,
+  "final_recheck_drift_percent": 0.09343955911957913,
+  "source_scope": "Fresh standalone reverse ladder; separate rolling interactive demo configuration",
+  "pdf_sha256": "affc675d885dabf35fafc33e37aafe4c81b7399514ca19d8edbf9eb718c5940c",
+  "latest_revision": "2eff855de8713931e600791010ea2c2842227a5ea55705397ccc92f3a4a9b14b",
+  "model_steps_precision_changes_separated_from_engineering": true,
+  "four_step_visual_superiority_claimed": false,
+  "source_scripts_sha256": {
+    "build_slides.py": "9bcb3fc6dcb9923491282b103324897c308964c0cb60193e1b8d0b9b78c2ebea",
+    "render_slides.py": "a4a98a9651ee5a013dd75a6ad3a67670162283f7d92df9887b110729fd185791",
+    "prepare_publication.py": "72b52f87adc9300e8fa31e9fe18daa99b7000f4aa7b03c47c8dac70f0b7c92ed",
+    "collect_results.py": "4a8b41a5b3f4cb58feca00a5312b2a982bb57a43c04f1d8dec66944a22e33d47",
+    "measure_stage.py": "041b6958e74628ce103630a4fdbae4edec41c64322f01753e07046228135a3db",
+    "run_ladder.py": "50830a192fb380202491f36f43463e0e0b45e62755bd20c1eb4d928c1dea424f"
+  }
+}

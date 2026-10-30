@@ -85,9 +85,17 @@ def main():
                                   ('latency-breakdown.html', 'Current breakdown and GPU work', [6]),
                                   ('continuous-generation.html', 'Five-second generation timeline', [7]),
                                   ('four-videos.html', 'Play slide 11 videos', [11]),
-                                  ('benchmarks.html', 'Slide 18 measurements and videos', [18])]:
+                                  ('benchmarks.html', 'Slide 18 measured optimization ladder', [18]),
+                                  ('demo-config.html', 'Final demo: H3, ASR and LLM configuration', [7, 21])]:
         if (folder/name).is_file():
             related.append(dict(label=label, url=f'{version}/{name}', slides=numbers))
+    if manifest.get('baseline_profile_url') and not (folder/'baseline-breakdown.html').is_file():
+        related.append(dict(label='Baseline configuration and historical profile',
+                            url=manifest['baseline_profile_url'], slides=[6]))
+    if manifest.get('quality_video_url') and not (folder/'four-videos.html').is_file():
+        related.append(dict(label='Prior quantization quality videos', url=manifest['quality_video_url'], slides=[11]))
+    if manifest.get('historical_continuity_url') and not (folder/'continuous-generation.html').is_file():
+        related.append(dict(label='Historical AAS / Rolling RoPE study', url=manifest['historical_continuity_url'], slides=[12]))
     if (folder/'continuous-generation.html').is_file():
         related.append(dict(label='AAS / Rolling RoPE archive', url='../../reports/h3-liveavatar-long-video-20261014/long/', slides=[7, 12]))
     payload = dict(schema_version=1, title=parsed.slides[0]['title'], version=version,

@@ -1,0 +1,1501 @@
+{
+  "generated_at": "2026-10-30T07:08:47.476575+00:00",
+  "controller": {
+    "status": "complete",
+    "started_at": 1793339474.6221387,
+    "finished_at": 1793344087.2641175
+  },
+  "workload": {
+    "name": "Miles five-second livestream target, retained Base50 request",
+    "width": 960,
+    "height": 544,
+    "frames": 124,
+    "fps": 24,
+    "seed": 43,
+    "target_seconds": 5.0,
+    "media_seconds": 5.166666666666667,
+    "request_mode": "standalone_ref2va",
+    "rolling_continuation": false,
+    "inputs": {
+      "image": {
+        "sha256": "560c094f9900ea762227f84481ca8a2f73adac69963e0d1a78563bec1844d6b8"
+      },
+      "audio": {
+        "sha256": "14a5be7b854870175e6d47204e34cdd7c2827b1c816d833a98c3eae504db9557"
+      },
+      "prompt": {
+        "sha256": "24128acdf2df32aa5f8fef871019db5a2459c04e9a330edeb8e7d87fa998a95e"
+      }
+    },
+    "timing": "Client wall time around curl through complete MP4 response, matching Base50",
+    "acceptance": "Every formal request below 5.0 seconds; output quality reviewed separately",
+    "phases": [
+      "initialize",
+      "warmup",
+      "measured",
+      "measured",
+      "measured"
+    ],
+    "baseline_median_seconds": 247.9563708677888
+  },
+  "protocol": "One initialize, one warmup, three measured requests per isolated server; reverse order plus final recheck.",
+  "scope": "Retained standalone Ref2VA case; not rolling continuation or microphone-to-reply latency.",
+  "retained_final_output": {
+    "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+    "decoded_sha256": {
+      "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+      "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+    }
+  },
+  "rows": [
+    {
+      "id": "00-base50",
+      "title": "Original Ref2VA, 50 evaluations",
+      "category": "baseline",
+      "steps": 50,
+      "stage_sha256": "e7b8286f435dd0f780b988a1132b9d039fa16d0dc78cea141322e83e7face9c3",
+      "configuration": {
+        "steps": 50,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "Original Ref2VA",
+        "attention": {
+          "default": {
+            "backend": "CUDNN_ATTN"
+          },
+          "per_role": {
+            "minimax_h3.token_refiner": {
+              "backend": "TORCH_SDPA"
+            }
+          }
+        },
+        "native_fp4": false,
+        "head_bands": null,
+        "compute_graph": false,
+        "preencode_mp4": false,
+        "nvfp4_video_vae": false,
+        "transport": "nccl",
+        "rdma_route": null,
+        "remaining_nccl_net": null,
+        "lossless_mode": null,
+        "direct_output_fusion": false,
+        "direct_input_fusion": false,
+        "routing_compaction": false,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        251.3031690204516,
+        252.91525922063738,
+        250.95228831097484
+      ],
+      "historical_median_seconds": 247.9563708677888,
+      "median_seconds": 251.3031690204516,
+      "minimum_seconds": 250.95228831097484,
+      "worst_seconds": 252.91525922063738,
+      "median_rtf": 48.63932303621644,
+      "median_latency_divided_by_nominal_5s": 50.26063380409032,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 0,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": false,
+      "strict_exact_runtime_guard": false,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "2abd1d159c6c381d7996f7fad7984d608bd421a36b920b551cae473fd89fb0a7",
+          "decoded_sha256": {
+            "video": "SHA256=d40bc809f8c32b3cb33308b8eefb4c348c142687dffe5baab5ee8fe67db27352",
+            "audio": "SHA256=91146292b8dddcebbbc40c7835f0f1191811b32ee99a6d91dbd22408acae0f9e"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "2abd1d159c6c381d7996f7fad7984d608bd421a36b920b551cae473fd89fb0a7",
+          "decoded_sha256": {
+            "video": "SHA256=d40bc809f8c32b3cb33308b8eefb4c348c142687dffe5baab5ee8fe67db27352",
+            "audio": "SHA256=91146292b8dddcebbbc40c7835f0f1191811b32ee99a6d91dbd22408acae0f9e"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "2abd1d159c6c381d7996f7fad7984d608bd421a36b920b551cae473fd89fb0a7",
+          "decoded_sha256": {
+            "video": "SHA256=d40bc809f8c32b3cb33308b8eefb4c348c142687dffe5baab5ee8fe67db27352",
+            "audio": "SHA256=91146292b8dddcebbbc40c7835f0f1191811b32ee99a6d91dbd22408acae0f9e"
+          }
+        }
+      ],
+      "peak_memory_mib": 60813,
+      "all_formal_mp4_match_historical_stage": true,
+      "telemetry": {
+        "requests": 3,
+        "max_temperature_c": 58.0,
+        "sm_clock_min_mhz": 2377.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 117244783,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      }
+    },
+    {
+      "id": "01-pdd8",
+      "title": "PDD 8 evaluations",
+      "category": "sampling change",
+      "steps": 8,
+      "stage_sha256": "12fa524d8fc12c445bc1f327e78b9dca8b92c6e1dbbcb6fdbaf1e85fec631a45",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "Original Ref2VA",
+        "attention": {
+          "default": {
+            "backend": "CUDNN_ATTN"
+          },
+          "per_role": {
+            "minimax_h3.token_refiner": {
+              "backend": "TORCH_SDPA"
+            }
+          }
+        },
+        "native_fp4": false,
+        "head_bands": null,
+        "compute_graph": false,
+        "preencode_mp4": false,
+        "nvfp4_video_vae": false,
+        "transport": "nccl",
+        "rdma_route": null,
+        "remaining_nccl_net": null,
+        "lossless_mode": null,
+        "direct_output_fusion": false,
+        "direct_input_fusion": false,
+        "routing_compaction": false,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        44.81915560364723,
+        44.32691093347967,
+        43.303909598849714
+      ],
+      "historical_median_seconds": 42.96175599377602,
+      "median_seconds": 44.32691093347967,
+      "minimum_seconds": 43.303909598849714,
+      "worst_seconds": 44.81915560364723,
+      "median_rtf": 8.579402116157354,
+      "median_latency_divided_by_nominal_5s": 8.865382186695934,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 0,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": false,
+      "strict_exact_runtime_guard": false,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "78e93faab8a641b01eecabd22fc671e4745ff006be67a931411155c40e581ede",
+          "decoded_sha256": {
+            "video": "SHA256=2d64b5f5c390d9d2cdcdfea26c54d3b9ea33ba157ba97239422c9def76af1c9f",
+            "audio": "SHA256=9981a8e45f1582640f6385e3fa6a6a2490dd7cabb67b94619f50586566e9cfaf"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "78e93faab8a641b01eecabd22fc671e4745ff006be67a931411155c40e581ede",
+          "decoded_sha256": {
+            "video": "SHA256=2d64b5f5c390d9d2cdcdfea26c54d3b9ea33ba157ba97239422c9def76af1c9f",
+            "audio": "SHA256=9981a8e45f1582640f6385e3fa6a6a2490dd7cabb67b94619f50586566e9cfaf"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "78e93faab8a641b01eecabd22fc671e4745ff006be67a931411155c40e581ede",
+          "decoded_sha256": {
+            "video": "SHA256=2d64b5f5c390d9d2cdcdfea26c54d3b9ea33ba157ba97239422c9def76af1c9f",
+            "audio": "SHA256=9981a8e45f1582640f6385e3fa6a6a2490dd7cabb67b94619f50586566e9cfaf"
+          }
+        }
+      ],
+      "peak_memory_mib": 60867,
+      "all_formal_mp4_match_historical_stage": true,
+      "telemetry": {
+        "requests": 3,
+        "max_temperature_c": 57.0,
+        "sm_clock_min_mhz": 2377.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 24072184,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 206.97625808697194,
+      "incremental_speedup": 5.669313826031691
+    },
+    {
+      "id": "02-vsa",
+      "title": "Trained VSA native 8-step model",
+      "category": "model/runtime change",
+      "steps": 8,
+      "stage_sha256": "f36245f0e9d87947016c0055d90377a33b0ab920b0104b3e58ef38e15c8d80c9",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "FastVideo-FastH3-Omni-8-Step-V1 @ 88d512c5e7cc38dda499fbb65688ce58611f9c80",
+        "attention": {
+          "default": {
+            "backend": "FASTVIDEO_VSA",
+            "fastvideo_vsa_provider": "cudnn",
+            "fastvideo_vsa_precision": "bf16"
+          }
+        },
+        "native_fp4": false,
+        "head_bands": null,
+        "compute_graph": false,
+        "preencode_mp4": false,
+        "nvfp4_video_vae": false,
+        "transport": "nccl",
+        "rdma_route": null,
+        "remaining_nccl_net": null,
+        "lossless_mode": null,
+        "direct_output_fusion": false,
+        "direct_input_fusion": false,
+        "routing_compaction": false,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        25.625219825655222,
+        25.915374606847763,
+        26.225030813366175
+      ],
+      "historical_median_seconds": 26.198997436091304,
+      "median_seconds": 25.915374606847763,
+      "minimum_seconds": 25.625219825655222,
+      "worst_seconds": 26.225030813366175,
+      "median_rtf": 5.015878956164083,
+      "median_latency_divided_by_nominal_5s": 5.183074921369553,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 0,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": false,
+      "strict_exact_runtime_guard": false,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "bfe9a1b1080842c1819900bf6f2c3917c6e4f1cd956fce760a24e5c7bfc3675f",
+          "decoded_sha256": {
+            "video": "SHA256=2dd33c9c7b79f9bd03f484743108d176c9e8dfb78019b48894c9de46a5ac77b4",
+            "audio": "SHA256=fc26b97dea311493b8beca1ecc49391a488b77fba050c758fc6b47e43a48a53c"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "bfe9a1b1080842c1819900bf6f2c3917c6e4f1cd956fce760a24e5c7bfc3675f",
+          "decoded_sha256": {
+            "video": "SHA256=2dd33c9c7b79f9bd03f484743108d176c9e8dfb78019b48894c9de46a5ac77b4",
+            "audio": "SHA256=fc26b97dea311493b8beca1ecc49391a488b77fba050c758fc6b47e43a48a53c"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "bfe9a1b1080842c1819900bf6f2c3917c6e4f1cd956fce760a24e5c7bfc3675f",
+          "decoded_sha256": {
+            "video": "SHA256=2dd33c9c7b79f9bd03f484743108d176c9e8dfb78019b48894c9de46a5ac77b4",
+            "audio": "SHA256=fc26b97dea311493b8beca1ecc49391a488b77fba050c758fc6b47e43a48a53c"
+          }
+        }
+      ],
+      "peak_memory_mib": 63361,
+      "all_formal_mp4_match_historical_stage": true,
+      "telemetry": {
+        "requests": 2,
+        "max_temperature_c": 53.0,
+        "sm_clock_min_mhz": 2467.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 520319,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 18.411536326631904,
+      "incremental_speedup": 1.7104483962106
+    },
+    {
+      "id": "03-qad-native-fp4",
+      "title": "QAD NVFP4 + native FP4 attention",
+      "category": "model/precision change",
+      "steps": 8,
+      "stage_sha256": "0cf4ea34dc7eb85a1af4223c762e9ba8566625db1cd6c79193b4e2329b4c4570",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "QAD f01",
+        "attention": {
+          "default": {
+            "backend": "FASTVIDEO_VSA",
+            "fastvideo_vsa_provider": "fastvideo",
+            "fastvideo_vsa_precision": "nvfp4"
+          }
+        },
+        "native_fp4": true,
+        "head_bands": null,
+        "compute_graph": false,
+        "preencode_mp4": false,
+        "nvfp4_video_vae": false,
+        "transport": "nccl",
+        "rdma_route": null,
+        "remaining_nccl_net": null,
+        "lossless_mode": null,
+        "direct_output_fusion": false,
+        "direct_input_fusion": false,
+        "routing_compaction": false,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        20.051393740810454,
+        19.385528434067965,
+        19.460303778760135
+      ],
+      "historical_median_seconds": 19.351314012892544,
+      "median_seconds": 19.460303778760135,
+      "minimum_seconds": 19.385528434067965,
+      "worst_seconds": 20.051393740810454,
+      "median_rtf": 3.766510408792284,
+      "median_latency_divided_by_nominal_5s": 3.892060755752027,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 0,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": false,
+      "strict_exact_runtime_guard": false,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "258531442a9fd9a3eb727b7129556c648a24855ae79f61560b0a84f3adc754c0",
+          "decoded_sha256": {
+            "video": "SHA256=81c14f1ac385c36fc1da2dc1d2fce69224ad22b50d4dac6f8f630678a185df87",
+            "audio": "SHA256=deaa1064b3c348128d65b89ab6528c70ce77d25c22736a195a8c62da594fc36c"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "258531442a9fd9a3eb727b7129556c648a24855ae79f61560b0a84f3adc754c0",
+          "decoded_sha256": {
+            "video": "SHA256=81c14f1ac385c36fc1da2dc1d2fce69224ad22b50d4dac6f8f630678a185df87",
+            "audio": "SHA256=deaa1064b3c348128d65b89ab6528c70ce77d25c22736a195a8c62da594fc36c"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "258531442a9fd9a3eb727b7129556c648a24855ae79f61560b0a84f3adc754c0",
+          "decoded_sha256": {
+            "video": "SHA256=81c14f1ac385c36fc1da2dc1d2fce69224ad22b50d4dac6f8f630678a185df87",
+            "audio": "SHA256=deaa1064b3c348128d65b89ab6528c70ce77d25c22736a195a8c62da594fc36c"
+          }
+        }
+      ],
+      "peak_memory_mib": 59667,
+      "all_formal_mp4_match_historical_stage": true,
+      "telemetry": {
+        "requests": 3,
+        "max_temperature_c": 49.0,
+        "sm_clock_min_mhz": 2475.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 0,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 6.455070828087628,
+      "incremental_speedup": 1.3317045253493416
+    },
+    {
+      "id": "04-ulysses",
+      "title": "RDMA + direct layout + V/gate overlap",
+      "category": "engineering bundle",
+      "steps": 8,
+      "stage_sha256": "75a6b1991708f82cddfe4fe62e0564c5226910018d3b2ed681106e9ff3fcd806",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "QAD f01",
+        "attention": {
+          "default": {
+            "backend": "FASTVIDEO_VSA",
+            "fastvideo_vsa_provider": "fastvideo",
+            "fastvideo_vsa_precision": "nvfp4"
+          }
+        },
+        "native_fp4": true,
+        "head_bands": null,
+        "compute_graph": false,
+        "preencode_mp4": false,
+        "nvfp4_video_vae": false,
+        "transport": "flashinfer-pcie",
+        "rdma_route": "rdma",
+        "remaining_nccl_net": "IB",
+        "lossless_mode": null,
+        "direct_output_fusion": false,
+        "direct_input_fusion": false,
+        "routing_compaction": false,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        6.812847764231265,
+        6.832498379051685,
+        6.837718074209988
+      ],
+      "historical_median_seconds": 6.830540991388261,
+      "median_seconds": 6.832498379051685,
+      "minimum_seconds": 6.812847764231265,
+      "worst_seconds": 6.837718074209988,
+      "median_rtf": 1.3224190411067778,
+      "median_latency_divided_by_nominal_5s": 1.3664996758103372,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 0,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": false,
+      "strict_exact_runtime_guard": false,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "fbe372c8fdd748c48c643b98033afcfe28b7fd7159458be8db4b1f1c320b1990",
+          "decoded_sha256": {
+            "video": "SHA256=44680da9ce639f291cb734797bc047862422897d15d08e9c40ede3605b2fbf9b",
+            "audio": "SHA256=7e8345adbc1b65d2b10fb54b02b2c20b988b0a5c8ec6c7171cc0dd3359366659"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "fbe372c8fdd748c48c643b98033afcfe28b7fd7159458be8db4b1f1c320b1990",
+          "decoded_sha256": {
+            "video": "SHA256=44680da9ce639f291cb734797bc047862422897d15d08e9c40ede3605b2fbf9b",
+            "audio": "SHA256=7e8345adbc1b65d2b10fb54b02b2c20b988b0a5c8ec6c7171cc0dd3359366659"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "fbe372c8fdd748c48c643b98033afcfe28b7fd7159458be8db4b1f1c320b1990",
+          "decoded_sha256": {
+            "video": "SHA256=44680da9ce639f291cb734797bc047862422897d15d08e9c40ede3605b2fbf9b",
+            "audio": "SHA256=7e8345adbc1b65d2b10fb54b02b2c20b988b0a5c8ec6c7171cc0dd3359366659"
+          }
+        }
+      ],
+      "peak_memory_mib": 61279,
+      "all_formal_mp4_match_historical_stage": true,
+      "telemetry": {
+        "requests": 3,
+        "max_temperature_c": 54.0,
+        "sm_clock_min_mhz": 2422.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 4208117,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 12.62780539970845,
+      "incremental_speedup": 2.84819735024381
+    },
+    {
+      "id": "05-head-232",
+      "title": "2/3/2 head pipeline",
+      "category": "engineering",
+      "steps": 8,
+      "stage_sha256": "805f295635b67db93efc39bbdc64975308b8079f84f23e4f2f6afe660b8a1fa1",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "QAD f01",
+        "attention": {
+          "default": {
+            "backend": "FASTVIDEO_VSA",
+            "fastvideo_vsa_provider": "fastvideo",
+            "fastvideo_vsa_precision": "nvfp4"
+          }
+        },
+        "native_fp4": true,
+        "head_bands": [
+          2,
+          3,
+          2
+        ],
+        "compute_graph": false,
+        "preencode_mp4": false,
+        "nvfp4_video_vae": false,
+        "transport": "flashinfer-pcie",
+        "rdma_route": "rdma",
+        "remaining_nccl_net": "IB",
+        "lossless_mode": null,
+        "direct_output_fusion": false,
+        "direct_input_fusion": false,
+        "routing_compaction": false,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        6.460907270200551,
+        6.38280679192394,
+        6.407273745164275
+      ],
+      "historical_median_seconds": 6.471706103533506,
+      "median_seconds": 6.407273745164275,
+      "minimum_seconds": 6.38280679192394,
+      "worst_seconds": 6.460907270200551,
+      "median_rtf": 1.240117499064053,
+      "median_latency_divided_by_nominal_5s": 1.281454749032855,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 0,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": false,
+      "strict_exact_runtime_guard": false,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f",
+          "decoded_sha256": {
+            "video": "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f",
+          "decoded_sha256": {
+            "video": "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f",
+          "decoded_sha256": {
+            "video": "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        }
+      ],
+      "peak_memory_mib": 61907,
+      "all_formal_mp4_match_historical_stage": true,
+      "telemetry": {
+        "requests": 3,
+        "max_temperature_c": 54.0,
+        "sm_clock_min_mhz": 2422.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 4310381,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 0.42522463388741016,
+      "incremental_speedup": 1.0663659226684887
+    },
+    {
+      "id": "06-cuda-graph",
+      "title": "Compute CUDA graphs",
+      "category": "engineering",
+      "steps": 8,
+      "stage_sha256": "1004a1ac86d26f8e94e706afb6a00562f4e255afe260dbd1f83cc07840336409",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "QAD f01",
+        "attention": {
+          "default": {
+            "backend": "FASTVIDEO_VSA",
+            "fastvideo_vsa_provider": "fastvideo",
+            "fastvideo_vsa_precision": "nvfp4"
+          }
+        },
+        "native_fp4": true,
+        "head_bands": [
+          2,
+          3,
+          2
+        ],
+        "compute_graph": true,
+        "preencode_mp4": false,
+        "nvfp4_video_vae": false,
+        "transport": "flashinfer-pcie",
+        "rdma_route": "rdma",
+        "remaining_nccl_net": "IB",
+        "lossless_mode": null,
+        "direct_output_fusion": false,
+        "direct_input_fusion": false,
+        "routing_compaction": false,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        6.201202904805541,
+        6.192990344949067,
+        6.187740738503635
+      ],
+      "historical_median_seconds": 6.201149457134306,
+      "median_seconds": 6.192990344949067,
+      "minimum_seconds": 6.187740738503635,
+      "worst_seconds": 6.201202904805541,
+      "median_rtf": 1.198643292570787,
+      "median_latency_divided_by_nominal_5s": 1.2385980689898133,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 0,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": false,
+      "strict_exact_runtime_guard": false,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f",
+          "decoded_sha256": {
+            "video": "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f",
+          "decoded_sha256": {
+            "video": "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "559c4dbad3d5f163c7e4d563c2e4120c82a8bd0db6b63ef62b6a47142a5f6e7f",
+          "decoded_sha256": {
+            "video": "SHA256=0908f0835fcd35208e7ab1eeed4b76bea8f3679c18ed3124f6ca87cb4921db17",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        }
+      ],
+      "peak_memory_mib": 62447,
+      "all_formal_mp4_match_historical_stage": true,
+      "telemetry": {
+        "requests": 2,
+        "max_temperature_c": 53.0,
+        "sm_clock_min_mhz": 2430.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 3156315,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 0.21428340021520853,
+      "incremental_speedup": 1.0346009582252902
+    },
+    {
+      "id": "07-vae-output",
+      "title": "36-layer NVFP4 VAE + MP4 pre-encoding",
+      "category": "precision/output change",
+      "steps": 8,
+      "stage_sha256": "a1d92779d612a4b7fc973b185385f2c9ac6a3ab8db692a115d93b39bac9ffedd",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "QAD f01",
+        "attention": {
+          "default": {
+            "backend": "FASTVIDEO_VSA",
+            "fastvideo_vsa_provider": "fastvideo",
+            "fastvideo_vsa_precision": "nvfp4"
+          }
+        },
+        "native_fp4": true,
+        "head_bands": [
+          2,
+          3,
+          2
+        ],
+        "compute_graph": true,
+        "preencode_mp4": true,
+        "nvfp4_video_vae": true,
+        "transport": "flashinfer-pcie",
+        "rdma_route": "rdma",
+        "remaining_nccl_net": "IB",
+        "lossless_mode": null,
+        "direct_output_fusion": false,
+        "direct_input_fusion": false,
+        "routing_compaction": false,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        5.419804787263274,
+        5.436306628398597,
+        5.408502637408674
+      ],
+      "historical_median_seconds": 5.417645109817386,
+      "median_seconds": 5.419804787263274,
+      "minimum_seconds": 5.408502637408674,
+      "worst_seconds": 5.436306628398597,
+      "median_rtf": 1.048994474954182,
+      "median_latency_divided_by_nominal_5s": 1.0839609574526547,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 0,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": true,
+      "strict_exact_runtime_guard": false,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        }
+      ],
+      "peak_memory_mib": 54315,
+      "all_formal_mp4_match_historical_stage": true,
+      "telemetry": {
+        "requests": 2,
+        "max_temperature_c": 49.0,
+        "sm_clock_min_mhz": 2482.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 0,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 0.7731855576857924,
+      "incremental_speedup": 1.1426593001103664
+    },
+    {
+      "id": "08-tile-aac",
+      "title": "Fused tile preparation + early AAC",
+      "category": "exact engineering",
+      "steps": 8,
+      "stage_sha256": "dca820977570828cae27cce55cc0a69fba452d7812f0523aed47444521bda356",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "QAD f01",
+        "attention": {
+          "default": {
+            "backend": "FASTVIDEO_VSA",
+            "fastvideo_vsa_provider": "fastvideo",
+            "fastvideo_vsa_precision": "nvfp4"
+          }
+        },
+        "native_fp4": true,
+        "head_bands": [
+          2,
+          3,
+          2
+        ],
+        "compute_graph": true,
+        "preencode_mp4": true,
+        "nvfp4_video_vae": true,
+        "transport": "flashinfer-pcie",
+        "rdma_route": "rdma",
+        "remaining_nccl_net": "IB",
+        "lossless_mode": "tile-and-aac",
+        "direct_output_fusion": false,
+        "direct_input_fusion": false,
+        "routing_compaction": false,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        5.193693041801453,
+        5.208181765861809,
+        5.190390857867897
+      ],
+      "median_seconds": 5.193693041801453,
+      "minimum_seconds": 5.190390857867897,
+      "worst_seconds": 5.208181765861809,
+      "median_rtf": 1.0052309113164102,
+      "median_latency_divided_by_nominal_5s": 1.0387386083602905,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 0,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": true,
+      "strict_exact_runtime_guard": true,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        }
+      ],
+      "peak_memory_mib": 54263,
+      "telemetry": {
+        "requests": 3,
+        "max_temperature_c": 53.0,
+        "sm_clock_min_mhz": 2482.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 0,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 0.22611174546182156,
+      "incremental_speedup": 1.0435358315637757
+    },
+    {
+      "id": "09-output-fusion",
+      "title": "Direct output packing",
+      "category": "exact engineering",
+      "steps": 8,
+      "stage_sha256": "e1c854edfcbfb13ff42688711f49d01447a252561baf76b0611a5251974f794e",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "QAD f01",
+        "attention": {
+          "default": {
+            "backend": "FASTVIDEO_VSA",
+            "fastvideo_vsa_provider": "fastvideo",
+            "fastvideo_vsa_precision": "nvfp4"
+          }
+        },
+        "native_fp4": true,
+        "head_bands": [
+          2,
+          3,
+          2
+        ],
+        "compute_graph": true,
+        "preencode_mp4": true,
+        "nvfp4_video_vae": true,
+        "transport": "flashinfer-pcie",
+        "rdma_route": "rdma",
+        "remaining_nccl_net": "IB",
+        "lossless_mode": "tile-and-aac",
+        "direct_output_fusion": true,
+        "direct_input_fusion": false,
+        "routing_compaction": false,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        5.154093466699123,
+        5.144334003329277,
+        5.147176703438163
+      ],
+      "median_seconds": 5.147176703438163,
+      "minimum_seconds": 5.144334003329277,
+      "worst_seconds": 5.154093466699123,
+      "median_rtf": 0.9962277490525476,
+      "median_latency_divided_by_nominal_5s": 1.0294353406876326,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 3,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": true,
+      "strict_exact_runtime_guard": true,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        }
+      ],
+      "peak_memory_mib": 54263,
+      "telemetry": {
+        "requests": 3,
+        "max_temperature_c": 53.0,
+        "sm_clock_min_mhz": 2482.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 0,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 0.04651633836328983,
+      "incremental_speedup": 1.0090372530502436
+    },
+    {
+      "id": "10-input-fusion",
+      "title": "Direct receive-to-tile input",
+      "category": "exact engineering",
+      "steps": 8,
+      "stage_sha256": "cc16f3ac00ec13363b921fd28a227f4c30704b69ab70d3fc392dcf0fefcdb6d4",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "QAD f01",
+        "attention": {
+          "default": {
+            "backend": "FASTVIDEO_VSA",
+            "fastvideo_vsa_provider": "fastvideo",
+            "fastvideo_vsa_precision": "nvfp4"
+          }
+        },
+        "native_fp4": true,
+        "head_bands": [
+          2,
+          3,
+          2
+        ],
+        "compute_graph": true,
+        "preencode_mp4": true,
+        "nvfp4_video_vae": true,
+        "transport": "flashinfer-pcie",
+        "rdma_route": "rdma",
+        "remaining_nccl_net": "IB",
+        "lossless_mode": "tile-and-aac",
+        "direct_output_fusion": true,
+        "direct_input_fusion": true,
+        "routing_compaction": false,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        5.059803321957588,
+        5.059752709232271,
+        5.05976936686784
+      ],
+      "median_seconds": 5.05976936686784,
+      "minimum_seconds": 5.059752709232271,
+      "worst_seconds": 5.059803321957588,
+      "median_rtf": 0.9793102000389368,
+      "median_latency_divided_by_nominal_5s": 1.011953873373568,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 3,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": true,
+      "strict_exact_runtime_guard": true,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        }
+      ],
+      "peak_memory_mib": 54165,
+      "telemetry": {
+        "requests": 2,
+        "max_temperature_c": 51.0,
+        "sm_clock_min_mhz": 2482.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 0,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 0.08740733657032251,
+      "incremental_speedup": 1.017274964575002
+    },
+    {
+      "id": "11-routing",
+      "title": "Integer routing compaction",
+      "category": "exact engineering",
+      "steps": 8,
+      "stage_sha256": "1cffb8f6350cd81ff9ce50ca2693e7e730632b9b5f53d3bf8634518b4d4e237e",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "QAD f01",
+        "attention": {
+          "default": {
+            "backend": "FASTVIDEO_VSA",
+            "fastvideo_vsa_provider": "fastvideo",
+            "fastvideo_vsa_precision": "nvfp4"
+          }
+        },
+        "native_fp4": true,
+        "head_bands": [
+          2,
+          3,
+          2
+        ],
+        "compute_graph": true,
+        "preencode_mp4": true,
+        "nvfp4_video_vae": true,
+        "transport": "flashinfer-pcie",
+        "rdma_route": "rdma",
+        "remaining_nccl_net": "IB",
+        "lossless_mode": "tile-and-aac",
+        "direct_output_fusion": true,
+        "direct_input_fusion": true,
+        "routing_compaction": true,
+        "producer_copy_elision": false
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        5.021161670796573,
+        5.014520030468702,
+        5.000941471196711
+      ],
+      "median_seconds": 5.014520030468702,
+      "minimum_seconds": 5.000941471196711,
+      "worst_seconds": 5.021161670796573,
+      "median_rtf": 0.9705522639616843,
+      "median_latency_divided_by_nominal_5s": 1.0029040060937404,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 0,
+      "below_full_clip_duration": 3,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": true,
+      "strict_exact_runtime_guard": true,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        }
+      ],
+      "peak_memory_mib": 54141,
+      "telemetry": {
+        "requests": 2,
+        "max_temperature_c": 51.0,
+        "sm_clock_min_mhz": 2482.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 0,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 0.045249336399137974,
+      "incremental_speedup": 1.009023662508914
+    },
+    {
+      "id": "12-copy-elision",
+      "title": "Producer copy elision",
+      "category": "exact engineering",
+      "steps": 8,
+      "stage_sha256": "0e980a3951060b5bfe6e9d63b27ad9044639cbd6b6ed69c372b705e4bec1676e",
+      "configuration": {
+        "steps": 8,
+        "gpus": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "model": "QAD f01",
+        "attention": {
+          "default": {
+            "backend": "FASTVIDEO_VSA",
+            "fastvideo_vsa_provider": "fastvideo",
+            "fastvideo_vsa_precision": "nvfp4"
+          }
+        },
+        "native_fp4": true,
+        "head_bands": [
+          2,
+          3,
+          2
+        ],
+        "compute_graph": true,
+        "preencode_mp4": true,
+        "nvfp4_video_vae": true,
+        "transport": "flashinfer-pcie",
+        "rdma_route": "rdma",
+        "remaining_nccl_net": "IB",
+        "lossless_mode": "tile-and-aac",
+        "direct_output_fusion": true,
+        "direct_input_fusion": true,
+        "routing_compaction": true,
+        "producer_copy_elision": true
+      },
+      "status": "measured_pending_quality_review",
+      "completed": true,
+      "samples": 3,
+      "measured_seconds": [
+        4.9350473042577505,
+        4.9224158665165305,
+        4.912399644963443
+      ],
+      "median_seconds": 4.9224158665165305,
+      "minimum_seconds": 4.912399644963443,
+      "worst_seconds": 4.9350473042577505,
+      "median_rtf": 0.9527256515838446,
+      "median_latency_divided_by_nominal_5s": 0.9844831733033061,
+      "under_4_5_seconds": 0,
+      "under_5_seconds": 3,
+      "below_full_clip_duration": 3,
+      "decoded_outputs_identical_within_stage": true,
+      "exact_to_retained_final_group": true,
+      "strict_exact_runtime_guard": true,
+      "outputs": [
+        {
+          "ordinal": 2,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 3,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        },
+        {
+          "ordinal": 4,
+          "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+          "decoded_sha256": {
+            "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+            "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+          }
+        }
+      ],
+      "peak_memory_mib": 54129,
+      "telemetry": {
+        "requests": 3,
+        "max_temperature_c": 51.0,
+        "sm_clock_min_mhz": 2482.0,
+        "sm_clock_max_mhz": 2617.0,
+        "thermal_counter_delta_us": 0,
+        "power_cap_counter_delta_us": 0,
+        "counters_complete": true,
+        "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+      },
+      "incremental_saved_seconds": 0.0921041639521718,
+      "incremental_speedup": 1.0187111707847942
+    }
+  ],
+  "final_recheck": {
+    "id": "13-final-recheck",
+    "title": "Final optimized configuration, repeated after baseline",
+    "category": "exact engineering",
+    "steps": 8,
+    "stage_sha256": "0e980a3951060b5bfe6e9d63b27ad9044639cbd6b6ed69c372b705e4bec1676e",
+    "configuration": {
+      "steps": 8,
+      "gpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "model": "QAD f01",
+      "attention": {
+        "default": {
+          "backend": "FASTVIDEO_VSA",
+          "fastvideo_vsa_provider": "fastvideo",
+          "fastvideo_vsa_precision": "nvfp4"
+        }
+      },
+      "native_fp4": true,
+      "head_bands": [
+        2,
+        3,
+        2
+      ],
+      "compute_graph": true,
+      "preencode_mp4": true,
+      "nvfp4_video_vae": true,
+      "transport": "flashinfer-pcie",
+      "rdma_route": "rdma",
+      "remaining_nccl_net": "IB",
+      "lossless_mode": "tile-and-aac",
+      "direct_output_fusion": true,
+      "direct_input_fusion": true,
+      "routing_compaction": true,
+      "producer_copy_elision": true
+    },
+    "status": "measured_pending_quality_review",
+    "completed": true,
+    "samples": 3,
+    "measured_seconds": [
+      4.925456894561648,
+      4.927015350200236,
+      4.946227044798434
+    ],
+    "median_seconds": 4.927015350200236,
+    "minimum_seconds": 4.925456894561648,
+    "worst_seconds": 4.946227044798434,
+    "median_rtf": 0.9536158742323037,
+    "median_latency_divided_by_nominal_5s": 0.9854030700400471,
+    "under_4_5_seconds": 0,
+    "under_5_seconds": 3,
+    "below_full_clip_duration": 3,
+    "decoded_outputs_identical_within_stage": true,
+    "exact_to_retained_final_group": true,
+    "strict_exact_runtime_guard": true,
+    "outputs": [
+      {
+        "ordinal": 2,
+        "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+        "decoded_sha256": {
+          "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+          "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+        }
+      },
+      {
+        "ordinal": 3,
+        "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+        "decoded_sha256": {
+          "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+          "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+        }
+      },
+      {
+        "ordinal": 4,
+        "mp4_sha256": "d342af290f2c2c77cc7119269e01f2522ccd36594a445fc6fec59e65356e6282",
+        "decoded_sha256": {
+          "video": "SHA256=1c7d62541ba5119fb25a73da7dd698ab057b73baf77b03106ba0cf61d5ce359d",
+          "audio": "SHA256=5aea4420531f3d1f867dc00540e2e605b39262ba54ee5b04978a815b98149a93"
+        }
+      }
+    ],
+    "peak_memory_mib": 54027,
+    "telemetry": {
+      "requests": 3,
+      "max_temperature_c": 52.0,
+      "sm_clock_min_mhz": 2482.0,
+      "sm_clock_max_mhz": 2617.0,
+      "thermal_counter_delta_us": 0,
+      "power_cap_counter_delta_us": 0,
+      "counters_complete": true,
+      "note": "Counters bracket HTTP timing and include boundary overhang; summed across GPUs. Not recoverable latency."
+    }
+  },
+  "limitations": [
+    "Three formal samples per cohort do not characterize p95 or sustained real-time reliability.",
+    "Reverse chronological execution may contain time/temperature drift; the final configuration is repeated at the end.",
+    "PDD, VSA checkpoint/runtime, QAD precision, and NVFP4 VAE are not all lossless changes.",
+    "Exact engineering means byte equality on this retained request, not a universal perceptual-quality guarantee.",
+    "This standalone case does not measure ASR, LLM, queueing, browser playback, or rolling history.",
+    "Historical measurements are separate from the fresh reverse run; pending cells are never filled with old data."
+  ],
+  "final_recheck_drift_percent": 0.09343955911957913
+}

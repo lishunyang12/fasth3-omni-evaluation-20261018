@@ -1,0 +1,30 @@
+{
+  "status": "measured",
+  "version": "v1.41",
+  "slides": 22,
+  "hidden": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "visible": 13,
+  "updated_slides": [
+    6,
+    7,
+    18
+  ],
+  "added_slide": 21,
+  "closing_slide": 22,
+  "protected_parts": 70,
+  "pptx_sha256": "f5de5149943c47b05c3870747f601f772fe9ab36f1d6eac2abc1eba77b3a0f5c",
+  "source_pptx_sha256": "18190385ed1b810504b88e73009ffb37aacf0517ae8ab092d695cd9456a92b83",
+  "benchmark_completed": 13,
+  "benchmark_total": 13,
+  "generated_at": "2026-10-30T07:09:47.601425+00:00"
+}
