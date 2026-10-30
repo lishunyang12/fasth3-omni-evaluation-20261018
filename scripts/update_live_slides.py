@@ -104,6 +104,7 @@ def main():
                                   ('demo-config.html', 'Live demo pipeline and setup', demo_slides),
                                   ('continuation.html', 'How avatar continuation works', [roles['continuation']] if 'continuation' in roles else []),
                                   ('takeaways.html', 'Key takeaways and next steps', [roles['takeaways']] if 'takeaways' in roles else []),
+                                  ('creators.html', 'Creator workflows and community', roles.get('creators', []) + ([roles['community']] if 'community' in roles else [])),
                                   ('demo-video.html', 'Play or download the recorded demo', [recording['slide']] if recording_path.is_file() else [])]:
         if (folder/name).is_file():
             related.append(dict(label=label, url=f'{version}/{name}', slides=numbers))

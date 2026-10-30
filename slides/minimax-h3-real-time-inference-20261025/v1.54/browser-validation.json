@@ -1,0 +1,50 @@
+{
+  "status": "pass",
+  "version": "v1.54",
+  "revision": "8448c37997c10ca12c539be4ea0091e04f1b224d28fe3c5eb3982826e5c94f23",
+  "slides": 41,
+  "visible": 15,
+  "visible_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "new_optimization_slides": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "original_detail_accessible": true,
+  "baseline_slide": 4,
+  "final_result_slide": 9,
+  "optimization_ladder_slide": 36,
+  "pipeline_slide": 10,
+  "recording_slide": 11,
+  "video_playback": true,
+  "video_seek": true,
+  "correct_links": true,
+  "creator_slides": [
+    13,
+    14
+  ],
+  "official_closing_slide": 15,
+  "media": {
+    "duration": 74.55,
+    "width": 3168,
+    "height": 1822
+  },
+  "errors": []
+}
