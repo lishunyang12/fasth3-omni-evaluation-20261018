@@ -4,8 +4,8 @@
   "visible_slides": 12,
   "optional_detail_slides": 9,
   "protected_embedded_videos": 5,
-  "source_pptx_sha256": "8cf03c3b6e6894b34273e3b4c460a54e7cc287c9f27107710eba2f47604f47b1",
-  "pdf_sha256": "284ff4d68e24f686e84e58e00e4c64804a95cdec7b6b95d53d39f5537fb63e4e",
+  "source_pptx_sha256": "6e7db3e279341d5d9f52bb8683d4f42cf7684fec502d94ca461d33a9cb7d62ab",
+  "pdf_sha256": "724f291431a6cf0e894b85a86bd32b99dc5d4a394834e020be6acd56adb67855",
   "actual_pdf_text_checked": true,
   "new_slide_geometry_inside_canvas": true,
   "visual_review": "pass",
@@ -13,10 +13,17 @@
   "export_copy": "Audit copy shows hidden slides and substitutes static video posters; editable PPTX retains original videos",
   "microsoft_powerpoint_playback_verified": false,
   "visually_reviewed_slides": [
+    1,
+    2,
     3,
     4,
     5,
+    9,
+    10,
+    16,
     17,
-    19
+    18,
+    19,
+    20
   ]
 }

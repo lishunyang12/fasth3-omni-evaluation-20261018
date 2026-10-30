@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "title": "Toward Real-Time Generation With MiniMax H3",
+  "title": "SM12x Inference Optimization with vLLM",
   "version": "v1.51",
   "slides": [
     {
       "number": 1,
-      "title": "Toward Real-Time Generation With MiniMax H3",
+      "title": "SM12x Inference Optimization with vLLM",
       "image": "v1.51/preview/slide-01.png",
-      "sha256": "e1ef58b146451870e00b7eeae73fca247cd89df8159e2f5ccb379cc41c608c32",
+      "sha256": "1d7e51f64d57a1f27aabd5cd3dc3c5706c8f7e4866e0b1440c90d75386212098",
       "hidden": false
     },
     {
       "number": 2,
-      "title": "Real-Time Ref2VA Raises the Systems Bar",
+      "title": "Real Time Is an End-to-End Budget",
       "image": "v1.51/preview/slide-02.png",
-      "sha256": "5b53e4d017301d0797a2b2cbd3451c4436dbf91e305257fa7e4d8f18ae938498",
+      "sha256": "5c37d89e3139ca82910cb277f3d6cfde84a7535cb8a83a7155bae634d14bc939",
       "hidden": false
     },
     {
@@ -61,16 +61,16 @@
     },
     {
       "number": 9,
-      "title": "Prior Study: Quantization Quality",
+      "title": "Quantization: Speed Needs a Quality Check",
       "image": "v1.51/preview/slide-09.png",
-      "sha256": "fe42e28c03283b50cbae21319e0731f507bd237388c7d82546e0d3419f711add",
+      "sha256": "377a47b1b2096e25ed379c442255a20dab36502d1f6623022da85c85cb27f26a",
       "hidden": true
     },
     {
       "number": 10,
-      "title": "Three Ideas Behind Faster Generation",
+      "title": "Three Lessons for Real-Time Inference",
       "image": "v1.51/preview/slide-10.png",
-      "sha256": "c2861e94f29caad15a1a113077aa5782d0ee833ff31300965ff97c5a397011e4",
+      "sha256": "8c2dd47b3387132de843b6d5cfcb07aad9e4948bb4303f4c77eadc362cd40460",
       "hidden": false
     },
     {
@@ -110,23 +110,23 @@
     },
     {
       "number": 16,
-      "title": "Optimization Path: E2E Speedup",
+      "title": "Real Time Comes from the Whole Pipeline",
       "image": "v1.51/preview/slide-16.png",
-      "sha256": "39bdb6948fe755ea6feedcbd2bdab1b6942f35bfa5ca2cfaa9b9607e38192f86",
+      "sha256": "22d43a736561fe973f2c7b699f175d76d1e480b9a98fd53517f65c815509ec7a",
       "hidden": false
     },
     {
       "number": 17,
-      "title": "Live Avatar: From a Question to a Video",
+      "title": "Real-Time Interaction Needs the Full Loop",
       "image": "v1.51/preview/slide-17.png",
-      "sha256": "417aa46faab19a357017d61795857923576b5025790cd74f1ab4402e555b6d97",
+      "sha256": "8b46f0f6220b4fca393179f012431dbd5842907e98596adb22a402e7fa338fd7",
       "hidden": false
     },
     {
       "number": 18,
-      "title": "Continuation: Two Clips, One Timeline",
+      "title": "Continuation Makes Clips Feel Continuous",
       "image": "v1.51/preview/slide-18.png",
-      "sha256": "e45d8c09ecc71fc5c8f89c36bcfdb25354241a64db77273ac05c3e14df18df47",
+      "sha256": "a24f179e08945e5f3f424e98f8ca8bdf252ca8fdca16107ba154718adb6be42c",
       "hidden": false
     },
     {
@@ -143,7 +143,7 @@
       "number": 20,
       "title": "Takeaways",
       "image": "v1.51/preview/slide-20.png",
-      "sha256": "6f15128afb10e167715bd3261ec05c71439996ad20fb9609f187dfc6f8523da3",
+      "sha256": "dd07d50d9064db2ec9483d9bd437687191d668cadb5d1aa649cad4fb959ce32c",
       "hidden": false
     },
     {
@@ -165,6 +165,13 @@
       "url": "v1.51/baseline-breakdown.html",
       "slides": [
         5
+      ]
+    },
+    {
+      "label": "Play slide 9 videos",
+      "url": "v1.51/four-videos.html",
+      "slides": [
+        9
       ]
     },
     {
@@ -200,13 +207,6 @@
       "url": "v1.51/demo-video.html",
       "slides": [
         19
-      ]
-    },
-    {
-      "label": "Prior quantization quality videos",
-      "url": "v1.40/four-videos.html",
-      "slides": [
-        9
       ]
     },
     {
@@ -284,6 +284,6 @@
       "url": "historical-v1.36.html"
     }
   ],
-  "revision": "96250514833e1afeb3469e9f53c6cf518d7bce95e98f546c0f3d0663dc55550d",
-  "updated_at_utc": "2026-10-30T15:53:26.827712+00:00"
+  "revision": "1b8d1bd4f75b3d9a1da744fa124e1cf539048acda2acb4e1d0d5c3fdee0a2194",
+  "updated_at_utc": "2026-10-30T16:07:45.183570+00:00"
 }

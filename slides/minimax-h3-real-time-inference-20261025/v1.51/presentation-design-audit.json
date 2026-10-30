@@ -1,9 +1,17 @@
 {
   "status": "pass",
-  "pptx_sha256": "8cf03c3b6e6894b34273e3b4c460a54e7cc287c9f27107710eba2f47604f47b1",
+  "pptx_sha256": "6e7db3e279341d5d9f52bb8683d4f42cf7684fec502d94ca461d33a9cb7d62ab",
   "modified_slides": [
+    1,
+    2,
     3,
-    4
+    4,
+    9,
+    10,
+    16,
+    17,
+    18,
+    20
   ],
   "title": "SM120 Cards",
   "visible_specification_columns": [
@@ -29,5 +37,8 @@
   ],
   "native_editable_tables": true,
   "template_parts_and_embedded_media_preserved": true,
-  "source_evidence": "hardware-specifications.json"
+  "source_evidence": "hardware-specifications.json",
+  "cover": "Presenter-supplied title, speaker and date",
+  "narrative": "Insight-led presentation with measured evidence, demo and actionable takeaways",
+  "comparison": "Method names and one-decimal BF16-relative ratios; exact evidence in notes and video-comparison.json"
 }

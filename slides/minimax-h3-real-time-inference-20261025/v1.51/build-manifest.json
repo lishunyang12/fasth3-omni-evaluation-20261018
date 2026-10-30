@@ -15,32 +15,40 @@
     15
   ],
   "titles": [
-    "Toward Real-Time Generation With MiniMax H3",
-    "Real-Time Ref2VA Raises the Systems Bar",
+    "SM12x Inference Optimization with vLLM",
+    "Real Time Is an End-to-End Budget",
     "SM120 Cards",
     "SM120 Cards",
     "Baseline: Latency Breakdown",
     "Few-Step Distillation",
     "Sparse Attention",
     "FastH3 Omni: Quantization-Aware Distillation",
-    "Prior Study: Quantization Quality",
-    "Three Ideas Behind Faster Generation",
+    "Quantization: Speed Needs a Quality Check",
+    "Three Lessons for Real-Time Inference",
     "Eight-GPU Topology",
     "Local NCCL to RDMA",
     "vLLM-Omni Ulysses: NCCL Implementation",
     "Pipeline Ulysses by Head Bands",
     "Head Bands Make CUDA Graph More Valuable",
-    "Optimization Path: E2E Speedup",
-    "Live Avatar: From a Question to a Video",
-    "Continuation: Two Clips, One Timeline",
+    "Real Time Comes from the Whole Pipeline",
+    "Real-Time Interaction Needs the Full Loop",
+    "Continuation Makes Clips Feel Continuous",
     "Live Avatar: Recorded Conversation",
     "Takeaways",
     "Closing slide"
   ],
   "added_slide": 4,
   "modified_slides": [
+    1,
+    2,
     3,
-    4
+    4,
+    9,
+    10,
+    16,
+    17,
+    18,
+    20
   ],
   "slide_roles": {
     "hardware": [
@@ -60,12 +68,14 @@
   },
   "recording_slide": 19,
   "recording_status": "retained_unchanged",
-  "pptx_sha256": "8cf03c3b6e6894b34273e3b4c460a54e7cc287c9f27107710eba2f47604f47b1",
+  "pptx_sha256": "6e7db3e279341d5d9f52bb8683d4f42cf7684fec502d94ca461d33a9cb7d62ab",
   "source_pptx_sha256": "c19330404a659ed6644caef09cc74a5906d4a4b01239a1eebf931251c0f61f8a",
   "new_measurements": false,
   "new_generation": false,
   "raw_trace_uploaded": false,
   "source_scripts_sha256": {
-    "build_release.py": "947114fc9a4e3fde605a15a72cd0f1cc3180aac831b448f4a7cc48868f00d916"
-  }
+    "build_release.py": "947114fc9a4e3fde605a15a72cd0f1cc3180aac831b448f4a7cc48868f00d916",
+    "update_cover_and_insights.py": "dc6e6a656e7e1ee66afbbfcbefb8dbacc73feca3bc06d59843254aebbdb312d2"
+  },
+  "narrative": "Insight-led presentation with measured evidence, demo and actionable takeaways"
 }
