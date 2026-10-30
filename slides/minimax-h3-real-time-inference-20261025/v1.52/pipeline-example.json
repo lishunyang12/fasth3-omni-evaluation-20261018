@@ -1,0 +1,30 @@
+{
+  "user_question_english": "Hi, could you introduce yourself?",
+  "user_question_scope": "English translation of the recorded Chinese user question",
+  "llm_reply": "Hi, I'm Miles. I help with simple, clear answers.",
+  "reply_scope": "LLM reply preview; not verified H3 audio transcription",
+  "h3_input": "Reply text plus reference portrait, reference voice and scene/speaking instructions",
+  "recording": "media/live-avatar-recording.mp4",
+  "new_generation": false,
+  "h3_prompt_english": "Generate a 5.167-second window of one ongoing avatar conversation, 960 by 544, 24 fps. Keep the reference man with a brown beard, baseball cap, open pale blue shirt and white undershirt, in the same beige room with the ceiling fan and soft indoor lighting. Use a fixed eye-level medium close-up. Inherit the incoming gaze, head pose and hand position from the preceding window.\n0.000-0.208 seconds: continue the incoming motion and quiet room tone across the hidden overlap.\n0.208-3.541 seconds: The man says exactly this English dialogue in his reference voice: \"Hi, I'm Miles. I help with simple, clear answers.\". Say it once, with no additional words. His lips follow the words. Keep small natural facial and hand movements.\n3.541-5.167 seconds: stop speaking, close the lips and listen quietly. Take a gentle nasal breath with a subtle matching chest movement, ready for the next conversational window.\nKeep one speaker and the same identity, clothes, background, camera and lighting. Audio: one dry, close-miked natural speaking voice only during the specified dialogue, then soft unvoiced nasal breathing over a very low steady indoor noise floor. Breathing is much quieter than the dialogue and follows the chest movement. No additional words or whispering. No background music, musical instruments, brass, trumpet, added sound effects, humming or overlapping voices. No scene cut, fade, title or subtitles. Do not repeat the greeting or reset the pose.",
+  "prompt_template_sha256": "071f295dcd7d1cade660cc7d14cfb81c4e49db3d4fd6e6c868d68ed9150657e2",
+  "reference_image": "media/reference.png",
+  "reference_image_sha256": "560c094f9900ea762227f84481ca8a2f73adac69963e0d1a78563bec1844d6b8",
+  "reference_image_scope": "Actual input image supplied to H3 by the live demo; verified against workload.json",
+  "closed_loop": {
+    "slide": 21,
+    "forward": [
+      "User speech",
+      "Qwen3-ASR-0.6B",
+      "Recognized text",
+      "Qwen3-4B reply + scene instructions",
+      "H3",
+      "Avatar video and audio"
+    ],
+    "return": "Generated voice played back to the user",
+    "output_frame": "media/clip-a-ending.png",
+    "output_frame_sha256": "d321d9013a1bdd7e6cd96da79f3caba7ddcc0905a2884fd04183d1b6bc576162",
+    "output_frame_scope": "Previously generated frame from the validated interactive demo session; illustrative of avatar output, not verified alignment to the displayed reply",
+    "asr_model_source": "demo-config.json"
+  }
+}

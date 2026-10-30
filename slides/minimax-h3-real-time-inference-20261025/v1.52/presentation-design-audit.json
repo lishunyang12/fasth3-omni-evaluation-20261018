@@ -1,0 +1,55 @@
+{
+  "status": "pass",
+  "pptx_sha256": "a7d7548a3614f5425d13876dc894c0c1066e46061def6e4ed8da08435a9ab584",
+  "new_slides": [
+    16,
+    17,
+    18,
+    19
+  ],
+  "original_material_retained": true,
+  "hidden_original_optimization": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "visible_slides": [
+    1,
+    2,
+    4,
+    5,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    23,
+    24,
+    25
+  ],
+  "planned_seconds": 690,
+  "native_editable_diagrams": true,
+  "template_and_embedded_media_preserved": true,
+  "palette": [
+    "000000",
+    "FFFFFF",
+    "313131",
+    "A7A7A7",
+    "F7F7F7",
+    "ECECEC",
+    "76B900"
+  ],
+  "fonts": [
+    "NVIDIA Sans",
+    "NVIDIA Sans Medium"
+  ],
+  "new_measurements": false
+}

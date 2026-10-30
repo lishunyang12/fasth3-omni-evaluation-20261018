@@ -1,0 +1,117 @@
+{
+  "target_minutes": "10–15",
+  "planned_seconds": 690,
+  "visible_slides": [
+    1,
+    2,
+    4,
+    5,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    23,
+    24,
+    25
+  ],
+  "new_optimization_slides": [
+    16,
+    17,
+    18,
+    19
+  ],
+  "original_optimization_slides_hidden": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "other_hidden_detail": [
+    3,
+    22
+  ],
+  "schedule": [
+    {
+      "slide": 1,
+      "title": "Toward Real-time Generation with MiniMax H3",
+      "suggested_seconds": 20
+    },
+    {
+      "slide": 2,
+      "title": "Real Time Is an End-to-End Budget",
+      "suggested_seconds": 40
+    },
+    {
+      "slide": 4,
+      "title": "SM120 Cards",
+      "suggested_seconds": 40
+    },
+    {
+      "slide": 5,
+      "title": "Baseline: Latency Breakdown",
+      "suggested_seconds": 60
+    },
+    {
+      "slide": 16,
+      "title": "Optimization - Distillation",
+      "suggested_seconds": 60
+    },
+    {
+      "slide": 17,
+      "title": "Optimization - Video Sparse Attention + NVFP4",
+      "suggested_seconds": 70
+    },
+    {
+      "slide": 18,
+      "title": "Optimization - Comms",
+      "suggested_seconds": 75
+    },
+    {
+      "slide": 19,
+      "title": "Optimization - Comms",
+      "suggested_seconds": 75
+    },
+    {
+      "slide": 20,
+      "title": "Real Time Comes from the Whole Pipeline",
+      "suggested_seconds": 60
+    },
+    {
+      "slide": 21,
+      "title": "Real-Time Interaction Needs the Full Loop",
+      "suggested_seconds": 40
+    },
+    {
+      "slide": 23,
+      "title": "Live Avatar: Recorded Conversation",
+      "suggested_seconds": 90
+    },
+    {
+      "slide": 24,
+      "title": "Takeaways",
+      "suggested_seconds": 55
+    },
+    {
+      "slide": 25,
+      "title": "Closing slide",
+      "suggested_seconds": 5
+    }
+  ],
+  "comms_speedup": {
+    "source": "benchmark-data.json",
+    "from_stage": "03-qad-native-fp4",
+    "to_stage": "06-cuda-graph",
+    "ratio": 3.1423113382748515,
+    "display": "3.1× faster",
+    "scope": "Grouped E2E result; not an isolated RDMA gain"
+  },
+  "new_measurements": false
+}

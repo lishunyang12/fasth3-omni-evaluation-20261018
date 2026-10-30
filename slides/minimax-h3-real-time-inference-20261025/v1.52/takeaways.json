@@ -1,0 +1,18 @@
+{
+  "slide": 24,
+  "points": [
+    {
+      "title": "Multi-GPU optimization starts with topology",
+      "body": "Map GPU/NIC links and locate communication bottlenecks.\nUse available bandwidth efficiently, or reduce data transfer.\nCommunication is a key source of lossless speedups."
+    },
+    {
+      "title": "Evaluate quantization case by case",
+      "body": "Lossy quantization behaves differently across models and workloads.\nMeasure quality and latency on representative cases."
+    },
+    {
+      "title": "Next: real-time response and richer interaction",
+      "body": "Autoregressive diffusion for lower response latency.\nPrompt enhancers for richer interaction."
+    }
+  ],
+  "scope": "User-requested conclusions and future directions; no new benchmark"
+}
