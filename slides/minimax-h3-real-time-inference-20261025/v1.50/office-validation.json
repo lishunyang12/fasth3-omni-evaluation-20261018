@@ -4,8 +4,8 @@
   "visible_slides": 11,
   "optional_detail_slides": 9,
   "protected_embedded_videos": 5,
-  "source_pptx_sha256": "b11d13e9947c9202d8bafc7429a6b1986a8391b273891d8787cee1d50ba63875",
-  "pdf_sha256": "73ca558f8ac65b937fcafd6e4099fd519cf8eb5c7287e3bf90ba6442816714fe",
+  "source_pptx_sha256": "77d9861a301de099cdcbe004799dee9bc97673fbe1519a1bebd9a8479200e83d",
+  "pdf_sha256": "8c7da6c067659fd43d88461eb766d6b5536971352c6b61fb7e0e0bad2c4a0a3c",
   "actual_pdf_text_checked": true,
   "new_slide_geometry_inside_canvas": true,
   "visual_review": "pass",
@@ -25,5 +25,9 @@
   "cover_correction_rendered_slides": [
     1
   ],
-  "unchanged_slides_inherit_prior_review": true
+  "unchanged_slides_inherit_prior_review": true,
+  "cover_date_correction_visual_review": "pass",
+  "cover_date_correction_rendered_slides": [
+    1
+  ]
 }

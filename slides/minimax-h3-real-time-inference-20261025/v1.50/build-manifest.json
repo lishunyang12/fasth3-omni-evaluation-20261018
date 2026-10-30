@@ -59,15 +59,16 @@
   },
   "recording_slide": 18,
   "recording_status": "retained_unchanged",
-  "pptx_sha256": "b11d13e9947c9202d8bafc7429a6b1986a8391b273891d8787cee1d50ba63875",
-  "source_pptx_sha256": "e54bebada4b55b40dae6c017968d5c40e9d8b8474b13db177b84bb947e88f3c1",
+  "pptx_sha256": "77d9861a301de099cdcbe004799dee9bc97673fbe1519a1bebd9a8479200e83d",
+  "source_pptx_sha256": "b11d13e9947c9202d8bafc7429a6b1986a8391b273891d8787cee1d50ba63875",
   "new_measurements": false,
   "new_generation": false,
   "raw_trace_uploaded": false,
   "template_audit": "presentation-design-audit.json",
   "source_scripts_sha256": {
     "build_release.py": "3bc467c8a9f211b27c76a8155ae36d6d969f434c41776dad3c557cb334ab6704",
-    "update_cover.py": "8f7cf46b78ba3ab0cc4e7526cd93ac5349fd3b3e4440f0666b2b4fc8af43e7fb"
+    "update_cover.py": "8f7cf46b78ba3ab0cc4e7526cd93ac5349fd3b3e4440f0666b2b4fc8af43e7fb",
+    "update_cover_date.py": "57e9afddcaaf041181d610d2358a26029620be3851a63ef056171f245d1098da"
   },
   "cover_correction": {
     "slide": 1,
@@ -75,5 +76,12 @@
     "after": "NVIDIA Devtech",
     "only_changed_pptx_part": "ppt/slides/slide1.xml",
     "date_utc": "2026-10-30T14:53:55.790204+00:00"
+  },
+  "cover_date_correction": {
+    "slide": 1,
+    "before": "27 Oct 2026",
+    "after": "1 Nov 2026",
+    "only_changed_pptx_part": "ppt/slides/slide1.xml",
+    "date_utc": "2026-10-30T15:19:08.901010+00:00"
   }
 }

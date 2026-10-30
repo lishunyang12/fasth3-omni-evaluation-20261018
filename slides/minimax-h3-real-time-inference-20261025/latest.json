@@ -7,7 +7,7 @@
       "number": 1,
       "title": "Toward Real-Time Generation With MiniMax H3",
       "image": "v1.50/preview/slide-01.png",
-      "sha256": "3856e632768d2c74c592ed2c70b8259c247480a4f5788702bc3747126d722288",
+      "sha256": "e1ef58b146451870e00b7eeae73fca247cd89df8159e2f5ccb379cc41c608c32",
       "hidden": false
     },
     {
@@ -273,6 +273,6 @@
       "url": "historical-v1.36.html"
     }
   ],
-  "revision": "a629820ad8ff989847245e64725ae3f078074f9ffb370b16e35acc67c852bf25",
-  "updated_at_utc": "2026-10-30T14:53:55.975166+00:00"
+  "revision": "793b64fc0701bcb46a030992674654aeaa9444dd7c83be26bed6047f15b0b129",
+  "updated_at_utc": "2026-10-30T15:19:09.087882+00:00"
 }
