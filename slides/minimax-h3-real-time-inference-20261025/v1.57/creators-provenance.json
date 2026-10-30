@@ -1,0 +1,26 @@
+{
+  "verified_date": "2026-10-31",
+  "upstream_commit": "08177216af4b44cef54ec5bdc75c265a9f0cd697",
+  "comfyui_scope": "Existing upstream main integration; feature availability depends on served model and API; no inference executed for these slides",
+  "upstream_readme": "https://github.com/vllm-project/vllm-omni/tree/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni",
+  "documentation": "https://docs.vllm.ai/projects/vllm-omni/en/latest/features/comfyui/",
+  "studio": {
+    "status": "planned_open_source_release",
+    "name": "Video Studio",
+    "name_status": "working_title",
+    "source": "Presenter-provided plan",
+    "repository": null,
+    "release_date": null,
+    "implementation_verified": false
+  },
+  "official_closing": {
+    "source_filename": "vLLM-Omni Slides (Public) 2026-04 latest (1).pptx",
+    "source_sha256": "1f457b63851bf0bd1d9a3cb8a1b8d7765b8507a1ae83a29f20df62ca405d8b72",
+    "source_slide": 45,
+    "copied_slide": 15,
+    "copy_mode": "Full source-slide image; content and design retained; hyperlinks preserved with transparent overlays",
+    "image_sha256": "3fc21d2f68cf64eaa82a3950830a5fd3f51e811bd0292c1b4761071288d98dad",
+    "source_page": "sources/official-closing-source.pptx",
+    "current_community": "https://github.com/vllm-project/vllm-omni#join-the-community"
+  }
+}

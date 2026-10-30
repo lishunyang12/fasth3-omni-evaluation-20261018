@@ -1,0 +1,148 @@
+{
+  "target_minutes": "10–15",
+  "planned_seconds": 790,
+  "visible_slides": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "original_slide_mapping": {
+    "1": 17,
+    "2": 18,
+    "3": 19,
+    "4": 20,
+    "5": 21,
+    "6": 22,
+    "7": 23,
+    "8": 24,
+    "9": 25,
+    "10": 26,
+    "11": 27,
+    "12": 28,
+    "13": 29,
+    "14": 30,
+    "15": 31,
+    "16": 32,
+    "17": 33,
+    "18": 34,
+    "19": 35,
+    "20": 36,
+    "21": 37,
+    "22": 38,
+    "23": 39,
+    "24": 40,
+    "25": 41
+  },
+  "schedule": [
+    {
+      "slide": 1,
+      "title": "Toward Real-time Generation with MiniMax H3",
+      "suggested_seconds": 20
+    },
+    {
+      "slide": 2,
+      "title": "MiniMax H3 in Context",
+      "suggested_seconds": 40
+    },
+    {
+      "slide": 3,
+      "title": "SM120 Cards",
+      "suggested_seconds": 40
+    },
+    {
+      "slide": 4,
+      "title": "Baseline: Latency Breakdown",
+      "suggested_seconds": 60
+    },
+    {
+      "slide": 5,
+      "title": "Optimization - Distillation",
+      "suggested_seconds": 60
+    },
+    {
+      "slide": 6,
+      "title": "Optimization - Video Sparse Attention + NVFP4",
+      "suggested_seconds": 70
+    },
+    {
+      "slide": 7,
+      "title": "Optimization - Comms",
+      "suggested_seconds": 75
+    },
+    {
+      "slide": 8,
+      "title": "Optimization - Comms",
+      "suggested_seconds": 75
+    },
+    {
+      "slide": 9,
+      "title": "From Minutes to Real Time",
+      "suggested_seconds": 90
+    },
+    {
+      "slide": 10,
+      "title": "From a Question to a Reply",
+      "suggested_seconds": 40
+    },
+    {
+      "slide": 11,
+      "title": "Live Demo",
+      "suggested_seconds": 50
+    },
+    {
+      "slide": 12,
+      "title": "Takeaways",
+      "suggested_seconds": 55
+    },
+    {
+      "slide": 13,
+      "title": "vLLM-Omni for Creators — ComfyUI",
+      "suggested_seconds": 45
+    },
+    {
+      "slide": 14,
+      "title": "vLLM-Omni for Creators — Video Studio",
+      "suggested_seconds": 45
+    },
+    {
+      "slide": 15,
+      "title": "vLLM-Omni Networking Hour!",
+      "suggested_seconds": 25
+    }
+  ],
+  "comms_speedup": {
+    "ratio": 3.1423113382748515,
+    "display": "3.1× faster",
+    "scope": "Grouped E2E stages 03 through 06"
+  },
+  "overall_speedup": {
+    "source": "benchmark-data.json",
+    "from_stage": "00-base50",
+    "to_stage": "12-copy-elision",
+    "baseline_seconds": 213.40215269569308,
+    "final_seconds": 4.9224158665165305,
+    "ratio": 43.35313359996793,
+    "display": "43.4× faster",
+    "media_seconds": 5.166666666666667,
+    "rtf": 0.9527256515838446,
+    "scope": "Recorded overall E2E medians; baseline refreshed separately; model, schedule and precision changes included; standalone H3"
+  },
+  "new_measurements": false,
+  "expanded_content": {
+    "hardware": "Compute-rich, bandwidth-modest, explicitly inter-GPU communication",
+    "comms": "Audited local-only NCCL source replay and FI RDMA route example with matched rates",
+    "ladder": "Main slide 9 restored; stages 08–12 grouped; prior displayed row speedup"
+  }
+}
