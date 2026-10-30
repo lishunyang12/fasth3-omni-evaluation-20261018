@@ -1,0 +1,823 @@
+{
+  "status": "pass",
+  "profiled_http_seconds": 214.9683357188478,
+  "unprofiled_median_seconds": 213.40215269569308,
+  "unprofiled_samples": 2,
+  "unprofiled_individual_seconds": [
+    214.70544344000518,
+    212.09886195138097
+  ],
+  "configuration": {
+    "model": "Original Ref2VA",
+    "steps": 50,
+    "dit_precision": "BF16",
+    "attention": "Dense cuDNN; SDPA token refiner",
+    "width": 960,
+    "height": 544,
+    "frames": 124,
+    "fps": 24,
+    "seed": 43,
+    "gpus": 8,
+    "architecture": "SM120",
+    "vram_mib_per_gpu": 73415,
+    "parallelism": "TP1 / Ulysses8 / text encoder TP8 / VAE tiles8",
+    "transport": "Local NCCL; RDMA disabled",
+    "decoder": "Native unquantized VAE; FP16 decode autocast",
+    "conditioning": "Exact AdaLN projections computed before timing and resident on GPU"
+  },
+  "operator_breakdown": {
+    "status": "pass",
+    "devices": 8,
+    "denominator_ns": 1708417910041,
+    "denominator": "Sum of kernel, CUDA memcpy and CUDA memset durations across all eight GPUs in the single profiled request interval.",
+    "rows": [
+      {
+        "category": "GEMM",
+        "mean_seconds_per_gpu": 39.6496529745,
+        "aggregate_gpu_seconds": 317.197223796,
+        "share_percent": 18.566723161336306,
+        "instances": 107147,
+        "average_duration_us": 2960.392953568462
+      },
+      {
+        "category": "Attention",
+        "mean_seconds_per_gpu": 47.105474658375,
+        "aggregate_gpu_seconds": 376.843797267,
+        "share_percent": 22.0580570510383,
+        "instances": 25196,
+        "average_duration_us": 14956.492985672328
+      },
+      {
+        "category": "NCCL",
+        "mean_seconds_per_gpu": 122.1817823255,
+        "aggregate_gpu_seconds": 977.454258604,
+        "share_percent": 57.21400208105652,
+        "instances": 81648,
+        "average_duration_us": 11971.564013864394
+      },
+      {
+        "category": "Norm / activation / elementwise",
+        "mean_seconds_per_gpu": 2.287662046625,
+        "aggregate_gpu_seconds": 18.301296373,
+        "share_percent": 1.0712423620377984,
+        "instances": 311644,
+        "average_duration_us": 58.72500793533647
+      },
+      {
+        "category": "Layout / device copies",
+        "mean_seconds_per_gpu": 1.928634855875,
+        "aggregate_gpu_seconds": 15.429078847,
+        "share_percent": 0.9031208790494195,
+        "instances": 251038,
+        "average_duration_us": 61.46112878130005
+      },
+      {
+        "category": "CUDA memcpy / memset",
+        "mean_seconds_per_gpu": 0.063794294625,
+        "aggregate_gpu_seconds": 0.510354357,
+        "share_percent": 0.02987292242726208,
+        "instances": 65897,
+        "average_duration_us": 7.744728242560359
+      },
+      {
+        "category": "Convolution",
+        "mean_seconds_per_gpu": 0.191801648,
+        "aggregate_gpu_seconds": 1.534413184,
+        "share_percent": 0.08981486174908901,
+        "instances": 6962,
+        "average_duration_us": 220.3983315139328
+      },
+      {
+        "category": "Other kernels",
+        "mean_seconds_per_gpu": 0.143435951625,
+        "aggregate_gpu_seconds": 1.147487613,
+        "share_percent": 0.06716668130530554,
+        "instances": 58546,
+        "average_duration_us": 19.59976109384074
+      }
+    ],
+    "per_device": [
+      {
+        "device_id": 0,
+        "category": "GEMM",
+        "seconds": 39.349302567,
+        "share_percent": 18.441661416136995,
+        "instances": 13556
+      },
+      {
+        "device_id": 0,
+        "category": "Attention",
+        "seconds": 47.023767948,
+        "share_percent": 22.038418737700297,
+        "instances": 3181
+      },
+      {
+        "device_id": 0,
+        "category": "NCCL",
+        "seconds": 122.327233876,
+        "share_percent": 57.330556882746485,
+        "instances": 10206
+      },
+      {
+        "device_id": 0,
+        "category": "Norm / activation / elementwise",
+        "seconds": 2.300393544,
+        "share_percent": 1.0781151404165736,
+        "instances": 39657
+      },
+      {
+        "device_id": 0,
+        "category": "Layout / device copies",
+        "seconds": 1.950553105,
+        "share_percent": 0.9141569885605011,
+        "instances": 39010
+      },
+      {
+        "device_id": 0,
+        "category": "CUDA memcpy / memset",
+        "seconds": 0.068656516,
+        "share_percent": 0.03217694188931906,
+        "instances": 8385
+      },
+      {
+        "device_id": 0,
+        "category": "Convolution",
+        "seconds": 0.203745672,
+        "share_percent": 0.09548857166221865,
+        "instances": 935
+      },
+      {
+        "device_id": 0,
+        "category": "Other kernels",
+        "seconds": 0.148134048,
+        "share_percent": 0.06942532088761394,
+        "instances": 7460
+      },
+      {
+        "device_id": 1,
+        "category": "GEMM",
+        "seconds": 39.736427713,
+        "share_percent": 18.606852435769365,
+        "instances": 13510
+      },
+      {
+        "device_id": 1,
+        "category": "Attention",
+        "seconds": 47.20268323,
+        "share_percent": 22.102977343019607,
+        "instances": 3181
+      },
+      {
+        "device_id": 1,
+        "category": "NCCL",
+        "seconds": 121.966562735,
+        "share_percent": 57.111672224267416,
+        "instances": 10206
+      },
+      {
+        "device_id": 1,
+        "category": "Norm / activation / elementwise",
+        "seconds": 2.313585791,
+        "share_percent": 1.0833522761923102,
+        "instances": 39594
+      },
+      {
+        "device_id": 1,
+        "category": "Layout / device copies",
+        "seconds": 1.941813325,
+        "share_percent": 0.9092672913892859,
+        "instances": 31016
+      },
+      {
+        "device_id": 1,
+        "category": "CUDA memcpy / memset",
+        "seconds": 0.062922296,
+        "share_percent": 0.029463792896732177,
+        "instances": 8289
+      },
+      {
+        "device_id": 1,
+        "category": "Convolution",
+        "seconds": 0.190943112,
+        "share_percent": 0.08941041037386074,
+        "instances": 861
+      },
+      {
+        "device_id": 1,
+        "category": "Other kernels",
+        "seconds": 0.143092906,
+        "share_percent": 0.06700422609142498,
+        "instances": 7298
+      },
+      {
+        "device_id": 2,
+        "category": "GEMM",
+        "seconds": 39.936509611,
+        "share_percent": 18.699310143212678,
+        "instances": 13510
+      },
+      {
+        "device_id": 2,
+        "category": "Attention",
+        "seconds": 47.335441913,
+        "share_percent": 22.16368224761973,
+        "instances": 3181
+      },
+      {
+        "device_id": 2,
+        "category": "NCCL",
+        "seconds": 121.664765441,
+        "share_percent": 56.96660035247171,
+        "instances": 10206
+      },
+      {
+        "device_id": 2,
+        "category": "Norm / activation / elementwise",
+        "seconds": 2.294844114,
+        "share_percent": 1.0745055648576896,
+        "instances": 39544
+      },
+      {
+        "device_id": 2,
+        "category": "Layout / device copies",
+        "seconds": 1.943414633,
+        "share_percent": 0.909957162338376,
+        "instances": 30916
+      },
+      {
+        "device_id": 2,
+        "category": "CUDA memcpy / memset",
+        "seconds": 0.062230861,
+        "share_percent": 0.02913810399689108,
+        "instances": 8289
+      },
+      {
+        "device_id": 2,
+        "category": "Convolution",
+        "seconds": 0.191443308,
+        "share_percent": 0.08963872471590663,
+        "instances": 861
+      },
+      {
+        "device_id": 2,
+        "category": "Other kernels",
+        "seconds": 0.14345147,
+        "share_percent": 0.06716770078702432,
+        "instances": 7298
+      },
+      {
+        "device_id": 3,
+        "category": "GEMM",
+        "seconds": 39.701020186,
+        "share_percent": 18.589400361101337,
+        "instances": 13560
+      },
+      {
+        "device_id": 3,
+        "category": "Attention",
+        "seconds": 47.086809952,
+        "share_percent": 22.04768436236524,
+        "instances": 3181
+      },
+      {
+        "device_id": 3,
+        "category": "NCCL",
+        "seconds": 122.135225576,
+        "share_percent": 57.18796634919521,
+        "instances": 10206
+      },
+      {
+        "device_id": 3,
+        "category": "Norm / activation / elementwise",
+        "seconds": 2.304492532,
+        "share_percent": 1.0790436645157735,
+        "instances": 39594
+      },
+      {
+        "device_id": 3,
+        "category": "Layout / device copies",
+        "seconds": 1.942294512,
+        "share_percent": 0.9094499368928117,
+        "instances": 31066
+      },
+      {
+        "device_id": 3,
+        "category": "CUDA memcpy / memset",
+        "seconds": 0.065829689,
+        "share_percent": 0.030823753110992377,
+        "instances": 8289
+      },
+      {
+        "device_id": 3,
+        "category": "Convolution",
+        "seconds": 0.189714518,
+        "share_percent": 0.08883094471861958,
+        "instances": 861
+      },
+      {
+        "device_id": 3,
+        "category": "Other kernels",
+        "seconds": 0.1426648,
+        "share_percent": 0.06680062810002195,
+        "instances": 7298
+      },
+      {
+        "device_id": 4,
+        "category": "GEMM",
+        "seconds": 39.342634796,
+        "share_percent": 18.41847185312396,
+        "instances": 13510
+      },
+      {
+        "device_id": 4,
+        "category": "Attention",
+        "seconds": 46.486953183,
+        "share_percent": 21.763123979323044,
+        "instances": 3181
+      },
+      {
+        "device_id": 4,
+        "category": "NCCL",
+        "seconds": 123.154218693,
+        "share_percent": 57.655327924837266,
+        "instances": 10206
+      },
+      {
+        "device_id": 4,
+        "category": "Norm / activation / elementwise",
+        "seconds": 2.289910042,
+        "share_percent": 1.0720340382248887,
+        "instances": 39544
+      },
+      {
+        "device_id": 4,
+        "category": "Layout / device copies",
+        "seconds": 1.935071961,
+        "share_percent": 0.9059146300763654,
+        "instances": 30916
+      },
+      {
+        "device_id": 4,
+        "category": "CUDA memcpy / memset",
+        "seconds": 0.064936529,
+        "share_percent": 0.030400394834452452,
+        "instances": 8289
+      },
+      {
+        "device_id": 4,
+        "category": "Convolution",
+        "seconds": 0.188304185,
+        "share_percent": 0.08815564461383174,
+        "instances": 861
+      },
+      {
+        "device_id": 4,
+        "category": "Other kernels",
+        "seconds": 0.142199614,
+        "share_percent": 0.06657153496619342,
+        "instances": 7298
+      },
+      {
+        "device_id": 5,
+        "category": "GEMM",
+        "seconds": 39.761582064,
+        "share_percent": 18.616278784742278,
+        "instances": 13510
+      },
+      {
+        "device_id": 5,
+        "category": "Attention",
+        "seconds": 47.16373082,
+        "share_percent": 22.081947344560305,
+        "instances": 3181
+      },
+      {
+        "device_id": 5,
+        "category": "NCCL",
+        "seconds": 122.027848167,
+        "share_percent": 57.13315021828237,
+        "instances": 10206
+      },
+      {
+        "device_id": 5,
+        "category": "Norm / activation / elementwise",
+        "seconds": 2.296869648,
+        "share_percent": 1.0753889427879395,
+        "instances": 39544
+      },
+      {
+        "device_id": 5,
+        "category": "Layout / device copies",
+        "seconds": 1.9395993,
+        "share_percent": 0.9081158099134878,
+        "instances": 30916
+      },
+      {
+        "device_id": 5,
+        "category": "CUDA memcpy / memset",
+        "seconds": 0.064032573,
+        "share_percent": 0.029979899400221235,
+        "instances": 8289
+      },
+      {
+        "device_id": 5,
+        "category": "Convolution",
+        "seconds": 0.189154744,
+        "share_percent": 0.08856180425850764,
+        "instances": 861
+      },
+      {
+        "device_id": 5,
+        "category": "Other kernels",
+        "seconds": 0.142198915,
+        "share_percent": 0.06657719605489866,
+        "instances": 7298
+      },
+      {
+        "device_id": 6,
+        "category": "GEMM",
+        "seconds": 39.658986799,
+        "share_percent": 18.570204761375553,
+        "instances": 13510
+      },
+      {
+        "device_id": 6,
+        "category": "Attention",
+        "seconds": 47.041026134,
+        "share_percent": 22.02682312387329,
+        "instances": 3181
+      },
+      {
+        "device_id": 6,
+        "category": "NCCL",
+        "seconds": 122.240622724,
+        "share_percent": 57.23881463860232,
+        "instances": 10206
+      },
+      {
+        "device_id": 6,
+        "category": "Norm / activation / elementwise",
+        "seconds": 2.291372957,
+        "share_percent": 1.072928696132033,
+        "instances": 39544
+      },
+      {
+        "device_id": 6,
+        "category": "Layout / device copies",
+        "seconds": 1.937248232,
+        "share_percent": 0.9071108277218994,
+        "instances": 30916
+      },
+      {
+        "device_id": 6,
+        "category": "CUDA memcpy / memset",
+        "seconds": 0.060336094,
+        "share_percent": 0.028252199829518973,
+        "instances": 8289
+      },
+      {
+        "device_id": 6,
+        "category": "Convolution",
+        "seconds": 0.19014962,
+        "share_percent": 0.08903700431365506,
+        "instances": 861
+      },
+      {
+        "device_id": 6,
+        "category": "Other kernels",
+        "seconds": 0.142721121,
+        "share_percent": 0.0668287481517275,
+        "instances": 7298
+      },
+      {
+        "device_id": 7,
+        "category": "GEMM",
+        "seconds": 39.71076006,
+        "share_percent": 18.591507972557494,
+        "instances": 12481
+      },
+      {
+        "device_id": 7,
+        "category": "Attention",
+        "seconds": 47.503384087,
+        "share_percent": 22.239804593075856,
+        "instances": 2929
+      },
+      {
+        "device_id": 7,
+        "category": "NCCL",
+        "seconds": 121.937781392,
+        "share_percent": 57.087983999300484,
+        "instances": 10206
+      },
+      {
+        "device_id": 7,
+        "category": "Norm / activation / elementwise",
+        "seconds": 2.209827745,
+        "share_percent": 1.0345818130167073,
+        "instances": 34623
+      },
+      {
+        "device_id": 7,
+        "category": "Layout / device copies",
+        "seconds": 1.839083779,
+        "share_percent": 0.8610094767216516,
+        "instances": 26282
+      },
+      {
+        "device_id": 7,
+        "category": "CUDA memcpy / memset",
+        "seconds": 0.061409799,
+        "share_percent": 0.028750413388628885,
+        "instances": 7778
+      },
+      {
+        "device_id": 7,
+        "category": "Convolution",
+        "seconds": 0.190958025,
+        "share_percent": 0.08940140251275093,
+        "instances": 861
+      },
+      {
+        "device_id": 7,
+        "category": "Other kernels",
+        "seconds": 0.143024739,
+        "share_percent": 0.06696032942642838,
+        "instances": 7298
+      }
+    ],
+    "stage_categories": [
+      {
+        "stage": "explicit_vae",
+        "category": "Attention",
+        "mean_seconds_per_gpu": 0.073424998125
+      },
+      {
+        "stage": "explicit_vae",
+        "category": "CUDA memcpy / memset",
+        "mean_seconds_per_gpu": 0.005660434375
+      },
+      {
+        "stage": "explicit_vae",
+        "category": "Convolution",
+        "mean_seconds_per_gpu": 0.005351867875
+      },
+      {
+        "stage": "explicit_vae",
+        "category": "GEMM",
+        "mean_seconds_per_gpu": 0.597402368
+      },
+      {
+        "stage": "explicit_vae",
+        "category": "Layout / device copies",
+        "mean_seconds_per_gpu": 0.206106582
+      },
+      {
+        "stage": "explicit_vae",
+        "category": "NCCL",
+        "mean_seconds_per_gpu": 0.56345313075
+      },
+      {
+        "stage": "explicit_vae",
+        "category": "Norm / activation / elementwise",
+        "mean_seconds_per_gpu": 0.180928999875
+      },
+      {
+        "stage": "explicit_vae",
+        "category": "Other kernels",
+        "mean_seconds_per_gpu": 0.0268907705
+      },
+      {
+        "stage": "non_dit_scoped",
+        "category": "Attention",
+        "mean_seconds_per_gpu": 0.667262048625
+      },
+      {
+        "stage": "non_dit_scoped",
+        "category": "CUDA memcpy / memset",
+        "mean_seconds_per_gpu": 0.036150056875
+      },
+      {
+        "stage": "non_dit_scoped",
+        "category": "Convolution",
+        "mean_seconds_per_gpu": 0.186449780125
+      },
+      {
+        "stage": "non_dit_scoped",
+        "category": "GEMM",
+        "mean_seconds_per_gpu": 0.372183022375
+      },
+      {
+        "stage": "non_dit_scoped",
+        "category": "Layout / device copies",
+        "mean_seconds_per_gpu": 0.201084648125
+      },
+      {
+        "stage": "non_dit_scoped",
+        "category": "NCCL",
+        "mean_seconds_per_gpu": 6.031570317375
+      },
+      {
+        "stage": "non_dit_scoped",
+        "category": "Norm / activation / elementwise",
+        "mean_seconds_per_gpu": 0.180157481375
+      },
+      {
+        "stage": "non_dit_scoped",
+        "category": "Other kernels",
+        "mean_seconds_per_gpu": 0.0417612915
+      },
+      {
+        "stage": "pipeline_diffuse",
+        "category": "Attention",
+        "mean_seconds_per_gpu": 46.364787611625
+      },
+      {
+        "stage": "pipeline_diffuse",
+        "category": "CUDA memcpy / memset",
+        "mean_seconds_per_gpu": 0.021551229625
+      },
+      {
+        "stage": "pipeline_diffuse",
+        "category": "GEMM",
+        "mean_seconds_per_gpu": 38.680067584125
+      },
+      {
+        "stage": "pipeline_diffuse",
+        "category": "Layout / device copies",
+        "mean_seconds_per_gpu": 1.52144362575
+      },
+      {
+        "stage": "pipeline_diffuse",
+        "category": "NCCL",
+        "mean_seconds_per_gpu": 115.586758877375
+      },
+      {
+        "stage": "pipeline_diffuse",
+        "category": "Norm / activation / elementwise",
+        "mean_seconds_per_gpu": 1.926575565375
+      },
+      {
+        "stage": "pipeline_diffuse",
+        "category": "Other kernels",
+        "mean_seconds_per_gpu": 0.074783889625
+      },
+      {
+        "stage": "unattributed",
+        "category": "CUDA memcpy / memset",
+        "mean_seconds_per_gpu": 0.00043257375
+      }
+    ],
+    "classification": {
+      "method": "Explicit first-match kernel-name rules across all stages; original NVTX stage attribution retained.",
+      "rules": [
+        {
+          "id": "nccl",
+          "category": "NCCL",
+          "pattern": "(?:nccl|msccl)"
+        },
+        {
+          "id": "attention",
+          "category": "Attention",
+          "pattern": "(?:flash[_:]?(?:attn|attention)|flash_(?:fwd|bwd)|flashattention|fmha|fused.?multi.?head.?attention|scaled.?dot.?product|memory.?efficient.?attention|(?:^|[_:])sdpa(?:[_:<]|$)|cudnn[^\\n]*sdpa|(?:^|[_:])attention(?:[_:<]|$)|(?:^|[_:])attn(?:[_:<]|$))"
+        },
+        {
+          "id": "convolution",
+          "category": "Convolution",
+          "pattern": "(?:xmma_(?:fprop|dgrad|wgrad)_implicit_gemm|implicit_convolve|(?:^|[_:])conv(?:[123]d|olution|_fwd|_dgrad|_wgrad)|(?:^|[_:])(?:im2col|col2im|vol2col)|cudnn[^\\n]*convolve)"
+        },
+        {
+          "id": "gemm",
+          "category": "GEMM",
+          "pattern": "(?:gemm|gemv|matmul|cutlass::Kernel|cutlass_kernel|wgmma|tensorop|cublas|triton[^\\n]*(?:persistent_mm|scaled_mm|addmm)|(?:^|[_:])b?mm(?:[_:<]|$)|(?:^|[_:])addmm(?:[_:<]|$))"
+        },
+        {
+          "id": "layout",
+          "category": "Layout / device copies",
+          "pattern": "(?:memcpy|memmove|copy_kernel|direct_copy|copy_if|copy_device|CatArrayBatchedCopy|concat|concatenate|transpose|permute|nchwToNhwc|nhwcToNchw|tensorTransformGeneric|contiguous|gather_kernel|scatter_kernel|_scatter_gather_elementwise_kernel|indexFunc|index_(?:select|put)|indexSelect(?:Small|Large)Index|index_elementwise|pack_kernel|unpack_kernel|split_with_sizes_copy|ConvertTo|convert_kernel|cast_kernel|typecast|FillFunctor|fill_kernel)"
+        },
+        {
+          "id": "pointwise",
+          "category": "Norm / activation / elementwise",
+          "pattern": "(?:rms.?norm|layer.?norm|group.?norm|batch.?norm|act_and_mul|silu|swiglu|geglu|gelu|glu_kernel|fused.?mlp|elementwise|indexed_gate|norm_indexed|norm_scale|rope|rotary|softmax|reduce_kernel|Reduce(?:\\.cuh|\\.cu)|vectorized.*?kernel|unrolled.*?kernel)"
+        }
+      ],
+      "unmatched_category": "Other kernels",
+      "fused_kernel_accounting": "The complete fused kernel duration stays in its matched category. Attention is not split into internal matrix products; fused GEMM epilogues stay in GEMM. Explicit implicit-GEMM convolution kernels are classified as Convolution."
+    },
+    "validation": {
+      "source_strict_acceptance": true,
+      "independent_nsys_totals": true,
+      "categories_partition_total": true,
+      "per_device_matches_grouped_names": true
+    },
+    "limitations": [
+      "Aggregate GPU operation durations overlap across devices and streams; these are not additive E2E critical-path times.",
+      "NCCL duration includes synchronization and waiting; it is not a direct bandwidth or network-transfer measurement.",
+      "Kernel categories are explicit name-based classifications; unmatched names remain visible in Other kernels.",
+      "The denominator excludes CPU-only work and GPU idle gaps."
+    ],
+    "sources": {
+      "summary_sha256": "0b663cbdd2f3a9e5e0d453d5f355fd348f99c62bd7240da048001ea53805ba0b",
+      "classifier_sha256": "4e739e27c44cb983d50eeb909ea9d954d654ea3f96f2a45192610b8feadb9af2"
+    }
+  },
+  "host_nvtx_stage_envelopes": [
+    {
+      "stage": "Encoder",
+      "seconds": 7.271786674
+    },
+    {
+      "stage": "DiT",
+      "seconds": 204.813919985
+    },
+    {
+      "stage": "VAE / audio decode",
+      "seconds": 1.742411768
+    },
+    {
+      "stage": "Other / response",
+      "seconds": 1.1402172918477902
+    }
+  ],
+  "host_nvtx_ranges": [
+    {
+      "label": "H3.encoder.text_and_vision",
+      "start_ns": 350352756,
+      "end_ns": 7622139430
+    },
+    {
+      "label": "H3.DiT.50_steps",
+      "start_ns": 8149580399,
+      "end_ns": 212963500384
+    },
+    {
+      "label": "H3.decode",
+      "start_ns": 212964276362,
+      "end_ns": 214706688130
+    }
+  ],
+  "validation": {
+    "matched_model_inputs_and_precision": true,
+    "complete_projection_tables": true,
+    "native_projections_exact": true,
+    "output_matches_unprofiled_reference": true,
+    "strict_nsys_counts_and_attribution": true,
+    "independent_nsys_totals": true,
+    "all_eight_devices": true
+  },
+  "capture_requests": [
+    {
+      "ordinal": 0,
+      "phase": "initialize",
+      "e2e_seconds": 273.27750528045,
+      "mp4_sha256": "1b33831db7a24ace2e96365b63356b8052a2abe1932b92e894fbf5db0a4f0900",
+      "decoded_sha256": {
+        "video": "SHA256=e7b6a5d5a15abebfc0981dba0d0c8f6759336ebce40a0e1c36a4d5d187cc45a1",
+        "audio": "SHA256=cee8b1b9dad71362550dcd3967d1d7405bd1d49a8406245427744fefe5a0bf65"
+      }
+    },
+    {
+      "ordinal": 1,
+      "phase": "warmup",
+      "e2e_seconds": 254.3866053307429,
+      "mp4_sha256": "a7581ae1cb28d3503ff4ab8b31124d91f6184df989fef4817560da62e2148a4f",
+      "decoded_sha256": {
+        "video": "SHA256=9ec38b0f73faf69377395e652b8b7d3cf6617b9bc31c01964d059aabdf535261",
+        "audio": "SHA256=2f76428baefb1ffd0af21ef1df7caea4764689ed8bffe0766b1718833ddeb263"
+      }
+    },
+    {
+      "ordinal": 2,
+      "phase": "profiled",
+      "e2e_seconds": 214.9683357188478,
+      "mp4_sha256": "a7581ae1cb28d3503ff4ab8b31124d91f6184df989fef4817560da62e2148a4f",
+      "decoded_sha256": {
+        "video": "SHA256=9ec38b0f73faf69377395e652b8b7d3cf6617b9bc31c01964d059aabdf535261",
+        "audio": "SHA256=2f76428baefb1ffd0af21ef1df7caea4764689ed8bffe0766b1718833ddeb263"
+      }
+    }
+  ],
+  "report": {
+    "filename": "H3_Base50_Exact_Precomputed_8GPU.nsys-rep",
+    "bytes": 1581264986,
+    "sha256": "e8bd92874b2a86af889cecb257e71032d2694df438cdf3991bf6bf0c8616c401"
+  },
+  "provenance": {
+    "nsys_version": "NVIDIA Nsight Systems version 2025.3.2.474-253236389321v0",
+    "graph_trace": "node",
+    "gpu_metrics_hz": 1000,
+    "nic_metrics": false,
+    "sqlite_sha256": "384899be27cf0bb9b20e15ebc570f8715d32f09222967fc0560cf76f1702fbdf",
+    "source_stage_sha256": "9df6a5063ca69c1a1b9ef8de693d7aa77f3b65944d2dee7c561ac812515a5bb0",
+    "server_log_sha256": "bc276ee5c53f8c1a531209370f6d210d87160b8fe0a8395aa025858a6e3ee58f",
+    "strict_analysis_sha256": "0b663cbdd2f3a9e5e0d453d5f355fd348f99c62bd7240da048001ea53805ba0b",
+    "analysis_program_sha256": "6d4eb0bbf672d842c9ccb1e8668712106b2a0f37ee0433555d5b12662716b58a"
+  },
+  "limitations": [
+    "The profiled request is separate from the two unprofiled timing requests; profiler overhead must not replace the 213.402 s benchmark median.",
+    "NVTX host stage envelopes describe CPU range duration, not synchronized GPU critical-path intervals.",
+    "The GPU category denominator sums CUDA operation durations across all GPUs, including communication waiting; it excludes CPU time and idle gaps.",
+    "No optimization-ladder cohorts were rerun."
+  ]
+}

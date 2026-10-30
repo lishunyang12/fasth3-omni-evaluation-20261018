@@ -1,0 +1,39 @@
+{
+  "slide": 7,
+  "example": [
+    0,
+    4
+  ],
+  "scope": "Controlled local-only replay of original NCCL application code versus tested GPU-affine FI RDMA; historical Base50 per-pair routes unrecorded",
+  "local_only_nccl": {
+    "same_subtree": "P2P/CUMEM",
+    "other_subtrees": "SHM/direct/direct",
+    "directed_pair_counts": {
+      "P2P": 8,
+      "SHM": 48
+    },
+    "cross_socket_example": [
+      "GPU0",
+      "PCIe subtree0",
+      "host buffers / CPU0",
+      "CPU interconnect",
+      "CPU1 / host path",
+      "PCIe subtree2",
+      "GPU4"
+    ]
+  },
+  "fi_rdma": {
+    "example": [
+      "GPU0",
+      "PCIe subtree0",
+      "local CX8 mlx5_2",
+      "RoCE fabric",
+      "local CX8 mlx5_6",
+      "PCIe subtree2",
+      "GPU4"
+    ],
+    "host_payload_staging": false
+  },
+  "measurement": "communication-replay.json",
+  "new_measurements": false
+}

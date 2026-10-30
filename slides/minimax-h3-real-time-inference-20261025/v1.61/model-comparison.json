@@ -1,0 +1,27 @@
+{
+  "checked": "2026-10-31",
+  "scope": "Published full generative backbone parameters; excludes encoders and VAEs; not latency or quality ranking",
+  "models": [
+    {
+      "name": "MiniMax H3",
+      "parameters_billion": 33,
+      "source": "https://huggingface.co/MiniMaxAI/MiniMax-H3"
+    },
+    {
+      "name": "Wan2.2 A14B",
+      "parameters_billion": 27,
+      "source": "https://github.com/Wan-Video/Wan2.2"
+    },
+    {
+      "name": "LTX-2.5",
+      "parameters_billion": 22,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5"
+    },
+    {
+      "name": "HunyuanVideo-1.5",
+      "parameters_billion": 8.3,
+      "source": "https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5"
+    }
+  ],
+  "wan_active_billion": 14
+}

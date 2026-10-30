@@ -1,0 +1,8 @@
+{
+  "slide": 6,
+  "sparsity_setting": 0.9,
+  "block_size_tokens": 128,
+  "source": "Retained native attention metadata and recorded demo configuration",
+  "diagram": "Schematic only; not a captured mask or measured whole-model sparsity",
+  "new_measurements": false
+}
