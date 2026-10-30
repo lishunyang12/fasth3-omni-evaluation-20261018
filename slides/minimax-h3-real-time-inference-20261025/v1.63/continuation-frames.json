@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "source": "Two consecutive requests from the same validated interactive-demo session",
+  "source_events_sha256": "00c1e99c9e18265d427f3c45f61cdd1f5c97b9840c3fb6c076f9f332f8298ac2",
+  "images": [
+    {
+      "image": "media/clip-a-ending.png",
+      "image_sha256": "d321d9013a1bdd7e6cd96da79f3caba7ddcc0905a2884fd04183d1b6bc576162",
+      "source_mp4_sha256": "0af9020a6e8d1916d736e011a383890ad1336e441d5aa9f52bbac2fcbcc3b146",
+      "request_ordinal": 0,
+      "decoded_frame_index": 123,
+      "already_overlap_trimmed": false
+    },
+    {
+      "image": "media/clip-b-start.png",
+      "image_sha256": "d014fbc88397993153d13119cd5ff748b0e6a7b8449d4c9934d2d954b78c85dc",
+      "source_mp4_sha256": "e5bc90beb047362543003243422223857bfd573607f0570edbdc0ca3c8623603",
+      "request_ordinal": 1,
+      "decoded_frame_index": 0,
+      "already_overlap_trimmed": true
+    }
+  ],
+  "frame_extraction": "Original decoded pixels; no retouching or generated replacement",
+  "new_generation": false
+}

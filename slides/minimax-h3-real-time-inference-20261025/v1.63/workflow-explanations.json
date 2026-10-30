@@ -1,0 +1,74 @@
+{
+  "slide": 15,
+  "verified_date": "2026-10-31",
+  "upstream_commit": "08177216af4b44cef54ec5bdc75c265a9f0cd697",
+  "new_inference": false,
+  "workflows": [
+    {
+      "name": "Text, keyframes and mixed references",
+      "status": "Supported template",
+      "explanation": "Start from a text prompt, constrain the first and/or last frame, or supply image, video and audio references. The connected inputs select T2VA, FL2VA or Ref2VA. These are alternative generation modes; the service must load the matching checkpoint partition.",
+      "source": "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/h3-06-all-in-one.md"
+    },
+    {
+      "name": "Timeline guides",
+      "status": "Supported nodes and template",
+      "explanation": "Place an image, video or audio guide at a chosen frame of the output. For example, frame 36 is 1.5 seconds at 24 FPS. This controls when supplied content appears. Requires base H3; the current guide path rejects FastH3, nonzero request LoRA and latent-mask editing.",
+      "source": "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/README.md#timeline-guides-minimax-h3"
+    },
+    {
+      "name": "Inpainting and removal",
+      "status": "Supported latent-mask template",
+      "explanation": "Supply a source video and a spatial mask. Preserve the unmasked context and regenerate the selected region: remove an object or describe replacement content. A separate audio mask decides whether source audio is preserved or regenerated.",
+      "source": "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/wf05-h3-latent-editing.md"
+    },
+    {
+      "name": "Continuation and extension",
+      "status": "Supported latent-mask template",
+      "explanation": "Use a temporal mask to retain an initial part and regenerate the remaining interval, or request a longer duration to add new content after the source. This editing workflow is distinct from the rolling AV-tail implementation in our interactive demo.",
+      "source": "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/wf05-h3-latent-editing.md"
+    },
+    {
+      "name": "SeedVR2 upscale / restoration",
+      "status": "Supported local and remote workflows",
+      "explanation": "Generate an H3 clip, then restore or upscale its decoded frames with a separate SeedVR2 model. Preserve the generated audio and FPS. The local template uses a ComfyUI SeedVR2 extension; the remote route calls a separate vLLM-Omni SeedVR2 service.",
+      "source": "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/wf07-h3-upscale.md"
+    },
+    {
+      "name": "H3 second-pass refinement",
+      "status": "Backend capability; server-configured",
+      "explanation": "Generate a base latent, optionally upscale that latent, add noise and run the tail of the H3 denoising schedule before VAE decoding. This can change visual details and audio. It is request-mode only, rejects latent-tail continuation and latent-mask editing, and currently has no dedicated ComfyUI node or template.",
+      "source": "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/recipes/MiniMaxAI/MiniMax-H3.md"
+    },
+    {
+      "name": "Music-driven video",
+      "status": "Supported supplied-track template",
+      "explanation": "Supply a music track and a character/style image. Slice the track, generate one Ref2VA shot per slice with locked source audio, then join the shots and restore the original recording as the final soundtrack. Shots share the reference image but do not carry latent history between requests; cuts are expected.",
+      "source": "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/h3-03-music-video.md"
+    },
+    {
+      "name": "ControlNet workflows",
+      "status": "Draft PRs; not merged",
+      "explanation": "Use pose, depth or edge hints to constrain motion and composition. The proposed workflow offers Canny, Depth, Pose, HED, MLSD and Inpaint controls. Dependencies and quality validation remain; do not present it as available on main.",
+      "source": "https://github.com/vllm-project/vllm-omni/pull/7507"
+    },
+    {
+      "name": "Character replacement",
+      "status": "Open PR; not merged",
+      "explanation": "Combine a source video and a new character reference to replace the subject while aiming to retain the original motion and scene. Backend dependencies and quality validation remain.",
+      "source": "https://github.com/vllm-project/vllm-omni/pull/9194"
+    },
+    {
+      "name": "Multi-anchor workflow",
+      "status": "Open template PR; not merged",
+      "explanation": "Combine an identity reference with several time-indexed image anchors in one ready-to-run graph. Reference and timeline-guide nodes already exist; the pending item is the combined template, not the entire guide capability.",
+      "source": "https://github.com/vllm-project/vllm-omni/pull/9420"
+    },
+    {
+      "name": "Long-form stories and avatars",
+      "status": "RFC proposals",
+      "explanation": "Compose multiple bounded shots or continuation segments into story, dialogue and repeatable-avatar workflows, with explicit boundary and audio handling. This is a proposed workflow family, not a promise of unlimited single-request generation or real-time performance.",
+      "source": "https://github.com/vllm-project/vllm-omni/issues/8251"
+    }
+  ]
+}

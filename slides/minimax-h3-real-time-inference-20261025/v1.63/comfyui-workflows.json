@@ -1,0 +1,117 @@
+{
+  "slide": 15,
+  "verified_date": "2026-10-31",
+  "upstream_commit": "08177216af4b44cef54ec5bdc75c265a9f0cd697",
+  "workflows": [
+    {
+      "workflow": "Text, keyframes and mixed references",
+      "support": "Existing ComfyUI All-in-One template",
+      "source": "apps/ComfyUI-vLLM-Omni/docs/h3-06-all-in-one.md"
+    },
+    {
+      "workflow": "Timeline guides",
+      "support": "Existing Add Guide node and template; base-H3 compatibility rules apply",
+      "source": "apps/ComfyUI-vLLM-Omni/README.md"
+    },
+    {
+      "workflow": "Inpainting, removal, continuation and extension",
+      "support": "Existing latent-mask editing template",
+      "source": "apps/ComfyUI-vLLM-Omni/docs/wf05-h3-latent-editing.md"
+    },
+    {
+      "workflow": "Music-driven multi-shot video",
+      "support": "Existing Music Video template; supplied track drives shots and final soundtrack",
+      "source": "apps/ComfyUI-vLLM-Omni/docs/h3-03-music-video.md"
+    },
+    {
+      "workflow": "SeedVR2 upscale / restoration",
+      "support": "Existing local upscale and remote restoration workflows; separate SeedVR2 model/service",
+      "source": "apps/ComfyUI-vLLM-Omni/README.md"
+    },
+    {
+      "workflow": "H3 second-pass refinement",
+      "support": "H3 backend capability via server defaults; no dedicated current ComfyUI node or template",
+      "source": "recipes/MiniMaxAI/MiniMax-H3.md"
+    }
+  ],
+  "new_inference": false,
+  "refinement": {
+    "steps": [
+      "Generate base latent",
+      "Optionally upscale latent",
+      "Re-noise and resume a truncated schedule"
+    ],
+    "server_default_keys": [
+      "latent_refine",
+      "latent_upscale",
+      "latent_upscaler_path"
+    ],
+    "dedicated_comfyui_template": false,
+    "comfyui_h3_widgets": [
+      "audio_flow_shift",
+      "flow_shift",
+      "audio_mode"
+    ],
+    "execution": "Request mode only",
+    "source_api_is_not_same_as_ui": true,
+    "merged_pr": "https://github.com/vllm-project/vllm-omni/pull/8322"
+  },
+  "source_sha256": {
+    "README.md": "c9c1ddd1c928492d526c51247e03eb89d34727bc60d324a72c5417151c897e2d",
+    "example_workflows-listing.json": "a0c94f403c4bd58783da0d3a47ce4ee6ab641897a502d91a2562de4a3d452a09",
+    "main-head.json": "0dd9566ba401693a4e81f7c7952ad8d2bdc184b53a6a95c3ebbcf5cb7dfb69c8",
+    "pr-8322.json": "17d20b61e90accb195d7c7e3170ad484daea5fac4d07b4ff0dd1af2a5296904a",
+    "wf05-h3-latent-editing.md": "a38f8e012f26297c44310f8f3e16cb76acfaadc658c0153bbf81dd1516a83bec",
+    "pr-7492.json": "b6157f469cf8ab8e3b3794fef8d726a6ff191bc430456e8b7339691c16ba0271",
+    "issue-8251.json": "f300e9183ce80b7b537a3f50d97371edf7a802efd4f7bed2d8993ff73b66d290",
+    "h3-03-music-video.md": "3bf3079093fe5eb16db21adcb3e6a02404a296e15d428eb75fcdb7f95eb5a954",
+    "pr-7943.json": "f06f00775a6ceb3426201f27ade10b99fa9c06cbf34ae0b4d82ee6715c0d74bd",
+    "issue-7380.json": "ca77a6b73a2a6624d476682ee2ae5130e9eb82669b993a511f00efe070c60533",
+    "types.py": "c4b9c048267333cdccf87a46f2de3db66e332b86e118b38044b186b21d6d43a2",
+    "wf07-h3-upscale.md": "4e902f33dae29595b2452c2ceeaff7727ff2f17cd8929a077136ba6367ecc09f",
+    "issue-7723.json": "62481d38c04a4b9ec1fbbd6f88da41561ce9cd0511afb2978470ab8e3e43f975",
+    "pr-9194.json": "ca3b48313646847af0e9b8ad5071c06437cf2a95088674edee1e406a8b00d262",
+    "issue-7661.json": "4287410c76225f3cb8a58382f67698b05c5442d1bbc8acdd51fc48ad3963fa6e",
+    "pr-7507.json": "2d9b092f131c6b14e5d4bef57b1aa2f7c2c87e717d72d9d9171a59e2825c8274",
+    "pr-9420.json": "14ca80c61a9e4111236b4655e03ebc210ba6c6e4d82201d2058c5c74e13b5137",
+    "docs-listing.json": "4370408fb77850fc0932cdc7631d1f959e55ff0248b3c96b26ff7842667af259",
+    "MiniMax-H3.md": "d148f091052e42a600b24ce5d196828b742643b4eeca54d749eb8db24b5a406f",
+    "issue-8264.json": "2512cfd18648acceedc0587b7b7243e4bab440bf092caa4f5c79192b5e70dee7",
+    "h3-06-all-in-one.md": "0f3a8699239c17cc586e79adcb0c295ea56d8dcfc09503bb29398e82686112f2",
+    "api_client.py": "39eda5ae126dd5b62ee396676fc5a6c2ea64c406c4e0fadc57875b11bf29310f",
+    "nodes.py": "27f7d9eb9d20a6bb28f1ffb8494e69c556da77d35d77cef45d12bfe39915bfc5",
+    "comfyui_vllm_omni-listing.json": "c26915b81fe4d1b070440addf7ee59bdeac6b7f175ebffc82ea1d7a57aa1e98d"
+  },
+  "planned": [
+    {
+      "workflow": "ControlNet workflows",
+      "support": "Draft PRs #7492 / #7507; not merged",
+      "source": "https://github.com/vllm-project/vllm-omni/pull/7507"
+    },
+    {
+      "workflow": "Character replacement",
+      "support": "Open PR #9194; dependencies and quality validation remain",
+      "source": "https://github.com/vllm-project/vllm-omni/pull/9194"
+    },
+    {
+      "workflow": "Identity plus timed-keyframe template",
+      "support": "Open PR #9420; underlying reference and timeline nodes already exist",
+      "source": "https://github.com/vllm-project/vllm-omni/pull/9420"
+    },
+    {
+      "workflow": "Long-form stories and repeatable avatars",
+      "support": "RFC #8251 proposals H3-01 / H3-02 / H3-05; no published delivery dates",
+      "source": "https://github.com/vllm-project/vllm-omni/issues/8251"
+    },
+    {
+      "workflow": "Generation progress in ComfyUI",
+      "support": "Open PR #7943; not merged",
+      "source": "https://github.com/vllm-project/vllm-omni/pull/7943"
+    }
+  ],
+  "roadmap": {
+    "url": "https://github.com/vllm-project/vllm-omni/issues/8264",
+    "scope": "Q4 community roadmap; ComfyUI integration",
+    "delivery_dates_announced": false
+  }
+}

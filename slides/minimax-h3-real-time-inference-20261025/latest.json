@@ -1,94 +1,94 @@
 {
   "schema_version": 1,
   "title": "Toward Real-time Generation with MiniMax H3",
-  "version": "v1.62",
+  "version": "v1.63",
   "slides": [
     {
       "number": 1,
       "title": "Toward Real-time Generation with MiniMax H3",
-      "image": "v1.62/preview/slide-01.png",
+      "image": "v1.63/preview/slide-01.png",
       "sha256": "cc5a3a0382946c3d78179daf6c0e12fbcfa44410687d7186df58fb8ca920b237",
       "hidden": false
     },
     {
       "number": 2,
       "title": "MiniMax H3 in Context",
-      "image": "v1.62/preview/slide-02.png",
+      "image": "v1.63/preview/slide-02.png",
       "sha256": "aaa92793731373ace3437f2a139be887cf8e138b6391ee6f7201d79206f45397",
       "hidden": false
     },
     {
       "number": 3,
       "title": "SM120 Cards",
-      "image": "v1.62/preview/slide-03.png",
+      "image": "v1.63/preview/slide-03.png",
       "sha256": "d1b2ca1041a3a38547dc9855143459043f13fd63a17a1cec9709229c2de97ea9",
       "hidden": false
     },
     {
       "number": 4,
       "title": "Baseline: Latency Breakdown",
-      "image": "v1.62/preview/slide-04.png",
+      "image": "v1.63/preview/slide-04.png",
       "sha256": "92936d5ce38e0fa433f6b9d5a1d64675a09e1b87a4c663d361bdb27ea54a968a",
       "hidden": false
     },
     {
       "number": 5,
       "title": "Optimization - Distillation",
-      "image": "v1.62/preview/slide-05.png",
+      "image": "v1.63/preview/slide-05.png",
       "sha256": "cf15b438e7edd26abdac74203e1fe79a40824505f5a1e26a6b268cf40e2fae16",
       "hidden": false
     },
     {
       "number": 6,
       "title": "Optimization - Video Sparse Attention + NVFP4",
-      "image": "v1.62/preview/slide-06.png",
+      "image": "v1.63/preview/slide-06.png",
       "sha256": "f80cf4b2091f990a5ab8393c633caf10f7f61091d39c531cb7a85b6ff4404bc9",
       "hidden": false
     },
     {
       "number": 7,
       "title": "Optimization - Comms",
-      "image": "v1.62/preview/slide-07.png",
+      "image": "v1.63/preview/slide-07.png",
       "sha256": "3b4d5c68b6e52a330f41444f5636be102988cf1cc29f0b5ff948ea730e877ef3",
       "hidden": false
     },
     {
       "number": 8,
       "title": "Optimization - Comms",
-      "image": "v1.62/preview/slide-08.png",
+      "image": "v1.63/preview/slide-08.png",
       "sha256": "4712a29743b15e0b73d91002e61b24a7e71e71f87547901ae98157e36ff4d65a",
       "hidden": false
     },
     {
       "number": 9,
       "title": "From Minutes to Real Time",
-      "image": "v1.62/preview/slide-09.png",
+      "image": "v1.63/preview/slide-09.png",
       "sha256": "75b1107e6b4fa57e5713678544c8294c8c76b56dec982dd04070342781bf9b80",
       "hidden": false
     },
     {
       "number": 10,
       "title": "From a Question to a Reply",
-      "image": "v1.62/preview/slide-10.png",
+      "image": "v1.63/preview/slide-10.png",
       "sha256": "f82b96928774bfa43a19cc66767b0611eb57d26ca80e1219c6fd327cb3a6bd5c",
       "hidden": false
     },
     {
       "number": 11,
       "title": "Continuation: From One Clip to the Next",
-      "image": "v1.62/preview/slide-11.png",
+      "image": "v1.63/preview/slide-11.png",
       "sha256": "c4e42a94396aea47e3ebc984d217200afe8f18d613969c78d94978f3ade388bd",
       "hidden": false
     },
     {
       "number": 12,
       "title": "Live Demo",
-      "image": "v1.62/preview/slide-12.png",
+      "image": "v1.63/preview/slide-12.png",
       "sha256": "2c9f486d1ad98a16e0e3d0dccb3888450a2c2ee6e99967ce446ac54cd8a0c5fb",
       "hidden": false,
-      "video": "v1.62/media/live-avatar-recording.mp4",
+      "video": "v1.63/media/live-avatar-recording.mp4",
       "video_sha256": "f86fc3647ee98b0b3b989b294dff89c513f8a355f78cc1b5fcf7ce962fbc3222",
-      "poster": "v1.62/media/live-avatar-poster.jpg",
+      "poster": "v1.63/media/live-avatar-poster.jpg",
       "video_layout": {
         "x": 2.0,
         "y": 5.6,
@@ -101,302 +101,310 @@
     {
       "number": 13,
       "title": "Takeaways",
-      "image": "v1.62/preview/slide-13.png",
+      "image": "v1.63/preview/slide-13.png",
       "sha256": "860778b57b8cb2a64b4c3653603e4f1db467533242b71ead7c97384d42eda8c2",
       "hidden": false
     },
     {
       "number": 14,
-      "title": "vLLM-Omni for Creators — ComfyUI",
-      "image": "v1.62/preview/slide-14.png",
-      "sha256": "7029eee9b6a3a4509c2a0783dcff5d8b0c60b9d6d66af7d7db7e3f31d0866a2b",
+      "title": "vLLM-Omni × ComfyUI",
+      "image": "v1.63/preview/slide-14.png",
+      "sha256": "038dbdb05b43ce95c1d804b6f08c9a183384e2fb7bc30c8e5f88c4816d49e0a2",
       "hidden": false
     },
     {
       "number": 15,
-      "title": "vLLM-Omni for Creators — Video Studio",
-      "image": "v1.62/preview/slide-15.png",
-      "sha256": "d5558eacf4e484ca9bc1290b457722bfa81ff51d2b5d6ea536c6e4c1f982217e",
+      "title": "vLLM-Omni for Creators — ComfyUI",
+      "image": "v1.63/preview/slide-15.png",
+      "sha256": "5e247614aab50104cc4c3ff7e65c30d886efe0fbffe1a65489abdc06eb2a1b8d",
       "hidden": false
     },
     {
       "number": 16,
-      "title": "Build with vLLM-Omni",
-      "image": "v1.62/preview/slide-16.png",
-      "sha256": "75a8aedc87f1c7014e0dfa8dc894c860d670b6a6f438c03153ded29c2c4e2c2b",
+      "title": "vLLM-Omni for Creators — Video Studio",
+      "image": "v1.63/preview/slide-16.png",
+      "sha256": "6689cfe019759ca37e2c94b707c88c9842a6063fae926c9ae2939c8459d64b42",
       "hidden": false
     },
     {
       "number": 17,
+      "title": "Build with vLLM-Omni",
+      "image": "v1.63/preview/slide-17.png",
+      "sha256": "c23ddecb2bf9c91b341e29523b0a0dfdedb16050c58e32c56a9725d9ae7449a3",
+      "hidden": false
+    },
+    {
+      "number": 18,
       "title": "Closing slide",
-      "image": "v1.62/preview/slide-17.png",
+      "image": "v1.63/preview/slide-18.png",
       "sha256": "41b1083473191844848596482bae0419cf70157d2985f9ded04efd03d1d231cc",
       "hidden": true
     },
     {
-      "number": 18,
+      "number": 19,
       "title": "Toward Real-time Generation with MiniMax H3",
-      "image": "v1.62/preview/slide-18.png",
+      "image": "v1.63/preview/slide-19.png",
       "sha256": "cc5a3a0382946c3d78179daf6c0e12fbcfa44410687d7186df58fb8ca920b237",
       "hidden": true
     },
     {
-      "number": 19,
-      "title": "Real Time Is an End-to-End Budget",
-      "image": "v1.62/preview/slide-19.png",
-      "sha256": "9fc128f92e524e87beca59ba1db69e0df4ae541e1ef39ce4bf91bec961950e16",
-      "hidden": true
-    },
-    {
       "number": 20,
-      "title": "SM120 Cards",
-      "image": "v1.62/preview/slide-20.png",
-      "sha256": "cef151c1c61e67c8550e9d55f6babb0dc3b788169aa4d39907304f9067bc0d08",
+      "title": "Real Time Is an End-to-End Budget",
+      "image": "v1.63/preview/slide-20.png",
+      "sha256": "9b44874f803c361c4b4bdd692cadaec317d946f2507ff586012b3686e6617f7d",
       "hidden": true
     },
     {
       "number": 21,
       "title": "SM120 Cards",
-      "image": "v1.62/preview/slide-21.png",
-      "sha256": "d27d55e9b5b611a5632cd4b2954f84c131ce4d99a3859675406ac1074aa190fd",
+      "image": "v1.63/preview/slide-21.png",
+      "sha256": "2f9bc6f898bfb654d7fb0ec500ed861e8e9bd48c3c9e8ec89090547ca4ce7470",
       "hidden": true
     },
     {
       "number": 22,
-      "title": "Baseline: Latency Breakdown",
-      "image": "v1.62/preview/slide-22.png",
-      "sha256": "b33dd9e28756091a850072531f710836b19e495f2a9d693a49627d2e57ed980c",
+      "title": "SM120 Cards",
+      "image": "v1.63/preview/slide-22.png",
+      "sha256": "f942687bd4d5cf141e67a48be7f03a42a910702682ed6de08169e41192c81949",
       "hidden": true
     },
     {
       "number": 23,
-      "title": "Few-Step Distillation",
-      "image": "v1.62/preview/slide-23.png",
-      "sha256": "48185fde7bc59eabac26de5a267c81468b8b09e5abdd7b4f5e1ece36c568a1dc",
+      "title": "Baseline: Latency Breakdown",
+      "image": "v1.63/preview/slide-23.png",
+      "sha256": "f0d62dd68bc4f70d8c490302de55e7cfb990eafaf654f55b45353b38d898554c",
       "hidden": true
     },
     {
       "number": 24,
-      "title": "Sparse Attention",
-      "image": "v1.62/preview/slide-24.png",
-      "sha256": "8a23142ad4787812340127856b1ae42ac9f1ca7430113b4e4f41ed6dbd42cf69",
+      "title": "Few-Step Distillation",
+      "image": "v1.63/preview/slide-24.png",
+      "sha256": "335ed59d2b5a2b03966afcbe270e8bac34666b6648a95bd872a01bd0c1799e0f",
       "hidden": true
     },
     {
       "number": 25,
-      "title": "FastH3 Omni: Quantization-Aware Distillation",
-      "image": "v1.62/preview/slide-25.png",
-      "sha256": "b9fd96753083650c90d7307cf89db956c6c6bf4f6996eb7556dbfbae6583de5c",
+      "title": "Sparse Attention",
+      "image": "v1.63/preview/slide-25.png",
+      "sha256": "e4f89809e2f0d2f9480e6bee51edde5d8d24f0bd62b1bd6752d863b24085838a",
       "hidden": true
     },
     {
       "number": 26,
-      "title": "Quantization: Speed Needs a Quality Check",
-      "image": "v1.62/preview/slide-26.png",
-      "sha256": "8e039678392565eeb712a35b4fe5059026df4993827ce975425df7c144b39295",
+      "title": "FastH3 Omni: Quantization-Aware Distillation",
+      "image": "v1.63/preview/slide-26.png",
+      "sha256": "4ef6e14ee439d9c809e5950e17de780b88178c1613c4e7055156e7c345c76823",
       "hidden": true
     },
     {
       "number": 27,
-      "title": "Three Lessons for Real-Time Inference",
-      "image": "v1.62/preview/slide-27.png",
-      "sha256": "bab5fbb59d4085aef352259cfb6c394e7744846edb2912bf99b671b2ef3deaf3",
+      "title": "Quantization: Speed Needs a Quality Check",
+      "image": "v1.63/preview/slide-27.png",
+      "sha256": "0f0095575cda70078037fcfcd8d9776b9a366db3db290e869e1cc3d0bd57485e",
       "hidden": true
     },
     {
       "number": 28,
-      "title": "Eight-GPU Topology",
-      "image": "v1.62/preview/slide-28.png",
-      "sha256": "a88bbf701f87a5f04bd0b1fd405b6bddced1bdfcea11c6e160cab3f0c94b636a",
+      "title": "Three Lessons for Real-Time Inference",
+      "image": "v1.63/preview/slide-28.png",
+      "sha256": "7008218a38c36fdff889d367076472520f994ea74ba07968b4b08c62ce123ea4",
       "hidden": true
     },
     {
       "number": 29,
-      "title": "Local NCCL to RDMA",
-      "image": "v1.62/preview/slide-29.png",
-      "sha256": "fed59742a32ebba6f23e5161e3c6f43d9e1d9e297d217bade01a77873d61b6fb",
+      "title": "Eight-GPU Topology",
+      "image": "v1.63/preview/slide-29.png",
+      "sha256": "b021ed97676b4dda2b6d2f7aa6fb4df2039455510c4ae504c98d56d386d43c02",
       "hidden": true
     },
     {
       "number": 30,
-      "title": "vLLM-Omni Ulysses: NCCL Implementation",
-      "image": "v1.62/preview/slide-30.png",
-      "sha256": "bf8aa8438d06ba7395d4bd821c3aa29207f23e0e107d64157aac36b72ece981c",
+      "title": "Local NCCL to RDMA",
+      "image": "v1.63/preview/slide-30.png",
+      "sha256": "9739b128536e5732f956c74f2fd74636f235568d41c95b421c613a305eb34175",
       "hidden": true
     },
     {
       "number": 31,
-      "title": "Pipeline Ulysses by Head Bands",
-      "image": "v1.62/preview/slide-31.png",
-      "sha256": "9ef29c7b56cd34ce9453b38bd4d557b0b065da992ccb6b32ec5a8ab64ee489a6",
+      "title": "vLLM-Omni Ulysses: NCCL Implementation",
+      "image": "v1.63/preview/slide-31.png",
+      "sha256": "a3a45c1a4319df358022dd56c3e2a9afa4aee1731be042717d15aa51c1dc70e1",
       "hidden": true
     },
     {
       "number": 32,
-      "title": "Head Bands Make CUDA Graph More Valuable",
-      "image": "v1.62/preview/slide-32.png",
-      "sha256": "50cb9282c18c1fd3c0e2b4ffa9b539a5870dc993a1f9c7b0afe164ca085616d1",
+      "title": "Pipeline Ulysses by Head Bands",
+      "image": "v1.63/preview/slide-32.png",
+      "sha256": "135dd58ffe0c54b7ddd1bf3ed5c93639ca54160b228613ab990117fe4d0b5d24",
       "hidden": true
     },
     {
       "number": 33,
-      "title": "Optimization - Distillation",
-      "image": "v1.62/preview/slide-33.png",
-      "sha256": "294667cf6c9f7a35b33f829b6de48ca13a3d6b55fcebdca969aff7c5692eaa1c",
+      "title": "Head Bands Make CUDA Graph More Valuable",
+      "image": "v1.63/preview/slide-33.png",
+      "sha256": "b17df70c17f56af4cfb57350aa623ff4158c8799583569952d2bee245c3e65c8",
       "hidden": true
     },
     {
       "number": 34,
-      "title": "Optimization - Video Sparse Attention + NVFP4",
-      "image": "v1.62/preview/slide-34.png",
-      "sha256": "8fb62998b0673ddb09af1843ee13f51dfb4b66ce2912aaf05208fb81892220a5",
+      "title": "Optimization - Distillation",
+      "image": "v1.63/preview/slide-34.png",
+      "sha256": "cf471253c42f5e9eba760dac3219a95066d37f1447119691f10ee9b72ea950e6",
       "hidden": true
     },
     {
       "number": 35,
-      "title": "Optimization - Comms",
-      "image": "v1.62/preview/slide-35.png",
-      "sha256": "4be0ce3e3479ba9a5ec67bec86b67a014497cc7249e6362bf34948eadd1873e1",
+      "title": "Optimization - Video Sparse Attention + NVFP4",
+      "image": "v1.63/preview/slide-35.png",
+      "sha256": "340a78229d37d3ab8a21532eccdc795580173ac3479a50b652da1a99bdd5124d",
       "hidden": true
     },
     {
       "number": 36,
       "title": "Optimization - Comms",
-      "image": "v1.62/preview/slide-36.png",
-      "sha256": "188968f06852df8180aac17c38b5abc06329c30d3cf43481e4e80ebdee5a16b6",
+      "image": "v1.63/preview/slide-36.png",
+      "sha256": "1e076fa254a5495f55922cdd4c422135cbf377df8f6e42ae45b583178f63d2f5",
       "hidden": true
     },
     {
       "number": 37,
-      "title": "Real Time Comes from the Whole Pipeline",
-      "image": "v1.62/preview/slide-37.png",
-      "sha256": "88825ae82ba95fa81ec1a5e987de683964a240f8036a8d475715cac3f1936f2e",
+      "title": "Optimization - Comms",
+      "image": "v1.63/preview/slide-37.png",
+      "sha256": "1062da75bc94a6963ee58de180abfcd601173594d140cbb620e6bd404bee593a",
       "hidden": true
     },
     {
       "number": 38,
-      "title": "Real-Time Interaction Needs the Full Loop",
-      "image": "v1.62/preview/slide-38.png",
-      "sha256": "504a847c2d401fd5a8ac8045c7cc1f9bae0aa6838c6eed9cfb983c84f86bdad1",
+      "title": "Real Time Comes from the Whole Pipeline",
+      "image": "v1.63/preview/slide-38.png",
+      "sha256": "4753420c005b414e99e3a6a68927d2ef7689b0e710e7bbff39954274f6eb7906",
       "hidden": true
     },
     {
       "number": 39,
-      "title": "Live Avatar: Recorded Conversation",
-      "image": "v1.62/preview/slide-39.png",
-      "sha256": "02b22651f9d580b659dcd3989db88d58aa52c0864501f7aacf1458712f9453ac",
+      "title": "Real-Time Interaction Needs the Full Loop",
+      "image": "v1.63/preview/slide-39.png",
+      "sha256": "c1ce5b73bfe50b646d3887167458622c26fac88deda16737859f2e379ec98346",
       "hidden": true
     },
     {
       "number": 40,
-      "title": "Takeaways",
-      "image": "v1.62/preview/slide-40.png",
-      "sha256": "6081fa1b3c5c1bfdd5048bc6f798b8c6caf58eb76e3412b9816c26442d47234e",
+      "title": "Live Avatar: Recorded Conversation",
+      "image": "v1.63/preview/slide-40.png",
+      "sha256": "7e3e8692ff33d59b52c7fc7aee84a18d833406c385afa772f542fe4c57aae70a",
       "hidden": true
     },
     {
       "number": 41,
-      "title": "Closing slide",
-      "image": "v1.62/preview/slide-41.png",
-      "sha256": "41b1083473191844848596482bae0419cf70157d2985f9ded04efd03d1d231cc",
+      "title": "Takeaways",
+      "image": "v1.63/preview/slide-41.png",
+      "sha256": "8be7d7820c99ab0f12f8893448710265b14359b0cae1cb5ff13386c80b6a6c4a",
       "hidden": true
     },
     {
       "number": 42,
-      "title": "Real Time Means Keeping Up",
-      "image": "v1.62/preview/slide-42.png",
-      "sha256": "11a97251ba48cf52e4d0846577ccebef35d09d2c22284e4dfe9a5641e9ebe1a2",
+      "title": "Closing slide",
+      "image": "v1.63/preview/slide-42.png",
+      "sha256": "41b1083473191844848596482bae0419cf70157d2985f9ded04efd03d1d231cc",
       "hidden": true
     },
     {
       "number": 43,
-      "title": "Optimization - Comms",
-      "image": "v1.62/preview/slide-43.png",
-      "sha256": "4adb460cac72d90bbbeb42da279f45fe01ffd87296353b20927375ad731c57f8",
+      "title": "Real Time Means Keeping Up",
+      "image": "v1.63/preview/slide-43.png",
+      "sha256": "686326dcba98e0b3cac4083f757f8dbc85a31ad696a7f663d221dfb19ec2b62b",
       "hidden": true
     },
     {
       "number": 44,
+      "title": "Optimization - Comms",
+      "image": "v1.63/preview/slide-44.png",
+      "sha256": "7338cf81bc60c5bf7362b01853d66543b53c8ec434c6ffb6137bcd366664d3f7",
+      "hidden": true
+    },
+    {
+      "number": 45,
       "title": "From Minutes to Real Time",
-      "image": "v1.62/preview/slide-44.png",
-      "sha256": "2ba5d10cafa24f87f56abe4fe8c10d6a475d0018341a38cb98def49c611949c2",
+      "image": "v1.63/preview/slide-45.png",
+      "sha256": "61f27903452eca467f41635952963696d67050d3ca49c93a5291c0eaf9833478",
       "hidden": true
     }
   ],
   "downloads": {
-    "pptx": "v1.62/MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.62.pptx",
-    "pdf": "v1.62/MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.62.pdf"
+    "pptx": "v1.63/MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.63.pptx",
+    "pdf": "v1.63/MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.63.pdf"
   },
-  "release_url": "v1.62/",
+  "release_url": "v1.63/",
   "related": [
     {
       "label": "Model comparison and official sources",
-      "url": "v1.62/model-comparison.html",
+      "url": "v1.63/model-comparison.html",
       "slides": [
         2
       ]
     },
     {
       "label": "Bandwidth encoding and evidence",
-      "url": "v1.62/topology-bandwidth.html",
+      "url": "v1.63/topology-bandwidth.html",
       "slides": [
         7
       ]
     },
     {
       "label": "Baseline config and measured costs",
-      "url": "v1.62/baseline-breakdown.html",
+      "url": "v1.63/baseline-breakdown.html",
       "slides": [
         4
       ]
     },
     {
-      "label": "Play slide 26 videos",
-      "url": "v1.62/four-videos.html",
+      "label": "Play slide 27 videos",
+      "url": "v1.63/four-videos.html",
       "slides": [
-        26
+        27
       ]
     },
     {
       "label": "Slide 9 measured optimization ladder",
-      "url": "v1.62/benchmarks.html",
+      "url": "v1.63/benchmarks.html",
       "slides": [
         9
       ]
     },
     {
       "label": "Live demo pipeline and setup",
-      "url": "v1.62/demo-config.html",
+      "url": "v1.63/demo-config.html",
       "slides": [
         10
       ]
     },
     {
       "label": "How avatar continuation works",
-      "url": "v1.62/continuation.html",
+      "url": "v1.63/continuation.html",
       "slides": [
         11
       ]
     },
     {
       "label": "Key takeaways and next steps",
-      "url": "v1.62/takeaways.html",
+      "url": "v1.63/takeaways.html",
       "slides": [
         13
       ]
     },
     {
       "label": "Creator workflows and community",
-      "url": "v1.62/creators.html",
+      "url": "v1.63/creators.html",
       "slides": [
         14,
         15,
-        16
+        16,
+        17
       ]
     },
     {
       "label": "Play or download the recorded demo",
-      "url": "v1.62/demo-video.html",
+      "url": "v1.63/demo-video.html",
       "slides": [
         12
       ]
@@ -405,12 +413,16 @@
       "label": "Historical AAS / Rolling RoPE study",
       "url": "../../reports/h3-liveavatar-long-video-20261014/long/",
       "slides": [
-        27
+        28
       ]
     }
   ],
   "profile_url": "../../profiles/slide18-final-20261027/",
   "history": [
+    {
+      "label": "v1.63 · archived release",
+      "url": "v1.63/"
+    },
     {
       "label": "v1.62 · archived release",
       "url": "v1.62/"
@@ -520,6 +532,6 @@
       "url": "historical-v1.36.html"
     }
   ],
-  "revision": "2dea32c76a2beb3f46301e4d55894571815b6afcebb3cbc16cf624aa0955173f",
-  "updated_at_utc": "2026-10-30T19:53:03.929295+00:00"
+  "revision": "3a4507639e039972f25664a5f6642e68a7504af62fb931b2ff303bd18a80f55e",
+  "updated_at_utc": "2026-10-30T20:13:29.670024+00:00"
 }
