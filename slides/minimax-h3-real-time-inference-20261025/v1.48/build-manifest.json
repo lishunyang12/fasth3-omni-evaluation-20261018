@@ -1,0 +1,42 @@
+{
+  "status": "draft",
+  "version": "v1.48",
+  "slides": 21,
+  "visible": 12,
+  "hidden_slides": [
+    7,
+    8,
+    9,
+    10,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "slide_roles": {
+    "baseline": 6,
+    "quality": 10,
+    "overview": 11,
+    "ladder": 17,
+    "demo_setup": [
+      18
+    ],
+    "continuation": 19,
+    "recording": 20
+  },
+  "recording_slide": 20,
+  "recording_status": "retained_unchanged",
+  "pptx_sha256": "96c1f435a2a197a4ca27a42c41621cd62da92375bbbdc9bc05c638ddae3c1a41",
+  "source_pptx_sha256": "8955be49df72dde0544bdd2e6abbc9b1e486e7fb2feb6cced4dfe8b2cd473fc4",
+  "new_measurements": false,
+  "new_generation": false,
+  "raw_trace_uploaded": false,
+  "source_scripts_sha256": {
+    "build_release.py": "22576df07abc3c7c0bbf2b70e7682ab58a0d6a7460a91a2fde821ecb48716274"
+  },
+  "modified_slides": [
+    6
+  ],
+  "template_audit": "slide6-template-audit.json"
+}

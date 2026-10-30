@@ -1,0 +1,72 @@
+{
+  "status": "pass",
+  "slide": 6,
+  "template_sha256": "d680c78cc6a8a16a50c87cee1c50b8dcc88de21ef740d7f0f5a6fcf28dccd02a",
+  "source_pptx_sha256": "8955be49df72dde0544bdd2e6abbc9b1e486e7fb2feb6cced4dfe8b2cd473fc4",
+  "pptx_sha256": "96c1f435a2a197a4ca27a42c41621cd62da92375bbbdc9bc05c638ddae3c1a41",
+  "changed_parts": [
+    "ppt/slides/slide6.xml"
+  ],
+  "template_parts": {
+    "ppt/slideMasters/": {
+      "count": 1,
+      "match": true
+    },
+    "ppt/slideLayouts/": {
+      "count": 44,
+      "match": true
+    },
+    "ppt/fonts/": {
+      "count": 12,
+      "match": true
+    }
+  },
+  "theme_matches": true,
+  "placeholders_restored": [
+    "Title",
+    "Subtitle",
+    "Slide Number Placeholder"
+  ],
+  "title": {
+    "font": "NVIDIA Sans Medium",
+    "size_pt": 88,
+    "inherited": true
+  },
+  "subtitle": {
+    "font": "NVIDIA Sans",
+    "size_pt": 48,
+    "inherited": true
+  },
+  "content_layout": "Custom editable technical summary; content typography aligned with template",
+  "data_text_unchanged": true,
+  "actual_pdf_fonts": [
+    "NVIDIASans-Medium",
+    "NVIDIASans-Regular"
+  ],
+  "title_font_fallback": false,
+  "subtitle_font_fallback": false,
+  "visual_review": "pass",
+  "slide6_starter_guide_findings": [],
+  "unchanged_preview_slides": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ]
+}

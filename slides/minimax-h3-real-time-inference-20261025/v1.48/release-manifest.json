@@ -1,0 +1,60 @@
+{
+  "status": "reviewed_presentation_revision",
+  "version": "v1.48",
+  "slides": 21,
+  "visible": 12,
+  "hidden_slides": [
+    7,
+    8,
+    9,
+    10,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "slide_roles": {
+    "baseline": 6,
+    "quality": 10,
+    "overview": 11,
+    "ladder": 17,
+    "demo_setup": [
+      18
+    ],
+    "continuation": 19,
+    "recording": 20
+  },
+  "recording_slide": 20,
+  "recording_status": "retained_unchanged",
+  "pptx_sha256": "96c1f435a2a197a4ca27a42c41621cd62da92375bbbdc9bc05c638ddae3c1a41",
+  "source_pptx_sha256": "8955be49df72dde0544bdd2e6abbc9b1e486e7fb2feb6cced4dfe8b2cd473fc4",
+  "new_measurements": false,
+  "new_generation": false,
+  "raw_trace_uploaded": false,
+  "source_scripts_sha256": {
+    "build_release.py": "22576df07abc3c7c0bbf2b70e7682ab58a0d6a7460a91a2fde821ecb48716274",
+    "verify_public.py": "7d5a937fb1e3be8c7468194f188f9396230693bcb90efdc5f385beec88c4bcb6",
+    "prepare_release.py": "53e202ae875922ecfec15624be57a1f6ecff31e2626dd606fed4faa23323469f",
+    "render_slides.py": "569d8ef3a160805e44072392c04385bee8b76630c7084a0d38ab6a2cb61dddf8"
+  },
+  "modified_slides": [
+    6
+  ],
+  "template_audit": "slide6-template-audit.json",
+  "publication": "public_release_candidate",
+  "generated_at": "2026-10-30T11:37:27.585678+00:00",
+  "validation": {
+    "status": "pass",
+    "office": "office-validation.json",
+    "visual_review": "pass",
+    "browser": "browser-validation.json"
+  },
+  "pdf_sha256": "8413c4d9dba2f2da84dcb9449a9f454c903e0e84172bed1a1fda9f2840a8f6a5",
+  "baseline_profile_url": "v1.48/baseline-breakdown.html",
+  "quality_video_url": "v1.40/four-videos.html",
+  "historical_continuity_url": "../../reports/h3-liveavatar-long-video-20261014/long/",
+  "first_transition_scope": "Descriptive ratio of recorded medians across separately recorded baseline configurations",
+  "recording": "User recording; first five seconds removed; video and audio preserved",
+  "latest_revision": "3cac99355317f90f80582a956102e68c4cb21724af38db0f072463df4ab572f2"
+}
