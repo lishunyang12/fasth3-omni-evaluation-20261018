@@ -1,0 +1,15 @@
+id,title,steps,status,samples,median_seconds,worst_seconds,median_rtf,incremental_saved_seconds,presentation_source
+00-base50,"Original Ref2VA, 50 evaluations",50,stopped_after_two_completed_requests,2,213.40215269569308,214.70544344000518,41.303642457230914,,Baseline refresh: two completed requests before user stop
+01-pdd8,PDD 8 evaluations,8,measured_pending_quality_review,3,44.32691093347967,44.81915560364723,8.579402116157354,,Retained v1.41 measurements; not rerun
+02-vsa,Trained VSA native 8-step model,8,measured_pending_quality_review,3,25.915374606847763,26.225030813366175,5.015878956164083,18.411536326631904,Retained v1.41 measurements; not rerun
+03-qad-native-fp4,QAD NVFP4 + native FP4 attention,8,measured_pending_quality_review,3,19.460303778760135,20.051393740810454,3.766510408792284,6.455070828087628,Retained v1.41 measurements; not rerun
+04-ulysses,RDMA + direct layout + V/gate overlap,8,measured_pending_quality_review,3,6.832498379051685,6.837718074209988,1.3224190411067778,12.62780539970845,Retained v1.41 measurements; not rerun
+05-head-232,2/3/2 head pipeline,8,measured_pending_quality_review,3,6.407273745164275,6.460907270200551,1.240117499064053,0.42522463388741016,Retained v1.41 measurements; not rerun
+06-cuda-graph,Compute CUDA graphs,8,measured_pending_quality_review,3,6.192990344949067,6.201202904805541,1.198643292570787,0.21428340021520853,Retained v1.41 measurements; not rerun
+07-vae-output,36-layer NVFP4 VAE + MP4 pre-encoding,8,measured_pending_quality_review,3,5.419804787263274,5.436306628398597,1.048994474954182,0.7731855576857924,Retained v1.41 measurements; not rerun
+08-tile-aac,Fused tile preparation + early AAC,8,measured_pending_quality_review,3,5.193693041801453,5.208181765861809,1.0052309113164102,0.22611174546182156,Retained v1.41 measurements; not rerun
+09-output-fusion,Direct output packing,8,measured_pending_quality_review,3,5.147176703438163,5.154093466699123,0.9962277490525476,0.04651633836328983,Retained v1.41 measurements; not rerun
+10-input-fusion,Direct receive-to-tile input,8,measured_pending_quality_review,3,5.05976936686784,5.059803321957588,0.9793102000389368,0.08740733657032251,Retained v1.41 measurements; not rerun
+11-routing,Integer routing compaction,8,measured_pending_quality_review,3,5.014520030468702,5.021161670796573,0.9705522639616843,0.045249336399137974,Retained v1.41 measurements; not rerun
+12-copy-elision,Producer copy elision,8,measured_pending_quality_review,3,4.9224158665165305,4.9350473042577505,0.9527256515838446,0.0921041639521718,Retained v1.41 measurements; not rerun
+13-final-recheck,"Final optimized configuration, repeated after baseline",8,measured_pending_quality_review,3,4.927015350200236,4.946227044798434,0.9536158742323037,,Retained v1.41 measurements; not rerun

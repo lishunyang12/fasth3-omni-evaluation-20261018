@@ -1,0 +1,36 @@
+{
+  "status": "frozen_measured_evidence",
+  "version": "v1.42",
+  "slides": 22,
+  "hidden": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "visible": 13,
+  "updated_slides": [
+    4,
+    6,
+    7,
+    12,
+    18,
+    21
+  ],
+  "added_slide": 21,
+  "closing_slide": 22,
+  "protected_parts": 70,
+  "pptx_sha256": "126201dd6b2fe9e0075935b02cc201fedc69b82596026dd336b57aa4b6164f6c",
+  "source_pptx_sha256": "18190385ed1b810504b88e73009ffb37aacf0517ae8ab092d695cd9456a92b83",
+  "benchmark_completed": 12,
+  "benchmark_total": 13,
+  "baseline_samples": 2,
+  "later_rows_retained": true,
+  "new_matched_full_ladder": false,
+  "generated_at": "2026-10-30T08:47:25.175148+00:00"
+}

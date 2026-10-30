@@ -1,0 +1,110 @@
+{
+  "hardware": {
+    "gpus": 8,
+    "architecture": "SM120",
+    "driver_name": "NVIDIA Graphics Device",
+    "recorded_system": "PRO 5000 reference node",
+    "memory_mib_per_gpu": 73415,
+    "no_pro5500_result": true
+  },
+  "h3": {
+    "task": "Ref2VA",
+    "steps": 8,
+    "dit": "QAD NVFP4",
+    "attention": "native NVFP4 VSA",
+    "sparsity_setting": 0.9,
+    "reference_keep_rate": 0.1,
+    "tensor_parallel": 1,
+    "ulysses": 8,
+    "text_encoder_tp": 8,
+    "vae_patch_parallel": 8,
+    "transport": "BF16 RDMA",
+    "head_bands": [
+      2,
+      3,
+      2
+    ],
+    "video_vae": "36-layer NVFP4; 216 packed linears; BF16 decode autocast",
+    "audio": "native H3 audio decoder; no separate TTS",
+    "mp4_preencoding": true,
+    "graph_cache": "Cleared at 24 entries between requests; changing dialogue can require warmup"
+  },
+  "media": {
+    "width": 960,
+    "height": 544,
+    "fps": 24,
+    "first_window_frames": 124,
+    "first_window_seconds": 5.166666666666667,
+    "new_continuation_frames": 119,
+    "new_continuation_seconds": 4.958333333333333,
+    "overlap_frames": 5
+  },
+  "continuity": {
+    "video_history_noise": 0.2,
+    "target_video_prefix": "off",
+    "reference_image_noise": 0.001,
+    "audio_history_noise": 0,
+    "audio_target_prefix": "off",
+    "position": "cumulative AV positions",
+    "video_history": "0.8 * retained video latent + 0.2 * seeded noise",
+    "lossless": false
+  },
+  "vad": {
+    "model": "Silero ONNX",
+    "device": "CPU",
+    "sample_rate": 16000,
+    "channels": 1,
+    "packet_ms": 200,
+    "quiet_endpoint_ms": 600,
+    "pre_roll_ms": 800
+  },
+  "asr": {
+    "model": "Qwen3-ASR-0.6B",
+    "precision": "BF16",
+    "gpu": 6,
+    "shared_with_h3": true,
+    "execution": "Partial transcription during speech; final transcription at endpoint"
+  },
+  "llm": {
+    "model": "Qwen3-4B",
+    "precision": "BF16",
+    "gpu": 7,
+    "shared_with_h3": true,
+    "thinking": false,
+    "temperature": 0.4,
+    "max_tokens": 160,
+    "output": "Short English replies, streamed"
+  },
+  "software": {
+    "h3": {
+      "python": "3.12.13",
+      "torch_distribution": "2.13.0",
+      "vllm": "0.32.0",
+      "transformers": "5.19.0",
+      "diffusers": "0.40.0",
+      "flashinfer_python": "0.7.0.post1"
+    },
+    "asr_llm": {
+      "python": "3.12.13",
+      "torch": "2.13.0+cu132",
+      "vllm": "0.28.0",
+      "transformers": "5.14.1"
+    }
+  },
+  "playback": {
+    "active_calls": 1,
+    "unplayed_windows_limit": 2,
+    "includes_inflight_generation": true
+  },
+  "timing": {
+    "avatar_generation": "H3 HTTP request through complete MP4; excludes subsequent CPU idle-audio screening and media delivery",
+    "reply_video_starts": "Estimated microphone speech endpoint to first rendered reply frame, including endpoint detection, ASR, LLM, queueing, generation, transfer and playback wait"
+  },
+  "captions": "Recognized user speech plus intended current reply text; not word-aligned or verified transcription of H3 audio",
+  "benchmark_difference": "The refreshed baseline and retained ladder use fixed prompt/seed on exclusive eight-GPU H3 with ASR/LLM stopped. Later rows were not rerun under the refreshed baseline policy. The live demo shares GPU 6/7 and carries video/audio history.",
+  "provenance": {
+    "h3_stage_sha256": "9397b6fe46b28481984cb4e2cc96facb438a442af873de22f898f7135664528c",
+    "history_validation_sha256": "62adb582967c64111aed91e39f07ed654a04097ecbd223496818467fbd59be49",
+    "live_overlay_validation_sha256": "50954bb50fd02f16e88db94301e5991601196c882ada7cc9bb0dff16c2b69573"
+  }
+}

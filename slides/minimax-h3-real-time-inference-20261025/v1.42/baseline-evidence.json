@@ -1,0 +1,179 @@
+{
+  "status": "pass",
+  "source_kind": "completed_request_service_logs",
+  "matched_nsys_capture": false,
+  "samples": 2,
+  "median_seconds": 213.40215269569308,
+  "individual_seconds": [
+    214.70544344000518,
+    212.09886195138097
+  ],
+  "breakdown_aggregation": "Arithmetic mean of the two completed requests; for n=2 the HTTP mean equals the median.",
+  "costs": [
+    {
+      "label": "Model engine",
+      "seconds": 211.8995
+    },
+    {
+      "label": "Output-ready wait",
+      "seconds": 1.33
+    },
+    {
+      "label": "MP4 encoding",
+      "seconds": 0.144845
+    },
+    {
+      "label": "Other HTTP overhead",
+      "seconds": 0.0278076956930704
+    }
+  ],
+  "requests": [
+    {
+      "ordinal": 2,
+      "request_id": "video_sync-868b87a90d8059f7-bbb40c18",
+      "http_seconds": 214.70544344000518,
+      "segments": [
+        {
+          "label": "Model engine",
+          "seconds": 213.175
+        },
+        {
+          "label": "Output-ready wait",
+          "seconds": 1.359
+        },
+        {
+          "label": "MP4 encoding",
+          "seconds": 0.14473
+        },
+        {
+          "label": "Other HTTP overhead",
+          "seconds": 0.02671344000515319
+        }
+      ],
+      "logged_stats": {
+        "Field": 0.0,
+        "audio_duration_s": 5.175,
+        "audio_generated_frames": 165600.0,
+        "audio_sample_rate": 32000.0,
+        "batch_id": 3.0,
+        "batch_size": 1.0,
+        "diffusion_engine_exec_time_s": 213.175,
+        "height": 544.0,
+        "image_num": 1.0,
+        "kv_recv_time_s": 0.001,
+        "num_inference_steps": 50.0,
+        "output_ready_wait_time_s": 1.359,
+        "output_unit_count": 1.0,
+        "postprocess_time_s": 0.0,
+        "resolution": 640.0,
+        "scheduler_queue_wait_s": 0.0,
+        "serving_time_to_first_output_ms": 214534.76,
+        "stage_gen_time_ms": 214534.956,
+        "width": 960.0,
+        "e2e_requests": 1.0,
+        "e2e_wall_time_ms": 211927.035,
+        "e2e_avg_time_per_request_ms": 211927.035,
+        "e2e_stage_0_wall_time_ms": 211926.966,
+        "e2e_total_ms": 211926.966,
+        "mp4_encoding_s": 0.14473,
+        "request_id": "video_sync-868b87a90d8059f7-bbb40c18"
+      },
+      "mp4_sha256": "a7581ae1cb28d3503ff4ab8b31124d91f6184df989fef4817560da62e2148a4f",
+      "decoded_sha256": {
+        "video": "SHA256=9ec38b0f73faf69377395e652b8b7d3cf6617b9bc31c01964d059aabdf535261",
+        "audio": "SHA256=2f76428baefb1ffd0af21ef1df7caea4764689ed8bffe0766b1718833ddeb263"
+      }
+    },
+    {
+      "ordinal": 3,
+      "request_id": "video_sync-b833d9389f8a8a1d-a5279bd6",
+      "http_seconds": 212.09886195138097,
+      "segments": [
+        {
+          "label": "Model engine",
+          "seconds": 210.624
+        },
+        {
+          "label": "Output-ready wait",
+          "seconds": 1.301
+        },
+        {
+          "label": "MP4 encoding",
+          "seconds": 0.14496
+        },
+        {
+          "label": "Other HTTP overhead",
+          "seconds": 0.02890195138098761
+        }
+      ],
+      "logged_stats": {
+        "Field": 0.0,
+        "audio_duration_s": 5.175,
+        "audio_generated_frames": 165600.0,
+        "audio_sample_rate": 32000.0,
+        "batch_id": 4.0,
+        "batch_size": 1.0,
+        "diffusion_engine_exec_time_s": 210.624,
+        "height": 544.0,
+        "image_num": 1.0,
+        "kv_recv_time_s": 0.001,
+        "num_inference_steps": 50.0,
+        "output_ready_wait_time_s": 1.301,
+        "output_unit_count": 1.0,
+        "postprocess_time_s": 0.0,
+        "resolution": 640.0,
+        "scheduler_queue_wait_s": 0.0,
+        "serving_time_to_first_output_ms": 211925.254,
+        "stage_gen_time_ms": 211925.598,
+        "width": 960.0,
+        "mp4_encoding_s": 0.14496,
+        "request_id": "video_sync-b833d9389f8a8a1d-a5279bd6"
+      },
+      "mp4_sha256": "a7581ae1cb28d3503ff4ab8b31124d91f6184df989fef4817560da62e2148a4f",
+      "decoded_sha256": {
+        "video": "SHA256=9ec38b0f73faf69377395e652b8b7d3cf6617b9bc31c01964d059aabdf535261",
+        "audio": "SHA256=2f76428baefb1ffd0af21ef1df7caea4764689ed8bffe0766b1718833ddeb263"
+      }
+    }
+  ],
+  "configuration": {
+    "model": "Original Ref2VA",
+    "steps": 50,
+    "dit_precision": "BF16",
+    "attention": "Dense cuDNN; SDPA token refiner",
+    "width": 960,
+    "height": 544,
+    "frames": 124,
+    "fps": 24,
+    "seed": 43,
+    "gpus": 8,
+    "architecture": "SM120",
+    "vram_mib_per_gpu": 73415,
+    "parallelism": "TP1 / Ulysses8 / text encoder TP8 / VAE tiles8",
+    "transport": "Local NCCL; RDMA disabled",
+    "decoder": "Native unquantized VAE; FP16 decode autocast",
+    "conditioning": "Exact AdaLN projections computed before timing and resident on GPU"
+  },
+  "validation": {
+    "complete_projection_table_all_ranks": true,
+    "native_projection_equality_all_ranks": true,
+    "formal_outputs_identical": true,
+    "breakdown_sums_to_http_mean": true
+  },
+  "sources": {
+    "server_log_sha256": "a5cd344e0e6894ac86b4414654bed2a08fc1740019063c27a2506064bf3ac8e5",
+    "stage_sha256": "9df6a5063ca69c1a1b9ef8de693d7aa77f3b65944d2dee7c561ac812515a5bb0",
+    "formal_results_sha256": [
+      "8fbc48f4453108203fcecab5b57529859588eb6b19c9ea83bf937705ceece3d2",
+      "25c6950c73377ffc24f4f19590a9e9d6427b8de03488373816de5498262eeceb"
+    ],
+    "engine_timing_definition_sha256": "5960dde364fb953bb1f5d8e048b39545073992a6461e302fdbb3c94686cf935d"
+  },
+  "limitations": [
+    "Engine timing includes model execution and engine coordination; prompt encoding, DiT and VAE are not independently measured here.",
+    "Output-ready wait follows engine completion and waits for asynchronous D2H/shared-memory output.",
+    "Other HTTP overhead is the residual, including request/response handling and sub-millisecond log rounding.",
+    "The third request was interrupted and excluded. No new Nsight capture or thermal qualification was completed.",
+    "The refreshed baseline uses a separately recorded audiovisual reference; whole-output equality to the archived baseline is not claimed."
+  ]
+}

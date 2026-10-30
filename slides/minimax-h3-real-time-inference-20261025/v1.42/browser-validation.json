@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "checks": [
+    "live_manifest_upgrade_keeps_slide_18",
+    "13_visible_22_total_slides",
+    "nine_details_remain_hidden",
+    "final_demo_link_includes_asr_llm",
+    "fullscreen_demo_slide",
+    "all_preview_download_and_evidence_links_200",
+    "english_pages",
+    "mobile_pages_no_document_overflow"
+  ],
+  "errors": [],
+  "revision": "820d6f29b4ba0e5666a4353d3e6fc137793129e01c8a28861fffb516c2871195"
+}
