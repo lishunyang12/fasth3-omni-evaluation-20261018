@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "rendered_slide": 16,
+  "render_resolution": [
+    1600,
+    900
+  ],
+  "decoded_urls": [
+    "https://github.com/vllm-project/vllm-omni",
+    "https://weixin.qq.com/g/AwYAACjMdVnmoMr7d0ZK6VgI1CkuKKrqNAiCXmQvB19F3T-qjl6Qz7DUEWE2a5wa"
+  ],
+  "wechat_source_pixels_unchanged": true,
+  "source_image_expiry": "before 2 November 2026",
+  "live_wechat_admission_verified": false
+}

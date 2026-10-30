@@ -1,0 +1,59 @@
+{
+  "slides": [
+    3,
+    19,
+    20
+  ],
+  "columns": [
+    "GPU",
+    "SMs",
+    "Memory",
+    "Power",
+    "Interconnect"
+  ],
+  "rows": [
+    [
+      "RTX PRO 5000",
+      "110",
+      "72 GB\nGDDR7 ECC",
+      "300 W",
+      "PCIe Gen5 ×16\nNo GPU NVLink"
+    ],
+    [
+      "RTX PRO 6000\nWorkstation / Server",
+      "188",
+      "96 GB\nGDDR7 ECC",
+      "600 W",
+      "PCIe Gen5 ×16\nNo GPU NVLink"
+    ],
+    [
+      "GeForce RTX 5090",
+      "170",
+      "32 GB\nGDDR7",
+      "575 W",
+      "PCIe Gen5 ×16\nNo NVLink"
+    ],
+    [
+      "DGX Spark\nGB10 · SM121",
+      "48",
+      "128 GB\nUnified LPDDR5X",
+      "140 W\nSoC",
+      "CPU–GPU NVLink-C2C\n200 Gb/s ConnectX-7"
+    ]
+  ],
+  "selected_gpu": "RTX PRO 5000",
+  "gpu_count": 8,
+  "power_scope": "Published maximum board/graphics power; DGX Spark is explicitly labeled SoC TDP",
+  "sources": {
+    "pro5000": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-5000/",
+    "pro5000_datasheet": "https://www.nvidia.com/content/dam/en-zz/Solutions/products/workstations/professional-desktop-gpus/rtx-pro-5000-blackwell/workstation-datasheet-blackwell-rtx-pro-5000-5488550-nvidia.pdf",
+    "pro6000": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000/",
+    "rtx5090": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/",
+    "spark": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+    "gb10_whitepaper": "https://www.nvidia.com/content/dam/en-zz/Solutions/dgx-spark/nvidia-gb10-superchip-whitepaper.pdf",
+    "compute_capability": "https://developer.nvidia.com/cuda/gpus",
+    "pro6000_server": "https://www.nvidia.com/en-us/data-center/rtx-pro-6000-blackwell-server-edition/"
+  },
+  "verified_date": "2026-10-30",
+  "new_measurements": false
+}

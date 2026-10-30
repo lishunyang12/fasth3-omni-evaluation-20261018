@@ -26,6 +26,20 @@
       img.src = src;
     });
   }
+  function positionVideo() {
+    if (!deck) return;
+    const video = $('slide-video'), layout = deck.slides[current - 1]?.video_layout;
+    video.style.cssText = '';
+    if (video.hidden || !layout) return;
+    const area = document.querySelector('.slide-area');
+    const scale = Math.min(area.clientWidth / layout.canvas_width, area.clientHeight / layout.canvas_height);
+    Object.assign(video.style, {
+      position: 'absolute',
+      left: `${(area.clientWidth - layout.canvas_width * scale) / 2 + layout.x * scale}px`,
+      top: `${(area.clientHeight - layout.canvas_height * scale) / 2 + layout.y * scale}px`,
+      width: `${layout.width * scale}px`, height: `${layout.height * scale}px`
+    });
+  }
   async function show(number, updateHash = true) {
     if (!deck) return;
     const rows=visibleSlides();
@@ -42,13 +56,14 @@
         video.poster = localURL(slide.poster || slide.image).href;
       }
       video.hidden = false;
-      $('open-slide').hidden = true;
+      $('open-slide').hidden = !slide.video_layout;
     } else {
       video.pause();
       video.hidden = true;
       if (video.hasAttribute('src')) { video.removeAttribute('src'); video.load(); }
       $('open-slide').hidden = false;
     }
+    positionVideo();
     $('slide-select').value = String(current);
     $('previous').disabled = current === rows[0].number;
     $('next').disabled = current === rows.at(-1).number;
@@ -98,6 +113,13 @@
       if (s.number !== i+1 || typeof s.title !== 'string' || !/^[a-f0-9]{64}$/.test(s.sha256)) throw Error('Invalid slide');
       localURL(s.image);
       if (s.video) { localURL(s.video); localURL(s.poster || s.image); }
+      if (s.video_layout) {
+        const b = s.video_layout;
+        if (!s.video || !['x','y','width','height','canvas_width','canvas_height'].every(k => Number.isFinite(b[k])) ||
+            b.x < 0 || b.y < 0 || b.width <= 0 || b.height <= 0 ||
+            b.canvas_width <= 0 || b.canvas_height <= 0 ||
+            b.x + b.width > b.canvas_width || b.y + b.height > b.canvas_height) throw Error('Invalid video layout');
+      }
     });
   }
   async function refresh() {
@@ -148,5 +170,6 @@
   });
   document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
   setInterval(() => { if (!document.hidden) refresh(); }, 30000);
+  new ResizeObserver(positionVideo).observe(document.querySelector('.slide-area'));
   refresh();
 })();

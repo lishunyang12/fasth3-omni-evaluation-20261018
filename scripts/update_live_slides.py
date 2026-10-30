@@ -89,6 +89,8 @@ def main():
         slide = parsed.slides[recording['slide']-1]
         slide.update(video=str(video.relative_to(DECK)), video_sha256=recording['sha256'],
                      poster=str((folder/recording['poster']).relative_to(DECK)))
+        if 'video_layout' in recording:
+            slide['video_layout'] = recording['video_layout']
     roles = manifest.get('slide_roles', {})
     baseline_number = roles.get('baseline', 6)
     quality_number = roles.get('quality', 11)

@@ -1,0 +1,21 @@
+{
+  "slide": 16,
+  "verified_date": "2026-10-31",
+  "github": {
+    "url": "https://github.com/vllm-project/vllm-omni",
+    "image": "media/vllm-omni-github-qr.png",
+    "encoding": "Direct official repository URL",
+    "sha256": "a34464ca4824a61bcef27accea80788bf006328c7d24b01e6fbaa62293bcba10"
+  },
+  "wechat": {
+    "source_commit": "08177216af4b44cef54ec5bdc75c265a9f0cd697",
+    "source": "https://raw.githubusercontent.com/vllm-project/vllm-omni/08177216af4b44cef54ec5bdc75c265a9f0cd697/docs/assets/WeChat.jpg",
+    "sha256": "f69e74c3bf35a8beeab411109f4ebab7ad250cbc20286d1222801b28b394e2cf",
+    "bytes": 248869,
+    "image": "media/vllm-omni-official-wechat.jpg",
+    "official_entry": "https://github.com/vllm-project/vllm-omni/blob/main/docs/assets/WeChat.jpg",
+    "source_image_expiry": "Valid before November 2; interpreted as 2026 in the current presentation",
+    "live_admission_verified": false,
+    "presentation_crop": "Native PPTX square crop, preserving full QR and quiet zone; source bytes unchanged"
+  }
+}

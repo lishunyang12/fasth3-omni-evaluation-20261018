@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "version": "v1.60",
+  "revision": "b3aec0ef69698d44a8840ffc3c16a5aacc2a58a0a7b131d2c4b2a510e6450ca3",
+  "slides": 44,
+  "visible": 16,
+  "visible_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "pipeline_slide": 10,
+  "continuation_slide": 11,
+  "recording_slide": 12,
+  "studio_slide": 15,
+  "closing_slide": 16,
+  "generic_model_labels": true,
+  "planned_release": "early November 2026",
+  "video_playback": true,
+  "video_inset_desktop_mobile_fullscreen": true,
+  "roadmap_statuses_checked": true,
+  "correct_links": true,
+  "media": {
+    "duration": 37.275,
+    "width": 3168,
+    "height": 1822
+  },
+  "errors": []
+}
