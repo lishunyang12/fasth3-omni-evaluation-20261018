@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "revision": "acb5f9e96bb7c5733d2677a26e619d63e1cb4d2e31d0668432f124d361848557",
+  "checks": [
+    "baseline_nsys_slide",
+    "actual_input_reference_image",
+    "12_visible_21_total_slides",
+    "baseline_table_values",
+    "download_links_200",
+    "english_pages",
+    "mobile_no_overflow"
+  ],
+  "errors": []
+}

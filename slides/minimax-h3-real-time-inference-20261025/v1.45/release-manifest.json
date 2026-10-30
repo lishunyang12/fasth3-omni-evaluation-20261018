@@ -1,0 +1,62 @@
+{
+  "status": "reviewed_presentation_revision",
+  "version": "v1.45",
+  "slides": 21,
+  "visible": 12,
+  "hidden": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "hidden_slides": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "updated_slides": [
+    6,
+    19
+  ],
+  "recording_slide": 20,
+  "recording_status": "retained_unchanged",
+  "pptx_sha256": "25f4bc174c62a11505e74e4cec54173ec2b6d8662728094cca2e174c709b04c5",
+  "source_pptx_sha256": "d0a927114fd02656eb2b09f417c0259f2742a2db751aa62d2d8d7ee4e9cb0d1b",
+  "new_measurements": false,
+  "new_generation": false,
+  "raw_trace_uploaded": false,
+  "reference_image_sha256": "560c094f9900ea762227f84481ca8a2f73adac69963e0d1a78563bec1844d6b8",
+  "baseline_nsys_source_sha256": "4a177d70b021cb33e889319f9e20f2ee9995594007cb6ea5dddf7fd754d28b88",
+  "source_scripts_sha256": {
+    "build_release.py": "bedf10314ef51c27bb6759f375d0bbe618d7f5cb119da4a4a605da08f41ab6bf",
+    "verify_public.py": "befc7f7873e3ce1e55f3cc8726c56855e5062cfcea0f91fd66c277ae9aa24c2b",
+    "prepare_release.py": "a8f41305480e5a6e37a1f82c051dee402d6dc808cbf72c9b6fc330eeef6007b9",
+    "render_slides.py": "c675b17bb3f1875ae9981ff671023de76c340c36748835b2d23f6b6f25cfb657"
+  },
+  "publication": "public_release_candidate",
+  "generated_at": "2026-10-30T11:01:28.287540+00:00",
+  "validation": {
+    "status": "pass",
+    "office": "office-validation.json",
+    "visual_review": "pass",
+    "browser": "browser-validation.json"
+  },
+  "pdf_sha256": "356f0c4a6eedbb97ae48e674bf50d5915be9089badae1693618052ad217685cd",
+  "baseline_profile_url": "v1.45/baseline-breakdown.html",
+  "quality_video_url": "v1.40/four-videos.html",
+  "historical_continuity_url": "../../reports/h3-liveavatar-long-video-20261014/long/",
+  "first_transition_scope": "Descriptive ratio of recorded medians across separately recorded baseline configurations",
+  "recording": "User recording; first five seconds removed; video and audio preserved",
+  "latest_revision": "acb5f9e96bb7c5733d2677a26e619d63e1cb4d2e31d0668432f124d361848557"
+}
