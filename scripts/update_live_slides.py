@@ -80,13 +80,24 @@ def main():
     for slide in parsed.slides:
         image = folder/slide['image']
         slide.update(image=str(image.relative_to(DECK)), sha256=sha(image), hidden=slide['number'] in manifest.get('hidden_slides', []))
+    recording_path = folder/'demo-recording.json'
+    if recording_path.is_file():
+        recording = json.loads(recording_path.read_text())
+        video = folder/recording['video']
+        if sha(video) != recording['sha256']:
+            raise ValueError('Demo recording does not match its reviewed manifest')
+        slide = parsed.slides[recording['slide']-1]
+        slide.update(video=str(video.relative_to(DECK)), video_sha256=recording['sha256'],
+                     poster=str((folder/recording['poster']).relative_to(DECK)))
+    demo_slides = [7] + [s['number'] for s in parsed.slides if s['title'].startswith('Live Avatar:') and 'Recorded' not in s['title']]
     related = []
     for name, label, numbers in [('baseline-breakdown.html', 'Baseline config and measured costs', [6]),
                                   ('latency-breakdown.html', 'Current breakdown and GPU work', [6]),
                                   ('continuous-generation.html', 'Five-second generation timeline', [7]),
                                   ('four-videos.html', 'Play slide 11 videos', [11]),
                                   ('benchmarks.html', 'Slide 18 measured optimization ladder', [18]),
-                                  ('demo-config.html', 'Final demo: H3, ASR and LLM configuration', [7, 21])]:
+                                  ('demo-config.html', 'Demo pipeline and continuation', demo_slides),
+                                  ('demo-video.html', 'Play or download the recorded demo', [recording['slide']] if recording_path.is_file() else [])]:
         if (folder/name).is_file():
             related.append(dict(label=label, url=f'{version}/{name}', slides=numbers))
     if manifest.get('baseline_profile_url') and not (folder/'baseline-breakdown.html').is_file():

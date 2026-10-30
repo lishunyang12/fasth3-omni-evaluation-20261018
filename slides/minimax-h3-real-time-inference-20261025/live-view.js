@@ -33,6 +33,22 @@
     const thisNavigation = ++navigation;
     const slide = deck.slides[current - 1];
     const key = imageURL(slide);
+    const video = $('slide-video');
+    if (slide.video) {
+      const src = localURL(slide.video).href;
+      if (video.getAttribute('src') !== src) {
+        video.pause();
+        video.src = src;
+        video.poster = localURL(slide.poster || slide.image).href;
+      }
+      video.hidden = false;
+      $('open-slide').hidden = true;
+    } else {
+      video.pause();
+      video.hidden = true;
+      if (video.hasAttribute('src')) { video.removeAttribute('src'); video.load(); }
+      $('open-slide').hidden = false;
+    }
     $('slide-select').value = String(current);
     $('previous').disabled = current === rows[0].number;
     $('next').disabled = current === rows.at(-1).number;
@@ -81,6 +97,7 @@
     candidate.slides.forEach((s, i) => {
       if (s.number !== i+1 || typeof s.title !== 'string' || !/^[a-f0-9]{64}$/.test(s.sha256)) throw Error('Invalid slide');
       localURL(s.image);
+      if (s.video) { localURL(s.video); localURL(s.poster || s.image); }
     });
   }
   async function refresh() {
@@ -124,7 +141,7 @@
   });
   window.addEventListener('hashchange', () => { if(!deck)return; if(deck.slides[hashSlide()-1]?.hidden) { $('show-details').checked=true; controls(deck); } show(hashSlide(), false); });
   window.addEventListener('keydown', e => {
-    if (e.target.closest('select,input,textarea,[contenteditable=true]') || e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.target.closest('select,input,textarea,video,[contenteditable=true]') || e.altKey || e.ctrlKey || e.metaKey) return;
     if (['ArrowRight','PageDown','ArrowLeft','PageUp','Home','End'].includes(e.key)) {
       e.preventDefault(); if(!deck)return; if(e.key==='Home')show(visibleSlides()[0].number); else if(e.key==='End')show(visibleSlides().at(-1).number); else step(['ArrowRight','PageDown'].includes(e.key)?1:-1);
     }

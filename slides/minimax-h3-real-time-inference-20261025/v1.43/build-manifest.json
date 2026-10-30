@@ -1,0 +1,47 @@
+{
+  "status": "draft",
+  "version": "v1.43",
+  "slides": 21,
+  "visible": 12,
+  "hidden": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "hidden_slides": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "updated_slides": [
+    7,
+    18,
+    19
+  ],
+  "removed_original_slides": [
+    19,
+    20
+  ],
+  "original_settings_slide": 21,
+  "new_settings_slide": 19,
+  "recording_slide": 20,
+  "recording_status": "embedded",
+  "source_pptx_sha256": "126201dd6b2fe9e0075935b02cc201fedc69b82596026dd336b57aa4b6164f6c",
+  "pptx_sha256": "c9f805cf5d4f69d2fcf4963989426866dafc6624b973b014a08e10553e0468e5",
+  "new_measurements": false,
+  "source_scripts_sha256": {
+    "build_release.py": "b1166dd86ee483fe37a7ab61b68c89a0c4967453711d42b67fa85d66ce115f74"
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "title": "Toward Real-Time Generation With MiniMax H3",
+  "version": "v1.42",
+  "slides": [
+    {
+      "number": 1,
+      "title": "Toward Real-Time Generation With MiniMax H3",
+      "image": "v1.42/preview/slide-01.png",
+      "sha256": "9bd2b68496b7b63fec9bd8ecae09fa946ae853e5c6e03cc12cf89b4769128a42",
+      "hidden": false
+    },
+    {
+      "number": 2,
+      "title": "Agenda",
+      "image": "v1.42/preview/slide-02.png",
+      "sha256": "6ad9c04f3e283bf5a43882043ad78f7621283b58478cb5736dc742e101f0c891",
+      "hidden": false
+    },
+    {
+      "number": 3,
+      "title": "01 · Real-Time H3 Generation",
+      "image": "v1.42/preview/slide-03.png",
+      "sha256": "df0f91e0de374a5878e3fa11ff1e3b25123aabc473f06110d1111c05f72f28b3",
+      "hidden": false
+    },
+    {
+      "number": 4,
+      "title": "Real-Time Ref2VA Raises the Systems Bar",
+      "image": "v1.42/preview/slide-04.png",
+      "sha256": "a68124d7f91b3263e3a0a436f9ee73e850a8bd8edd84de2a837fcd6b1c50f16c",
+      "hidden": false
+    },
+    {
+      "number": 5,
+      "title": "SM120 Brings FP4 Compute; PCIe Limits Scale",
+      "image": "v1.42/preview/slide-05.png",
+      "sha256": "0ebd6f7e89a735fc2dd9c49eb07f32902a6a520728829e085c9c289d508e5f63",
+      "hidden": false
+    },
+    {
+      "number": 6,
+      "title": "Baseline: Configuration and Breakdown",
+      "image": "v1.42/preview/slide-06.png",
+      "sha256": "e2bd379074934a5d1c21749db583e3f037a9decd795a1d5f95c7fcb520bc3a30",
+      "hidden": false
+    },
+    {
+      "number": 7,
+      "title": "Five-Second Avatar: Live Conversation",
+      "image": "v1.42/preview/slide-07.png",
+      "sha256": "474b1f859525f4db1843cb5ae0aed2a6b3d15fdf26d0c7d011e5bca16fbfa061",
+      "hidden": false
+    },
+    {
+      "number": 8,
+      "title": "Few-Step Distillation",
+      "image": "v1.42/preview/slide-08.png",
+      "sha256": "78154b384a05d118ab46d1d32687f92900dcd01e5c683f4bfbd7643f7a38bd28",
+      "hidden": true
+    },
+    {
+      "number": 9,
+      "title": "Sparse Attention",
+      "image": "v1.42/preview/slide-09.png",
+      "sha256": "3b295e49658d5bf199c24ade0573aae289a707a4285913329f434ed52ba5dde7",
+      "hidden": true
+    },
+    {
+      "number": 10,
+      "title": "FastH3 Omni: Quantization-Aware Distillation",
+      "image": "v1.42/preview/slide-10.png",
+      "sha256": "93ac4121bd4e9cd8522a61795dc27b9d3434e8748e0056a00b5f3dd87ee80337",
+      "hidden": true
+    },
+    {
+      "number": 11,
+      "title": "Prior Study: Quantization Quality",
+      "image": "v1.42/preview/slide-11.png",
+      "sha256": "7613c29cee9832e9a6a6a02c04034435f553ddca32f5478b6e318950ae33e836",
+      "hidden": true
+    },
+    {
+      "number": 12,
+      "title": "Three Ideas Behind Faster Generation",
+      "image": "v1.42/preview/slide-12.png",
+      "sha256": "65e85e8281e850361957075973a9bb3a7ffeb3ae5cca1405d8f7e3e27fe6903a",
+      "hidden": false
+    },
+    {
+      "number": 13,
+      "title": "Eight-GPU Topology",
+      "image": "v1.42/preview/slide-13.png",
+      "sha256": "ba60bd0aac71c7500f5554cb7922568e43ec4ca9d0e621a935f747ec5746d0d3",
+      "hidden": true
+    },
+    {
+      "number": 14,
+      "title": "Local NCCL to RDMA",
+      "image": "v1.42/preview/slide-14.png",
+      "sha256": "095aa15270e30342f0c410ab4d8e0c64befbd22a4691456da4bf55a9ae9ec729",
+      "hidden": true
+    },
+    {
+      "number": 15,
+      "title": "vLLM-Omni Ulysses: NCCL Implementation",
+      "image": "v1.42/preview/slide-15.png",
+      "sha256": "b9fcf524e81d821ba7783256d33ab48b154c0df4220e256ad4823bb53c54a9bb",
+      "hidden": true
+    },
+    {
+      "number": 16,
+      "title": "Pipeline Ulysses by Head Bands",
+      "image": "v1.42/preview/slide-16.png",
+      "sha256": "0f17dcd6a2e084983b1174bea12a3e8cb0f3d1ffe4d09d32a7892b315a24702e",
+      "hidden": true
+    },
+    {
+      "number": 17,
+      "title": "Head Bands Make CUDA Graph More Valuable",
+      "image": "v1.42/preview/slide-17.png",
+      "sha256": "ae03ca0e6faa362c606b94271d272a2feb368681b0f7a2a9ec35e1404d32ab19",
+      "hidden": true
+    },
+    {
+      "number": 18,
+      "title": "Optimization Path: Recorded Latency",
+      "image": "v1.42/preview/slide-18.png",
+      "sha256": "52fd00c46f6822a7a7fe5076fcfffd5fbe45519551461c0da0cc92351dbf1d02",
+      "hidden": false
+    },
+    {
+      "number": 19,
+      "title": "02 · ComfyUI Apps With vLLM-Omni",
+      "image": "v1.42/preview/slide-19.png",
+      "sha256": "988d85ab360f0491342e47a3c59104fcd4008ce2f5bdeabcab99632b8aa2dcde",
+      "hidden": false
+    },
+    {
+      "number": 20,
+      "title": "vLLM-Omni Brings Multi-GPU H3 to ComfyUI",
+      "image": "v1.42/preview/slide-20.png",
+      "sha256": "1f21dddf4411a7eed35ab6f30cc88becbf8d2cf9f4c6571bdf81cf864f83ce60",
+      "hidden": false
+    },
+    {
+      "number": 21,
+      "title": "Live Avatar: Configuration and Timing",
+      "image": "v1.42/preview/slide-21.png",
+      "sha256": "dbc4884aef4b994717c33940a3e67a822d6d4a08c0a429c25651f1abf29c0552",
+      "hidden": false
+    },
+    {
+      "number": 22,
+      "title": "Closing slide",
+      "image": "v1.42/preview/slide-22.png",
+      "sha256": "41b1083473191844848596482bae0419cf70157d2985f9ded04efd03d1d231cc",
+      "hidden": false
+    }
+  ],
+  "downloads": {
+    "pptx": "v1.42/MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.42.pptx",
+    "pdf": "v1.42/MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.42.pdf"
+  },
+  "release_url": "v1.42/",
+  "related": [
+    {
+      "label": "Baseline config and measured costs",
+      "url": "v1.42/baseline-breakdown.html",
+      "slides": [
+        6
+      ]
+    },
+    {
+      "label": "Slide 18 measured optimization ladder",
+      "url": "v1.42/benchmarks.html",
+      "slides": [
+        18
+      ]
+    },
+    {
+      "label": "Final demo: H3, ASR and LLM configuration",
+      "url": "v1.42/demo-config.html",
+      "slides": [
+        7,
+        21
+      ]
+    },
+    {
+      "label": "Prior quantization quality videos",
+      "url": "v1.40/four-videos.html",
+      "slides": [
+        11
+      ]
+    },
+    {
+      "label": "Historical AAS / Rolling RoPE study",
+      "url": "../../reports/h3-liveavatar-long-video-20261014/long/",
+      "slides": [
+        12
+      ]
+    }
+  ],
+  "profile_url": "../../profiles/slide18-final-20261027/",
+  "history": [
+    {
+      "label": "v1.42 · archived release",
+      "url": "v1.42/"
+    },
+    {
+      "label": "v1.41 · archived release",
+      "url": "v1.41/"
+    },
+    {
+      "label": "v1.40 · archived release",
+      "url": "v1.40/"
+    },
+    {
+      "label": "v1.39 · archived release",
+      "url": "v1.39/"
+    },
+    {
+      "label": "v1.38 · archived release",
+      "url": "v1.38/"
+    },
+    {
+      "label": "v1.37 · benchmarks pending",
+      "url": "v1.37-pending/"
+    },
+    {
+      "label": "v1.36 · historical edition",
+      "url": "historical-v1.36.html"
+    }
+  ],
+  "revision": "820d6f29b4ba0e5666a4353d3e6fc137793129e01c8a28861fffb516c2871195",
+  "updated_at_utc": "2026-10-30T08:51:19.864939+00:00"
+}

@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "revision": "cd5997a1228753f4d3ab2812c6d158b9e2ddfcb96ec18ffa07748e8e27818cfb",
+  "checks": [
+    "12_visible_21_total_slides",
+    "original_comfyui_slides_removed",
+    "adjacent_e2e_speedup_slide",
+    "continuation_then_recording",
+    "inline_video_playback_and_seek",
+    "video_pauses_on_slide_navigation",
+    "fullscreen_recording",
+    "3168x1822_resolution_retained",
+    "74.55_second_trimmed_recording",
+    "all_links_200",
+    "english_pages",
+    "mobile_pages_no_overflow"
+  ],
+  "media": {
+    "duration": 74.55,
+    "width": 3168,
+    "height": 1822
+  },
+  "errors": []
+}
