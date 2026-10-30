@@ -1,0 +1,111 @@
+{
+  "slide": 15,
+  "language": "zh-CN",
+  "rows": [
+    {
+      "shape": "Supported heading",
+      "english": "Supported today",
+      "chinese": "已支持"
+    },
+    {
+      "shape": "Planned heading",
+      "english": "Planned support",
+      "chinese": "计划支持"
+    },
+    {
+      "shape": "Supported scope",
+      "english": "Available in the checked upstream source",
+      "chinese": "已在核验的上游源码中提供"
+    },
+    {
+      "shape": "Planned scope",
+      "english": "Open PRs / RFC proposals · no announced ETA",
+      "chinese": "开放 PR / RFC 提案 · 尚无公布的交付时间"
+    },
+    {
+      "shape": "Supported title 0",
+      "english": "Generate & guide",
+      "chinese": "生成与引导"
+    },
+    {
+      "shape": "Supported detail 0",
+      "english": "Text, first/last frames, mixed references and timeline guides.",
+      "chinese": "文字、首帧/尾帧、混合参考素材与时间轴引导。"
+    },
+    {
+      "shape": "Supported title 1",
+      "english": "Edit & continue",
+      "chinese": "编辑与续接"
+    },
+    {
+      "shape": "Supported detail 1",
+      "english": "Inpainting, object removal and clip continuation.",
+      "chinese": "局部重绘、物体移除与片段续接。"
+    },
+    {
+      "shape": "Supported title 2",
+      "english": "Upscale & second pass*",
+      "chinese": "超分与二次采样"
+    },
+    {
+      "shape": "Supported detail 2",
+      "english": "SeedVR2 restoration; H3 server-side latent refinement.",
+      "chinese": "SeedVR2 画质修复；H3 服务端潜空间细化。"
+    },
+    {
+      "shape": "Supported title 3",
+      "english": "Music-driven video",
+      "chinese": "音乐驱动视频"
+    },
+    {
+      "shape": "Supported detail 3",
+      "english": "Audio-driven shots, assembled with the supplied soundtrack.",
+      "chinese": "由音频驱动分镜，拼接后使用输入的原始音轨。"
+    },
+    {
+      "shape": "Planned title 0",
+      "english": "ControlNet workflows",
+      "chinese": "条件控制工作流"
+    },
+    {
+      "shape": "Planned detail 0",
+      "english": "Pose, depth and edges · Draft PRs",
+      "chinese": "姿态、深度与边缘控制 · 草稿 PR"
+    },
+    {
+      "shape": "Planned title 1",
+      "english": "Character replacement",
+      "chinese": "角色替换"
+    },
+    {
+      "shape": "Planned detail 1",
+      "english": "Source video + new identity · Open PR",
+      "chinese": "原视频 + 新角色身份 · 待合并 PR"
+    },
+    {
+      "shape": "Planned title 2",
+      "english": "Multi-anchor workflow",
+      "chinese": "多锚点工作流"
+    },
+    {
+      "shape": "Planned detail 2",
+      "english": "Identity + timed keyframes · Open PR",
+      "chinese": "角色身份 + 指定时刻的关键帧 · 待合并 PR"
+    },
+    {
+      "shape": "Planned title 3",
+      "english": "Long-form stories & avatars",
+      "chinese": "长篇叙事与数字人"
+    },
+    {
+      "shape": "Planned detail 3",
+      "english": "Segmented production templates · RFC",
+      "chinese": "分段生成与制作模板 · RFC 提案"
+    },
+    {
+      "shape": "Second pass scope",
+      "english": "*H3 second pass is server-configured; no dedicated ComfyUI node or template.",
+      "chinese": "*H3 二次采样由服务端配置；暂无独立 ComfyUI 节点或模板。"
+    }
+  ]
+}

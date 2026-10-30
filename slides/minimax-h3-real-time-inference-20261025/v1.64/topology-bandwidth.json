@@ -1,0 +1,26 @@
+{
+  "source": "Recorded hardware audit 2026-10-25",
+  "new_measurement": false,
+  "units": "GB/s one way, raw nominal capacity",
+  "links": {
+    "gpu_max_gen5x16": 64,
+    "host_gen5x16": 64,
+    "cx8_card_gen6x16": 128,
+    "network_port_400Gbps": 50
+  },
+  "line_points_per_GBps": 0.05,
+  "cpu_interconnect": {
+    "bandwidth_GBps": 128,
+    "source": "Presenter correction, 2026-10-31",
+    "measured": false,
+    "directionality": "Not specified by the source; no one-way or duplex split inferred",
+    "line_width_pt": 6.4
+  },
+  "physical_nics": 4,
+  "ports": 8,
+  "external_fabric_wiring_verified": false,
+  "payload_throughput_measured": false,
+  "line_width_scope": "Gray/green physical links use 0.05 pt per GB/s; includes presenter-supplied CPU rate. Black route emphasis and logical fabric are excluded.",
+  "route_overlay": "communication-routes.json",
+  "measured_replay": "communication-replay.json"
+}

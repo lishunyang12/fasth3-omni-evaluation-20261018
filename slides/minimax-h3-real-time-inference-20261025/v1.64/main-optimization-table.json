@@ -1,0 +1,70 @@
+{
+  "slide": 9,
+  "rows": [
+    {
+      "stage": "00",
+      "label": "Baseline · BF16 / dense / 50 evaluations",
+      "source_stage": "00-base50",
+      "median_seconds": 213.40215269569308,
+      "speedup_vs_previous_displayed": null
+    },
+    {
+      "stage": "01",
+      "label": "+ PDD · 50 → 8 evaluations",
+      "source_stage": "01-pdd8",
+      "median_seconds": 44.32691093347967,
+      "speedup_vs_previous_displayed": 4.814279817872727
+    },
+    {
+      "stage": "02",
+      "label": "+ Trained video sparse attention",
+      "source_stage": "02-vsa",
+      "median_seconds": 25.915374606847763,
+      "speedup_vs_previous_displayed": 1.7104483962106
+    },
+    {
+      "stage": "03",
+      "label": "+ QAD NVFP4 DiT / native FP4 attention",
+      "source_stage": "03-qad-native-fp4",
+      "median_seconds": 19.460303778760135,
+      "speedup_vs_previous_displayed": 1.3317045253493416
+    },
+    {
+      "stage": "04",
+      "label": "+ RDMA / direct layout / V-gate overlap",
+      "source_stage": "04-ulysses",
+      "median_seconds": 6.832498379051685,
+      "speedup_vs_previous_displayed": 2.84819735024381
+    },
+    {
+      "stage": "05",
+      "label": "+ 2 / 3 / 2 head pipeline",
+      "source_stage": "05-head-232",
+      "median_seconds": 6.407273745164275,
+      "speedup_vs_previous_displayed": 1.0663659226684887
+    },
+    {
+      "stage": "06",
+      "label": "+ Compute CUDA graphs",
+      "source_stage": "06-cuda-graph",
+      "median_seconds": 6.192990344949067,
+      "speedup_vs_previous_displayed": 1.0346009582252902
+    },
+    {
+      "stage": "07",
+      "label": "+ 36-layer NVFP4 VAE / MP4 pre-encoding",
+      "source_stage": "07-vae-output",
+      "median_seconds": 5.419804787263274,
+      "speedup_vs_previous_displayed": 1.1426593001103664
+    },
+    {
+      "stage": "08–12",
+      "label": "+ Output fusion / routing / copy removal",
+      "source_stage": "12-copy-elision",
+      "median_seconds": 4.9224158665165305,
+      "speedup_vs_previous_displayed": 1.1010456926506564
+    }
+  ],
+  "source": "benchmark-data.json",
+  "new_measurements": false
+}

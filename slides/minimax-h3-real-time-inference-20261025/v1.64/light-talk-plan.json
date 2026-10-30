@@ -1,0 +1,160 @@
+{
+  "target_minutes": "10–15",
+  "planned_seconds": 865,
+  "visible_slides": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "original_slide_mapping": {
+    "1": 19,
+    "2": 20,
+    "3": 21,
+    "4": 22,
+    "5": 23,
+    "6": 24,
+    "7": 25,
+    "8": 26,
+    "9": 27,
+    "10": 28,
+    "11": 29,
+    "12": 30,
+    "13": 31,
+    "14": 32,
+    "15": 33,
+    "16": 34,
+    "17": 35,
+    "18": 36,
+    "19": 37,
+    "20": 38,
+    "21": 39,
+    "22": 11,
+    "23": 40,
+    "24": 41,
+    "25": 42
+  },
+  "schedule": [
+    {
+      "slide": 1,
+      "title": "Toward Real-time Generation with MiniMax H3",
+      "suggested_seconds": 20
+    },
+    {
+      "slide": 2,
+      "title": "MiniMax H3 in Context",
+      "suggested_seconds": 40
+    },
+    {
+      "slide": 3,
+      "title": "SM120 Cards",
+      "suggested_seconds": 40
+    },
+    {
+      "slide": 4,
+      "title": "Baseline: Latency Breakdown",
+      "suggested_seconds": 60
+    },
+    {
+      "slide": 5,
+      "title": "Optimization - Distillation",
+      "suggested_seconds": 60
+    },
+    {
+      "slide": 6,
+      "title": "Optimization - Video Sparse Attention + NVFP4",
+      "suggested_seconds": 70
+    },
+    {
+      "slide": 7,
+      "title": "Optimization - Comms",
+      "suggested_seconds": 75
+    },
+    {
+      "slide": 8,
+      "title": "Optimization - Comms",
+      "suggested_seconds": 75
+    },
+    {
+      "slide": 9,
+      "title": "From Minutes to Real Time",
+      "suggested_seconds": 90
+    },
+    {
+      "slide": 10,
+      "title": "From a Question to a Reply",
+      "suggested_seconds": 40
+    },
+    {
+      "slide": 11,
+      "title": "Continuation: From One Clip to the Next",
+      "suggested_seconds": 45
+    },
+    {
+      "slide": 12,
+      "title": "Live Demo",
+      "suggested_seconds": 50
+    },
+    {
+      "slide": 13,
+      "title": "Takeaways",
+      "suggested_seconds": 55
+    },
+    {
+      "slide": 14,
+      "title": "vLLM-Omni × ComfyUI",
+      "suggested_seconds": 30
+    },
+    {
+      "slide": 15,
+      "title": "vLLM-Omni for Creators — ComfyUI",
+      "suggested_seconds": 45
+    },
+    {
+      "slide": 16,
+      "title": "vLLM-Omni for Creators — Video Studio",
+      "suggested_seconds": 45
+    },
+    {
+      "slide": 17,
+      "title": "Build with vLLM-Omni",
+      "suggested_seconds": 25
+    }
+  ],
+  "comms_speedup": {
+    "ratio": 3.1423113382748515,
+    "display": "3.1× faster",
+    "scope": "Grouped E2E stages 03 through 06"
+  },
+  "overall_speedup": {
+    "source": "benchmark-data.json",
+    "from_stage": "00-base50",
+    "to_stage": "12-copy-elision",
+    "baseline_seconds": 213.40215269569308,
+    "final_seconds": 4.9224158665165305,
+    "ratio": 43.35313359996793,
+    "display": "43.4× faster",
+    "media_seconds": 5.166666666666667,
+    "rtf": 0.9527256515838446,
+    "scope": "Recorded overall E2E medians; baseline refreshed separately; model, schedule and precision changes included; standalone H3"
+  },
+  "new_measurements": false,
+  "expanded_content": {
+    "hardware": "Compute-rich, bandwidth-modest, explicitly inter-GPU communication",
+    "comms": "Audited local-only NCCL source replay and FI RDMA route example with matched rates",
+    "ladder": "Main slide 9 restored; stages 08–12 grouped; prior displayed row speedup"
+  }
+}
