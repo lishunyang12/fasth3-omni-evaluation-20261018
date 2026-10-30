@@ -1,0 +1,26 @@
+{
+  "status": "pass",
+  "version": "v1.51",
+  "revision": "96250514833e1afeb3469e9f53c6cf518d7bce95e98f546c0f3d0663dc55550d",
+  "slides": 21,
+  "visible": 12,
+  "hardware_slides": [
+    3,
+    4
+  ],
+  "baseline_slide": 5,
+  "optimization_slide": 16,
+  "pipeline_slide": 17,
+  "continuation_slide": 18,
+  "recording_slide": 19,
+  "takeaways_slide": 20,
+  "video_playback": true,
+  "video_seek": true,
+  "correct_links": true,
+  "media": {
+    "duration": 74.55,
+    "width": 3168,
+    "height": 1822
+  },
+  "errors": []
+}

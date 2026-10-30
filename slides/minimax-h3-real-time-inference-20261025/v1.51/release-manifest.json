@@ -1,0 +1,89 @@
+{
+  "status": "reviewed_presentation_revision",
+  "version": "v1.51",
+  "slides": 21,
+  "visible": 12,
+  "hidden_slides": [
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "titles": [
+    "Toward Real-Time Generation With MiniMax H3",
+    "Real-Time Ref2VA Raises the Systems Bar",
+    "SM120 Cards",
+    "SM120 Cards",
+    "Baseline: Latency Breakdown",
+    "Few-Step Distillation",
+    "Sparse Attention",
+    "FastH3 Omni: Quantization-Aware Distillation",
+    "Prior Study: Quantization Quality",
+    "Three Ideas Behind Faster Generation",
+    "Eight-GPU Topology",
+    "Local NCCL to RDMA",
+    "vLLM-Omni Ulysses: NCCL Implementation",
+    "Pipeline Ulysses by Head Bands",
+    "Head Bands Make CUDA Graph More Valuable",
+    "Optimization Path: E2E Speedup",
+    "Live Avatar: From a Question to a Video",
+    "Continuation: Two Clips, One Timeline",
+    "Live Avatar: Recorded Conversation",
+    "Takeaways",
+    "Closing slide"
+  ],
+  "added_slide": 4,
+  "modified_slides": [
+    3,
+    4
+  ],
+  "slide_roles": {
+    "hardware": [
+      3,
+      4
+    ],
+    "baseline": 5,
+    "quality": 9,
+    "overview": 10,
+    "ladder": 16,
+    "demo_setup": [
+      17
+    ],
+    "continuation": 18,
+    "recording": 19,
+    "takeaways": 20
+  },
+  "recording_slide": 19,
+  "recording_status": "retained_unchanged",
+  "pptx_sha256": "8cf03c3b6e6894b34273e3b4c460a54e7cc287c9f27107710eba2f47604f47b1",
+  "source_pptx_sha256": "c19330404a659ed6644caef09cc74a5906d4a4b01239a1eebf931251c0f61f8a",
+  "new_measurements": false,
+  "new_generation": false,
+  "raw_trace_uploaded": false,
+  "source_scripts_sha256": {
+    "build_release.py": "947114fc9a4e3fde605a15a72cd0f1cc3180aac831b448f4a7cc48868f00d916",
+    "prepare_release.py": "c3e90a14928b00a4800d1f5c1c9d69fadcd0a0acf1aa1ec5a15d3395c6c35911",
+    "render_slides.py": "48389a438a88f710ffd9c42d73b7674b674e12ce352f7fa101925b550aa572c1",
+    "check_slides.cjs": "be8fe5d84af4a88457c0e0d3b46b488fbfdd11d33b9b21b44c83de18aead2b17"
+  },
+  "publication": "public_release_candidate",
+  "generated_at": "2026-10-30T15:53:26.717266+00:00",
+  "validation": {
+    "status": "pass",
+    "office": "office-validation.json",
+    "visual_review": "pass",
+    "browser": "browser-validation.json"
+  },
+  "pdf_sha256": "284ff4d68e24f686e84e58e00e4c64804a95cdec7b6b95d53d39f5537fb63e4e",
+  "baseline_profile_url": "v1.51/baseline-breakdown.html",
+  "quality_video_url": "v1.40/four-videos.html",
+  "historical_continuity_url": "../../reports/h3-liveavatar-long-video-20261014/long/",
+  "first_transition_scope": "Descriptive ratio of recorded medians across separately recorded baseline configurations",
+  "recording": "User recording; first five seconds removed; video and audio preserved",
+  "latest_revision": "96250514833e1afeb3469e9f53c6cf518d7bce95e98f546c0f3d0663dc55550d"
+}

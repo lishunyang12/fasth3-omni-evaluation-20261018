@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "pptx_sha256": "8cf03c3b6e6894b34273e3b4c460a54e7cc287c9f27107710eba2f47604f47b1",
+  "modified_slides": [
+    3,
+    4
+  ],
+  "title": "SM120 Cards",
+  "visible_specification_columns": [
+    "SMs",
+    "Memory",
+    "Power",
+    "Interconnect"
+  ],
+  "focus_slide": 4,
+  "focus_gpu": "RTX PRO 5000",
+  "focus_style": "NVIDIA green outline with enlarged green \u00d78",
+  "palette": [
+    "000000",
+    "FFFFFF",
+    "313131",
+    "F7F7F7",
+    "A7A7A7",
+    "76B900"
+  ],
+  "fonts": [
+    "NVIDIA Sans",
+    "NVIDIA Sans Medium"
+  ],
+  "native_editable_tables": true,
+  "template_parts_and_embedded_media_preserved": true,
+  "source_evidence": "hardware-specifications.json"
+}

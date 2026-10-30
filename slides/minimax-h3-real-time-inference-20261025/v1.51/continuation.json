@@ -1,0 +1,66 @@
+{
+  "slide": 18,
+  "scope": "Schematic of the existing interactive demo; no new generation or benchmark",
+  "media": {
+    "width": 960,
+    "height": 544,
+    "fps": 24,
+    "first_window_frames": 124,
+    "first_window_seconds": 5.166666666666667,
+    "new_continuation_frames": 119,
+    "new_continuation_seconds": 4.958333333333333,
+    "overlap_frames": 5
+  },
+  "history": {
+    "video_history_noise": 0.2,
+    "target_video_prefix": "off",
+    "reference_image_noise": 0.001,
+    "audio_history_noise": 0,
+    "audio_target_prefix": "off",
+    "position": "cumulative AV positions",
+    "video_history": "0.8 * retained video latent + 0.2 * seeded noise",
+    "lossless": false
+  },
+  "handoff": {
+    "retained_video_latent_slices": 2,
+    "retained_audio": "Matching overlap tail, 8 or 9 latent tokens",
+    "append_destination": "Existing visual and audio condition guides",
+    "generated_frames": 124,
+    "trimmed_video_frames": 5,
+    "emitted_continuation_frames": 119,
+    "frame_starts": [
+      0,
+      119,
+      238
+    ],
+    "commit": "After successful MP4 generation"
+  },
+  "windows": [
+    {
+      "start": 0,
+      "end_inclusive": 123,
+      "emitted_start": 0,
+      "emitted_frames": 124
+    },
+    {
+      "start": 119,
+      "end_inclusive": 242,
+      "emitted_start": 124,
+      "emitted_frames": 119
+    },
+    {
+      "start": 238,
+      "end_inclusive": 361,
+      "emitted_start": 243,
+      "emitted_frames": 119
+    }
+  ],
+  "source_sha256": {
+    "launch_continuous_avatar.py": "640b0f97413bfed4ae9ce432d1d30048398a426f3fffb0e36c8f4b231a6a080a",
+    "rolling_clock.py": "b87c6ac1f342f1c0b2674ab1771b5d9a8b46484a42c62cf37ab3f6b77d2803ba",
+    "launch_interactive.py": "70b9a1b89756856ae944baa733b0df58114125515d7f35505d692c360a885d6c",
+    "history_noise.py": "708ced3e88fab1592b5d6ca0b942d089da420bcffd5565bf4e902045f1466c6d"
+  },
+  "visual_explanation": "Two chunks: use the previous ending as context, trim temporal overlap from the next clip, append only new video and matching audio.",
+  "displayed_chunks": 2
+}
