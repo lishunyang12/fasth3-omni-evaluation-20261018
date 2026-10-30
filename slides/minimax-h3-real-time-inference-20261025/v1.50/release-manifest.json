@@ -59,8 +59,8 @@
   },
   "recording_slide": 18,
   "recording_status": "retained_unchanged",
-  "pptx_sha256": "e54bebada4b55b40dae6c017968d5c40e9d8b8474b13db177b84bb947e88f3c1",
-  "source_pptx_sha256": "000dcbe9824e17217e4619cd1d23e2e693b60c8396e48e2b3556eadb18ee119b",
+  "pptx_sha256": "b11d13e9947c9202d8bafc7429a6b1986a8391b273891d8787cee1d50ba63875",
+  "source_pptx_sha256": "e54bebada4b55b40dae6c017968d5c40e9d8b8474b13db177b84bb947e88f3c1",
   "new_measurements": false,
   "new_generation": false,
   "raw_trace_uploaded": false,
@@ -70,21 +70,28 @@
     "build_release.py": "3bc467c8a9f211b27c76a8155ae36d6d969f434c41776dad3c557cb334ab6704",
     "verify_public.py": "06955972c8698b13d891e0eef0bc24926ad355f1cbd68f9746a53691defad5ac",
     "prepare_release.py": "860501758eb3fca2b0c0329fdfe0b76e9b238b7d22302a496f258f97eba6689c",
-    "render_slides.py": "c854dfd8e4e71a43035c402aada86ef172dfab36ca7f2d09dba202eecb949262"
+    "render_slides.py": "c854dfd8e4e71a43035c402aada86ef172dfab36ca7f2d09dba202eecb949262",
+    "update_cover.py": "8f7cf46b78ba3ab0cc4e7526cd93ac5349fd3b3e4440f0666b2b4fc8af43e7fb"
   },
   "publication": "public_release_candidate",
   "generated_at": "2026-10-30T12:27:26.694494+00:00",
   "validation": {
     "status": "pass",
     "office": "office-validation.json",
-    "visual_review": "pass",
-    "browser": "browser-validation.json"
+    "visual_review": "pass"
   },
-  "pdf_sha256": "69c5c26bb4d39411fae863511866f01faeb6a5b61f5d05fc2c11f1deb881fbd8",
+  "pdf_sha256": "73ca558f8ac65b937fcafd6e4099fd519cf8eb5c7287e3bf90ba6442816714fe",
   "baseline_profile_url": "v1.50/baseline-breakdown.html",
   "quality_video_url": "v1.40/four-videos.html",
   "historical_continuity_url": "../../reports/h3-liveavatar-long-video-20261014/long/",
   "first_transition_scope": "Descriptive ratio of recorded medians across separately recorded baseline configurations",
   "recording": "User recording; first five seconds removed; video and audio preserved",
-  "latest_revision": "f852d69fb01d63312e9c841379178a0c2bee104b68084b332cc02c08c9ff1d73"
+  "latest_revision": "a629820ad8ff989847245e64725ae3f078074f9ffb370b16e35acc67c852bf25",
+  "cover_correction": {
+    "slide": 1,
+    "before": "Benchmarks measured",
+    "after": "NVIDIA Devtech",
+    "only_changed_pptx_part": "ppt/slides/slide1.xml",
+    "date_utc": "2026-10-30T14:53:55.865747+00:00"
+  }
 }

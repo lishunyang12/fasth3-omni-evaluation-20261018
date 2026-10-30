@@ -59,13 +59,21 @@
   },
   "recording_slide": 18,
   "recording_status": "retained_unchanged",
-  "pptx_sha256": "e54bebada4b55b40dae6c017968d5c40e9d8b8474b13db177b84bb947e88f3c1",
-  "source_pptx_sha256": "000dcbe9824e17217e4619cd1d23e2e693b60c8396e48e2b3556eadb18ee119b",
+  "pptx_sha256": "b11d13e9947c9202d8bafc7429a6b1986a8391b273891d8787cee1d50ba63875",
+  "source_pptx_sha256": "e54bebada4b55b40dae6c017968d5c40e9d8b8474b13db177b84bb947e88f3c1",
   "new_measurements": false,
   "new_generation": false,
   "raw_trace_uploaded": false,
   "template_audit": "presentation-design-audit.json",
   "source_scripts_sha256": {
-    "build_release.py": "3bc467c8a9f211b27c76a8155ae36d6d969f434c41776dad3c557cb334ab6704"
+    "build_release.py": "3bc467c8a9f211b27c76a8155ae36d6d969f434c41776dad3c557cb334ab6704",
+    "update_cover.py": "8f7cf46b78ba3ab0cc4e7526cd93ac5349fd3b3e4440f0666b2b4fc8af43e7fb"
+  },
+  "cover_correction": {
+    "slide": 1,
+    "before": "Benchmarks measured",
+    "after": "NVIDIA Devtech",
+    "only_changed_pptx_part": "ppt/slides/slide1.xml",
+    "date_utc": "2026-10-30T14:53:55.790204+00:00"
   }
 }

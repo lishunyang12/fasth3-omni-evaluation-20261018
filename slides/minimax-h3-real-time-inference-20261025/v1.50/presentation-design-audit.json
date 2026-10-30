@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "version": "v1.50",
-  "pptx_sha256": "e54bebada4b55b40dae6c017968d5c40e9d8b8474b13db177b84bb947e88f3c1",
+  "pptx_sha256": "b11d13e9947c9202d8bafc7429a6b1986a8391b273891d8787cee1d50ba63875",
   "template_sha256": "d680c78cc6a8a16a50c87cee1c50b8dcc88de21ef740d7f0f5a6fcf28dccd02a",
   "template_parts": {
     "ppt/slideMasters/": {
@@ -106,5 +106,7 @@
   "benchmark_values_unchanged": true,
   "recording_and_reference_pixels_unchanged": true,
   "visual_review": "pass",
-  "new_measurements": false
+  "new_measurements": false,
+  "cover_correction": "NVIDIA Devtech; original font, color and position preserved",
+  "only_changed_pptx_part": "ppt/slides/slide1.xml"
 }
