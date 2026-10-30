@@ -102,6 +102,7 @@ def main():
                                   ('four-videos.html', f'Play slide {quality_number} videos', [quality_number]),
                                   ('benchmarks.html', f'Slide {ladder_number} measured optimization ladder', [ladder_number]),
                                   ('demo-config.html', 'Live demo pipeline and setup', demo_slides),
+                                  ('continuation.html', 'How avatar continuation works', [roles['continuation']] if 'continuation' in roles else []),
                                   ('demo-video.html', 'Play or download the recorded demo', [recording['slide']] if recording_path.is_file() else [])]:
         if (folder/name).is_file():
             related.append(dict(label=label, url=f'{version}/{name}', slides=numbers))
