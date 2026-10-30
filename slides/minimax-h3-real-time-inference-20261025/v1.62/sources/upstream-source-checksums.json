@@ -1,0 +1,41 @@
+{
+  "ref": "08177216af4b44cef54ec5bdc75c265a9f0cd697",
+  "verified_date": "2026-10-31",
+  "sources": [
+    {
+      "path": "apps/ComfyUI-vLLM-Omni/README.md",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm-omni/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/README.md",
+      "sha256": "c9c1ddd1c928492d526c51247e03eb89d34727bc60d324a72c5417151c897e2d"
+    },
+    {
+      "path": "docs/features/comfyui.md",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm-omni/08177216af4b44cef54ec5bdc75c265a9f0cd697/docs/features/comfyui.md",
+      "sha256": "eef4ef4986f967a76e30520549d3f0a0c29492aadb1408ad0e7654bf87d1c731"
+    },
+    {
+      "path": "apps/ComfyUI-vLLM-Omni/docs/h3-06-all-in-one.md",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm-omni/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/h3-06-all-in-one.md",
+      "sha256": "0f3a8699239c17cc586e79adcb0c295ea56d8dcfc09503bb29398e82686112f2"
+    },
+    {
+      "path": "apps/ComfyUI-vLLM-Omni/docs/h3-03-music-video.md",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm-omni/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/h3-03-music-video.md",
+      "sha256": "3bf3079093fe5eb16db21adcb3e6a02404a296e15d428eb75fcdb7f95eb5a954"
+    },
+    {
+      "path": "apps/ComfyUI-vLLM-Omni/docs/images/comfyui-video-generation.jpg",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm-omni/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/images/comfyui-video-generation.jpg",
+      "sha256": "17c5b6fd4aaa890581ace30b661e509aabcd719e4714419c62c324c91a75fef1"
+    },
+    {
+      "path": "apps/ComfyUI-vLLM-Omni/docs/images/comfyui-chaining-services.jpg",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm-omni/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/images/comfyui-chaining-services.jpg",
+      "sha256": "7bbe931b620f5a869027fea2fdc6f60c6b9c3e92b77e221a144e410dcf53889d"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm-omni/08177216af4b44cef54ec5bdc75c265a9f0cd697/README.md",
+      "sha256": "29dd9006458e7b56c99b301bb9d57a6ee1d0a73083a643f34b7194bdd994cd5c"
+    }
+  ]
+}
