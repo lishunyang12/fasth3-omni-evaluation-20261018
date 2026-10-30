@@ -96,7 +96,9 @@ def main():
     ladder_number = roles.get('ladder', 18)
     demo_slides = roles.get('demo_setup', [7] + [s['number'] for s in parsed.slides if s['title'].startswith('Live Avatar:') and 'Recorded' not in s['title']])
     related = []
-    for name, label, numbers in [('baseline-breakdown.html', 'Baseline config and measured costs', [baseline_number]),
+    for name, label, numbers in [('model-comparison.html', 'Model comparison and official sources', [roles['model_comparison']] if 'model_comparison' in roles else []),
+                                  ('topology-bandwidth.html', 'Bandwidth encoding and evidence', [roles['bandwidth_topology']] if 'bandwidth_topology' in roles else []),
+                                  ('baseline-breakdown.html', 'Baseline config and measured costs', [baseline_number]),
                                   ('latency-breakdown.html', 'Current breakdown and GPU work', [baseline_number]),
                                   ('continuous-generation.html', 'Five-second generation timeline', demo_slides),
                                   ('four-videos.html', f'Play slide {quality_number} videos', [quality_number]),

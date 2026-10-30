@@ -1,0 +1,17 @@
+{
+  "source": "Recorded hardware audit 2026-10-25",
+  "new_measurement": false,
+  "units": "GB/s one way, raw nominal capacity",
+  "links": {
+    "gpu_max_gen5x16": 64,
+    "host_gen5x16": 64,
+    "cx8_card_gen6x16": 128,
+    "network_port_400Gbps": 50
+  },
+  "line_points_per_GBps": 0.0625,
+  "cpu_interconnect": "unverified; not numerically encoded",
+  "physical_nics": 4,
+  "ports": 8,
+  "external_fabric_wiring_verified": false,
+  "payload_throughput_measured": false
+}
