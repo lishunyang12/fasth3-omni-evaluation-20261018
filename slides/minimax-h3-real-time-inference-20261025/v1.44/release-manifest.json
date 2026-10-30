@@ -1,0 +1,59 @@
+{
+  "status": "reviewed_presentation_revision",
+  "version": "v1.44",
+  "slides": 21,
+  "visible": 12,
+  "hidden": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "hidden_slides": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "updated_slides": [
+    7,
+    19
+  ],
+  "recording_slide": 20,
+  "recording_status": "retained_unchanged",
+  "pptx_sha256": "d0a927114fd02656eb2b09f417c0259f2742a2db751aa62d2d8d7ee4e9cb0d1b",
+  "source_pptx_sha256": "c9f805cf5d4f69d2fcf4963989426866dafc6624b973b014a08e10553e0468e5",
+  "new_measurements": false,
+  "new_generation": false,
+  "source_scripts_sha256": {
+    "build_release.py": "8b5bb01bfc3c4fbe630f63546fc94c63fe368756c88e769fb3e1994674742c45",
+    "verify_public.py": "30339602d60be59e88b51f4d1a5ce4f45fcdbe32eaaf114bfddc564fe134db28",
+    "prepare_release.py": "71327ceb4b303b6cdf5151b58c07271f6f5e60b8f811e91fc39c2cc627380232",
+    "render_slides.py": "ca76bd6cb1981f7ee7907bb3bace68b71a53d46ee194e5c1cdc182677a906b5b"
+  },
+  "publication": "public_release_candidate",
+  "generated_at": "2026-10-30T10:44:12.817240+00:00",
+  "validation": {
+    "status": "pass",
+    "office": "office-validation.json",
+    "visual_review": "pass",
+    "browser": "browser-validation.json"
+  },
+  "pdf_sha256": "8efbac9460c44f467b6c3e4da0642ee005a77a06e313f4a1ef9667de040839a4",
+  "baseline_profile_url": "v1.44/baseline-breakdown.html",
+  "quality_video_url": "v1.40/four-videos.html",
+  "historical_continuity_url": "../../reports/h3-liveavatar-long-video-20261014/long/",
+  "first_transition_scope": "Descriptive ratio of recorded medians across separately recorded baseline configurations",
+  "recording": "User recording; first five seconds removed; video and audio preserved",
+  "latest_revision": "ebd6e4f77fbcad2206822968d375876f5924f10278c8471b4359d0ccebef7fd7"
+}

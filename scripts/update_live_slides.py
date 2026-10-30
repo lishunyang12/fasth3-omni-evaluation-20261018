@@ -96,7 +96,7 @@ def main():
                                   ('continuous-generation.html', 'Five-second generation timeline', [7]),
                                   ('four-videos.html', 'Play slide 11 videos', [11]),
                                   ('benchmarks.html', 'Slide 18 measured optimization ladder', [18]),
-                                  ('demo-config.html', 'Demo pipeline and continuation', demo_slides),
+                                  ('demo-config.html', 'Live demo pipeline and setup', demo_slides),
                                   ('demo-video.html', 'Play or download the recorded demo', [recording['slide']] if recording_path.is_file() else [])]:
         if (folder/name).is_file():
             related.append(dict(label=label, url=f'{version}/{name}', slides=numbers))

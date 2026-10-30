@@ -1,0 +1,40 @@
+{
+  "slide": 20,
+  "video": "media/live-avatar-recording.mp4",
+  "poster": "media/live-avatar-poster.jpg",
+  "duration_seconds": 74.55,
+  "sha256": "0f20626787e8b2099d297ec3927caf47205dc70d4733980adf30e295b143033b",
+  "source_sha256": "0f20626787e8b2099d297ec3927caf47205dc70d4733980adf30e295b143033b",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 3168,
+        "height": 1822
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio"
+      }
+    ],
+    "format": {
+      "duration": "74.550000"
+    }
+  },
+  "trim": {
+    "source_recording_sha256": "f4f5e3e5ba60607ab8c04f771afcfc36bf715c3c6752c8c3862db5532746ed60",
+    "source_duration_seconds": 79.549958,
+    "removed_start_seconds": 5,
+    "expected_duration_seconds": 74.549958,
+    "resolution": [
+      3168,
+      1822
+    ],
+    "audio": "Original mixed audio retained and encoded as AAC",
+    "video": "H.264 with original variable frame timing; original resolution retained; encoded for embedded and web playback",
+    "new_benchmark": false
+  }
+}
