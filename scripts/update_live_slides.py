@@ -89,26 +89,31 @@ def main():
         slide = parsed.slides[recording['slide']-1]
         slide.update(video=str(video.relative_to(DECK)), video_sha256=recording['sha256'],
                      poster=str((folder/recording['poster']).relative_to(DECK)))
-    demo_slides = [7] + [s['number'] for s in parsed.slides if s['title'].startswith('Live Avatar:') and 'Recorded' not in s['title']]
+    roles = manifest.get('slide_roles', {})
+    baseline_number = roles.get('baseline', 6)
+    quality_number = roles.get('quality', 11)
+    overview_number = roles.get('overview', 12)
+    ladder_number = roles.get('ladder', 18)
+    demo_slides = roles.get('demo_setup', [7] + [s['number'] for s in parsed.slides if s['title'].startswith('Live Avatar:') and 'Recorded' not in s['title']])
     related = []
-    for name, label, numbers in [('baseline-breakdown.html', 'Baseline config and measured costs', [6]),
-                                  ('latency-breakdown.html', 'Current breakdown and GPU work', [6]),
-                                  ('continuous-generation.html', 'Five-second generation timeline', [7]),
-                                  ('four-videos.html', 'Play slide 11 videos', [11]),
-                                  ('benchmarks.html', 'Slide 18 measured optimization ladder', [18]),
+    for name, label, numbers in [('baseline-breakdown.html', 'Baseline config and measured costs', [baseline_number]),
+                                  ('latency-breakdown.html', 'Current breakdown and GPU work', [baseline_number]),
+                                  ('continuous-generation.html', 'Five-second generation timeline', demo_slides),
+                                  ('four-videos.html', f'Play slide {quality_number} videos', [quality_number]),
+                                  ('benchmarks.html', f'Slide {ladder_number} measured optimization ladder', [ladder_number]),
                                   ('demo-config.html', 'Live demo pipeline and setup', demo_slides),
                                   ('demo-video.html', 'Play or download the recorded demo', [recording['slide']] if recording_path.is_file() else [])]:
         if (folder/name).is_file():
             related.append(dict(label=label, url=f'{version}/{name}', slides=numbers))
     if manifest.get('baseline_profile_url') and not (folder/'baseline-breakdown.html').is_file():
         related.append(dict(label='Baseline configuration and historical profile',
-                            url=manifest['baseline_profile_url'], slides=[6]))
+                            url=manifest['baseline_profile_url'], slides=[baseline_number]))
     if manifest.get('quality_video_url') and not (folder/'four-videos.html').is_file():
-        related.append(dict(label='Prior quantization quality videos', url=manifest['quality_video_url'], slides=[11]))
+        related.append(dict(label='Prior quantization quality videos', url=manifest['quality_video_url'], slides=[quality_number]))
     if manifest.get('historical_continuity_url') and not (folder/'continuous-generation.html').is_file():
-        related.append(dict(label='Historical AAS / Rolling RoPE study', url=manifest['historical_continuity_url'], slides=[12]))
+        related.append(dict(label='Historical AAS / Rolling RoPE study', url=manifest['historical_continuity_url'], slides=[overview_number]))
     if (folder/'continuous-generation.html').is_file():
-        related.append(dict(label='AAS / Rolling RoPE archive', url='../../reports/h3-liveavatar-long-video-20261014/long/', slides=[7, 12]))
+        related.append(dict(label='AAS / Rolling RoPE archive', url='../../reports/h3-liveavatar-long-video-20261014/long/', slides=demo_slides+[overview_number]))
     payload = dict(schema_version=1, title=parsed.slides[0]['title'], version=version,
                    slides=parsed.slides, downloads=files, release_url=f'{version}/', related=related,
                    profile_url='../../profiles/slide18-final-20261027/',

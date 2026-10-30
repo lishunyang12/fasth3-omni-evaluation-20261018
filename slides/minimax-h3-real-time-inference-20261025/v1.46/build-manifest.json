@@ -1,0 +1,40 @@
+{
+  "status": "draft",
+  "version": "v1.46",
+  "slides": 20,
+  "visible": 11,
+  "hidden_slides": [
+    7,
+    8,
+    9,
+    10,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "removed_previous_slide": 7,
+  "removed_title": "Five-Second Avatar: Live Conversation",
+  "slide_roles": {
+    "baseline": 6,
+    "quality": 10,
+    "overview": 11,
+    "ladder": 17,
+    "demo_setup": [
+      18
+    ],
+    "recording": 19
+  },
+  "recording_slide": 19,
+  "recording_status": "retained_unchanged",
+  "pptx_sha256": "2b19726d6520fd567eca851320f20c09ac72466a8915f8cf5e784eb44e904061",
+  "source_pptx_sha256": "25f4bc174c62a11505e74e4cec54173ec2b6d8662728094cca2e174c709b04c5",
+  "new_measurements": false,
+  "new_generation": false,
+  "raw_trace_uploaded": false,
+  "reference_image_sha256": "560c094f9900ea762227f84481ca8a2f73adac69963e0d1a78563bec1844d6b8",
+  "source_scripts_sha256": {
+    "build_release.py": "c7744def68f4811904187fb343afcb13897444c7f2e4ce24f57fc2d1bacaa871"
+  }
+}

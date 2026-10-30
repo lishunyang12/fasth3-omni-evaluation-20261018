@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "version": "v1.46",
+  "revision": "1bfc0d0edd81fa29c1cbf5bb4c4ca54cd661129db7e0e14a6d7e5ee5cd782601",
+  "slides": 20,
+  "visible": 11,
+  "deleted_previous_slide_7": true,
+  "baseline_slide": 6,
+  "pipeline_slide": 18,
+  "recording_slide": 19,
+  "reference_image_verified": true,
+  "video_playback": true,
+  "video_seek": true,
+  "correct_links": true,
+  "media": {
+    "duration": 74.55,
+    "width": 3168,
+    "height": 1822
+  },
+  "errors": []
+}
