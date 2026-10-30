@@ -4,8 +4,8 @@
   "visible_slides": 12,
   "optional_detail_slides": 9,
   "protected_embedded_videos": 5,
-  "source_pptx_sha256": "6e7db3e279341d5d9f52bb8683d4f42cf7684fec502d94ca461d33a9cb7d62ab",
-  "pdf_sha256": "724f291431a6cf0e894b85a86bd32b99dc5d4a394834e020be6acd56adb67855",
+  "source_pptx_sha256": "1dc4a29fcc84b682ffb7245ea7a17d8c252087a4a44e262292e7c347d370ea70",
+  "pdf_sha256": "cc580d36bb50dbf67450b4f840da1c3b75f2ac7ef6f81338b445ba3c7b19334a",
   "actual_pdf_text_checked": true,
   "new_slide_geometry_inside_canvas": true,
   "visual_review": "pass",
@@ -25,5 +25,7 @@
     18,
     19,
     20
-  ]
+  ],
+  "cover_rerender": "New cover rendered in Impress; the other eleven PDF pages retained from the reviewed PDF",
+  "cover_visual_review": "pass"
 }

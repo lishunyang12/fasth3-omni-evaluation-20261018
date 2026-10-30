@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "version": "v1.51",
-  "revision": "1b8d1bd4f75b3d9a1da744fa124e1cf539048acda2acb4e1d0d5c3fdee0a2194",
+  "revision": "bb95f49202a15c500d38f4f071766cd5346e3eef79648b2ca3415027b7b22ada",
   "slides": 21,
   "visible": 12,
   "hardware_slides": [
@@ -22,5 +22,13 @@
     "width": 3168,
     "height": 1822
   },
-  "errors": []
+  "errors": [],
+  "prior_full_suite_revision": "1b8d1bd4f75b3d9a1da744fa124e1cf539048acda2acb4e1d0d5c3fdee0a2194",
+  "cover_correction": {
+    "status": "pass",
+    "title": "Toward Real-time Generation with MiniMax H3",
+    "other_slide_manifest_entries_unchanged": true,
+    "cover_browser_render": true,
+    "download_links": true
+  }
 }

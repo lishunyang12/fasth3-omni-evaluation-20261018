@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "pptx_sha256": "6e7db3e279341d5d9f52bb8683d4f42cf7684fec502d94ca461d33a9cb7d62ab",
+  "pptx_sha256": "1dc4a29fcc84b682ffb7245ea7a17d8c252087a4a44e262292e7c347d370ea70",
   "modified_slides": [
     1,
     2,
@@ -22,7 +22,7 @@
   ],
   "focus_slide": 4,
   "focus_gpu": "RTX PRO 5000",
-  "focus_style": "NVIDIA green outline with enlarged green \u00d78",
+  "focus_style": "NVIDIA green outline with enlarged green ×8",
   "palette": [
     "000000",
     "FFFFFF",
@@ -40,5 +40,10 @@
   "source_evidence": "hardware-specifications.json",
   "cover": "Presenter-supplied title, speaker and date",
   "narrative": "Insight-led presentation with measured evidence, demo and actionable takeaways",
-  "comparison": "Method names and one-decimal BF16-relative ratios; exact evidence in notes and video-comparison.json"
+  "comparison": "Method names and one-decimal BF16-relative ratios; exact evidence in notes and video-comparison.json",
+  "cover_correction": {
+    "title": "Toward Real-time Generation with MiniMax H3",
+    "speaker": "Li Shunyang Devtech Compute NVIDIA",
+    "date": "2026-08-23"
+  }
 }

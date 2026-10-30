@@ -15,7 +15,7 @@
     15
   ],
   "titles": [
-    "SM12x Inference Optimization with vLLM",
+    "Toward Real-time Generation with MiniMax H3",
     "Real Time Is an End-to-End Budget",
     "SM120 Cards",
     "SM120 Cards",
@@ -68,14 +68,21 @@
   },
   "recording_slide": 19,
   "recording_status": "retained_unchanged",
-  "pptx_sha256": "6e7db3e279341d5d9f52bb8683d4f42cf7684fec502d94ca461d33a9cb7d62ab",
+  "pptx_sha256": "1dc4a29fcc84b682ffb7245ea7a17d8c252087a4a44e262292e7c347d370ea70",
   "source_pptx_sha256": "c19330404a659ed6644caef09cc74a5906d4a4b01239a1eebf931251c0f61f8a",
   "new_measurements": false,
   "new_generation": false,
   "raw_trace_uploaded": false,
   "source_scripts_sha256": {
     "build_release.py": "947114fc9a4e3fde605a15a72cd0f1cc3180aac831b448f4a7cc48868f00d916",
-    "update_cover_and_insights.py": "dc6e6a656e7e1ee66afbbfcbefb8dbacc73feca3bc06d59843254aebbdb312d2"
+    "update_cover_and_insights.py": "dc6e6a656e7e1ee66afbbfcbefb8dbacc73feca3bc06d59843254aebbdb312d2",
+    "update_cover.py": "fcbb576094a3ede29ae46f7da08e4f37e33663949adbf52bbf6d6f3da6473429"
   },
-  "narrative": "Insight-led presentation with measured evidence, demo and actionable takeaways"
+  "narrative": "Insight-led presentation with measured evidence, demo and actionable takeaways",
+  "cover_correction": {
+    "title": "Toward Real-time Generation with MiniMax H3",
+    "speaker": "Li Shunyang Devtech Compute NVIDIA",
+    "date": "2026-08-23",
+    "modified_slide": 1
+  }
 }

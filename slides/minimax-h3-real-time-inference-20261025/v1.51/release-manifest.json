@@ -15,7 +15,7 @@
     15
   ],
   "titles": [
-    "SM12x Inference Optimization with vLLM",
+    "Toward Real-time Generation with MiniMax H3",
     "Real Time Is an End-to-End Budget",
     "SM120 Cards",
     "SM120 Cards",
@@ -68,7 +68,7 @@
   },
   "recording_slide": 19,
   "recording_status": "retained_unchanged",
-  "pptx_sha256": "6e7db3e279341d5d9f52bb8683d4f42cf7684fec502d94ca461d33a9cb7d62ab",
+  "pptx_sha256": "1dc4a29fcc84b682ffb7245ea7a17d8c252087a4a44e262292e7c347d370ea70",
   "source_pptx_sha256": "c19330404a659ed6644caef09cc74a5906d4a4b01239a1eebf931251c0f61f8a",
   "new_measurements": false,
   "new_generation": false,
@@ -79,22 +79,32 @@
     "prepare_release.py": "46534b426b8a704120b7802962b00ba6af164d0f1e7e8f71c3b1d2463c75face",
     "render_slides.py": "8e8375c4146cf2ba38c47a26823b94551786cb7da1dee06092f2117c47586254",
     "check_slides.cjs": "55335a967ff2af46d239261772127c6f0ba22f157b49ce65d7251b5dd6a235f2",
-    "verify_public.py": "0a4caad5729d5cadc6745304abe5dbd7a5cc95c95736fbe7659ab5a0fc3b4c58"
+    "verify_public.py": "0a4caad5729d5cadc6745304abe5dbd7a5cc95c95736fbe7659ab5a0fc3b4c58",
+    "update_cover.py": "fcbb576094a3ede29ae46f7da08e4f37e33663949adbf52bbf6d6f3da6473429",
+    "cover-correction/check_cover.cjs": "5a8ecfbf7dac1d35fb0326bbc6ccb3cc6e41b0b4b63fb8733c62882898ace170",
+    "cover-correction/update_cover.py": "fcbb576094a3ede29ae46f7da08e4f37e33663949adbf52bbf6d6f3da6473429",
+    "cover-correction/verify_public.py": "5375b0e223581ecd844bec5fe38edd92544c48d2425e186a4bd72a04e50648af"
   },
   "narrative": "Insight-led presentation with measured evidence, demo and actionable takeaways",
   "publication": "public_release_candidate",
-  "generated_at": "2026-10-30T16:07:45.076374+00:00",
+  "generated_at": "2026-10-30T16:19:33.308466+00:00",
   "validation": {
     "status": "pass",
     "office": "office-validation.json",
     "visual_review": "pass",
     "browser": "browser-validation.json"
   },
-  "pdf_sha256": "724f291431a6cf0e894b85a86bd32b99dc5d4a394834e020be6acd56adb67855",
+  "pdf_sha256": "cc580d36bb50dbf67450b4f840da1c3b75f2ac7ef6f81338b445ba3c7b19334a",
   "baseline_profile_url": "v1.51/baseline-breakdown.html",
   "quality_video_url": "v1.51/four-videos.html",
   "historical_continuity_url": "../../reports/h3-liveavatar-long-video-20261014/long/",
   "first_transition_scope": "Descriptive ratio of recorded medians across separately recorded baseline configurations",
   "recording": "User recording; first five seconds removed; video and audio preserved",
-  "latest_revision": "1b8d1bd4f75b3d9a1da744fa124e1cf539048acda2acb4e1d0d5c3fdee0a2194"
+  "latest_revision": "bb95f49202a15c500d38f4f071766cd5346e3eef79648b2ca3415027b7b22ada",
+  "cover_correction": {
+    "title": "Toward Real-time Generation with MiniMax H3",
+    "speaker": "Li Shunyang Devtech Compute NVIDIA",
+    "date": "2026-08-23",
+    "modified_slide": 1
+  }
 }
