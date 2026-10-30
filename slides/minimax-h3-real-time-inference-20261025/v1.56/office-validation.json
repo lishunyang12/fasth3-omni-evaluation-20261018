@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "slides": 44,
+  "visible_slides": 15,
+  "optional_detail_slides": 29,
+  "protected_embedded_videos": 6,
+  "source_pptx_sha256": "2ddbadce7e69b6747f7c82679458138a2d85df3754a7b75a210d8224c92d90c6",
+  "pdf_sha256": "83c343adeb521ee7b567e82b257da4109c14e8ac09e55f0e1be0a687bd6f6987",
+  "actual_pdf_text_checked": true,
+  "new_slide_geometry_inside_canvas": true,
+  "visual_review": "pass",
+  "renderer": "LibreOffice Impress 7.3.2.2; isolated CPU renderer",
+  "export_copy": "Audit copy shows hidden slides and substitutes static video posters; editable PPTX retains original videos",
+  "microsoft_powerpoint_playback_verified": false,
+  "visually_reviewed_slides": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ]
+}
