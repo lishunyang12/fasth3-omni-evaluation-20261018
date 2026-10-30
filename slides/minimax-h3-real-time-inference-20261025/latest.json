@@ -112,7 +112,7 @@
       "number": 16,
       "title": "Live Avatar: From a Question to a Video",
       "image": "v1.50/preview/slide-16.png",
-      "sha256": "219a6188d8d5b638083c6518de182094472b3a440b8d9574ed8957c3ed64cdab",
+      "sha256": "27416c4455380dd256ccb85aafd5d6b24513549382086e60af07fe91c1069d76",
       "hidden": false
     },
     {
@@ -273,6 +273,6 @@
       "url": "historical-v1.36.html"
     }
   ],
-  "revision": "793b64fc0701bcb46a030992674654aeaa9444dd7c83be26bed6047f15b0b129",
-  "updated_at_utc": "2026-10-30T15:19:09.087882+00:00"
+  "revision": "c6c6b4fb4c7a14ad69188ae360fea36bdc6d9b01e9912141d57034e4116cd08c",
+  "updated_at_utc": "2026-10-30T15:36:11.131457+00:00"
 }

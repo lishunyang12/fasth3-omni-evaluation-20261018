@@ -59,8 +59,8 @@
   },
   "recording_slide": 18,
   "recording_status": "retained_unchanged",
-  "pptx_sha256": "77d9861a301de099cdcbe004799dee9bc97673fbe1519a1bebd9a8479200e83d",
-  "source_pptx_sha256": "b11d13e9947c9202d8bafc7429a6b1986a8391b273891d8787cee1d50ba63875",
+  "pptx_sha256": "c19330404a659ed6644caef09cc74a5906d4a4b01239a1eebf931251c0f61f8a",
+  "source_pptx_sha256": "77d9861a301de099cdcbe004799dee9bc97673fbe1519a1bebd9a8479200e83d",
   "new_measurements": false,
   "new_generation": false,
   "raw_trace_uploaded": false,
@@ -72,22 +72,25 @@
     "prepare_release.py": "860501758eb3fca2b0c0329fdfe0b76e9b238b7d22302a496f258f97eba6689c",
     "render_slides.py": "c854dfd8e4e71a43035c402aada86ef172dfab36ca7f2d09dba202eecb949262",
     "update_cover.py": "8f7cf46b78ba3ab0cc4e7526cd93ac5349fd3b3e4440f0666b2b4fc8af43e7fb",
-    "update_cover_date.py": "57e9afddcaaf041181d610d2358a26029620be3851a63ef056171f245d1098da"
+    "update_cover_date.py": "57e9afddcaaf041181d610d2358a26029620be3851a63ef056171f245d1098da",
+    "update_pipeline.py": "c97951f35bfebd9dd6cb19c245e347bc6c455a000ec34c890732784ae3007c57",
+    "check_pipeline.cjs": "76261d5db19cea9d651fdb417fac18aa73f60ec7f83ffaddb2fe7c03ba1a65f8"
   },
   "publication": "public_release_candidate",
   "generated_at": "2026-10-30T12:27:26.694494+00:00",
   "validation": {
     "status": "pass",
     "office": "office-validation.json",
-    "visual_review": "pass"
+    "visual_review": "pass",
+    "pipeline_browser": "pipeline-browser-validation.json"
   },
-  "pdf_sha256": "8c7da6c067659fd43d88461eb766d6b5536971352c6b61fb7e0e0bad2c4a0a3c",
+  "pdf_sha256": "bf62f400955d698581f40d7568409d49cb37edcf289b5223020ae13038bee783",
   "baseline_profile_url": "v1.50/baseline-breakdown.html",
   "quality_video_url": "v1.40/four-videos.html",
   "historical_continuity_url": "../../reports/h3-liveavatar-long-video-20261014/long/",
   "first_transition_scope": "Descriptive ratio of recorded medians across separately recorded baseline configurations",
   "recording": "User recording; first five seconds removed; video and audio preserved",
-  "latest_revision": "793b64fc0701bcb46a030992674654aeaa9444dd7c83be26bed6047f15b0b129",
+  "latest_revision": "c6c6b4fb4c7a14ad69188ae360fea36bdc6d9b01e9912141d57034e4116cd08c",
   "cover_correction": {
     "slide": 1,
     "before": "Benchmarks measured",
@@ -101,5 +104,13 @@
     "after": "1 Nov 2026",
     "only_changed_pptx_part": "ppt/slides/slide1.xml",
     "date_utc": "2026-10-30T15:19:08.977472+00:00"
+  },
+  "modified_slides": [
+    16
+  ],
+  "pipeline_loop_redesign": {
+    "slide": 16,
+    "audit": "pipeline-loop-audit.json",
+    "date_utc": "2026-10-30T15:36:11.019807+00:00"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "slide": 16,
+  "changed_parts": [
+    "ppt/slides/slide16.xml",
+    "ppt/slides/_rels/slide16.xml.rels",
+    "ppt/notesSlides/notesSlide19.xml"
+  ],
+  "added_parts": [],
+  "native_editable_shapes": true,
+  "existing_media_preserved": true,
+  "other_slides_byte_identical": true,
+  "status": "pass",
+  "visual_review": "pass",
+  "asr": "Qwen3-ASR-0.6B",
+  "llm": "Qwen3-4B",
+  "return_path": "Generated H3 audio played back to the user",
+  "reference_image_sha256": "560c094f9900ea762227f84481ca8a2f73adac69963e0d1a78563bec1844d6b8",
+  "output_frame_sha256": "d321d9013a1bdd7e6cd96da79f3caba7ddcc0905a2884fd04183d1b6bc576162"
+}

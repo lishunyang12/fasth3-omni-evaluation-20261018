@@ -10,5 +10,21 @@
   "prompt_template_sha256": "071f295dcd7d1cade660cc7d14cfb81c4e49db3d4fd6e6c868d68ed9150657e2",
   "reference_image": "media/reference.png",
   "reference_image_sha256": "560c094f9900ea762227f84481ca8a2f73adac69963e0d1a78563bec1844d6b8",
-  "reference_image_scope": "Actual input image supplied to H3 by the live demo; verified against workload.json"
+  "reference_image_scope": "Actual input image supplied to H3 by the live demo; verified against workload.json",
+  "closed_loop": {
+    "slide": 16,
+    "forward": [
+      "User speech",
+      "Qwen3-ASR-0.6B",
+      "Recognized text",
+      "Qwen3-4B reply + scene instructions",
+      "H3",
+      "Avatar video and audio"
+    ],
+    "return": "Generated voice played back to the user",
+    "output_frame": "media/clip-a-ending.png",
+    "output_frame_sha256": "d321d9013a1bdd7e6cd96da79f3caba7ddcc0905a2884fd04183d1b6bc576162",
+    "output_frame_scope": "Previously generated frame from the validated interactive demo session; illustrative of avatar output, not verified alignment to the displayed reply",
+    "asr_model_source": "demo-config.json"
+  }
 }

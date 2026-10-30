@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "version": "v1.50",
-  "pptx_sha256": "77d9861a301de099cdcbe004799dee9bc97673fbe1519a1bebd9a8479200e83d",
+  "pptx_sha256": "c19330404a659ed6644caef09cc74a5906d4a4b01239a1eebf931251c0f61f8a",
   "template_sha256": "d680c78cc6a8a16a50c87cee1c50b8dcc88de21ef740d7f0f5a6fcf28dccd02a",
   "template_parts": {
     "ppt/slideMasters/": {
@@ -108,6 +108,11 @@
   "visual_review": "pass",
   "new_measurements": false,
   "cover_correction": "NVIDIA Devtech; original font, color and position preserved",
-  "only_changed_pptx_part": "ppt/slides/slide1.xml",
-  "cover_date_correction": "1 Nov 2026; original font, color and position preserved"
+  "cover_date_correction": "1 Nov 2026; original font, color and position preserved",
+  "pipeline_loop": "Native NVIDIA-template user/voice/model/avatar loop; actual input and output images; original fonts and palette",
+  "modified_pptx_parts": [
+    "ppt/slides/slide16.xml",
+    "ppt/slides/_rels/slide16.xml.rels",
+    "ppt/notesSlides/notesSlide19.xml"
+  ]
 }

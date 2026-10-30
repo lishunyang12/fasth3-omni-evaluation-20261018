@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "scope": "Current slide 16 and linked explanation page; retained full-deck checks remain historical",
+  "revision": "c6c6b4fb4c7a14ad69188ae360fea36bdc6d9b01e9912141d57034e4116cd08c",
+  "slide": 16,
+  "visible_slides": 11,
+  "preview_loaded": true,
+  "asr_model": "Qwen3-ASR-0.6B",
+  "audio_return_present": true,
+  "downloads_available": true,
+  "errors": []
+}
