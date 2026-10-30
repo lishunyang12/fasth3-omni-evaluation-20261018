@@ -1,0 +1,62 @@
+{
+  "status": "reviewed_presentation_revision",
+  "version": "v1.49",
+  "slides": 21,
+  "visible": 12,
+  "hidden_slides": [
+    7,
+    8,
+    9,
+    10,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "slide_roles": {
+    "baseline": 6,
+    "quality": 10,
+    "overview": 11,
+    "ladder": 17,
+    "demo_setup": [
+      18
+    ],
+    "continuation": 19,
+    "recording": 20
+  },
+  "recording_slide": 20,
+  "recording_status": "retained_unchanged",
+  "pptx_sha256": "000dcbe9824e17217e4619cd1d23e2e693b60c8396e48e2b3556eadb18ee119b",
+  "source_pptx_sha256": "96c1f435a2a197a4ca27a42c41621cd62da92375bbbdc9bc05c638ddae3c1a41",
+  "new_measurements": false,
+  "new_generation": false,
+  "raw_trace_uploaded": false,
+  "source_scripts_sha256": {
+    "audit_design.py": "72d83a7f9151dfaf219d3e2615c85bfc5f02caa7c63a08adb13360424e8399e6",
+    "build_release.py": "01bebcf82ea2d4f4fafab0a23fa7402cf8d18b39472adda4ebaf142a24c9f9f1",
+    "verify_public.py": "4f73a8d98142bc36c85c258ea7e7ba75ba1baad3a75728fd58850944175adf4d",
+    "prepare_release.py": "18b876c21b55abfebccfc79f0be8d625eac388aacf921607131b231480e6d2f1",
+    "render_slides.py": "5f5e384d5c1146201713becde1cd2bb04bed849d4ed854e74086b9f8cb89b970"
+  },
+  "modified_slides": [
+    6,
+    19
+  ],
+  "template_audit": "slide6-template-audit.json",
+  "publication": "public_release_candidate",
+  "generated_at": "2026-10-30T12:04:31.916477+00:00",
+  "validation": {
+    "status": "pass",
+    "office": "office-validation.json",
+    "visual_review": "pass",
+    "browser": "browser-validation.json"
+  },
+  "pdf_sha256": "05f7d18c6d2ea2bfe97d5d897bebb0a53ac4be32fe55128ae15fdcccb9a6d3be",
+  "baseline_profile_url": "v1.49/baseline-breakdown.html",
+  "quality_video_url": "v1.40/four-videos.html",
+  "historical_continuity_url": "../../reports/h3-liveavatar-long-video-20261014/long/",
+  "first_transition_scope": "Descriptive ratio of recorded medians across separately recorded baseline configurations",
+  "recording": "User recording; first five seconds removed; video and audio preserved",
+  "latest_revision": "192bb561a44f81e0d2fabe14437f9c56aabe651ee7f6581c6cb96e181ca56c71"
+}

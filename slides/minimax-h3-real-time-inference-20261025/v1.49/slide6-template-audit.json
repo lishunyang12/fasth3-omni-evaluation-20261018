@@ -1,0 +1,88 @@
+{
+  "status": "pass",
+  "slides": [
+    6,
+    19
+  ],
+  "template_sha256": "d680c78cc6a8a16a50c87cee1c50b8dcc88de21ef740d7f0f5a6fcf28dccd02a",
+  "source_pptx_sha256": "96c1f435a2a197a4ca27a42c41621cd62da92375bbbdc9bc05c638ddae3c1a41",
+  "pptx_sha256": "000dcbe9824e17217e4619cd1d23e2e693b60c8396e48e2b3556eadb18ee119b",
+  "changed_parts": [
+    "ppt/slides/slide6.xml",
+    "ppt/slides/slide19.xml",
+    "ppt/slides/_rels/slide19.xml.rels",
+    "ppt/notesSlides/notesSlide18.xml"
+  ],
+  "template_parts": {
+    "ppt/slideMasters/": {
+      "count": 1,
+      "match": true
+    },
+    "ppt/slideLayouts/": {
+      "count": 44,
+      "match": true
+    },
+    "ppt/fonts/": {
+      "count": 12,
+      "match": true
+    }
+  },
+  "title": {
+    "font": "NVIDIA Sans Medium",
+    "size_pt": 88,
+    "inherited": true
+  },
+  "subtitle": {
+    "font": "NVIDIA Sans",
+    "size_pt": 48,
+    "inherited": true
+  },
+  "measured_values_unchanged": true,
+  "detail_policy": "Slide 6 hides requested setup details; complete evidence remains in notes and linked data pages",
+  "actual_pdf_fonts": {
+    "6": [
+      "NVIDIASans-Medium",
+      "NVIDIASans-Regular"
+    ],
+    "19": [
+      "NVIDIASans-Medium",
+      "NVIDIASans-Regular"
+    ]
+  },
+  "title_font_fallback": false,
+  "visual_review": "pass",
+  "unchanged_preview_slides": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    20,
+    21
+  ],
+  "actual_demo_frames": "continuation-frames.json",
+  "operator_grouping": {
+    "NCCL": "unchanged",
+    "Attention": "unchanged",
+    "GEMM": "unchanged",
+    "Other CUDA work": [
+      "Norm / activation / elementwise",
+      "Layout / device copies",
+      "CUDA memcpy / memset",
+      "Convolution",
+      "Other kernels"
+    ]
+  }
+}
