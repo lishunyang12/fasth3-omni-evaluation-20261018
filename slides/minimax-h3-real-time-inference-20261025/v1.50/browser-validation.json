@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "version": "v1.50",
+  "revision": "f852d69fb01d63312e9c841379178a0c2bee104b68084b332cc02c08c9ff1d73",
+  "slides": 20,
+  "visible": 11,
+  "removed_previous_slides": [
+    2,
+    3
+  ],
+  "baseline_slide": 4,
+  "pipeline_slide": 16,
+  "continuation_slide": 17,
+  "recording_slide": 18,
+  "takeaways_slide": 19,
+  "reference_image_verified": true,
+  "video_playback": true,
+  "video_seek": true,
+  "correct_links": true,
+  "media": {
+    "duration": 74.55,
+    "width": 3168,
+    "height": 1822
+  },
+  "errors": [],
+  "continuation_in_normal_next_navigation": true
+}

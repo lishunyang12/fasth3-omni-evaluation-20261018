@@ -1,0 +1,110 @@
+{
+  "status": "pass",
+  "version": "v1.50",
+  "pptx_sha256": "e54bebada4b55b40dae6c017968d5c40e9d8b8474b13db177b84bb947e88f3c1",
+  "template_sha256": "d680c78cc6a8a16a50c87cee1c50b8dcc88de21ef740d7f0f5a6fcf28dccd02a",
+  "template_parts": {
+    "ppt/slideMasters/": {
+      "count": 1,
+      "match": true
+    },
+    "ppt/slideLayouts/": {
+      "count": 44,
+      "match": true
+    },
+    "ppt/fonts/": {
+      "count": 12,
+      "match": true
+    }
+  },
+  "visible_slide_native_colors": {
+    "1": [
+      "313131"
+    ],
+    "2": [
+      "A7A7A7"
+    ],
+    "3": [
+      "000000",
+      "76B900",
+      "A7A7A7",
+      "F7F7F7",
+      "FFFFFF"
+    ],
+    "4": [
+      "000000",
+      "313131",
+      "76B900",
+      "F7F7F7"
+    ],
+    "9": [
+      "000000",
+      "313131",
+      "F7F7F7"
+    ],
+    "15": [
+      "000000",
+      "313131",
+      "76B900",
+      "F7F7F7"
+    ],
+    "16": [
+      "000000",
+      "313131",
+      "76B900",
+      "F7F7F7"
+    ],
+    "17": [
+      "000000",
+      "313131",
+      "76B900",
+      "F7F7F7",
+      "FFFFFF"
+    ],
+    "18": [
+      "000000",
+      "313131"
+    ],
+    "19": [
+      "000000",
+      "76B900"
+    ],
+    "20": []
+  },
+  "palette_scope": "Native shapes and text on visible presentation slides; photographs, videos, and source figures retain their original pixels",
+  "primary_colors": {
+    "background": "FFFFFF",
+    "text": "000000",
+    "secondary_text": "313131",
+    "light_gray": "F7F7F7",
+    "accent": "76B900"
+  },
+  "title": {
+    "slides": [
+      4,
+      15,
+      17,
+      19
+    ],
+    "font": "NVIDIA Sans Medium",
+    "size_pt": 88,
+    "inherited_from_original_layout": true
+  },
+  "subtitle": {
+    "font": "NVIDIA Sans",
+    "size_pt": 48
+  },
+  "baseline_two_columns": [
+    "Reference configuration",
+    "GPU work by operator"
+  ],
+  "removed_previous_slides": [
+    2,
+    3
+  ],
+  "final_result": "6/6 measured standalone H3 requests below 5 s; 4.922 s median and 4.927 s recheck",
+  "benchmark_values_unchanged": true,
+  "recording_and_reference_pixels_unchanged": true,
+  "visual_review": "pass",
+  "new_measurements": false
+}
