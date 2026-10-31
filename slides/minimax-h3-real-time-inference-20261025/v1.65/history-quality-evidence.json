@@ -1,0 +1,20 @@
+{
+  "scope": "Retained R7 results; no new generation",
+  "windows_per_chain": 32,
+  "duration_seconds": 158.875,
+  "history_noise_fraction": 0.2,
+  "opening_mp4_identical_between_20pct_chains": true,
+  "prefix_on": {
+    "median_seam_pixel_mae": 0.01141
+  },
+  "prefix_off": {
+    "median_seam_pixel_mae": 0.02029,
+    "observation": "Sampled late face, shirt and background frames cleaner; residual drift remains"
+  },
+  "limitations": [
+    "Seam MAE is motion-sensitive, not a perceptual quality score",
+    "No noise-strength sweep at fixed prefix off",
+    "20% is not established as optimal"
+  ],
+  "source_sha256": "62adb582967c64111aed91e39f07ed654a04097ecbd223496818467fbd59be49"
+}

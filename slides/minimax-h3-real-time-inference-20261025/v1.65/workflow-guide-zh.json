@@ -1,0 +1,244 @@
+{
+  "slide": 15,
+  "upstream_commit": "08177216af4b44cef54ec5bdc75c265a9f0cd697",
+  "verified_date": "2026-10-31",
+  "workflows": [
+    {
+      "id": "generation",
+      "title": "文字、首尾帧与混合参考：All-in-One / H3-06",
+      "status": "已支持模板",
+      "flow": "文字 / 首尾帧 / 参考素材 → Generate Video → Save Video",
+      "inputs": "文字提示词；按模式选择首帧、尾帧，或人物图片、动作视频、声音参考。服务 URL、模型名、时长、seed 与采样参数由共享节点提供。",
+      "steps": [
+        "T2VA：不连接 frame 或 references，以文字生成视频和同步音频。底层使用 FL2VA 分区。",
+        "FL2VA：Load Image 接 first_frame、last_frame 或两者，约束开始/结束画面；文字描述中间动作。上一段末帧也可作为下一段首帧，但单帧本身不携带完整运动与音频历史。",
+        "Ref2VA：素材接入 Video References，再接 Generate Video；提示词以 <Picture 1>、<Video 1>、<Audio 1> 指明各类参考用途。人物参考约束外观，动作参考提供动作线索，普通声音参考提供音色等条件。",
+        "返回的 VIDEO 包含生成画面和音轨，Save Video 保存 MP4。模板默认 124 帧 / 24 FPS，约 5.167 秒。"
+      ],
+      "example": "只写“一个人在雨中奔跑”用 T2VA；给跑步前后两张构图用 FL2VA；指定人物长相、动作片段和声音风格用 Ref2VA。",
+      "limits": "三个分支是可选路由；同时启用会分别发请求。frame 与 references 不混接。服务器必须加载对应分区，ComfyUI 切换连线不会自动加载缺失权重。模板没有内置提示词 LLM。",
+      "sources": [
+        [
+          "All-in-One 模板说明",
+          "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/h3-06-all-in-one.md"
+        ]
+      ]
+    },
+    {
+      "id": "timeline",
+      "title": "时间轴引导：Timeline Guides",
+      "status": "已支持节点和模板",
+      "flow": "Load Image / Video / Audio → Add Guide × N → Generate Video.timeline_guides → Save Video",
+      "inputs": "要在特定时间出现的图片、短视频或音频，以及每个素材的 frame_index。",
+      "steps": [
+        "每个 MiniMax H3 Add Guide 节点增加一条时间引导，串联后送入 timeline_guides。24 FPS 下 frame_index=36 对应 1.5 秒，72 对应 3 秒；负数从片尾计算。",
+        "服务端把条件对齐到输出时间轴。普通 reference 表达“参考什么”，timeline guide 还表达“在什么时候参考”。引导不自动变成新的 <Picture N> 等语义参考标签。",
+        "视频 guide 默认只取画面；需要声音时，从 Get Video Components 取出 audio，再接同一个 guide 的 audio。",
+        "可单独使用 guide，也可按接口约束和首尾帧或 Ref2VA references 组合。请求会由服务端检查帧网格、区间和冲突。"
+      ],
+      "example": "要求人物在 1.5 秒举杯、3 秒转向镜头，可分别放入对应构图作为锚点，引导中间过渡。",
+      "limits": "当前路径要求 Base H3；拒绝 FastH3、非零 request LoRA（含 Turbo）及 latent-mask editing 等组合。最多 8 条 guide；不保证严格逐像素复现或任意冲突锚点都能自然连接。",
+      "sources": [
+        [
+          "时间轴节点与限制",
+          "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/README.md#timeline-guides-minimax-h3"
+        ]
+      ]
+    },
+    {
+      "id": "inpainting",
+      "title": "局部重绘与物体移除：WF-05 空间遮罩",
+      "status": "已支持 latent-mask 模板",
+      "flow": "Load Video + 空间 Mask + 提示词 → Latent Mask Editing → Generate Video → Save Video",
+      "inputs": "原视频、选定编辑区域的遮罩、希望生成的内容描述；需要时单独设置音频遮罩。",
+      "steps": [
+        "Mask Canvas、Mask Rectangle、Combine Masks 可以画矩形；任意形状可用 Load Image (as Mask)。先看 Mask Preview 的红色覆盖区域，确认编辑范围。",
+        "遮罩 0 表示保留，1 表示重新生成。服务端编码原视频，以 latent 遮罩决定哪些位置保留源内容、哪些位置进行生成。",
+        "物体移除：遮住待去掉的物体，提示词描述应补回的背景；局部重绘：遮住目标区域，描述新内容。",
+        "音频有独立开关：audio mask=0 保留源音频路径，=1 重生成全段声音。只改画面时，避免误开音频编辑。"
+      ],
+      "example": "移除桌上的杯子，同时尽量保留人物、桌面边缘和相机运动。",
+      "limits": "该模板使用 FL2VA 分区。保留约束在 latent 空间，VAE 编解码后不等于像素或文件字节完全相同；遮罩过小会留边缘，运动物体需要检查逐帧覆盖。预览遮罩不运行模型。",
+      "sources": [
+        [
+          "WF-05 编辑模板",
+          "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/wf05-h3-latent-editing.md"
+        ]
+      ]
+    },
+    {
+      "id": "extension",
+      "title": "片段续接与延长：WF-05 时间遮罩",
+      "status": "已支持 latent-mask 模板",
+      "flow": "Load Video + Temporal Mask → Generate Video（目标时长）→ Save Video",
+      "inputs": "原视频、目标时长和保留范围；continuation 模式还配置 preserve_fraction。",
+      "steps": [
+        "Continuation：保留原片开头的一部分，把后面的时间区域标成可重生成，让情节沿新提示词继续发展。",
+        "Extension：目标时长超过原片，将追加时间区域留给模型生成。Temporal Mask 的时长应与 Generate Video 一致。",
+        "源视频在 latent 空间提供保留区域的约束，音频保留/重生成由独立音频遮罩决定。",
+        "输出是一段按目标时长编辑的完整片段，保存后检查保留边界、动作连续性和声音。"
+      ],
+      "example": "保留人物走入房间的开头，再生成坐下说话的后半段；或把已有短片向后延长。",
+      "limits": "这条 FL2VA latent-mask 路线与第 11 页自定义 Ref2VA rolling demo 不同。demo 逐轮携带 AV 尾部、生成 124 帧再裁 5 帧；时间遮罩模板不能直接解释为同一套 20% 噪声 / prefix off 配置。",
+      "sources": [
+        [
+          "WF-05 续接与延长",
+          "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/wf05-h3-latent-editing.md"
+        ]
+      ]
+    },
+    {
+      "id": "seedvr2",
+      "title": "SeedVR2 超分与画质修复：WF-07",
+      "status": "已支持本地和远端路径",
+      "flow": "H3 VIDEO → 拆出 frames / audio / FPS → SeedVR2(frames) → Create Video + 原音轨 → Save Video",
+      "inputs": "H3 生成的视频，或已有视频；SeedVR2 模型、输出短边/目标尺寸、批量和显存相关参数。",
+      "steps": [
+        "先让 H3 完成视频和音频生成，再把已解码的图像帧送给独立的 SeedVR2 修复模型。",
+        "原 WF-07 本地路径在 ComfyUI 侧加载 SeedVR2；远端路径调用单独的 vLLM-Omni SeedVR2 服务。H3 与 SeedVR2 的服务地址和模型可以不同。",
+        "模板示例把 1344×768 的短边设为 1536，输出约为 2688×1536；resolution 指目标短边，不是固定的 2 倍系数。",
+        "修复后的帧重新组成视频，接回原来的 FPS 和音轨。比较原片与修复片时同时检查细节、颜色和时间一致性。"
+      ],
+      "example": "生成阶段先控制成本，最后把确定采用的镜头做高分辨率交付。",
+      "limits": "SeedVR2 是额外模型，会增加算力、显存和耗时，也可能重建出与原片不同的细节。此处处理已解码帧，不是给 H3 历史条件加入 20% 噪声。",
+      "sources": [
+        [
+          "本地 WF-07",
+          "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/wf07-h3-upscale.md"
+        ],
+        [
+          "远端 SeedVR2",
+          "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/seedvr2-restoration.md"
+        ]
+      ]
+    },
+    {
+      "id": "refinement",
+      "title": "H3 二次采样：latent refinement",
+      "status": "后端已支持；由服务端配置",
+      "flow": "H3 首轮 latent → 可选 latent upscale → 重新加噪 → H3 去噪日程尾段 → VAE 解码",
+      "inputs": "首轮 H3 结果 latent、latent_refine 强度，以及可选的 latent_upscale 目标尺寸。",
+      "steps": [
+        "先在较小画布生成，再按需要放大 latent；随后重新加噪，从选定日程位置继续调用 H3 DiT。也可不放大，仅在原尺寸细化。",
+        "例如首轮 50 步、latent_refine=0.4，二次运行日程尾部约 20 步。这个 0.4 是请求步数的比例，不等于前文历史条件的 20% 混合系数。",
+        "放大 latent 只提供初始结构；二次去噪使模型能重新生成目标尺寸下的细节。强度越大，允许的内容变化通常越大。",
+        "音频也会重新加噪并参与细化，因此需要重新听取输出。FL2VA 首尾帧在放大后按目标尺寸重新编码。"
+      ],
+      "example": "先生成构图满意的低分辨率镜头，再用少量高分辨率步骤补充细节。",
+      "limits": "目前没有独立 ComfyUI 节点或模板，可由服务器默认配置启用。该路径只支持 request mode，并与 latent-tail continuation、latent-mask editing 等组合存在限制；可学习 latent upscaler 还需要额外权重。更高强度不保证更清晰。",
+      "sources": [
+        [
+          "H3 二次采样配置",
+          "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/recipes/MiniMaxAI/MiniMax-H3.md#the-hi-res-route-generate-small-refine-large"
+        ]
+      ]
+    },
+    {
+      "id": "music",
+      "title": "音乐驱动视频：H3-03 已有音轨分支",
+      "status": "已支持 supplied-track 模板",
+      "flow": "Load Audio → 按镜头 Trim Audio → Ref2VA(lock_source) × N → Concatenate Video + 完整原音轨",
+      "inputs": "完整音乐、统一的人物/风格图片、每个镜头的提示词，以及镜头时长。",
+      "steps": [
+        "按 124 帧 / 24 FPS 把歌曲划成约 5.167 秒的片段。三镜头的音频起点约为 0、5.17、10.33 秒，成片为 15.5 秒。",
+        "每个镜头独立调用 Ref2VA：共享图片进入 Video References，当前音频切片作为 driving audio；H3 Video Params 设 audio_mode=lock_source。",
+        "服务端把该段音频编码到目标音频 latent 并保持固定，使画面生成能利用已知的声音时间线。它不同于仅用 <Audio 1> 指定声音风格。",
+        "Concatenate Video 拼接镜头，complete_audio 接整段原始录音。这样避免逐段音频 VAE 重建造成的接缝差异；导出的 MP4 音频仍可能有容器/编码转换，不能声称字节完全一致。"
+      ],
+      "example": "一首歌的前三段分别用近景演唱、全身动作、舞台远景呈现，人物参考相同。",
+      "limits": "镜头之间没有 latent 历史接力，允许剪辑切换；不保证连续相机运动或严格卡点。lock_source 要求恰好一条驱动音频，并且不会额外生成叠加音效。YuE2 自动生成音乐分支仍依赖对应服务和节点。",
+      "sources": [
+        [
+          "H3-03 MV 模板",
+          "https://github.com/vllm-project/vllm-omni/blob/08177216af4b44cef54ec5bdc75c265a9f0cd697/apps/ComfyUI-vLLM-Omni/docs/h3-03-music-video.md"
+        ]
+      ]
+    },
+    {
+      "id": "control",
+      "title": "ControlNet 条件控制：WF-06",
+      "status": "草稿 PR；未合并",
+      "flow": "原视频 → 提取结构提示 → MiniMax-H3 Control → Generate Video → Save Video",
+      "inputs": "结构提示视频、提示词、控制类型与 strength；局部控制时还可涉及源视频和遮罩。",
+      "steps": [
+        "Pose 用骨架描述动作；Depth 用深度描述空间布局；Canny/HED 用边缘描述轮廓；MLSD 偏向直线结构；Inpaint 结合待修改区域。",
+        "预处理阶段把输入转换为所需提示图，ComfyUI 发送准备好的素材，服务端运行带相应 ControlNet/Union 权重的 H3。",
+        "strength 控制结构条件的作用强度。文字描述生成外观，控制提示约束姿态、布局或轮廓；两者冲突时需要调整。"
+      ],
+      "example": "沿用舞者的动作骨架，改变服装或场景；沿用建筑边缘布局生成新的视觉风格。",
+      "limits": "当前相关前端 PR 为 draft。已有部分运行记录，但并非所有控制模式都通过最终画质验收。骨架漏检、方向错误、音频质量及不支持的组合仍需检查，不能把“请求能运行”写成质量已完成验证。",
+      "sources": [
+        [
+          "控制节点 PR #7492",
+          "https://github.com/vllm-project/vllm-omni/pull/7492"
+        ],
+        [
+          "WF-06 PR #7507",
+          "https://github.com/vllm-project/vllm-omni/pull/7507"
+        ]
+      ]
+    },
+    {
+      "id": "replacement",
+      "title": "角色替换：H3-04",
+      "status": "开放 PR；未合并",
+      "flow": "原视频 + 新角色图片 + 身份映射提示词 → Ref2VA / 适配器 → 输出替换视频",
+      "inputs": "提供动作、镜头和场景的原视频，以及一个或多个目标人物参考图。",
+      "steps": [
+        "单人：<Video 1> 提供源视频，<Picture 1> 提供目标角色；提示词明确希望替换谁、保留哪些动作与场景。",
+        "多人：使用多张图片并逐个说明人物对应关系，避免把参考身份互换或混合。",
+        "PR 提供 LoRA 与采样控制；长片路径还需要按 continuation 窗口切分参考视频及其嵌入音频，并保持共同时间原点。"
+      ],
+      "example": "将表演片段中的主角替换为指定角色，同时尽量维持原来的动作与镜头。",
+      "limits": "它重新生成视频，不保证背景逐像素不变。PR 仍有依赖与画质验收项，长视频曾观察到重影/重复；多角色映射和跨窗口稳定性都需要实际检查。",
+      "sources": [
+        [
+          "H3-04 PR #9194",
+          "https://github.com/vllm-project/vllm-omni/pull/9194"
+        ]
+      ]
+    },
+    {
+      "id": "anchors",
+      "title": "身份参考 + 多时刻锚点：WF-04",
+      "status": "组合模板 PR 未合并；基础节点已存在",
+      "flow": "人物图 → Video References ─┐\n三张构图 → Add Guide(36 → 72 → 120) ─┴→ Generate Video → Save Video",
+      "inputs": "一张人物身份参考，以及分别指定 1.5 秒、3 秒、5 秒画面的三张时间锚点。",
+      "steps": [
+        "身份图进入 Video References，在提示词中以 <Picture 1> 表达“是谁”。三张锚点进入 Add Guide，分别使用 frame_index 36、72、120。",
+        "124 帧片段中，服务端同时利用人物身份参考和时间轴构图条件生成过渡。提示词用时间描述后续锚点，不能把 guide 错当成新的 <Picture 2/3/4>。",
+        "现有节点已经可以手动连出此结构；PR 补充可导入的完整模板、约束说明和连线测试。"
+      ],
+      "example": "同一角色先正面站立，1.5 秒举手，3 秒侧身，5 秒坐下；各锚点应在动作与构图上可衔接。",
+      "limits": "使用 Base H3，遵守 timeline guide 的组合限制。身份参考不自动锁定输出首帧；指定锚点也不保证任意跨度的运动都自然。",
+      "sources": [
+        [
+          "多锚点 PR #9420",
+          "https://github.com/vllm-project/vllm-omni/pull/9420"
+        ]
+      ]
+    },
+    {
+      "id": "longform",
+      "title": "长篇叙事、长视频与可重复数字人：H3-01 / 02 / 05",
+      "status": "完整制作模板属于 RFC 提案",
+      "flow": "剧本 / 对话 → 分镜与参考 → 分段生成或续接 → 检查边界与音轨 → 保存、拼接、继续",
+      "inputs": "分镜或回复文本、人物与场景参考、音频策略、每段时长以及段间接续策略。",
+      "steps": [
+        "H3-01 文戏/叙事：逐镜头编写动作、对白与相机要求，共享必要的人物/场景参考，最后保留音频完成组装。",
+        "H3-02 长视频：生成有界片段，明确重叠多少、保留哪段、裁掉哪段，处理 AV 时间轴和段间接缝。",
+        "H3-05 数字人：重复生成同一角色的说话/倾听片段，结合输入、回复、音频对齐、片段持久化与恢复机制，组成可持续运行的应用。",
+        "第 11 页 demo 已演示一条自定义 Ref2VA AV-tail 路线；把它做成完整、可移植的 ComfyUI 制作模板，仍需要对应编排与验证。"
+      ],
+      "example": "对话短剧使用多镜头剪辑；数字人使用连续回复片段。两者对无缝动作、身份和音频的要求不同。",
+      "limits": "“无限”表示可以重复请求，不表示单次推理无限长、永不漂移或必然实时。FL2VA 末帧接首帧、latent-mask 续接和 Ref2VA AV-tail 都应按任务比较，不能混称为同一种接续。",
+      "sources": [
+        [
+          "制作工作流 RFC #8251",
+          "https://github.com/vllm-project/vllm-omni/issues/8251"
+        ]
+      ]
+    }
+  ],
+  "new_inference": false
+}

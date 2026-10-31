@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "scope": "CPU-only packed layout; no model inference",
+  "source": "runtime-native/vllm_omni/diffusion/models/minimax_h3/packed_sequence.py",
+  "pixel_frames_per_latent_period": [
+    1,
+    4,
+    4,
+    4,
+    4
+  ],
+  "previous_tail_latent_indices": [
+    35,
+    36
+  ],
+  "previous_tail_frame_start": [
+    119,
+    120
+  ],
+  "next_window_frame_start": 119,
+  "shared_rope_time_coordinates": [
+    2247.3333333333335,
+    2249.0
+  ],
+  "previous_tail_vs_guide_fp64_max_difference": 4.547473508864641e-13,
+  "previous_tail_vs_guide_fp32_equal": true,
+  "guide_vs_target_first_two_positions_equal": true,
+  "guide_diffusion_update_mask": false,
+  "target_diffusion_update_mask": true
+}

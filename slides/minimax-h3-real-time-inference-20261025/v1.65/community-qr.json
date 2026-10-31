@@ -1,0 +1,85 @@
+{
+  "slide": 17,
+  "verified_date": "2026-10-31",
+  "source_repository": "lishunyang12/vllm-omni-rankings",
+  "source_commit": "49fc3c9ef469ed6b3ac1579eaa4ead3c89d7872d",
+  "provided_by": "Presenter",
+  "expiry_display": "Valid before 7 Nov 2026",
+  "groups": [
+    {
+      "label": "vLLM-Omni ComfyUI",
+      "subtitle": "Developer community",
+      "image": "media/vllm-omni-comfyui-wechat.jpg",
+      "source": "https://github.com/lishunyang12/vllm-omni-rankings/blob/49fc3c9ef469ed6b3ac1579eaa4ead3c89d7872d/128a727d949107d3abaf180ae27a6362.jpg",
+      "sha256": "1da38b28c69d45a20dc2747f5b73c2c980441c9168fdf831cc8831251f78ff6d",
+      "decoded_url": "https://weixin.qq.com/g/AwYAAHhx4gFuMGSL6NVw4SfvXKH3V9x-vCtiB65mXT4TuIanYYEYs0cf6xEoxGtT",
+      "source_pixels": [
+        1166,
+        1691
+      ],
+      "crop_pixels": [
+        137,
+        560,
+        892,
+        892
+      ],
+      "source_bytes_preserved": true,
+      "live_admission_verified": false
+    },
+    {
+      "label": "Agentic Video Generation",
+      "subtitle": "with MiniMax H3",
+      "image": "media/h3-agentic-video-wechat.jpg",
+      "source": "https://github.com/lishunyang12/vllm-omni-rankings/blob/49fc3c9ef469ed6b3ac1579eaa4ead3c89d7872d/754ccdb2a557da22bc2e15d08009caf2.jpg",
+      "sha256": "31cefddf222c6b5aeca2694cdded55f8e777f5881116f4630816d7e77ebae1ef",
+      "decoded_url": "https://weixin.qq.com/g/AwYAAB48ag0RuITp2dLABuJbom9x2kAW_M7cGkQGkAfpIW2PaXyyf_JBnPb_WJFF",
+      "source_pixels": [
+        1166,
+        1691
+      ],
+      "crop_pixels": [
+        137,
+        560,
+        892,
+        892
+      ],
+      "source_bytes_preserved": true,
+      "live_admission_verified": false
+    },
+    {
+      "label": "vLLM Study Group",
+      "subtitle": "Shenzhen",
+      "image": "media/vllm-study-shenzhen-wechat.jpg",
+      "source": "https://github.com/lishunyang12/vllm-omni-rankings/blob/49fc3c9ef469ed6b3ac1579eaa4ead3c89d7872d/76c627bec116e235c7fa2c5f1bd09548.jpg",
+      "sha256": "81b3aa3c257e71ccdb0850bff829464fb9e43960e88735bd6c84d0bd8f8c84ab",
+      "decoded_url": "https://weixin.qq.com/g/AwYAAEbKKniFtWy9HYbvMYz3vS7bnQO4rS4-cdeYxjYGIcgPFme-5WK4lrXja7E5",
+      "source_pixels": [
+        1166,
+        1640
+      ],
+      "crop_pixels": [
+        137,
+        509,
+        892,
+        892
+      ],
+      "source_bytes_preserved": true,
+      "live_admission_verified": false
+    }
+  ],
+  "official_project_url": "https://github.com/vllm-project/vllm-omni",
+  "official_slack_url": "https://slack.vllm.ai/",
+  "bilibili": {
+    "label": "vLLM on Bilibili",
+    "account_name": "vllm_project",
+    "url": "https://space.bilibili.com/189708420",
+    "image": "media/vllm-bilibili-qr.png",
+    "sha256": "1ce814b443806c4b45350b25ca1e46711ac2e0a5b2d3e10befb13a32a0b50594",
+    "encoding": "Direct canonical profile URL; tracking query removed",
+    "verification_date": "2026-10-31",
+    "account_api": "https://api.bilibili.com/x/web-interface/card?mid=189708420",
+    "channel_maintainer_source": "https://github.com/princepride/princepride",
+    "channel_maintainer_readme_sha256": "6f8d4f216a7980f4bb225924302b4daa42c66a595868bf4676eb98b502d86e52",
+    "official_designation": "Presenter and linked vLLM project-channel identity; not a platform verification badge"
+  }
+}

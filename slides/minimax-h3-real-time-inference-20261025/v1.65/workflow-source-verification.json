@@ -1,0 +1,32 @@
+{
+  "checked_at_utc": "2026-10-31T03:41:46.010999+00:00",
+  "pinned_upstream_commit": "08177216af4b44cef54ec5bdc75c265a9f0cd697",
+  "method": "Read-only GitHub REST API; existing pinned source docs",
+  "pull_requests": [
+    {
+      "number": 7492,
+      "state": "open",
+      "draft": true,
+      "merged_at": null
+    },
+    {
+      "number": 7507,
+      "state": "open",
+      "draft": true,
+      "merged_at": null
+    },
+    {
+      "number": 9194,
+      "state": "open",
+      "draft": false,
+      "merged_at": null
+    },
+    {
+      "number": 9420,
+      "state": "open",
+      "draft": false,
+      "merged_at": null
+    }
+  ],
+  "new_inference": false
+}

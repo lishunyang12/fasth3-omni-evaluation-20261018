@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "slide": 17,
+  "rendered_size": [
+    1600,
+    900
+  ],
+  "decoded_count": 4,
+  "all_four_match_expected": true,
+  "wechat_live_admission_verified": false,
+  "wechat_source_bytes_unchanged": true,
+  "bilibili_direct_url": "https://space.bilibili.com/189708420",
+  "rendered_sha256": "c23ddecb2bf9c91b341e29523b0a0dfdedb16050c58e32c56a9725d9ae7449a3"
+}
