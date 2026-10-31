@@ -1,0 +1,168 @@
+{
+  "source_sha256": "fc6b8b7fcbf05eb68ce8dc9990a663175923f645ce78fee5e96835cf9d366ebd",
+  "output": "MiniMax_H3_Real_Time_Inference_v1.65_Compact_Autoplay.pptx",
+  "sha256": "fe48178a3b7ad66c40b1c2e13328f1f162f234ab4d2fdfea28087a1dcaeddfc1",
+  "source_bytes": 100269986,
+  "bytes": 51013509,
+  "reduction_percent": 49.12,
+  "slides": 45,
+  "visible_slides": 17,
+  "talk17": {
+    "output": "MiniMax_H3_Real_Time_Inference_v1.65_Talk17_Compact_Autoplay.pptx",
+    "bytes": 24375222,
+    "sha256": "3edd59fc2c84b8109638fed09f16028987fdf7cd6ee24e9b87ea7347d516b67b",
+    "slides": 17,
+    "all_visible_slides_preserved": true,
+    "removed_hidden_backup_slides": 28,
+    "embedded_videos": 1,
+    "live_demo_audio_preserved": true
+  },
+  "autoplay": [
+    {
+      "slide": "ppt/slides/slide40.xml",
+      "hidden": true,
+      "shape_id": "5",
+      "volume": "80000",
+      "old_delay": "indefinite",
+      "new_delay": "0"
+    },
+    {
+      "slide": "ppt/slides/slide27.xml",
+      "hidden": true,
+      "shape_id": "8",
+      "volume": "0",
+      "old_delay": "0",
+      "new_delay": "0"
+    },
+    {
+      "slide": "ppt/slides/slide27.xml",
+      "hidden": true,
+      "shape_id": "13",
+      "volume": "0",
+      "old_delay": "0",
+      "new_delay": "0"
+    },
+    {
+      "slide": "ppt/slides/slide27.xml",
+      "hidden": true,
+      "shape_id": "18",
+      "volume": "0",
+      "old_delay": "0",
+      "new_delay": "0"
+    },
+    {
+      "slide": "ppt/slides/slide27.xml",
+      "hidden": true,
+      "shape_id": "23",
+      "volume": "0",
+      "old_delay": "0",
+      "new_delay": "0"
+    },
+    {
+      "slide": "ppt/slides/slide12.xml",
+      "hidden": false,
+      "shape_id": "5",
+      "volume": "80000",
+      "old_delay": "indefinite",
+      "new_delay": "0"
+    }
+  ],
+  "validation_limit": "PowerPoint desktop playback not executed in this Linux environment; OOXML start delay validated as zero.",
+  "quality_note": "Videos re-encoded for presentation download. Use the original v1.65 media for detailed visual-quality comparisons.",
+  "all_other_zip_parts_byte_identical": true,
+  "original_layout_notes_fonts_posters_preserved": true,
+  "version": "v1.65 compact autoplay",
+  "source": "../v1.65/MiniMax_H3_Real_Time_Inference_NVIDIA_Public_v1.65.pptx",
+  "media": [
+    {
+      "file": "media1.mp4",
+      "before_bytes": 11809163,
+      "after_bytes": 4299782,
+      "before_size": [
+        1344,
+        768
+      ],
+      "after_size": [
+        1344,
+        768
+      ],
+      "frames": 124,
+      "fps": "24/1",
+      "duration": "5.175000",
+      "audio_packets_preserved": true,
+      "sha256": "1946e177afb8e4814b197680db23a595615c913bf44cffc02f6019f49773a1ce"
+    },
+    {
+      "file": "media2.mp4",
+      "before_bytes": 11458039,
+      "after_bytes": 4513342,
+      "before_size": [
+        1344,
+        768
+      ],
+      "after_size": [
+        1344,
+        768
+      ],
+      "frames": 124,
+      "fps": "24/1",
+      "duration": "5.175000",
+      "audio_packets_preserved": true,
+      "sha256": "d0acb482408c64d320074e39e4ca93fd159228b62c200bba1b484e75a052dad6"
+    },
+    {
+      "file": "media3.mp4",
+      "before_bytes": 10622369,
+      "after_bytes": 4088896,
+      "before_size": [
+        1344,
+        768
+      ],
+      "after_size": [
+        1344,
+        768
+      ],
+      "frames": 124,
+      "fps": "24/1",
+      "duration": "5.175000",
+      "audio_packets_preserved": true,
+      "sha256": "336c541c797b5d3f4edc3aec1e5d34030098d5100813f85ec56096091cf99fd2"
+    },
+    {
+      "file": "media4.mp4",
+      "before_bytes": 10835318,
+      "after_bytes": 4348026,
+      "before_size": [
+        1344,
+        768
+      ],
+      "after_size": [
+        1344,
+        768
+      ],
+      "frames": 124,
+      "fps": "24/1",
+      "duration": "5.175000",
+      "audio_packets_preserved": true,
+      "sha256": "8521044a9d78caad091ba83b515e410cb1c158d278840f9caece0cb6f23f320a"
+    },
+    {
+      "file": "media5.mp4",
+      "before_bytes": 37165313,
+      "after_bytes": 15389584,
+      "before_size": [
+        3168,
+        1822
+      ],
+      "after_size": [
+        1920,
+        1104
+      ],
+      "frames": 1118,
+      "fps": "30/1",
+      "duration": "37.275000",
+      "audio_packets_preserved": true,
+      "sha256": "1812b85ee2e9eb9e727663d4e45f516b1ad9e27853f17ab450275f336fcd060d"
+    }
+  ]
+}
